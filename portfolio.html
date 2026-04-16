@@ -378,7 +378,7 @@
           '<div style="font-size:16px;font-weight:600;color:#ffd54f;margin-bottom:12px;">Android 사전예약</div>' +
           '<div style="font-size:13px;color:#999;margin-bottom:14px;">이메일을 등록하시면 베타 테스트 참여 안내를 보내드립니다.</div>' +
           '<div class="form-row">' +
-            '<input type="email" id="signupEmail" placeholder="이메일 주소를 입력하세요">' +
+            '<input type="email" id="signupEmail" placeholder="이메일 주소를 입력하세요" onkeydown="if(event.key===\'Enter\'){event.preventDefault();submitSignup();}">' +
             '<button class="signup-btn" id="signupBtn" onclick="submitSignup()">사전예약</button>' +
           '</div>' +
           '<div id="signupMsg"></div>' +
