@@ -193,9 +193,9 @@ function addTesterToPlayConsole(newEmail) {
     if (testersRes.getResponseCode() === 200) {
       testers = JSON.parse(testersRes.getContentText());
     } else {
-      testers = { googleGroups: [], testerEmails: [] };
+      testers = { googleGroups: [], googleEmails: [] };
     }
-    var currentEmails = testers.testerEmails || [];
+    var currentEmails = testers.googleEmails || [];
 
     // 3. 이미 등록되어 있으면 스킵
     if (currentEmails.indexOf(newEmail) >= 0) {
@@ -205,7 +205,7 @@ function addTesterToPlayConsole(newEmail) {
 
     // 4. 새 이메일 추가
     currentEmails.push(newEmail);
-    testers.testerEmails = currentEmails;
+    testers.googleEmails = currentEmails;
 
     // 5. 테스터 목록 업데이트
     var updateRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
@@ -261,8 +261,8 @@ function syncAllTestersToPlayConsole() {
     });
     var testers = testersRes.getResponseCode() === 200
       ? JSON.parse(testersRes.getContentText())
-      : { googleGroups: [], testerEmails: [] };
-    var currentEmails = testers.testerEmails || [];
+      : { googleGroups: [], googleEmails: [] };
+    var currentEmails = testers.googleEmails || [];
 
     var added = 0;
     for (var i = 1; i < data.length; i++) {
@@ -275,7 +275,7 @@ function syncAllTestersToPlayConsole() {
     }
 
     if (added > 0) {
-      testers.testerEmails = currentEmails;
+      testers.googleEmails = currentEmails;
       UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
         method: 'put', headers: headers, payload: JSON.stringify(testers), muteHttpExceptions: true
       });
