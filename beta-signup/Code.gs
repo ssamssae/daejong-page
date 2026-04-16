@@ -189,13 +189,17 @@ function addTesterToPlayConsole(newEmail) {
       headers: headers,
       muteHttpExceptions: true
     });
+    Logger.log('GET testers response (' + testersRes.getResponseCode() + '): ' + testersRes.getContentText());
     var testers;
     if (testersRes.getResponseCode() === 200) {
       testers = JSON.parse(testersRes.getContentText());
     } else {
-      testers = { googleGroups: [], googleEmails: [] };
+      testers = {};
     }
-    var currentEmails = testers.googleEmails || [];
+    // 실제 API 필드명 자동 감지
+    var emailField = Object.keys(testers).find(function(k) { return Array.isArray(testers[k]) && k.toLowerCase().indexOf('email') >= 0; }) || Object.keys(testers).find(function(k) { return Array.isArray(testers[k]) && k !== 'googleGroups'; });
+    Logger.log('Detected email field: ' + emailField + ', keys: ' + JSON.stringify(Object.keys(testers)));
+    var currentEmails = emailField ? (testers[emailField] || []) : [];
 
     // 3. 이미 등록되어 있으면 스킵
     if (currentEmails.indexOf(newEmail) >= 0) {
@@ -205,7 +209,11 @@ function addTesterToPlayConsole(newEmail) {
 
     // 4. 새 이메일 추가
     currentEmails.push(newEmail);
-    testers.googleEmails = currentEmails;
+    if (emailField) {
+      testers[emailField] = currentEmails;
+    } else {
+      testers.googleEmails = currentEmails;
+    }
 
     // 5. 테스터 목록 업데이트
     var updateRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
@@ -261,8 +269,10 @@ function syncAllTestersToPlayConsole() {
     });
     var testers = testersRes.getResponseCode() === 200
       ? JSON.parse(testersRes.getContentText())
-      : { googleGroups: [], googleEmails: [] };
-    var currentEmails = testers.googleEmails || [];
+      : {};
+    Logger.log('syncAll GET testers: ' + JSON.stringify(testers));
+    var emailField = Object.keys(testers).find(function(k) { return Array.isArray(testers[k]) && k.toLowerCase().indexOf('email') >= 0; }) || Object.keys(testers).find(function(k) { return Array.isArray(testers[k]) && k !== 'googleGroups'; });
+    var currentEmails = emailField ? (testers[emailField] || []) : [];
 
     var added = 0;
     for (var i = 1; i < data.length; i++) {
@@ -275,7 +285,7 @@ function syncAllTestersToPlayConsole() {
     }
 
     if (added > 0) {
-      testers.googleEmails = currentEmails;
+      if (emailField) { testers[emailField] = currentEmails; } else { testers.googleEmails = currentEmails; }
       UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
         method: 'put', headers: headers, payload: JSON.stringify(testers), muteHttpExceptions: true
       });
