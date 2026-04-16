@@ -174,6 +174,52 @@
       font-size: 14px;
     }
     .back:hover { color: #ffd54f; }
+    /* Timeline inline styles */
+    .tl-intro {
+      color: #9e9e9e; font-size: 14px; margin-bottom: 24px; padding: 14px 18px;
+      background: #161616; border-radius: 10px; border-left: 3px solid #ffd54f;
+    }
+    .tl-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+      margin-bottom: 24px;
+    }
+    .tl-stat {
+      background: #161616; border-radius: 10px; padding: 14px; text-align: center;
+      border: 1px solid #2a2a2a;
+    }
+    .tl-stat-num { font-size: 26px; font-weight: 700; color: #ffd54f; }
+    .tl-stat-label { font-size: 11px; color: #999; margin-top: 4px; }
+    .tl-timeline { position: relative; padding-left: 32px; }
+    .tl-timeline::before {
+      content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px;
+      width: 2px; background: #2a2a2a;
+    }
+    .tl-event {
+      position: relative; margin-bottom: 22px;
+      opacity: 0; transform: translateY(16px);
+      animation: tlFadeUp 0.4s ease forwards;
+    }
+    @keyframes tlFadeUp { to { opacity: 1; transform: translateY(0); } }
+    .tl-dot {
+      position: absolute; left: -32px; top: 6px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #2a2515; border: 2px solid #ffd54f;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; z-index: 1;
+    }
+    .tl-dot.major { background: #ffd54f; }
+    .tl-event-date { font-size: 12px; color: #ffd54f; font-weight: 600; margin-bottom: 3px; }
+    .tl-event-title { font-size: 15px; color: #e0e0e0; font-weight: 700; margin-bottom: 5px; }
+    .tl-event-desc { font-size: 13px; color: #999; margin-bottom: 6px; }
+    .tl-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    .tl-tag {
+      font-size: 10px; padding: 2px 8px; border-radius: 8px;
+      background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a;
+    }
+    .tl-tag.flutter { border-color: #4fc3f7; color: #4fc3f7; }
+    .tl-tag.ai { border-color: #ffd54f; color: #ffd54f; }
+    .tl-tag.web { border-color: #81c784; color: #81c784; }
+    .tl-tag.infra { border-color: #ce93d8; color: #ce93d8; }
     @media (max-width: 768px) {
       .main-layout {
         flex-direction: column;
@@ -217,7 +263,8 @@
         name: '개발 타임라인',
         status: '웹 프로젝트',
         desc: 'AI와 함께 앱을 만들어온 여정을 날짜별로 정리한 인터랙티브 타임라인.',
-        links: [{ label: '타임라인 보기', url: './timeline.html' }]
+        links: [],
+        customHtml: true
       },
       {
         icon: '',
@@ -272,9 +319,9 @@
       li.classList.add('active');
       activeLi = li;
 
-      let linksHtml = '';
-      for (const l of p.links) {
-        linksHtml += '<a href="' + l.url + '"' + (l.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + l.name + '</a>';
+      if (p.customHtml) {
+        renderTimeline();
+        return;
       }
 
       var dIconHtml = p.iconImg
@@ -288,6 +335,60 @@
         '<div class="d-links">' + p.links.map(l =>
           '<a href="' + l.url + '"' + (l.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + l.label + '</a>'
         ).join('') + '</div>';
+    }
+
+    function renderTimeline() {
+      var events = [
+        { date: '2026.04.11', title: '첫 번째 코드, 메모요 탄생', desc: 'AI(Claude)와 대화하며 Flutter로 첫 앱을 만들기 시작했다. 다크테마 메모 앱 "메모요"가 태어난 날.', tags: [['flutter','Flutter'],['ai','Claude AI']], major: 1 },
+        { date: '2026.04.11', title: '개인 홈페이지 오픈', desc: 'daejong-page v1.0.0 배포. 다크 카드 UI의 개인 소개 페이지를 GitHub Pages에 올렸다.', tags: [['web','HTML/CSS/JS'],['','GitHub Pages']] },
+        { date: '2026.04.12', title: '4개 앱 병렬 개발 시작', desc: '메모요 크래시를 잡으면서 더치페이 계산기, 약먹자, 고독사방지 앱을 동시에 시작했다.', tags: [['flutter','Flutter'],['','멀티 프로젝트']] },
+        { date: '2026.04.13', title: '약먹자 초기 커밋', desc: '복약 알림 앱 "약먹자" 저장소 생성. Claude Code 채널스(텔레그램 연동) 리서치도 진행.', tags: [['flutter','Flutter'],['infra','텔레그램 봇']] },
+        { date: '2026.04.14', title: '메모요 UI 리디자인', desc: '메모요 전체 UI를 갈아엎었다. 텔레그램 봇 연동으로 모바일에서 원격 개발 가능해짐.', tags: [['flutter','Flutter'],['infra','텔레그램 봇']] },
+        { date: '2026.04.15', title: '메모요 출시 준비 돌입', desc: '패키지명 변경, UIPasteControl 이식, 메타데이터 작성, 1024 아이콘 생성, IPA 빌드를 하루에 끝냈다.', tags: [['flutter','Flutter'],['','iOS'],['','Android'],['web','홈페이지 v1.2.0']], major: 2 },
+        { date: '2026.04.15', title: '자동화 인프라 구축', desc: '작업일지 자동 생성 스킬, 할일 관리 스킬, 사이드프로젝트 브리핑 스킬 등 Claude Code 스킬 시스템을 대폭 정비했다.', tags: [['ai','Claude Code'],['infra','자동화']] },
+        { date: '2026.04.15', title: 'Apple App Store 심사 제출', desc: '메모요 iOS 버전을 App Store Connect에 제출했다. TestFlight 배포 중.', tags: [['','App Store'],['','iOS']] },
+        { date: '2026.04.16', title: 'Google Play 비공개 테스트 제출', desc: '앱 설정 11/11 완료, 카테고리 "생산성" 선택, 비공개 테스트 버전을 Google에 검토 제출했다.', tags: [['','Google Play'],['','Android'],['','베타 테스트']], major: 3 },
+        { date: '2026.04.16', title: '홈페이지 v1.3.0 + 웹 프로젝트', desc: '할일 목록 페이지, 카카오톡 오픈채팅 버튼 추가. 더치페이 웹 계산기와 타임라인 페이지도 새로 만들었다.', tags: [['web','HTML/CSS/JS'],['','포트폴리오']] }
+      ];
+
+      var start = new Date('2026-04-11');
+      var now = new Date();
+      var days = Math.floor((now - start) / (1000 * 60 * 60 * 24)) + 1;
+
+      var html = '<div class="tl-intro">2026년 4월, 코딩 한 줄 못 쓰던 85년생이 AI와 함께 개발을 시작했습니다. 이 페이지는 그 여정의 기록입니다.</div>';
+      html += '<div class="tl-stats">';
+      html += '<div class="tl-stat"><div class="tl-stat-num" id="tlDayCount">0</div><div class="tl-stat-label">개발 일수</div></div>';
+      html += '<div class="tl-stat"><div class="tl-stat-num">5</div><div class="tl-stat-label">프로젝트</div></div>';
+      html += '<div class="tl-stat"><div class="tl-stat-num">2</div><div class="tl-stat-label">출시 준비</div></div>';
+      html += '</div>';
+      html += '<div class="tl-timeline">';
+      for (var i = 0; i < events.length; i++) {
+        var ev = events[i];
+        var delay = (i * 0.1) + 's';
+        html += '<div class="tl-event" style="animation-delay:' + delay + '">';
+        html += '<div class="tl-dot' + (ev.major ? ' major' : '') + '">' + (ev.major ? '<span>' + ev.major + '</span>' : '') + '</div>';
+        html += '<div class="tl-event-date">' + ev.date + '</div>';
+        html += '<div class="tl-event-title">' + ev.title + '</div>';
+        html += '<div class="tl-event-desc">' + ev.desc + '</div>';
+        html += '<div class="tl-tags">';
+        for (var j = 0; j < ev.tags.length; j++) {
+          html += '<span class="tl-tag ' + ev.tags[j][0] + '">' + ev.tags[j][1] + '</span>';
+        }
+        html += '</div></div>';
+      }
+      html += '</div>';
+      detailEl.innerHTML = html;
+
+      // Animate day counter
+      var el = document.getElementById('tlDayCount');
+      if (el) {
+        var count = 0;
+        var iv = setInterval(function() {
+          count++;
+          el.textContent = count;
+          if (count >= days) clearInterval(iv);
+        }, 80);
+      }
     }
 
     renderList();
