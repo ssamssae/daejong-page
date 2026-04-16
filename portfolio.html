@@ -85,6 +85,14 @@
     .project-icon {
       font-size: 20px;
       margin-right: 8px;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+    }
+    .project-icon img {
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
     }
     .project-name {
       font-size: 15px;
@@ -198,7 +206,8 @@
   <script>
     const projects = [
       {
-        icon: '📝',
+        icon: '',
+        iconImg: './memo_icon.png',
         name: '메모요',
         status: 'iOS TestFlight / Android 비공개 테스트 중',
         desc: '심플한 다크테마 메모 앱. 복수 선택 삭제와 응원 기능을 갖추고 있습니다.',
@@ -237,8 +246,11 @@
       for (let i = 0; i < projects.length; i++) {
         const p = projects[i];
         const li = document.createElement('li');
+        var iconHtml = p.iconImg
+          ? '<img src="' + p.iconImg + '" alt="' + p.name + '">'
+          : p.icon;
         li.innerHTML =
-          '<div><span class="project-icon">' + p.icon + '</span><span class="project-name">' + p.name + '</span></div>' +
+          '<div><span class="project-icon">' + iconHtml + '</span><span class="project-name">' + p.name + '</span></div>' +
           '<div class="project-status">' + p.status + '</div>';
         li.addEventListener('click', () => showDetail(p, li));
         listEl.appendChild(li);
@@ -256,8 +268,11 @@
         linksHtml += '<a href="' + l.url + '"' + (l.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + l.name + '</a>';
       }
 
+      var dIconHtml = p.iconImg
+        ? '<img src="' + p.iconImg + '" alt="' + p.name + '" style="width:56px;height:56px;border-radius:14px;">'
+        : p.icon;
       detailEl.innerHTML =
-        '<div class="d-icon">' + p.icon + '</div>' +
+        '<div class="d-icon">' + dIconHtml + '</div>' +
         '<div class="d-name">' + p.name + '</div>' +
         '<div class="d-status">' + p.status + '</div>' +
         '<div class="d-desc">' + p.desc + '</div>' +
