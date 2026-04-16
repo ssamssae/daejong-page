@@ -16,7 +16,9 @@ const CONFIG = {
   TELEGRAM_BOT_TOKEN: '8312381862:AAHD9jAGeY9Z-ELOA23wyn71Ngymfn9hrcE',
   TELEGRAM_CHAT_ID: '538806975',
   PACKAGE_NAME: 'com.daejongkang.simple_memo_app',
-  TRACK: 'closed:testers',  // 비공개 테스트 트랙
+  // Google Group 이메일 (Play Console 비공개 테스트에 이 그룹을 연결)
+  // 그룹 생성 후 여기에 입력: 예) memoyo-beta@googlegroups.com
+  TESTER_GROUP_EMAIL: '',
 };
 
 /**
@@ -70,24 +72,28 @@ function doPost(e) {
       Logger.log('Admin email failed: ' + err.message);
     }
 
-    // 4. Play Console 베타테스터 자동 등록
-    var playResult = '미등록';
-    try {
-      playResult = addTesterToPlayConsole(email);
-    } catch (err) {
-      Logger.log('Play Console registration failed: ' + err.message);
-      playResult = '실패: ' + err.message;
+    // 4. Google Group에 테스터 추가 (Play Console 연동)
+    var groupResult = '미설정';
+    if (CONFIG.TESTER_GROUP_EMAIL) {
+      try {
+        var group = GroupsApp.getGroupByEmail(CONFIG.TESTER_GROUP_EMAIL);
+        if (!group.hasUser(email)) {
+          group.addUser(email);
+          groupResult = '그룹추가완료';
+          var lastRow = sheet.getLastRow();
+          sheet.getRange(lastRow, 3).setValue('group_added');
+        } else {
+          groupResult = '이미그룹멤버';
+        }
+      } catch (err) {
+        Logger.log('Google Group 추가 실패: ' + err.message);
+        groupResult = '실패: ' + err.message;
+      }
     }
 
-    // 5. 시트 상태 업데이트
-    if (playResult === '등록완료') {
-      var lastRow = sheet.getLastRow();
-      sheet.getRange(lastRow, 3).setValue('play_registered');
-    }
-
-    // 6. 텔레그램 실시간 알림
+    // 5. 텔레그램 실시간 알림
     try {
-      sendTelegramNotification(email, totalCount, playResult);
+      sendTelegramNotification(email, totalCount, groupResult);
     } catch (err) {
       Logger.log('Telegram notification failed: ' + err.message);
     }
@@ -141,11 +147,11 @@ function doGet(e) {
 /**
  * 텔레그램 실시간 알림
  */
-function sendTelegramNotification(email, totalCount, playResult) {
+function sendTelegramNotification(email, totalCount, groupResult) {
   var text = '[메모요 사전예약] 새 등록!\n\n' +
     '이메일: ' + email + '\n' +
     '누적: ' + totalCount + '명\n' +
-    'Play Console: ' + (playResult || '미확인');
+    'Google Group: ' + (groupResult || '미확인');
 
   var url = 'https://api.telegram.org/bot' + CONFIG.TELEGRAM_BOT_TOKEN + '/sendMessage';
   UrlFetchApp.fetch(url, {
@@ -159,149 +165,38 @@ function sendTelegramNotification(email, totalCount, playResult) {
 }
 
 /**
- * Play Console 베타테스터 자동 등록
- * REST API + ScriptApp.getOAuthToken() 사용 (Advanced Service 불필요)
+ * 수동 실행: 시트의 모든 미등록 이메일을 Google Group에 일괄 추가
+ * (Google Group이 Play Console 비공개 테스트에 연결되어 있으면 자동으로 테스터가 됨)
  */
-function addTesterToPlayConsole(newEmail) {
-  var packageName = CONFIG.PACKAGE_NAME;
-  var token = ScriptApp.getOAuthToken();
-  var baseUrl = 'https://androidpublisher.googleapis.com/androidpublisher/v3/applications/' + packageName;
-  var headers = { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
-
-  // 1. Edit 생성
-  var editRes = UrlFetchApp.fetch(baseUrl + '/edits', {
-    method: 'post',
-    headers: headers,
-    payload: '{}',
-    muteHttpExceptions: true
-  });
-  var edit = JSON.parse(editRes.getContentText());
-  if (!edit.id) {
-    Logger.log('Edit 생성 실패: ' + editRes.getContentText());
-    return '실패: Edit 생성 오류';
+function syncAllTestersToGoogleGroup() {
+  if (!CONFIG.TESTER_GROUP_EMAIL) {
+    Logger.log('TESTER_GROUP_EMAIL이 설정되지 않음. CONFIG에 Google Group 이메일을 입력하세요.');
+    return 0;
   }
-  var editId = edit.id;
 
-  try {
-    // 2. 현재 테스터 목록 조회
-    var testersRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
-      method: 'get',
-      headers: headers,
-      muteHttpExceptions: true
-    });
-    Logger.log('GET testers response (' + testersRes.getResponseCode() + '): ' + testersRes.getContentText());
-    var testers;
-    if (testersRes.getResponseCode() === 200) {
-      testers = JSON.parse(testersRes.getContentText());
-    } else {
-      testers = {};
-    }
-    // 실제 API 필드명 자동 감지
-    var emailField = Object.keys(testers).find(function(k) { return Array.isArray(testers[k]) && k.toLowerCase().indexOf('email') >= 0; }) || Object.keys(testers).find(function(k) { return Array.isArray(testers[k]) && k !== 'googleGroups'; });
-    Logger.log('Detected email field: ' + emailField + ', keys: ' + JSON.stringify(Object.keys(testers)));
-    var currentEmails = emailField ? (testers[emailField] || []) : [];
-
-    // 3. 이미 등록되어 있으면 스킵
-    if (currentEmails.indexOf(newEmail) >= 0) {
-      UrlFetchApp.fetch(baseUrl + '/edits/' + editId, { method: 'delete', headers: headers, muteHttpExceptions: true });
-      return '이미등록됨';
-    }
-
-    // 4. 새 이메일 추가
-    currentEmails.push(newEmail);
-    if (emailField) {
-      testers[emailField] = currentEmails;
-    } else {
-      testers.googleEmails = currentEmails;
-    }
-
-    // 5. 테스터 목록 업데이트
-    var updateRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
-      method: 'put',
-      headers: headers,
-      payload: JSON.stringify(testers),
-      muteHttpExceptions: true
-    });
-    if (updateRes.getResponseCode() !== 200) {
-      throw new Error('테스터 업데이트 실패: ' + updateRes.getContentText());
-    }
-
-    // 6. Edit 커밋
-    var commitRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + ':commit', {
-      method: 'post',
-      headers: headers,
-      muteHttpExceptions: true
-    });
-    if (commitRes.getResponseCode() !== 200) {
-      throw new Error('커밋 실패: ' + commitRes.getContentText());
-    }
-
-    Logger.log('Play Console 테스터 등록 성공: ' + newEmail);
-    return '등록완료';
-
-  } catch (err) {
-    try { UrlFetchApp.fetch(baseUrl + '/edits/' + editId, { method: 'delete', headers: headers, muteHttpExceptions: true }); } catch(e) {}
-    Logger.log('Play Console 등록 실패: ' + err.message);
-    throw err;
-  }
-}
-
-/**
- * 수동 실행: 시트의 모든 미등록 이메일을 Play Console에 일괄 등록
- */
-function syncAllTestersToPlayConsole() {
   var sheet = getOrCreateSheet();
   var data = sheet.getDataRange().getValues();
-  var packageName = CONFIG.PACKAGE_NAME;
-  var token = ScriptApp.getOAuthToken();
-  var baseUrl = 'https://androidpublisher.googleapis.com/androidpublisher/v3/applications/' + packageName;
-  var headers = { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
+  var group = GroupsApp.getGroupByEmail(CONFIG.TESTER_GROUP_EMAIL);
+  var added = 0;
 
-  // Edit 생성
-  var editRes = UrlFetchApp.fetch(baseUrl + '/edits', { method: 'post', headers: headers, payload: '{}', muteHttpExceptions: true });
-  var edit = JSON.parse(editRes.getContentText());
-  if (!edit.id) throw new Error('Edit 생성 실패');
-  var editId = edit.id;
-
-  try {
-    var testersRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
-      method: 'get', headers: headers, muteHttpExceptions: true
-    });
-    var testers = testersRes.getResponseCode() === 200
-      ? JSON.parse(testersRes.getContentText())
-      : {};
-    Logger.log('syncAll GET testers: ' + JSON.stringify(testers));
-    var emailField = Object.keys(testers).find(function(k) { return Array.isArray(testers[k]) && k.toLowerCase().indexOf('email') >= 0; }) || Object.keys(testers).find(function(k) { return Array.isArray(testers[k]) && k !== 'googleGroups'; });
-    var currentEmails = emailField ? (testers[emailField] || []) : [];
-
-    var added = 0;
-    for (var i = 1; i < data.length; i++) {
-      var email = String(data[i][0]).trim().toLowerCase();
-      if (email && currentEmails.indexOf(email) < 0) {
-        currentEmails.push(email);
+  for (var i = 1; i < data.length; i++) {
+    var email = String(data[i][0]).trim().toLowerCase();
+    var status = String(data[i][2] || '');
+    if (email && status !== 'group_added') {
+      try {
+        if (!group.hasUser(email)) {
+          group.addUser(email);
+        }
+        sheet.getRange(i + 1, 3).setValue('group_added');
         added++;
-        sheet.getRange(i + 1, 3).setValue('play_registered');
+      } catch (err) {
+        Logger.log('그룹 추가 실패 (' + email + '): ' + err.message);
       }
     }
-
-    if (added > 0) {
-      if (emailField) { testers[emailField] = currentEmails; } else { testers.googleEmails = currentEmails; }
-      UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
-        method: 'put', headers: headers, payload: JSON.stringify(testers), muteHttpExceptions: true
-      });
-      UrlFetchApp.fetch(baseUrl + '/edits/' + editId + ':commit', {
-        method: 'post', headers: headers, muteHttpExceptions: true
-      });
-      Logger.log(added + '명 Play Console 일괄 등록 완료');
-    } else {
-      UrlFetchApp.fetch(baseUrl + '/edits/' + editId, { method: 'delete', headers: headers, muteHttpExceptions: true });
-      Logger.log('새로 등록할 이메일 없음');
-    }
-    return added;
-  } catch (err) {
-    try { UrlFetchApp.fetch(baseUrl + '/edits/' + editId, { method: 'delete', headers: headers, muteHttpExceptions: true }); } catch(e) {}
-    throw err;
   }
+
+  Logger.log(added + '명 Google Group 일괄 추가 완료');
+  return added;
 }
 
 /**
