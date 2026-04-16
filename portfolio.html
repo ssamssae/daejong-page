@@ -375,7 +375,10 @@
             '<button class="signup-btn" id="signupBtn" onclick="submitSignup()">사전예약</button>' +
           '</div>' +
           '<div id="signupMsg"></div>' +
+          '<div class="signup-count" id="signupCount"></div>' +
         '</div>';
+        // 등록 수 로드
+        setTimeout(loadSignupCount, 100);
       }
 
       detailEl.innerHTML = html;
@@ -488,6 +491,17 @@
 
       btn.disabled = false;
       btn.textContent = '사전예약';
+    }
+
+    async function loadSignupCount() {
+      try {
+        var res = await fetch(SIGNUP_API);
+        var data = await res.json();
+        var el = document.getElementById('signupCount');
+        if (el && data.count > 0) {
+          el.textContent = '현재 ' + data.count + '명이 사전예약했습니다.';
+        }
+      } catch(e) {}
     }
 
     renderList();
