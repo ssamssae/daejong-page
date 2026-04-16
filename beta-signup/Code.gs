@@ -16,9 +16,8 @@ const CONFIG = {
   TELEGRAM_BOT_TOKEN: '8312381862:AAHD9jAGeY9Z-ELOA23wyn71Ngymfn9hrcE',
   TELEGRAM_CHAT_ID: '538806975',
   PACKAGE_NAME: 'com.daejongkang.simple_memo_app',
-  // Google Group 이메일 (Play Console 비공개 테스트에 이 그룹을 연결)
-  // 그룹 생성 후 여기에 입력: 예) memoyo-beta@googlegroups.com
-  TESTER_GROUP_EMAIL: 'memoyo-beta-testers@googlegroups.com',
+  PLAY_CONSOLE_TESTERS_URL: 'https://play.google.com/console/u/0/developers/6983298419309965737/app/4974914968969003912/closed-testing/tracks/4702694961281498549/testers',
+  REMIND_EVERY_N: 5,  // N명 등록될 때마다 Play Console 추가 리마인더
 };
 
 /**
@@ -72,30 +71,21 @@ function doPost(e) {
       Logger.log('Admin email failed: ' + err.message);
     }
 
-    // 4. Google Group에 테스터 추가 (Play Console 연동)
-    var groupResult = '미설정';
-    if (CONFIG.TESTER_GROUP_EMAIL) {
-      try {
-        var group = GroupsApp.getGroupByEmail(CONFIG.TESTER_GROUP_EMAIL);
-        if (!group.hasUser(email)) {
-          group.addUser(email);
-          groupResult = '그룹추가완료';
-          var lastRow = sheet.getLastRow();
-          sheet.getRange(lastRow, 3).setValue('group_added');
-        } else {
-          groupResult = '이미그룹멤버';
-        }
-      } catch (err) {
-        Logger.log('Google Group 추가 실패: ' + err.message);
-        groupResult = '실패: ' + err.message;
-      }
-    }
-
-    // 5. 텔레그램 실시간 알림
+    // 4. 텔레그램 실시간 알림
     try {
-      sendTelegramNotification(email, totalCount, groupResult);
+      sendTelegramNotification(email, totalCount);
     } catch (err) {
       Logger.log('Telegram notification failed: ' + err.message);
+    }
+
+    // 5. Play Console 이메일 추가 리마인더 (N명마다)
+    var unregistered = countUnregistered(sheet);
+    if (unregistered >= CONFIG.REMIND_EVERY_N) {
+      try {
+        sendPlayConsoleReminder(unregistered);
+      } catch (err) {
+        Logger.log('Reminder failed: ' + err.message);
+      }
     }
 
     lock.releaseLock();
@@ -147,11 +137,10 @@ function doGet(e) {
 /**
  * 텔레그램 실시간 알림
  */
-function sendTelegramNotification(email, totalCount, groupResult) {
-  var text = '[메모요 사전예약] 새 등록!\n\n' +
+function sendTelegramNotification(email, totalCount) {
+  var text = '📬 [메모요 사전예약] 새 등록!\n\n' +
     '이메일: ' + email + '\n' +
-    '누적: ' + totalCount + '명\n' +
-    'Google Group: ' + (groupResult || '미확인');
+    '누적: ' + totalCount + '명';
 
   var url = 'https://api.telegram.org/bot' + CONFIG.TELEGRAM_BOT_TOKEN + '/sendMessage';
   UrlFetchApp.fetch(url, {
@@ -165,38 +154,60 @@ function sendTelegramNotification(email, totalCount, groupResult) {
 }
 
 /**
- * 수동 실행: 시트의 모든 미등록 이메일을 Google Group에 일괄 추가
- * (Google Group이 Play Console 비공개 테스트에 연결되어 있으면 자동으로 테스터가 됨)
+ * Play Console에 미등록 이메일 수 카운트
  */
-function syncAllTestersToGoogleGroup() {
-  if (!CONFIG.TESTER_GROUP_EMAIL) {
-    Logger.log('TESTER_GROUP_EMAIL이 설정되지 않음. CONFIG에 Google Group 이메일을 입력하세요.');
-    return 0;
+function countUnregistered(sheet) {
+  var data = sheet.getDataRange().getValues();
+  var count = 0;
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][2] || '') === 'registered') count++;
   }
+  return count;
+}
 
+/**
+ * Play Console 이메일 추가 리마인더 (텔레그램)
+ */
+function sendPlayConsoleReminder(unregisteredCount) {
   var sheet = getOrCreateSheet();
   var data = sheet.getDataRange().getValues();
-  var group = GroupsApp.getGroupByEmail(CONFIG.TESTER_GROUP_EMAIL);
-  var added = 0;
-
+  var emails = [];
   for (var i = 1; i < data.length; i++) {
-    var email = String(data[i][0]).trim().toLowerCase();
-    var status = String(data[i][2] || '');
-    if (email && status !== 'group_added') {
-      try {
-        if (!group.hasUser(email)) {
-          group.addUser(email);
-        }
-        sheet.getRange(i + 1, 3).setValue('group_added');
-        added++;
-      } catch (err) {
-        Logger.log('그룹 추가 실패 (' + email + '): ' + err.message);
-      }
+    if (String(data[i][2] || '') === 'registered') {
+      emails.push(String(data[i][0]));
     }
   }
 
-  Logger.log(added + '명 Google Group 일괄 추가 완료');
-  return added;
+  var text = '⚠️ [메모요] Play Console 테스터 추가 필요!\n\n' +
+    '미등록 ' + unregisteredCount + '명:\n' +
+    emails.join('\n') + '\n\n' +
+    '위 이메일을 Play Console 비공개 테스트 이메일 목록에 추가해주세요.\n' +
+    CONFIG.PLAY_CONSOLE_TESTERS_URL;
+
+  var url = 'https://api.telegram.org/bot' + CONFIG.TELEGRAM_BOT_TOKEN + '/sendMessage';
+  UrlFetchApp.fetch(url, {
+    method: 'post',
+    payload: { chat_id: CONFIG.TELEGRAM_CHAT_ID, text: text },
+    muteHttpExceptions: true
+  });
+}
+
+/**
+ * 수동 실행: 시트의 registered → play_registered 로 상태 일괄 업데이트
+ * (Play Console에 수동 등록 후 실행)
+ */
+function markAllAsPlayRegistered() {
+  var sheet = getOrCreateSheet();
+  var data = sheet.getDataRange().getValues();
+  var updated = 0;
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][2] || '') === 'registered') {
+      sheet.getRange(i + 1, 3).setValue('play_registered');
+      updated++;
+    }
+  }
+  Logger.log(updated + '명 상태 업데이트 완료');
+  return updated;
 }
 
 /**
