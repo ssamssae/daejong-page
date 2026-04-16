@@ -344,7 +344,7 @@
           '<div class="project-status">' + p.status + '</div>';
         li.addEventListener('click', () => showDetail(p, li));
         listEl.appendChild(li);
-        if (i === 0) showDetail(p, li);
+        if (i === projects.length - 1) showDetail(p, li);
       }
     }
 
