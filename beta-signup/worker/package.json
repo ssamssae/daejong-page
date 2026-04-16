@@ -1,0 +1,14 @@
+{
+  "name": "memoyo-beta-worker",
+  "version": "1.0.0",
+  "description": "Poll Apps Script for pending beta-tester emails and add them to Google Groups via Playwright",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node worker.js",
+    "install-chromium": "npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.48.0"
+  }
+}

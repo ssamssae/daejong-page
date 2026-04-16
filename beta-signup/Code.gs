@@ -127,6 +127,31 @@ function doGet(e) {
       return jsonResponse({ entries: data.slice(1) });
     }
 
+    if (action === 'pendingGroupAdd' && secret === ADMIN_SECRET) {
+      var data = sheet.getDataRange().getValues();
+      var pending = [];
+      for (var i = 1; i < data.length; i++) {
+        var status = String(data[i][2] || '');
+        if (status === 'registered') {
+          pending.push({ row: i + 1, email: String(data[i][0]), registeredAt: data[i][1] });
+        }
+      }
+      return jsonResponse({ pending: pending, total: pending.length });
+    }
+
+    if (action === 'markGroupAdded' && secret === ADMIN_SECRET) {
+      var email = String(params.email || '').trim().toLowerCase();
+      if (!email) return jsonResponse({ success: false, error: 'email required' });
+      var data = sheet.getDataRange().getValues();
+      for (var i = 1; i < data.length; i++) {
+        if (String(data[i][0]).toLowerCase() === email) {
+          sheet.getRange(i + 1, 3).setValue('group_added');
+          return jsonResponse({ success: true, email: email, row: i + 1 });
+        }
+      }
+      return jsonResponse({ success: false, error: 'email not found' });
+    }
+
     var count = Math.max(0, sheet.getLastRow() - 1);
     return jsonResponse({ count: count });
   } catch (err) {
