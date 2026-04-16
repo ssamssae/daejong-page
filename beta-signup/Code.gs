@@ -18,7 +18,7 @@ const CONFIG = {
   PACKAGE_NAME: 'com.daejongkang.simple_memo_app',
   // Google Group 이메일 (Play Console 비공개 테스트에 이 그룹을 연결)
   // 그룹 생성 후 여기에 입력: 예) memoyo-beta@googlegroups.com
-  TESTER_GROUP_EMAIL: '',
+  TESTER_GROUP_EMAIL: 'memoyo-beta-testers@googlegroups.com',
 };
 
 /**
