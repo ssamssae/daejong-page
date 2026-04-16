@@ -15,7 +15,7 @@
       line-height: 1.7;
     }
     .wrap {
-      max-width: 760px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     header {
@@ -40,92 +40,137 @@
     .intro {
       color: #9e9e9e;
       font-size: 14px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       padding: 16px 20px;
       background: #1a1a1a;
       border-radius: 12px;
       border-left: 3px solid #ffd54f;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
+    .main-layout {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
     }
-    .card {
+    .sidebar {
+      width: 300px;
+      min-width: 300px;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+      position: sticky;
+      top: 32px;
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    .sidebar::-webkit-scrollbar-thumb:hover { background: #555; }
+    .project-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .project-list li {
       background: #1e1e1e;
-      border-radius: 16px;
-      padding: 24px 22px;
+      border-radius: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: background 0.2s;
       border: 1px solid #2a2a2a;
-      transition: transform 0.2s, border-color 0.2s;
     }
-    .card:hover {
-      transform: translateY(-3px);
+    .project-list li:hover { background: #262626; }
+    .project-list li.active {
+      background: #2a2515;
       border-color: #ffd54f;
     }
-    .card .icon {
-      width: 56px;
-      height: 56px;
-      background: #2a2515;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      font-size: 28px;
+    .project-icon {
+      font-size: 20px;
+      margin-right: 8px;
     }
-    .card .name {
-      font-size: 17px;
-      font-weight: 700;
-      color: #ffd54f;
-      margin-bottom: 6px;
+    .project-name {
+      font-size: 15px;
+      color: #e0e0e0;
+      font-weight: 600;
+      display: inline;
     }
-    .card .status {
+    .project-status {
       font-size: 11px;
       color: #9e9e9e;
-      margin-bottom: 12px;
+      margin-top: 4px;
       letter-spacing: 0.3px;
     }
-    .card .desc {
-      font-size: 14px;
-      color: #c0c0c0;
-      margin-bottom: 16px;
-      min-height: 40px;
+    .content-area {
+      flex: 1;
+      min-width: 0;
     }
-    .card .links {
+    .detail {
+      background: #1e1e1e;
+      border-radius: 16px;
+      padding: 32px 28px;
+      min-height: 300px;
+    }
+    .detail:empty::before {
+      content: "왼쪽 목록에서 프로젝트를 선택해주세요.";
+      color: #666;
+    }
+    .detail .d-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .detail .d-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffd54f;
+      margin-bottom: 8px;
+    }
+    .detail .d-status {
+      font-size: 13px;
+      color: #9e9e9e;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+    .detail .d-desc {
+      font-size: 15px;
+      color: #c0c0c0;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+    .detail .d-links {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
     }
-    .card .links a {
-      font-size: 12px;
+    .detail .d-links a {
+      font-size: 13px;
       color: #ffd54f;
       text-decoration: none;
-      padding: 6px 12px;
+      padding: 8px 16px;
       border: 1px solid #ffd54f;
       border-radius: 14px;
       transition: background 0.2s, color 0.2s;
     }
-    .card .links a:hover {
+    .detail .d-links a:hover {
       background: #ffd54f;
       color: #1e1e1e;
     }
-    .placeholder {
-      color: #666;
-      font-style: italic;
-      padding: 40px 20px;
-      text-align: center;
-      background: #1a1a1a;
-      border-radius: 12px;
-      border: 1px dashed #333;
-    }
     .back {
       display: inline-block;
-      margin-top: 32px;
+      margin-top: 24px;
       color: #9e9e9e;
       text-decoration: none;
       font-size: 14px;
     }
     .back:hover { color: #ffd54f; }
+    @media (max-width: 768px) {
+      .main-layout {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        min-width: unset;
+        max-height: 240px;
+        position: static;
+      }
+    }
   </style>
 </head>
 <body>
@@ -139,59 +184,96 @@
       2026년 4월부터 AI와 함께 개발을 시작했습니다. 앱과 웹 프로젝트를 여기에 하나씩 정리해 나갈 예정입니다.
     </div>
 
-    <div class="grid">
-      <div class="card">
-        <div class="icon">📝</div>
-        <div class="name">메모요</div>
-        <div class="status">iOS TestFlight / Android 비공개 테스트 중</div>
-        <div class="desc">심플한 다크테마 메모 앱. 복수 선택 삭제와 응원 기능을 갖추고 있습니다.</div>
-        <div class="links">
-          <a href="https://play.google.com/apps/testing/com.daejongkang.simple_memo_app" target="_blank" rel="noopener">Android 베타 참여</a>
-        </div>
+    <div class="main-layout">
+      <div class="sidebar">
+        <ul class="project-list" id="projectList"></ul>
       </div>
-
-      <div class="card">
-        <div class="icon">💰</div>
-        <div class="name">더치페이 계산기</div>
-        <div class="status">개발중</div>
-        <div class="desc">여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미.</div>
-        <div class="links">
-          <a href="#">상세 보기</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon">💊</div>
-        <div class="name">약먹자</div>
-        <div class="status">개발중</div>
-        <div class="desc">복약 시간을 놓치지 않게 도와주는 알림 앱.</div>
-        <div class="links">
-          <a href="#">상세 보기</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon">🍚</div>
-        <div class="name">밥먹자</div>
-        <div class="status">기획중</div>
-        <div class="desc">준비중입니다.</div>
-        <div class="links">
-          <a href="#">상세 보기</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="icon">📊</div>
-        <div class="name">개발 타임라인</div>
-        <div class="status">웹 프로젝트</div>
-        <div class="desc">AI와 함께 앱을 만들어온 여정을 날짜별로 정리한 인터랙티브 타임라인.</div>
-        <div class="links">
-          <a href="./timeline.html">타임라인 보기</a>
-        </div>
+      <div class="content-area">
+        <div class="detail" id="detail"></div>
+        <a class="back" href="./">← 홈으로 돌아가기</a>
       </div>
     </div>
-
-    <a class="back" href="./">← 홈으로 돌아가기</a>
   </div>
+
+  <script>
+    const projects = [
+      {
+        icon: '📝',
+        name: '메모요',
+        status: 'iOS TestFlight / Android 비공개 테스트 중',
+        desc: '심플한 다크테마 메모 앱. 복수 선택 삭제와 응원 기능을 갖추고 있습니다.',
+        links: [
+          { label: 'Android 베타 참여', url: 'https://play.google.com/apps/testing/com.daejongkang.simple_memo_app' }
+        ]
+      },
+      {
+        icon: '💰',
+        name: '더치페이 계산기',
+        status: '개발중',
+        desc: '여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미.',
+        links: [{ label: '상세 보기', url: '#' }]
+      },
+      {
+        icon: '💊',
+        name: '약먹자',
+        status: '개발중',
+        desc: '복약 시간을 놓치지 않게 도와주는 알림 앱.',
+        links: [{ label: '상세 보기', url: '#' }]
+      },
+      {
+        icon: '🍚',
+        name: '밥먹자',
+        status: '기획중',
+        desc: '준비중입니다.',
+        links: [{ label: '상세 보기', url: '#' }]
+      },
+      {
+        icon: '📊',
+        name: '개발 타임라인',
+        status: '웹 프로젝트',
+        desc: 'AI와 함께 앱을 만들어온 여정을 날짜별로 정리한 인터랙티브 타임라인.',
+        links: [{ label: '타임라인 보기', url: './timeline.html' }]
+      }
+    ];
+
+    const listEl = document.getElementById('projectList');
+    const detailEl = document.getElementById('detail');
+    let activeLi = null;
+
+    function renderList() {
+      for (let i = 0; i < projects.length; i++) {
+        const p = projects[i];
+        const li = document.createElement('li');
+        li.innerHTML =
+          '<div><span class="project-icon">' + p.icon + '</span><span class="project-name">' + p.name + '</span></div>' +
+          '<div class="project-status">' + p.status + '</div>';
+        li.addEventListener('click', () => showDetail(p, li));
+        listEl.appendChild(li);
+        if (i === 0) showDetail(p, li);
+      }
+    }
+
+    function showDetail(p, li) {
+      if (activeLi) activeLi.classList.remove('active');
+      li.classList.add('active');
+      activeLi = li;
+
+      let linksHtml = '';
+      for (const l of p.links) {
+        linksHtml += '<a href="' + l.url + '"' + (l.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + l.name + '</a>';
+      }
+
+      detailEl.innerHTML =
+        '<div class="d-icon">' + p.icon + '</div>' +
+        '<div class="d-name">' + p.name + '</div>' +
+        '<div class="d-status">' + p.status + '</div>' +
+        '<div class="d-desc">' + p.desc + '</div>' +
+        '<div class="d-links">' + p.links.map(l =>
+          '<a href="' + l.url + '"' + (l.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' + l.label + '</a>'
+        ).join('') + '</div>';
+    }
+
+    renderList();
+  </script>
 </body>
 </html>
