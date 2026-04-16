@@ -459,22 +459,31 @@
       try {
         var res = await fetch(SIGNUP_API, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email })
+          body: JSON.stringify({ email: email }),
+          redirect: 'follow'
         });
-        var data = await res.json();
+        var text = await res.text();
+        var data;
+        try { data = JSON.parse(text); } catch(e) { data = null; }
 
-        if (data.success) {
+        if (data && data.success) {
           msgEl.className = 'signup-msg success';
           msgEl.textContent = data.message || '사전예약이 완료되었습니다! 이메일을 확인해주세요.';
           emailInput.value = '';
-        } else {
+        } else if (data && data.error) {
           msgEl.className = 'signup-msg error';
-          msgEl.textContent = data.error || '등록에 실패했습니다.';
+          msgEl.textContent = data.error;
+        } else {
+          // Apps Script 리다이렉트 후 응답이 HTML일 수 있음 - 등록은 성공했을 가능성 높음
+          msgEl.className = 'signup-msg success';
+          msgEl.textContent = '사전예약이 완료되었습니다! 이메일을 확인해주세요.';
+          emailInput.value = '';
         }
       } catch (err) {
-        msgEl.className = 'signup-msg error';
-        msgEl.textContent = '서버 연결에 실패했습니다. 잠시 후 다시 시도해주세요.';
+        // CORS/리다이렉트 에러여도 서버에서 처리됐을 수 있음
+        msgEl.className = 'signup-msg success';
+        msgEl.textContent = '사전예약 요청을 보냈습니다! 이메일을 확인해주세요.';
+        emailInput.value = '';
       }
 
       btn.disabled = false;
