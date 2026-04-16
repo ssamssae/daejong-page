@@ -15,8 +15,38 @@
       line-height: 1.7;
     }
     .wrap {
-      max-width: 720px;
+      max-width: 1200px;
       margin: 0 auto;
+    }
+    .main-layout {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .sidebar {
+      width: 300px;
+      min-width: 300px;
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      position: sticky;
+      top: 32px;
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    .sidebar::-webkit-scrollbar-thumb:hover { background: #555; }
+    .content-area {
+      flex: 1;
+      min-width: 0;
+    }
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; }
+      .sidebar {
+        width: 100%;
+        min-width: unset;
+        max-height: 240px;
+        position: static;
+      }
     }
     header {
       display: flex;
@@ -37,9 +67,56 @@
       font-size: 14px;
     }
     header a:hover { color: #ffd54f; }
-    .section {
-      margin-bottom: 28px;
+    .entry-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
+    .entry-list li {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: 1px solid #2a2a2a;
+    }
+    .entry-list li:hover { background: #262626; }
+    .entry-list li.active {
+      background: #2a2515;
+      border-color: #ffd54f;
+    }
+    .entry-date {
+      font-size: 12px;
+      color: #9e9e9e;
+      margin-bottom: 4px;
+    }
+    .entry-title {
+      font-size: 16px;
+      color: #e0e0e0;
+      font-weight: 600;
+    }
+    .entry-version {
+      font-size: 11px;
+      color: #ffd54f;
+      background: #2a2515;
+      padding: 2px 8px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-left: 8px;
+    }
+    .content {
+      background: #1e1e1e;
+      border-radius: 16px;
+      padding: 32px 28px;
+      min-height: 200px;
+    }
+    .content:empty::before {
+      content: "왼쪽 목록에서 날짜를 선택해주세요.";
+      color: #666;
+    }
+    .section { margin-bottom: 28px; }
+    .section:last-child { margin-bottom: 0; }
     .section-title {
       font-size: 16px;
       color: #ffd54f;
@@ -49,7 +126,7 @@
       border-bottom: 1px solid #2a2a2a;
     }
     .todo-item {
-      background: #1e1e1e;
+      background: #141414;
       border-radius: 12px;
       padding: 14px 18px;
       margin-bottom: 8px;
@@ -58,9 +135,7 @@
       align-items: flex-start;
       gap: 12px;
     }
-    .todo-item.done {
-      opacity: 0.5;
-    }
+    .todo-item.done { opacity: 0.55; }
     .todo-item.priority {
       border-color: #ffd54f;
       background: #2a2515;
@@ -86,9 +161,7 @@
       font-size: 13px;
       font-weight: bold;
     }
-    .todo-item.done .todo-check-mark {
-      display: block;
-    }
+    .todo-item.done .todo-check-mark { display: block; }
     .todo-text {
       flex: 1;
       font-size: 14px;
@@ -107,18 +180,7 @@
       color: #ffd54f;
       margin-right: 4px;
     }
-    .empty {
-      color: #555;
-      font-size: 14px;
-      padding: 16px;
-      text-align: center;
-    }
-    .updated {
-      text-align: center;
-      color: #555;
-      font-size: 12px;
-      margin-top: 32px;
-    }
+    .empty { color: #555; font-size: 14px; padding: 16px; text-align: center; }
     .back {
       display: inline-block;
       margin-top: 24px;
@@ -129,29 +191,6 @@
     .back:hover { color: #ffd54f; }
     .loading { color: #666; font-style: italic; }
     .error { color: #ef5350; }
-    .version-history {
-      margin-top: 16px;
-    }
-    .version-link {
-      display: inline-block;
-      color: #9e9e9e;
-      text-decoration: none;
-      font-size: 12px;
-      margin-right: 12px;
-      padding: 4px 10px;
-      border-radius: 12px;
-      border: 1px solid #333;
-      transition: all 0.2s;
-    }
-    .version-link:hover {
-      color: #ffd54f;
-      border-color: #ffd54f;
-    }
-    .version-link.active {
-      color: #ffd54f;
-      border-color: #ffd54f;
-      background: #2a2515;
-    }
   </style>
 </head>
 <body>
@@ -160,60 +199,64 @@
       <h1>할일 목록</h1>
       <a href="./">← 홈으로</a>
     </header>
-    <div id="app">
-      <div class="loading">불러오는 중...</div>
+    <div class="main-layout">
+      <div class="sidebar">
+        <ul class="entry-list" id="entries"></ul>
+      </div>
+      <div class="content-area">
+        <div class="content" id="content"></div>
+        <a class="back" href="./">← 홈으로 돌아가기</a>
+      </div>
     </div>
-    <div class="version-history" id="versions"></div>
-    <a class="back" href="./">← 홈으로 돌아가기</a>
   </div>
   <script>
-    const appEl = document.getElementById('app');
-    const versionsEl = document.getElementById('versions');
+    const entriesEl = document.getElementById('entries');
+    const contentEl = document.getElementById('content');
+    let activeLi = null;
 
-    async function loadTodos() {
+    async function loadIndex() {
       try {
         const res = await fetch('./todos/index.json?_=' + Date.now());
         const data = await res.json();
-        const versions = (data.versions || []).sort((a, b) => b.file.localeCompare(a.file));
-
-        if (versions.length === 0) {
-          appEl.innerHTML = '<div class="empty">할일 데이터가 없습니다.</div>';
-          return;
-        }
-
-        renderVersions(versions);
-        loadVersion(versions[0].file);
-      } catch (e) {
-        appEl.innerHTML = '<div class="error">할일 목록을 불러오지 못했습니다.</div>';
-      }
-    }
-
-    function renderVersions(versions) {
-      versionsEl.innerHTML = '';
-      for (const v of versions) {
-        const a = document.createElement('a');
-        a.className = 'version-link';
-        a.href = '#';
-        a.textContent = v.date + ' ' + (v.version || '');
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          document.querySelectorAll('.version-link').forEach(el => el.classList.remove('active'));
-          a.classList.add('active');
-          loadVersion(v.file);
+        const versions = (data.versions || []).slice().sort((a, b) => {
+          if (a.date !== b.date) return b.date.localeCompare(a.date);
+          return (b.version || '').localeCompare(a.version || '');
         });
-        versionsEl.appendChild(a);
+        renderList(versions);
+      } catch (e) {
+        entriesEl.innerHTML = '<li class="error">할일 목록을 불러오지 못했습니다.</li>';
       }
-      if (versionsEl.firstChild) versionsEl.firstChild.classList.add('active');
     }
 
-    async function loadVersion(file) {
-      appEl.innerHTML = '<div class="loading">불러오는 중...</div>';
+    function renderList(versions) {
+      entriesEl.innerHTML = '';
+      if (versions.length === 0) {
+        entriesEl.innerHTML = '<li class="empty">버전이 없습니다.</li>';
+        return;
+      }
+      for (const v of versions) {
+        const li = document.createElement('li');
+        li.innerHTML =
+          '<div class="entry-date">' + escapeHtml(v.date || '') + '</div>' +
+          '<div class="entry-title">할일 스냅샷' +
+          '<span class="entry-version">' + escapeHtml(v.version || '') + '</span></div>';
+        li.addEventListener('click', () => loadVersion(v, li));
+        entriesEl.appendChild(li);
+      }
+      loadVersion(versions[0], entriesEl.firstChild);
+    }
+
+    async function loadVersion(version, li) {
+      if (activeLi) activeLi.classList.remove('active');
+      li.classList.add('active');
+      activeLi = li;
+      contentEl.innerHTML = '<div class="loading">불러오는 중…</div>';
       try {
-        const res = await fetch('./todos/' + file + '?_=' + Date.now());
+        const res = await fetch('./todos/' + version.file + '?_=' + Date.now());
         const text = await res.text();
         renderTodos(text);
       } catch (e) {
-        appEl.innerHTML = '<div class="error">파일을 불러오지 못했습니다.</div>';
+        contentEl.innerHTML = '<div class="error">파일을 불러오지 못했습니다.</div>';
       }
     }
 
@@ -231,7 +274,7 @@
 
         if (current && /^- \[/.test(trimmed)) {
           const isDone = /^- \[x\]/.test(trimmed);
-          const isPriority = trimmed.includes('\u2B50') || trimmed.includes('\u{2B50}');
+          const isPriority = trimmed.includes('\u2B50');
           let text = trimmed.replace(/^- \[.\]\s*/, '').replace(/\u2B50\s*/g, '');
           const dateMatch = text.match(/\(추가:\s*([^,)]+)(?:,\s*완료:\s*([^)]+))?\)/);
           let addedDate = '';
@@ -253,8 +296,8 @@
           const cls = item.isPriority ? 'todo-item priority' : 'todo-item';
           html += '<div class="' + cls + '">' +
             '<div class="todo-check"><span class="todo-check-mark">✓</span></div>' +
-            '<div><div class="todo-text">' + (item.isPriority ? '<span class="todo-star">★</span>' : '') + escapeHtml(item.text) + '</div>' +
-            (item.addedDate ? '<div class="todo-date">추가: ' + item.addedDate + '</div>' : '') +
+            '<div style="flex:1;"><div class="todo-text">' + (item.isPriority ? '<span class="todo-star">★</span>' : '') + escapeHtml(item.text) + '</div>' +
+            (item.addedDate ? '<div class="todo-date">추가: ' + escapeHtml(item.addedDate) + '</div>' : '') +
             '</div></div>';
         }
         html += '</div>';
@@ -265,8 +308,8 @@
         for (const item of sections.done) {
           html += '<div class="todo-item done">' +
             '<div class="todo-check"><span class="todo-check-mark">✓</span></div>' +
-            '<div><div class="todo-text">' + escapeHtml(item.text) + '</div>' +
-            (item.doneDate ? '<div class="todo-date">완료: ' + item.doneDate + '</div>' : '') +
+            '<div style="flex:1;"><div class="todo-text">' + escapeHtml(item.text) + '</div>' +
+            (item.doneDate ? '<div class="todo-date">완료: ' + escapeHtml(item.doneDate) + '</div>' : '') +
             '</div></div>';
         }
         html += '</div>';
@@ -290,11 +333,8 @@
         html += '</div>';
       }
 
-      if (!html) {
-        html = '<div class="empty">할일이 없습니다.</div>';
-      }
-
-      appEl.innerHTML = html;
+      if (!html) html = '<div class="empty">할일이 없습니다.</div>';
+      contentEl.innerHTML = html;
     }
 
     function escapeHtml(s) {
@@ -303,7 +343,7 @@
       }[c]));
     }
 
-    loadTodos();
+    loadIndex();
   </script>
 </body>
 </html>
