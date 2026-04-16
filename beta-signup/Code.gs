@@ -160,30 +160,46 @@ function sendTelegramNotification(email, totalCount, playResult) {
 
 /**
  * Play Console 베타테스터 자동 등록
- * Google Play Android Publisher Advanced Service 사용
+ * REST API + ScriptApp.getOAuthToken() 사용 (Advanced Service 불필요)
  */
 function addTesterToPlayConsole(newEmail) {
   var packageName = CONFIG.PACKAGE_NAME;
+  var token = ScriptApp.getOAuthToken();
+  var baseUrl = 'https://androidpublisher.googleapis.com/androidpublisher/v3/applications/' + packageName;
+  var headers = { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
 
   // 1. Edit 생성
-  var edit = AndroidPublisher.Edits.insert({}, packageName);
+  var editRes = UrlFetchApp.fetch(baseUrl + '/edits', {
+    method: 'post',
+    headers: headers,
+    payload: '{}',
+    muteHttpExceptions: true
+  });
+  var edit = JSON.parse(editRes.getContentText());
+  if (!edit.id) {
+    Logger.log('Edit 생성 실패: ' + editRes.getContentText());
+    return '실패: Edit 생성 오류';
+  }
   var editId = edit.id;
 
   try {
     // 2. 현재 테스터 목록 조회
+    var testersRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
+      method: 'get',
+      headers: headers,
+      muteHttpExceptions: true
+    });
     var testers;
-    try {
-      testers = AndroidPublisher.Edits.Testers.get(packageName, editId, CONFIG.TRACK);
-    } catch (e) {
-      // 테스터 목록이 비어있을 수 있음
+    if (testersRes.getResponseCode() === 200) {
+      testers = JSON.parse(testersRes.getContentText());
+    } else {
       testers = { googleGroups: [], testerEmails: [] };
     }
-
     var currentEmails = testers.testerEmails || [];
 
-    // 3. 이미 등록되어 있는지 확인
+    // 3. 이미 등록되어 있으면 스킵
     if (currentEmails.indexOf(newEmail) >= 0) {
-      AndroidPublisher.Edits.delete(packageName, editId);
+      UrlFetchApp.fetch(baseUrl + '/edits/' + editId, { method: 'delete', headers: headers, muteHttpExceptions: true });
       return '이미등록됨';
     }
 
@@ -192,17 +208,31 @@ function addTesterToPlayConsole(newEmail) {
     testers.testerEmails = currentEmails;
 
     // 5. 테스터 목록 업데이트
-    AndroidPublisher.Edits.Testers.update(testers, packageName, editId, CONFIG.TRACK);
+    var updateRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
+      method: 'put',
+      headers: headers,
+      payload: JSON.stringify(testers),
+      muteHttpExceptions: true
+    });
+    if (updateRes.getResponseCode() !== 200) {
+      throw new Error('테스터 업데이트 실패: ' + updateRes.getContentText());
+    }
 
-    // 6. Edit 커밋 (실제 반영)
-    AndroidPublisher.Edits.commit(packageName, editId);
+    // 6. Edit 커밋
+    var commitRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + ':commit', {
+      method: 'post',
+      headers: headers,
+      muteHttpExceptions: true
+    });
+    if (commitRes.getResponseCode() !== 200) {
+      throw new Error('커밋 실패: ' + commitRes.getContentText());
+    }
 
     Logger.log('Play Console 테스터 등록 성공: ' + newEmail);
     return '등록완료';
 
   } catch (err) {
-    // 실패 시 edit 정리
-    try { AndroidPublisher.Edits.delete(packageName, editId); } catch(e) {}
+    try { UrlFetchApp.fetch(baseUrl + '/edits/' + editId, { method: 'delete', headers: headers, muteHttpExceptions: true }); } catch(e) {}
     Logger.log('Play Console 등록 실패: ' + err.message);
     throw err;
   }
@@ -215,46 +245,51 @@ function syncAllTestersToPlayConsole() {
   var sheet = getOrCreateSheet();
   var data = sheet.getDataRange().getValues();
   var packageName = CONFIG.PACKAGE_NAME;
+  var token = ScriptApp.getOAuthToken();
+  var baseUrl = 'https://androidpublisher.googleapis.com/androidpublisher/v3/applications/' + packageName;
+  var headers = { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
 
   // Edit 생성
-  var edit = AndroidPublisher.Edits.insert({}, packageName);
+  var editRes = UrlFetchApp.fetch(baseUrl + '/edits', { method: 'post', headers: headers, payload: '{}', muteHttpExceptions: true });
+  var edit = JSON.parse(editRes.getContentText());
+  if (!edit.id) throw new Error('Edit 생성 실패');
   var editId = edit.id;
 
   try {
-    // 현재 Play Console 테스터 목록
-    var testers;
-    try {
-      testers = AndroidPublisher.Edits.Testers.get(packageName, editId, CONFIG.TRACK);
-    } catch (e) {
-      testers = { googleGroups: [], testerEmails: [] };
-    }
+    var testersRes = UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
+      method: 'get', headers: headers, muteHttpExceptions: true
+    });
+    var testers = testersRes.getResponseCode() === 200
+      ? JSON.parse(testersRes.getContentText())
+      : { googleGroups: [], testerEmails: [] };
     var currentEmails = testers.testerEmails || [];
 
-    // 시트의 모든 이메일 추가
     var added = 0;
     for (var i = 1; i < data.length; i++) {
       var email = String(data[i][0]).trim().toLowerCase();
       if (email && currentEmails.indexOf(email) < 0) {
         currentEmails.push(email);
         added++;
-        // 시트 상태 업데이트
         sheet.getRange(i + 1, 3).setValue('play_registered');
       }
     }
 
     if (added > 0) {
       testers.testerEmails = currentEmails;
-      AndroidPublisher.Edits.Testers.update(testers, packageName, editId, CONFIG.TRACK);
-      AndroidPublisher.Edits.commit(packageName, editId);
+      UrlFetchApp.fetch(baseUrl + '/edits/' + editId + '/testers/' + CONFIG.TRACK, {
+        method: 'put', headers: headers, payload: JSON.stringify(testers), muteHttpExceptions: true
+      });
+      UrlFetchApp.fetch(baseUrl + '/edits/' + editId + ':commit', {
+        method: 'post', headers: headers, muteHttpExceptions: true
+      });
       Logger.log(added + '명 Play Console 일괄 등록 완료');
     } else {
-      AndroidPublisher.Edits.delete(packageName, editId);
+      UrlFetchApp.fetch(baseUrl + '/edits/' + editId, { method: 'delete', headers: headers, muteHttpExceptions: true });
       Logger.log('새로 등록할 이메일 없음');
     }
-
     return added;
   } catch (err) {
-    try { AndroidPublisher.Edits.delete(packageName, editId); } catch(e) {}
+    try { UrlFetchApp.fetch(baseUrl + '/edits/' + editId, { method: 'delete', headers: headers, muteHttpExceptions: true }); } catch(e) {}
     throw err;
   }
 }
