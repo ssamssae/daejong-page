@@ -123,6 +123,12 @@
     .detail .d-icon {
       font-size: 48px;
       margin-bottom: 16px;
+      line-height: 1;
+    }
+    .detail .d-icon img {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
     }
     .detail .d-name {
       font-size: 22px;
@@ -247,7 +253,7 @@
         const p = projects[i];
         const li = document.createElement('li');
         var iconHtml = p.iconImg
-          ? '<img src="' + p.iconImg + '" alt="' + p.name + '">'
+          ? '<img src="' + p.iconImg + '?v=2" alt="' + p.name + '">'
           : p.icon;
         li.innerHTML =
           '<div><span class="project-icon">' + iconHtml + '</span><span class="project-name">' + p.name + '</span></div>' +
@@ -269,7 +275,7 @@
       }
 
       var dIconHtml = p.iconImg
-        ? '<img src="' + p.iconImg + '" alt="' + p.name + '" style="width:56px;height:56px;border-radius:14px;">'
+        ? '<img src="' + p.iconImg + '?v=2" alt="' + p.name + '">'
         : p.icon;
       detailEl.innerHTML =
         '<div class="d-icon">' + dIconHtml + '</div>' +
