@@ -13,6 +13,10 @@ const CONFIG = {
   SHEET_NAME: 'Testers',
   ADMIN_EMAIL: 'ssamssae@naver.com',
   OPT_IN_URL: 'https://play.google.com/apps/testing/com.daejongkang.simple_memo_app',
+  TELEGRAM_BOT_TOKEN: '8312381862:AAHD9jAGeY9Z-ELOA23wyn71Ngymfn9hrcE',
+  TELEGRAM_CHAT_ID: '538806975',
+  PACKAGE_NAME: 'com.daejongkang.simple_memo_app',
+  TRACK: 'closed:testers',  // 비공개 테스트 트랙
 };
 
 /**
@@ -50,9 +54,9 @@ function doPost(e) {
       Logger.log('Email send failed: ' + err.message);
     }
 
-    // 3. 관리자에게 알림
+    // 3. 관리자에게 알림 (이메일 + 텔레그램)
+    var totalCount = sheet.getLastRow() - 1;
     try {
-      var totalCount = sheet.getLastRow() - 1; // 헤더 제외
       MailApp.sendEmail({
         to: CONFIG.ADMIN_EMAIL,
         subject: '[메모요] 새 사전예약! (' + totalCount + '번째)',
@@ -63,7 +67,29 @@ function doPost(e) {
               '시트 확인: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl()
       });
     } catch (err) {
-      Logger.log('Admin notification failed: ' + err.message);
+      Logger.log('Admin email failed: ' + err.message);
+    }
+
+    // 4. Play Console 베타테스터 자동 등록
+    var playResult = '미등록';
+    try {
+      playResult = addTesterToPlayConsole(email);
+    } catch (err) {
+      Logger.log('Play Console registration failed: ' + err.message);
+      playResult = '실패: ' + err.message;
+    }
+
+    // 5. 시트 상태 업데이트
+    if (playResult === '등록완료') {
+      var lastRow = sheet.getLastRow();
+      sheet.getRange(lastRow, 3).setValue('play_registered');
+    }
+
+    // 6. 텔레그램 실시간 알림
+    try {
+      sendTelegramNotification(email, totalCount, playResult);
+    } catch (err) {
+      Logger.log('Telegram notification failed: ' + err.message);
     }
 
     lock.releaseLock();
@@ -77,15 +103,159 @@ function doPost(e) {
 }
 
 /**
- * GET 요청 - 등록 수 확인 (공개)
+ * GET 요청 - 등록 수 확인 / 관리자 명령
+ * ?action=delete&row=2 → 특정 행 삭제 (관리자용, secret 필요)
+ * ?action=list&secret=xxx → 전체 목록
  */
 function doGet(e) {
   try {
+    var params = e.parameter || {};
+    var action = params.action;
+    var secret = params.secret;
+    var ADMIN_SECRET = 'memoyo2026';
+
     var sheet = getOrCreateSheet();
+
+    if (action === 'delete' && secret === ADMIN_SECRET) {
+      var row = parseInt(params.row) || 2;
+      if (row >= 2 && row <= sheet.getLastRow()) {
+        var deleted = sheet.getRange(row, 1).getValue();
+        sheet.deleteRow(row);
+        return jsonResponse({ success: true, deleted: deleted, remaining: sheet.getLastRow() - 1 });
+      }
+      return jsonResponse({ success: false, error: 'Invalid row' });
+    }
+
+    if (action === 'list' && secret === ADMIN_SECRET) {
+      var data = sheet.getDataRange().getValues();
+      return jsonResponse({ entries: data.slice(1) });
+    }
+
     var count = Math.max(0, sheet.getLastRow() - 1);
     return jsonResponse({ count: count });
   } catch (err) {
-    return jsonResponse({ count: 0 });
+    return jsonResponse({ count: 0, error: err.message });
+  }
+}
+
+/**
+ * 텔레그램 실시간 알림
+ */
+function sendTelegramNotification(email, totalCount, playResult) {
+  var text = '[메모요 사전예약] 새 등록!\n\n' +
+    '이메일: ' + email + '\n' +
+    '누적: ' + totalCount + '명\n' +
+    'Play Console: ' + (playResult || '미확인');
+
+  var url = 'https://api.telegram.org/bot' + CONFIG.TELEGRAM_BOT_TOKEN + '/sendMessage';
+  UrlFetchApp.fetch(url, {
+    method: 'post',
+    payload: {
+      chat_id: CONFIG.TELEGRAM_CHAT_ID,
+      text: text
+    },
+    muteHttpExceptions: true
+  });
+}
+
+/**
+ * Play Console 베타테스터 자동 등록
+ * Google Play Android Publisher Advanced Service 사용
+ */
+function addTesterToPlayConsole(newEmail) {
+  var packageName = CONFIG.PACKAGE_NAME;
+
+  // 1. Edit 생성
+  var edit = AndroidPublisher.Edits.insert({}, packageName);
+  var editId = edit.id;
+
+  try {
+    // 2. 현재 테스터 목록 조회
+    var testers;
+    try {
+      testers = AndroidPublisher.Edits.Testers.get(packageName, editId, CONFIG.TRACK);
+    } catch (e) {
+      // 테스터 목록이 비어있을 수 있음
+      testers = { googleGroups: [], testerEmails: [] };
+    }
+
+    var currentEmails = testers.testerEmails || [];
+
+    // 3. 이미 등록되어 있는지 확인
+    if (currentEmails.indexOf(newEmail) >= 0) {
+      AndroidPublisher.Edits.delete(packageName, editId);
+      return '이미등록됨';
+    }
+
+    // 4. 새 이메일 추가
+    currentEmails.push(newEmail);
+    testers.testerEmails = currentEmails;
+
+    // 5. 테스터 목록 업데이트
+    AndroidPublisher.Edits.Testers.update(testers, packageName, editId, CONFIG.TRACK);
+
+    // 6. Edit 커밋 (실제 반영)
+    AndroidPublisher.Edits.commit(packageName, editId);
+
+    Logger.log('Play Console 테스터 등록 성공: ' + newEmail);
+    return '등록완료';
+
+  } catch (err) {
+    // 실패 시 edit 정리
+    try { AndroidPublisher.Edits.delete(packageName, editId); } catch(e) {}
+    Logger.log('Play Console 등록 실패: ' + err.message);
+    throw err;
+  }
+}
+
+/**
+ * 수동 실행: 시트의 모든 미등록 이메일을 Play Console에 일괄 등록
+ */
+function syncAllTestersToPlayConsole() {
+  var sheet = getOrCreateSheet();
+  var data = sheet.getDataRange().getValues();
+  var packageName = CONFIG.PACKAGE_NAME;
+
+  // Edit 생성
+  var edit = AndroidPublisher.Edits.insert({}, packageName);
+  var editId = edit.id;
+
+  try {
+    // 현재 Play Console 테스터 목록
+    var testers;
+    try {
+      testers = AndroidPublisher.Edits.Testers.get(packageName, editId, CONFIG.TRACK);
+    } catch (e) {
+      testers = { googleGroups: [], testerEmails: [] };
+    }
+    var currentEmails = testers.testerEmails || [];
+
+    // 시트의 모든 이메일 추가
+    var added = 0;
+    for (var i = 1; i < data.length; i++) {
+      var email = String(data[i][0]).trim().toLowerCase();
+      if (email && currentEmails.indexOf(email) < 0) {
+        currentEmails.push(email);
+        added++;
+        // 시트 상태 업데이트
+        sheet.getRange(i + 1, 3).setValue('play_registered');
+      }
+    }
+
+    if (added > 0) {
+      testers.testerEmails = currentEmails;
+      AndroidPublisher.Edits.Testers.update(testers, packageName, editId, CONFIG.TRACK);
+      AndroidPublisher.Edits.commit(packageName, editId);
+      Logger.log(added + '명 Play Console 일괄 등록 완료');
+    } else {
+      AndroidPublisher.Edits.delete(packageName, editId);
+      Logger.log('새로 등록할 이메일 없음');
+    }
+
+    return added;
+  } catch (err) {
+    try { AndroidPublisher.Edits.delete(packageName, editId); } catch(e) {}
+    throw err;
   }
 }
 
@@ -130,6 +300,17 @@ function getOrCreateSheet() {
 function jsonResponse(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
+ * 수동 실행: 첫 번째 테스트 데이터 삭제
+ */
+function deleteFirstTestEntry() {
+  var sheet = getOrCreateSheet();
+  if (sheet.getLastRow() > 1) {
+    sheet.deleteRow(2); // 헤더 다음 첫 번째 행
+    Logger.log('첫 번째 항목 삭제 완료. 남은 항목: ' + (sheet.getLastRow() - 1));
+  }
 }
 
 /**
