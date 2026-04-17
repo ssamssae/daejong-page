@@ -16,107 +16,252 @@
       line-height: 1.7;
     }
     .wrap { max-width: 1200px; margin: 0 auto; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #2a2a2a;
+    }
+    header h1 { font-size: 22px; color: #ffd54f; font-weight: 700; }
+    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #ffd54f; }
+
+    /* Hero */
+    .hero {
+      display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .hero-card {
+      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .hero-card.streak {
+      background: linear-gradient(135deg, #2a2515 0%, #1f1d10 100%);
+      border-color: rgba(255, 213, 79, 0.45);
+    }
+    .hero-card-label {
+      font-size: 11px; color: #9e9e9e; margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .hero-card.streak .hero-card-label { color: #ffd54f; }
+    .hero-card-value {
+      font-size: 24px; color: #e0e0e0; font-weight: 700;
+      display: flex; align-items: baseline; gap: 4px;
+    }
+    .hero-card-value .unit {
+      font-size: 13px; color: #9e9e9e; font-weight: 500;
+    }
+    .hero-card.streak .hero-card-value { color: #ffd54f; }
+    .hero-card-sub { font-size: 11px; color: #666; margin-top: 4px; }
+
+    /* Heatmap */
+    .heatmap-wrap {
+      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px;
+      padding: 16px;
+    }
+    .heatmap-title {
+      font-size: 12px; color: #9e9e9e; margin-bottom: 10px;
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .heatmap-title strong { color: #e0e0e0; font-weight: 600; }
+    .heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(14, 1fr);
+      gap: 4px;
+    }
+    .heatmap-cell {
+      aspect-ratio: 1;
+      border-radius: 3px;
+      background: #1f1f1f;
+      border: 1px solid #252525;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .heatmap-cell:hover { transform: scale(1.2); border-color: #666; }
+    .heatmap-cell.lv0 { background: #1f1f1f; }
+    .heatmap-cell.lv1 { background: #3d3315; border-color: #4a3d1a; }
+    .heatmap-cell.lv2 { background: #5c4e1f; border-color: #6e5d25; }
+    .heatmap-cell.lv3 { background: #8a7527; border-color: #a08827; }
+    .heatmap-cell.lv4 { background: #ffd54f; border-color: #ffd54f; }
+    .heatmap-cell.today { box-shadow: 0 0 0 1.5px #ffab91; }
+    .heatmap-legend {
+      margin-top: 10px; font-size: 10px; color: #666;
+      display: flex; align-items: center; gap: 6px; justify-content: flex-end;
+    }
+    .heatmap-legend-cells { display: flex; gap: 3px; }
+    .heatmap-legend-cell {
+      width: 10px; height: 10px; border-radius: 2px;
+    }
+
+    /* Filters */
+    .controls {
+      margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tab {
+      background: #1a1a1a; border: 1px solid #2a2a2a;
+      color: #aaa; font-size: 13px; font-weight: 600;
+      padding: 7px 14px; border-radius: 20px; cursor: pointer;
+      transition: all 0.15s; font-family: inherit;
+    }
+    .tab:hover { border-color: #444; color: #e0e0e0; }
+    .tab.active { background: #2a2515; border-color: #ffd54f; color: #ffd54f; }
+    .tab-count {
+      display: inline-block; margin-left: 6px; font-size: 11px; color: #666;
+    }
+    .tab.active .tab-count { color: #ffd54f; }
+
+    .chip-scroll {
+      display: flex; gap: 6px;
+      overflow-x: auto; padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .chip-scroll::-webkit-scrollbar { display: none; }
+    .chip {
+      flex-shrink: 0;
+      background: transparent; border: 1px solid #333;
+      color: #9e9e9e; font-size: 12px;
+      padding: 5px 12px; border-radius: 14px; cursor: pointer;
+      transition: all 0.15s; font-family: inherit;
+    }
+    .chip:hover { border-color: #555; color: #e0e0e0; }
+    .chip.active {
+      background: rgba(255, 213, 79, 0.12);
+      border-color: #ffd54f; color: #ffd54f;
+    }
+
+    /* Layout */
     .main-layout {
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
+      display: flex; gap: 24px; align-items: flex-start;
     }
     .sidebar {
-      width: 300px;
-      min-width: 300px;
+      width: 300px; min-width: 300px;
       max-height: calc(100vh - 140px);
       overflow-y: auto;
-      position: sticky;
-      top: 32px;
+      position: sticky; top: 32px;
     }
     .sidebar::-webkit-scrollbar { width: 4px; }
     .sidebar::-webkit-scrollbar-track { background: transparent; }
     .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
     .sidebar::-webkit-scrollbar-thumb:hover { background: #555; }
     .content-area { flex: 1; min-width: 0; }
-    @media (max-width: 768px) {
-      .main-layout { flex-direction: column; }
-      .sidebar {
-        width: 100%;
-        min-width: unset;
-        max-height: 240px;
-        position: static;
-      }
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #2a2a2a;
-    }
-    header h1 { font-size: 22px; color: #ffd54f; font-weight: 700; }
-    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #ffd54f; }
+
     .entry-list {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      display: flex; flex-direction: column; gap: 8px;
     }
     .entry-list li {
-      background: #1e1e1e;
+      background: #1a1a1a;
       border-radius: 10px;
-      padding: 12px 16px;
+      padding: 12px 14px;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.15s, border-color 0.15s;
       border: 1px solid #2a2a2a;
     }
-    .entry-list li:hover { background: #262626; }
+    .entry-list li:hover { background: #1f1f1f; border-color: #3a3a3a; }
     .entry-list li.active {
       background: #2a2515;
       border-color: #ffd54f;
     }
+    .entry-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 6px; margin-bottom: 4px;
+    }
     .entry-date {
-      font-size: 15px;
-      color: #e0e0e0;
-      font-weight: 600;
+      font-size: 14px; color: #e0e0e0; font-weight: 600;
       font-family: "SF Mono", Menlo, Consolas, monospace;
     }
-    .entry-count {
-      font-size: 11px;
-      color: #ffd54f;
-      background: #2a2515;
-      padding: 2px 8px;
-      border-radius: 10px;
-      display: inline-block;
-      margin-left: 8px;
+    .entry-rel { font-size: 11px; color: #666; }
+    .entry-list li.active .entry-rel { color: #ffd54f; }
+    .entry-count-row {
+      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+      margin-top: 6px;
     }
-    .entry-summary {
-      font-size: 12px;
-      color: #9e9e9e;
-      margin-top: 4px;
+    .entry-count-badge {
+      font-size: 11px; color: #ffd54f;
+      background: rgba(255, 213, 79, 0.1);
+      border: 1px solid rgba(255, 213, 79, 0.25);
+      padding: 2px 8px; border-radius: 10px;
+      font-weight: 600;
     }
+    .entry-tag-mini {
+      font-size: 10px; padding: 2px 7px; border-radius: 8px;
+      background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a;
+    }
+    .entry-tag-mini.memoyo { border-color: rgba(129, 199, 132, 0.4); color: #81c784; }
+    .entry-tag-mini.web { border-color: rgba(79, 195, 247, 0.4); color: #4fc3f7; }
+    .entry-tag-mini.infra { border-color: rgba(206, 147, 216, 0.4); color: #ce93d8; }
+    .entry-tag-mini.remote { border-color: rgba(176, 190, 197, 0.4); color: #b0bec5; }
+    .entry-tag-mini.skill { border-color: rgba(255, 213, 79, 0.4); color: #ffd54f; }
+    .entry-tag-mini.release { border-color: rgba(255, 171, 145, 0.4); color: #ffab91; }
+    .entry-tag-mini.ios { border-color: rgba(244, 143, 177, 0.4); color: #f48fb1; }
+    .entry-tag-mini.android { border-color: rgba(165, 214, 167, 0.4); color: #a5d6a7; }
+    .entry-tag-mini.misc { border-color: #3a3a3a; color: #9e9e9e; }
+
+    /* Content panel */
     .content {
-      background: #1e1e1e;
+      background: #1a1a1a;
       border-radius: 16px;
-      padding: 32px 28px;
+      padding: 24px 24px 20px;
       min-height: 200px;
+      border: 1px solid #2a2a2a;
     }
     .content:empty::before {
       content: "왼쪽 목록에서 날짜를 선택해주세요.";
       color: #666;
     }
-    .content h1 {
-      font-size: 20px;
-      color: #ffd54f;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #2a2a2a;
+    .day-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 10px; margin-bottom: 6px; flex-wrap: wrap;
     }
+    .day-title {
+      font-size: 22px; color: #ffd54f; font-weight: 700;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+    }
+    .day-rel {
+      font-size: 12px; color: #9e9e9e;
+      background: #2a2a2a; padding: 3px 10px; border-radius: 10px;
+    }
+    .day-summary-line {
+      font-size: 13px; color: #b0b0b0; margin-bottom: 14px;
+      padding-bottom: 14px; border-bottom: 1px solid #2a2a2a;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .day-total {
+      font-size: 13px; color: #e0e0e0;
+    }
+    .day-total strong { color: #ffd54f; font-weight: 700; }
+    .dist-bar {
+      display: flex; height: 6px; border-radius: 3px; overflow: hidden;
+      flex: 1; min-width: 120px; max-width: 280px;
+      background: #2a2a2a;
+    }
+    .dist-seg { height: 100%; }
+    .dist-seg.memoyo { background: #81c784; }
+    .dist-seg.web { background: #4fc3f7; }
+    .dist-seg.infra { background: #ce93d8; }
+    .dist-seg.remote { background: #b0bec5; }
+    .dist-seg.skill { background: #ffd54f; }
+    .dist-seg.release { background: #ffab91; }
+    .dist-seg.ios { background: #f48fb1; }
+    .dist-seg.android { background: #a5d6a7; }
+    .dist-seg.misc { background: #555; }
+
     .content h2 {
-      font-size: 15px;
+      font-size: 14px;
       color: #ffd54f;
       margin: 20px 0 8px;
       font-weight: 600;
+      display: flex; align-items: center; gap: 8px;
     }
     .content h2:first-of-type { margin-top: 0; }
+    .content h2 .sec-count {
+      font-size: 11px; color: #9e9e9e; background: #2a2a2a;
+      padding: 1px 8px; border-radius: 9px; font-weight: 500;
+    }
     .content ul {
       list-style: none;
       padding-left: 0;
@@ -132,11 +277,13 @@
     .content li::before {
       content: "✓";
       position: absolute;
-      left: 4px;
-      top: 3px;
+      left: 4px; top: 3px;
       color: #4caf50;
       font-weight: 700;
     }
+    .content li.hidden { display: none; }
+    .content h2.hidden { display: none; }
+
     .back {
       display: inline-block;
       margin-top: 24px;
@@ -145,8 +292,24 @@
       font-size: 14px;
     }
     .back:hover { color: #ffd54f; }
-    .loading { color: #666; font-style: italic; }
-    .error { color: #ef5350; }
+    .loading { color: #666; font-style: italic; padding: 24px 0; text-align: center; }
+    .error { color: #ef5350; padding: 24px 0; text-align: center; }
+    .empty-day { color: #666; padding: 30px 0; text-align: center; font-size: 13px; }
+
+    @media (max-width: 768px) {
+      .main-layout { flex-direction: column; }
+      .sidebar {
+        width: 100%; min-width: unset;
+        max-height: 260px;
+        position: static;
+      }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .heatmap-grid { grid-template-columns: repeat(10, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .day-title { font-size: 18px; }
+    }
   </style>
 </head>
 <body>
@@ -155,91 +318,71 @@
       <h1>완료</h1>
       <a href="./">← 홈으로</a>
     </header>
-    <div class="main-layout">
-      <div class="sidebar">
-        <ul class="entry-list" id="entries"></ul>
-      </div>
-      <div class="content-area">
-        <div class="content" id="content"></div>
-        <a class="back" href="./">← 홈으로 돌아가기</a>
-      </div>
+
+    <div id="view">
+      <div class="loading">불러오는 중…</div>
     </div>
+
+    <a class="back" href="./">← 홈으로 돌아가기</a>
   </div>
+
   <script>
-    const entriesEl = document.getElementById('entries');
-    const contentEl = document.getElementById('content');
-    let activeLi = null;
+    const viewEl = document.getElementById('view');
 
-    async function loadIndex() {
-      try {
-        const res = await fetch('./done/index.json?_=' + Date.now());
-        const data = await res.json();
-        renderList(data.entries || []);
-      } catch (e) {
-        entriesEl.innerHTML = '<li class="error">인덱스를 불러오지 못했습니다.</li>';
-      }
-    }
+    // Project tag keywords — todos.html 과 동일 팔레트
+    const PROJECT_TAGS = [
+      { cls: 'memoyo', label: '메모요', keywords: ['메모요', 'memoyo', 'simple_memo', 'simpleMemoApp', 'UIPasteControl', 'Play Console', 'Closed Testing', '사전예약', '베타테스터', '베타 모집'] },
+      { cls: 'web', label: '홈페이지', keywords: ['daejong-page', '홈페이지', '포트폴리오', '타임라인', 'portfolio', 'timeline', 'privacy', '개인정보 처리방침', 'todos.html', 'worklog.html', 'skills.html', 'done.html', 'index.html', '스킬 페이지', '작업일지'] },
+      { cls: 'infra', label: '자동화', keywords: ['launchd', 'Playwright', '자동 등록', '워커', '인프라', 'Apps Script', 'Google Groups', 'Tailscale', '훅', '텔레그램', '스케줄', 'beta-signup', 'send.sh', 'curl'] },
+      { cls: 'remote', label: '원격제어', keywords: ['원격제어', 'WebRTC', 'Parsec', 'TURN', 'Termius'] },
+      { cls: 'skill', label: '스킬', keywords: ['스킬', 'Claude Code', '/usage', '/briefing', '/done', '/worklog', '/todo', 'claude-skills'] },
+      { cls: 'release', label: '출시', keywords: ['출시', '심사', '제출', 'AppIcon', '투명 채널', 'applicationId', '서명'] },
+      { cls: 'ios', label: 'iOS', keywords: ['iOS', 'App Store', 'TestFlight', 'Xcode', 'UIScene', 'Podfile', 'iPhone'] },
+      { cls: 'android', label: 'Android', keywords: ['Android', 'Play Store', 'Play Console', 'aab', 'Internal Testing', 'Closed Testing'] },
+      { cls: 'misc', label: '기타', keywords: [] },
+    ];
 
-    function renderList(entries) {
-      entries.sort((a, b) => b.date.localeCompare(a.date));
-      entriesEl.innerHTML = '';
-      for (const e of entries) {
-        const li = document.createElement('li');
-        li.innerHTML =
-          '<div><span class="entry-date">' + e.date + '</span>' +
-          (e.count != null ? '<span class="entry-count">' + e.count + '건</span>' : '') +
-          '</div>' +
-          (e.summary ? '<div class="entry-summary">' + escapeHtml(e.summary) + '</div>' : '');
-        li.addEventListener('click', () => loadEntry(e, li));
-        entriesEl.appendChild(li);
-      }
-      if (entries.length > 0) {
-        const first = entriesEl.firstChild;
-        loadEntry(entries[0], first);
-      }
-    }
-
-    async function loadEntry(entry, li) {
-      if (activeLi) activeLi.classList.remove('active');
-      li.classList.add('active');
-      activeLi = li;
-      contentEl.innerHTML = '<span class="loading">불러오는 중…</span>';
-      try {
-        const res = await fetch('./done/' + entry.file + '?_=' + Date.now());
-        const text = await res.text();
-        contentEl.innerHTML = mdToHtml(text);
-      } catch (e) {
-        contentEl.innerHTML = '<span class="error">파일을 불러오지 못했습니다.</span>';
-      }
-    }
-
-    function mdToHtml(md) {
-      const lines = md.split(/\r?\n/);
-      const out = [];
-      let inList = false;
-      const closeList = () => { if (inList) { out.push('</ul>'); inList = false; } };
-      for (const raw of lines) {
-        const line = raw.trim();
-        if (!line) continue;
-        if (line.startsWith('# ')) {
-          closeList();
-          out.push('<h1>' + escapeHtml(line.slice(2).trim()) + '</h1>');
-        } else if (line.startsWith('## ')) {
-          closeList();
-          out.push('<h2>' + escapeHtml(line.slice(3).trim()) + '</h2>');
-        } else if (line.startsWith('- [x] ') || line.startsWith('- [ ] ')) {
-          if (!inList) { out.push('<ul>'); inList = true; }
-          out.push('<li>' + escapeHtml(line.slice(6).trim()) + '</li>');
-        } else if (line.startsWith('- ')) {
-          if (!inList) { out.push('<ul>'); inList = true; }
-          out.push('<li>' + escapeHtml(line.slice(2).trim()) + '</li>');
-        } else {
-          closeList();
-          out.push('<p>' + escapeHtml(line) + '</p>');
+    function detectTags(text) {
+      const found = [];
+      for (const t of PROJECT_TAGS) {
+        if (t.cls === 'misc') continue;
+        for (const kw of t.keywords) {
+          if (text.indexOf(kw) !== -1) { found.push(t.cls); break; }
         }
       }
-      closeList();
-      return out.join('');
+      return found.length > 0 ? found : ['misc'];
+    }
+
+    // Date helpers
+    function todayKST() {
+      const now = new Date();
+      const kst = new Date(now.getTime() + (now.getTimezoneOffset() + 540) * 60000);
+      kst.setHours(0, 0, 0, 0);
+      return kst;
+    }
+    function parseDate(s) {
+      const m = s && s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!m) return null;
+      return new Date(+m[1], +m[2] - 1, +m[3]);
+    }
+    function fmtDate(d) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + dd;
+    }
+    function daysBetween(a, b) {
+      return Math.round((b - a) / 86400000);
+    }
+    function relativeDay(dateStr) {
+      const d = parseDate(dateStr);
+      if (!d) return '';
+      const diff = daysBetween(d, todayKST());
+      if (diff === 0) return '오늘';
+      if (diff === 1) return '어제';
+      if (diff < 7) return diff + '일 전';
+      if (diff < 30) return Math.floor(diff / 7) + '주 전';
+      return Math.floor(diff / 30) + '달 전';
     }
 
     function escapeHtml(s) {
@@ -248,7 +391,421 @@
       }[c]));
     }
 
-    loadIndex();
+    // Parse a done markdown file into sections of items
+    function parseDoneMd(md) {
+      const sections = [];
+      let current = null;
+      for (const raw of md.split(/\r?\n/)) {
+        const line = raw.trim();
+        if (!line) continue;
+        if (line.startsWith('# ')) continue;
+        if (line.startsWith('## ')) {
+          current = { title: line.slice(3).trim(), items: [] };
+          sections.push(current);
+          continue;
+        }
+        if (line.startsWith('- [x] ') || line.startsWith('- [ ] ')) {
+          const text = line.slice(6).trim();
+          if (!current) { current = { title: '기타', items: [] }; sections.push(current); }
+          current.items.push({ text, tags: detectTags(text) });
+        } else if (line.startsWith('- ')) {
+          const text = line.slice(2).trim();
+          if (!current) { current = { title: '기타', items: [] }; sections.push(current); }
+          current.items.push({ text, tags: detectTags(text) });
+        }
+      }
+      return sections;
+    }
+
+    function itemsOfSections(sections) {
+      const all = [];
+      for (const s of sections) all.push(...s.items);
+      return all;
+    }
+
+    function tagDistribution(items) {
+      const dist = {};
+      for (const it of items) {
+        for (const cls of it.tags) {
+          dist[cls] = (dist[cls] || 0) + 1;
+        }
+      }
+      return dist;
+    }
+
+    // Compute streak from entry list (consecutive days ending at today or yesterday)
+    function computeStreak(entries, todayStr) {
+      const dates = new Set(entries.map(e => e.date));
+      const today = parseDate(todayStr);
+      if (!today) return { length: 0, anchor: null };
+      // Streak must end at today or yesterday (so "어제까지 N일" still counts)
+      let cursor = new Date(today);
+      if (!dates.has(fmtDate(cursor))) {
+        cursor.setDate(cursor.getDate() - 1);
+        if (!dates.has(fmtDate(cursor))) return { length: 0, anchor: null };
+      }
+      const anchor = fmtDate(cursor);
+      let length = 0;
+      while (dates.has(fmtDate(cursor))) {
+        length++;
+        cursor.setDate(cursor.getDate() - 1);
+      }
+      return { length, anchor };
+    }
+
+    // State
+    const state = {
+      entries: [],            // sorted desc
+      entryMap: {},           // date -> entry (with count, summary)
+      loadedSections: {},     // date -> sections[] (cached after load)
+      loadedTagCounts: {},    // date -> { cls: n }
+      currentDate: null,
+      activeTag: null,
+      range: 'all',           // 'all' | 'week' | 'month'
+    };
+
+    async function init() {
+      try {
+        const res = await fetch('./done/index.json?_=' + Date.now());
+        const data = await res.json();
+        const raw = (data.entries || []).slice();
+        raw.sort((a, b) => b.date.localeCompare(a.date));
+        state.entries = raw;
+        for (const e of raw) state.entryMap[e.date] = e;
+        if (raw.length === 0) {
+          viewEl.innerHTML = '<div class="empty-day">엔트리가 없습니다.</div>';
+          return;
+        }
+        await loadDay(raw[0].date, { silent: true });
+        render();
+      } catch (e) {
+        viewEl.innerHTML = '<div class="error">인덱스를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    async function loadDay(date, opts) {
+      opts = opts || {};
+      state.currentDate = date;
+      if (!state.loadedSections[date]) {
+        try {
+          const res = await fetch('./done/' + date + '.md?_=' + Date.now());
+          const text = await res.text();
+          const sections = parseDoneMd(text);
+          state.loadedSections[date] = sections;
+          state.loadedTagCounts[date] = tagDistribution(itemsOfSections(sections));
+        } catch (e) {
+          state.loadedSections[date] = null;
+          state.loadedTagCounts[date] = {};
+        }
+      }
+      if (!opts.silent) render();
+    }
+
+    function render() {
+      const todayStr = fmtDate(todayKST());
+      const streak = computeStreak(state.entries, todayStr);
+
+      // Totals
+      const totalCount = state.entries.reduce((s, e) => s + (e.count || 0), 0);
+      const today = todayKST();
+      const weekAgo = new Date(today); weekAgo.setDate(weekAgo.getDate() - 6); // last 7 days
+      let weekCount = 0;
+      let todayCount = 0;
+      for (const e of state.entries) {
+        const d = parseDate(e.date);
+        if (!d) continue;
+        if (d.getTime() === today.getTime()) todayCount += (e.count || 0);
+        if (d >= weekAgo && d <= today) weekCount += (e.count || 0);
+      }
+
+      // Hero
+      let heroHtml = '<div class="hero"><div class="hero-stats">';
+      heroHtml +=
+        '<div class="hero-card streak">' +
+        '<div class="hero-card-label">🔥 연속 기록</div>' +
+        '<div class="hero-card-value">' + streak.length + '<span class="unit">일</span></div>' +
+        '<div class="hero-card-sub">' + (streak.length > 0 ? (streak.anchor === todayStr ? '오늘도 성공!' : '어제까지 연속') : '오늘 시작해요') + '</div>' +
+        '</div>';
+      heroHtml +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">오늘 완료</div>' +
+        '<div class="hero-card-value">' + todayCount + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">' + todayStr + '</div>' +
+        '</div>';
+      heroHtml +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">최근 7일</div>' +
+        '<div class="hero-card-value">' + weekCount + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">' + fmtDate(weekAgo) + ' ~ ' + todayStr + '</div>' +
+        '</div>';
+      heroHtml +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">누적 완료</div>' +
+        '<div class="hero-card-value">' + totalCount + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">' + state.entries.length + '일 기록</div>' +
+        '</div>';
+      heroHtml += '</div>';
+
+      // Heatmap — last 14*7 = 98 days (14 columns × 7 rows), but responsive trims
+      heroHtml += buildHeatmapHtml();
+      heroHtml += '</div>';
+
+      // Controls: range tabs + tag chips
+      const allItems = [];
+      for (const e of state.entries) {
+        if (!filterByRange(e.date)) continue;
+        const secs = state.loadedSections[e.date];
+        if (secs) allItems.push(...itemsOfSections(secs));
+      }
+      const dist = tagDistribution(allItems);
+
+      let controlsHtml = '<div class="controls">';
+      controlsHtml += '<div class="tabs">';
+      const totalInRange = (r) => state.entries.reduce((acc, e) => {
+        const d = parseDate(e.date);
+        if (!d) return acc;
+        const today = todayKST();
+        if (r === 'week') {
+          const start = new Date(today); start.setDate(start.getDate() - 6);
+          if (d < start || d > today) return acc;
+        } else if (r === 'month') {
+          const start = new Date(today); start.setDate(start.getDate() - 29);
+          if (d < start || d > today) return acc;
+        }
+        return acc + (e.count || 0);
+      }, 0);
+      const tabDefs = [
+        { key: 'all', label: '전체', count: totalCount },
+        { key: 'week', label: '최근 7일', count: totalInRange('week') },
+        { key: 'month', label: '최근 30일', count: totalInRange('month') },
+      ];
+      for (const t of tabDefs) {
+        const active = t.key === state.range ? ' active' : '';
+        controlsHtml +=
+          '<button class="tab' + active + '" data-range="' + t.key + '">' +
+          t.label + '<span class="tab-count">' + t.count + '</span></button>';
+      }
+      controlsHtml += '</div>';
+
+      const tagKeys = Object.keys(dist);
+      if (tagKeys.length > 0) {
+        controlsHtml += '<div class="chip-scroll">';
+        controlsHtml += '<button class="chip' + (state.activeTag === null ? ' active' : '') + '" data-chip="">전체</button>';
+        for (const t of PROJECT_TAGS) {
+          if (!dist[t.cls]) continue;
+          const active = state.activeTag === t.cls ? ' active' : '';
+          controlsHtml +=
+            '<button class="chip' + active + '" data-chip="' + t.cls + '">' +
+            t.label + ' · ' + dist[t.cls] + '</button>';
+        }
+        controlsHtml += '</div>';
+      }
+      controlsHtml += '</div>';
+
+      // Sidebar entries filtered by range
+      let sideHtml = '<ul class="entry-list">';
+      let anyEntry = false;
+      for (const e of state.entries) {
+        if (!filterByRange(e.date)) continue;
+        anyEntry = true;
+        const active = e.date === state.currentDate ? ' active' : '';
+        const rel = relativeDay(e.date);
+        const tc = state.loadedTagCounts[e.date] || {};
+        const topTags = Object.entries(tc).sort((a, b) => b[1] - a[1]).slice(0, 3);
+        let tagsHtml = '';
+        for (const [cls, n] of topTags) {
+          const def = PROJECT_TAGS.find(x => x.cls === cls);
+          if (!def) continue;
+          tagsHtml += '<span class="entry-tag-mini ' + cls + '">' + def.label + '</span>';
+        }
+        sideHtml +=
+          '<li class="' + active.trim() + '" data-date="' + e.date + '">' +
+          '<div class="entry-head">' +
+          '<span class="entry-date">' + e.date + '</span>' +
+          '<span class="entry-rel">' + rel + '</span>' +
+          '</div>' +
+          '<div class="entry-count-row">' +
+          (e.count != null ? '<span class="entry-count-badge">' + e.count + '건</span>' : '') +
+          tagsHtml +
+          '</div>' +
+          '</li>';
+      }
+      sideHtml += '</ul>';
+      if (!anyEntry) {
+        sideHtml = '<div class="empty-day">이 범위에 기록이 없습니다.</div>';
+      }
+
+      // Content panel
+      let contentHtml = buildDayPanel();
+
+      viewEl.innerHTML =
+        heroHtml + controlsHtml +
+        '<div class="main-layout">' +
+        '<div class="sidebar">' + sideHtml + '</div>' +
+        '<div class="content-area"><div class="content">' + contentHtml + '</div></div>' +
+        '</div>';
+
+      bindEvents();
+    }
+
+    function filterByRange(dateStr) {
+      if (state.range === 'all') return true;
+      const d = parseDate(dateStr);
+      if (!d) return false;
+      const today = todayKST();
+      const days = state.range === 'week' ? 6 : 29;
+      const start = new Date(today); start.setDate(start.getDate() - days);
+      return d >= start && d <= today;
+    }
+
+    function buildHeatmapHtml() {
+      const today = todayKST();
+      const cols = 14;
+      const rows = 7;
+      const total = cols * rows;
+      // Build date cells ending at today
+      const cells = [];
+      for (let i = total - 1; i >= 0; i--) {
+        const d = new Date(today); d.setDate(d.getDate() - i);
+        const key = fmtDate(d);
+        const entry = state.entryMap[key];
+        const count = entry ? (entry.count || 0) : 0;
+        cells.push({ date: key, count, isToday: key === fmtDate(today) });
+      }
+      function level(n) {
+        if (n <= 0) return 0;
+        if (n <= 5) return 1;
+        if (n <= 15) return 2;
+        if (n <= 30) return 3;
+        return 4;
+      }
+      const startDate = cells[0].date;
+      const endDate = cells[cells.length - 1].date;
+      let html = '<div class="heatmap-wrap">';
+      html += '<div class="heatmap-title"><strong>최근 ' + total + '일 기여 히트맵</strong><span>' + startDate + ' ~ ' + endDate + '</span></div>';
+      html += '<div class="heatmap-grid">';
+      for (const c of cells) {
+        const lv = level(c.count);
+        const cls = 'heatmap-cell lv' + lv + (c.isToday ? ' today' : '');
+        const title = c.date + ' · ' + c.count + '건';
+        html += '<div class="' + cls + '" title="' + title + '" data-date="' + c.date + '"></div>';
+      }
+      html += '</div>';
+      html += '<div class="heatmap-legend"><span>Less</span><div class="heatmap-legend-cells">';
+      for (let i = 0; i <= 4; i++) {
+        html += '<div class="heatmap-cell heatmap-legend-cell lv' + i + '"></div>';
+      }
+      html += '</div><span>More</span></div>';
+      html += '</div>';
+      return html;
+    }
+
+    function buildDayPanel() {
+      const date = state.currentDate;
+      if (!date) return '<div class="empty-day">날짜를 선택해주세요.</div>';
+      const entry = state.entryMap[date];
+      const sections = state.loadedSections[date];
+      if (!sections) return '<div class="loading">불러오는 중…</div>';
+
+      const allItems = itemsOfSections(sections);
+      const total = allItems.length;
+      const dist = tagDistribution(allItems);
+      const distEntries = Object.entries(dist).sort((a, b) => b[1] - a[1]);
+
+      // Distribution bar
+      let distBarHtml = '';
+      if (distEntries.length > 0) {
+        distBarHtml = '<div class="dist-bar" title="카테고리 분포">';
+        for (const [cls, n] of distEntries) {
+          const pct = (n / total) * 100;
+          distBarHtml += '<div class="dist-seg ' + cls + '" style="width:' + pct + '%"></div>';
+        }
+        distBarHtml += '</div>';
+      }
+
+      let html = '';
+      html +=
+        '<div class="day-head">' +
+        '<div class="day-title">' + date + '</div>' +
+        '<span class="day-rel">' + relativeDay(date) + '</span>' +
+        '</div>';
+      html +=
+        '<div class="day-summary-line">' +
+        '<span class="day-total">총 <strong>' + total + '건</strong> 완료</span>' +
+        distBarHtml +
+        '</div>';
+      if (entry && entry.summary) {
+        html += '<div style="font-size:12px;color:#9e9e9e;margin-bottom:16px;">' + escapeHtml(entry.summary) + '</div>';
+      }
+
+      // Sections
+      for (const sec of sections) {
+        const visible = sec.items.filter(it => !state.activeTag || it.tags.indexOf(state.activeTag) !== -1);
+        const hideCls = visible.length === 0 ? ' hidden' : '';
+        html += '<h2' + hideCls + '>' + escapeHtml(sec.title) + '<span class="sec-count">' + visible.length + '</span></h2>';
+        html += '<ul>';
+        for (const it of sec.items) {
+          const hidden = state.activeTag && it.tags.indexOf(state.activeTag) === -1 ? ' class="hidden"' : '';
+          html += '<li' + hidden + '>' + escapeHtml(it.text) + '</li>';
+        }
+        html += '</ul>';
+      }
+
+      if (total === 0) html += '<div class="empty-day">이 날의 기록이 비어있습니다.</div>';
+
+      return html;
+    }
+
+    function bindEvents() {
+      viewEl.querySelectorAll('[data-range]').forEach(el => {
+        el.addEventListener('click', () => {
+          state.range = el.dataset.range;
+          render();
+        });
+      });
+      viewEl.querySelectorAll('[data-chip]').forEach(el => {
+        el.addEventListener('click', () => {
+          const v = el.dataset.chip;
+          state.activeTag = (v === '' || state.activeTag === v) ? null : v;
+          render();
+        });
+      });
+      viewEl.querySelectorAll('.entry-list [data-date]').forEach(el => {
+        el.addEventListener('click', () => {
+          const date = el.dataset.date;
+          if (state.currentDate === date) return;
+          loadDay(date);
+        });
+      });
+      viewEl.querySelectorAll('.heatmap-cell[data-date]').forEach(el => {
+        el.addEventListener('click', () => {
+          const date = el.dataset.date;
+          if (!state.entryMap[date]) return;
+          if (state.currentDate === date) return;
+          loadDay(date);
+        });
+      });
+    }
+
+    // Preload all sections in background so sidebar mini-tags + overall chips populate
+    async function preloadAll() {
+      for (const e of state.entries) {
+        if (state.loadedSections[e.date]) continue;
+        try {
+          const res = await fetch('./done/' + e.date + '.md?_=' + Date.now());
+          const text = await res.text();
+          const sections = parseDoneMd(text);
+          state.loadedSections[e.date] = sections;
+          state.loadedTagCounts[e.date] = tagDistribution(itemsOfSections(sections));
+        } catch (err) {
+          state.loadedSections[e.date] = null;
+          state.loadedTagCounts[e.date] = {};
+        }
+      }
+      render();
+    }
+
+    init().then(() => preloadAll());
   </script>
 </body>
 </html>
