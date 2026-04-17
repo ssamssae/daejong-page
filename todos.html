@@ -339,6 +339,17 @@
       return { cls: cls, label: label, date: deadlineStr, diff: diff };
     }
 
+    function relativeDay(dateStr) {
+      const d = parseDate(dateStr);
+      if (!d) return '';
+      const diff = Math.round((todayKST() - d) / 86400000);
+      if (diff === 0) return '오늘';
+      if (diff === 1) return '어제';
+      if (diff < 7) return diff + '일 전';
+      if (diff < 30) return Math.floor(diff / 7) + '주 전';
+      return Math.floor(diff / 30) + '달 전';
+    }
+
     function daysSince(dateStr) {
       const d = parseDate(dateStr);
       if (!d) return null;
@@ -438,12 +449,10 @@
       try {
         const res = await fetch('./todos/index.json?_=' + Date.now());
         const data = await res.json();
-        state.versions = (data.versions || []).slice().sort((a, b) => {
-          if (a.date !== b.date) return b.date.localeCompare(a.date);
-          return (b.version || '').localeCompare(a.version || '');
-        });
+        const raw = data.entries || data.versions || [];
+        state.versions = raw.slice().sort((a, b) => b.date.localeCompare(a.date));
         if (state.versions.length === 0) {
-          viewEl.innerHTML = '<div class="empty">버전이 없습니다.</div>';
+          viewEl.innerHTML = '<div class="empty">스냅샷이 없습니다.</div>';
           return;
         }
         await loadVersion(state.versions[0]);
@@ -559,7 +568,7 @@
           '<div class="hero-card">' +
           '<div class="hero-card-label">스냅샷</div>' +
           '<div class="hero-card-value" style="font-size:14px;">' + state.currentVersion.date + '</div>' +
-          '<div class="hero-card-sub">' + state.currentVersion.version + ' · 버전 ' + state.versions.length + '개</div>' +
+          '<div class="hero-card-sub">스냅샷 ' + state.versions.length + '개</div>' +
           '</div>';
       }
       heroHtml += '</div>';
@@ -682,10 +691,11 @@
         drawerHtml += '<div class="drawer-content">';
         for (const v of state.versions) {
           const active = v.file === state.currentVersion.file ? ' active' : '';
+          const rel = relativeDay(v.date);
           drawerHtml +=
             '<div class="snap-item' + active + '" data-file="' + v.file + '">' +
             '<span class="snap-date">' + v.date + '</span>' +
-            '<span class="snap-version">' + (v.version || '—') + '</span>' +
+            '<span class="snap-version">' + rel + '</span>' +
             '</div>';
         }
         drawerHtml += '</div></div>';
