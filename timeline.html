@@ -14,7 +14,7 @@
       padding: 32px 16px 80px;
       line-height: 1.7;
     }
-    .wrap { max-width: 640px; margin: 0 auto; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
     header {
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #2a2a2a;
@@ -26,64 +26,118 @@
       color: #9e9e9e; font-size: 14px; margin-bottom: 32px; padding: 16px 20px;
       background: #1a1a1a; border-radius: 12px; border-left: 3px solid #ffd54f;
     }
-    .timeline { position: relative; padding-left: 32px; }
-    .timeline::before {
-      content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px;
-      width: 2px; background: #2a2a2a;
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      margin-bottom: 28px;
     }
-    .event {
-      position: relative; margin-bottom: 28px;
-      opacity: 0; transform: translateY(20px);
-      animation: fadeUp 0.5s ease forwards;
+    .stat {
+      background: #1e1e1e; border-radius: 12px; padding: 16px 12px; text-align: center;
+      border: 1px solid #2a2a2a;
     }
-    .event:nth-child(1) { animation-delay: 0.1s; }
-    .event:nth-child(2) { animation-delay: 0.2s; }
-    .event:nth-child(3) { animation-delay: 0.3s; }
-    .event:nth-child(4) { animation-delay: 0.4s; }
-    .event:nth-child(5) { animation-delay: 0.5s; }
-    .event:nth-child(6) { animation-delay: 0.6s; }
-    .event:nth-child(7) { animation-delay: 0.7s; }
-    .event:nth-child(8) { animation-delay: 0.8s; }
-    .event:nth-child(9) { animation-delay: 0.9s; }
-    .event:nth-child(10) { animation-delay: 1.0s; }
-    .event:nth-child(11) { animation-delay: 1.1s; }
-    .event:nth-child(12) { animation-delay: 1.2s; }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
+    .stat-num { font-size: 26px; font-weight: 700; color: #ffd54f; line-height: 1; }
+    .stat-label { font-size: 11px; color: #999; margin-top: 6px; letter-spacing: 0.3px; }
+    @media (max-width: 560px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
     }
-    .dot {
-      position: absolute; left: -32px; top: 6px;
-      width: 22px; height: 22px; border-radius: 50%;
-      background: #2a2515; border: 2px solid #ffd54f;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; z-index: 1;
+
+    /* Heatmap */
+    .heatmap-card {
+      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px;
+      padding: 20px 20px 18px; margin-bottom: 28px; overflow-x: auto;
     }
-    .dot.major { background: #ffd54f; }
-    .dot.major span { filter: none; }
-    .event-date {
-      font-size: 12px; color: #ffd54f; font-weight: 600; margin-bottom: 4px;
+    .heatmap-title {
+      font-size: 13px; color: #9e9e9e; margin-bottom: 14px;
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .event-title { font-size: 16px; color: #e0e0e0; font-weight: 700; margin-bottom: 6px; }
-    .event-desc { font-size: 14px; color: #999; margin-bottom: 8px; }
-    .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .heatmap-title strong { color: #e0e0e0; font-size: 14px; }
+    .heatmap {
+      display: grid; grid-template-columns: 24px 1fr; gap: 4px;
+      min-width: 520px;
+    }
+    .heatmap-days {
+      display: grid; grid-template-rows: repeat(7, 12px); gap: 3px;
+      padding-top: 18px;
+    }
+    .heatmap-day-label {
+      font-size: 9px; color: #666; line-height: 12px; text-align: right; padding-right: 4px;
+    }
+    .heatmap-grid-wrap {
+      display: flex; flex-direction: column;
+    }
+    .heatmap-months {
+      display: flex; font-size: 9px; color: #666; height: 14px;
+      padding-bottom: 4px;
+    }
+    .heatmap-grid {
+      display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 12px);
+      gap: 3px;
+    }
+    .hm-cell {
+      width: 12px; height: 12px; border-radius: 3px; background: #1e1e1e;
+      border: 1px solid #252525; cursor: default;
+      transition: transform 0.1s;
+    }
+    .hm-cell:hover { transform: scale(1.3); border-color: #ffd54f; }
+    .hm-cell.lv1 { background: #3d2e00; border-color: #4a3800; }
+    .hm-cell.lv2 { background: #7a5c00; border-color: #8a6a00; }
+    .hm-cell.lv3 { background: #b38400; border-color: #c69400; }
+    .hm-cell.lv4 { background: #ffd54f; border-color: #ffdf7a; box-shadow: 0 0 6px rgba(255, 213, 79, 0.4); }
+    .heatmap-legend {
+      display: flex; align-items: center; gap: 6px; font-size: 10px; color: #666;
+      margin-top: 12px; justify-content: flex-end;
+    }
+    .heatmap-legend .hm-cell { cursor: default; }
+    .heatmap-legend .hm-cell:hover { transform: none; }
+
+    /* Milestones (major events highlight) */
+    .milestones {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px; margin-bottom: 28px;
+    }
+    .ms-card {
+      background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%);
+      border: 1px solid #3a2e00; border-radius: 12px;
+      padding: 16px; position: relative;
+    }
+    .ms-num {
+      position: absolute; top: 10px; right: 12px;
+      font-size: 28px; font-weight: 800; color: #ffd54f; opacity: 0.25; line-height: 1;
+    }
+    .ms-date { font-size: 11px; color: #ffd54f; font-weight: 600; margin-bottom: 4px; }
+    .ms-title { font-size: 14px; color: #e0e0e0; font-weight: 700; line-height: 1.4; }
+
+    /* Event list */
+    .section-title {
+      font-size: 14px; color: #e0e0e0; font-weight: 600; margin-bottom: 14px;
+      margin-top: 8px;
+    }
+    .events { display: flex; flex-direction: column; gap: 4px; }
+    .event-row {
+      display: grid; grid-template-columns: 90px 1fr auto;
+      gap: 12px; align-items: center; padding: 10px 14px;
+      background: #1a1a1a; border: 1px solid transparent; border-radius: 10px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .event-row:hover { border-color: #3a3a3a; background: #1e1e1e; }
+    .event-row.major { border-left: 3px solid #ffd54f; }
+    .er-date { font-size: 11px; color: #9e9e9e; font-weight: 600; }
+    .er-title { font-size: 13px; color: #e0e0e0; line-height: 1.5; }
+    .er-title strong { color: #fff; font-weight: 600; display: block; margin-bottom: 2px; }
+    .er-title span { color: #888; font-size: 12px; }
+    .er-tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
     .tag {
-      font-size: 11px; padding: 3px 10px; border-radius: 10px;
+      font-size: 10px; padding: 2px 7px; border-radius: 8px;
       background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a;
     }
     .tag.flutter { border-color: #4fc3f7; color: #4fc3f7; }
     .tag.ai { border-color: #ffd54f; color: #ffd54f; }
     .tag.web { border-color: #81c784; color: #81c784; }
     .tag.infra { border-color: #ce93d8; color: #ce93d8; }
-    .stats {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-      margin-bottom: 32px;
+    @media (max-width: 640px) {
+      .event-row { grid-template-columns: 70px 1fr; }
+      .er-tags { grid-column: 2; justify-content: flex-start; margin-top: 4px; }
     }
-    .stat {
-      background: #1e1e1e; border-radius: 12px; padding: 16px; text-align: center;
-      border: 1px solid #2a2a2a;
-    }
-    .stat-num { font-size: 28px; font-weight: 700; color: #ffd54f; }
-    .stat-label { font-size: 12px; color: #999; margin-top: 4px; }
+
     .back { display: inline-block; margin-top: 24px; color: #9e9e9e; text-decoration: none; font-size: 14px; }
     .back:hover { color: #ffd54f; }
   </style>
@@ -99,152 +153,184 @@
       2026년 4월, 코딩 한 줄 못 쓰던 85년생이 AI와 함께 개발을 시작했습니다. 이 페이지는 그 여정의 기록입니다.
     </div>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num" id="dayCount">0</div>
-        <div class="stat-label">개발 일수</div>
+    <div class="stats" id="stats"></div>
+
+    <div class="heatmap-card">
+      <div class="heatmap-title">
+        <strong>개발 활동 히트맵</strong>
+        <span id="activityHint">최근 이벤트 기반</span>
       </div>
-      <div class="stat">
-        <div class="stat-num">5</div>
-        <div class="stat-label">프로젝트</div>
+      <div class="heatmap">
+        <div class="heatmap-days" id="heatmapDays"></div>
+        <div class="heatmap-grid-wrap">
+          <div class="heatmap-months" id="heatmapMonths"></div>
+          <div class="heatmap-grid" id="heatmapGrid"></div>
+        </div>
       </div>
-      <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-label">출시 준비</div>
+      <div class="heatmap-legend">
+        <span>Less</span>
+        <span class="hm-cell"></span>
+        <span class="hm-cell lv1"></span>
+        <span class="hm-cell lv2"></span>
+        <span class="hm-cell lv3"></span>
+        <span class="hm-cell lv4"></span>
+        <span>More</span>
       </div>
     </div>
 
-    <div class="timeline">
+    <div class="section-title">주요 마일스톤</div>
+    <div class="milestones" id="milestones"></div>
 
-      <div class="event">
-        <div class="dot major"><span>1</span></div>
-        <div class="event-date">2026.04.11</div>
-        <div class="event-title">첫 번째 코드, 메모요 탄생</div>
-        <div class="event-desc">AI(Claude)와 대화하며 Flutter로 첫 앱을 만들기 시작했다. 다크테마 메모 앱 "메모요"가 태어난 날.</div>
-        <div class="tags">
-          <span class="tag flutter">Flutter</span>
-          <span class="tag ai">Claude AI</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot"></div>
-        <div class="event-date">2026.04.11</div>
-        <div class="event-title">개인 홈페이지 오픈</div>
-        <div class="event-desc">daejong-page v1.0.0 배포. 다크 카드 UI의 개인 소개 페이지를 GitHub Pages에 올렸다.</div>
-        <div class="tags">
-          <span class="tag web">HTML/CSS/JS</span>
-          <span class="tag">GitHub Pages</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot"></div>
-        <div class="event-date">2026.04.12</div>
-        <div class="event-title">4개 앱 병렬 개발 시작</div>
-        <div class="event-desc">메모요 크래시를 잡으면서 더치페이 계산기, 약먹자, 고독사방지 앱을 동시에 시작했다.</div>
-        <div class="tags">
-          <span class="tag flutter">Flutter</span>
-          <span class="tag">멀티 프로젝트</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot"></div>
-        <div class="event-date">2026.04.13</div>
-        <div class="event-title">약먹자 초기 커밋</div>
-        <div class="event-desc">복약 알림 앱 "약먹자" 저장소 생성. Claude Code 채널스(텔레그램 연동) 리서치도 진행.</div>
-        <div class="tags">
-          <span class="tag flutter">Flutter</span>
-          <span class="tag infra">텔레그램 봇</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot"></div>
-        <div class="event-date">2026.04.14</div>
-        <div class="event-title">메모요 UI 리디자인</div>
-        <div class="event-desc">메모요 전체 UI를 갈아엎었다. 텔레그램 봇 연동으로 모바일에서 원격 개발 가능해짐.</div>
-        <div class="tags">
-          <span class="tag flutter">Flutter</span>
-          <span class="tag infra">텔레그램 봇</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot major"><span>2</span></div>
-        <div class="event-date">2026.04.15</div>
-        <div class="event-title">메모요 출시 준비 돌입</div>
-        <div class="event-desc">패키지명 변경, UIPasteControl 이식, 메타데이터 작성, 1024 아이콘 생성, IPA 빌드를 하루에 끝냈다. 홈페이지 v1.2.0 버전업도 완료.</div>
-        <div class="tags">
-          <span class="tag flutter">Flutter</span>
-          <span class="tag">iOS</span>
-          <span class="tag">Android</span>
-          <span class="tag web">홈페이지 v1.2.0</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot"></div>
-        <div class="event-date">2026.04.15</div>
-        <div class="event-title">자동화 인프라 구축</div>
-        <div class="event-desc">작업일지 자동 생성 스킬, 할일 관리 스킬, 사이드프로젝트 브리핑 스킬 등 Claude Code 스킬 시스템을 대폭 정비했다.</div>
-        <div class="tags">
-          <span class="tag ai">Claude Code</span>
-          <span class="tag infra">자동화</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot"></div>
-        <div class="event-date">2026.04.15</div>
-        <div class="event-title">Apple App Store 심사 제출</div>
-        <div class="event-desc">메모요 iOS 버전을 App Store Connect에 제출했다. TestFlight 배포 중.</div>
-        <div class="tags">
-          <span class="tag">App Store</span>
-          <span class="tag">iOS</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot major"><span>3</span></div>
-        <div class="event-date">2026.04.16</div>
-        <div class="event-title">Google Play 비공개 테스트 제출</div>
-        <div class="event-desc">앱 설정 11/11 완료, 카테고리 "생산성" 선택, 비공개 테스트 버전을 Google에 검토 제출했다. 베타테스터 모집글 3종 작성.</div>
-        <div class="tags">
-          <span class="tag">Google Play</span>
-          <span class="tag">Android</span>
-          <span class="tag">베타 테스트</span>
-        </div>
-      </div>
-
-      <div class="event">
-        <div class="dot"></div>
-        <div class="event-date">2026.04.16</div>
-        <div class="event-title">홈페이지 v1.3.0 + 웹 프로젝트</div>
-        <div class="event-desc">할일 목록 페이지, 카카오톡 오픈채팅 버튼 추가. 더치페이 웹 계산기와 이 타임라인 페이지도 새로 만들었다.</div>
-        <div class="tags">
-          <span class="tag web">HTML/CSS/JS</span>
-          <span class="tag">포트폴리오</span>
-        </div>
-      </div>
-
-    </div>
+    <div class="section-title">전체 이벤트</div>
+    <div class="events" id="events"></div>
 
     <a class="back" href="./">← 홈으로 돌아가기</a>
   </div>
 
   <script>
-    const start = new Date('2026-04-11');
-    const now = new Date();
-    const days = Math.floor((now - start) / (1000 * 60 * 60 * 24)) + 1;
-    const el = document.getElementById('dayCount');
-    let count = 0;
-    const interval = setInterval(() => {
-      count++;
-      el.textContent = count;
-      if (count >= days) clearInterval(interval);
-    }, 80);
+    const events = [
+      { date: '2026-04-11', title: '첫 번째 코드, 메모요 탄생', desc: 'AI(Claude)와 대화하며 Flutter로 첫 앱을 만들기 시작했다.', tags: [['flutter','Flutter'],['ai','Claude AI']], major: 1 },
+      { date: '2026-04-11', title: '개인 홈페이지 오픈', desc: 'daejong-page v1.0.0 배포.', tags: [['web','HTML/CSS/JS'],['','GitHub Pages']] },
+      { date: '2026-04-12', title: '4개 앱 병렬 개발 시작', desc: '메모요 크래시를 잡으면서 더치페이, 약먹자, 고독사방지 앱 동시 착수.', tags: [['flutter','Flutter'],['','멀티 프로젝트']] },
+      { date: '2026-04-13', title: '약먹자 초기 커밋', desc: '복약 알림 앱 저장소 생성. 텔레그램 연동 리서치.', tags: [['flutter','Flutter'],['infra','텔레그램 봇']] },
+      { date: '2026-04-14', title: '메모요 UI 리디자인', desc: '전체 UI 리뉴얼. 모바일에서 원격 개발 환경 구축.', tags: [['flutter','Flutter'],['infra','텔레그램 봇']] },
+      { date: '2026-04-15', title: '메모요 출시 준비 돌입', desc: '패키지명 변경, UIPasteControl 이식, 메타데이터, 1024 아이콘, IPA 빌드까지 하루에.', tags: [['flutter','Flutter'],['','iOS'],['','Android'],['web','홈페이지 v1.2.0']], major: 2 },
+      { date: '2026-04-15', title: '자동화 인프라 구축', desc: '작업일지/할일/사이드프로젝트 브리핑 스킬 정비.', tags: [['ai','Claude Code'],['infra','자동화']] },
+      { date: '2026-04-15', title: 'Apple App Store 심사 제출', desc: '메모요 iOS 버전 App Store Connect 제출.', tags: [['','App Store'],['','iOS']] },
+      { date: '2026-04-16', title: 'Google Play 비공개 테스트 제출', desc: '앱 설정 11/11 완료, 카테고리 "생산성", 비공개 테스트 검토 제출.', tags: [['','Google Play'],['','Android'],['','베타 테스트']], major: 3 },
+      { date: '2026-04-16', title: '홈페이지 v1.3.0 + 웹 프로젝트', desc: '할일 페이지, 카카오톡 오픈채팅, 더치페이 계산기, 타임라인 페이지 추가.', tags: [['web','HTML/CSS/JS'],['','포트폴리오']] },
+      { date: '2026-04-17', title: 'Play Closed Testing 오픈 + 홈페이지 v1.4 개편', desc: '비공개 테스트 활성화, 베타테스터 모집 시작. 홈페이지 FAB 리디자인·포트폴리오 히어로 개편.', tags: [['','Google Play'],['web','홈페이지 v1.4'],['','베타 테스트']], major: 4 }
+    ];
+
+    function parseDate(s) {
+      var parts = s.split('-');
+      return new Date(+parts[0], +parts[1] - 1, +parts[2]);
+    }
+    function ymd(d) {
+      var y = d.getFullYear();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      var da = String(d.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + da;
+    }
+
+    // Stats
+    var startDate = parseDate('2026-04-11');
+    var today = new Date(); today.setHours(0,0,0,0);
+    var daysSinceStart = Math.floor((today - startDate) / 86400000) + 1;
+    var activeDaysSet = {};
+    events.forEach(function(e) { activeDaysSet[e.date] = true; });
+    var activeDays = Object.keys(activeDaysSet).length;
+    var totalEvents = events.length;
+    var majorCount = events.filter(function(e) { return e.major; }).length;
+
+    // longest streak of days with events
+    var sortedDates = Object.keys(activeDaysSet).sort();
+    var longestStreak = 0, currentStreak = 0, prev = null;
+    sortedDates.forEach(function(ds) {
+      var d = parseDate(ds);
+      if (prev && (d - prev) === 86400000) currentStreak++;
+      else currentStreak = 1;
+      if (currentStreak > longestStreak) longestStreak = currentStreak;
+      prev = d;
+    });
+
+    var statsEl = document.getElementById('stats');
+    statsEl.innerHTML =
+      '<div class="stat"><div class="stat-num" id="dayCount">0</div><div class="stat-label">개발 일수</div></div>' +
+      '<div class="stat"><div class="stat-num">' + totalEvents + '</div><div class="stat-label">총 이벤트</div></div>' +
+      '<div class="stat"><div class="stat-num">' + longestStreak + '</div><div class="stat-label">최장 연속일</div></div>' +
+      '<div class="stat"><div class="stat-num">' + majorCount + '</div><div class="stat-label">주요 마일스톤</div></div>';
+
+    // Animate day counter
+    var dayEl = document.getElementById('dayCount');
+    var c = 0;
+    var iv = setInterval(function() {
+      c++;
+      dayEl.textContent = c;
+      if (c >= daysSinceStart) clearInterval(iv);
+    }, 60);
+
+    // Heatmap — 12 weeks window ending on Saturday after today
+    var endDate = new Date(today);
+    // Move endDate to the Saturday of current week
+    endDate.setDate(endDate.getDate() + (6 - endDate.getDay()));
+    var totalWeeks = 12;
+    var totalCells = totalWeeks * 7;
+    var firstCellDate = new Date(endDate);
+    firstCellDate.setDate(firstCellDate.getDate() - (totalCells - 1));
+
+    // Align first cell to Sunday (should already be, since endDate is Saturday)
+    var eventCountByDate = {};
+    events.forEach(function(e) {
+      eventCountByDate[e.date] = (eventCountByDate[e.date] || 0) + 1;
+    });
+
+    var daysEl = document.getElementById('heatmapDays');
+    var dayLabels = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
+    daysEl.innerHTML = dayLabels.map(function(d) { return '<div class="heatmap-day-label">' + d + '</div>'; }).join('');
+
+    var gridEl = document.getElementById('heatmapGrid');
+    var monthsEl = document.getElementById('heatmapMonths');
+    var gridHtml = '';
+    var monthsHtml = '';
+    var lastMonthShown = -1;
+    for (var w = 0; w < totalWeeks; w++) {
+      var weekStartDate = new Date(firstCellDate);
+      weekStartDate.setDate(firstCellDate.getDate() + w * 7);
+      var m = weekStartDate.getMonth();
+      if (m !== lastMonthShown) {
+        monthsHtml += '<div style="width:' + (12 + 3) + 'px;flex-shrink:0">' + (m + 1) + '월</div>';
+        lastMonthShown = m;
+      } else {
+        monthsHtml += '<div style="width:' + (12 + 3) + 'px;flex-shrink:0"></div>';
+      }
+      for (var d = 0; d < 7; d++) {
+        var cellDate = new Date(firstCellDate);
+        cellDate.setDate(firstCellDate.getDate() + w * 7 + d);
+        var key = ymd(cellDate);
+        var count = eventCountByDate[key] || 0;
+        var isFuture = cellDate > today;
+        var isBeforeStart = cellDate < startDate;
+        var lvClass = '';
+        if (!isFuture && !isBeforeStart) {
+          if (count >= 4) lvClass = 'lv4';
+          else if (count >= 3) lvClass = 'lv3';
+          else if (count >= 2) lvClass = 'lv2';
+          else if (count >= 1) lvClass = 'lv1';
+        }
+        var titleAttr = key + (count > 0 ? ' · ' + count + '개 이벤트' : '');
+        gridHtml += '<div class="hm-cell ' + lvClass + '" title="' + titleAttr + '" style="grid-row:' + (d + 1) + ';grid-column:' + (w + 1) + '"></div>';
+      }
+    }
+    gridEl.innerHTML = gridHtml;
+    monthsEl.innerHTML = monthsHtml;
+
+    // Milestones
+    var msEl = document.getElementById('milestones');
+    var majors = events.filter(function(e) { return e.major; });
+    msEl.innerHTML = majors.map(function(e) {
+      return '<div class="ms-card">' +
+        '<div class="ms-num">' + e.major + '</div>' +
+        '<div class="ms-date">' + e.date.replace(/-/g, '.') + '</div>' +
+        '<div class="ms-title">' + e.title + '</div>' +
+      '</div>';
+    }).join('');
+
+    // Events list
+    var evEl = document.getElementById('events');
+    var sorted = events.slice().sort(function(a, b) {
+      return a.date === b.date ? 0 : (a.date < b.date ? 1 : -1);
+    });
+    evEl.innerHTML = sorted.map(function(e) {
+      var tagsHtml = e.tags.map(function(t) {
+        return '<span class="tag ' + t[0] + '">' + t[1] + '</span>';
+      }).join('');
+      return '<div class="event-row ' + (e.major ? 'major' : '') + '">' +
+        '<div class="er-date">' + e.date.replace(/-/g, '.') + '</div>' +
+        '<div class="er-title"><strong>' + e.title + '</strong><span>' + e.desc + '</span></div>' +
+        '<div class="er-tags">' + tagsHtml + '</div>' +
+      '</div>';
+    }).join('');
   </script>
 </body>
 </html>

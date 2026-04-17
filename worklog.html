@@ -15,46 +15,15 @@
       line-height: 1.7;
     }
     .wrap {
-      max-width: 1200px;
+      max-width: 720px;
       margin: 0 auto;
-    }
-    .main-layout {
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-    }
-    .sidebar {
-      width: 300px;
-      min-width: 300px;
-      max-height: calc(100vh - 140px);
-      overflow-y: auto;
-      position: sticky;
-      top: 32px;
-    }
-    .sidebar::-webkit-scrollbar { width: 4px; }
-    .sidebar::-webkit-scrollbar-track { background: transparent; }
-    .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-    .sidebar::-webkit-scrollbar-thumb:hover { background: #555; }
-    .content-area {
-      flex: 1;
-      min-width: 0;
-    }
-    @media (max-width: 768px) {
-      .main-layout {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        min-width: unset;
-        max-height: 240px;
-        position: static;
-      }
+      padding: 0 24px;
     }
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       padding-bottom: 16px;
       border-bottom: 1px solid #2a2a2a;
     }
@@ -69,75 +38,94 @@
       font-size: 14px;
     }
     header a:hover { color: #ffd54f; }
-    .entry-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+
+    .intro {
+      color: #9e9e9e; font-size: 14px; margin-bottom: 28px; padding: 14px 18px;
+      background: #1a1a1a; border-radius: 12px; border-left: 3px solid #ffd54f;
     }
-    .entry-list li {
-      background: #1e1e1e;
-      border-radius: 10px;
-      padding: 12px 16px;
-      cursor: pointer;
-      transition: background 0.2s;
+
+    .feed { display: flex; flex-direction: column; gap: 16px; }
+
+    .entry {
+      background: #1a1a1a;
       border: 1px solid #2a2a2a;
+      border-radius: 14px;
+      padding: 20px 22px;
+      transition: border-color 0.15s;
     }
-    .entry-list li:hover { background: #262626; }
-    .entry-list li.active {
-      background: #2a2515;
-      border-color: #ffd54f;
+    .entry:hover { border-color: #3a3a3a; }
+    .entry.today { border-color: #3a2e00; background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%); }
+
+    .entry-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
     }
+    .entry-date-wrap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .entry-date {
-      font-size: 12px;
-      color: #9e9e9e;
-      margin-bottom: 4px;
+      font-size: 13px; color: #ffd54f; font-weight: 700;
     }
-    .entry-title {
-      font-size: 16px;
-      color: #e0e0e0;
+    .entry-relative { font-size: 11px; color: #666; }
+    .entry-version {
+      font-size: 10px; color: #ffd54f;
+      background: rgba(255, 213, 79, 0.12);
+      padding: 3px 8px; border-radius: 10px;
+      border: 1px solid rgba(255, 213, 79, 0.3);
       font-weight: 600;
     }
-    .entry-version {
-      font-size: 11px;
-      color: #ffd54f;
-      background: #2a2515;
-      padding: 2px 8px;
-      border-radius: 10px;
+    .entry-title { font-size: 15px; color: #e0e0e0; font-weight: 600; line-height: 1.5; margin-bottom: 8px; }
+
+    .entry-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 12px; }
+    .tag {
+      font-size: 10px; padding: 2px 8px; border-radius: 8px;
+      background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a;
+    }
+    .tag.flutter { border-color: #4fc3f7; color: #4fc3f7; }
+    .tag.ai { border-color: #ffd54f; color: #ffd54f; }
+    .tag.web { border-color: #81c784; color: #81c784; }
+    .tag.infra { border-color: #ce93d8; color: #ce93d8; }
+    .tag.ios { border-color: #b0bec5; color: #b0bec5; }
+    .tag.android { border-color: #a5d6a7; color: #a5d6a7; }
+    .tag.release { border-color: #ffab91; color: #ffab91; }
+
+    .entry-body-wrap { position: relative; }
+    .entry-body {
+      font-size: 14px; color: #c0c0c0; line-height: 1.75;
+      white-space: pre-wrap; word-break: keep-all; overflow-wrap: break-word;
+      max-height: 140px; overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .entry-body.expanded { max-height: none; }
+    .entry-body::after {
+      content: ''; position: absolute; bottom: 36px; left: 0; right: 0; height: 40px;
+      background: linear-gradient(to bottom, transparent, #1a1a1a);
+      pointer-events: none;
+    }
+    .entry.today .entry-body::after { background: linear-gradient(to bottom, transparent, #1c1c1c); }
+    .entry-body.expanded::after { display: none; }
+
+    .entry-toggle {
       display: inline-block;
-      margin-left: 8px;
+      margin-top: 10px;
+      font-size: 12px; color: #ffd54f; cursor: pointer;
+      padding: 6px 14px; border: 1px solid rgba(255, 213, 79, 0.3);
+      border-radius: 10px; background: transparent;
+      transition: background 0.15s;
+      font-family: inherit;
     }
-    .content {
-      background: #1e1e1e;
-      border-radius: 16px;
-      padding: 32px 28px;
-      min-height: 200px;
-      white-space: pre-wrap;
-      word-break: keep-all;
-      overflow-wrap: break-word;
-      font-size: 15px;
-      color: #d0d0d0;
-    }
-    .content:empty::before {
-      content: "왼쪽 목록에서 작업일지를 선택해주세요.";
-      color: #666;
-    }
-    .content h1, .content h2, .content h3 {
-      color: #ffd54f;
-      margin-bottom: 12px;
-    }
-    .content h1 { font-size: 20px; }
-    .content p { margin-bottom: 12px; }
-    .back {
-      display: inline-block;
-      margin-top: 24px;
-      color: #9e9e9e;
-      text-decoration: none;
-      font-size: 14px;
-    }
+    .entry-toggle:hover { background: rgba(255, 213, 79, 0.1); }
+
+    .entry-link { font-size: 11px; color: #666; text-decoration: none; margin-left: 10px; }
+    .entry-link:hover { color: #ffd54f; }
+
+    .loading { color: #666; text-align: center; padding: 40px; font-size: 14px; }
+    .error { color: #ef5350; text-align: center; padding: 40px; font-size: 14px; }
+
+    .back { display: inline-block; margin-top: 28px; color: #9e9e9e; text-decoration: none; font-size: 14px; }
     .back:hover { color: #ffd54f; }
-    .loading { color: #666; font-style: italic; }
-    .error { color: #ef5350; }
   </style>
 </head>
 <body>
@@ -146,70 +134,197 @@
       <h1>작업일지</h1>
       <a href="./">← 홈으로</a>
     </header>
-    <div class="main-layout">
-      <div class="sidebar">
-        <ul class="entry-list" id="entries"></ul>
-      </div>
-      <div class="content-area">
-        <div class="content" id="content"></div>
-        <a class="back" href="./">← 홈으로 돌아가기</a>
-      </div>
+
+    <div class="feed" id="feed">
+      <div class="loading">불러오는 중…</div>
     </div>
+
+    <a class="back" href="./">← 홈으로 돌아가기</a>
   </div>
+
   <script>
-    const entriesEl = document.getElementById('entries');
-    const contentEl = document.getElementById('content');
-    let activeLi = null;
+    const feedEl = document.getElementById('feed');
 
-    async function loadIndex() {
-      try {
-        const res = await fetch('./worklog/index.json?_=' + Date.now());
-        const data = await res.json();
-        renderList(data.entries || []);
-      } catch (e) {
-        entriesEl.innerHTML = '<li class="error">작업일지 인덱스를 불러오지 못했습니다.</li>';
+    const TAG_KEYWORDS = {
+      'flutter': ['flutter','dart','위젯','안드로이드 앱','ios 앱','메모요','앱 빌드','빌드'],
+      'ios': ['iOS','TestFlight','App Store','Xcode','ipa','App Store Connect'],
+      'android': ['Android','Google Play','Play Console','aab','apk'],
+      'web': ['홈페이지','daejong-page','HTML','CSS','포트폴리오'],
+      'ai': ['Claude','AI','GPT','스킬'],
+      'infra': ['텔레그램','자동화','launchd','스킬','워커','인프라','Playwright'],
+      'release': ['출시','심사','제출','베타','베타테스터','Closed Testing','사전예약']
+    };
+
+    function detectTags(text) {
+      var found = {};
+      for (var key in TAG_KEYWORDS) {
+        var words = TAG_KEYWORDS[key];
+        for (var i = 0; i < words.length; i++) {
+          if (text.indexOf(words[i]) !== -1) { found[key] = true; break; }
+        }
       }
+      var order = ['flutter','ios','android','web','ai','infra','release'];
+      var labels = { flutter:'Flutter', ios:'iOS', android:'Android', web:'Web', ai:'AI', infra:'자동화', release:'출시' };
+      return order.filter(function(k) { return found[k]; }).map(function(k) { return { cls: k, label: labels[k] }; });
     }
 
-    function renderList(entries) {
-      entries.sort((a, b) => {
-        if (a.date !== b.date) return b.date.localeCompare(a.date);
-        return (b.version || '').localeCompare(a.version || '');
-      });
-      entriesEl.innerHTML = '';
-      for (const e of entries) {
-        const li = document.createElement('li');
-        li.innerHTML =
-          '<div class="entry-date">' + e.date + '</div>' +
-          '<div class="entry-title">' + escapeHtml(e.title || e.file) +
-          '<span class="entry-version">' + (e.version || '') + '</span></div>';
-        li.addEventListener('click', () => loadEntry(e, li));
-        entriesEl.appendChild(li);
-      }
-      if (entries.length > 0) {
-        const first = entriesEl.firstChild;
-        loadEntry(entries[0], first);
-      }
+    function relativeDate(dateStr) {
+      try {
+        var d = new Date(dateStr + 'T00:00:00');
+        var today = new Date(); today.setHours(0,0,0,0);
+        var diff = Math.round((today - d) / 86400000);
+        if (diff === 0) return '오늘';
+        if (diff === 1) return '어제';
+        if (diff < 7) return diff + '일 전';
+        if (diff < 30) return Math.floor(diff / 7) + '주 전';
+        return Math.floor(diff / 30) + '달 전';
+      } catch (e) { return ''; }
     }
 
-    async function loadEntry(entry, li) {
-      if (activeLi) activeLi.classList.remove('active');
-      li.classList.add('active');
-      activeLi = li;
-      contentEl.innerHTML = '<span class="loading">불러오는 중…</span>';
-      try {
-        const res = await fetch('./worklog/' + entry.file + '?_=' + Date.now());
-        const text = await res.text();
-        contentEl.textContent = text;
-      } catch (e) {
-        contentEl.innerHTML = '<span class="error">파일을 불러오지 못했습니다.</span>';
-      }
+    function extractFirstLine(text) {
+      var lines = text.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l; });
+      return lines[0] || '';
     }
 
     function escapeHtml(s) {
-      return (s || '').replace(/[&<>"']/g, c => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[c]));
+      return (s || '').replace(/[&<>"']/g, function(c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function versionKey(v) {
+      if (!v) return [0, 0, 0];
+      var m = /^v?(\d+)\.(\d+)\.(\d+)/.exec(v);
+      return m ? [+m[1], +m[2], +m[3]] : [0, 0, 0];
+    }
+
+    function pickLatestPerDate(entries) {
+      // Group by date, pick canonical per date:
+      //   1) an entry with no version (new YYYY-MM-DD.md) wins
+      //   2) otherwise highest version
+      var byDate = {};
+      entries.forEach(function(e) {
+        if (!byDate[e.date]) byDate[e.date] = [];
+        byDate[e.date].push(e);
+      });
+      var result = [];
+      Object.keys(byDate).forEach(function(date) {
+        var group = byDate[date];
+        var versionless = group.filter(function(e) { return !e.version || e.version === ''; });
+        var picked;
+        if (versionless.length > 0) {
+          picked = versionless[0];
+        } else {
+          group.sort(function(a, b) {
+            var ka = versionKey(a.version), kb = versionKey(b.version);
+            for (var i = 0; i < 3; i++) if (ka[i] !== kb[i]) return kb[i] - ka[i];
+            return 0;
+          });
+          picked = group[0];
+        }
+        picked._versionCount = group.length;
+        result.push(picked);
+      });
+      result.sort(function(a, b) { return b.date.localeCompare(a.date); });
+      return result;
+    }
+
+    async function loadIndex() {
+      try {
+        var res = await fetch('./worklog/index.json?_=' + Date.now());
+        var data = await res.json();
+        var entries = data.entries || [];
+        var filtered = pickLatestPerDate(entries);
+        renderFeed(filtered);
+      } catch (e) {
+        feedEl.innerHTML = '<div class="error">작업일지 인덱스를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    async function renderFeed(entries) {
+      if (entries.length === 0) {
+        feedEl.innerHTML = '<div class="loading">아직 작업일지가 없습니다.</div>';
+        return;
+      }
+      feedEl.innerHTML = '';
+      // Render placeholders with metadata first for instant layout
+      var nodes = [];
+      for (var i = 0; i < entries.length; i++) {
+        var e = entries[i];
+        var isToday = relativeDate(e.date) === '오늘';
+        var div = document.createElement('div');
+        div.className = 'entry' + (isToday ? ' today' : '');
+        var versionText = e.version ? escapeHtml(e.version) : '';
+        if (e._versionCount > 1) {
+          versionText += (versionText ? ' · ' : '') + e._versionCount + '개 버전';
+        }
+        div.innerHTML =
+          '<div class="entry-head">' +
+            '<div class="entry-date-wrap">' +
+              '<div class="entry-date">' + e.date + '</div>' +
+              '<div class="entry-relative">' + relativeDate(e.date) + '</div>' +
+            '</div>' +
+            (versionText ? '<span class="entry-version">' + versionText + '</span>' : '') +
+          '</div>' +
+          '<div class="entry-title">' + escapeHtml(e.title || '') + '</div>' +
+          '<div class="entry-tags"></div>' +
+          '<div class="entry-body-wrap">' +
+            '<div class="entry-body"><span class="loading" style="padding:0">본문 불러오는 중…</span></div>' +
+          '</div>';
+        feedEl.appendChild(div);
+        nodes.push({ div: div, entry: e, index: i });
+      }
+
+      // Load bodies in parallel
+      await Promise.all(nodes.map(function(n) {
+        return fetch('./worklog/' + n.entry.file + '?_=' + Date.now())
+          .then(function(r) { return r.text(); })
+          .then(function(text) { renderBody(n, text); })
+          .catch(function() {
+            n.div.querySelector('.entry-body').innerHTML = '<span class="error" style="padding:0">본문 로드 실패</span>';
+          });
+      }));
+    }
+
+    function renderBody(node, text) {
+      var e = node.entry;
+      var tags = detectTags(text);
+      var tagsEl = node.div.querySelector('.entry-tags');
+      tagsEl.innerHTML = tags.map(function(t) {
+        return '<span class="tag ' + t.cls + '">' + t.label + '</span>';
+      }).join('');
+
+      var bodyEl = node.div.querySelector('.entry-body');
+      bodyEl.textContent = text;
+
+      // Add toggle button if body is long
+      setTimeout(function() {
+        var scrollHeight = bodyEl.scrollHeight;
+        var clientHeight = bodyEl.clientHeight;
+        if (scrollHeight > clientHeight + 10) {
+          var btn = document.createElement('button');
+          btn.className = 'entry-toggle';
+          btn.textContent = '전체 보기 ↓';
+          btn.onclick = function() {
+            var expanded = bodyEl.classList.toggle('expanded');
+            btn.textContent = expanded ? '접기 ↑' : '전체 보기 ↓';
+          };
+          node.div.appendChild(btn);
+          var link = document.createElement('a');
+          link.className = 'entry-link';
+          link.href = 'https://github.com/ssamssae/daejong-page/blob/main/worklog/' + e.file;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = 'GitHub ↗';
+          node.div.appendChild(link);
+        }
+        // Auto-expand first (most recent) entry
+        if (node.index === 0) {
+          bodyEl.classList.add('expanded');
+          var btn2 = node.div.querySelector('.entry-toggle');
+          if (btn2) btn2.textContent = '접기 ↑';
+        }
+      }, 0);
     }
 
     loadIndex();
