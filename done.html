@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>완료 - 강대종</title>
+  <meta name="description" content="강대종이 매일 실제로 완료한 것들의 체크리스트.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    header h1 { font-size: 22px; color: #ffd54f; font-weight: 700; }
+    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #ffd54f; }
+    .intro {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      color: #b0b0b0;
+      font-size: 13px;
+    }
+    .intro a { color: #ffd54f; }
+    .day-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      border: 1px solid #2a2a2a;
+    }
+    .day-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #333;
+    }
+    .day-date {
+      font-size: 16px;
+      color: #ffd54f;
+      font-weight: 700;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+    }
+    .day-count {
+      font-size: 12px;
+      color: #888;
+    }
+    .day-summary {
+      color: #b0b0b0;
+      font-size: 13px;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+    .day-body { font-size: 14px; line-height: 1.8; }
+    .day-body h2 {
+      font-size: 14px;
+      color: #ffd54f;
+      margin: 14px 0 6px;
+      font-weight: 600;
+    }
+    .day-body h2:first-child { margin-top: 0; }
+    .day-body ul { list-style: none; padding-left: 0; }
+    .day-body li {
+      padding: 2px 0 2px 26px;
+      position: relative;
+      color: #c0c0c0;
+    }
+    .day-body li::before {
+      content: "✓";
+      position: absolute;
+      left: 4px;
+      top: 2px;
+      color: #4caf50;
+      font-weight: 700;
+    }
+    .empty {
+      text-align: center;
+      padding: 48px 16px;
+      color: #6e6e6e;
+    }
+    .loading { text-align: center; padding: 40px; color: #9e9e9e; }
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #2a2a2a;
+      color: #6e6e6e;
+      font-size: 12px;
+      text-align: center;
+    }
+    footer a { color: #9e9e9e; text-decoration: none; }
+    footer a:hover { color: #ffd54f; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>✅ 완료</h1>
+      <a href="./index.html">← 홈으로</a>
+    </header>
+
+    <div class="intro">
+      매일 실제로 끝낸 일들의 체크리스트. <a href="./worklog.html">작업일지</a> 가 산문체 상세 기록이라면, 여기는 한 눈에 파악하는 담백한 리스트다.
+    </div>
+
+    <div id="list" class="loading">불러오는 중...</div>
+
+    <footer>
+      <a href="./index.html">홈</a>
+      · <a href="./worklog.html">작업일지</a>
+      · <a href="./todos.html">할일</a>
+    </footer>
+  </div>
+
+  <script>
+    async function load() {
+      const listEl = document.getElementById("list");
+      try {
+        const idx = await fetch("./done/index.json?t=" + Date.now()).then(r => r.json());
+        const entries = (idx.entries || []).slice().sort((a, b) => (a.date < b.date ? 1 : -1));
+        if (!entries.length) {
+          listEl.innerHTML = '<div class="empty">아직 기록이 없어요.</div>';
+          return;
+        }
+        const htmls = await Promise.all(
+          entries.map(async e => {
+            const md = await fetch("./done/" + e.file + "?t=" + Date.now()).then(r => r.text());
+            return render(e, md);
+          })
+        );
+        listEl.innerHTML = htmls.join("");
+      } catch (err) {
+        listEl.innerHTML = '<div class="empty">불러오기 실패: ' + err.message + '</div>';
+      }
+    }
+
+    function render(entry, md) {
+      const lines = md.split(/\r?\n/);
+      const body = [];
+      for (const raw of lines) {
+        const line = raw.trim();
+        if (!line || line.startsWith("# ")) continue;
+        if (line.startsWith("## ")) {
+          body.push('</ul><h2>' + escape(line.slice(3).trim()) + '</h2><ul>');
+        } else if (line.startsWith("- [x] ") || line.startsWith("- [ ] ")) {
+          body.push('<li>' + escape(line.slice(6).trim()) + '</li>');
+        } else if (line.startsWith("- ")) {
+          body.push('<li>' + escape(line.slice(2).trim()) + '</li>');
+        }
+      }
+      const bodyHtml = body.join("").replace(/^<\/ul>/, "") + "</ul>";
+      return (
+        '<div class="day-card">' +
+        '<div class="day-header">' +
+        '<div class="day-date">' + escape(entry.date) + '</div>' +
+        '<div class="day-count">' + (entry.count || "") + '건</div>' +
+        '</div>' +
+        (entry.summary ? '<div class="day-summary">' + escape(entry.summary) + '</div>' : "") +
+        '<div class="day-body"><ul>' + bodyHtml + '</div>' +
+        '</div>'
+      );
+    }
+
+    function escape(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[c]));
+    }
+
+    load();
+  </script>
+</body>
+</html>
