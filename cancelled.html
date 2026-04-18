@@ -69,6 +69,15 @@
       margin-left: auto; font-size: 11px; color: #666;
     }
 
+    .date-group.empty-day .date-label { color: #6a6a6a; }
+    .date-group.empty-day .date-count { color: #555; }
+    .empty-day-note {
+      font-size: 12px; color: #555;
+      padding: 8px 14px;
+      background: #141414; border: 1px dashed #2a2a2a;
+      border-radius: 10px;
+    }
+
     .cancelled-item {
       background: #1a1a1a; border: 1px solid #2a2a2a;
       border-radius: 12px; padding: 14px 16px;
@@ -298,33 +307,56 @@
       }
       html += '</div>';
 
+      // Build full date range (earliest cancel date ~ today) so gap days render as "없음"
+      const datedOnly = sortedDates.filter(d => d !== '날짜없음');
+      const timelineDates = [];
+      if (datedOnly.length > 0) {
+        const earliest = datedOnly[datedOnly.length - 1]; // ascending-min
+        const todayStr = new Date().toISOString().slice(0, 10);
+        const endStr = todayStr >= datedOnly[0] ? todayStr : datedOnly[0];
+        const cur = new Date(earliest + 'T00:00:00');
+        const end = new Date(endStr + 'T00:00:00');
+        while (cur <= end) {
+          timelineDates.push(cur.toISOString().slice(0, 10));
+          cur.setDate(cur.getDate() + 1);
+        }
+        timelineDates.reverse(); // newest first
+      }
+      // Append 날짜없음 group last if any
+      if (groups['날짜없음']) timelineDates.push('날짜없음');
+
       html += '<div class="timeline">';
-      for (const date of sortedDates) {
-        const group = groups[date];
+      for (const date of timelineDates) {
+        const group = groups[date] || [];
         const dateLabel = (date === '날짜없음') ? '날짜 미상' : date;
         const rel = (date === '날짜없음') ? '' : relativeDay(date);
-        html += '<div class="date-group">';
+        const isEmpty = group.length === 0;
+        html += '<div class="date-group' + (isEmpty ? ' empty-day' : '') + '">';
         html +=
           '<div class="date-head">' +
           '<span class="date-label">' + dateLabel + '</span>' +
           (rel ? '<span class="date-rel">· ' + rel + '</span>' : '') +
-          '<span class="date-count">' + group.length + '건</span>' +
+          '<span class="date-count">' + (isEmpty ? '없음' : group.length + '건') + '</span>' +
           '</div>';
-        for (const it of group) {
-          html += '<div class="cancelled-item">';
-          html +=
-            '<div class="item-head">' +
-            '<div class="item-icon"></div>' +
-            '<div class="item-title">' + escapeHtml(it.title) + '</div>' +
-            '</div>';
-          if (it.reason) {
+        if (isEmpty) {
+          html += '<div class="empty-day-note">이 날 취소·보류한 할일 없음</div>';
+        } else {
+          for (const it of group) {
+            html += '<div class="cancelled-item">';
             html +=
-              '<div class="item-reason">' +
-              '<span class="item-reason-label">사유</span>' +
-              escapeHtml(it.reason) +
+              '<div class="item-head">' +
+              '<div class="item-icon"></div>' +
+              '<div class="item-title">' + escapeHtml(it.title) + '</div>' +
               '</div>';
+            if (it.reason) {
+              html +=
+                '<div class="item-reason">' +
+                '<span class="item-reason-label">사유</span>' +
+                escapeHtml(it.reason) +
+                '</div>';
+            }
+            html += '</div>';
           }
-          html += '</div>';
         }
         html += '</div>';
       }
