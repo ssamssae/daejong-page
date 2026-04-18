@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-18.md",
+      "date": "2026-04-18",
+      "summary": "daejong-page 대개편 + todos/done 대시보드 + 보류·취소 페이지 신설 + /review-status-check /morning-briefing 스킬",
+      "count": 18,
+      "updated": "2026-04-19T07:33:00+09:00"
+    },
+    {
       "file": "2026-04-17.md",
       "date": "2026-04-17",
       "summary": "인프라 대수술 + 홈페이지/스킬 공개 체계 + /done 스킬 신설 + 베타 모집글 v2 + 스크린샷 3장",
