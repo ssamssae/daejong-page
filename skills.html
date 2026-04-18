@@ -150,15 +150,15 @@
       </div>
 
       <div class="card">
-        <div class="card-header"><span class="card-name">/morning-reporter</span><span class="card-tag">아침 7:10</span></div>
-        <div class="card-desc">매일 아침 일일업무 브리핑. 어제 커밋 요약 + 오늘 할일 + 주요 뉴스 + 주식/코스피. 텔레그램 전송.</div>
+        <div class="card-header"><span class="card-name">/morning-briefing</span><span class="card-tag">아침 7:15</span></div>
+        <div class="card-desc">매일 아침 통합 브리핑. 날씨·미세먼지 + 어제 커밋·오늘 할일·블로커 + 뉴스·주식 + 사이드 프로젝트 픽을 <b>단일 세션·단일 메시지</b>로 전달. 기존 3개 스킬 통합 버전.</div>
         <div class="card-links">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/morning-reporter/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/morning-briefing/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header"><span class="card-name">/todo-reminder</span><span class="card-tag">아침 7:12</span></div>
+        <div class="card-header"><span class="card-name">/todo-reminder</span><span class="card-tag">밤 22:00</span></div>
         <div class="card-desc">매일 저녁 리마인더. 오늘 뭐 했고 뭐 못 했나 + 내일 우선순위 TOP 3 제안. 텔레그램 전송.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/todo-reminder/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
@@ -166,16 +166,24 @@
       </div>
 
       <div class="card">
-        <div class="card-header"><span class="card-name">/weather-dust</span><span class="card-tag">아침 7:14</span></div>
-        <div class="card-desc">매일 아침 서울 날씨 + 미세먼지. 마스크·우산·옷차림 한 줄평까지. 텔레그램 전송.</div>
+        <div class="card-header"><span class="card-name">/morning-reporter</span><span class="card-tag">수동 전용</span></div>
+        <div class="card-desc">어제 커밋 요약 + 오늘 할일 + 블로커만 따로 보고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/morning-reporter/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><span class="card-name">/weather-dust</span><span class="card-tag">수동 전용</span></div>
+        <div class="card-desc">서울 날씨 + 미세먼지만 따로 확인하고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/weather-dust/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header"><span class="card-name">/side-project-briefing</span><span class="card-tag">아침 7:16</span></div>
-        <div class="card-desc">매일 아침 웹 리서치 기반 사이드 프로젝트 아이디어 3~5개 큐레이션 + 오늘의 픽 1개. 파일 저장 + 텔레그램.</div>
+        <div class="card-header"><span class="card-name">/side-project-briefing</span><span class="card-tag">수동 전용</span></div>
+        <div class="card-desc">사이드 프로젝트 아이디어 상세 브리핑(파일 저장 포함)만 따로 받고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/side-project-briefing/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
