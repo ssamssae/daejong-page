@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-19.md",
+      "date": "2026-04-19",
+      "summary": "메모요 Android 선택 박스 2톤 이슈 해결 + 상단 버튼 전면 정리 + APK 16.7MB 최적화 + 세부조정 3종 완료",
+      "count": 12,
+      "updated": "2026-04-19T08:43:00+09:00"
+    },
+    {
       "file": "2026-04-18.md",
       "date": "2026-04-18",
       "summary": "daejong-page 대개편 + todos/done 대시보드 + 보류·취소 페이지 신설 + /review-status-check /morning-briefing 스킬",
