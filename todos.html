@@ -662,7 +662,12 @@
       // Todo list
       let listHtml = '<div class="todo-list">';
       if (items.length === 0) {
-        listHtml += '<div class="empty">조건에 맞는 항목이 없습니다.</div>';
+        let emptyMsg;
+        if (state.tab === 'hold') emptyMsg = '이 날짜엔 보류·취소된 항목이 없습니다.';
+        else if (state.tab === 'ideas') emptyMsg = '이 날짜엔 기록된 아이디어가 없습니다.';
+        else if (state.activeTag) emptyMsg = '조건에 맞는 항목이 없습니다.';
+        else emptyMsg = '해당 탭에 항목이 없습니다.';
+        listHtml += '<div class="empty">' + emptyMsg + '</div>';
       } else {
         for (const it of items) {
           const cls = 'todo' + (it.isPriority ? ' priority' : '') + (it.isDone ? ' done' : '');
