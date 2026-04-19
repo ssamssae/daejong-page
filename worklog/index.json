@@ -48,6 +48,13 @@
       "updated": "2026-04-19T20:38:00+09:00"
     },
     {
+      "file": "2026-04-18_v1.0.0.md",
+      "date": "2026-04-18",
+      "version": "v1.0.0",
+      "title": "홈페이지 UI 대대적 개편 + 대시보드 3종(todos/done/cancelled) + /review-status-check·/morning-briefing 스킬 신규",
+      "updated": "2026-04-19T20:54:00+09:00"
+    },
+    {
       "file": "2026-04-17.md",
       "date": "2026-04-17",
       "title": "메모요 1.0.2+19 Play Alpha 업로드 + 홈페이지 UI 대개편 + 스킬 3개 일관성 정리",
