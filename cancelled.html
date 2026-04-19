@@ -307,16 +307,20 @@
       }
       html += '</div>';
 
-      // Build full date range (earliest cancel date ~ today) so gap days render as "없음"
+      // Build full date range (프로젝트 시작일 ~ today) so gap days render as "없음"
       // Use UTC-anchored iteration to avoid local-TZ drift (KST pushed everything -1 day before).
+      // 프로젝트 시작일(2026-04-11) 기준으로 iterate — 첫 취소 이전 날짜도 "없음" 으로 노출
+      const PROJECT_START = '2026-04-11';
       const datedOnly = sortedDates.filter(d => d !== '날짜없음');
       const timelineDates = [];
-      if (datedOnly.length > 0) {
-        const earliest = datedOnly[datedOnly.length - 1]; // ascending-min
+      {
+        const earliestCancel = datedOnly.length > 0 ? datedOnly[datedOnly.length - 1] : PROJECT_START;
+        const earliest = earliestCancel < PROJECT_START ? earliestCancel : PROJECT_START;
         // Use KST "today" (homepage is a KST-only site)
         const nowKst = new Date(Date.now() + 9 * 3600 * 1000);
         const todayStr = nowKst.toISOString().slice(0, 10);
-        const endStr = todayStr >= datedOnly[0] ? todayStr : datedOnly[0];
+        const latestCancel = datedOnly.length > 0 ? datedOnly[0] : PROJECT_START;
+        const endStr = todayStr >= latestCancel ? todayStr : latestCancel;
         const cur = new Date(earliest + 'T00:00:00Z');
         const end = new Date(endStr + 'T00:00:00Z');
         while (cur <= end) {
