@@ -619,8 +619,9 @@
         { key: 'done', label: '완료', count: doneCount },
         { key: 'all', label: '전체', count: total },
       ];
-      if (s.ideas.length > 0) tabDefs.push({ key: 'ideas', label: '아이디어', count: s.ideas.length });
-      if (s.hold.length > 0) tabDefs.push({ key: 'hold', label: '보류', count: s.hold.length });
+      // 보류·아이디어 탭은 빈 스냅샷에서도 '없음(0)' 으로 항상 노출 — 4/11 처럼 초창기 날짜도 구조 일관성 유지
+      tabDefs.push({ key: 'hold', label: '보류', count: s.hold.length });
+      tabDefs.push({ key: 'ideas', label: '아이디어', count: s.ideas.length });
       for (const t of tabDefs) {
         const active = t.key === state.tab ? ' active' : '';
         controlsHtml +=
