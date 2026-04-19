@@ -121,6 +121,16 @@
     .entry-link { font-size: 11px; color: #666; text-decoration: none; margin-left: 10px; }
     .entry-link:hover { color: #ffd54f; }
 
+    .entry-view {
+      display: inline-block;
+      margin-top: 10px; margin-left: 6px;
+      font-size: 12px; color: #ffd54f; text-decoration: none;
+      padding: 6px 14px; border: 1px solid rgba(255, 213, 79, 0.3);
+      border-radius: 10px; background: transparent;
+      transition: background 0.15s;
+    }
+    .entry-view:hover { background: rgba(255, 213, 79, 0.1); }
+
     .loading { color: #666; text-align: center; padding: 40px; font-size: 14px; }
     .error { color: #ef5350; text-align: center; padding: 40px; font-size: 14px; }
 
@@ -270,7 +280,8 @@
           '<div class="entry-tags"></div>' +
           '<div class="entry-body-wrap">' +
             '<div class="entry-body"><span class="loading" style="padding:0">본문 불러오는 중…</span></div>' +
-          '</div>';
+          '</div>' +
+          '<a class="entry-view" href="./worklog/view.html?file=' + encodeURIComponent(e.file) + '">산문체로 보기 →</a>';
         feedEl.appendChild(div);
         nodes.push({ div: div, entry: e, index: i });
       }
