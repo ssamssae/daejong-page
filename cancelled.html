@@ -308,17 +308,20 @@
       html += '</div>';
 
       // Build full date range (earliest cancel date ~ today) so gap days render as "없음"
+      // Use UTC-anchored iteration to avoid local-TZ drift (KST pushed everything -1 day before).
       const datedOnly = sortedDates.filter(d => d !== '날짜없음');
       const timelineDates = [];
       if (datedOnly.length > 0) {
         const earliest = datedOnly[datedOnly.length - 1]; // ascending-min
-        const todayStr = new Date().toISOString().slice(0, 10);
+        // Use KST "today" (homepage is a KST-only site)
+        const nowKst = new Date(Date.now() + 9 * 3600 * 1000);
+        const todayStr = nowKst.toISOString().slice(0, 10);
         const endStr = todayStr >= datedOnly[0] ? todayStr : datedOnly[0];
-        const cur = new Date(earliest + 'T00:00:00');
-        const end = new Date(endStr + 'T00:00:00');
+        const cur = new Date(earliest + 'T00:00:00Z');
+        const end = new Date(endStr + 'T00:00:00Z');
         while (cur <= end) {
           timelineDates.push(cur.toISOString().slice(0, 10));
-          cur.setDate(cur.getDate() + 1);
+          cur.setUTCDate(cur.getUTCDate() + 1);
         }
         timelineDates.reverse(); // newest first
       }
