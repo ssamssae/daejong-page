@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-20_v1.0.1.md",
+      "date": "2026-04-20",
+      "version": "v1.0.1",
+      "title": "WSL 야간 자동 개발로 앱 2개(한컵·mini_expense) 완성 + 자동화 2개(Dev Trend Curator·flutter-factory) 구축 + 메모리 3건",
+      "updated": "2026-04-20T08:45:00+09:00"
+    },
+    {
       "file": "2026-04-20_v1.0.0.md",
       "date": "2026-04-20",
       "version": "v1.0.0",
