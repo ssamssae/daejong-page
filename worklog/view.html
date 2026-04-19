@@ -109,9 +109,15 @@
     var githubLink = document.getElementById('githubLink');
 
     function parseFileName(name) {
-      var m = /^(\d{4}-\d{2}-\d{2})(?:_(v\d+\.\d+\.\d+)|_legacy)?\.md$/.exec(name);
+      var m = /^(\d{4}-\d{2}-\d{2})(?:_(v\d+\.\d+\.\d+|legacy))?\.md$/.exec(name);
       if (!m) return null;
       return { date: m[1], version: m[2] || '' };
+    }
+
+    function versionLabel(v) {
+      if (v === 'legacy') return 'legacy';
+      if (!v) return '최신';
+      return v;
     }
 
     async function loadVersionNav(date, currentFile) {
@@ -123,12 +129,17 @@
         entries.sort(function(a, b) {
           var va = a.version || '';
           var vb = b.version || '';
+          // 통합(최신) 먼저
           if (va === '' && vb !== '') return -1;
           if (vb === '' && va !== '') return 1;
-          return va.localeCompare(vb);
+          // legacy 는 맨 뒤
+          if (va === 'legacy' && vb !== 'legacy') return 1;
+          if (vb === 'legacy' && va !== 'legacy') return -1;
+          // 나머지 v-번호는 내림차순 (최신이 앞)
+          return vb.localeCompare(va);
         });
         versionNavEl.innerHTML = entries.map(function(e) {
-          var label = e.version || 'legacy';
+          var label = versionLabel(e.version || '');
           var active = e.file === currentFile ? ' active' : '';
           return '<a class="' + active.trim() + '" href="?file=' + encodeURIComponent(e.file) + '">' + label + '</a>';
         }).join('');
@@ -157,7 +168,7 @@
         var firstLine = text.split('\n').map(function(l) { return l.trim(); }).filter(function(l) { return l; })[0] || '';
         var firstParagraph = text.split('\n\n').map(function(p) { return p.trim(); }).filter(function(p) { return p; })[1] || '';
         metaTitleEl.textContent = firstParagraph.slice(0, 80) + (firstParagraph.length > 80 ? '…' : '');
-        metaVersionEl.textContent = parsed.version || 'legacy';
+        metaVersionEl.textContent = versionLabel(parsed.version);
         metaEl.style.display = 'flex';
 
         bodyEl.textContent = text;
