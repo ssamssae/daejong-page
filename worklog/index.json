@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-19_v1.0.4.md",
+      "date": "2026-04-19",
+      "version": "v1.0.4",
+      "title": "/merge-janitor 스킬 구축 + janitor 첫 실전 PR 2건(dutchpay#1·memoyo#1) + 머지 기본전략 --merge 확정",
+      "updated": "2026-04-19T19:38:00+09:00"
+    },
+    {
       "file": "2026-04-19_v1.0.3.md",
       "date": "2026-04-19",
       "version": "v1.0.3",
