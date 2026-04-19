@@ -3,9 +3,9 @@
     {
       "file": "2026-04-19.md",
       "date": "2026-04-19",
-      "summary": "메모요 + 더치페이 1.0.2+4 정식화 + APK 41→14MB + /merge-janitor 스킬 신설 + janitor 첫 실전 PR 2건(dutchpay#1·memoyo#1) + 훅 race fix + 크로스디바이스 SSH",
-      "count": 54,
-      "updated": "2026-04-19T19:40:00+09:00"
+      "summary": "메모요 + 더치페이 정식화 + 약먹자 출시 준비 대거 + /merge-janitor 스킬 + janitor 첫 실전 PR 2건 + 훅 race fix + 크로스디바이스 SSH + globals 분리",
+      "count": 72,
+      "updated": "2026-04-19T23:30:00+09:00"
     },
     {
       "file": "2026-04-18.md",
