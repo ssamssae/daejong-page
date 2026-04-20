@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-20_v1.0.3.md",
+      "date": "2026-04-20",
+      "version": "v1.0.3",
+      "title": "/issues 공개 페이지 신설 + 이슈 9건 소급 + /worklog·/done 0단계 라우팅 + /land signing team·Bundle ID 자동화 내장 + 바이브코딩 뉴스레터 Ep.1 발행",
+      "updated": "2026-04-20T18:25:00+09:00"
+    },
+    {
       "file": "2026-04-20_v1.0.2.md",
       "date": "2026-04-20",
       "version": "v1.0.2",
