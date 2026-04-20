@@ -142,6 +142,15 @@
       border-radius: 8px; font-size: 12px; color: #ffab91;
     }
 
+    .date-group.empty-day .date-label { color: #6a6a6a; }
+    .date-group.empty-day .date-count { color: #555; }
+    .empty-day-note {
+      font-size: 12px; color: #555;
+      padding: 8px 14px;
+      background: #141414; border: 1px dashed #2a2a2a;
+      border-radius: 10px;
+    }
+
     .empty {
       color: #666; text-align: center; padding: 60px 20px; font-size: 14px;
       background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px;
@@ -393,19 +402,47 @@
         '</div>';
       html += '</div>';
 
+      // Build full date range (PROJECT_START ~ today KST) so empty days render as "없음".
+      // UTC anchor iteration to avoid local-TZ drift.
+      const PROJECT_START = '2026-04-11';
+      const datedOnly = sortedDates.filter(d => d !== '날짜없음');
+      const timelineDates = [];
+      {
+        const earliestWithIssue = datedOnly.length > 0 ? datedOnly[datedOnly.length - 1] : PROJECT_START;
+        const earliest = earliestWithIssue < PROJECT_START ? earliestWithIssue : PROJECT_START;
+        const nowKst = new Date(Date.now() + 9 * 3600 * 1000);
+        const todayStr = nowKst.toISOString().slice(0, 10);
+        const latestWithIssue = datedOnly.length > 0 ? datedOnly[0] : PROJECT_START;
+        const endStr = todayStr >= latestWithIssue ? todayStr : latestWithIssue;
+        const cur = new Date(earliest + 'T00:00:00Z');
+        const end = new Date(endStr + 'T00:00:00Z');
+        while (cur <= end) {
+          timelineDates.push(cur.toISOString().slice(0, 10));
+          cur.setUTCDate(cur.getUTCDate() + 1);
+        }
+        timelineDates.reverse();
+      }
+      if (groups['날짜없음']) timelineDates.push('날짜없음');
+
       html += '<div class="timeline">';
-      for (const date of sortedDates) {
-        const group = groups[date];
-        const rel = relativeDay(date);
-        html += '<div class="date-group">';
+      for (const date of timelineDates) {
+        const group = groups[date] || [];
+        const dateLabel = (date === '날짜없음') ? '날짜 미상' : date;
+        const rel = (date === '날짜없음') ? '' : relativeDay(date);
+        const isEmpty = group.length === 0;
+        html += '<div class="date-group' + (isEmpty ? ' empty-day' : '') + '">';
         html +=
           '<div class="date-head">' +
-          '<span class="date-label">' + escapeHtml(date) + '</span>' +
+          '<span class="date-label">' + escapeHtml(dateLabel) + '</span>' +
           (rel ? '<span class="date-rel">' + escapeHtml(rel) + '</span>' : '') +
-          '<span class="date-count">' + group.length + '건</span>' +
+          '<span class="date-count">' + (isEmpty ? '없음' : group.length + '건') + '</span>' +
           '</div>';
-        for (const it of group) {
-          html += renderIssueCard(it);
+        if (isEmpty) {
+          html += '<div class="empty-day-note">이 날은 기록된 이슈가 없습니다.</div>';
+        } else {
+          for (const it of group) {
+            html += renderIssueCard(it);
+          }
         }
         html += '</div>';
       }
