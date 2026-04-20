@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "file": "2026-04-20-irun-locked-iphone.md",
+      "date": "2026-04-20",
+      "slug": "irun-locked-iphone",
+      "title": "/irun 재배포 시 \"Could not run Runner.app\" 반복 — 실제 원인은 아이폰 잠금",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "/irun · /land 연쇄 호출 시 아이폰 잠금 상태 전부",
+      "occurred_at": "2026-04-20 20:48 KST",
+      "resolved_at": "2026-04-20 20:51 KST",
+      "updated": "2026-04-20T21:16:00+09:00"
+    },
+    {
+      "file": "2026-04-20-flutter-not-in-path.md",
+      "date": "2026-04-20",
+      "slug": "flutter-not-in-path",
+      "title": "flutter 명령 PATH 누락으로 APK 빌드 초기 실패",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "Claude Code Bash 도구로 실행되는 모든 Flutter 빌드",
+      "occurred_at": "2026-04-20 20:29 KST",
+      "resolved_at": "2026-04-20 20:31 KST",
+      "updated": "2026-04-20T21:16:00+09:00"
+    },
+    {
       "file": "2026-04-20-terminal-only-reply-missed-telegram.md",
       "date": "2026-04-20",
       "slug": "terminal-only-reply-missed-telegram",
