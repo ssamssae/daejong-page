@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>뉴스레터 - 강대종</title>
+  <meta name="description" content="바이브코딩 뉴스레터 — Claude Code 로 1인 앱 만드는 여정.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.85;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 28px; padding-bottom: 16px;
+      border-bottom: 1px solid #2a2a2a; gap: 12px; flex-wrap: wrap;
+    }
+    header h1 { font-size: 20px; color: #ffd54f; font-weight: 700; }
+    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #ffd54f; }
+    .meta {
+      font-size: 13px; color: #9e9e9e; margin-bottom: 24px;
+      padding: 14px 18px; background: #1a1a1a; border-radius: 10px;
+      border-left: 3px solid #ffd54f;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .meta .ep-no {
+      font-size: 11px; color: #ffd54f;
+      background: rgba(255, 213, 79, 0.12);
+      padding: 3px 10px; border-radius: 10px;
+      border: 1px solid rgba(255, 213, 79, 0.3); font-weight: 600;
+    }
+    .meta .ep-date { color: #c0c0c0; font-size: 13px; }
+    .meta .reading-time { color: #888; font-size: 12px; }
+    .toolbar { display: flex; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
+    .btn {
+      font-size: 13px; padding: 8px 14px; border-radius: 10px;
+      background: #1a1a1a; color: #e0e0e0; border: 1px solid #2a2a2a;
+      cursor: pointer; text-decoration: none; display: inline-block;
+      font-family: inherit; transition: background 0.15s, border-color 0.15s;
+    }
+    .btn:hover { background: #222; border-color: #3a3a3a; }
+    .btn.primary { color: #ffd54f; border-color: rgba(255, 213, 79, 0.3); }
+    .btn.primary:hover { background: rgba(255, 213, 79, 0.1); }
+    .article {
+      font-size: 16px; color: #d8d8d8; line-height: 1.9;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .article h1 { font-size: 26px; color: #ffd54f; margin: 28px 0 16px; line-height: 1.4; font-weight: 800; }
+    .article h2 { font-size: 20px; color: #ffd54f; margin: 32px 0 12px; font-weight: 700; }
+    .article h3 { font-size: 17px; color: #ffe082; margin: 24px 0 10px; font-weight: 700; }
+    .article p { margin: 14px 0; }
+    .article ul, .article ol { margin: 14px 0; padding-left: 24px; }
+    .article li { margin: 6px 0; }
+    .article blockquote {
+      border-left: 3px solid #ffd54f;
+      padding: 10px 16px;
+      margin: 18px 0;
+      background: rgba(255, 213, 79, 0.06);
+      color: #c0c0c0; font-style: italic;
+      border-radius: 0 8px 8px 0;
+    }
+    .article blockquote p { margin: 6px 0; }
+    .article code {
+      background: #0a0a0a; color: #ffd54f;
+      padding: 2px 7px; border-radius: 5px;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    .article pre {
+      background: #0a0a0a; border: 1px solid #2a2a2a;
+      border-radius: 10px; padding: 16px 18px;
+      overflow-x: auto; margin: 16px 0;
+    }
+    .article pre code {
+      background: transparent; padding: 0;
+      color: #e0e0e0; font-size: 13px;
+      line-height: 1.6;
+    }
+    .article hr { border: none; border-top: 1px solid #2a2a2a; margin: 32px 0; }
+    .article a { color: #ffd54f; text-decoration: none; border-bottom: 1px dashed rgba(255, 213, 79, 0.4); }
+    .article a:hover { border-bottom-style: solid; }
+    .article strong { color: #ffffff; font-weight: 700; }
+    .article em { color: #ffe082; }
+    .article table {
+      width: 100%; border-collapse: collapse; margin: 18px 0;
+      font-size: 14px; border: 1px solid #2a2a2a; border-radius: 8px; overflow: hidden;
+    }
+    .article th, .article td {
+      padding: 10px 14px; text-align: left; border-bottom: 1px solid #2a2a2a;
+    }
+    .article th { background: #1a1a1a; color: #ffd54f; font-weight: 700; }
+    .article tr:last-child td { border-bottom: none; }
+    .loading, .error { color: #666; text-align: center; padding: 40px; font-size: 14px; }
+    .error { color: #ef5350; }
+    .back { display: inline-block; margin-top: 36px; color: #9e9e9e; text-decoration: none; font-size: 14px; }
+    .back:hover { color: #ffd54f; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>바이브코딩 뉴스레터</h1>
+      <a href="../newsletter.html">← 에피소드 목록</a>
+    </header>
+
+    <div class="meta" id="meta" style="display:none;">
+      <span class="ep-no" id="epNo"></span>
+      <span class="ep-date" id="epDate"></span>
+      <span class="reading-time" id="readingTime"></span>
+    </div>
+
+    <div class="toolbar" id="toolbar" style="display:none;">
+      <button class="btn primary" id="copyBtn">본문 복사</button>
+      <a class="btn" id="githubLink" target="_blank" rel="noopener">GitHub 원본 ↗</a>
+    </div>
+
+    <article class="article" id="article"><div class="loading">불러오는 중…</div></article>
+
+    <a class="back" href="../newsletter.html">← 에피소드 목록으로</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    var params = new URLSearchParams(location.search);
+    var file = params.get('file');
+
+    var articleEl = document.getElementById('article');
+    var metaEl = document.getElementById('meta');
+    var epNoEl = document.getElementById('epNo');
+    var epDateEl = document.getElementById('epDate');
+    var readingTimeEl = document.getElementById('readingTime');
+    var toolbarEl = document.getElementById('toolbar');
+    var copyBtn = document.getElementById('copyBtn');
+    var githubLink = document.getElementById('githubLink');
+
+    async function load() {
+      if (!file) {
+        articleEl.innerHTML = '<div class="error">에피소드가 지정되지 않았습니다. URL 에 ?file=... 이 필요해요.</div>';
+        return;
+      }
+
+      try {
+        var idxRes = await fetch('./index.json?_=' + Date.now());
+        var idx = await idxRes.json();
+        var meta = (idx.episodes || []).find(function(e) { return e.file === file; });
+
+        var mdRes = await fetch('./' + file + '?_=' + Date.now());
+        if (!mdRes.ok) throw new Error('fetch failed');
+        var md = await mdRes.text();
+
+        if (meta) {
+          epNoEl.textContent = 'Ep.' + meta.number;
+          epDateEl.textContent = meta.date;
+          readingTimeEl.textContent = '읽는 시간 ' + (meta.readingTime || '~');
+          metaEl.style.display = 'flex';
+          document.title = 'Ep.' + meta.number + ' ' + meta.title + ' - 바이브코딩 뉴스레터';
+        }
+
+        articleEl.innerHTML = marked.parse(md);
+        toolbarEl.style.display = 'flex';
+        githubLink.href = 'https://github.com/ssamssae/daejong-page/blob/main/newsletter/' + file;
+
+        copyBtn.onclick = function() {
+          navigator.clipboard.writeText(md).then(function() {
+            copyBtn.textContent = '복사됨';
+            setTimeout(function() { copyBtn.textContent = '본문 복사'; }, 1500);
+          }).catch(function() {
+            copyBtn.textContent = '복사 실패';
+            setTimeout(function() { copyBtn.textContent = '본문 복사'; }, 1500);
+          });
+        };
+      } catch (e) {
+        articleEl.innerHTML = '<div class="error">본문을 불러올 수 없어요: ' + file + '</div>';
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>

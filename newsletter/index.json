@@ -1,0 +1,14 @@
+{
+  "title": "바이브코딩 뉴스레터",
+  "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
+  "episodes": [
+    {
+      "number": 1,
+      "file": "ep1-2026-04-20.md",
+      "date": "2026-04-20",
+      "title": "3시간 만에 나만의 로컬 AI 어시스턴트 만들기",
+      "subtitle": "기억이 제작기 — apt Ctrl-Z, [Service] 헤더, 봇 중복 폴링까지 막힌 3가지",
+      "readingTime": "8분"
+    }
+  ]
+}

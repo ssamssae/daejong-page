@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바이브코딩 뉴스레터 - 강대종</title>
+  <meta name="description" content="Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 32px; padding-bottom: 16px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    header h1 { font-size: 22px; color: #ffd54f; font-weight: 700; }
+    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #ffd54f; }
+    .hero {
+      background: linear-gradient(135deg, #1e1e1e 0%, #1a1a1a 100%);
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; top: -30px; right: -30px;
+      width: 140px; height: 140px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 213, 79, 0.15) 0%, rgba(255, 213, 79, 0) 70%);
+    }
+    .hero h2 {
+      font-size: 24px; color: #ffffff; font-weight: 800;
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .hero p {
+      font-size: 14px; color: #b0b0b0; line-height: 1.7;
+    }
+    .hero .tagline {
+      color: #ffd54f; font-size: 13px; font-weight: 600;
+      margin-bottom: 6px; letter-spacing: 0.5px;
+    }
+    .subscribe {
+      background: #1e1e1e;
+      border: 1px dashed #3a3a3a;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 32px;
+      font-size: 13px;
+      color: #9e9e9e;
+      line-height: 1.7;
+    }
+    .subscribe strong { color: #ffd54f; }
+    .subscribe code {
+      background: #0a0a0a; color: #ffd54f;
+      padding: 2px 7px; border-radius: 5px;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12px;
+    }
+    .section-title {
+      font-size: 14px; color: #ffd54f; font-weight: 700;
+      margin-bottom: 14px; letter-spacing: 0.5px;
+      padding-left: 4px;
+    }
+    .episodes { display: flex; flex-direction: column; gap: 14px; }
+    .episode {
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 20px 22px;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .episode:hover {
+      border-color: #ffd54f;
+      transform: translateY(-2px);
+    }
+    .episode-head {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .ep-no {
+      font-size: 11px; color: #ffd54f;
+      background: rgba(255, 213, 79, 0.12);
+      padding: 3px 10px; border-radius: 10px;
+      border: 1px solid rgba(255, 213, 79, 0.3);
+      font-weight: 700; letter-spacing: 0.3px;
+    }
+    .ep-date { font-size: 12px; color: #888; }
+    .ep-title {
+      font-size: 17px; color: #ffffff; font-weight: 700;
+      margin-bottom: 6px; line-height: 1.4;
+    }
+    .ep-subtitle {
+      font-size: 13px; color: #b0b0b0; line-height: 1.6;
+    }
+    .ep-meta {
+      display: flex; gap: 10px; margin-top: 12px;
+      font-size: 11px; color: #666;
+      align-items: center;
+    }
+    .ep-read-more { color: #ffd54f; }
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #2a2a2a;
+      color: #6e6e6e;
+      font-size: 12px;
+      text-align: center;
+    }
+    footer a { color: #9e9e9e; text-decoration: none; }
+    footer a:hover { color: #ffd54f; }
+    .empty { color: #666; text-align: center; padding: 30px; font-size: 13px; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>바이브코딩 뉴스레터</h1>
+      <a href="./index.html">← 홈으로</a>
+    </header>
+
+    <section class="hero">
+      <div class="tagline">VIBECODING NEWSLETTER</div>
+      <h2>Claude Code 로 1인 앱 만드는 여정</h2>
+      <p>비개발자가 Claude Code 한 개 들고 앱을 출시하고, 도구를 만들고, 가끔 삽질하고, 그 과정을 날것 그대로 적는다. 심사레이더·기억이·메모요·더치페이 네 갈래로 이어진다. 주간/격주 발행.</p>
+    </section>
+
+    <div class="subscribe">
+      <strong>📮 구독은 준비 중</strong> — 플랫폼은 Substack 으로 예정이고, 정식 구독이 열리기 전까지는 각 에피소드를 아래에서 바로 읽을 수 있도록 열어 둡니다. RSS 와 이메일 구독 링크는 Ep.2 전에 추가할 예정. 원문은 <code>github.com/ssamssae/daejong-page/newsletter</code> 에 공개 커밋으로 남습니다.
+    </div>
+
+    <div class="section-title">최근 에피소드</div>
+
+    <div class="episodes" id="episodes">
+      <div class="empty">불러오는 중…</div>
+    </div>
+
+    <footer>
+      <a href="./index.html">홈</a> · <a href="./portfolio.html">포트폴리오</a> · <a href="./skills.html">Claude 스킬</a> · <a href="https://github.com/ssamssae/daejong-page" target="_blank" rel="noopener">GitHub</a>
+    </footer>
+  </div>
+
+  <script>
+    async function load() {
+      var root = document.getElementById('episodes');
+      try {
+        var res = await fetch('./newsletter/index.json?_=' + Date.now());
+        var data = await res.json();
+        var eps = (data.episodes || []).slice().sort(function(a, b) { return b.number - a.number; });
+        if (eps.length === 0) {
+          root.innerHTML = '<div class="empty">아직 발행된 에피소드가 없어요.</div>';
+          return;
+        }
+        root.innerHTML = eps.map(function(e) {
+          return [
+            '<a class="episode" href="./newsletter/view.html?file=' + encodeURIComponent(e.file) + '">',
+            '  <div class="episode-head">',
+            '    <span class="ep-no">Ep.' + e.number + '</span>',
+            '    <span class="ep-date">' + e.date + '</span>',
+            '  </div>',
+            '  <div class="ep-title">' + e.title + '</div>',
+            '  <div class="ep-subtitle">' + (e.subtitle || '') + '</div>',
+            '  <div class="ep-meta"><span>읽는 시간 ' + (e.readingTime || '~') + '</span><span>·</span><span class="ep-read-more">읽기 →</span></div>',
+            '</a>'
+          ].join('\n');
+        }).join('\n');
+      } catch (e) {
+        root.innerHTML = '<div class="empty">에피소드 목록을 불러올 수 없어요.</div>';
+      }
+    }
+    load();
+  </script>
+</body>
+</html>

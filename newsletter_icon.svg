@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="nlBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffca28"/>
+      <stop offset="100%" style="stop-color:#ffd54f"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#nlBg)"/>
+  <!-- Envelope body -->
+  <rect x="26" y="40" width="76" height="52" rx="6" fill="none" stroke="#1e1e1e" stroke-width="4"/>
+  <!-- Envelope flap -->
+  <path d="M26 46 L64 70 L102 46" fill="none" stroke="#1e1e1e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Lines inside representing content -->
+  <line x1="38" y1="80" x2="68" y2="80" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.55"/>
+  <line x1="38" y1="86" x2="58" y2="86" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.4"/>
+  <!-- "New" notification dot -->
+  <circle cx="96" cy="40" r="10" fill="#ef5350" stroke="#ffd54f" stroke-width="3"/>
+</svg>
