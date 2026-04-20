@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-20-telegram-typing-midsession-drop.md",
+      "date": "2026-04-20",
+      "slug": "telegram-typing-midsession-drop",
+      "title": "텔레그램 typing 표시 4초 주기 신호가 채팅 중에 끊김",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "플러그인 telegram typing 데몬",
+      "occurred_at": "2026-04-20 23:30 KST",
+      "resolved_at": null,
+      "updated": "2026-04-20T23:38:12+09:00"
+    },
+    {
       "file": "2026-04-20-irun-locked-iphone.md",
       "date": "2026-04-20",
       "slug": "irun-locked-iphone",
