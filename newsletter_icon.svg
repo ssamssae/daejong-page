@@ -6,13 +6,37 @@
     </linearGradient>
   </defs>
   <rect width="128" height="128" rx="28" fill="url(#nlBg)"/>
-  <!-- Envelope body -->
-  <rect x="26" y="40" width="76" height="52" rx="6" fill="none" stroke="#1e1e1e" stroke-width="4"/>
-  <!-- Envelope flap -->
-  <path d="M26 46 L64 70 L102 46" fill="none" stroke="#1e1e1e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Lines inside representing content -->
-  <line x1="38" y1="80" x2="68" y2="80" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.55"/>
-  <line x1="38" y1="86" x2="58" y2="86" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.4"/>
+
+  <!-- Newspaper sheet (slight tilt) -->
+  <g transform="rotate(-3 64 64)">
+    <!-- Back sheet (peeking shadow for depth) -->
+    <rect x="28" y="30" width="72" height="72" rx="4" fill="#1e1e1e" opacity="0.14"/>
+    <!-- Main sheet -->
+    <rect x="24" y="26" width="72" height="72" rx="4" fill="#fffdf5" stroke="#1e1e1e" stroke-width="3"/>
+
+    <!-- Masthead (paper name bar) -->
+    <rect x="32" y="34" width="56" height="10" rx="1.5" fill="#1e1e1e"/>
+
+    <!-- Headline -->
+    <line x1="32" y1="52" x2="84" y2="52" stroke="#1e1e1e" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="32" y1="59" x2="72" y2="59" stroke="#1e1e1e" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Two-column divider -->
+    <line x1="60" y1="68" x2="60" y2="92" stroke="#1e1e1e" stroke-width="1.5" stroke-opacity="0.35"/>
+
+    <!-- Left column body -->
+    <line x1="32" y1="70" x2="56" y2="70" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+    <line x1="32" y1="76" x2="56" y2="76" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+    <line x1="32" y1="82" x2="52" y2="82" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+    <line x1="32" y1="88" x2="54" y2="88" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+
+    <!-- Right column body -->
+    <line x1="64" y1="70" x2="86" y2="70" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+    <line x1="64" y1="76" x2="84" y2="76" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+    <line x1="64" y1="82" x2="86" y2="82" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+    <line x1="64" y1="88" x2="80" y2="88" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
+  </g>
+
   <!-- "New" notification dot -->
-  <circle cx="96" cy="40" r="10" fill="#ef5350" stroke="#ffd54f" stroke-width="3"/>
+  <circle cx="96" cy="32" r="10" fill="#ef5350" stroke="#ffd54f" stroke-width="3"/>
 </svg>
