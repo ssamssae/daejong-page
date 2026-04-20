@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이슈 - 강대종</title>
+  <meta name="description" content="발생했다가 해결한 이슈·혼선의 포스트모템 기록 — 증상/원인/조치/예방.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #2a2a2a;
+    }
+    header h1 { font-size: 22px; color: #ffd54f; font-weight: 700; }
+    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #ffd54f; }
+
+    .intro {
+      font-size: 13px; color: #9e9e9e;
+      margin-bottom: 20px; padding: 12px 14px;
+      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px;
+      line-height: 1.55;
+    }
+
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-card {
+      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px;
+      padding: 14px 14px;
+    }
+    .hero-card-label {
+      font-size: 10px; color: #9e9e9e; margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .hero-card-value { font-size: 22px; color: #e0e0e0; font-weight: 700; }
+    .hero-card-value .unit {
+      font-size: 13px; color: #9e9e9e; font-weight: 500; margin-left: 4px;
+    }
+    .hero-card-sub { font-size: 11px; color: #666; margin-top: 4px; }
+
+    .timeline { display: flex; flex-direction: column; gap: 26px; }
+
+    .date-group { display: flex; flex-direction: column; gap: 12px; }
+    .date-head {
+      display: flex; align-items: baseline; gap: 10px;
+      padding-bottom: 8px; border-bottom: 1px dashed #2a2a2a;
+    }
+    .date-label { font-size: 15px; color: #ffd54f; font-weight: 700; }
+    .date-rel { font-size: 12px; color: #9e9e9e; }
+    .date-count { margin-left: auto; font-size: 11px; color: #666; }
+
+    .issue-card {
+      background: #1a1a1a; border: 1px solid #2a2a2a;
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .issue-card:hover { border-color: #3a3a3a; }
+
+    .issue-head {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 8px; flex-wrap: wrap;
+    }
+    .issue-title {
+      flex: 1 1 auto; min-width: 0;
+      font-size: 15px; color: #e0e0e0; font-weight: 600;
+      line-height: 1.45;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .badges {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px;
+    }
+    .badge {
+      font-size: 10px; padding: 2px 8px; border-radius: 6px;
+      font-weight: 600; letter-spacing: 0.3px;
+      border: 1px solid transparent;
+    }
+    .badge-sev-high {
+      color: #ef5350; background: rgba(239, 83, 80, 0.1);
+      border-color: rgba(239, 83, 80, 0.3);
+    }
+    .badge-sev-medium {
+      color: #ffb74d; background: rgba(255, 183, 77, 0.1);
+      border-color: rgba(255, 183, 77, 0.3);
+    }
+    .badge-sev-low {
+      color: #81c784; background: rgba(129, 199, 132, 0.1);
+      border-color: rgba(129, 199, 132, 0.3);
+    }
+    .badge-rec {
+      color: #9e9e9e; background: rgba(158, 158, 158, 0.08);
+      border-color: rgba(158, 158, 158, 0.25);
+    }
+
+    .meta-line {
+      font-size: 11px; color: #777;
+      margin-bottom: 10px;
+    }
+    .meta-line .sep { color: #3a3a3a; margin: 0 6px; }
+
+    .issue-sections {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-top: 4px;
+    }
+    .issue-section {
+      background: #141414;
+      border: 1px solid #252525;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .section-label {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.5px; color: #ffd54f;
+      margin-bottom: 6px; text-transform: uppercase;
+    }
+    .section-body {
+      font-size: 13px; color: #cfcfcf; line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .section-body ul { padding-left: 18px; margin: 4px 0; }
+    .section-body li { margin-bottom: 4px; }
+    .section-body code {
+      background: #222; padding: 1px 5px; border-radius: 4px;
+      font-size: 12px; color: #ffd54f;
+    }
+
+    .recur {
+      margin-top: 10px; padding: 8px 12px;
+      background: rgba(239, 83, 80, 0.08);
+      border: 1px solid rgba(239, 83, 80, 0.2);
+      border-radius: 8px; font-size: 12px; color: #ffab91;
+    }
+
+    .empty {
+      color: #666; text-align: center; padding: 60px 20px; font-size: 14px;
+      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px;
+    }
+    .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
+    .loading { color: #666; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error { color: #ef5350; text-align: center; padding: 40px 0; font-size: 14px; }
+
+    .back {
+      display: inline-block; margin-top: 28px; color: #9e9e9e;
+      text-decoration: none; font-size: 14px;
+    }
+    .back:hover { color: #ffd54f; }
+
+    @media (max-width: 520px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>이슈</h1>
+      <a href="./">← 홈</a>
+    </header>
+
+    <div class="intro">
+      발생했다가 해결한 이슈의 포스트모템. 증상과 원인, 조치, 재발 방지 Forcing Function 을 네 칸으로 남겨 두고 기기 간 공유합니다.
+    </div>
+
+    <div id="view">
+      <div class="loading">불러오는 중…</div>
+    </div>
+
+    <a class="back" href="./">← 홈으로 돌아가기</a>
+  </div>
+
+  <script>
+    const viewEl = document.getElementById('view');
+
+    function parseDate(s) {
+      const m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!m) return null;
+      return new Date(+m[1], +m[2] - 1, +m[3]);
+    }
+    function todayKST() {
+      const now = new Date();
+      const kst = new Date(now.getTime() + (now.getTimezoneOffset() + 540) * 60000);
+      kst.setHours(0, 0, 0, 0);
+      return kst;
+    }
+    function relativeDay(dateStr) {
+      const d = parseDate(dateStr);
+      if (!d) return '';
+      const diff = Math.round((todayKST() - d) / 86400000);
+      if (diff === 0) return '오늘';
+      if (diff === 1) return '어제';
+      if (diff < 7) return diff + '일 전';
+      if (diff < 30) return Math.floor(diff / 7) + '주 전';
+      if (diff < 365) return Math.floor(diff / 30) + '달 전';
+      return Math.floor(diff / 365) + '년 전';
+    }
+    function escapeHtml(s) {
+      return (s || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    // Parse a full issue markdown file into sections.
+    // Returns { title, meta:{occurred,resolved,severity,recurrence,scope},
+    //   sections: {증상, 원인, 조치, 예방, 재발이력} }
+    function parseIssueMd(md) {
+      // Strip YAML frontmatter if present
+      if (md.startsWith('---')) {
+        const end = md.indexOf('\n---', 3);
+        if (end > 0) md = md.slice(end + 4).trimStart();
+      }
+      const lines = md.split('\n');
+      let title = '';
+      const meta = {};
+      const sections = {};
+      let currentSection = null;
+      const bodyBuf = [];
+
+      const flushSection = () => {
+        if (currentSection !== null) {
+          sections[currentSection] = bodyBuf.join('\n').trim();
+          bodyBuf.length = 0;
+        }
+      };
+
+      for (const raw of lines) {
+        const line = raw.replace(/\r$/, '');
+        const trimmed = line.trim();
+
+        if (!title && trimmed.startsWith('# ')) {
+          title = trimmed.slice(2).trim();
+          continue;
+        }
+
+        // Meta bullets (- **Key:** value)
+        const metaMatch = trimmed.match(/^-\s*\*\*(.+?):\*\*\s*(.+)$/);
+        if (metaMatch && currentSection === null) {
+          const key = metaMatch[1].trim();
+          const val = metaMatch[2].trim();
+          if (key.includes('발생')) meta.occurred = val;
+          else if (key.includes('해결')) meta.resolved = val;
+          else if (key.includes('심각')) meta.severity = val;
+          else if (key.includes('재발')) meta.recurrence = val;
+          else if (key.includes('영향')) meta.scope = val;
+          continue;
+        }
+
+        // Section headings (## 증상 / ## 원인 / ...)
+        if (trimmed.startsWith('## ')) {
+          flushSection();
+          const rawLabel = trimmed.slice(3).trim();
+          // Strip trailing parenthetical notes (e.g., "예방 (Forcing function 우선)")
+          const key = rawLabel.replace(/\s*\(.*?\)\s*$/, '').replace(/\s+/g, '');
+          currentSection = key;
+          continue;
+        }
+
+        if (currentSection !== null) {
+          bodyBuf.push(line);
+        }
+      }
+      flushSection();
+      return { title, meta, sections };
+    }
+
+    // Minimal inline-markdown rendering for section bodies:
+    // - bold **x**, inline `code`, list items, line breaks. No external links escape.
+    function renderBody(text) {
+      if (!text) return '';
+      const lines = text.split('\n');
+      const out = [];
+      let listBuf = [];
+      const flushList = () => {
+        if (listBuf.length) {
+          out.push('<ul>' + listBuf.map(l => '<li>' + inline(l) + '</li>').join('') + '</ul>');
+          listBuf = [];
+        }
+      };
+      const inline = (s) => {
+        let x = escapeHtml(s);
+        x = x.replace(/`([^`]+)`/g, '<code>$1</code>');
+        x = x.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        return x;
+      };
+      for (const rawLine of lines) {
+        const line = rawLine.replace(/\s+$/, '');
+        if (/^\s*-\s+/.test(line)) {
+          listBuf.push(line.replace(/^\s*-\s+/, ''));
+          continue;
+        }
+        flushList();
+        if (line === '') { out.push(''); continue; }
+        out.push(inline(line));
+      }
+      flushList();
+      // Join with linebreaks for non-list text
+      return out.map(seg => seg.startsWith('<ul>') ? seg : seg).join('\n').replace(/\n\n+/g, '\n\n');
+    }
+
+    function sevBadgeClass(sev) {
+      if (!sev) return 'badge-rec';
+      if (/high/i.test(sev)) return 'badge-sev-high';
+      if (/medium/i.test(sev)) return 'badge-sev-medium';
+      if (/low/i.test(sev)) return 'badge-sev-low';
+      return 'badge-rec';
+    }
+
+    async function init() {
+      try {
+        const idxRes = await fetch('./issues/index.json?_=' + Date.now());
+        const idxData = await idxRes.json();
+        const entries = (idxData.entries || [])
+          .slice()
+          .sort((a, b) => {
+            if (a.date !== b.date) return b.date.localeCompare(a.date);
+            return (a.slug || '').localeCompare(b.slug || '');
+          });
+
+        if (entries.length === 0) {
+          viewEl.innerHTML = renderEmpty();
+          return;
+        }
+
+        const loaded = await Promise.all(entries.map(async e => {
+          try {
+            const r = await fetch('./issues/' + e.file + '?_=' + Date.now());
+            const md = await r.text();
+            return { ...e, parsed: parseIssueMd(md) };
+          } catch (err) {
+            return { ...e, parsed: null };
+          }
+        }));
+
+        render(loaded);
+      } catch (e) {
+        viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    function renderEmpty() {
+      return '' +
+        '<div class="empty">' +
+        '<div class="empty-emoji">🧯</div>' +
+        '<div>기록된 이슈가 없습니다.</div>' +
+        '<div style="font-size:12px;color:#555;margin-top:6px;">문제가 생기면 /issue 로 남겨둡시다.</div>' +
+        '</div>';
+    }
+
+    function render(items) {
+      // Group by date
+      const groups = {};
+      for (const it of items) {
+        const key = it.date || '날짜없음';
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(it);
+      }
+      const sortedDates = Object.keys(groups).sort((a, b) => b.localeCompare(a));
+
+      // Stats
+      const total = items.length;
+      const highCount = items.filter(it => /high/i.test(it.severity || '')).length;
+      const recurHigh = items.filter(it => /high/i.test(it.recurrence || '')).length;
+
+      let html = '';
+      html += '<div class="hero-stats">';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">누적 이슈</div>' +
+        '<div class="hero-card-value">' + total + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">' + sortedDates.length + '일에 걸쳐</div>' +
+        '</div>';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">심각도 high</div>' +
+        '<div class="hero-card-value">' + highCount + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">전체의 ' + (total ? Math.round(highCount / total * 100) : 0) + '%</div>' +
+        '</div>';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">재발 가능성 high</div>' +
+        '<div class="hero-card-value">' + recurHigh + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">Forcing Function 필요</div>' +
+        '</div>';
+      html += '</div>';
+
+      html += '<div class="timeline">';
+      for (const date of sortedDates) {
+        const group = groups[date];
+        const rel = relativeDay(date);
+        html += '<div class="date-group">';
+        html +=
+          '<div class="date-head">' +
+          '<span class="date-label">' + escapeHtml(date) + '</span>' +
+          (rel ? '<span class="date-rel">' + escapeHtml(rel) + '</span>' : '') +
+          '<span class="date-count">' + group.length + '건</span>' +
+          '</div>';
+        for (const it of group) {
+          html += renderIssueCard(it);
+        }
+        html += '</div>';
+      }
+      html += '</div>';
+
+      viewEl.innerHTML = html;
+    }
+
+    function renderIssueCard(it) {
+      const p = it.parsed || { title: it.title, meta: {}, sections: {} };
+      const title = p.title || it.title || '(제목 없음)';
+      const meta = p.meta || {};
+      const sev = it.severity || meta.severity || '';
+      const rec = it.recurrence || meta.recurrence || '';
+      const scope = it.scope || meta.scope || '';
+
+      let html = '<div class="issue-card">';
+      html += '<div class="issue-head">';
+      html += '<div class="issue-title">' + escapeHtml(title) + '</div>';
+      html += '<div class="badges">';
+      if (sev) html += '<span class="badge ' + sevBadgeClass(sev) + '">심각도 ' + escapeHtml(sev) + '</span>';
+      if (rec) html += '<span class="badge badge-rec">재발 ' + escapeHtml(rec) + '</span>';
+      html += '</div>';
+      html += '</div>';
+
+      // Meta line
+      const metaBits = [];
+      if (meta.occurred) metaBits.push('발생 ' + meta.occurred);
+      if (meta.resolved) metaBits.push('해결 ' + meta.resolved);
+      if (scope) metaBits.push(scope);
+      if (metaBits.length) {
+        html += '<div class="meta-line">' +
+          metaBits.map(b => '<span>' + escapeHtml(b) + '</span>').join('<span class="sep">·</span>') +
+          '</div>';
+      }
+
+      // Sections
+      const sectionOrder = ['증상', '원인', '조치', '예방', '재발이력', '관련링크'];
+      const sectionLabels = {
+        '증상': '증상',
+        '원인': '원인',
+        '조치': '조치',
+        '예방': '예방 (Forcing Function)',
+        '재발이력': '재발 이력',
+        '관련링크': '관련 링크'
+      };
+      const filled = sectionOrder.filter(k => p.sections[k] && p.sections[k].trim() && !/^_?\(없음\)_?$/.test(p.sections[k].trim()));
+      if (filled.length) {
+        html += '<div class="issue-sections">';
+        for (const k of filled) {
+          html +=
+            '<div class="issue-section">' +
+            '<div class="section-label">' + escapeHtml(sectionLabels[k] || k) + '</div>' +
+            '<div class="section-body">' + renderBody(p.sections[k]) + '</div>' +
+            '</div>';
+        }
+        html += '</div>';
+      }
+
+      html += '</div>';
+      return html;
+    }
+
+    init();
+  </script>
+</body>
+</html>
