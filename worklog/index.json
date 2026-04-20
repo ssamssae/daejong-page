@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-20_v1.0.2.md",
+      "date": "2026-04-20",
+      "version": "v1.0.2",
+      "title": "아이폰 배포 파이프라인(land·to-iphone) 연결 + claude-automations 저장소 신설 + daily-sync-and-learn·/sync·/issue 스킬 구축",
+      "updated": "2026-04-20T10:30:00+09:00"
+    },
+    {
       "file": "2026-04-20_v1.0.1.md",
       "date": "2026-04-20",
       "version": "v1.0.1",
