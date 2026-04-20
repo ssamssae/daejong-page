@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>보류·취소 - 강대종</title>
-  <meta name="description" content="포기했거나 보류한 할일의 무덤 — 날짜순 기록.">
+  <title>드롭 - 강대종</title>
+  <meta name="description" content="드롭된 할일의 무덤 — 날짜순 기록.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -140,12 +140,12 @@
 <body>
   <div class="wrap">
     <header>
-      <h1>보류·취소</h1>
+      <h1>드롭</h1>
       <a href="./">← 홈으로</a>
     </header>
 
     <div class="intro">
-      포기하거나 보류한 할일의 무덤입니다. 날짜순으로 정리되어 있어요.
+      드롭한 할일의 무덤입니다. 날짜순으로 정리되어 있어요.
       <div style="margin-top:8px;font-size:12px;color:#9e9e9e;">
         이슈/포스트모템 기록은 <a href="./issues.html" style="color:#ffd54f;text-decoration:none;">이슈 페이지</a>로 이동했습니다.
       </div>
@@ -192,13 +192,13 @@
       }[c]));
     }
 
-    // Parse the 보류/취소 section of todos.md
+    // Parse the 드롭 section of todos.md (과거 "보류/취소" 헤더도 호환)
     function parseCancelled(md) {
       const items = [];
       let inSection = false;
       for (const line of md.split('\n')) {
         const trimmed = line.trim();
-        if (/^## 보류|^## 취소/.test(trimmed)) { inSection = true; continue; }
+        if (/^## 보류|^## 취소|^## 드롭/.test(trimmed)) { inSection = true; continue; }
         if (/^#/.test(trimmed)) { inSection = false; continue; }
         if (!inSection) continue;
         if (!/^- \[/.test(trimmed)) continue;
@@ -213,7 +213,7 @@
           title = mStrike[1].trim();
           content = content.slice(mStrike[0].length).trim();
         } else {
-          const mFirst = content.match(/^(.+?)\s*\(취소:/);
+          const mFirst = content.match(/^(.+?)\s*\((?:취소|드롭):/);
           if (mFirst) {
             title = mFirst[1].trim();
           } else {
@@ -223,7 +223,7 @@
 
         // Extract cancel date
         let cancelDate = '';
-        const mDate = content.match(/\(취소:\s*(\d{4}-\d{2}-\d{2})\)/);
+        const mDate = content.match(/\((?:취소|드롭):\s*(\d{4}-\d{2}-\d{2})\)/);
         if (mDate) {
           cancelDate = mDate[1];
           content = content.replace(mDate[0], '').trim();
@@ -261,7 +261,7 @@
       return '' +
         '<div class="empty">' +
         '<div class="empty-emoji">🗂</div>' +
-        '<div>아직 보류·취소한 할일이 없습니다.</div>' +
+        '<div>아직 드롭한 할일이 없습니다.</div>' +
         '<div style="font-size:12px;color:#555;margin-top:6px;">모든 할일을 붙잡고 있는 중.</div>' +
         '</div>';
     }
@@ -289,21 +289,21 @@
       html += '<div class="hero-stats">';
       html +=
         '<div class="hero-card">' +
-        '<div class="hero-card-label">누적 취소</div>' +
+        '<div class="hero-card-label">누적 드롭</div>' +
         '<div class="hero-card-value">' + total + '<span class="unit">건</span></div>' +
         '<div class="hero-card-sub">' + sortedDates.length + '일에 걸쳐</div>' +
         '</div>';
       if (mostRecent) {
         html +=
           '<div class="hero-card">' +
-          '<div class="hero-card-label">최근 취소</div>' +
+          '<div class="hero-card-label">최근 드롭</div>' +
           '<div class="hero-card-value" style="font-size:16px;">' + relativeDay(mostRecent) + '</div>' +
           '<div class="hero-card-sub">' + mostRecent + '</div>' +
           '</div>';
       } else {
         html +=
           '<div class="hero-card">' +
-          '<div class="hero-card-label">최근 취소</div>' +
+          '<div class="hero-card-label">최근 드롭</div>' +
           '<div class="hero-card-value" style="font-size:16px;">—</div>' +
           '<div class="hero-card-sub">날짜 정보 없음</div>' +
           '</div>';
@@ -312,7 +312,7 @@
 
       // Build full date range (프로젝트 시작일 ~ today) so gap days render as "없음"
       // Use UTC-anchored iteration to avoid local-TZ drift (KST pushed everything -1 day before).
-      // 프로젝트 시작일(2026-04-11) 기준으로 iterate — 첫 취소 이전 날짜도 "없음" 으로 노출
+      // 프로젝트 시작일(2026-04-11) 기준으로 iterate — 첫 드롭 이전 날짜도 "없음" 으로 노출
       const PROJECT_START = '2026-04-11';
       const datedOnly = sortedDates.filter(d => d !== '날짜없음');
       const timelineDates = [];
@@ -349,7 +349,7 @@
           '<span class="date-count">' + (isEmpty ? '없음' : group.length + '건') + '</span>' +
           '</div>';
         if (isEmpty) {
-          html += '<div class="empty-day-note">이 날 취소·보류한 할일 없음</div>';
+          html += '<div class="empty-day-note">이 날 드롭한 할일 없음</div>';
         } else {
           for (const it of group) {
             html += '<div class="cancelled-item">';
