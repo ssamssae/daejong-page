@@ -3,9 +3,9 @@
     {
       "file": "2026-04-20.md",
       "date": "2026-04-20",
-      "summary": "WSL 야간 앱 2건(한컵·mini_expense) + 아이폰 배포 파이프라인(/land·/to-iphone) + /land signing team·Bundle ID 자동화 내장 + claude-automations 저장소 + /sync·/issue 스킬 + /issues 페이지 신설 + 이슈 9건 소급 + 바이브코딩 뉴스레터 Ep.1 발행",
-      "count": 26,
-      "updated": "2026-04-20T18:19:00+09:00"
+      "summary": "WSL 야간 앱 2건(한컵·mini_expense) + 아이폰 배포 파이프라인(/land·/to-iphone) + /land signing team·Bundle ID 자동화 + claude-automations 저장소 + /sync·/issue·/submit-app·/toss-tone 스킬 + /worklog 이원화 + /issues 페이지 + 이슈 9건 소급 + skills 자동생성 + 포트폴리오 폼 통합 + 뉴스레터 Ep.1",
+      "count": 38,
+      "updated": "2026-04-20T20:30:00+09:00"
     },
     {
       "file": "2026-04-19.md",
