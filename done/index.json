@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-21.md",
+      "date": "2026-04-21",
+      "summary": "훅 WSL-wins 머지 + typing daemon 세션 격리 픽스 + /goodnight 스킬",
+      "count": 9,
+      "updated": "2026-04-21T00:44:12+09:00"
+    },
+    {
       "file": "2026-04-20.md",
       "date": "2026-04-20",
       "summary": "WSL 야간 앱 2건(한컵·mini_expense) + 아이폰 배포 파이프라인(/land·/to-iphone) + /land signing team·Bundle ID 자동화 + claude-automations 저장소 + /sync·/issue·/submit-app·/toss-tone 스킬 + /worklog 이원화 + /issues 페이지 + 이슈 9건 소급 + skills 자동생성 + 포트폴리오 폼 통합 + 뉴스레터 Ep.1",
