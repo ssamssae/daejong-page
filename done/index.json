@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-20.md",
+      "date": "2026-04-20",
+      "summary": "WSL 야간 앱 2건(한컵·mini_expense) + 자동화 2건(Dev Trend Curator·flutter-factory) + 아이폰 배포 파이프라인(land·to-iphone) + claude-automations 저장소 + daily-sync-and-learn + /sync /issue 스킬",
+      "count": 19,
+      "updated": "2026-04-20T10:32:00+09:00"
+    },
+    {
       "file": "2026-04-19.md",
       "date": "2026-04-19",
       "summary": "메모요 + 더치페이 정식화 + 약먹자 출시 준비 대거 + /merge-janitor 스킬 + janitor 첫 실전 PR 2건 + 훅 race fix + 크로스디바이스 SSH + globals 분리",
