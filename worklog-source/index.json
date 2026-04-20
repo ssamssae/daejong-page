@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "file": "2026-04-20_v1.0.3.md",
+      "date": "2026-04-20",
+      "version": "v1.0.3",
+      "summary": "오후 결과물 공개 구간 — /issues 페이지 신설 + 이슈 9건 소급 + /worklog·/done 0단계 라우팅 + /land signing·Bundle ID 자동화 내장 + 바이브코딩 뉴스레터 Ep.1 발행",
+      "updated": "2026-04-20T21:24:00+09:00"
+    },
+    {
+      "file": "2026-04-20_v1.0.2.md",
+      "date": "2026-04-20",
+      "version": "v1.0.2",
+      "summary": "오전 맥 본진 — 아이폰 배포 파이프라인(/land·/to-iphone) + claude-automations 저장소 + daily-sync-and-learn + /sync·/issue 스킬 + Mac 피드백 4건 반영",
+      "updated": "2026-04-20T21:24:00+09:00"
+    },
+    {
+      "file": "2026-04-20_v1.0.1.md",
+      "date": "2026-04-20",
+      "version": "v1.0.1",
+      "summary": "WSL 야간 자동 개발 결과물 4덩어리 통합 — 한컵·mini_expense 두 앱 + Dev Trend Curator·flutter-factory 두 자동화 + 메모리 3건",
+      "updated": "2026-04-20T21:24:00+09:00"
+    },
+    {
+      "file": "2026-04-20_v1.0.0.md",
+      "date": "2026-04-20",
+      "version": "v1.0.0",
+      "summary": "자정 맥·WSL 병렬 3건 — 약먹자 비공개 테스트 제출 + 기억이 챗봇 Markdown parse 버그픽스 + 할일 6건 등록",
+      "updated": "2026-04-20T21:24:00+09:00"
+    }
+  ]
+}
