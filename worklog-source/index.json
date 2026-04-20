@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-21_v1.0.0.md",
+      "date": "2026-04-21",
+      "version": "v1.0.0",
+      "summary": "훅 WSL-wins 머지 + typing daemon 세션 격리 3종 픽스 + /goodnight 스킬",
+      "updated": "2026-04-21T00:43:27+09:00"
+    },
+    {
       "file": "2026-04-20_v1.0.3.md",
       "date": "2026-04-20",
       "version": "v1.0.3",
