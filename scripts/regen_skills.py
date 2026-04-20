@@ -48,6 +48,9 @@ FALLBACK_TAGS = {
     "worklog": "작업일지",
     "toss-tone": "디자인",
     "submit-app": "스토어 제출",
+    "arun": "Android",
+    "night-runner": "야간 자동",
+    "trend": "트렌드",
 }
 
 # Skills with complex descriptions get a shorter card description here.
@@ -74,6 +77,9 @@ CARD_DESC_OVERRIDE = {
     "worklog": "하루 작업 내용(맥+데스크탑 세션 로그 + 모든 git 커밋)을 수집·요약 → docs/worklog/YYYY-MM-DD_vX.Y.Z.md 저장 + git 푸시. 실행 시 Tailscale rsync 로 데스크탑 세션도 자동 당겨 옴.",
     "submit-app": "앱 스토어 제출 루틴. lessons/ 에 쌓인 과거 실수·리젝 사례를 Step 0 에서 읽어 재발 방지 체크리스트로 만든 뒤 빌드·업로드·심사 제출. 제출 후 새 교훈이 있으면 lessons 에 누적.",
     "toss-tone": "Flutter 앱 디자인을 Toss 톤으로 고도화. 레퍼런스 theme.dart 의 Pretendard + 색상·반경·스페이싱 토큰을 타겟 앱에 비파괴적으로 머지하고, 화면 코드의 매직 넘버·fontFamily 누락을 스캔 리포트.",
+    "arun": "/irun 의 Android 버전. WSL→Windows 브릿지로 연결된 갤럭시에 clean + release 로 재빌드·실행. 이전 Gradle 데몬만 정리(광범위 java kill 금지).",
+    "night-runner": "야간 사이드 프로젝트 러너. projects.yaml 기반 라운드로빈으로 매일 밤 1개 repo 선정 → repo-janitor 에이전트가 TODO 1~2개 처리 → janitor/YYYY-MM-DD 브랜치 push → 텔레그램 보고. 아침 /merge-janitor 로 머지.",
+    "trend": "Dev Trend Curator. Hacker News + GitHub 일일 트렌드에서 Flutter/indie/Claude 키워드 매칭 → ~/trend-curator/daily/YYYY-MM-DD.md 누적 + 텔레그램 요약 전송.",
 }
 
 

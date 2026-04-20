@@ -127,6 +127,14 @@
     <div class="grid">
       <!-- AUTO-GEN:SKILLS-START -->
       <div class="card">
+        <div class="card-header"><span class="card-name">/arun</span><span class="card-tag">Android</span></div>
+        <div class="card-desc">/irun 의 Android 버전. WSL→Windows 브릿지로 연결된 갤럭시에 clean + release 로 재빌드·실행. 이전 Gradle 데몬만 정리(광범위 java kill 금지).</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/arun/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card">
         <div class="card-header"><span class="card-name">/ctx</span><span class="card-tag">세션 요약</span></div>
         <div class="card-desc">현재 세션에서 한 일 + 진행중/블로커/다음액션/할일을 한 화면에 요약. "어디까지 했지?" 때 호출.</div>
         <div class="card-links">
@@ -191,6 +199,14 @@
       </div>
 
       <div class="card">
+        <div class="card-header"><span class="card-name">/night-runner</span><span class="card-tag">야간 자동</span></div>
+        <div class="card-desc">야간 사이드 프로젝트 러너. projects.yaml 기반 라운드로빈으로 매일 밤 1개 repo 선정 → repo-janitor 에이전트가 TODO 1~2개 처리 → janitor/YYYY-MM-DD 브랜치 push → 텔레그램 보고. 아침 /merge-janitor 로 머지.</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/night-runner/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card">
         <div class="card-header"><span class="card-name">/review-status-check</span><span class="card-tag">매시 09~23</span></div>
         <div class="card-desc">Google Play + App Store Connect 심사 상태 이메일을 Gmail MCP 로 감시 → 변경 감지 시 텔레그램 알림. 로그인 세션 관리 불필요, Google/Apple 공식 메일 기반.</div>
         <div class="card-links">
@@ -251,6 +267,14 @@
         <div class="card-desc">Flutter 앱 디자인을 Toss 톤으로 고도화. 레퍼런스 theme.dart 의 Pretendard + 색상·반경·스페이싱 토큰을 타겟 앱에 비파괴적으로 머지하고, 화면 코드의 매직 넘버·fontFamily 누락을 스캔 리포트.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/toss-tone/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><span class="card-name">/trend</span><span class="card-tag">트렌드</span></div>
+        <div class="card-desc">Dev Trend Curator. Hacker News + GitHub 일일 트렌드에서 Flutter/indie/Claude 키워드 매칭 → ~/trend-curator/daily/YYYY-MM-DD.md 누적 + 텔레그램 요약 전송.</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/trend/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
