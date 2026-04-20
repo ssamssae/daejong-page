@@ -503,7 +503,7 @@
               '<button class="signup-btn" id="signupBtn" onclick="submitSignup()">등록</button>' +
             '</div>' +
             '<div id="signupMsg"></div>' +
-            '<div class="signup-count" id="signupCount"></div>' +
+            '<div class="signup-count" id="signupCount">현재 ' + (localStorage.getItem('signupCount') || '2') + '명이 베타테스터로 등록했습니다.</div>' +
           '</div>';
       }
       heroEl.innerHTML =
@@ -588,7 +588,7 @@
             '<button class="signup-btn" id="signupBtn" onclick="submitSignup()">등록</button>' +
           '</div>' +
           '<div id="signupMsg"></div>' +
-          '<div class="signup-count" id="signupCount"></div>' +
+          '<div class="signup-count" id="signupCount">현재 ' + (localStorage.getItem('signupCount') || '2') + '명이 베타테스터로 등록했습니다.</div>' +
         '</div>';
         // 등록 수 로드
         setTimeout(loadSignupCount, 100);
@@ -712,6 +712,7 @@
         var el = document.getElementById('signupCount');
         if (el && data.count > 0) {
           el.textContent = '현재 ' + data.count + '명이 베타테스터로 등록했습니다.';
+          try { localStorage.setItem('signupCount', String(data.count)); } catch(e) {}
         }
       } catch(e) {}
     }
