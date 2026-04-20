@@ -79,6 +79,41 @@
       border-radius: 10px;
       white-space: nowrap;
     }
+    .card-device {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .card-device.dev-mac { background: rgba(129, 199, 132, 0.15); color: #81c784; }
+    .card-device.dev-desktop { background: rgba(100, 181, 246, 0.15); color: #64b5f6; }
+    .card-device.dev-both { background: rgba(206, 147, 216, 0.15); color: #ce93d8; }
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 18px;
+      background: #1e1e1e;
+      border: 1px solid #2a2a2a;
+      color: #9e9e9e;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+    .filter-pill:hover { border-color: #ffd54f; color: #ffd54f; }
+    .filter-pill.active {
+      background: #ffd54f;
+      border-color: #ffd54f;
+      color: #1e1e1e;
+      font-weight: 700;
+    }
+    .card.hidden { display: none; }
     .card-desc {
       font-size: 13px;
       color: #c0c0c0;
@@ -124,178 +159,185 @@
       전체 소스: <a href="https://github.com/ssamssae/claude-skills" target="_blank" rel="noopener">github.com/ssamssae/claude-skills</a>
     </div>
 
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-pill active" data-filter="all">전체</button>
+      <button class="filter-pill" data-filter="mac">🍎 Mac 전용</button>
+      <button class="filter-pill" data-filter="desktop">🪟 Desktop 전용</button>
+      <button class="filter-pill" data-filter="both">🔄 공용</button>
+    </div>
+
     <div class="grid">
       <!-- AUTO-GEN:SKILLS-START -->
-      <div class="card">
-        <div class="card-header"><span class="card-name">/arun</span><span class="card-tag">Android</span></div>
+      <div class="card" data-device="desktop">
+        <div class="card-header"><span class="card-name">/arun</span><span class="card-tag">Android</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
         <div class="card-desc">/irun 의 Android 버전. WSL→Windows 브릿지로 연결된 갤럭시에 clean + release 로 재빌드·실행. 이전 Gradle 데몬만 정리(광범위 java kill 금지).</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/arun/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/ctx</span><span class="card-tag">세션 요약</span></div>
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/ctx</span><span class="card-tag">세션 요약</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">현재 세션에서 한 일 + 진행중/블로커/다음액션/할일을 한 화면에 요약. "어디까지 했지?" 때 호출.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/ctx/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/done</span><span class="card-tag">체크리스트</span></div>
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/done</span><span class="card-tag">체크리스트</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">오늘 한 일을 자동 수집해 체크박스 리스트로 저장. worklog 가 산문체 상세 기록이면 done 은 한 눈에 파악하는 담백한 리스트.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/done/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/irun</span><span class="card-tag">Flutter</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/irun</span><span class="card-tag">Flutter</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">Flutter 앱을 연결된 iPhone 에 clean + release 로 재빌드·실행. 이전 flutter run 자동 종료.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/irun/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/issue</span><span class="card-tag">포스트모템</span></div>
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/issue</span><span class="card-tag">포스트모템</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">이슈·사건·혼선을 <b>증상·원인·조치·예방</b> 네 칸으로 구조화해 ~/.claude/skills/issues/ 에 쌓고 claude-skills repo 로 기기 간 공유. 예방 섹션 비어있으면 저장 거부, 재발 감지 시 기존 파일에 자동 merge. daejong-page /issues 페이지로 공개 동기화.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/issue/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/land</span><span class="card-tag">Mac 종단</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/land</span><span class="card-tag">Mac 종단</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">WSL /to-iphone 이 GitHub 에 푸시한 앱을 맥이 받아 clone/pull → iOS 플랫폼 자동 세팅 → Bundle ID + signing team 자동 주입 → pub get + pod install → /irun 으로 아이폰 설치까지 연쇄. 세 번째 앱부터 한 줄 무인 배달.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/land/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/merge-janitor</span><span class="card-tag">PR 관리</span></div>
+      <div class="card" data-device="desktop">
+        <div class="card-header"><span class="card-name">/merge-janitor</span><span class="card-tag">PR 관리</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
         <div class="card-desc">WSL night-runner 가 janitor/YYYY-MM-DD 브랜치로 만든 PR 을 맥 본진에서 머지·닫기. morning-briefing 의 PR 목록에 "PR #N 머지/닫아" 자연어 답장으로 호출. 대형 변경·의존성·민감파일 자동 경고, main 직접 푸시·force push 금지 하드 가드.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/merge-janitor/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/morning-briefing</span><span class="card-tag">아침 7:15</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/morning-briefing</span><span class="card-tag">아침 7:15</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">매일 아침 통합 브리핑. 날씨·미세먼지 + 어제 커밋·오늘 할일·블로커 + 뉴스·주식 + 사이드 프로젝트 픽을 <b>단일 세션·단일 메시지</b>로 전달. 기존 3개 스킬 통합 버전.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/morning-briefing/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/morning-reporter</span><span class="card-tag">수동 전용</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/morning-reporter</span><span class="card-tag">수동 전용</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">어제 커밋 요약 + 오늘 할일 + 블로커만 따로 보고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/morning-reporter/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/night-runner</span><span class="card-tag">야간 자동</span></div>
+      <div class="card" data-device="desktop">
+        <div class="card-header"><span class="card-name">/night-runner</span><span class="card-tag">야간 자동</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
         <div class="card-desc">야간 사이드 프로젝트 러너. projects.yaml 기반 라운드로빈으로 매일 밤 1개 repo 선정 → repo-janitor 에이전트가 TODO 1~2개 처리 → janitor/YYYY-MM-DD 브랜치 push → 텔레그램 보고. 아침 /merge-janitor 로 머지.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/night-runner/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/review-status-check</span><span class="card-tag">매시 09~23</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/review-status-check</span><span class="card-tag">매시 09~23</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">Google Play + App Store Connect 심사 상태 이메일을 Gmail MCP 로 감시 → 변경 감지 시 텔레그램 알림. 로그인 세션 관리 불필요, Google/Apple 공식 메일 기반.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/review-status-check/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/side-project-briefing</span><span class="card-tag">수동 전용</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/side-project-briefing</span><span class="card-tag">수동 전용</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">사이드 프로젝트 아이디어 상세 브리핑(파일 저장 포함)만 따로 받고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/side-project-briefing/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/submit-app</span><span class="card-tag">스토어 제출</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/submit-app</span><span class="card-tag">스토어 제출</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">앱 스토어 제출 루틴. lessons/ 에 쌓인 과거 실수·리젝 사례를 Step 0 에서 읽어 재발 방지 체크리스트로 만든 뒤 빌드·업로드·심사 제출. 제출 후 새 교훈이 있으면 lessons 에 누적.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/submit-app/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/sync</span><span class="card-tag">수동 동기화</span></div>
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/sync</span><span class="card-tag">수동 동기화</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">맥·WSL 의 자동화/이슈 히스토리를 즉시 최신 상태로 끌어오는 수동 스킬. 06:45 KST 자동 동기화(daily-sync-and-learn) 재사용. 데스크탑에서 방금 push 한 내용을 맥에서 바로 받고 싶을 때.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/sync/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/to-iphone</span><span class="card-tag">WSL 전위</span></div>
+      <div class="card" data-device="desktop">
+        <div class="card-header"><span class="card-name">/to-iphone</span><span class="card-tag">WSL 전위</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
         <div class="card-desc">Flutter 앱을 한 줄로 GitHub push → 텔레그램 트리거로 맥에 알림까지. 맥 /land 와 페어, 세 번째 앱부터 WSL → 아이폰 무인 배달 완성.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/to-iphone/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/todo</span><span class="card-tag">할일 관리</span></div>
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/todo</span><span class="card-tag">할일 관리</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">할일·사이드 프로젝트를 ~/todo/todos.md + 미리알림 앱 "Claude" 목록과 양방향 연동.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/todo/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/todo-reminder</span><span class="card-tag">밤 22:00</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/todo-reminder</span><span class="card-tag">밤 22:00</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">매일 저녁 리마인더. 오늘 뭐 했고 뭐 못 했나 + 내일 우선순위 TOP 3 제안. 텔레그램 전송.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/todo-reminder/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/toss-tone</span><span class="card-tag">디자인</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/toss-tone</span><span class="card-tag">디자인</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">Flutter 앱 디자인을 Toss 톤으로 고도화. 레퍼런스 theme.dart 의 Pretendard + 색상·반경·스페이싱 토큰을 타겟 앱에 비파괴적으로 머지하고, 화면 코드의 매직 넘버·fontFamily 누락을 스캔 리포트.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/toss-tone/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/trend</span><span class="card-tag">트렌드</span></div>
+      <div class="card" data-device="desktop">
+        <div class="card-header"><span class="card-name">/trend</span><span class="card-tag">트렌드</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
         <div class="card-desc">Dev Trend Curator. Hacker News + GitHub 일일 트렌드에서 Flutter/indie/Claude 키워드 매칭 → ~/trend-curator/daily/YYYY-MM-DD.md 누적 + 텔레그램 요약 전송.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/trend/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/usage</span><span class="card-tag">토큰</span></div>
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/usage</span><span class="card-tag">토큰</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">ccusage 기반 토큰 사용량 ASCII 바 그래프. 현재 5시간 블록, 히스토리, 모델별 분포, 주/일별 합계.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/usage/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/weather-dust</span><span class="card-tag">수동 전용</span></div>
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/weather-dust</span><span class="card-tag">수동 전용</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">서울 날씨 + 미세먼지만 따로 확인하고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/weather-dust/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header"><span class="card-name">/worklog</span><span class="card-tag">작업일지</span></div>
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/worklog</span><span class="card-tag">작업일지</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">하루 작업 내용(맥+데스크탑 세션 로그 + 모든 git 커밋)을 수집·요약 → docs/worklog/YYYY-MM-DD_vX.Y.Z.md 저장 + git 푸시. 실행 시 Tailscale rsync 로 데스크탑 세션도 자동 당겨 옴.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/worklog/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
@@ -310,5 +352,22 @@
       · <a href="./worklog.html">작업일지</a>
     </footer>
   </div>
+
+  <script>
+    (function() {
+      const pills = document.querySelectorAll('.filter-pill');
+      const cards = document.querySelectorAll('.grid .card');
+      pills.forEach(p => p.addEventListener('click', () => {
+        const f = p.dataset.filter;
+        pills.forEach(x => x.classList.toggle('active', x === p));
+        cards.forEach(c => {
+          const d = c.dataset.device || 'both';
+          const show = (f === 'all') || (f === 'both' && d === 'both') ||
+                       (f === d) || (f !== 'both' && d === 'both');
+          c.classList.toggle('hidden', !show);
+        });
+      }));
+    })();
+  </script>
 </body>
 </html>

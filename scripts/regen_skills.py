@@ -28,6 +28,36 @@ END_MARK = "<!-- AUTO-GEN:SKILLS-END -->"
 # Legacy tag map for skills whose SKILL.md frontmatter doesn't yet carry
 # daejong_tag. New skills should add `daejong_tag:` to frontmatter instead
 # of extending this map.
+# Per-skill device classification. Values: "mac", "desktop", "both".
+# New skills can override via `daejong_device:` frontmatter field.
+FALLBACK_DEVICE = {
+    # 🍎 Mac
+    "irun": "mac",
+    "land": "mac",
+    "review-status-check": "mac",
+    "morning-briefing": "mac",
+    "todo-reminder": "mac",
+    "morning-reporter": "mac",
+    "weather-dust": "mac",
+    "side-project-briefing": "mac",
+    "submit-app": "mac",
+    "toss-tone": "mac",
+    # 🪟 Desktop (WSL)
+    "to-iphone": "desktop",
+    "arun": "desktop",
+    "night-runner": "desktop",
+    "merge-janitor": "desktop",
+    "trend": "desktop",
+    # 🔄 Both
+    "ctx": "both",
+    "done": "both",
+    "issue": "both",
+    "todo": "both",
+    "sync": "both",
+    "usage": "both",
+    "worklog": "both",
+}
+
 FALLBACK_TAGS = {
     "ctx": "세션 요약",
     "done": "체크리스트",
@@ -123,6 +153,9 @@ def collect_skills() -> list[dict]:
         name = fm["name"]
         tag = fm.get("daejong_tag") or FALLBACK_TAGS.get(name, "")
         description = CARD_DESC_OVERRIDE.get(name) or fm.get("description", "")
+        device = (fm.get("daejong_device") or FALLBACK_DEVICE.get(name, "both")).lower()
+        if device not in {"mac", "desktop", "both"}:
+            device = "both"
         order_raw = fm.get("daejong_order", "")
         try:
             order = int(order_raw)
@@ -132,6 +165,7 @@ def collect_skills() -> list[dict]:
             "name": name,
             "tag": tag,
             "description": description,
+            "device": device,
             "order": order,
         })
     # Primary sort: explicit daejong_order, then name
@@ -146,6 +180,13 @@ def escape_html(s: str) -> str:
              .replace("\"", "&quot;"))
 
 
+DEVICE_BADGE = {
+    "mac": ("🍎", "Mac"),
+    "desktop": ("🪟", "Desktop"),
+    "both": ("🔄", "Both"),
+}
+
+
 def render_cards(skills: list[dict]) -> str:
     lines: list[str] = []
     for s in skills:
@@ -154,9 +195,14 @@ def render_cards(skills: list[dict]) -> str:
         # description passes through as-is — inline HTML (<b>) is allowed
         # since source files are ours and not user-generated.
         desc = s["description"]
+        device = s["device"]
+        emoji, label = DEVICE_BADGE[device]
         tag_span = f'<span class="card-tag">{tag}</span>' if tag else ""
-        lines.append(f"""      <div class="card">
-        <div class="card-header"><span class="card-name">/{name}</span>{tag_span}</div>
+        device_span = (
+            f'<span class="card-device dev-{device}" title="{label}">{emoji} {label}</span>'
+        )
+        lines.append(f"""      <div class="card" data-device="{device}">
+        <div class="card-header"><span class="card-name">/{name}</span>{tag_span}{device_span}</div>
         <div class="card-desc">{desc}</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/{name}/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
