@@ -16,13 +16,13 @@
       "file": "2026-04-21-launchd-silent-job-dropout.md",
       "date": "2026-04-21",
       "slug": "launchd-silent-job-dropout",
-      "title": "launchd 가 등록된 잡을 소리 없이 떨궈서 수 주 동안 자동 스케줄 유실",
+      "title": "launchd 가 등록된 잡을 소리 없이 떨궈서 수 주 동안 자동 스케줄 유실 (2026-04-22 재발)",
       "severity": "medium",
-      "recurrence": "medium",
+      "recurrence": "high",
       "scope": "Mac 본진 launchd, morning-briefing + daily-sync-and-learn 잡, 아침 루틴 전반",
       "occurred_at": "불명 (2026-04-21 15:30 KST 가시화)",
-      "resolved_at": "2026-04-21 15:39 KST",
-      "updated": "2026-04-21T21:15:00+09:00"
+      "resolved_at": "2026-04-22 07:05 KST (재발 해결, forcing function 2개 구현)",
+      "updated": "2026-04-22T07:07:00+09:00"
     },
     {
       "file": "2026-04-21-mac-wsl-todos-desync.md",
