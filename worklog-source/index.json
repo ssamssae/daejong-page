@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-22_v1.0.0.md",
+      "date": "2026-04-22",
+      "version": "v1.0.0",
+      "summary": "Mac↔WSL 앱 동기화 갭을 세 겹(Stop 훅 ~/apps/* 확장 + /pull-apps 신규 스킬 + /sync 에 apps 루프 흡수)으로 차단 + hanjul 토스 블루 리브랜드 4커밋 + 메모요 beta 트랙 testers 그룹 lesson 기록",
+      "updated": "2026-04-22T00:40:00+09:00"
+    },
+    {
       "file": "2026-04-21_v1.0.3.md",
       "date": "2026-04-21",
       "version": "v1.0.3",
