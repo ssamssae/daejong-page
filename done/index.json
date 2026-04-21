@@ -3,9 +3,9 @@
     {
       "file": "2026-04-21.md",
       "date": "2026-04-21",
-      "summary": "훅 WSL-wins 머지 + typing daemon 세션 격리 픽스 + /goodnight 스킬",
-      "count": 9,
-      "updated": "2026-04-21T00:44:12+09:00"
+      "summary": "하루 전체 — 메모요 1.0.4 심사 제출 + 사전예약 드롭 + daejong-page 뉴스레터 피드/렌더러 + 토큰 절약 캐스케이드(스킬 3개 삭제·launchd 통합·MEMORY 정리·미리알림 싱크) + morning-briefing Python 프리페처 분리 + 한컵·mini_expense Android signing",
+      "count": 32,
+      "updated": "2026-04-21T21:00:00+09:00"
     },
     {
       "file": "2026-04-20.md",
