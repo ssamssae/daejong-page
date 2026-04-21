@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-22.md",
+      "date": "2026-04-22",
+      "summary": "hanjul 토스 블루 리브랜드 4커밋 + Mac↔WSL 앱 동기화 3겹(`/pull-apps` 신규 스킬·`/sync` apps 루프 흡수·Stop 훅 ~/apps/* 확장) + 메모요 beta 트랙 testers 그룹 lesson + 작업일지 v1.0.0",
+      "count": 12,
+      "updated": "2026-04-22T00:45:00+09:00"
+    },
+    {
       "file": "2026-04-21.md",
       "date": "2026-04-21",
       "summary": "하루 전체 — 메모요 1.0.4 심사 제출 + 사전예약 드롭 + daejong-page 뉴스레터 피드/렌더러 + 토큰 절약 캐스케이드(스킬 3개 삭제·launchd 통합·MEMORY 정리·미리알림 싱크) + morning-briefing Python 프리페처 분리 + 한컵·mini_expense Android signing",
