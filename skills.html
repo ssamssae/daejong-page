@@ -240,15 +240,7 @@
         </div>
       </div>
 
-      <div class="card" data-device="mac">
-        <div class="card-header"><span class="card-name">/morning-reporter</span><span class="card-tag">수동 전용</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
-        <div class="card-desc">어제 커밋 요약 + 오늘 할일 + 블로커만 따로 보고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
-        <div class="card-links">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/morning-reporter/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="card" data-device="desktop">
+<div class="card" data-device="desktop">
         <div class="card-header"><span class="card-name">/night-runner</span><span class="card-tag">야간 자동</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
         <div class="card-desc">야간 사이드 프로젝트 러너. projects.yaml 기반 라운드로빈으로 매일 밤 1개 repo 선정 → repo-janitor 에이전트가 TODO 1~2개 처리 → janitor/YYYY-MM-DD 브랜치 push → 텔레그램 보고. 아침 /merge-janitor 로 머지.</div>
         <div class="card-links">
@@ -264,15 +256,7 @@
         </div>
       </div>
 
-      <div class="card" data-device="mac">
-        <div class="card-header"><span class="card-name">/side-project-briefing</span><span class="card-tag">수동 전용</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
-        <div class="card-desc">사이드 프로젝트 아이디어 상세 브리핑(파일 저장 포함)만 따로 받고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
-        <div class="card-links">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/side-project-briefing/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="card" data-device="mac">
+<div class="card" data-device="mac">
         <div class="card-header"><span class="card-name">/submit-app</span><span class="card-tag">스토어 제출</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
         <div class="card-desc">앱 스토어 제출 루틴. lessons/ 에 쌓인 과거 실수·리젝 사례를 Step 0 에서 읽어 재발 방지 체크리스트로 만든 뒤 빌드·업로드·심사 제출. 제출 후 새 교훈이 있으면 lessons 에 누적.</div>
         <div class="card-links">
@@ -336,15 +320,7 @@
         </div>
       </div>
 
-      <div class="card" data-device="mac">
-        <div class="card-header"><span class="card-name">/weather-dust</span><span class="card-tag">수동 전용</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
-        <div class="card-desc">서울 날씨 + 미세먼지만 따로 확인하고 싶을 때 수동 호출. 자동 실행은 /morning-briefing 으로 이전됨.</div>
-        <div class="card-links">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/weather-dust/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="card" data-device="both">
+<div class="card" data-device="both">
         <div class="card-header"><span class="card-name">/worklog</span><span class="card-tag">작업일지</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">하루 작업 내용(맥+데스크탑 세션 로그 + 모든 git 커밋)을 수집·요약 → docs/worklog/YYYY-MM-DD_vX.Y.Z.md 저장 + git 푸시. 실행 시 Tailscale rsync 로 데스크탑 세션도 자동 당겨 옴.</div>
         <div class="card-links">
