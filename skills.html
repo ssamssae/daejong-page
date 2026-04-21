@@ -272,6 +272,14 @@
         </div>
       </div>
 
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/pull-apps</span><span class="card-tag">앱 동기화</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
+        <div class="card-desc">~/apps/*/ 하위 Flutter 앱 repo 를 git pull --rebase --autostash 로 일괄 최신화. /sync 가 스킬·자동화만 다룬다면 이 스킬은 앱 코드 전용. Mac 쪽 Stop 훅이 ahead 커밋을 경보하면 WSL 에서 이걸로 수신.</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/pull-apps/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
       <div class="card" data-device="desktop">
         <div class="card-header"><span class="card-name">/to-iphone</span><span class="card-tag">WSL 전위</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
         <div class="card-desc">Flutter 앱을 한 줄로 GitHub push → 텔레그램 트리거로 맥에 알림까지. 맥 /land 와 페어, 세 번째 앱부터 WSL → 아이폰 무인 배달 완성.</div>
