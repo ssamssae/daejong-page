@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-21_v1.0.3.md",
+      "date": "2026-04-21",
+      "version": "v1.0.3",
+      "summary": "저녁 2R 최적화 — 메모요 베타 모집 전면 드롭(portfolio.html signup 제거) + morning-briefing 기계 수집을 Python 프리페처(morning-prefetch.py 320줄)로 분리 + 멀티기기 push·skill 중복 로드 Q&A",
+      "updated": "2026-04-21T20:58:00+09:00"
+    },
+    {
       "file": "2026-04-21_v1.0.2.md",
       "date": "2026-04-21",
       "version": "v1.0.2",
