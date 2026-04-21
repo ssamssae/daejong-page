@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-21_v1.0.1.md",
+      "date": "2026-04-21",
+      "version": "v1.0.1",
+      "summary": "메모요 1.0.2 수동 출시 + 1.0.4 altool 재업로드·심사 제출 / 신규 앱 스크린샷 자동화 시도·실패(3가지 허용 버튼 우회 전부 실패 + dimension limit) / /worklog 뉴스레터 스타일 전환 + worklog.html marked.js 렌더러 도입",
+      "updated": "2026-04-21T09:45:00+09:00"
+    },
+    {
       "file": "2026-04-21_v1.0.0.md",
       "date": "2026-04-21",
       "version": "v1.0.0",

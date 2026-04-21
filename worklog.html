@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>작업일지 - 강대종</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -94,11 +95,55 @@
     .entry-body-wrap { position: relative; }
     .entry-body {
       font-size: 14px; color: #c0c0c0; line-height: 1.75;
-      white-space: pre-wrap; word-break: keep-all; overflow-wrap: break-word;
+      word-break: keep-all; overflow-wrap: break-word;
       max-height: 140px; overflow: hidden;
       transition: max-height 0.3s ease;
     }
     .entry-body.expanded { max-height: none; }
+    .entry-body h1, .entry-body h2, .entry-body h3 {
+      color: #ffd54f; font-weight: 700;
+      margin: 14px 0 8px; line-height: 1.35;
+    }
+    .entry-body h1 { font-size: 17px; }
+    .entry-body h2 { font-size: 15px; }
+    .entry-body h3 { font-size: 14px; }
+    .entry-body p { margin: 0 0 10px; }
+    .entry-body blockquote {
+      border-left: 3px solid #ffd54f;
+      padding: 6px 14px; margin: 10px 0;
+      color: #b8b8b8;
+      background: rgba(255, 213, 79, 0.05);
+      border-radius: 0 8px 8px 0;
+    }
+    .entry-body blockquote p { margin: 0; }
+    .entry-body code {
+      background: #252525; color: #ffd54f;
+      padding: 1px 6px; border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+    }
+    .entry-body pre {
+      background: #0f0f0f; color: #d0d0d0;
+      padding: 12px 14px; border-radius: 8px;
+      overflow-x: auto; margin: 10px 0;
+      border: 1px solid #2a2a2a;
+    }
+    .entry-body pre code { background: transparent; color: inherit; padding: 0; }
+    .entry-body strong { color: #e8e8e8; font-weight: 700; }
+    .entry-body a { color: #ffd54f; text-decoration: underline; }
+    .entry-body a:hover { color: #ffe082; }
+    .entry-body ul, .entry-body ol { padding-left: 22px; margin: 8px 0; }
+    .entry-body li { margin: 4px 0; }
+    .entry-body table {
+      border-collapse: collapse; margin: 10px 0;
+      font-size: 13px; width: 100%;
+    }
+    .entry-body th, .entry-body td {
+      border: 1px solid #2a2a2a; padding: 6px 10px;
+      text-align: left;
+    }
+    .entry-body th { background: #1f1f1f; color: #ffd54f; }
+    .entry-body hr { border: none; border-top: 1px solid #2a2a2a; margin: 16px 0; }
     .entry-body::after {
       content: ''; position: absolute; bottom: 36px; left: 0; right: 0; height: 40px;
       background: linear-gradient(to bottom, transparent, #1a1a1a);
@@ -233,7 +278,7 @@
           picked = group[0];
         }
         picked._versionCount = group.length;
-        // 산문체 버튼 링크 대상: 최신 vX.Y.Z 파일 (버전 없는 통합 파일은 스탠드업 불릿 포맷이라 산문체가 아님)
+        // 단일 버전 링크 대상: 최신 vX.Y.Z 파일 (버전 없는 통합 파일은 스탠드업 불릿 포맷이라 단일 스토리가 아님)
         var versioned = group.filter(function(e) { return e.version && /^v\d+\.\d+\.\d+$/.test(e.version); });
         if (versioned.length > 0) {
           versioned.sort(function(a, b) {
@@ -293,7 +338,7 @@
           '<div class="entry-body-wrap">' +
             '<div class="entry-body"><span class="loading" style="padding:0">본문 불러오는 중…</span></div>' +
           '</div>' +
-          '<a class="entry-view" href="./worklog/view.html?file=' + encodeURIComponent(e._proseFile || e.file) + '">산문체로 보기 →</a>';
+          '<a class="entry-view" href="./worklog/view.html?file=' + encodeURIComponent(e._proseFile || e.file) + '">단일 버전 보기 →</a>';
         feedEl.appendChild(div);
         nodes.push({ div: div, entry: e, index: i });
       }
@@ -318,7 +363,11 @@
       }).join('');
 
       var bodyEl = node.div.querySelector('.entry-body');
-      bodyEl.textContent = text;
+      try {
+        bodyEl.innerHTML = marked.parse(text, { breaks: false, gfm: true });
+      } catch (err) {
+        bodyEl.textContent = text;
+      }
 
       // Add toggle button if body is long
       setTimeout(function() {

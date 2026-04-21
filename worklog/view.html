@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>작업일지 산문체 - 강대종</title>
+  <title>작업일지 뉴스레터 - 강대종</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -40,8 +41,56 @@
     }
     .body {
       font-size: 15px; color: #d0d0d0; line-height: 1.9;
-      white-space: pre-wrap; word-break: keep-all; overflow-wrap: break-word;
+      word-break: keep-all; overflow-wrap: break-word;
     }
+    .body h1, .body h2, .body h3, .body h4 {
+      color: #ffd54f; font-weight: 700;
+      margin: 22px 0 10px; line-height: 1.35;
+    }
+    .body h1 { font-size: 24px; margin-top: 8px; }
+    .body h2 { font-size: 18px; }
+    .body h3 { font-size: 16px; }
+    .body h4 { font-size: 15px; }
+    .body p { margin: 0 0 14px; }
+    .body blockquote {
+      border-left: 4px solid #ffd54f;
+      padding: 10px 18px; margin: 14px 0;
+      color: #c8c8c8;
+      background: rgba(255, 213, 79, 0.06);
+      border-radius: 0 10px 10px 0;
+    }
+    .body blockquote p { margin: 0 0 6px; }
+    .body blockquote p:last-child { margin: 0; }
+    .body code {
+      background: #252525; color: #ffd54f;
+      padding: 2px 7px; border-radius: 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+    }
+    .body pre {
+      background: #0f0f0f; color: #d0d0d0;
+      padding: 14px 16px; border-radius: 10px;
+      overflow-x: auto; margin: 14px 0;
+      border: 1px solid #2a2a2a;
+      font-size: 13px; line-height: 1.55;
+    }
+    .body pre code { background: transparent; color: inherit; padding: 0; font-size: 13px; }
+    .body strong { color: #e8e8e8; font-weight: 700; }
+    .body em { color: #e0e0e0; }
+    .body a { color: #ffd54f; text-decoration: underline; }
+    .body a:hover { color: #ffe082; }
+    .body ul, .body ol { padding-left: 24px; margin: 10px 0; }
+    .body li { margin: 5px 0; }
+    .body table {
+      border-collapse: collapse; margin: 14px 0;
+      font-size: 13px; width: 100%;
+    }
+    .body th, .body td {
+      border: 1px solid #2a2a2a; padding: 7px 11px;
+      text-align: left;
+    }
+    .body th { background: #1f1f1f; color: #ffd54f; }
+    .body hr { border: none; border-top: 1px solid #2a2a2a; margin: 22px 0; }
     .toolbar {
       display: flex; gap: 8px; margin: 28px 0 20px; flex-wrap: wrap;
     }
@@ -73,7 +122,7 @@
 <body>
   <div class="wrap">
     <header>
-      <h1 id="pageTitle">작업일지 산문체</h1>
+      <h1 id="pageTitle">작업일지 뉴스레터</h1>
       <a href="../worklog.html">← 피드로</a>
     </header>
 
@@ -171,7 +220,11 @@
         metaVersionEl.textContent = versionLabel(parsed.version);
         metaEl.style.display = 'flex';
 
-        bodyEl.textContent = text;
+        try {
+          bodyEl.innerHTML = marked.parse(text, { breaks: false, gfm: true });
+        } catch (err) {
+          bodyEl.textContent = text;
+        }
         toolbarEl.style.display = 'flex';
         githubLink.href = 'https://github.com/ssamssae/daejong-page/blob/main/worklog/' + file;
 
