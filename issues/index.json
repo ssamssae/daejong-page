@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-21-mac-wsl-todos-desync.md",
+      "date": "2026-04-21",
+      "slug": "mac-wsl-todos-desync",
+      "title": "Mac 과 WSL 이 같은 심사레이더 작업을 병렬로 붙잡고 todos 정합성 파탄",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "todo 스킬, daejong-page/todos, Mac/WSL 멀티기기 자동화 전체",
+      "occurred_at": "2026-04-21 10:17 KST",
+      "resolved_at": "2026-04-21 13:10 KST",
+      "updated": "2026-04-21T13:10:00+09:00"
+    },
+    {
       "file": "2026-04-20-telegram-typing-midsession-drop.md",
       "date": "2026-04-20",
       "slug": "telegram-typing-midsession-drop",
