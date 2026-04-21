@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-21_v1.0.2.md",
+      "date": "2026-04-21",
+      "version": "v1.0.2",
+      "summary": "토큰 절약 캐스케이드 — /review-status-check launchd 비활성화 + 수동 호출 스킬 3개 삭제 + todo-reminder+done-auto→/evening-wrap 통합 + MEMORY.md 중복 2쌍 정리 + 미리알림 싱크 7개 정리",
+      "updated": "2026-04-21T17:45:00+09:00"
+    },
+    {
       "file": "2026-04-21_v1.0.1.md",
       "date": "2026-04-21",
       "version": "v1.0.1",
