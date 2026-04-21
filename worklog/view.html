@@ -173,14 +173,16 @@
       try {
         var res = await fetch('./index.json?_=' + Date.now());
         var data = await res.json();
-        var entries = (data.entries || []).filter(function(e) { return e.date === date; });
+        // versionless("최신") 엔트리는 공개 내비에서 숨긴다 — 뉴스레터판 이전의 스탠드업+태그 포맷이라 혼선 유발.
+        var entries = (data.entries || []).filter(function(e) {
+          if (e.date !== date) return false;
+          if (!e.version || e.version === '') return false;
+          return true;
+        });
         if (entries.length <= 1) return;
         entries.sort(function(a, b) {
           var va = a.version || '';
           var vb = b.version || '';
-          // 통합(최신) 먼저
-          if (va === '' && vb !== '') return -1;
-          if (vb === '' && va !== '') return 1;
           // legacy 는 맨 뒤
           if (va === 'legacy' && vb !== 'legacy') return 1;
           if (vb === 'legacy' && va !== 'legacy') return -1;
