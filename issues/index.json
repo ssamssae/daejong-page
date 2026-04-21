@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "file": "2026-04-21-memoyo-signup-ghost-form.md",
+      "date": "2026-04-21",
+      "slug": "memoyo-signup-ghost-form",
+      "title": "메모요 스토어 드롭 후 2주 동안 홈페이지 사전예약 폼이 살아있어서 이메일 계속 수집",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "daejong-page portfolio.html, 메모요 Apps Script endpoint, 사전예약자 기대치",
+      "occurred_at": "2026-04-07 전후 (추정)",
+      "resolved_at": "2026-04-21 18:30 KST",
+      "updated": "2026-04-21T21:15:00+09:00"
+    },
+    {
+      "file": "2026-04-21-launchd-silent-job-dropout.md",
+      "date": "2026-04-21",
+      "slug": "launchd-silent-job-dropout",
+      "title": "launchd 가 등록된 잡을 소리 없이 떨궈서 수 주 동안 자동 스케줄 유실",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "Mac 본진 launchd, morning-briefing + daily-sync-and-learn 잡, 아침 루틴 전반",
+      "occurred_at": "불명 (2026-04-21 15:30 KST 가시화)",
+      "resolved_at": "2026-04-21 15:39 KST",
+      "updated": "2026-04-21T21:15:00+09:00"
+    },
+    {
       "file": "2026-04-21-mac-wsl-todos-desync.md",
       "date": "2026-04-21",
       "slug": "mac-wsl-todos-desync",
