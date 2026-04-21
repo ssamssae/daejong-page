@@ -3,6 +3,14 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 2,
+      "file": "ep2-2026-04-21.md",
+      "date": "2026-04-21",
+      "title": "기억이를 드롭했다",
+      "subtitle": "Ep.1 에서 예고한 Phase 3 를 안 하게 된 이유 — Claude Code auto memory 가 이미 하던 일",
+      "readingTime": "7분"
+    },
+    {
       "number": 1,
       "file": "ep1-2026-04-20.md",
       "date": "2026-04-20",
