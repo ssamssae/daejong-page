@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-22_v1.0.1.md",
+      "date": "2026-04-22",
+      "version": "v1.0.1",
+      "summary": "launchd silent dropout 재발 → bootstrap API + 검증 루틴 강화 + stop-check blacklist + memory auto-push 훅 / /handoff 스킬 신설 / hanjul A2+B2 하이브리드 1294줄 + AI negation 픽스 + APP_SHARED_SECRET 드롭→layered rate limits / daejong-page 15페이지 풀 리디자인(검정·노랑→화이트·토스블루) + 홈 iOS 홈스크린 3×3 그리드",
+      "updated": "2026-04-22T23:35:00+09:00"
+    },
+    {
       "file": "2026-04-22_v1.0.0.md",
       "date": "2026-04-22",
       "version": "v1.0.0",
