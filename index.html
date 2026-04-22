@@ -207,6 +207,17 @@
     }
     .home-link:hover { color: #3182F6; }
     .home-link .arr { font-size: 10px; opacity: 0.7; }
+    .visitors {
+      display: block;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid #F2F4F6;
+      font-size: 11px;
+      font-weight: 500;
+      color: #8B95A1;
+      letter-spacing: 0.2px;
+    }
+    .visitors b { font-weight: 700; color: #4E5968; }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 </head>
@@ -264,6 +275,21 @@
         <div class="tile-label">뉴스레터</div>
       </a>
     </div>
+    <span class="visitors" data-visitors="daejong-page">오늘 <b>-</b> · 누적 <b>-</b></span>
   </div>
+  <script>
+    (function () {
+      var el = document.querySelector('[data-visitors]');
+      if (!el) return;
+      var site = el.dataset.visitors;
+      fetch('https://visitor-counter.ssamssae.workers.dev/count?site=' + site, { cache: 'no-store' })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (typeof d.total !== 'number' || typeof d.today !== 'number') return;
+          el.innerHTML = '오늘 <b>' + d.today.toLocaleString() + '</b> · 누적 <b>' + d.total.toLocaleString() + '</b>';
+        })
+        .catch(function () {});
+    })();
+  </script>
 </body>
 </html>
