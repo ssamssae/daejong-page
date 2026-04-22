@@ -11,9 +11,9 @@
       scrollbar-gutter: stable;
     }
     body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
       line-height: 1.7;
@@ -29,27 +29,27 @@
       justify-content: space-between;
       margin-bottom: 32px;
       padding-bottom: 16px;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid #E5E8EB;
     }
     header h1 {
       font-size: 22px;
-      color: #ffd54f;
+      color: #3182F6;
       font-weight: 700;
     }
     header a {
-      color: #9e9e9e;
+      color: #4E5968;
       text-decoration: none;
       font-size: 14px;
     }
-    header a:hover { color: #ffd54f; }
+    header a:hover { color: #3182F6; }
     .intro {
-      color: #9e9e9e;
+      color: #4E5968;
       font-size: 14px;
       margin-bottom: 24px;
       padding: 16px 20px;
-      background: #1a1a1a;
+      background: #F9FAFB;
       border-radius: 12px;
-      border-left: 3px solid #ffd54f;
+      border-left: 3px solid #3182F6;
     }
     .main-layout {
       display: flex;
@@ -66,8 +66,8 @@
     }
     .sidebar::-webkit-scrollbar { width: 4px; }
     .sidebar::-webkit-scrollbar-track { background: transparent; }
-    .sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-    .sidebar::-webkit-scrollbar-thumb:hover { background: #555; }
+    .sidebar::-webkit-scrollbar-thumb { background: #E5E8EB; border-radius: 4px; }
+    .sidebar::-webkit-scrollbar-thumb:hover { background: #B0B8C1; }
     .project-list {
       list-style: none;
       display: flex;
@@ -75,17 +75,17 @@
       gap: 8px;
     }
     .project-list li {
-      background: #1e1e1e;
+      background: #FFFFFF;
       border-radius: 10px;
       padding: 14px 16px;
       cursor: pointer;
       transition: background 0.2s;
-      border: 1px solid #2a2a2a;
+      border: 1px solid #E5E8EB;
     }
-    .project-list li:hover { background: #262626; }
+    .project-list li:hover { background: #F2F4F6; }
     .project-list li.active {
-      background: #2a2515;
-      border-color: #ffd54f;
+      background: #DCE9FA;
+      border-color: #3182F6;
     }
     .project-icon {
       font-size: 20px;
@@ -101,13 +101,13 @@
     }
     .project-name {
       font-size: 15px;
-      color: #e0e0e0;
+      color: #191F28;
       font-weight: 600;
       display: inline;
     }
     .project-status {
       font-size: 11px;
-      color: #9e9e9e;
+      color: #4E5968;
       margin-top: 4px;
       letter-spacing: 0.3px;
     }
@@ -116,14 +116,14 @@
       min-width: 0;
     }
     .detail {
-      background: #1e1e1e;
+      background: #FFFFFF;
       border-radius: 16px;
       padding: 32px 28px;
       min-height: 300px;
     }
     .detail:empty::before {
       content: "왼쪽 목록에서 프로젝트를 선택해주세요.";
-      color: #666;
+      color: #8B95A1;
     }
     .detail .d-icon {
       font-size: 48px;
@@ -138,18 +138,18 @@
     .detail .d-name {
       font-size: 22px;
       font-weight: 700;
-      color: #ffd54f;
+      color: #3182F6;
       margin-bottom: 8px;
     }
     .detail .d-status {
       font-size: 13px;
-      color: #9e9e9e;
+      color: #4E5968;
       margin-bottom: 20px;
       letter-spacing: 0.3px;
     }
     .detail .d-desc {
       font-size: 15px;
-      color: #c0c0c0;
+      color: #4E5968;
       margin-bottom: 24px;
       line-height: 1.8;
     }
@@ -160,44 +160,44 @@
     }
     .detail .d-links a {
       font-size: 13px;
-      color: #ffd54f;
+      color: #3182F6;
       text-decoration: none;
       padding: 8px 16px;
-      border: 1px solid #ffd54f;
+      border: 1px solid #3182F6;
       border-radius: 14px;
       transition: background 0.2s, color 0.2s;
     }
     .detail .d-links a:hover {
-      background: #ffd54f;
-      color: #1e1e1e;
+      background: #3182F6;
+      color: #FFFFFF;
     }
     .back {
       display: inline-block;
       margin-top: 24px;
-      color: #9e9e9e;
+      color: #4E5968;
       text-decoration: none;
       font-size: 14px;
     }
-    .back:hover { color: #ffd54f; }
+    .back:hover { color: #3182F6; }
     /* Timeline inline styles */
     .tl-intro {
-      color: #9e9e9e; font-size: 14px; margin-bottom: 24px; padding: 14px 18px;
-      background: #161616; border-radius: 10px; border-left: 3px solid #ffd54f;
+      color: #4E5968; font-size: 14px; margin-bottom: 24px; padding: 14px 18px;
+      background: #F9FAFB; border-radius: 10px; border-left: 3px solid #3182F6;
     }
     .tl-stats {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
       margin-bottom: 24px;
     }
     .tl-stat {
-      background: #161616; border-radius: 10px; padding: 14px; text-align: center;
-      border: 1px solid #2a2a2a;
+      background: #F9FAFB; border-radius: 10px; padding: 14px; text-align: center;
+      border: 1px solid #E5E8EB;
     }
-    .tl-stat-num { font-size: 26px; font-weight: 700; color: #ffd54f; }
-    .tl-stat-label { font-size: 11px; color: #999; margin-top: 4px; }
+    .tl-stat-num { font-size: 26px; font-weight: 700; color: #3182F6; }
+    .tl-stat-label { font-size: 11px; color: #8B95A1; margin-top: 4px; }
     .tl-timeline { position: relative; padding-left: 32px; }
     .tl-timeline::before {
       content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px;
-      width: 2px; background: #2a2a2a;
+      width: 2px; background: #E5E8EB;
     }
     .tl-event {
       position: relative; margin-bottom: 22px;
@@ -208,18 +208,18 @@
     .tl-dot {
       position: absolute; left: -32px; top: 6px;
       width: 20px; height: 20px; border-radius: 50%;
-      background: #2a2515; border: 2px solid #ffd54f;
+      background: #DCE9FA; border: 2px solid #3182F6;
       display: flex; align-items: center; justify-content: center;
       font-size: 10px; z-index: 1;
     }
-    .tl-dot.major { background: #ffd54f; }
-    .tl-event-date { font-size: 12px; color: #ffd54f; font-weight: 600; margin-bottom: 3px; }
-    .tl-event-title { font-size: 15px; color: #e0e0e0; font-weight: 700; margin-bottom: 5px; }
-    .tl-event-desc { font-size: 13px; color: #999; margin-bottom: 6px; }
+    .tl-dot.major { background: #3182F6; }
+    .tl-event-date { font-size: 12px; color: #3182F6; font-weight: 600; margin-bottom: 3px; }
+    .tl-event-title { font-size: 15px; color: #191F28; font-weight: 700; margin-bottom: 5px; }
+    .tl-event-desc { font-size: 13px; color: #8B95A1; margin-bottom: 6px; }
     .tl-tags { display: flex; gap: 5px; flex-wrap: wrap; }
     .tl-tag {
       font-size: 10px; padding: 2px 8px; border-radius: 8px;
-      background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a;
+      background: #E5E8EB; color: #4E5968; border: 1px solid #E5E8EB;
     }
     /* Signup form styles */
     .signup-form { margin-top: 24px; max-width: 420px; }
@@ -228,35 +228,35 @@
     }
     .signup-form input[type="email"] {
       flex: 1; min-width: 0; padding: 11px 14px; border-radius: 10px;
-      border: 1px solid #333; background: #161616; color: #e0e0e0;
+      border: 1px solid #E5E8EB; background: #F9FAFB; color: #191F28;
       font-size: 14px; outline: none; transition: border-color 0.2s;
     }
-    .signup-form input[type="email"]:focus { border-color: #ffd54f; }
-    .signup-form input[type="email"]::placeholder { color: #666; }
+    .signup-form input[type="email"]:focus { border-color: #3182F6; }
+    .signup-form input[type="email"]::placeholder { color: #8B95A1; }
     .signup-form .signup-btn {
       padding: 11px 18px; border-radius: 10px; border: none;
-      background: #ffd54f; color: #1e1e1e; font-size: 13px;
+      background: #3182F6; color: #FFFFFF; font-size: 13px;
       font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.2s;
       white-space: nowrap;
     }
-    .signup-form .signup-btn:hover { background: #ffca28; transform: translateY(-1px); }
-    .signup-form .signup-btn:disabled { background: #555; color: #999; cursor: not-allowed; transform: none; }
+    .signup-form .signup-btn:hover { background: #1B64DA; transform: translateY(-1px); }
+    .signup-form .signup-btn:disabled { background: #B0B8C1; color: #8B95A1; cursor: not-allowed; transform: none; }
     .signup-msg {
       font-size: 13px; padding: 10px 14px; border-radius: 8px; margin-top: 8px;
     }
-    .signup-msg.success { background: #1b3a1b; color: #81c784; }
-    .signup-msg.error { background: #3a1b1b; color: #ef5350; }
+    .signup-msg.success { background: #E5F8EC; color: #22C55E; }
+    .signup-msg.error { background: #FEEBEC; color: #F04452; }
     .signup-count {
-      font-size: 12px; color: #666; margin-top: 12px;
+      font-size: 12px; color: #8B95A1; margin-top: 12px;
       min-height: 18px;
     }
-    .tl-tag.flutter { border-color: #4fc3f7; color: #4fc3f7; }
-    .tl-tag.ai { border-color: #ffd54f; color: #ffd54f; }
-    .tl-tag.web { border-color: #81c784; color: #81c784; }
-    .tl-tag.infra { border-color: #ce93d8; color: #ce93d8; }
+    .tl-tag.flutter { border-color: #3182F6; color: #3182F6; }
+    .tl-tag.ai { border-color: #3182F6; color: #3182F6; }
+    .tl-tag.web { border-color: #22C55E; color: #22C55E; }
+    .tl-tag.infra { border-color: #A855F7; color: #A855F7; }
     .hero {
-      background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%);
-      border: 1px solid #2a2a2a;
+      background: linear-gradient(135deg, #F9FAFB 0%, #F9FAFB 100%);
+      border: 1px solid #E5E8EB;
       border-radius: 20px;
       padding: 36px 32px;
       margin-bottom: 32px;
@@ -270,15 +270,15 @@
       right: -20%;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(255, 213, 79, 0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(49, 130, 246, 0.08) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-badge {
       display: inline-block;
       font-size: 11px;
       font-weight: 600;
-      color: #1e1e1e;
-      background: #ffd54f;
+      color: #FFFFFF;
+      background: #3182F6;
       padding: 4px 10px;
       border-radius: 12px;
       margin-bottom: 20px;
@@ -307,17 +307,17 @@
     .hero-name {
       font-size: 28px;
       font-weight: 700;
-      color: #ffd54f;
+      color: #3182F6;
       margin-bottom: 8px;
     }
     .hero-status {
       font-size: 13px;
-      color: #9e9e9e;
+      color: #4E5968;
       margin-bottom: 16px;
     }
     .hero-desc {
       font-size: 15px;
-      color: #c0c0c0;
+      color: #4E5968;
       line-height: 1.7;
       margin-bottom: 22px;
     }
@@ -328,8 +328,8 @@
       margin-bottom: 32px;
     }
     .p-card {
-      background: #1e1e1e;
-      border: 1px solid #2a2a2a;
+      background: #FFFFFF;
+      border: 1px solid #E5E8EB;
       border-radius: 14px;
       padding: 20px;
       color: inherit;
@@ -351,17 +351,17 @@
     .p-card-title {
       font-size: 16px;
       font-weight: 600;
-      color: #e0e0e0;
+      color: #191F28;
     }
     .p-card-status {
       font-size: 11px;
-      color: #9e9e9e;
+      color: #4E5968;
       letter-spacing: 0.3px;
       margin-top: 2px;
     }
     .p-card-desc {
       font-size: 13px;
-      color: #999;
+      color: #8B95A1;
       line-height: 1.6;
       flex: 1;
     }
@@ -374,8 +374,8 @@
     .p-badge {
       font-size: 10px;
       font-weight: 600;
-      color: #1e1e1e;
-      background: #ffd54f;
+      color: #FFFFFF;
+      background: #3182F6;
       padding: 3px 8px;
       border-radius: 10px;
       white-space: nowrap;
@@ -390,21 +390,21 @@
     }
     .p-btn {
       font-size: 12px;
-      color: #ffd54f;
+      color: #3182F6;
       text-decoration: none;
       padding: 6px 12px;
-      border: 1px solid #ffd54f;
+      border: 1px solid #3182F6;
       border-radius: 10px;
       transition: background 0.15s, color 0.15s;
       font-weight: 500;
     }
     .p-btn:hover {
-      background: #ffd54f;
-      color: #1e1e1e;
+      background: #3182F6;
+      color: #FFFFFF;
     }
     .p-btn.disabled {
-      color: #666;
-      border-color: #333;
+      color: #8B95A1;
+      border-color: #E5E8EB;
       background: transparent;
       cursor: default;
       pointer-events: none;
@@ -415,6 +415,7 @@
       .hero-icon { width: 72px; height: 72px; }
     }
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 </head>
 <body>
   <div class="wrap">
@@ -495,8 +496,8 @@
       if (p.showSignup) {
         signupHtml =
           '<div class="signup-form">' +
-            '<div style="font-size:15px;font-weight:600;color:#ffd54f;margin-bottom:10px;">베타테스터 등록</div>' +
-            '<div style="font-size:13px;color:#999;margin-bottom:12px;">한 번 등록하면 강대종이 만드는 모든 앱의 베타 테스트에 참여할 수 있어요.</div>' +
+            '<div style="font-size:15px;font-weight:600;color:#3182F6;margin-bottom:10px;">베타테스터 등록</div>' +
+            '<div style="font-size:13px;color:#8B95A1;margin-bottom:12px;">한 번 등록하면 강대종이 만드는 모든 앱의 베타 테스트에 참여할 수 있어요.</div>' +
             '<div class="form-row">' +
               '<input type="email" id="signupEmail" placeholder="이메일 주소를 입력하세요" onkeydown="if(event.key===\'Enter\'){event.preventDefault();submitSignup();}">' +
               '<button class="signup-btn" id="signupBtn" onclick="submitSignup()">등록</button>' +
@@ -580,8 +581,8 @@
 
       if (p.showSignup) {
         html += '<div class="signup-form">' +
-          '<div style="font-size:16px;font-weight:600;color:#ffd54f;margin-bottom:12px;">베타테스터 등록</div>' +
-          '<div style="font-size:13px;color:#999;margin-bottom:14px;">한 번 등록하면 강대종이 만드는 모든 앱의 베타 테스트에 참여할 수 있어요.</div>' +
+          '<div style="font-size:16px;font-weight:600;color:#3182F6;margin-bottom:12px;">베타테스터 등록</div>' +
+          '<div style="font-size:13px;color:#8B95A1;margin-bottom:14px;">한 번 등록하면 강대종이 만드는 모든 앱의 베타 테스트에 참여할 수 있어요.</div>' +
           '<div class="form-row">' +
             '<input type="email" id="signupEmail" placeholder="이메일 주소를 입력하세요" onkeydown="if(event.key===\'Enter\'){event.preventDefault();submitSignup();}">' +
             '<button class="signup-btn" id="signupBtn" onclick="submitSignup()">등록</button>' +

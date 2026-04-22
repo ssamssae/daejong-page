@@ -7,9 +7,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
       line-height: 1.7;
@@ -18,29 +18,29 @@
 
     header {
       display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #2a2a2a;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #ffd54f; font-weight: 700; }
-    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #ffd54f; }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
 
     /* Hero */
     .hero {
       display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;
     }
     .hero-priority {
-      background: linear-gradient(135deg, #2a2515 0%, #1f1d10 100%);
-      border: 1px solid rgba(255, 213, 79, 0.45);
+      background: linear-gradient(135deg, #DCE9FA 0%, #EAF2FF 100%);
+      border: 1px solid rgba(49, 130, 246, 0.45);
       border-radius: 16px;
       padding: 18px 20px;
-      box-shadow: 0 0 24px rgba(255, 213, 79, 0.06);
+      box-shadow: 0 0 24px rgba(49, 130, 246, 0.06);
     }
     .hero-priority-label {
-      font-size: 11px; color: #ffd54f; font-weight: 700; letter-spacing: 1.5px;
+      font-size: 11px; color: #3182F6; font-weight: 700; letter-spacing: 1.5px;
       margin-bottom: 6px;
     }
     .hero-priority-text {
-      font-size: 15px; color: #fff; font-weight: 600; line-height: 1.55;
+      font-size: 15px; color: #191F28; font-weight: 600; line-height: 1.55;
     }
     .hero-stats {
       display: grid;
@@ -48,47 +48,47 @@
       gap: 10px;
     }
     .hero-card {
-      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
       padding: 14px 16px;
     }
     .hero-card-label {
-      font-size: 11px; color: #9e9e9e; margin-bottom: 6px;
+      font-size: 11px; color: #4E5968; margin-bottom: 6px;
       text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .hero-card-value { font-size: 20px; color: #e0e0e0; font-weight: 700; }
-    .hero-card-sub { font-size: 11px; color: #666; margin-top: 4px; }
+    .hero-card-value { font-size: 20px; color: #191F28; font-weight: 700; }
+    .hero-card-sub { font-size: 11px; color: #8B95A1; margin-top: 4px; }
     .progress-bar-wrap {
-      margin-top: 8px; height: 6px; background: #2a2a2a;
+      margin-top: 8px; height: 6px; background: #E5E8EB;
       border-radius: 3px; overflow: hidden;
     }
     .progress-bar-fill {
       height: 100%;
-      background: linear-gradient(90deg, #ffd54f 0%, #ffb300 100%);
+      background: linear-gradient(90deg, #3182F6 0%, #3182F6 100%);
       border-radius: 3px; transition: width 0.6s ease;
     }
 
     /* Countdown widget */
     .countdown {
-      background: linear-gradient(135deg, #1d1a0d 0%, #1a1a1a 100%);
-      border: 1px solid rgba(255, 171, 145, 0.35);
+      background: linear-gradient(135deg, #EAF2FF 0%, #F9FAFB 100%);
+      border: 1px solid rgba(249, 115, 22, 0.35);
       border-radius: 14px; padding: 14px 18px;
     }
     .countdown-label {
-      font-size: 10px; color: #ffab91; font-weight: 700;
+      font-size: 10px; color: #F97316; font-weight: 700;
       letter-spacing: 1.5px; margin-bottom: 6px;
     }
-    .countdown-title { font-size: 13px; color: #e0e0e0; font-weight: 600; margin-bottom: 8px; }
+    .countdown-title { font-size: 13px; color: #191F28; font-weight: 600; margin-bottom: 8px; }
     .countdown-days {
       display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;
     }
-    .countdown-num { font-size: 28px; color: #ffab91; font-weight: 800; line-height: 1; }
-    .countdown-unit { font-size: 13px; color: #9e9e9e; }
-    .countdown-date { font-size: 11px; color: #666; }
+    .countdown-num { font-size: 28px; color: #F97316; font-weight: 800; line-height: 1; }
+    .countdown-unit { font-size: 13px; color: #4E5968; }
+    .countdown-date { font-size: 11px; color: #8B95A1; }
     .countdown-progress {
-      margin-top: 10px; height: 5px; background: #2a2a2a; border-radius: 3px; overflow: hidden;
+      margin-top: 10px; height: 5px; background: #E5E8EB; border-radius: 3px; overflow: hidden;
     }
     .countdown-progress-fill {
-      height: 100%; background: linear-gradient(90deg, #ffab91 0%, #ff7043 100%);
+      height: 100%; background: linear-gradient(90deg, #F97316 0%, #F97316 100%);
       border-radius: 3px;
     }
 
@@ -100,21 +100,21 @@
       display: flex; gap: 6px; flex-wrap: wrap;
     }
     .tab {
-      background: #1a1a1a; border: 1px solid #2a2a2a;
-      color: #aaa; font-size: 13px; font-weight: 600;
+      background: #F9FAFB; border: 1px solid #E5E8EB;
+      color: #4E5968; font-size: 13px; font-weight: 600;
       padding: 7px 14px; border-radius: 20px; cursor: pointer;
       transition: all 0.15s;
       font-family: inherit;
     }
-    .tab:hover { border-color: #444; color: #e0e0e0; }
+    .tab:hover { border-color: #D1D6DB; color: #191F28; }
     .tab.active {
-      background: #2a2515; border-color: #ffd54f; color: #ffd54f;
+      background: #DCE9FA; border-color: #3182F6; color: #3182F6;
     }
     .tab-count {
       display: inline-block; margin-left: 6px;
-      font-size: 11px; color: #666;
+      font-size: 11px; color: #8B95A1;
     }
-    .tab.active .tab-count { color: #ffd54f; }
+    .tab.active .tab-count { color: #3182F6; }
 
     .chip-scroll {
       display: flex; gap: 6px;
@@ -124,29 +124,29 @@
     .chip-scroll::-webkit-scrollbar { display: none; }
     .chip {
       flex-shrink: 0;
-      background: transparent; border: 1px solid #333;
-      color: #9e9e9e; font-size: 12px;
+      background: transparent; border: 1px solid #E5E8EB;
+      color: #4E5968; font-size: 12px;
       padding: 5px 12px; border-radius: 14px; cursor: pointer;
       transition: all 0.15s; font-family: inherit;
     }
-    .chip:hover { border-color: #555; color: #e0e0e0; }
+    .chip:hover { border-color: #B0B8C1; color: #191F28; }
     .chip.active {
-      background: rgba(255, 213, 79, 0.12);
-      border-color: #ffd54f;
-      color: #ffd54f;
+      background: rgba(49, 130, 246, 0.12);
+      border-color: #3182F6;
+      color: #3182F6;
     }
 
     /* Todo cards */
     .todo-list { display: flex; flex-direction: column; gap: 10px; }
     .todo {
-      background: #1a1a1a; border: 1px solid #2a2a2a;
+      background: #F9FAFB; border: 1px solid #E5E8EB;
       border-radius: 12px; padding: 14px 16px;
       transition: border-color 0.15s;
     }
-    .todo:hover { border-color: #3a3a3a; }
+    .todo:hover { border-color: #E5E8EB; }
     .todo.priority {
-      border-color: rgba(255, 213, 79, 0.4);
-      background: linear-gradient(135deg, #20200f 0%, #1a1a1a 100%);
+      border-color: rgba(49, 130, 246, 0.4);
+      background: linear-gradient(135deg, #EAF2FF 0%, #F9FAFB 100%);
     }
     .todo.done { opacity: 0.55; }
 
@@ -155,21 +155,21 @@
     }
     .todo-check {
       flex-shrink: 0; width: 18px; height: 18px; border-radius: 5px;
-      border: 2px solid #555; margin-top: 3px;
+      border: 2px solid #B0B8C1; margin-top: 3px;
       display: flex; align-items: center; justify-content: center;
     }
-    .todo.done .todo-check { border-color: #4caf50; background: #4caf50; }
+    .todo.done .todo-check { border-color: #22C55E; background: #22C55E; }
     .todo.done .todo-check::after {
-      content: '✓'; color: #fff; font-size: 11px; font-weight: bold;
+      content: '✓'; color: #191F28; font-size: 11px; font-weight: bold;
     }
-    .todo.priority .todo-check { border-color: #ffd54f; }
+    .todo.priority .todo-check { border-color: #3182F6; }
 
     .todo-text {
-      flex: 1; font-size: 14px; color: #d0d0d0; line-height: 1.55;
+      flex: 1; font-size: 14px; color: #191F28; line-height: 1.55;
       word-break: keep-all; overflow-wrap: break-word;
     }
-    .todo.done .todo-text { text-decoration: line-through; color: #777; }
-    .todo-star { color: #ffd54f; margin-right: 4px; }
+    .todo.done .todo-text { text-decoration: line-through; color: #8B95A1; }
+    .todo-star { color: #3182F6; margin-right: 4px; }
 
     .todo-meta {
       display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
@@ -177,44 +177,44 @@
     }
     .todo-tag {
       font-size: 10px; padding: 2px 8px; border-radius: 8px;
-      background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a;
+      background: #E5E8EB; color: #4E5968; border: 1px solid #E5E8EB;
       font-weight: 500;
     }
-    .todo-tag.memoyo { border-color: #81c784; color: #81c784; }
-    .todo-tag.web { border-color: #4fc3f7; color: #4fc3f7; }
-    .todo-tag.infra { border-color: #ce93d8; color: #ce93d8; }
-    .todo-tag.remote { border-color: #b0bec5; color: #b0bec5; }
-    .todo-tag.skill { border-color: #ffd54f; color: #ffd54f; }
-    .todo-tag.release { border-color: #ffab91; color: #ffab91; }
-    .todo-tag.ios { border-color: #f48fb1; color: #f48fb1; }
-    .todo-tag.android { border-color: #a5d6a7; color: #a5d6a7; }
+    .todo-tag.memoyo { border-color: #22C55E; color: #22C55E; }
+    .todo-tag.web { border-color: #3182F6; color: #3182F6; }
+    .todo-tag.infra { border-color: #A855F7; color: #A855F7; }
+    .todo-tag.remote { border-color: #8B95A1; color: #8B95A1; }
+    .todo-tag.skill { border-color: #3182F6; color: #3182F6; }
+    .todo-tag.release { border-color: #F97316; color: #F97316; }
+    .todo-tag.ios { border-color: #EC4899; color: #EC4899; }
+    .todo-tag.android { border-color: #22C55E; color: #22C55E; }
 
     .dday {
       font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px;
-      background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a;
+      background: #E5E8EB; color: #4E5968; border: 1px solid #E5E8EB;
       letter-spacing: 0.3px;
     }
-    .dday.urgent { background: rgba(239, 83, 80, 0.15); color: #ef5350; border-color: rgba(239, 83, 80, 0.45); }
-    .dday.soon { background: rgba(255, 167, 38, 0.12); color: #ffa726; border-color: rgba(255, 167, 38, 0.4); }
-    .dday.passed { background: rgba(117, 117, 117, 0.2); color: #757575; border-color: #424242; }
+    .dday.urgent { background: rgba(240, 68, 82, 0.15); color: #F04452; border-color: rgba(240, 68, 82, 0.45); }
+    .dday.soon { background: rgba(249, 115, 22, 0.12); color: #F97316; border-color: rgba(249, 115, 22, 0.4); }
+    .dday.passed { background: rgba(139, 149, 161, 0.2); color: #8B95A1; border-color: #D1D6DB; }
 
     .todo-date-info {
-      font-size: 11px; color: #666;
+      font-size: 11px; color: #8B95A1;
     }
 
     /* Drawer */
     .drawer {
-      margin-top: 28px; border-top: 1px solid #2a2a2a; padding-top: 20px;
+      margin-top: 28px; border-top: 1px solid #E5E8EB; padding-top: 20px;
     }
     .drawer-toggle {
-      background: transparent; border: 1px solid #333;
-      color: #9e9e9e; font-size: 13px; font-weight: 500;
+      background: transparent; border: 1px solid #E5E8EB;
+      color: #4E5968; font-size: 13px; font-weight: 500;
       padding: 10px 16px; border-radius: 10px; cursor: pointer;
       width: 100%; text-align: left; transition: all 0.15s;
       font-family: inherit;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .drawer-toggle:hover { border-color: #555; color: #e0e0e0; }
+    .drawer-toggle:hover { border-color: #B0B8C1; color: #191F28; }
     .drawer-toggle .arrow { transition: transform 0.2s; }
     .drawer.open .drawer-toggle .arrow { transform: rotate(90deg); }
     .drawer-content {
@@ -223,49 +223,50 @@
     }
     .drawer.open .drawer-content { display: flex; }
     .snap-item {
-      background: #1a1a1a; border: 1px solid #2a2a2a;
+      background: #F9FAFB; border: 1px solid #E5E8EB;
       border-radius: 10px; padding: 10px 14px; cursor: pointer;
       display: flex; justify-content: space-between; align-items: center;
       transition: all 0.15s; font-size: 13px;
     }
-    .snap-item:hover { border-color: #444; background: #1f1f1f; }
-    .snap-item.active { border-color: #ffd54f; background: #2a2515; }
-    .snap-date { color: #e0e0e0; font-weight: 600; }
+    .snap-item:hover { border-color: #D1D6DB; background: #F9FAFB; }
+    .snap-item.active { border-color: #3182F6; background: #DCE9FA; }
+    .snap-date { color: #191F28; font-weight: 600; }
     .snap-version {
-      font-size: 10px; color: #ffd54f;
-      background: rgba(255, 213, 79, 0.12);
+      font-size: 10px; color: #3182F6;
+      background: rgba(49, 130, 246, 0.12);
       padding: 2px 8px; border-radius: 8px;
-      border: 1px solid rgba(255, 213, 79, 0.3);
+      border: 1px solid rgba(49, 130, 246, 0.3);
     }
     .snap-tags { display: flex; gap: 6px; align-items: center; }
     .snap-reconstructed {
-      font-size: 10px; color: #9e9e9e;
+      font-size: 10px; color: #4E5968;
       background: transparent;
       padding: 2px 8px; border-radius: 8px;
-      border: 1px dashed #555;
+      border: 1px dashed #B0B8C1;
     }
     .reconstructed-note {
-      background: #1a1a1a; border: 1px dashed #555;
+      background: #F9FAFB; border: 1px dashed #B0B8C1;
       border-radius: 10px; padding: 10px 14px; margin-bottom: 14px;
-      font-size: 12px; color: #9e9e9e;
+      font-size: 12px; color: #4E5968;
       line-height: 1.5;
     }
-    .reconstructed-note strong { color: #ccc; }
+    .reconstructed-note strong { color: #4E5968; }
 
-    .loading { color: #666; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
-    .error { color: #ef5350; text-align: center; padding: 40px 0; font-size: 14px; }
-    .empty { color: #666; text-align: center; padding: 40px 0; font-size: 13px; }
+    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error { color: #F04452; text-align: center; padding: 40px 0; font-size: 14px; }
+    .empty { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 13px; }
 
     .back {
-      display: inline-block; margin-top: 28px; color: #9e9e9e;
+      display: inline-block; margin-top: 28px; color: #4E5968;
       text-decoration: none; font-size: 14px;
     }
-    .back:hover { color: #ffd54f; }
+    .back:hover { color: #3182F6; }
 
     @media (max-width: 480px) {
       .hero-stats { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 </head>
 <body>
   <div class="wrap">
@@ -583,7 +584,7 @@
         heroHtml +=
           '<div class="hero-card">' +
           '<div class="hero-card-label">최근 완료 속도</div>' +
-          '<div class="hero-card-value">' + recentCompleted + '<span style="font-size:13px;color:#9e9e9e;font-weight:500;">건</span></div>' +
+          '<div class="hero-card-value">' + recentCompleted + '<span style="font-size:13px;color:#4E5968;font-weight:500;">건</span></div>' +
           '<div class="hero-card-sub">지난 ' + recentDays + '일 동안</div>' +
           '</div>';
       } else {

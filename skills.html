@@ -8,9 +8,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
       line-height: 1.7;
@@ -22,26 +22,26 @@
       justify-content: space-between;
       margin-bottom: 32px;
       padding-bottom: 16px;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #ffd54f; font-weight: 700; }
-    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #ffd54f; }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
     .intro {
-      background: #1e1e1e;
+      background: #FFFFFF;
       border-radius: 12px;
       padding: 20px;
       margin-bottom: 24px;
-      color: #b0b0b0;
+      color: #4E5968;
       font-size: 14px;
     }
-    .intro a { color: #ffd54f; }
+    .intro a { color: #3182F6; }
     .intro code {
-      background: #0a0a0a;
+      background: #F2F4F6;
       padding: 2px 6px;
       border-radius: 4px;
       font-size: 12px;
-      color: #ffd54f;
+      color: #3182F6;
     }
     .grid {
       display: grid;
@@ -49,16 +49,16 @@
       gap: 16px;
     }
     .card {
-      background: #1e1e1e;
+      background: #FFFFFF;
       border-radius: 12px;
       padding: 20px;
-      border: 1px solid #2a2a2a;
+      border: 1px solid #E5E8EB;
       transition: border-color 0.15s ease, transform 0.15s ease;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    .card:hover { border-color: #ffd54f; transform: translateY(-2px); }
+    .card:hover { border-color: #3182F6; transform: translateY(-2px); }
     .card-header {
       display: flex;
       align-items: center;
@@ -68,13 +68,13 @@
     .card-name {
       font-size: 16px;
       font-weight: 700;
-      color: #ffd54f;
-      font-family: "SF Mono", Menlo, Consolas, monospace;
+      color: #3182F6;
+      font-family: 'Pretendard', "SF Mono", Menlo, Consolas, monospace;
     }
     .card-tag {
       font-size: 11px;
-      color: #888;
-      background: #0a0a0a;
+      color: #8B95A1;
+      background: #F2F4F6;
       padding: 2px 8px;
       border-radius: 10px;
       white-space: nowrap;
@@ -86,9 +86,9 @@
       white-space: nowrap;
       font-weight: 600;
     }
-    .card-device.dev-mac { background: rgba(129, 199, 132, 0.15); color: #81c784; }
-    .card-device.dev-desktop { background: rgba(100, 181, 246, 0.15); color: #64b5f6; }
-    .card-device.dev-both { background: rgba(206, 147, 216, 0.15); color: #ce93d8; }
+    .card-device.dev-mac { background: rgba(34, 197, 94, 0.15); color: #22C55E; }
+    .card-device.dev-desktop { background: rgba(49, 130, 246, 0.15); color: #3182F6; }
+    .card-device.dev-both { background: rgba(168, 85, 247, 0.15); color: #A855F7; }
     .filter-bar {
       display: flex;
       gap: 8px;
@@ -99,24 +99,24 @@
       font-size: 13px;
       padding: 6px 14px;
       border-radius: 18px;
-      background: #1e1e1e;
-      border: 1px solid #2a2a2a;
-      color: #9e9e9e;
+      background: #FFFFFF;
+      border: 1px solid #E5E8EB;
+      color: #4E5968;
       cursor: pointer;
       font-weight: 500;
       transition: all 0.15s ease;
     }
-    .filter-pill:hover { border-color: #ffd54f; color: #ffd54f; }
+    .filter-pill:hover { border-color: #3182F6; color: #3182F6; }
     .filter-pill.active {
-      background: #ffd54f;
-      border-color: #ffd54f;
-      color: #1e1e1e;
+      background: #3182F6;
+      border-color: #3182F6;
+      color: #FFFFFF;
       font-weight: 700;
     }
     .card.hidden { display: none; }
     .card-desc {
       font-size: 13px;
-      color: #c0c0c0;
+      color: #4E5968;
       line-height: 1.5;
     }
     .card-links {
@@ -126,23 +126,23 @@
       font-size: 12px;
     }
     .card-links a {
-      color: #9e9e9e;
+      color: #4E5968;
       text-decoration: none;
       padding: 4px 10px;
-      background: #0a0a0a;
+      background: #F2F4F6;
       border-radius: 6px;
     }
-    .card-links a:hover { color: #ffd54f; }
+    .card-links a:hover { color: #3182F6; }
     footer {
       margin-top: 40px;
       padding-top: 20px;
-      border-top: 1px solid #2a2a2a;
-      color: #6e6e6e;
+      border-top: 1px solid #E5E8EB;
+      color: #8B95A1;
       font-size: 12px;
       text-align: center;
     }
-    footer a { color: #9e9e9e; text-decoration: none; }
-    footer a:hover { color: #ffd54f; }
+    footer a { color: #4E5968; text-decoration: none; }
+    footer a:hover { color: #3182F6; }
   </style>
 </head>
 <body>

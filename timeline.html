@@ -7,9 +7,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
       line-height: 1.7;
@@ -17,39 +17,39 @@
     .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
     header {
       display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #2a2a2a;
+      margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 20px; color: #ffd54f; font-weight: 700; }
-    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #ffd54f; }
+    header h1 { font-size: 20px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
     .intro {
-      color: #9e9e9e; font-size: 14px; margin-bottom: 32px; padding: 16px 20px;
-      background: #1a1a1a; border-radius: 12px; border-left: 3px solid #ffd54f;
+      color: #4E5968; font-size: 14px; margin-bottom: 32px; padding: 16px 20px;
+      background: #F9FAFB; border-radius: 12px; border-left: 3px solid #3182F6;
     }
     .stats {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
       margin-bottom: 28px;
     }
     .stat {
-      background: #1e1e1e; border-radius: 12px; padding: 16px 12px; text-align: center;
-      border: 1px solid #2a2a2a;
+      background: #FFFFFF; border-radius: 12px; padding: 16px 12px; text-align: center;
+      border: 1px solid #E5E8EB;
     }
-    .stat-num { font-size: 26px; font-weight: 700; color: #ffd54f; line-height: 1; }
-    .stat-label { font-size: 11px; color: #999; margin-top: 6px; letter-spacing: 0.3px; }
+    .stat-num { font-size: 26px; font-weight: 700; color: #3182F6; line-height: 1; }
+    .stat-label { font-size: 11px; color: #8B95A1; margin-top: 6px; letter-spacing: 0.3px; }
     @media (max-width: 560px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* Heatmap */
     .heatmap-card {
-      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 14px;
       padding: 20px 20px 18px; margin-bottom: 28px; overflow-x: auto;
     }
     .heatmap-title {
-      font-size: 13px; color: #9e9e9e; margin-bottom: 14px;
+      font-size: 13px; color: #4E5968; margin-bottom: 14px;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .heatmap-title strong { color: #e0e0e0; font-size: 14px; }
+    .heatmap-title strong { color: #191F28; font-size: 14px; }
     .heatmap {
       display: grid; grid-template-columns: 24px 1fr; gap: 4px;
       min-width: 520px;
@@ -59,13 +59,13 @@
       padding-top: 18px;
     }
     .heatmap-day-label {
-      font-size: 9px; color: #666; line-height: 12px; text-align: right; padding-right: 4px;
+      font-size: 9px; color: #8B95A1; line-height: 12px; text-align: right; padding-right: 4px;
     }
     .heatmap-grid-wrap {
       display: flex; flex-direction: column;
     }
     .heatmap-months {
-      display: flex; font-size: 9px; color: #666; height: 14px;
+      display: flex; font-size: 9px; color: #8B95A1; height: 14px;
       padding-bottom: 4px;
     }
     .heatmap-grid {
@@ -73,17 +73,17 @@
       gap: 3px;
     }
     .hm-cell {
-      width: 12px; height: 12px; border-radius: 3px; background: #1e1e1e;
-      border: 1px solid #252525; cursor: default;
+      width: 12px; height: 12px; border-radius: 3px; background: #FFFFFF;
+      border: 1px solid #F2F4F6; cursor: default;
       transition: transform 0.1s;
     }
-    .hm-cell:hover { transform: scale(1.3); border-color: #ffd54f; }
-    .hm-cell.lv1 { background: #3d2e00; border-color: #4a3800; }
-    .hm-cell.lv2 { background: #7a5c00; border-color: #8a6a00; }
-    .hm-cell.lv3 { background: #b38400; border-color: #c69400; }
-    .hm-cell.lv4 { background: #ffd54f; border-color: #ffdf7a; box-shadow: 0 0 6px rgba(255, 213, 79, 0.4); }
+    .hm-cell:hover { transform: scale(1.3); border-color: #3182F6; }
+    .hm-cell.lv1 { background: #C9DCF7; border-color: #A8C7F0; }
+    .hm-cell.lv2 { background: #3182F6; border-color: #1B64DA; }
+    .hm-cell.lv3 { background: #1B64DA; border-color: #1B64DA; }
+    .hm-cell.lv4 { background: #3182F6; border-color: #5B9BF8; box-shadow: 0 0 6px rgba(49, 130, 246, 0.4); }
     .heatmap-legend {
-      display: flex; align-items: center; gap: 6px; font-size: 10px; color: #666;
+      display: flex; align-items: center; gap: 6px; font-size: 10px; color: #8B95A1;
       margin-top: 12px; justify-content: flex-end;
     }
     .heatmap-legend .hm-cell { cursor: default; }
@@ -95,52 +95,53 @@
       gap: 12px; margin-bottom: 28px;
     }
     .ms-card {
-      background: linear-gradient(135deg, #1f1f1f 0%, #1a1a1a 100%);
-      border: 1px solid #3a2e00; border-radius: 12px;
+      background: linear-gradient(135deg, #F9FAFB 0%, #F9FAFB 100%);
+      border: 1px solid #C9DCF7; border-radius: 12px;
       padding: 16px; position: relative;
     }
     .ms-num {
       position: absolute; top: 10px; right: 12px;
-      font-size: 28px; font-weight: 800; color: #ffd54f; opacity: 0.25; line-height: 1;
+      font-size: 28px; font-weight: 800; color: #3182F6; opacity: 0.25; line-height: 1;
     }
-    .ms-date { font-size: 11px; color: #ffd54f; font-weight: 600; margin-bottom: 4px; }
-    .ms-title { font-size: 14px; color: #e0e0e0; font-weight: 700; line-height: 1.4; }
+    .ms-date { font-size: 11px; color: #3182F6; font-weight: 600; margin-bottom: 4px; }
+    .ms-title { font-size: 14px; color: #191F28; font-weight: 700; line-height: 1.4; }
 
     /* Event list */
     .section-title {
-      font-size: 14px; color: #e0e0e0; font-weight: 600; margin-bottom: 14px;
+      font-size: 14px; color: #191F28; font-weight: 600; margin-bottom: 14px;
       margin-top: 8px;
     }
     .events { display: flex; flex-direction: column; gap: 4px; }
     .event-row {
       display: grid; grid-template-columns: 90px 1fr auto;
       gap: 12px; align-items: center; padding: 10px 14px;
-      background: #1a1a1a; border: 1px solid transparent; border-radius: 10px;
+      background: #F9FAFB; border: 1px solid transparent; border-radius: 10px;
       transition: border-color 0.15s, background 0.15s;
     }
-    .event-row:hover { border-color: #3a3a3a; background: #1e1e1e; }
-    .event-row.major { border-left: 3px solid #ffd54f; }
-    .er-date { font-size: 11px; color: #9e9e9e; font-weight: 600; }
-    .er-title { font-size: 13px; color: #e0e0e0; line-height: 1.5; }
-    .er-title strong { color: #fff; font-weight: 600; display: block; margin-bottom: 2px; }
-    .er-title span { color: #888; font-size: 12px; }
+    .event-row:hover { border-color: #E5E8EB; background: #FFFFFF; }
+    .event-row.major { border-left: 3px solid #3182F6; }
+    .er-date { font-size: 11px; color: #4E5968; font-weight: 600; }
+    .er-title { font-size: 13px; color: #191F28; line-height: 1.5; }
+    .er-title strong { color: #191F28; font-weight: 600; display: block; margin-bottom: 2px; }
+    .er-title span { color: #8B95A1; font-size: 12px; }
     .er-tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
     .tag {
       font-size: 10px; padding: 2px 7px; border-radius: 8px;
-      background: #2a2a2a; color: #aaa; border: 1px solid #3a3a3a;
+      background: #E5E8EB; color: #4E5968; border: 1px solid #E5E8EB;
     }
-    .tag.flutter { border-color: #4fc3f7; color: #4fc3f7; }
-    .tag.ai { border-color: #ffd54f; color: #ffd54f; }
-    .tag.web { border-color: #81c784; color: #81c784; }
-    .tag.infra { border-color: #ce93d8; color: #ce93d8; }
+    .tag.flutter { border-color: #3182F6; color: #3182F6; }
+    .tag.ai { border-color: #3182F6; color: #3182F6; }
+    .tag.web { border-color: #22C55E; color: #22C55E; }
+    .tag.infra { border-color: #A855F7; color: #A855F7; }
     @media (max-width: 640px) {
       .event-row { grid-template-columns: 70px 1fr; }
       .er-tags { grid-column: 2; justify-content: flex-start; margin-top: 4px; }
     }
 
-    .back { display: inline-block; margin-top: 24px; color: #9e9e9e; text-decoration: none; font-size: 14px; }
-    .back:hover { color: #ffd54f; }
+    .back { display: inline-block; margin-top: 24px; color: #4E5968; text-decoration: none; font-size: 14px; }
+    .back:hover { color: #3182F6; }
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 </head>
 <body>
   <div class="wrap">

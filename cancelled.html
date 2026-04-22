@@ -8,9 +8,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
       line-height: 1.7;
@@ -19,16 +19,16 @@
 
     header {
       display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #2a2a2a;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #ffd54f; font-weight: 700; }
-    header a { color: #9e9e9e; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #ffd54f; }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
 
     .intro {
-      font-size: 13px; color: #9e9e9e;
+      font-size: 13px; color: #4E5968;
       margin-bottom: 20px; padding: 12px 14px;
-      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
       line-height: 1.55;
     }
 
@@ -37,18 +37,18 @@
       margin-bottom: 24px;
     }
     .hero-card {
-      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
       padding: 14px 16px;
     }
     .hero-card-label {
-      font-size: 11px; color: #9e9e9e; margin-bottom: 6px;
+      font-size: 11px; color: #4E5968; margin-bottom: 6px;
       text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .hero-card-value { font-size: 22px; color: #e0e0e0; font-weight: 700; }
+    .hero-card-value { font-size: 22px; color: #191F28; font-weight: 700; }
     .hero-card-value .unit {
-      font-size: 13px; color: #9e9e9e; font-weight: 500; margin-left: 4px;
+      font-size: 13px; color: #4E5968; font-weight: 500; margin-left: 4px;
     }
-    .hero-card-sub { font-size: 11px; color: #666; margin-top: 4px; }
+    .hero-card-sub { font-size: 11px; color: #8B95A1; margin-top: 4px; }
 
     .timeline { display: flex; flex-direction: column; gap: 22px; }
 
@@ -57,85 +57,86 @@
     }
     .date-head {
       display: flex; align-items: baseline; gap: 10px;
-      padding-bottom: 8px; border-bottom: 1px dashed #2a2a2a;
+      padding-bottom: 8px; border-bottom: 1px dashed #E5E8EB;
     }
     .date-label {
-      font-size: 15px; color: #ffd54f; font-weight: 700;
+      font-size: 15px; color: #3182F6; font-weight: 700;
     }
     .date-rel {
-      font-size: 12px; color: #9e9e9e;
+      font-size: 12px; color: #4E5968;
     }
     .date-count {
-      margin-left: auto; font-size: 11px; color: #666;
+      margin-left: auto; font-size: 11px; color: #8B95A1;
     }
 
-    .date-group.empty-day .date-label { color: #6a6a6a; }
-    .date-group.empty-day .date-count { color: #555; }
+    .date-group.empty-day .date-label { color: #8B95A1; }
+    .date-group.empty-day .date-count { color: #B0B8C1; }
     .empty-day-note {
-      font-size: 12px; color: #555;
+      font-size: 12px; color: #B0B8C1;
       padding: 8px 14px;
-      background: #141414; border: 1px dashed #2a2a2a;
+      background: #F9FAFB; border: 1px dashed #E5E8EB;
       border-radius: 10px;
     }
 
     .cancelled-item {
-      background: #1a1a1a; border: 1px solid #2a2a2a;
+      background: #F9FAFB; border: 1px solid #E5E8EB;
       border-radius: 12px; padding: 14px 16px;
       opacity: 0.9;
     }
-    .cancelled-item:hover { border-color: #3a3a3a; }
+    .cancelled-item:hover { border-color: #E5E8EB; }
 
     .item-head {
       display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px;
     }
     .item-icon {
       flex-shrink: 0; width: 20px; height: 20px; border-radius: 5px;
-      border: 1.5px solid #666; margin-top: 2px;
+      border: 1.5px solid #8B95A1; margin-top: 2px;
       display: flex; align-items: center; justify-content: center;
-      background: #222;
+      background: #F9FAFB;
     }
     .item-icon::after {
-      content: '✕'; color: #9e9e9e; font-size: 11px; font-weight: bold;
+      content: '✕'; color: #4E5968; font-size: 11px; font-weight: bold;
     }
     .item-title {
-      flex: 1; font-size: 14px; color: #9e9e9e;
+      flex: 1; font-size: 14px; color: #4E5968;
       text-decoration: line-through;
-      text-decoration-color: #666;
+      text-decoration-color: #8B95A1;
       line-height: 1.5;
       word-break: keep-all; overflow-wrap: break-word;
     }
     .item-reason {
-      font-size: 13px; color: #aaa;
+      font-size: 13px; color: #4E5968;
       line-height: 1.6;
       padding-left: 30px;
       word-break: keep-all; overflow-wrap: break-word;
     }
     .item-reason-label {
-      display: inline-block; font-size: 10px; color: #ffab91;
-      background: rgba(255, 171, 145, 0.1);
-      border: 1px solid rgba(255, 171, 145, 0.3);
+      display: inline-block; font-size: 10px; color: #F97316;
+      background: rgba(249, 115, 22, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.3);
       padding: 1px 8px; border-radius: 6px; font-weight: 600;
       letter-spacing: 0.3px; margin-right: 8px; vertical-align: 1px;
     }
 
     .empty {
-      color: #666; text-align: center; padding: 60px 20px; font-size: 14px;
-      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px;
+      color: #8B95A1; text-align: center; padding: 60px 20px; font-size: 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
     }
     .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
-    .loading { color: #666; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
-    .error { color: #ef5350; text-align: center; padding: 40px 0; font-size: 14px; }
+    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error { color: #F04452; text-align: center; padding: 40px 0; font-size: 14px; }
 
     .back {
-      display: inline-block; margin-top: 28px; color: #9e9e9e;
+      display: inline-block; margin-top: 28px; color: #4E5968;
       text-decoration: none; font-size: 14px;
     }
-    .back:hover { color: #ffd54f; }
+    .back:hover { color: #3182F6; }
 
     @media (max-width: 480px) {
       .hero-stats { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 </head>
 <body>
   <div class="wrap">
@@ -146,8 +147,8 @@
 
     <div class="intro">
       드롭한 할일의 무덤입니다. 날짜순으로 정리되어 있어요.
-      <div style="margin-top:8px;font-size:12px;color:#9e9e9e;">
-        이슈/포스트모템 기록은 <a href="./issues.html" style="color:#ffd54f;text-decoration:none;">이슈 페이지</a>로 이동했습니다.
+      <div style="margin-top:8px;font-size:12px;color:#4E5968;">
+        이슈/포스트모템 기록은 <a href="./issues.html" style="color:#3182F6;text-decoration:none;">이슈 페이지</a>로 이동했습니다.
       </div>
     </div>
 
@@ -262,7 +263,7 @@
         '<div class="empty">' +
         '<div class="empty-emoji">🗂</div>' +
         '<div>아직 드롭한 할일이 없습니다.</div>' +
-        '<div style="font-size:12px;color:#555;margin-top:6px;">모든 할일을 붙잡고 있는 중.</div>' +
+        '<div style="font-size:12px;color:#B0B8C1;margin-top:6px;">모든 할일을 붙잡고 있는 중.</div>' +
         '</div>';
     }
 
