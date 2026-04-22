@@ -3,9 +3,9 @@
     {
       "file": "2026-04-22.md",
       "date": "2026-04-22",
-      "summary": "hanjul 토스 블루 리브랜드 4커밋 + Mac↔WSL 앱 동기화 3겹(`/pull-apps` 신규 스킬·`/sync` apps 루프 흡수·Stop 훅 ~/apps/* 확장) + 메모요 beta 트랙 testers 그룹 lesson + 작업일지 v1.0.0",
-      "count": 16,
-      "updated": "2026-04-22T07:47:23+09:00"
+      "summary": "hanjul 11커밋(토스 블루 + A2+B2 하이브리드 1294줄 + negation fix + APP_SHARED_SECRET 드롭→layered rate limits) + 인프라 10건(/pull-apps·/handoff 신규 스킬, /sync apps 루프, Stop 훅 확장+blacklist, memory auto-push hook, launchd 재발 대응) + daejong-page 9건(Toss 톤 15페이지 풀 리디자인, iOS 홈스크린 3×3, 랜딩 backlink, 작업일지 v1.0.0+v1.0.1) + 심사레이더 v0.1 MVP 완료 + 메모요 internal 업로드",
+      "count": 40,
+      "updated": "2026-04-22T23:45:00+09:00"
     },
     {
       "file": "2026-04-21.md",
