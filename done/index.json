@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-04-24.md",
+      "date": "2026-04-24",
+      "count": 1,
+      "updated": "2026-04-24T06:52:54+09:00"
+    },
+    {
       "file": "2026-04-23.md",
       "date": "2026-04-23",
       "summary": "한줄일기 UI 폴리싱 3커밋 + 스토어 출시 준비 3종 + 포모도로 aab 빌드/백그라운드 타이머+푸시/개인정보처리방침 + 심사레이더 iOS 최초 런치 디버그(Dart SDK 미스매치 → GIDClientID 누락 크래시 → GCP iOS OAuth + Info.plist 2키 → 41aabea 커밋) + 작업일지 v1.0.0/v1.0.1 + /create-play-app + /insta-post 스킬 + /toss-tone 제거 + automations play-upload TCC 폴백 + 피드백 메모리 2건 + 포스트모템 1건",
