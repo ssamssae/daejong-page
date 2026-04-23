@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-24_v1.0.0.md",
+      "date": "2026-04-24",
+      "version": "v1.0.0",
+      "summary": "새벽 05:25~06:37 KST 세션: Mac/WSL 양쪽 daily-sync-and-learn 자동 스케줄 비활성화(launchctl/systemctl disable+mask) + 포모도로 Google Play Console Closed Testing(alpha) 업로드 완주. Flutter Android 빌드가 Xcode 라이선스에 막힘 → DEVELOPER_DIR=CommandLineTools 로 우회. Play Console API 업로드 4회 시도 실패(vc=3 이미 소비 / vc=4 testers 그룹 없음 / vc=5 draft app 제약 / vc=6 동일 에러) 후 수동 파이썬으로 internal 트랙의 잔여 vc=3 completed 를 draft 로 demote 한 뒤 alpha 트랙 vc=6 draft 커밋 성공(edit_id 04724584959853325210). 새 lesson android-all-tracks-must-be-draft.md 추가+push.",
+      "updated": "2026-04-24T06:40:00+09:00"
+    },
+    {
       "file": "2026-04-23_v1.0.1.md",
       "date": "2026-04-23",
       "version": "v1.0.1",
