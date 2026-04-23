@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-23_v1.0.1.md",
+      "date": "2026-04-23",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 이후 19:00~00:08 저녁·심야 궤적: 포모도로 백그라운드 타이머+푸시+개인정보처리방침, /create-play-app + /insta-post 신규 스킬 + /toss-tone 제거, automations play-upload TCC 폴백, 심사레이더 A2+B1 디자인 하이브리드, 그리고 자정을 넘긴 심사레이더 iOS 최초 런치 디버그(Dart SDK 미스매치 → GIDClientID 누락 크래시 → GCP iOS OAuth + Info.plist 2키 → 41aabea 푸시) + /issue 2026-04-23-ios-gidclientid-missing.md 포스트모템",
+      "updated": "2026-04-24T00:25:00+09:00"
+    },
+    {
       "file": "2026-04-23_v1.0.0.md",
       "date": "2026-04-23",
       "version": "v1.0.0",
