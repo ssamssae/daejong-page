@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이슈 상세 - 강대종</title>
+  <meta name="description" content="발생했다가 해결한 이슈의 포스트모템 상세 — 증상/원인/조치/예방.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
+
+    .detail-head {
+      margin-bottom: 18px;
+    }
+    .detail-date {
+      font-size: 13px; color: #3182F6; font-weight: 700;
+      letter-spacing: 0.3px; margin-bottom: 8px;
+    }
+    .detail-title {
+      font-size: 22px; color: #191F28; font-weight: 700;
+      line-height: 1.4; margin-bottom: 10px;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+
+    .badges {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;
+    }
+    .badge {
+      font-size: 10px; padding: 3px 9px; border-radius: 6px;
+      font-weight: 600; letter-spacing: 0.3px;
+      border: 1px solid transparent;
+    }
+    .badge-sev-high {
+      color: #F04452; background: rgba(240, 68, 82, 0.1);
+      border-color: rgba(240, 68, 82, 0.3);
+    }
+    .badge-sev-medium {
+      color: #F97316; background: rgba(249, 115, 22, 0.1);
+      border-color: rgba(249, 115, 22, 0.3);
+    }
+    .badge-sev-low {
+      color: #22C55E; background: rgba(34, 197, 94, 0.1);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+    .badge-rec {
+      color: #4E5968; background: rgba(139, 149, 161, 0.08);
+      border-color: rgba(139, 149, 161, 0.25);
+    }
+
+    .meta-grid {
+      display: grid; grid-template-columns: auto 1fr; gap: 6px 14px;
+      padding: 12px 14px; background: #F9FAFB;
+      border: 1px solid #E5E8EB; border-radius: 10px;
+      margin-bottom: 22px;
+      font-size: 12px;
+    }
+    .meta-grid dt { color: #8B95A1; font-weight: 600; }
+    .meta-grid dd { color: #191F28; }
+
+    .issue-sections {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .issue-section {
+      background: #F9FAFB;
+      border: 1px solid #F2F4F6;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .issue-section.highlight {
+      background: rgba(49, 130, 246, 0.04);
+      border-color: rgba(49, 130, 246, 0.2);
+    }
+    .section-label {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.5px; color: #3182F6;
+      margin-bottom: 8px; text-transform: uppercase;
+    }
+    .section-body {
+      font-size: 14px; color: #191F28; line-height: 1.7;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .section-body ul { padding-left: 20px; margin: 6px 0; }
+    .section-body li { margin-bottom: 6px; }
+    .section-body code {
+      background: #F2F4F6; padding: 1px 6px; border-radius: 4px;
+      font-size: 13px; color: #3182F6;
+    }
+    .section-body pre {
+      background: #191F28; color: #E5E8EB;
+      padding: 12px 14px; border-radius: 8px;
+      overflow-x: auto; font-size: 12px; line-height: 1.5;
+      margin: 8px 0;
+    }
+    .section-body pre code {
+      background: transparent; color: #E5E8EB; padding: 0;
+    }
+    .section-body p { margin: 6px 0; }
+    .section-body a { color: #3182F6; text-decoration: none; word-break: break-all; }
+    .section-body a:hover { text-decoration: underline; }
+
+    .back {
+      display: inline-block; margin-top: 28px; color: #4E5968;
+      text-decoration: none; font-size: 14px;
+    }
+    .back:hover { color: #3182F6; }
+
+    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error {
+      color: #F04452; text-align: center; padding: 40px 0; font-size: 14px;
+      background: rgba(240, 68, 82, 0.05);
+      border: 1px solid rgba(240, 68, 82, 0.2);
+      border-radius: 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>이슈 상세</h1>
+      <a href="./issues.html">← 이슈 목록</a>
+    </header>
+
+    <div id="view">
+      <div class="loading">불러오는 중…</div>
+    </div>
+
+    <a class="back" href="./issues.html">← 이슈 목록</a>
+  </div>
+
+  <script>
+    const viewEl = document.getElementById('view');
+
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    function escapeHtml(s) {
+      return (s || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function parseIssueMd(md) {
+      if (md.startsWith('---')) {
+        const end = md.indexOf('\n---', 3);
+        if (end > 0) md = md.slice(end + 4).trimStart();
+      }
+      const lines = md.split('\n');
+      let title = '';
+      const meta = {};
+      const sections = {};
+      let currentSection = null;
+      const bodyBuf = [];
+
+      const flushSection = () => {
+        if (currentSection !== null) {
+          sections[currentSection] = bodyBuf.join('\n').trim();
+          bodyBuf.length = 0;
+        }
+      };
+
+      for (const raw of lines) {
+        const line = raw.replace(/\r$/, '');
+        const trimmed = line.trim();
+
+        if (!title && trimmed.startsWith('# ')) {
+          title = trimmed.slice(2).trim();
+          continue;
+        }
+
+        const metaMatch = trimmed.match(/^-\s*\*\*(.+?):\*\*\s*(.+)$/);
+        if (metaMatch && currentSection === null) {
+          const key = metaMatch[1].trim();
+          const val = metaMatch[2].trim();
+          if (key.includes('발생')) meta.occurred = val;
+          else if (key.includes('해결')) meta.resolved = val;
+          else if (key.includes('심각')) meta.severity = val;
+          else if (key.includes('재발')) meta.recurrence = val;
+          else if (key.includes('영향')) meta.scope = val;
+          continue;
+        }
+
+        if (trimmed.startsWith('## ')) {
+          flushSection();
+          const rawLabel = trimmed.slice(3).trim();
+          const key = rawLabel.replace(/\s*\(.*?\)\s*$/, '').replace(/\s+/g, '');
+          currentSection = key;
+          continue;
+        }
+
+        if (currentSection !== null) {
+          bodyBuf.push(line);
+        }
+      }
+      flushSection();
+      return { title, meta, sections };
+    }
+
+    function renderBody(text) {
+      if (!text) return '';
+      const lines = text.split('\n');
+      const out = [];
+      let listBuf = [];
+      let inCode = false;
+      const codeBuf = [];
+
+      const flushList = () => {
+        if (listBuf.length) {
+          out.push('<ul>' + listBuf.map(l => '<li>' + inline(l) + '</li>').join('') + '</ul>');
+          listBuf = [];
+        }
+      };
+      const flushCode = () => {
+        if (codeBuf.length) {
+          out.push('<pre><code>' + escapeHtml(codeBuf.join('\n')) + '</code></pre>');
+          codeBuf.length = 0;
+        }
+      };
+      const inline = (s) => {
+        let x = escapeHtml(s);
+        x = x.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+        x = x.replace(/(^|[^"'>])((?:https?):\/\/[^\s<]+)/g, '$1<a href="$2" target="_blank" rel="noreferrer">$2</a>');
+        x = x.replace(/`([^`]+)`/g, '<code>$1</code>');
+        x = x.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        return x;
+      };
+
+      for (const rawLine of lines) {
+        const line = rawLine.replace(/\s+$/, '');
+
+        if (/^```/.test(line)) {
+          if (inCode) {
+            flushCode();
+            inCode = false;
+          } else {
+            flushList();
+            inCode = true;
+          }
+          continue;
+        }
+        if (inCode) { codeBuf.push(rawLine); continue; }
+
+        const ordered = line.match(/^\s*\d+\.\s+(.*)$/);
+        if (ordered) {
+          listBuf.push(ordered[1]);
+          continue;
+        }
+        if (/^\s*-\s+/.test(line)) {
+          listBuf.push(line.replace(/^\s*-\s+/, ''));
+          continue;
+        }
+        flushList();
+        if (line === '') { out.push(''); continue; }
+        out.push('<p>' + inline(line) + '</p>');
+      }
+      flushList();
+      flushCode();
+      return out.join('\n');
+    }
+
+    function sevBadgeClass(sev) {
+      if (!sev) return 'badge-rec';
+      if (/high/i.test(sev)) return 'badge-sev-high';
+      if (/medium/i.test(sev)) return 'badge-sev-medium';
+      if (/low/i.test(sev)) return 'badge-sev-low';
+      return 'badge-rec';
+    }
+
+    async function init() {
+      const slug = getQueryParam('slug');
+      const date = getQueryParam('date');
+      if (!slug) {
+        viewEl.innerHTML = '<div class="error">slug 파라미터가 없습니다. <a href="./issues.html">이슈 목록</a>에서 이슈를 선택해 주세요.</div>';
+        return;
+      }
+      try {
+        const idxRes = await fetch('./issues/index.json?_=' + Date.now());
+        const idxData = await idxRes.json();
+        const entries = idxData.entries || [];
+        const entry = entries.find(e => e.slug === slug && (!date || e.date === date));
+        if (!entry) {
+          viewEl.innerHTML = '<div class="error">해당 이슈를 찾을 수 없습니다. (slug: ' + escapeHtml(slug) + ')</div>';
+          return;
+        }
+        const r = await fetch('./issues/' + entry.file + '?_=' + Date.now());
+        if (!r.ok) {
+          viewEl.innerHTML = '<div class="error">이슈 파일을 불러올 수 없습니다.</div>';
+          return;
+        }
+        const md = await r.text();
+        const parsed = parseIssueMd(md);
+        render(entry, parsed);
+        document.title = (parsed.title || entry.title || '이슈 상세') + ' - 강대종';
+      } catch (e) {
+        viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    function render(entry, parsed) {
+      const title = parsed.title || entry.title || '(제목 없음)';
+      const meta = parsed.meta || {};
+      const sev = entry.severity || meta.severity || '';
+      const rec = entry.recurrence || meta.recurrence || '';
+      const occurred = meta.occurred || entry.occurred_at || '';
+      const resolved = meta.resolved || entry.resolved_at || '';
+      const scope = entry.scope || meta.scope || '';
+      const date = entry.date || '';
+
+      let html = '';
+      html += '<div class="detail-head">';
+      if (date) html += '<div class="detail-date">' + escapeHtml(date) + '</div>';
+      html += '<div class="detail-title">' + escapeHtml(title) + '</div>';
+      html += '<div class="badges">';
+      if (sev) html += '<span class="badge ' + sevBadgeClass(sev) + '">심각도 ' + escapeHtml(sev) + '</span>';
+      if (rec) html += '<span class="badge badge-rec">재발 ' + escapeHtml(rec) + '</span>';
+      html += '</div>';
+      html += '</div>';
+
+      const metaRows = [];
+      if (occurred) metaRows.push(['발생', occurred]);
+      if (resolved) metaRows.push(['해결', resolved]);
+      if (scope) metaRows.push(['영향 범위', scope]);
+      if (metaRows.length) {
+        html += '<dl class="meta-grid">';
+        for (const [k, v] of metaRows) {
+          html += '<dt>' + escapeHtml(k) + '</dt><dd>' + escapeHtml(v) + '</dd>';
+        }
+        html += '</dl>';
+      }
+
+      const sectionOrder = ['증상', '원인', '조치', '예방', '재발이력', '관련링크'];
+      const sectionLabels = {
+        '증상': '증상',
+        '원인': '원인',
+        '조치': '조치 (해결 방법)',
+        '예방': '예방 (Forcing Function)',
+        '재발이력': '재발 이력',
+        '관련링크': '관련 링크'
+      };
+      const highlightKeys = new Set(['조치', '예방']);
+      const filled = sectionOrder.filter(k =>
+        parsed.sections[k] &&
+        parsed.sections[k].trim() &&
+        !/^_?\(없음\)_?$/.test(parsed.sections[k].trim())
+      );
+
+      if (filled.length) {
+        html += '<div class="issue-sections">';
+        for (const k of filled) {
+          const cls = highlightKeys.has(k) ? 'issue-section highlight' : 'issue-section';
+          html +=
+            '<div class="' + cls + '">' +
+            '<div class="section-label">' + escapeHtml(sectionLabels[k] || k) + '</div>' +
+            '<div class="section-body">' + renderBody(parsed.sections[k]) + '</div>' +
+            '</div>';
+        }
+        html += '</div>';
+      }
+
+      viewEl.innerHTML = html;
+    }
+
+    init();
+  </script>
+</body>
+</html>
