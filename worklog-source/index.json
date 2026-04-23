@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-23_v1.0.0.md",
+      "date": "2026-04-23",
+      "version": "v1.0.0",
+      "summary": "/sync 오해 풀기(launchd catch-up 동작) + 병원 todo 드롭(일상생활 금지 규칙 신설) + 포모도로 aab 빌드 + 한줄일기 UI 폴리싱 3커밋(GradientTextStyles+PressScale+Undo+AI 등장 애니) + /irun 실기 → 한줄일기 출시 준비 3종(privacy-hanjul + 메타 ko/en + 시뮬레이터 스크린샷 3장)",
+      "updated": "2026-04-23T14:40:00+09:00"
+    },
+    {
       "file": "2026-04-22_v1.0.1.md",
       "date": "2026-04-22",
       "version": "v1.0.1",
