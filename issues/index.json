@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-23-ios-gidclientid-missing.md",
+      "date": "2026-04-23",
+      "slug": "ios-gidclientid-missing",
+      "title": "iOS GoogleSignIn GIDClientID 누락 크래시 (심사레이더)",
+      "severity": "high",
+      "recurrence": "high",
+      "scope": "심사레이더 iOS 빌드, 확대 리스크: flutter-factory 로 찍은 google_sign_in 의존 앱 전체",
+      "occurred_at": "2026-04-23 23:40 KST",
+      "resolved_at": "2026-04-24 00:05 KST",
+      "updated": "2026-04-24T00:15:00+09:00"
+    },
+    {
       "file": "2026-04-21-memoyo-signup-ghost-form.md",
       "date": "2026-04-21",
       "slug": "memoyo-signup-ghost-form",
