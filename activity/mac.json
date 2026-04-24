@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T22:36:19Z",
-  "last_prompt_ts": "2026-04-24T22:36:08.976Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-24T22:40:21Z",
+  "last_prompt_ts": "2026-04-24T22:36:52.181Z",
+  "last_user_prompt": "다시연결",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "대기 상태 — 사용자 회신(subtitle 유지/교체 + body 투입 ㄱㄱ/홀드) 받으면 바로 본문 주입 진행.",
   "last_recent_edit": ""
 }
