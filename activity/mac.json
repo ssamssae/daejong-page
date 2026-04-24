@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T01:42:38Z",
-  "last_prompt_ts": "2026-04-24T01:42:06.944Z",
-  "last_user_prompt": "세션클리",
+  "last_active_ts": "2026-04-24T05:29:23Z",
+  "last_prompt_ts": "2026-04-24T05:27:58.199Z",
+  "last_user_prompt": "오늘 todo",
   "last_user_source": "telegram",
-  "last_assistant_preview": "체크아웃 완료. 세션 클리어해도 됩니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "todos 등록 완료. ~/daejong-page/todos/2026-04-24.md 진행중 섹션에 WSL Stop 훅 등록 홀드 항목 추가, 미리알림 앱 Claud",
+  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-24.md"
 }
