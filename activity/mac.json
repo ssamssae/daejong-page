@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T15:00:26Z",
-  "last_prompt_ts": "2026-04-24T14:58:29.183Z",
+  "last_active_ts": "2026-04-24T15:03:02Z",
+  "last_prompt_ts": "2026-04-24T15:02:38.367Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "goodnight 스킬 업데이트 · push 완료. 내일부터 `/goodnight` 한 번이면 인스타 카드까지 자동으로 올라가요.",
-  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
+  "last_assistant_preview": "이미 goodnight 2단계에 포함돼 있어서 추가 작업 불필요함을 설명했습니다.",
+  "last_recent_edit": ""
 }
