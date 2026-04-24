@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-24T23:01:31Z",
-  "last_prompt_ts": "2026-04-24T23:00:38.875Z",
-  "last_user_prompt": "<task-notification> <task-id>bktdvwm94</task-id> <summary>Monitor event: \"hanjul APK build wait\"</summary> <event>-rwxrwxrwx 1 ssamssae ssam",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "",
+  "last_active_ts": "2026-04-24T23:10:22Z",
+  "last_prompt_ts": "2026-04-24T23:08:41.801Z",
+  "last_user_prompt": "한줄일기",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "리뷰 끝났습니다. 한줄일기 출시 가능 여부 + 할일 등록 두 건 답변 드릴게요.",
   "last_recent_edit": ""
 }
