@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T11:37:07Z",
-  "last_prompt_ts": "2026-04-24T11:36:31.072Z",
+  "last_active_ts": "2026-04-24T11:54:07Z",
+  "last_prompt_ts": "2026-04-24T11:52:20.255Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "3가지 대책 제시: A(자동업데이트 OFF + 새벽 수동잡), B(cc 래퍼에 stale-base 자동감지 로직 추가), C(반사신경�",
-  "last_recent_edit": ""
+  "last_assistant_preview": "정정 완료. 메모리를 2-layer 구조로 재작성하고 (1차 `cc --new`, 2차 npm staging 청소 + 재설치), 잘못된 \"staging 없",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
