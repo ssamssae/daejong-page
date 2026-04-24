@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T01:19:43Z",
-  "last_prompt_ts": "2026-04-24T01:17:29.441Z",
-  "last_user_prompt": "프롬프트",
+  "last_active_ts": "2026-04-24T01:21:06Z",
+  "last_prompt_ts": "2026-04-24T01:20:38.973Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "사용자 결정(A 구조 감지 / B self-review / C 기본 정책 / 여기서 멈춤) 대기 중입니다.",
-  "last_recent_edit": "/Users/user/.claude/hooks/handoff-check.sh"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
