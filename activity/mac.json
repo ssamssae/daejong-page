@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T12:30:25Z",
-  "last_prompt_ts": "2026-04-24T12:27:13.577Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-24T12:37:11Z",
+  "last_prompt_ts": "2026-04-24T12:36:49.018Z",
+  "last_user_prompt": "claude-memor",
   "last_user_source": "telegram",
-  "last_assistant_preview": "공유 repo (`ssamssae/claude-automations`) 에 portable 스크립트 + WSL systemd unit 추가해서 push (`b7c13af`). WSL 형 directive �",
-  "last_recent_edit": "/Users/user/.claude/automations/.gitignore"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
