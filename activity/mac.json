@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T13:18:03Z",
-  "last_prompt_ts": "2026-04-24T13:16:50.052Z",
+  "last_active_ts": "2026-04-24T13:19:25Z",
+  "last_prompt_ts": "2026-04-24T13:18:26.877Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "혼동 정리: (1) 2026-04-21 \"자동화 비활성화\" 는 **Claude API 토큰 버는 잡**이고 npm 업데이트는 토큰 0, (2) WSL 의 ",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
