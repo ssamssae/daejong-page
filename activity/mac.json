@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T11:33:11Z",
-  "last_prompt_ts": "2026-04-24T11:30:35.161Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"6718\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-24T11:30:32",
+  "last_active_ts": "2026-04-24T11:37:07Z",
+  "last_prompt_ts": "2026-04-24T11:36:31.072Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이제 텔레그램으로 답장합니다.",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_assistant_preview": "3가지 대책 제시: A(자동업데이트 OFF + 새벽 수동잡), B(cc 래퍼에 stale-base 자동감지 로직 추가), C(반사신경�",
+  "last_recent_edit": ""
 }
