@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-24T23:33:06Z",
-  "last_prompt_ts": "2026-04-24T23:11:22.514Z",
-  "last_user_prompt": "올림 </cha",
+  "last_active_ts": "2026-04-24T23:44:06Z",
+  "last_prompt_ts": "2026-04-24T23:34:30.327Z",
+  "last_user_prompt": "시뮬레이",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Now add the export icon button in the header row:",
-  "last_recent_edit": "/home/ssamssae/apps/hanjul/lib/screens/stats_screen.dart"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
