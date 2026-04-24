@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T14:58:08Z",
-  "last_prompt_ts": "2026-04-24T14:20:20.714Z",
-  "last_user_prompt": "오늘마저다해 아까 하던거 blocked 된거",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "작업 완전히 끝냈습니다. 약먹자·더치페이 둘 다 심사 대기열에 올라갔고, 한줄일기 APK 도 전달됐어요. 48",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_active_ts": "2026-04-24T15:00:26Z",
+  "last_prompt_ts": "2026-04-24T14:58:29.183Z",
+  "last_user_prompt": "",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "goodnight 스킬 업데이트 · push 완료. 내일부터 `/goodnight` 한 번이면 인스타 카드까지 자동으로 올라가요.",
+  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
 }
