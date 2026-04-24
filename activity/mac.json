@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T01:01:41Z",
-  "last_prompt_ts": "2026-04-24T01:00:33.987Z",
-  "last_user_prompt": " b ",
-  "last_user_source": "telegram",
+  "last_active_ts": "2026-04-24T01:08:11Z",
+  "last_prompt_ts": "2026-04-24T01:08:11.000Z",
+  "last_user_prompt": "내 API 키 [REDACTED:sk] 저장해.",
+  "last_user_source": "terminal",
   "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/.claude/hooks/activity-writer.sh"
+  "last_recent_edit": ""
 }
