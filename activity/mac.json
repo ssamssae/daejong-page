@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T14:16:01Z",
-  "last_prompt_ts": "2026-04-24T14:14:55.625Z",
-  "last_user_prompt": "코딩질문",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "Task 의존성 정리 완료. 친구 회신 대기 중이니 당장 할 건 없습니다. 상태 요약: - 더치페이: 빌드+수출규정",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-24T14:58:08Z",
+  "last_prompt_ts": "2026-04-24T14:20:20.714Z",
+  "last_user_prompt": "오늘마저다해 아까 하던거 blocked 된거",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "작업 완전히 끝냈습니다. 약먹자·더치페이 둘 다 심사 대기열에 올라갔고, 한줄일기 APK 도 전달됐어요. 48",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
