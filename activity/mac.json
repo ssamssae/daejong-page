@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T13:46:11Z",
-  "last_prompt_ts": "2026-04-24T13:44:44.858Z",
-  "last_user_prompt": "1",
+  "last_active_ts": "2026-04-24T13:52:12Z",
+  "last_prompt_ts": "2026-04-24T13:51:53.829Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Apple ID 로그인은 2FA 때문에 Playwright 로 자동화 못 해요. 로그인은 직접 하시고, 그다음 단계는 제가 체크리",
+  "last_assistant_preview": "맥 Chromium 창에서 직접 로그인 부탁드렸고, 완료 신호 오면 바로 클릭 이어받겠습니다.",
   "last_recent_edit": ""
 }
