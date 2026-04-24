@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T01:21:06Z",
-  "last_prompt_ts": "2026-04-24T01:20:38.973Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-24T01:23:58Z",
+  "last_prompt_ts": "2026-04-24T01:21:11.120Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Playwright 툴 로드 완료. 사용자 결정 대기 중입니다 ((1) Playwright read 시도 / (2) 바로 수동 / (3) 둘 다).",
+  "last_recent_edit": "/Users/user/.claude/hooks/handoff-check.sh"
 }
