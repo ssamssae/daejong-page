@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T05:52:58Z",
-  "last_prompt_ts": "2026-04-24T05:49:16.137Z",
-  "last_user_prompt": "오전에 cl",
+  "last_active_ts": "2026-04-24T05:55:42Z",
+  "last_prompt_ts": "2026-04-24T05:54:36.501Z",
+  "last_user_prompt": "추천 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Let me revert my server.ts patch since I just realized there's ALREADY a hook-based typing daemon handling this exact problem.",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
