@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T15:26:30Z",
-  "last_prompt_ts": "2026-04-24T15:25:04.591Z",
-  "last_user_prompt": "📋 (이어",
+  "last_active_ts": "2026-04-24T22:23:31Z",
+  "last_prompt_ts": "2026-04-24T22:23:13.745Z",
+  "last_user_prompt": "sync 의 작",
   "last_user_source": "telegram",
-  "last_assistant_preview": "On Mac (USERui-MacBookPro.local). Pulled latest, found todo line 37. Updating device tag and annotating.",
-  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-24.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
