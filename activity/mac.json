@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T01:08:11Z",
-  "last_prompt_ts": "2026-04-24T01:08:11.000Z",
-  "last_user_prompt": "내 API 키 [REDACTED:sk] 저장해.",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-24T01:12:11Z",
+  "last_prompt_ts": "2026-04-24T01:04:06.540Z",
+  "last_user_prompt": "1,2 둘다 <",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "`~/.claude/hooks` 는 `~/.claude/automations/hooks` 심링크 (ssamssae/claude-automations repo). WSL 은 `/sync` 로 pull 만 받으면 됨",
+  "last_recent_edit": "/Users/user/.claude/hooks/activity-writer.sh"
 }
