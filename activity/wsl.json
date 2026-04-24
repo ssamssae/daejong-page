@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-24T13:48:54Z",
-  "last_prompt_ts": "2026-04-24T13:48:25.417Z",
-  "last_user_prompt": "다음작업",
+  "last_active_ts": "2026-04-24T13:56:35Z",
+  "last_prompt_ts": "2026-04-24T13:51:00.432Z",
+  "last_user_prompt": "1",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이제 포모도로 워크시트 중복 정리. 기존 `submission-worksheet.md`가 훨씬 상세해서 내가 만든 파일은 삭제하고",
+  "last_recent_edit": "/mnt/c/src/pomodoro/submission-worksheet.md"
 }
