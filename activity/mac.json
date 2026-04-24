@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T12:22:51Z",
-  "last_prompt_ts": "2026-04-24T12:22:10.334Z",
+  "last_active_ts": "2026-04-24T12:26:43Z",
+  "last_prompt_ts": "2026-04-24T12:26:17.297Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "07:15 로 이동 완료. plist 수정 + bootout/bootstrap reload + `launchctl print` 확인 (`Minute => 15, Hour => 7, state = not running`)",
+  "last_recent_edit": "/Users/user/.claude/automations/launchd/com.claude.nightly-update.plist"
 }
