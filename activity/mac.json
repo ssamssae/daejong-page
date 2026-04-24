@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T23:24:39Z",
-  "last_prompt_ts": "2026-04-24T23:07:03.283Z",
+  "last_active_ts": "2026-04-24T23:34:51Z",
+  "last_prompt_ts": "2026-04-24T23:34:07.938Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "대기 중 — 사용자가 본문 OK / Subscribe 블록 / Publish 시점 3가지 회신 주면 마무리.",
-  "last_recent_edit": "/Users/user/todo/todos.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
