@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T11:26:01Z",
-  "last_prompt_ts": "2026-04-24T11:25:50.097Z",
-  "last_user_prompt": "야 </channe",
+  "last_active_ts": "2026-04-24T11:33:11Z",
+  "last_prompt_ts": "2026-04-24T11:30:35.161Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"6718\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-24T11:30:32",
   "last_user_source": "telegram",
-  "last_assistant_preview": "인사 답장 보냈습니다 (id: 6717). 뭐 도와드릴지 말씀 주세요.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이제 텔레그램으로 답장합니다.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
