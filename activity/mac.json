@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T14:12:17Z",
-  "last_prompt_ts": "2026-04-24T14:09:32.291Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"6770\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-24T14:09:30",
+  "last_active_ts": "2026-04-24T14:16:01Z",
+  "last_prompt_ts": "2026-04-24T14:14:55.625Z",
+  "last_user_prompt": "코딩질문",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Worker 정상 동작 확인(200 응답 3.9초), 코드상 \"답글을 받아오지 못했어요\" 는 `AiErrorKind.unknown` 분기 — 즉 htt",
+  "last_assistant_preview": "Task 의존성 정리 완료. 친구 회신 대기 중이니 당장 할 건 없습니다. 상태 요약: - 더치페이: 빌드+수출규정",
   "last_recent_edit": ""
 }
