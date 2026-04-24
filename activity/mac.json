@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T12:19:06Z",
-  "last_prompt_ts": "2026-04-24T12:17:17.061Z",
-  "last_user_prompt": "ㄱㄱ </cha",
+  "last_active_ts": "2026-04-24T12:22:51Z",
+  "last_prompt_ts": "2026-04-24T12:22:10.334Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "1단계는 이미 되어 있네요 (`~/.zshenv` 에 `export DISABLE_AUTOUPDATER=1` 이미 적용됨, mtime 21:16 — 아까 블록 복붙해",
-  "last_recent_edit": "/Users/user/.claude/automations/launchd/com.claude.nightly-update.plist"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
