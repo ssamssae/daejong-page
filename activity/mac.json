@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T22:23:31Z",
-  "last_prompt_ts": "2026-04-24T22:23:13.745Z",
-  "last_user_prompt": "sync 의 작",
+  "last_active_ts": "2026-04-24T22:25:02Z",
+  "last_prompt_ts": "2026-04-24T22:24:16.540Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "태스크 정리 완료. 현재 대기 중: Substack 막힌 지점 답변(#3·#4) + sudo pmset repeat cancel 후 검증(#5).",
   "last_recent_edit": ""
 }
