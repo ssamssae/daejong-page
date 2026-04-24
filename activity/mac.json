@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T15:21:02Z",
-  "last_prompt_ts": "2026-04-24T15:20:44.958Z",
-  "last_user_prompt": "Stop hook feedback: 텔레그램에서 온 메시지()였는데 이번 turn 에 mcp__plugin_telegram_telegram__reply",
+  "last_active_ts": "2026-04-24T15:26:30Z",
+  "last_prompt_ts": "2026-04-24T15:25:04.591Z",
+  "last_user_prompt": "📋 (이어",
   "last_user_source": "telegram",
-  "last_assistant_preview": "텔레그램 reply 재전송 완료. 강대종님 답변 대기 중이에요.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "On Mac (USERui-MacBookPro.local). Pulled latest, found todo line 37. Updating device tag and annotating.",
+  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-24.md"
 }
