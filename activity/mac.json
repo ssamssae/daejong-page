@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T11:57:25Z",
-  "last_prompt_ts": "2026-04-24T11:56:48.837Z",
+  "last_active_ts": "2026-04-24T12:15:31Z",
+  "last_prompt_ts": "2026-04-24T12:14:19.559Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "대책 제안 완료 — 근본원인(\"active 세션 안에서 update\") 차단 루트 하나로 정리. DISABLE_AUTOUPDATER=1 + 새벽 4시 ",
-  "last_recent_edit": ""
+  "last_assistant_preview": "",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
