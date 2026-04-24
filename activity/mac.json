@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T22:25:02Z",
-  "last_prompt_ts": "2026-04-24T22:24:16.540Z",
+  "last_active_ts": "2026-04-24T22:26:14Z",
+  "last_prompt_ts": "2026-04-24T22:25:47.827Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "태스크 정리 완료. 현재 대기 중: Substack 막힌 지점 답변(#3·#4) + sudo pmset repeat cancel 후 검증(#5).",
-  "last_recent_edit": ""
+  "last_assistant_preview": "메모리에 재발 기록 박아둠 — 다음에 sudo/명령 한 줄 본문에 끼우려는 충동이 일어나는 순간 자체를 트리",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_paste_blocks_as_separate_message.md"
 }
