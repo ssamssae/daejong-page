@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T05:29:23Z",
-  "last_prompt_ts": "2026-04-24T05:27:58.199Z",
-  "last_user_prompt": "오늘 todo",
+  "last_active_ts": "2026-04-24T05:34:39Z",
+  "last_prompt_ts": "2026-04-24T05:30:11.434Z",
+  "last_user_prompt": "오전에는",
   "last_user_source": "telegram",
-  "last_assistant_preview": "todos 등록 완료. ~/daejong-page/todos/2026-04-24.md 진행중 섹션에 WSL Stop 훅 등록 홀드 항목 추가, 미리알림 앱 Claud",
-  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-24.md"
+  "last_assistant_preview": "분석 + 수정 + 메모리 등록 완료. 텔레그램으로 요약 + 재시작 안내 보냈습니다. - **원인**: `sendChatAction('typi",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
