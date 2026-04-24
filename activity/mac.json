@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-24T13:41:56Z",
-  "last_prompt_ts": "2026-04-24T13:41:12.535Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-24T13:46:11Z",
+  "last_prompt_ts": "2026-04-24T13:44:44.858Z",
+  "last_user_prompt": "1",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Telegram 으로 3개 옵션 제시 완료. 추천 순서는 1(더치페이/약먹자 심사 제출 마무리) → 2(Substack 설정 재개).",
+  "last_assistant_preview": "Apple ID 로그인은 2FA 때문에 Playwright 로 자동화 못 해요. 로그인은 직접 하시고, 그다음 단계는 제가 체크리",
   "last_recent_edit": ""
 }
