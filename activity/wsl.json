@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-24T14:10:46Z",
-  "last_prompt_ts": "2026-04-24T14:10:02.836Z",
-  "last_user_prompt": "진행중 �",
+  "last_active_ts": "2026-04-24T14:13:35Z",
+  "last_prompt_ts": "2026-04-24T14:11:18.726Z",
+  "last_user_prompt": "진행중인",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_recent_edit": "/mnt/c/src/pomodoro/submission-worksheet.md"
 }
