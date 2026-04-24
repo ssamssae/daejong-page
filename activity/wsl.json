@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-24T22:59:50Z",
-  "last_prompt_ts": "2026-04-24T22:58:24.266Z",
-  "last_user_prompt": "아니 경�",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "새 APK 빌드 시작합니다. 50MB 제한 넘으면 분할 압축으로 보낼게요.",
+  "last_active_ts": "2026-04-24T23:01:31Z",
+  "last_prompt_ts": "2026-04-24T23:00:38.875Z",
+  "last_user_prompt": "<task-notification> <task-id>bktdvwm94</task-id> <summary>Monitor event: \"hanjul APK build wait\"</summary> <event>-rwxrwxrwx 1 ssamssae ssam",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
