@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-24_v1.0.1.md",
+      "date": "2026-04-24",
+      "version": "v1.0.1",
+      "summary": "밤 22:40~00:10 KST 세션: 약먹자 1.0.1 + 더치페이 1.0.2 App Store Connect 심사 제출 2건 (Playwright MCP 메타데이터·스크린샷·카테고리·연령등급·가격·Privacy 전부 자동화). 4/20 시작 미완결 과제 Apple 큐 투입. 중간에 친구 한줄일기 AI 답글 실패 디버깅 + 47MB release APK 재빌드 전송. 마감에 /goodnight 에 /insta-post step 4.5 자동 호출 편입(c116f6f). 이슈 2건/메모리 3건 박제.",
+      "updated": "2026-04-25T00:10:00+09:00"
+    },
+    {
       "file": "2026-04-24_v1.0.0.md",
       "date": "2026-04-24",
       "version": "v1.0.0",
