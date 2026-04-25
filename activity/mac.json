@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T13:08:58Z",
-  "last_prompt_ts": "2026-04-25T13:08:54.127Z",
-  "last_user_prompt": "이미지봐바",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "이미지가 첨부되지 않았어요. 다시 올려주실래요?",
+  "last_active_ts": "2026-04-25T13:18:34Z",
+  "last_prompt_ts": "2026-04-25T13:17:44.633Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7193\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T13:17:45",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "스크린샷 분석해서 어디가 막혔는지 4가지 후보(윈도우 레이아웃 / 디스플레이 글리치 / TUI 텔레그램 / 봇)",
   "last_recent_edit": ""
 }
