@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T11:49:20Z",
-  "last_prompt_ts": "2026-04-25T11:48:05.010Z",
-  "last_user_prompt": "[MAC HANDOFF] git pull 후 handoffs/2026-04-25-2046-mac-wsl-ssh-trial.md 읽고 본문 directive 따라 진행",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-25T11:54:16Z",
+  "last_prompt_ts": "2026-04-25T11:51:11.065Z",
+  "last_user_prompt": "mac handoff",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_recent_edit": "/home/ssamssae/.claude/skills/handoffs/2026-04-25-2053-wsl-mac-trial-followup.md"
 }
