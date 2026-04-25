@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T15:56:17Z",
-  "last_prompt_ts": "2026-04-25T15:55:41.245Z",
-  "last_user_prompt": "내일 컴�",
+  "last_active_ts": "2026-04-25T23:30:50Z",
+  "last_prompt_ts": "2026-04-25T23:28:24.017Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2742\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T23:28:21",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "상태 확인했어요. 결론부터: **맥 본체는 멀쩡해요.** WSL 에서 SSH 로 찔러봤더니 정상 응답 (`08:29 up 2 days, 5:",
   "last_recent_edit": ""
 }
