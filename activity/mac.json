@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T15:48:06Z",
-  "last_prompt_ts": "2026-04-25T15:47:11.537Z",
-  "last_user_prompt": "핸드오프",
+  "last_active_ts": "2026-04-25T15:59:14Z",
+  "last_prompt_ts": "2026-04-25T15:55:17.887Z",
+  "last_user_prompt": "🪟 [핸드",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL Claude 가 카드 렌더 + IG 업로드 처리 중입니다. permalink 답 오면 알려드릴게요.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "핸드오프 인프라 v0.2 박제 완료 — claude-main 하드코딩에서 동적 세션 탐색으로 진화. 첫 실전 사용에서 발�",
+  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
 }
