@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T13:38:36Z",
-  "last_prompt_ts": "2026-04-25T13:37:23.506Z",
-  "last_user_prompt": "📋 WSL Cla",
+  "last_active_ts": "2026-04-25T13:44:01Z",
+  "last_prompt_ts": "2026-04-25T13:41:51.823Z",
+  "last_user_prompt": "맥에게 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "원인 확정. Mac 쪽 키 등록이 실제론 안 돼있었거나 풀렸음. 텔레그램 보고.",
+  "last_assistant_preview": "분석 메시지(현재 봇 reply) + 디렉티브(peer-bot 발송) 를 병렬 발사.",
   "last_recent_edit": ""
 }
