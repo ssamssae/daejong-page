@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "file": "2026-04-26-handoff-method-a-fallback-regression.md",
+      "date": "2026-04-26",
+      "slug": "handoff-method-a-fallback-regression",
+      "title": "/handoff METHOD A 회귀 — 무복붙 인프라 두고 복붙 폴백으로 빠짐",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "handoff 스킬, 크로스 디바이스 워크플로우",
+      "occurred_at": "2026-04-26 08:38 KST",
+      "resolved_at": "2026-04-26 08:43 KST",
+      "updated": "2026-04-26T08:48:00+09:00"
+    },
+    {
+      "file": "2026-04-26-mac-ssh-stale-socket-overnight.md",
+      "date": "2026-04-26",
+      "slug": "mac-ssh-stale-socket-overnight",
+      "title": "Mac SSH 새벽 sleep 후 stale 소켓 — Windows Terminal 탭 묶임",
+      "severity": "low",
+      "recurrence": "low",
+      "scope": "Windows Terminal Mac 탭, SSH 워크플로우 전반",
+      "occurred_at": "2026-04-26 08:28 KST",
+      "resolved_at": "2026-04-26 08:36 KST",
+      "updated": "2026-04-26T08:48:00+09:00"
+    },
+    {
       "file": "2026-04-23-ios-gidclientid-missing.md",
       "date": "2026-04-23",
       "slug": "ios-gidclientid-missing",
