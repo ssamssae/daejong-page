@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T06:01:22Z",
-  "last_prompt_ts": "2026-04-25T06:00:46.291Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T06:10:29Z",
+  "last_prompt_ts": "2026-04-25T06:10:16.742Z",
+  "last_user_prompt": "claude-autom",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Directive 별도 메시지로 보냈어요. WSL Claude 가 실제 4단계 돌려보고 결과 reply 로 회신할 거예요.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
