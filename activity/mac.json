@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:48:43Z",
-  "last_prompt_ts": "2026-04-25T12:47:13.364Z",
-  "last_user_prompt": "[WSL HANDOFF] 자동 submit 됐으면 텔레그램으로 WSL→MAC PASS 한 줄만 보고",
+  "last_active_ts": "2026-04-25T12:50:38Z",
+  "last_prompt_ts": "2026-04-25T12:50:08.981Z",
+  "last_user_prompt": "[WSL HANDOFF] git pull 후 handoffs/2026-04-25-2149-wsl-mac-zero-touch-demo.md 읽고 본문 directive 따라 진행",
   "last_user_source": "terminal",
-  "last_assistant_preview": "재시작 안전 확인. 내일 또는 필요 시 Mac 도 .zshrc 가드 추가해 대칭 셋업하면 좋겠다고 한 줄 메모만. 오늘",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/reference_tmux_bracketed_paste_submit.md"
+  "last_assistant_preview": "WSL 자율 handoff (강대종님 한 마디 후 WSL 단독 발사) PASS. 텔레그램 한 줄 reply 로 종료.",
+  "last_recent_edit": ""
 }
