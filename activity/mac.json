@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T16:04:01Z",
-  "last_prompt_ts": "2026-04-25T16:03:44.991Z",
-  "last_user_prompt": "todo 는 해",
+  "last_active_ts": "2026-04-25T16:10:05Z",
+  "last_prompt_ts": "2026-04-25T16:05:26.888Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "someday 인프라 한 벌 (마스터 파일 + 공개 미러 + html 렌더 페이지 + 메뉴 타일 + /someday 스킬 + /goodnight step 2.7)",
+  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
 }
