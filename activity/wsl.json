@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T01:50:23Z",
-  "last_prompt_ts": "2026-04-25T01:49:04.731Z",
-  "last_user_prompt": "mac 에게 �",
+  "last_active_ts": "2026-04-25T02:27:29Z",
+  "last_prompt_ts": "2026-04-25T02:26:27.526Z",
+  "last_user_prompt": "작동중? <",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "Smoke test가 즉시 실패. 우회 금지 directive에 따라 강대종님께 그대로 보고합니다.",
   "last_recent_edit": ""
 }
