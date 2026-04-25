@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T14:06:29Z",
-  "last_prompt_ts": "2026-04-25T14:06:14.219Z",
-  "last_user_prompt": "\"Bash(ssh us",
+  "last_active_ts": "2026-04-25T14:08:01Z",
+  "last_prompt_ts": "2026-04-25T14:06:56.948Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7223\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T14:06:56",
   "last_user_source": "telegram",
-  "last_assistant_preview": "**WSL 에** 넣어야 해요. **이유 쉽게:** - 그 명령은 WSL → Mac 으로 **나가는** SSH 명령이에요 - 즉 그 명령을 **",
+  "last_assistant_preview": "복붙 블록 2개를 각각 별도 메시지(7226, 7227)로 분리해서 long-press copy 가능하게 했고, 사용 안내는 7228 에 따",
   "last_recent_edit": ""
 }
