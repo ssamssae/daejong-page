@@ -2,9 +2,9 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T07:36:13Z",
-  "last_prompt_ts": "2026-04-25T07:35:54.540Z",
-  "last_user_prompt": "끝남 </cha",
+  "last_active_ts": "2026-04-25T09:17:49Z",
+  "last_prompt_ts": "2026-04-25T09:17:09.660Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2621\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T09:17:07",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
