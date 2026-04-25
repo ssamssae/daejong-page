@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T14:20:27Z",
-  "last_prompt_ts": "2026-04-25T14:19:20.546Z",
-  "last_user_prompt": "a",
+  "last_active_ts": "2026-04-25T14:23:42Z",
+  "last_prompt_ts": "2026-04-25T14:21:02.925Z",
+  "last_user_prompt": "그리고 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "OK — (a) 였군요. .bashrc 가드 추가하는 과정에서 SSH 가 깨진 거니 Mac Claude 에 진단·복구 directive 보냅니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "SSH 통합니다. `claude-main` 도 살아있어요. 새 이모지 핑으로 end-to-end verify 보냅니다.",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/handoff/SKILL.md"
 }
