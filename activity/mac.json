@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T15:37:12Z",
-  "last_prompt_ts": "2026-04-25T15:26:45.715Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T15:42:05Z",
+  "last_prompt_ts": "2026-04-25T15:41:25.327Z",
+  "last_user_prompt": "추천해줘",
   "last_user_source": "telegram",
-  "last_assistant_preview": "3 repo 점검 결과 보냈습니다 — heartbeat 훅 두 개가 트랙 안 됐는데, 의도적인지 빼먹은 건지 확인 후 마지�",
-  "last_recent_edit": "/Users/user/daejong-page/done/index.json"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
