@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T11:44:15Z",
-  "last_prompt_ts": "2026-04-25T11:43:56.159Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T11:47:45Z",
+  "last_prompt_ts": "2026-04-25T11:44:16.471Z",
+  "last_user_prompt": "승인 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "추천 명시: (4) A, (5) 위 디자인 그대로 GO 하되 minimum viable 시작 (frontmatter 4필드, README 짧게). 진행 순서 4단�",
-  "last_recent_edit": ""
+  "last_assistant_preview": "승인 받았어. 기존 claude-60120 으로 트라이얼 먼저 (이미 이름 알고 있으니 셋업 단계 생략 가능), 동작 확인",
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-25-2046-mac-wsl-ssh-trial.md"
 }
