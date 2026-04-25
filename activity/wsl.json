@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T05:29:47Z",
-  "last_prompt_ts": "2026-04-25T05:26:46.910Z",
-  "last_user_prompt": "mac handoff",
+  "last_active_ts": "2026-04-25T05:36:21Z",
+  "last_prompt_ts": "2026-04-25T05:33:54.020Z",
+  "last_user_prompt": "안녕 WSL (",
   "last_user_source": "telegram",
-  "last_assistant_preview": "업로드 성공. permalink + posted.json 확인.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "3개 패치 한꺼번에 적용 — description 트리거 추가, 정책 A 정정, 의존성 검증 명령 정정.",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/insta-post/SKILL.md"
 }
