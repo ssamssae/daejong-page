@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T14:10:43Z",
-  "last_prompt_ts": "2026-04-25T14:08:01.302Z",
-  "last_user_prompt": "",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "메모리에도 저장 완료(`feedback_auto_mode_no_allow_prompt.md` + MEMORY.md 인덱스 갱신). 이제 강대종님이 directive(msg 72",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_active_ts": "2026-04-25T14:14:37Z",
+  "last_prompt_ts": "2026-04-25T14:12:32.473Z",
+  "last_user_prompt": "self-modific",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "강대종님 결정 대기 — 옵션 1 직접 추가(복붙용 한 줄 7238)/옵션 2 안 함/옵션 3 fewer-permission-prompts 스킬 시�",
+  "last_recent_edit": ""
 }
