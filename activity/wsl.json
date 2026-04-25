@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T03:24:58Z",
-  "last_prompt_ts": "2026-04-25T03:21:06.724Z",
-  "last_user_prompt": "안녕 WSL (",
+  "last_active_ts": "2026-04-25T03:27:24Z",
+  "last_prompt_ts": "2026-04-25T03:26:33.169Z",
+  "last_user_prompt": "mac handoff",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Smoke test 여전히 fail — chromium 깔렸는데도 MCP는 `/opt/google/chrome/chrome` (Google Chrome stable) 강제. Mac directive 4-B (",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
