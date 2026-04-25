@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T23:35:39Z",
-  "last_prompt_ts": "2026-04-25T23:34:02.552Z",
-  "last_user_prompt": "/sync </chan",
-  "last_user_source": "telegram",
+  "last_active_ts": "2026-04-25T23:41:40Z",
+  "last_prompt_ts": "2026-04-25T23:40:40.051Z",
+  "last_user_prompt": "🪟 [WSL→MAC HANDOFF] git pull 후 handoffs/2026-04-26-0839-wsl-mac-ssh-keepalive-patch-notice.md 읽고 본문 directive 따라 진행",
+  "last_user_source": "terminal",
   "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-26-0839-wsl-mac-ssh-keepalive-patch-notice.md"
 }
