@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T01:32:50Z",
-  "last_prompt_ts": "2026-04-25T01:31:05.754Z",
-  "last_user_prompt": "Stop hook feedback: 텔레그램에서 온 메시지()였는데 이번 turn 에 mcp__plugin_telegram_telegram__reply",
+  "last_active_ts": "2026-04-25T01:50:23Z",
+  "last_prompt_ts": "2026-04-25T01:49:04.731Z",
+  "last_user_prompt": "mac 에게 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "`telegram-stop-ping.sh` 가 last_user 가 텔레그램이라 skip 했네요. curl 로 직접 보내볼게요.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
