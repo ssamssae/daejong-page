@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T09:54:27Z",
-  "last_prompt_ts": "2026-04-25T09:52:41.864Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T09:57:03Z",
+  "last_prompt_ts": "2026-04-25T09:56:16.788Z",
+  "last_user_prompt": "추천대로",
   "last_user_source": "telegram",
-  "last_assistant_preview": "원인 + 2단계 정리안 제시했습니다 — 사용자 선택 대기 중입니다.",
+  "last_assistant_preview": "핸드오프 셋업 + hook 정리 마무리 단계입니다 — 사용자가 @Myclaude2 챗에 corrected directive paste 하면 WSL Claude �",
   "last_recent_edit": ""
 }
