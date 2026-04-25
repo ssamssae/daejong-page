@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T11:57:33Z",
-  "last_prompt_ts": "2026-04-25T11:55:46.704Z",
-  "last_user_prompt": "[WSL HANDOFF",
+  "last_active_ts": "2026-04-25T12:01:42Z",
+  "last_prompt_ts": "2026-04-25T11:58:57.508Z",
+  "last_user_prompt": "ㅇㅋ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL 에서 4파트 후속 directive 받음. 종료 조건 = 최대 3통 (사실보고 1+SKILL.md diff 1+세션옵션 1), 각각 승인. (1)+",
-  "last_recent_edit": ""
+  "last_assistant_preview": "(3) handoff/SKILL.md diff 초안 만들러 감.",
+  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
 }
