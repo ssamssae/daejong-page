@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T02:31:58Z",
-  "last_prompt_ts": "2026-04-25T02:31:01.705Z",
-  "last_user_prompt": "안녕 WSL (",
+  "last_active_ts": "2026-04-25T02:37:36Z",
+  "last_prompt_ts": "2026-04-25T02:36:42.819Z",
+  "last_user_prompt": "mac 핸드�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Install 시도가 sudo 요구로 실패. Mac directive 의 \"sudo 요구 어떤 에러든 출력 그대로 + 우회 금지\" 규칙에 따라 ",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
