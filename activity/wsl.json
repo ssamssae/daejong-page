@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T12:13:37Z",
-  "last_prompt_ts": "2026-04-25T12:11:54.266Z",
-  "last_user_prompt": "[MAC HANDOFF] git pull 후 handoffs/2026-04-25-2107-mac-wsl-bashrc-claude-main.md 읽고 본문 directive 따라 진행",
+  "last_active_ts": "2026-04-25T12:35:01Z",
+  "last_prompt_ts": "2026-04-25T12:34:49.138Z",
+  "last_user_prompt": "[METHOD A 검증] 자동 submit 됐으면 텔레그램에 METHOD A PASS 한 줄만 보고",
   "last_user_source": "terminal",
   "last_assistant_preview": "",
-  "last_recent_edit": "/home/ssamssae/.bashrc"
+  "last_recent_edit": ""
 }
