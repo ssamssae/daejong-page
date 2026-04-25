@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T13:27:12Z",
-  "last_prompt_ts": "2026-04-25T13:26:46.502Z",
-  "last_user_prompt": "ㄱㄱ </cha",
+  "last_active_ts": "2026-04-25T13:29:23Z",
+  "last_prompt_ts": "2026-04-25T13:28:28.026Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "완료. WSL→Mac 핑이 이제 이 세션에 자동 도착합니다. ``` tmux ls → claude (group claude) claude-67917 (group claude) (att",
+  "last_assistant_preview": "핵심: 그 paste 는 다른 Claude 가 1~2분 전 본 옛날 진단이고, 거기 나오는 `claude-69156` 세션은 우리 Mac tmux 에 �",
   "last_recent_edit": ""
 }
