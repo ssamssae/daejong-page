@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T14:47:01Z",
-  "last_prompt_ts": "2026-04-25T14:37:39.456Z",
-  "last_user_prompt": "추천한 1�",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "빌드가 Windows 측에서 진행 중입니다 (java PID 17032 = Gradle 데몬). 4분 정도 기다렸다 다시 확인할게요.",
+  "last_active_ts": "2026-04-25T15:06:52Z",
+  "last_prompt_ts": "2026-04-25T14:50:00.340Z",
+  "last_user_prompt": "<<autonomous-loop-dynamic>>",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "S24 JobScheduler 에 worker 등록 확인 완료: - `JOB androidx.work.systemjobscheduler:u0a385/0` for `com.ssamssae.review_radar` - Networ",
   "last_recent_edit": "/mnt/c/src/review_radar/lib/main.dart"
 }
