@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:31:39Z",
-  "last_prompt_ts": "2026-04-25T12:31:01.269Z",
+  "last_active_ts": "2026-04-25T12:32:51Z",
+  "last_prompt_ts": "2026-04-25T12:31:59.974Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "맞다고 확인 — 쏴도 되는지 OK 만 받으면 Mac 에서 직접 발사. 대기.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "메모리에 예외 2 추가 (Mac 자기 실행 명령은 분리 불필요). S-Enter 검증 핑 결과 답신 대기 중.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_paste_blocks_as_separate_message.md"
 }
