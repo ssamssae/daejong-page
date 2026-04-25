@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T02:39:47Z",
-  "last_prompt_ts": "2026-04-25T02:37:45.116Z",
-  "last_user_prompt": "안녕 Mac (",
+  "last_active_ts": "2026-04-25T03:26:47Z",
+  "last_prompt_ts": "2026-04-25T03:21:53.744Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"6950\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T03:21:50",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac plugin config 동일 확인 (`npx @playwright/mcp@latest` 만, 어떤 채널 강제도 없음). 즉 chrome 시스템 패키지 sudo apt-",
+  "last_assistant_preview": "대기 모드. A 끝나면 BC 차례로 진행 가능.",
   "last_recent_edit": ""
 }
