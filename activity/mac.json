@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T02:16:00Z",
-  "last_prompt_ts": "2026-04-25T02:14:57.901Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T02:25:43Z",
+  "last_prompt_ts": "2026-04-25T02:25:21.615Z",
+  "last_user_prompt": "작동중? <",
   "last_user_source": "telegram",
-  "last_assistant_preview": "\"패리티 = 양쪽이 똑같은 상태\" 일상 비유로 설명 (책상 두 개 모니터). 지금 우리 케이스에선 Mac/WSL 둘 다 p",
+  "last_assistant_preview": "작동 중이고 폰 Termius MCP 패리티 성공 확인했다고 텔레그램으로 답변 보냈습니다.",
   "last_recent_edit": ""
 }
