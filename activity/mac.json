@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T09:57:03Z",
-  "last_prompt_ts": "2026-04-25T09:56:16.788Z",
-  "last_user_prompt": "추천대로",
+  "last_active_ts": "2026-04-25T10:01:25Z",
+  "last_prompt_ts": "2026-04-25T09:57:20.581Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "핸드오프 셋업 + hook 정리 마무리 단계입니다 — 사용자가 @Myclaude2 챗에 corrected directive paste 하면 WSL Claude �",
-  "last_recent_edit": ""
+  "last_assistant_preview": "WSL Claude 가설 반박 + 옵션 1 유지 추천 + 메모리 (`reference_telegram_bot_to_bot_blocked.md`) 저장 완료. A/B/C 선택 대�",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
