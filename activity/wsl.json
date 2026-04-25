@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T01:13:16Z",
-  "last_prompt_ts": "2026-04-25T01:10:55.148Z",
-  "last_user_prompt": "a",
+  "last_active_ts": "2026-04-25T01:22:34Z",
+  "last_prompt_ts": "2026-04-25T01:21:06.790Z",
+  "last_user_prompt": "mac 핸드�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "좋은 질문 — 일단 작업 마저 끝내고 같이 답변할게요.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
+  "last_assistant_preview": "Mac 핸드오프 directive 만들어 드릴게요. 본문 안내 + 복붙 블록 별도 메시지 두 통.",
+  "last_recent_edit": ""
 }
