@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T06:33:44Z",
-  "last_prompt_ts": "2026-04-25T06:33:07.505Z",
+  "last_active_ts": "2026-04-25T07:03:17Z",
+  "last_prompt_ts": "2026-04-25T07:02:25.623Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "구체 자동화 후보를 물었습니다 — \"Mac 끝나면 WSL이 알아서 이어서 코딩\"은 못 만드는 게 아니라 만들면 �",
+  "last_assistant_preview": "진짜 itch는 \"복붙 자동화\" 한 줄이었네요. 5개 파일 짜는 대신 `/handoff` 스킬 한 개 수정 + 봇 토큰 교차 저장",
   "last_recent_edit": ""
 }
