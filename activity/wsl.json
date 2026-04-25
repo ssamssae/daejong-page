@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T23:35:58Z",
-  "last_prompt_ts": "2026-04-25T23:34:26.418Z",
-  "last_user_prompt": "/sync </chan",
+  "last_active_ts": "2026-04-25T23:37:42Z",
+  "last_prompt_ts": "2026-04-25T23:37:11.732Z",
+  "last_user_prompt": "맥에서 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "/sync 출력이 비어있네요. 스크립트가 텔레그램으로 직접 전송한 모양인데, 실제 동작 확인해볼게요. 그리�",
-  "last_recent_edit": "/home/ssamssae/.ssh/config"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
