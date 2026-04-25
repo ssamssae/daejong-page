@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T04:10:21Z",
-  "last_prompt_ts": "2026-04-25T04:07:30.779Z",
-  "last_user_prompt": "안녕 Mac (",
+  "last_active_ts": "2026-04-25T04:31:49Z",
+  "last_prompt_ts": "2026-04-25T04:29:02.593Z",
+  "last_user_prompt": "WSL Playwrig",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이제 self-contained directive 별도 메시지로.",
+  "last_assistant_preview": "전부 검증 완료. 브라우저 정리 + 1줄 보고.",
   "last_recent_edit": ""
 }
