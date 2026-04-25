@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T14:19:13Z",
-  "last_prompt_ts": "2026-04-25T14:16:06.521Z",
-  "last_user_prompt": "아까전에",
+  "last_active_ts": "2026-04-25T14:20:27Z",
+  "last_prompt_ts": "2026-04-25T14:19:20.546Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "OK — (a) 였군요. .bashrc 가드 추가하는 과정에서 SSH 가 깨진 거니 Mac Claude 에 진단·복구 directive 보냅니다.",
   "last_recent_edit": ""
 }
