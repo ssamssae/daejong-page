@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T23:47:37Z",
-  "last_prompt_ts": "2026-04-25T23:46:59.970Z",
+  "last_active_ts": "2026-04-25T23:50:10Z",
+  "last_prompt_ts": "2026-04-25T23:48:10.379Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Playwright로 가능하지만 Chrome 재시작 비용이 있어서, Ep1은 손으로 끝내고 Ep2부터 자동화 파이프라인 만드는",
+  "last_assistant_preview": "Mac 기본 브라우저가 Safari였고 Substack 인증이 Safari 안에만 있어서 Playwright(Chrome CDP) 자동 발행이 막혔습니�",
   "last_recent_edit": ""
 }
