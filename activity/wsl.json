@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T00:48:44Z",
-  "last_prompt_ts": "2026-04-25T00:47:28.540Z",
-  "last_user_prompt": "오늘 추�",
+  "last_active_ts": "2026-04-25T01:03:03Z",
+  "last_prompt_ts": "2026-04-25T00:49:31.980Z",
+  "last_user_prompt": "오늘 딱 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "강대종님이 이전 세션 마무리 메시지 끝에 \"애뮬꺼줘\" 붙여서 보내셨네요. Pixel 7 에뮬레이터(emulator-5554) �",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이제 review_radar 변경 commit + push.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
 }
