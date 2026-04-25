@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:59:24Z",
-  "last_prompt_ts": "2026-04-25T12:58:49.017Z",
-  "last_user_prompt": "",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "`cd` 충돌 이유 설명하고 `cct` 추천으로 답변 보냈어요.",
+  "last_active_ts": "2026-04-25T13:08:58Z",
+  "last_prompt_ts": "2026-04-25T13:08:54.127Z",
+  "last_user_prompt": "이미지봐바",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "이미지가 첨부되지 않았어요. 다시 올려주실래요?",
   "last_recent_edit": ""
 }
