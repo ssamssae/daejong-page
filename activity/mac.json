@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T09:26:38Z",
-  "last_prompt_ts": "2026-04-25T09:20:51.762Z",
-  "last_user_prompt": "ㄱㄱ </cha",
+  "last_active_ts": "2026-04-25T09:29:06Z",
+  "last_prompt_ts": "2026-04-25T09:28:22.918Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "directive 두 개 (broken + corrected) @Myclaude2 챗에 발송 완료. 사용자가 corrected 버전 paste → WSL Claude 가 4단계 셋�",
-  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
+  "last_assistant_preview": "사용자가 corrected directive 를 paste 하면 WSL Claude 가 4단계를 실행하고, 4단계의 스모크 테스트가 이 @MyClaude �",
+  "last_recent_edit": ""
 }
