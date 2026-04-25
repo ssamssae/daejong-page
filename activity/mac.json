@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T09:29:06Z",
-  "last_prompt_ts": "2026-04-25T09:28:22.918Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T09:35:41Z",
+  "last_prompt_ts": "2026-04-25T09:35:22.078Z",
+  "last_user_prompt": "로미오와",
   "last_user_source": "telegram",
-  "last_assistant_preview": "사용자가 corrected directive 를 paste 하면 WSL Claude 가 4단계를 실행하고, 4단계의 스모크 테스트가 이 @MyClaude �",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
