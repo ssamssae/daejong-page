@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T13:57:54Z",
-  "last_prompt_ts": "2026-04-25T13:55:10.651Z",
-  "last_user_prompt": "자동으로",
+  "last_active_ts": "2026-04-25T14:06:29Z",
+  "last_prompt_ts": "2026-04-25T14:06:14.219Z",
+  "last_user_prompt": "\"Bash(ssh us",
   "last_user_source": "telegram",
-  "last_assistant_preview": "자동화 진행 — Mac 쪽에서 가능한 부분부터 처리합니다.",
-  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
+  "last_assistant_preview": "**WSL 에** 넣어야 해요. **이유 쉽게:** - 그 명령은 WSL → Mac 으로 **나가는** SSH 명령이에요 - 즉 그 명령을 **",
+  "last_recent_edit": ""
 }
