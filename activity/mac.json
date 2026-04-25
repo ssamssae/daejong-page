@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:16:57Z",
-  "last_prompt_ts": "2026-04-25T12:16:08.690Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7142\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T12:16:08",
+  "last_active_ts": "2026-04-25T12:31:39Z",
+  "last_prompt_ts": "2026-04-25T12:31:01.269Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "B1 PASS 확인. 마지막 미검증 항목 S-Enter chord 가설 trial 1발 제안 — claude-60120 에 짧은 검증 핑. 강대종님 OK �",
+  "last_assistant_preview": "맞다고 확인 — 쏴도 되는지 OK 만 받으면 Mac 에서 직접 발사. 대기.",
   "last_recent_edit": ""
 }
