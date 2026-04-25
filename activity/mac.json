@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T00:51:09Z",
-  "last_prompt_ts": "2026-04-25T00:50:24.828Z",
+  "last_active_ts": "2026-04-25T01:04:45Z",
+  "last_prompt_ts": "2026-04-25T01:02:11.729Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "todo \"🪟 🛠️ Playwright WSL 작동\" 항목 보류/취소 이동 + 사유 메모 추가 완료, 양쪽 repo (`~/todo` + `~/daejong-page",
+  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-25.md"
 }
