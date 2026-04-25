@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:54:59Z",
-  "last_prompt_ts": "2026-04-25T12:52:59.447Z",
-  "last_user_prompt": "ㄱㄱ </cha",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "진행할게요. 먼저 WSL 쪽 .zshrc 가드 어떻게 짜여있는지 보고 Mac 에 대칭으로 옮기겠습니다.",
-  "last_recent_edit": "/Users/user/claude-skills/handoff/SKILL.md"
+  "last_active_ts": "2026-04-25T12:58:02Z",
+  "last_prompt_ts": "2026-04-25T12:57:57.927Z",
+  "last_user_prompt": "dd",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
