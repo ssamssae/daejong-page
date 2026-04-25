@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T05:33:26Z",
-  "last_prompt_ts": "2026-04-25T05:32:06.568Z",
-  "last_user_prompt": "1",
+  "last_active_ts": "2026-04-25T05:40:27Z",
+  "last_prompt_ts": "2026-04-25T05:39:43.562Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Self-contained 핸드오프 directive(7007) WSL 로 전송 완료. WSL 가 4 패치 + e2e 시나리오 명시한 형태입니다.",
+  "last_assistant_preview": "작업 완료, 추가 지시 대기 중입니다.",
   "last_recent_edit": ""
 }
