@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T05:15:06Z",
-  "last_prompt_ts": "2026-04-25T05:13:44.774Z",
-  "last_user_prompt": "ㅇㅋ </cha",
+  "last_active_ts": "2026-04-25T05:16:39Z",
+  "last_prompt_ts": "2026-04-25T05:15:21.698Z",
+  "last_user_prompt": "A",
   "last_user_source": "telegram",
-  "last_assistant_preview": "장애물 발견 — remote agent 는 클라우드 isolated 라 로컬 텔레그램 플러그인 못 쓰고 ~/insta-autopost 도 못 읽음.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Calendar event 등록 완료. 강대종님 어휘 질문 답변 + 메모리 한 줄 저장.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
