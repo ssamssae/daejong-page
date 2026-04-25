@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T11:32:11Z",
-  "last_prompt_ts": "2026-04-25T11:30:34.859Z",
-  "last_user_prompt": "Mac↔️WSL",
+  "last_active_ts": "2026-04-25T11:44:15Z",
+  "last_prompt_ts": "2026-04-25T11:43:56.159Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "5단계 마무리 보고 한 메시지로 정리해서 보냈어. (1)(2) PASS, (3) skip, (4) tmux 고정명 제안 A 추천, (5) handoffs/ �",
+  "last_assistant_preview": "추천 명시: (4) A, (5) 위 디자인 그대로 GO 하되 minimum viable 시작 (frontmatter 4필드, README 짧게). 진행 순서 4단�",
   "last_recent_edit": ""
 }
