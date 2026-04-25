@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T00:30:58Z",
-  "last_prompt_ts": "2026-04-25T00:30:15.720Z",
-  "last_user_prompt": "ㅇㅋ </cha",
+  "last_active_ts": "2026-04-25T00:36:17Z",
+  "last_prompt_ts": "2026-04-25T00:35:06.857Z",
+  "last_user_prompt": "깨움제거",
   "last_user_source": "telegram",
-  "last_assistant_preview": "태스크 #4 완료 처리. 남은 #5(pmset)·#6(basics)·publish 결정은 사용자 응답 대기.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "메모리 재발 기록 추가. 이제 정말로 매듭들 다 정리된 상태 — pmset도 이미 처리됨 확인, 시간 인식 오류�",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_check_timestamps.md"
 }
