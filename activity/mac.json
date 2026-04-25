@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T02:06:29Z",
-  "last_prompt_ts": "2026-04-25T02:05:35.090Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"6925\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T02:05:32",
+  "last_active_ts": "2026-04-25T02:13:07Z",
+  "last_prompt_ts": "2026-04-25T02:12:24.629Z",
+  "last_user_prompt": "복붙하는",
   "last_user_source": "telegram",
-  "last_assistant_preview": "설치 명령 미실행 확인 — `/mcp` 출력에 playwright 없음. WSL 터미널에서 `claude plugin install playwright@claude-plugins-",
-  "last_recent_edit": ""
+  "last_assistant_preview": "룰 어김 인정 + 명령어 메시지 분리 재전송 + 메모리에 재발 기록(11:12 KST) + Hard checklist 자기점검 항목 5개 �",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_paste_blocks_as_separate_message.md"
 }
