@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T12:54:23Z",
-  "last_prompt_ts": "2026-04-25T12:53:32.603Z",
-  "last_user_prompt": "양방향 en",
+  "last_active_ts": "2026-04-25T13:07:34Z",
+  "last_prompt_ts": "2026-04-25T13:05:16.303Z",
+  "last_user_prompt": "하긴했는",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "원인 찾았어요. WSL 의 `claude-main` 세션에는 지금 Claude 가 안 돌고 있어요. tmux 안 들여다보니 `/exit` 친 뒤 그",
   "last_recent_edit": ""
 }
