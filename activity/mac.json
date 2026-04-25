@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T05:58:57Z",
-  "last_prompt_ts": "2026-04-25T05:57:10.206Z",
-  "last_user_prompt": "ㅇㅋ </cha",
+  "last_active_ts": "2026-04-25T06:01:22Z",
+  "last_prompt_ts": "2026-04-25T06:00:46.291Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Now verify, commit, push, open PR.",
-  "last_recent_edit": "/Users/user/claude-automations/scripts/wsl-chrome-cdp/README.md"
+  "last_assistant_preview": "Directive 별도 메시지로 보냈어요. WSL Claude 가 실제 4단계 돌려보고 결과 reply 로 회신할 거예요.",
+  "last_recent_edit": ""
 }
