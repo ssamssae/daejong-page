@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T11:49:09Z",
-  "last_prompt_ts": "2026-04-25T11:48:39.990Z",
+  "last_active_ts": "2026-04-25T11:50:32Z",
+  "last_prompt_ts": "2026-04-25T11:50:17.141Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Enter submit 안 된 점 인지하고 다음 trial 전 후보 픽스 3개 (sleep+Enter 분리 / C-j 시도 / Enter 두 번) 적어뒀어. �",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
