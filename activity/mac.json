@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T14:23:34Z",
-  "last_prompt_ts": "2026-04-25T14:23:23.265Z",
-  "last_user_prompt": "🪟 [WSL→MAC HANDOFF VERIFY] SSH user@ + 이모지 prefix 동시 verify. 텔레그램 reply 1통으로 WSL→MAC EMOJI VERIFY PASS 만 �",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-25T14:33:38Z",
+  "last_prompt_ts": "2026-04-25T14:33:22.400Z",
+  "last_user_prompt": "",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
