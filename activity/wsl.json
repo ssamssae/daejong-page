@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T04:46:56Z",
-  "last_prompt_ts": "2026-04-25T04:43:31.387Z",
-  "last_user_prompt": "안녕 WSL (",
+  "last_active_ts": "2026-04-25T04:48:16Z",
+  "last_prompt_ts": "2026-04-25T04:47:10.608Z",
+  "last_user_prompt": "mac handoff",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Push 성공 (b260ead). Step 8: 텔레그램 보고.",
-  "last_recent_edit": "/home/ssamssae/.claude/skills/issues/2026-04-24-insta-autopost-mac-mirror-missing.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
