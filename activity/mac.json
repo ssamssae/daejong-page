@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T00:46:56Z",
-  "last_prompt_ts": "2026-04-25T00:39:51.354Z",
-  "last_user_prompt": "/submit-app",
+  "last_active_ts": "2026-04-25T00:51:09Z",
+  "last_prompt_ts": "2026-04-25T00:50:24.828Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "hanjul Android 제출 준비 완료. AAB 빌드 + keystore + signing 모두 통과. 이후 Play Console 수동 업로드는 강대종님 손",
-  "last_recent_edit": "/Users/user/apps/hanjul/pubspec.yaml"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
