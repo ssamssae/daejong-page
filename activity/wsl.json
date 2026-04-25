@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T04:26:20Z",
-  "last_prompt_ts": "2026-04-25T04:25:08.800Z",
-  "last_user_prompt": "안녕 새 W",
+  "last_active_ts": "2026-04-25T04:27:47Z",
+  "last_prompt_ts": "2026-04-25T04:26:40.408Z",
+  "last_user_prompt": "mac handoff",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Now committing the skills repo and sending the telegram report.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/feedback_harness_self_modification_gate.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
