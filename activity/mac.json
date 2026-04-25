@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:05:02Z",
-  "last_prompt_ts": "2026-04-25T12:04:39.159Z",
-  "last_user_prompt": "뭐라는지",
+  "last_active_ts": "2026-04-25T12:08:12Z",
+  "last_prompt_ts": "2026-04-25T12:06:21.772Z",
+  "last_user_prompt": "추천대로",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "좋아. SKILL.md commit+push + B1 셋업 WSL handoff 두 개 한 번에 진행.",
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-25-2107-mac-wsl-bashrc-claude-main.md"
 }
