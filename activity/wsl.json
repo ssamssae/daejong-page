@@ -2,9 +2,9 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T12:43:07Z",
-  "last_prompt_ts": "2026-04-25T12:42:23.301Z",
-  "last_user_prompt": "[MAC HANDOFF] git pull 후 handoffs/2026-04-25-2141-mac-wsl-bidir-verify.md 읽고 본문 directive 따라 진행",
+  "last_active_ts": "2026-04-25T12:47:23Z",
+  "last_prompt_ts": "2026-04-25T12:46:44.716Z",
+  "last_user_prompt": "[MAC HANDOFF] git pull 후 handoffs/2026-04-25-2146-mac-wsl-bidir-verify-fix-path.md 읽고 본문 directive 따라 진행 (직전 핑 PATH ",
   "last_user_source": "terminal",
   "last_assistant_preview": "",
   "last_recent_edit": ""
