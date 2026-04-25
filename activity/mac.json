@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T05:16:39Z",
-  "last_prompt_ts": "2026-04-25T05:15:21.698Z",
-  "last_user_prompt": "A",
+  "last_active_ts": "2026-04-25T05:18:18Z",
+  "last_prompt_ts": "2026-04-25T05:17:12.019Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Calendar event 등록 완료. 강대종님 어휘 질문 답변 + 메모리 한 줄 저장.",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_assistant_preview": "본 답변(6998) + WSL self-contained 핸드오프(6999) 두 메시지로 분리 전송. WSL 가 6999 long-press copy → paste 하면 됩�",
+  "last_recent_edit": ""
 }
