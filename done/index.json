@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-04-26.md",
+      "date": "2026-04-26",
+      "count": 1,
+      "updated": "2026-04-26T08:01:52+09:00"
+    },
+    {
       "file": "2026-04-25.md",
       "date": "2026-04-25",
       "summary": "hanjul 1.1.0+3 Android ship-ready (런처/스크린샷/JSON export/release signing) + Playwright WSL 막힘 Option E 해결 + 인스타 Mac 미러링·정책 A·step 4.5 라우팅 + handoff SSH+tmux METHOD A 양방향 e2e PASS + claude-automations PR #1 머지 + 메모리 1건 박제",
