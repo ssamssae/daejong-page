@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T13:34:12Z",
-  "last_prompt_ts": "2026-04-25T13:33:05.637Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T13:46:13Z",
+  "last_prompt_ts": "2026-04-25T13:44:00.556Z",
+  "last_user_prompt": "Mac authoriz",
   "last_user_source": "telegram",
-  "last_assistant_preview": "요약: 권한 룰 추가는 WSL 쪽 영역이라 이 세션에서 직접 못 건드림. 추천 — 옵션 1(1회성 Allow)로 양방향 검",
+  "last_assistant_preview": "이미 등록돼있었음. 그러면 publickey 거부의 원인이 authorized_keys 누락이 아니란 뜻이라 추가 단서 빠르게 잡",
   "last_recent_edit": ""
 }
