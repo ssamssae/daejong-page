@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T14:08:01Z",
-  "last_prompt_ts": "2026-04-25T14:06:56.948Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7223\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T14:06:56",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "복붙 블록 2개를 각각 별도 메시지(7226, 7227)로 분리해서 long-press copy 가능하게 했고, 사용 안내는 7228 에 따",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-25T14:10:43Z",
+  "last_prompt_ts": "2026-04-25T14:08:01.302Z",
+  "last_user_prompt": "",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "메모리에도 저장 완료(`feedback_auto_mode_no_allow_prompt.md` + MEMORY.md 인덱스 갱신). 이제 강대종님이 directive(msg 72",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
