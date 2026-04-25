@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T05:47:11Z",
-  "last_prompt_ts": "2026-04-25T05:44:43.416Z",
-  "last_user_prompt": "안녕 WSL (",
+  "last_active_ts": "2026-04-25T05:50:17Z",
+  "last_prompt_ts": "2026-04-25T05:49:26.719Z",
+  "last_user_prompt": "mac handoff",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Pushed `de643ca`. Now reporting back to user via Telegram.",
-  "last_recent_edit": "/home/ssamssae/claude-automations/scripts/wsl-chrome-cdp/README.md"
+  "last_assistant_preview": "Mac 한테 코드 검토 핸드오프 보낼게요. 분석 메시지 + 복붙 디렉티브 두 통.",
+  "last_recent_edit": ""
 }
