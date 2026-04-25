@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T02:13:07Z",
-  "last_prompt_ts": "2026-04-25T02:12:24.629Z",
-  "last_user_prompt": "복붙하는",
+  "last_active_ts": "2026-04-25T02:14:20Z",
+  "last_prompt_ts": "2026-04-25T02:13:54.316Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"6932\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T02:13:52",
   "last_user_source": "telegram",
-  "last_assistant_preview": "룰 어김 인정 + 명령어 메시지 분리 재전송 + 메모리에 재발 기록(11:12 KST) + Hard checklist 자기점검 항목 5개 �",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_paste_blocks_as_separate_message.md"
+  "last_assistant_preview": "WSL Playwright MCP 설치 + 5번째 서버로 ✓ connected 확인. WSL agent 가 이제 MCP 콜로 브라우저 자동화 처리 가능. Ma",
+  "last_recent_edit": ""
 }
