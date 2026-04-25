@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:52:44Z",
-  "last_prompt_ts": "2026-04-25T12:51:48.531Z",
-  "last_user_prompt": "시 Mac 도",
+  "last_active_ts": "2026-04-25T12:54:59Z",
+  "last_prompt_ts": "2026-04-25T12:52:59.447Z",
+  "last_user_prompt": "ㄱㄱ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "어제 12:48 잘자 직전에 남긴 follow-up 메모였어요. 양방향 무손 e2e 동작은 이미 검증됐고, 이건 그 위에 얹는",
-  "last_recent_edit": ""
+  "last_assistant_preview": "진행할게요. 먼저 WSL 쪽 .zshrc 가드 어떻게 짜여있는지 보고 Mac 에 대칭으로 옮기겠습니다.",
+  "last_recent_edit": "/Users/user/claude-skills/handoff/SKILL.md"
 }
