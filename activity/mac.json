@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T15:59:14Z",
-  "last_prompt_ts": "2026-04-25T15:55:17.887Z",
-  "last_user_prompt": "🪟 [핸드",
+  "last_active_ts": "2026-04-25T16:00:48Z",
+  "last_prompt_ts": "2026-04-25T16:00:02.141Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "핸드오프 인프라 v0.2 박제 완료 — claude-main 하드코딩에서 동적 세션 탐색으로 진화. 첫 실전 사용에서 발�",
-  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
+  "last_assistant_preview": "재부팅 후에도 동적 탐색 덕분에 작동, 핸드오프 조치는 종결. 강화안(대안 C — cc 자동 실행)은 별건으로 ",
+  "last_recent_edit": ""
 }
