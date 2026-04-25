@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T04:10:37Z",
-  "last_prompt_ts": "2026-04-25T04:10:15.541Z",
-  "last_user_prompt": "🍎 조사",
+  "last_active_ts": "2026-04-25T04:15:24Z",
+  "last_prompt_ts": "2026-04-25T04:14:20.299Z",
+  "last_user_prompt": "안녕 WSL (",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac (@MyClaude) 메시지 받음 — Option E 결정, WSL 복붙 directive 가 다음 메시지로 온다고 함. 대기 중.",
+  "last_assistant_preview": "Step 1, 2 완료 — env var 정상 로드 확인. 강대종님께 재시작 요청.",
   "last_recent_edit": ""
 }
