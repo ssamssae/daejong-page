@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T07:03:17Z",
-  "last_prompt_ts": "2026-04-25T07:02:25.623Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T07:06:09Z",
+  "last_prompt_ts": "2026-04-25T07:04:27.544Z",
+  "last_user_prompt": "두기기다",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진짜 itch는 \"복붙 자동화\" 한 줄이었네요. 5개 파일 짜는 대신 `/handoff` 스킬 한 개 수정 + 봇 토큰 교차 저장",
+  "last_assistant_preview": "확인해 보겠습니다 — 양방향 가능한지 실제 파일 보고 답변할게요.",
   "last_recent_edit": ""
 }
