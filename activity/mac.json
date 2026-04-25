@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:12:49Z",
-  "last_prompt_ts": "2026-04-25T12:12:21.398Z",
-  "last_user_prompt": "엔터엔터",
+  "last_active_ts": "2026-04-25T12:15:09Z",
+  "last_prompt_ts": "2026-04-25T12:13:04.506Z",
+  "last_user_prompt": "내가하면",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "387d781 push. WSL B1 답신 오면 S-Enter 검증 핑 1발 쏴서 가설 확정. 답신 대기.",
+  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
 }
