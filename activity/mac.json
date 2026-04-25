@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T04:42:29Z",
-  "last_prompt_ts": "2026-04-25T04:42:06.382Z",
-  "last_user_prompt": "🪟 WSL Pla",
+  "last_active_ts": "2026-04-25T04:52:46Z",
+  "last_prompt_ts": "2026-04-25T04:48:38.387Z",
+  "last_user_prompt": "WSL → Mac",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL 검증 5/5 PASS 확정 보고 완료. Playwright MCP 양쪽 그린 라이트, env-var 우회 안정.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "issue commit 4b13988 push 완료. 텔레그램 보고.",
+  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-24-insta-autopost-mac-mirror-missing.md"
 }
