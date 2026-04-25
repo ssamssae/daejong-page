@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T15:25:09Z",
-  "last_prompt_ts": "2026-04-25T15:24:12.752Z",
+  "last_active_ts": "2026-04-25T15:26:38Z",
+  "last_prompt_ts": "2026-04-25T15:25:27.649Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "자동 sleep 자동화 없음 확인 + 만들 옵션 2개 제안 보냈습니다. 답 기다리는 중.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "세 메모리 풀어서 설명 보냈습니다. 추가 질문 없으면 worklog 단계로 진행합니다.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
