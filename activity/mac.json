@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T02:30:30Z",
-  "last_prompt_ts": "2026-04-25T02:28:44.912Z",
+  "last_active_ts": "2026-04-25T02:39:47Z",
+  "last_prompt_ts": "2026-04-25T02:37:45.116Z",
   "last_user_prompt": "안녕 Mac (",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac 분석 결과 + WSL용 directive 두 메시지로 분리해서 보낸다.",
+  "last_assistant_preview": "Mac plugin config 동일 확인 (`npx @playwright/mcp@latest` 만, 어떤 채널 강제도 없음). 즉 chrome 시스템 패키지 sudo apt-",
   "last_recent_edit": ""
 }
