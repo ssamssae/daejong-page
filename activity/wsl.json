@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T00:31:05Z",
-  "last_prompt_ts": "2026-04-25T00:30:02.131Z",
-  "last_user_prompt": "진행 </cha",
+  "last_active_ts": "2026-04-25T00:36:50Z",
+  "last_prompt_ts": "2026-04-25T00:35:57.015Z",
+  "last_user_prompt": "A",
   "last_user_source": "telegram",
-  "last_assistant_preview": "/submit-app Step 0 에서 정지. release keystore 부재 + registry 미등록 + 기존 6개 앱 모두 Mac SoT 패턴 — Mac 핸드오프 ",
+  "last_assistant_preview": "Mac 핸드오프 directive 별도 메시지로 전송 완료. @MyClaude 채팅에 그대로 복붙하면 Mac 세션이 keystore 생성부터",
   "last_recent_edit": ""
 }
