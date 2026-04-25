@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T04:15:24Z",
-  "last_prompt_ts": "2026-04-25T04:14:20.299Z",
-  "last_user_prompt": "안녕 WSL (",
+  "last_active_ts": "2026-04-25T04:24:27Z",
+  "last_prompt_ts": "2026-04-25T04:23:44.471Z",
+  "last_user_prompt": "재시작 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Step 1, 2 완료 — env var 정상 로드 확인. 강대종님께 재시작 요청.",
+  "last_assistant_preview": "재시작 후 새 세션에 붙여넣을 directive 별도 메시지로 보냄.",
   "last_recent_edit": ""
 }
