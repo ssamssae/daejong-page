@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T13:44:01Z",
-  "last_prompt_ts": "2026-04-25T13:41:51.823Z",
-  "last_user_prompt": "맥에게 �",
+  "last_active_ts": "2026-04-25T13:50:41Z",
+  "last_prompt_ts": "2026-04-25T13:49:55.107Z",
+  "last_user_prompt": "WSL Claude �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "분석 메시지(현재 봇 reply) + 디렉티브(peer-bot 발송) 를 병렬 발사.",
+  "last_assistant_preview": "SSH 통과 (exit=0). 핑 발사 완료. Mac claude-main 의 PONG 보고 대기.",
   "last_recent_edit": ""
 }
