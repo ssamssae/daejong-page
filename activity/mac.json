@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T07:27:09Z",
-  "last_prompt_ts": "2026-04-25T07:26:40.513Z",
-  "last_user_prompt": "완료 </cha",
+  "last_active_ts": "2026-04-25T07:46:42Z",
+  "last_prompt_ts": "2026-04-25T07:36:26.395Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7051\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T07:36:23",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "가설 검증 실패를 보고했습니다. send.sh 패치와 토큰은 살아있고, SKILL.md만 옵션에 따라 다시 써야 합니다 �",
+  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
 }
