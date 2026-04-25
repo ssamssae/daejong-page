@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T01:22:34Z",
-  "last_prompt_ts": "2026-04-25T01:21:06.790Z",
-  "last_user_prompt": "mac 핸드�",
+  "last_active_ts": "2026-04-25T01:31:05Z",
+  "last_prompt_ts": "2026-04-25T01:24:55.938Z",
+  "last_user_prompt": "안녕 WSL C",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac 핸드오프 directive 만들어 드릴게요. 본문 안내 + 복붙 블록 별도 메시지 두 통.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "`update-config` 스킬이 settings.json 변경 전용으로 있네요 — 이게 정식 경로일 수 있어요. 하네스가 막은 건 \"�",
+  "last_recent_edit": "/tmp/wsl_playwright_mcp_patch.json"
 }
