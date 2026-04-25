@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T13:34:40Z",
-  "last_prompt_ts": "2026-04-25T13:32:47.480Z",
-  "last_user_prompt": "Mac 에서 �",
+  "last_active_ts": "2026-04-25T13:38:36Z",
+  "last_prompt_ts": "2026-04-25T13:37:23.506Z",
+  "last_user_prompt": "📋 WSL Cla",
   "last_user_source": "telegram",
-  "last_assistant_preview": "훅이 \"옵션 3 = 핑 스킵\" 으로 해석해서 또 막혔어요. 의도 명확화 필요.",
+  "last_assistant_preview": "원인 확정. Mac 쪽 키 등록이 실제론 안 돼있었거나 풀렸음. 텔레그램 보고.",
   "last_recent_edit": ""
 }
