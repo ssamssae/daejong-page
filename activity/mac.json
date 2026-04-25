@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T02:25:43Z",
-  "last_prompt_ts": "2026-04-25T02:25:21.615Z",
-  "last_user_prompt": "작동중? <",
+  "last_active_ts": "2026-04-25T02:30:30Z",
+  "last_prompt_ts": "2026-04-25T02:28:44.912Z",
+  "last_user_prompt": "안녕 Mac (",
   "last_user_source": "telegram",
-  "last_assistant_preview": "작동 중이고 폰 Termius MCP 패리티 성공 확인했다고 텔레그램으로 답변 보냈습니다.",
+  "last_assistant_preview": "Mac 분석 결과 + WSL용 directive 두 메시지로 분리해서 보낸다.",
   "last_recent_edit": ""
 }
