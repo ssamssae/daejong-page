@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T15:06:52Z",
-  "last_prompt_ts": "2026-04-25T14:50:00.340Z",
-  "last_user_prompt": "<<autonomous-loop-dynamic>>",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "S24 JobScheduler 에 worker 등록 확인 완료: - `JOB androidx.work.systemjobscheduler:u0a385/0` for `com.ssamssae.review_radar` - Networ",
-  "last_recent_edit": "/mnt/c/src/review_radar/lib/main.dart"
+  "last_active_ts": "2026-04-25T15:27:06Z",
+  "last_prompt_ts": "2026-04-25T15:26:29.444Z",
+  "last_user_prompt": "이제 할�",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
