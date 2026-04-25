@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T04:27:47Z",
-  "last_prompt_ts": "2026-04-25T04:26:40.408Z",
-  "last_user_prompt": "mac handoff",
+  "last_active_ts": "2026-04-25T04:37:09Z",
+  "last_prompt_ts": "2026-04-25T04:35:37.058Z",
+  "last_user_prompt": "안녕 WSL (",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "항목 5 PASS (chromium-1217 + --headless + --no-sandbox 모두 확인). 정리.",
   "last_recent_edit": ""
 }
