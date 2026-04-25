@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T01:32:06Z",
-  "last_prompt_ts": "2026-04-25T01:25:15.034Z",
+  "last_active_ts": "2026-04-25T01:56:46Z",
+  "last_prompt_ts": "2026-04-25T01:53:41.715Z",
   "last_user_prompt": "[WSL → Mac",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL 핸드오프 처리: 메모리 pull 완료(62→40), todo 수정은 시점 충돌로 이미 처리된 작업이라 새 액션 0, WSL cat",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
