@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T16:10:05Z",
-  "last_prompt_ts": "2026-04-25T16:05:26.888Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T22:56:23Z",
+  "last_prompt_ts": "2026-04-25T22:55:32.834Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7334\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T22:55:29",
   "last_user_source": "telegram",
-  "last_assistant_preview": "someday 인프라 한 벌 (마스터 파일 + 공개 미러 + html 렌더 페이지 + 메뉴 타일 + /someday 스킬 + /goodnight step 2.7)",
-  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
