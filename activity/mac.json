@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:03:41Z",
-  "last_prompt_ts": "2026-04-25T12:02:56.417Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T12:05:02Z",
+  "last_prompt_ts": "2026-04-25T12:04:39.159Z",
+  "last_user_prompt": "뭐라는지",
   "last_user_source": "telegram",
-  "last_assistant_preview": "3/3 보냈어. (4) tmux 마이그레이션 A/B1/B2 비교 + B1 추천. (3) SKILL.md commit+push 와 (4) 옵션 실행은 강대종님 선택",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
