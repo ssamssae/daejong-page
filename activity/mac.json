@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T04:52:46Z",
-  "last_prompt_ts": "2026-04-25T04:48:38.387Z",
-  "last_user_prompt": "WSL → Mac",
+  "last_active_ts": "2026-04-25T05:01:50Z",
+  "last_prompt_ts": "2026-04-25T05:01:26.932Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "issue commit 4b13988 push 완료. 텔레그램 보고.",
-  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-24-insta-autopost-mac-mirror-missing.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
