@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T02:14:20Z",
-  "last_prompt_ts": "2026-04-25T02:13:54.316Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"6932\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T02:13:52",
+  "last_active_ts": "2026-04-25T02:16:00Z",
+  "last_prompt_ts": "2026-04-25T02:14:57.901Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL Playwright MCP 설치 + 5번째 서버로 ✓ connected 확인. WSL agent 가 이제 MCP 콜로 브라우저 자동화 처리 가능. Ma",
+  "last_assistant_preview": "\"패리티 = 양쪽이 똑같은 상태\" 일상 비유로 설명 (책상 두 개 모니터). 지금 우리 케이스에선 Mac/WSL 둘 다 p",
   "last_recent_edit": ""
 }
