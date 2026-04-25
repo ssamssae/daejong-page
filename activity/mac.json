@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T23:04:54Z",
-  "last_prompt_ts": "2026-04-25T23:03:40.397Z",
-  "last_user_prompt": "a",
+  "last_active_ts": "2026-04-25T23:26:52Z",
+  "last_prompt_ts": "2026-04-25T23:26:30.487Z",
+  "last_user_prompt": "세션클리",
   "last_user_source": "telegram",
-  "last_assistant_preview": "step 1.5 자동 완료 매칭 박힘 (commit cf2a63c). 다음 /goodnight 부터 작동 — 오늘 끝낸 일이랑 열린 todos 토큰 매�",
-  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
+  "last_assistant_preview": "4 repo 다 clean+pushed, 메모리도 깨끗. 세션 클리어 안전합니다.",
+  "last_recent_edit": ""
 }
