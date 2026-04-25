@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T23:46:07Z",
-  "last_prompt_ts": "2026-04-25T23:45:51.806Z",
+  "last_active_ts": "2026-04-25T23:47:37Z",
+  "last_prompt_ts": "2026-04-25T23:46:59.970Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac 기본 브라우저로 daejongkang.substack.com 열었고, 강대종님 직접 확인 후 결과 공유 대기 중.",
+  "last_assistant_preview": "Playwright로 가능하지만 Chrome 재시작 비용이 있어서, Ep1은 손으로 끝내고 Ep2부터 자동화 파이프라인 만드는",
   "last_recent_edit": ""
 }
