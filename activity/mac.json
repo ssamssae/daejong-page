@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:08:12Z",
-  "last_prompt_ts": "2026-04-25T12:06:21.772Z",
-  "last_user_prompt": "추천대로",
+  "last_active_ts": "2026-04-25T12:11:34Z",
+  "last_prompt_ts": "2026-04-25T12:09:47.704Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7128\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T12:09:47",
   "last_user_source": "telegram",
-  "last_assistant_preview": "좋아. SKILL.md commit+push + B1 셋업 WSL handoff 두 개 한 번에 진행.",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-25-2107-mac-wsl-bashrc-claude-main.md"
+  "last_assistant_preview": "가설 2 (sleep 끼우기) 일치한다고 확인. 두 옵션 제시: (a) Esc/Ctrl+C 로 입력 비우고 sleep 분리 ping 재시도, (b) �",
+  "last_recent_edit": ""
 }
