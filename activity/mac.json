@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T01:04:45Z",
-  "last_prompt_ts": "2026-04-25T01:02:11.729Z",
+  "last_active_ts": "2026-04-25T01:12:48Z",
+  "last_prompt_ts": "2026-04-25T01:07:09.739Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "todo \"🪟 🛠️ Playwright WSL 작동\" 항목 보류/취소 이동 + 사유 메모 추가 완료, 양쪽 repo (`~/todo` + `~/daejong-page",
-  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-25.md"
+  "last_assistant_preview": "WSL 하네스 막힘 원인 분석 + 해결책 4가지 (codegen 패턴, Playwright MCP 설치, CDP attach, 수동 boundary) 텔레그램 전",
+  "last_recent_edit": ""
 }
