@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T23:02:39Z",
-  "last_prompt_ts": "2026-04-25T23:00:07.448Z",
+  "last_active_ts": "2026-04-25T23:04:54Z",
+  "last_prompt_ts": "2026-04-25T23:03:40.397Z",
   "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "완료 마킹 끝났고, 자동화 제안 두 옵션 보냈습니다 — A(goodnight step 추가) 추천. 진행 여부 답 기다리는 중",
-  "last_recent_edit": "/Users/user/daejong-page/todos/index.json"
+  "last_assistant_preview": "step 1.5 자동 완료 매칭 박힘 (commit cf2a63c). 다음 /goodnight 부터 작동 — 오늘 끝낸 일이랑 열린 todos 토큰 매�",
+  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
 }
