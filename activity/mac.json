@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T10:01:25Z",
-  "last_prompt_ts": "2026-04-25T09:57:20.581Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T10:04:41Z",
+  "last_prompt_ts": "2026-04-25T10:02:59.027Z",
+  "last_user_prompt": "텔레그램",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL Claude 가설 반박 + 옵션 1 유지 추천 + 메모리 (`reference_telegram_bot_to_bot_blocked.md`) 저장 완료. A/B/C 선택 대�",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_assistant_preview": "디스코드는 봇끼리 메시지 보이는 게 텔레그램과 다른 결정적 차이라 실제로 paste-0 자동화 가능합니다. �",
+  "last_recent_edit": ""
 }
