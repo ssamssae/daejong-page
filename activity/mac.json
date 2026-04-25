@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T13:48:05Z",
-  "last_prompt_ts": "2026-04-25T13:47:18.253Z",
-  "last_user_prompt": "",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "쉬운 한 줄 요약(msg 7212) + WSL 복붙 directive 별도 메시지(msg 7213) 두 개로 나눠 보냈습니다. 강대종님이 directi",
+  "last_active_ts": "2026-04-25T13:50:36Z",
+  "last_prompt_ts": "2026-04-25T13:50:20.817Z",
+  "last_user_prompt": "[WSL->MAC PING TEST 22:50 KST] 도착 확인. 텔레그램 reply 1통으로 PONG from Mac claude-main HH:MM 보내",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
