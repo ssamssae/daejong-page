@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T07:11:00Z",
-  "last_prompt_ts": "2026-04-25T07:08:49.055Z",
-  "last_user_prompt": "ㄱㄱ </cha",
+  "last_active_ts": "2026-04-25T07:15:57Z",
+  "last_prompt_ts": "2026-04-25T07:15:48.294Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "send.sh 패치 완료 (백워드 호환 — `--peer` 플래그 안 쓰면 이전과 동일). 다음은 토큰이 필요합니다.",
-  "last_recent_edit": "/Users/user/.claude/channels/telegram/send.sh"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
