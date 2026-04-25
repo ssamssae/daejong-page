@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T13:29:03Z",
-  "last_prompt_ts": "2026-04-25T13:28:09.147Z",
-  "last_user_prompt": "테스트로",
+  "last_active_ts": "2026-04-25T13:34:40Z",
+  "last_prompt_ts": "2026-04-25T13:32:47.480Z",
+  "last_user_prompt": "Mac 에서 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "훅이 막았어요. 텔레그램으로 상황 알릴게요.",
+  "last_assistant_preview": "훅이 \"옵션 3 = 핑 스킵\" 으로 해석해서 또 막혔어요. 의도 명확화 필요.",
   "last_recent_edit": ""
 }
