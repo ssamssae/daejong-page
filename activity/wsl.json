@@ -2,9 +2,9 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T06:05:40Z",
-  "last_prompt_ts": "2026-04-25T06:04:36.487Z",
-  "last_user_prompt": "Stop hook feedback: 텔레그램에서 온 메시지()였는데 이번 turn 에 mcp__plugin_telegram_telegram__reply",
+  "last_active_ts": "2026-04-25T06:07:29Z",
+  "last_prompt_ts": "2026-04-25T06:06:49.709Z",
+  "last_user_prompt": "잘 모르�",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
