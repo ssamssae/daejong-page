@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T13:25:45Z",
-  "last_prompt_ts": "2026-04-25T13:23:56.309Z",
-  "last_user_prompt": "비유부터",
+  "last_active_ts": "2026-04-25T13:27:12Z",
+  "last_prompt_ts": "2026-04-25T13:26:46.502Z",
+  "last_user_prompt": "ㄱㄱ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진단 끝났어요. 핵심 원인 둘 다 잡았습니다. **상황:** ``` tmux ls → claude (group claude) claude-67917 (group claude) (a",
+  "last_assistant_preview": "완료. WSL→Mac 핑이 이제 이 세션에 자동 도착합니다. ``` tmux ls → claude (group claude) claude-67917 (group claude) (att",
   "last_recent_edit": ""
 }
