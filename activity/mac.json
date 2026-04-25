@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T03:26:47Z",
-  "last_prompt_ts": "2026-04-25T03:21:53.744Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"6950\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T03:21:50",
+  "last_active_ts": "2026-04-25T03:40:28Z",
+  "last_prompt_ts": "2026-04-25T03:39:38.956Z",
+  "last_user_prompt": "Mac 3차 핸",
   "last_user_source": "telegram",
-  "last_assistant_preview": "대기 모드. A 끝나면 BC 차례로 진행 가능.",
+  "last_assistant_preview": "분석 수신 확인 답신 보냈고, 다음 directive 메시지 대기 중입니다.",
   "last_recent_edit": ""
 }
