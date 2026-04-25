@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T13:46:13Z",
-  "last_prompt_ts": "2026-04-25T13:44:00.556Z",
-  "last_user_prompt": "Mac authoriz",
+  "last_active_ts": "2026-04-25T13:48:05Z",
+  "last_prompt_ts": "2026-04-25T13:47:18.253Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이미 등록돼있었음. 그러면 publickey 거부의 원인이 authorized_keys 누락이 아니란 뜻이라 추가 단서 빠르게 잡",
+  "last_assistant_preview": "쉬운 한 줄 요약(msg 7212) + WSL 복붙 directive 별도 메시지(msg 7213) 두 개로 나눠 보냈습니다. 강대종님이 directi",
   "last_recent_edit": ""
 }
