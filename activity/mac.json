@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T23:41:40Z",
-  "last_prompt_ts": "2026-04-25T23:40:40.051Z",
-  "last_user_prompt": "🪟 [WSL→MAC HANDOFF] git pull 후 handoffs/2026-04-26-0839-wsl-mac-ssh-keepalive-patch-notice.md 읽고 본문 directive 따라 진행",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-26-0839-wsl-mac-ssh-keepalive-patch-notice.md"
+  "last_active_ts": "2026-04-25T23:45:02Z",
+  "last_prompt_ts": "2026-04-25T23:43:05.121Z",
+  "last_user_prompt": "섭스택도",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "Substack 공개 archive API 가 posts 0 개 반환 — Ep1은 draft 까지만 작성됐고 발행은 안 된 상태로 확인. 강대종님�",
+  "last_recent_edit": ""
 }
