@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T04:34:12Z",
-  "last_prompt_ts": "2026-04-25T04:32:56.520Z",
-  "last_user_prompt": "wsl playwrig",
+  "last_active_ts": "2026-04-25T04:42:29Z",
+  "last_prompt_ts": "2026-04-25T04:42:06.382Z",
+  "last_user_prompt": "🪟 WSL Pla",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL 검증 핸드오프. 분석 짧게 + directive 별도 메시지.",
+  "last_assistant_preview": "WSL 검증 5/5 PASS 확정 보고 완료. Playwright MCP 양쪽 그린 라이트, env-var 우회 안정.",
   "last_recent_edit": ""
 }
