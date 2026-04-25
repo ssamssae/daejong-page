@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T14:11:15Z",
-  "last_prompt_ts": "2026-04-25T14:09:39.840Z",
+  "last_active_ts": "2026-04-25T14:12:31Z",
+  "last_prompt_ts": "2026-04-25T14:12:10.773Z",
   "last_user_prompt": "컨텍스트",
   "last_user_source": "telegram",
-  "last_assistant_preview": "차단 확정. 디렉티브대로 보고하고 종료.",
+  "last_assistant_preview": "같은 디렉티브 재paste 됐는데, 이미 직전 시도에서 디렉티브의 우회 한도(1회) 다 썼고 둘 다 차단됐어요 (r",
   "last_recent_edit": ""
 }
