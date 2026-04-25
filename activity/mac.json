@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T10:04:41Z",
-  "last_prompt_ts": "2026-04-25T10:02:59.027Z",
-  "last_user_prompt": "텔레그램",
+  "last_active_ts": "2026-04-25T10:14:57Z",
+  "last_prompt_ts": "2026-04-25T10:13:36.427Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "디스코드는 봇끼리 메시지 보이는 게 텔레그램과 다른 결정적 차이라 실제로 paste-0 자동화 가능합니다. �",
+  "last_assistant_preview": "Discord 2000자 제약은 진짜지만 Gist URL 패턴으로 깔끔히 우회 가능 — directive 본문은 gist에, 채널엔 URL만. bonu",
   "last_recent_edit": ""
 }
