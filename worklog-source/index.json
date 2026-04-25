@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-25_v1.0.0.md",
+      "date": "2026-04-25",
+      "version": "v1.0.0",
+      "summary": "핸드오프 인프라가 텔레그램 한 줄 트리거에서 SSH+tmux 양방향 자동 직접 인젝션으로 진화한 날. 새벽 4/24 마무리(Substack Ep.1 편집본·worklog 4/24 v1.0.1·done·todos 정리) → 아침 hanjul 1.1.0+3 Android ship-ready(런처 9종 자동 생성 + JSON export + Play Console 스크린샷 + release signingConfig + keystore SoT Mac 등록) → 점심 Playwright WSL 막힘 4단계 핸드오프 turn → Option E (PLAYWRIGHT_MCP_BROWSER=chromium env-var 한 줄) 발견·smoke PASS → 오후 인스타 Mac venv 미러링·dry-run PASS·정책 A 명문화·step 4.5 hostname 라우팅·핸드오프 트리거 키워드 → claude-automations PR #1 (CDP 모듈화) 머지 → 저녁 핸드오프 SSH+tmux METHOD A 발견(text/Enter sleep 0.5 분리, bracketed paste 우회) → 21~23시 양방향 e2e PASS·이모지 prefix·Mac PATH 함정(/opt/homebrew/bin/tmux 절대경로) → 자정 직전 다른 기기 오케스트레이터 구상. skills 26 / daejong-page 9 / hanjul 4 / review_radar 1.",
+      "updated": "2026-04-26T00:35:00+09:00"
+    },
+    {
       "file": "2026-04-24_v1.0.1.md",
       "date": "2026-04-24",
       "version": "v1.0.1",
