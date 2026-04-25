@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T09:59:27Z",
-  "last_prompt_ts": "2026-04-25T09:59:05.459Z",
-  "last_user_prompt": "WSL Claude,",
+  "last_active_ts": "2026-04-25T10:13:57Z",
+  "last_prompt_ts": "2026-04-25T10:13:09.761Z",
+  "last_user_prompt": "디스코드",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이미 직전 corrected directive 로 A~D 다 끝낸 상태입니다 (msg 2630 보고함). 재확인만 빠르게.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
