@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T15:46:14Z",
-  "last_prompt_ts": "2026-04-25T15:45:04.342Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7315\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T15:45:01",
+  "last_active_ts": "2026-04-25T15:48:06Z",
+  "last_prompt_ts": "2026-04-25T15:47:11.537Z",
+  "last_user_prompt": "핸드오프",
   "last_user_source": "telegram",
-  "last_assistant_preview": "실수 정정 보냈습니다 — `/insta-post 2026-04-25` 는 강대종님이 @Myclaude2 챗에 직접 입력해야 합니다. 봇끼리는",
+  "last_assistant_preview": "WSL Claude 가 카드 렌더 + IG 업로드 처리 중입니다. permalink 답 오면 알려드릴게요.",
   "last_recent_edit": ""
 }
