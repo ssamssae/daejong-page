@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:01:42Z",
-  "last_prompt_ts": "2026-04-25T11:58:57.508Z",
-  "last_user_prompt": "ㅇㅋ </cha",
+  "last_active_ts": "2026-04-25T12:03:41Z",
+  "last_prompt_ts": "2026-04-25T12:02:56.417Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "(3) handoff/SKILL.md diff 초안 만들러 감.",
-  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
+  "last_assistant_preview": "3/3 보냈어. (4) tmux 마이그레이션 A/B1/B2 비교 + B1 추천. (3) SKILL.md commit+push 와 (4) 옵션 실행은 강대종님 선택",
+  "last_recent_edit": ""
 }
