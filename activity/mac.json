@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T11:47:45Z",
-  "last_prompt_ts": "2026-04-25T11:44:16.471Z",
-  "last_user_prompt": "승인 </cha",
+  "last_active_ts": "2026-04-25T11:49:09Z",
+  "last_prompt_ts": "2026-04-25T11:48:39.990Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "승인 받았어. 기존 claude-60120 으로 트라이얼 먼저 (이미 이름 알고 있으니 셋업 단계 생략 가능), 동작 확인",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-25-2046-mac-wsl-ssh-trial.md"
+  "last_assistant_preview": "Enter submit 안 된 점 인지하고 다음 trial 전 후보 픽스 3개 (sleep+Enter 분리 / C-j 시도 / Enter 두 번) 적어뒀어. �",
+  "last_recent_edit": ""
 }
