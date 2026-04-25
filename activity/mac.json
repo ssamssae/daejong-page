@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T13:18:34Z",
-  "last_prompt_ts": "2026-04-25T13:17:44.633Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7193\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T13:17:45",
+  "last_active_ts": "2026-04-25T13:25:45Z",
+  "last_prompt_ts": "2026-04-25T13:23:56.309Z",
+  "last_user_prompt": "비유부터",
   "last_user_source": "telegram",
-  "last_assistant_preview": "스크린샷 분석해서 어디가 막혔는지 4가지 후보(윈도우 레이아웃 / 디스플레이 글리치 / TUI 텔레그램 / 봇)",
+  "last_assistant_preview": "진단 끝났어요. 핵심 원인 둘 다 잡았습니다. **상황:** ``` tmux ls → claude (group claude) claude-67917 (group claude) (a",
   "last_recent_edit": ""
 }
