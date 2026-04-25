@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:36:16Z",
-  "last_prompt_ts": "2026-04-25T12:35:48.803Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7159\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T12:35:48",
+  "last_active_ts": "2026-04-25T12:40:15Z",
+  "last_prompt_ts": "2026-04-25T12:36:31.488Z",
+  "last_user_prompt": "ㄱㄱ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "METHOD A PASS 확인. SKILL.md 정정 + commit+push 승인 요청 중. 핵심 발견 (bracketed paste 가 진범, sleep 분리가 정답) �",
-  "last_recent_edit": ""
+  "last_assistant_preview": "양방향 end-to-end 검증 plan 제시. Mac→WSL 핸드오프 1발이 WSL→Mac 핑 1발을 트리거 → Mac auto-submit → 텔레그램",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
