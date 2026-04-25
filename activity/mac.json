@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T07:57:55Z",
-  "last_prompt_ts": "2026-04-25T07:57:03.948Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-25T09:26:38Z",
+  "last_prompt_ts": "2026-04-25T09:20:51.762Z",
+  "last_user_prompt": "ㄱㄱ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "옵션 1 추천했습니다 — 90% 작업물 살리되 SKILL.md만 정직하게 재작성. 진짜 자동화 아닌 \"챗 전환 1회 제거\"",
-  "last_recent_edit": ""
+  "last_assistant_preview": "directive 두 개 (broken + corrected) @Myclaude2 챗에 발송 완료. 사용자가 corrected 버전 paste → WSL Claude 가 4단계 셋�",
+  "last_recent_edit": "/Users/user/.claude/skills/handoff/SKILL.md"
 }
