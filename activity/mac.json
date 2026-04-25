@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:46:59Z",
-  "last_prompt_ts": "2026-04-25T12:45:12.886Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7167\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T12:45:13",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "WSL 재시도 결과 대기 중.",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-25-2146-mac-wsl-bidir-verify-fix-path.md"
+  "last_active_ts": "2026-04-25T12:48:43Z",
+  "last_prompt_ts": "2026-04-25T12:47:13.364Z",
+  "last_user_prompt": "[WSL HANDOFF] 자동 submit 됐으면 텔레그램으로 WSL→MAC PASS 한 줄만 보고",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "재시작 안전 확인. 내일 또는 필요 시 Mac 도 .zshrc 가드 추가해 대칭 셋업하면 좋겠다고 한 줄 메모만. 오늘",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/reference_tmux_bracketed_paste_submit.md"
 }
