@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T00:36:17Z",
-  "last_prompt_ts": "2026-04-25T00:35:06.857Z",
-  "last_user_prompt": "깨움제거",
+  "last_active_ts": "2026-04-25T00:46:56Z",
+  "last_prompt_ts": "2026-04-25T00:39:51.354Z",
+  "last_user_prompt": "/submit-app",
   "last_user_source": "telegram",
-  "last_assistant_preview": "메모리 재발 기록 추가. 이제 정말로 매듭들 다 정리된 상태 — pmset도 이미 처리됨 확인, 시간 인식 오류�",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_check_timestamps.md"
+  "last_assistant_preview": "hanjul Android 제출 준비 완료. AAB 빌드 + keystore + signing 모두 통과. 이후 Play Console 수동 업로드는 강대종님 손",
+  "last_recent_edit": "/Users/user/apps/hanjul/pubspec.yaml"
 }
