@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T14:23:42Z",
-  "last_prompt_ts": "2026-04-25T14:21:02.925Z",
-  "last_user_prompt": "그리고 �",
+  "last_active_ts": "2026-04-25T14:26:54Z",
+  "last_prompt_ts": "2026-04-25T14:25:42.722Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2692\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-25T14:25:40",
   "last_user_source": "telegram",
-  "last_assistant_preview": "SSH 통합니다. `claude-main` 도 살아있어요. 새 이모지 핑으로 end-to-end verify 보냅니다.",
-  "last_recent_edit": "/home/ssamssae/.claude/skills/handoff/SKILL.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/reference_ssh_mac_tools.md"
 }
