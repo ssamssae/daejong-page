@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T04:48:16Z",
-  "last_prompt_ts": "2026-04-25T04:47:10.608Z",
-  "last_user_prompt": "mac handoff",
+  "last_active_ts": "2026-04-25T05:25:25Z",
+  "last_prompt_ts": "2026-04-25T05:21:55.013Z",
+  "last_user_prompt": "안녕 WSL (",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "텔레그램으로 진행 결과 보고 + 2번 의견 받기.",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/issues/2026-04-24-insta-autopost-mac-mirror-missing.md"
 }
