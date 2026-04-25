@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T12:50:38Z",
-  "last_prompt_ts": "2026-04-25T12:50:08.981Z",
-  "last_user_prompt": "[WSL HANDOFF] git pull 후 handoffs/2026-04-25-2149-wsl-mac-zero-touch-demo.md 읽고 본문 directive 따라 진행",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "WSL 자율 handoff (강대종님 한 마디 후 WSL 단독 발사) PASS. 텔레그램 한 줄 reply 로 종료.",
+  "last_active_ts": "2026-04-25T12:52:44Z",
+  "last_prompt_ts": "2026-04-25T12:51:48.531Z",
+  "last_user_prompt": "시 Mac 도",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "어제 12:48 잘자 직전에 남긴 follow-up 메모였어요. 양방향 무손 e2e 동작은 이미 검증됐고, 이건 그 위에 얹는",
   "last_recent_edit": ""
 }
