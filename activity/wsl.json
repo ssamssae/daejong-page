@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T13:52:36Z",
-  "last_prompt_ts": "2026-04-25T13:51:02.332Z",
-  "last_user_prompt": "맥에게 �",
+  "last_active_ts": "2026-04-25T13:56:42Z",
+  "last_prompt_ts": "2026-04-25T13:55:41.932Z",
+  "last_user_prompt": "WSL->Mac SSH",
   "last_user_source": "telegram",
-  "last_assistant_preview": "분석 메시지(현재 봇 reply) + 진단 디렉티브(peer-bot 발송) 병렬 발사.",
+  "last_assistant_preview": "검증 결과 — **WSL→Mac 핸드오프 PASS**. capture-pane 로 확인된 사실: 1. 22:50 핑이 Mac claude-main 의 Claude 입력창(`",
   "last_recent_edit": ""
 }
