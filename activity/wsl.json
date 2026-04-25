@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-25T23:43:19Z",
-  "last_prompt_ts": "2026-04-25T23:38:48.382Z",
-  "last_user_prompt": "무슨소리",
+  "last_active_ts": "2026-04-25T23:46:30Z",
+  "last_prompt_ts": "2026-04-25T23:44:33.702Z",
+  "last_user_prompt": "지금 박�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "MEMORY.md 에 머지 충돌 마커가 남아있네요. 그것도 정리하면서 새 항목 박을게요.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/reference_ssh_keepalive_bidir.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
