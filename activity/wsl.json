@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-24T23:44:06Z",
-  "last_prompt_ts": "2026-04-24T23:34:30.327Z",
-  "last_user_prompt": "시뮬레이",
+  "last_active_ts": "2026-04-25T00:31:05Z",
+  "last_prompt_ts": "2026-04-25T00:30:02.131Z",
+  "last_user_prompt": "진행 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "/submit-app Step 0 에서 정지. release keystore 부재 + registry 미등록 + 기존 6개 앱 모두 Mac SoT 패턴 — Mac 핸드오프 ",
   "last_recent_edit": ""
 }
