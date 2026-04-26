@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T08:03:29Z",
-  "last_prompt_ts": "2026-04-26T08:02:47.517Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7635\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T08:02:45",
+  "last_active_ts": "2026-04-26T08:05:25Z",
+  "last_prompt_ts": "2026-04-26T08:04:52.401Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL Claude 답변 검토 완료. 핵심: - 큰 그림 일치: 맥미니 = 24/7 자동화 허브 1순위 - WSL 가 추가로 짚은 5번째 L",
-  "last_recent_edit": ""
+  "last_assistant_preview": "\"차 없음\" 메모리 추가 완료(`user_no_car.md` + MEMORY.md 인덱스). 자동 푸시 훅으로 곧 claude-memory repo 에 동기화 �",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
