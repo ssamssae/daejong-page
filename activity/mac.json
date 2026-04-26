@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T05:08:11Z",
-  "last_prompt_ts": "2026-04-26T05:05:56.029Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7519\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T05:05:53",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "이제 /irun.",
-  "last_recent_edit": "/Users/user/apps/hanjul/lib/screens/stats_screen.dart"
+  "last_active_ts": "2026-04-26T05:10:06Z",
+  "last_prompt_ts": "2026-04-26T05:10:00.593Z",
+  "last_user_prompt": "<task-notification> <task-id>bzctsbv5q</task-id> <summary>Monitor event: \"hanjul violet tone iPhone build\"</summary> <event>[Monitor timed o",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "Monitor 자연 timeout (빌드 + 설치는 이미 완료됨, 폰에 v3 떠있음). 강대종님 피드백 대기 중.",
+  "last_recent_edit": ""
 }
