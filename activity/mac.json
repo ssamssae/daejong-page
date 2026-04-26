@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T05:12:36Z",
-  "last_prompt_ts": "2026-04-26T05:12:17.779Z",
+  "last_active_ts": "2026-04-26T05:23:40Z",
+  "last_prompt_ts": "2026-04-26T05:20:10.977Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "모른다고 답하고 무엇을 가리키는지 되물었습니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Push 완료(c6e8943..6c8f21f). 사용자에게 마무리 보고.",
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-26-1405-wsl-mac-local-llm-nodes-active-reply.md"
 }
