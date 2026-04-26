@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T00:14:27Z",
-  "last_prompt_ts": "2026-04-26T00:13:19.567Z",
-  "last_user_prompt": "그 자동�",
+  "last_active_ts": "2026-04-26T00:20:14Z",
+  "last_prompt_ts": "2026-04-26T00:15:34.475Z",
+  "last_user_prompt": "1 wis11 both",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "GitHub gist 권한 거부됨(이해 — 강대종님이 사전 동의 안 한 public surface). 대신 **텔레그램 파일 첨부**로 직�",
+  "last_recent_edit": "/home/ssamssae/claude-automations/scripts/setup-local-llm.ps1"
 }
