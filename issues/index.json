@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-26-heartbeat-rule-soft-enforcement.md",
+      "date": "2026-04-26",
+      "slug": "heartbeat-rule-soft-enforcement",
+      "title": "작업 중 5분 하트비트 룰 강제력 부재로 12분간 침묵",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "모든 장시간 텔레그램 inbound 작업 세션",
+      "occurred_at": "2026-04-26 09:58 KST",
+      "resolved_at": "2026-04-26 10:15 KST",
+      "updated": "2026-04-26T10:18:00+09:00"
+    },
+    {
       "file": "2026-04-26-paste-block-label-leak.md",
       "date": "2026-04-26",
       "slug": "paste-block-label-leak",
@@ -94,7 +106,7 @@
       "scope": "플러그인 telegram typing 데몬, 병렬 Claude 세션 전체",
       "occurred_at": "2026-04-20 23:30 KST",
       "resolved_at": "2026-04-21 00:28 KST",
-      "updated": "2026-04-21T00:30:05+09:00"
+      "updated": "2026-04-26T10:18:00+09:00"
     },
     {
       "file": "2026-04-20-irun-locked-iphone.md",
