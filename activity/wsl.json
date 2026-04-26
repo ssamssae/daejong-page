@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T15:54:26Z",
-  "last_prompt_ts": "2026-04-26T15:49:48.929Z",
-  "last_user_prompt": "맥에게 �",
+  "last_active_ts": "2026-04-26T15:56:36Z",
+  "last_prompt_ts": "2026-04-26T15:55:37.946Z",
+  "last_user_prompt": "3",
   "last_user_source": "telegram",
-  "last_assistant_preview": "claude-skills push 도 harness 거부됨 (claude-automations 와 같은 직접 main push 차단). 핸드오프 directive 파일이 GitHub �",
-  "last_recent_edit": "/home/ssamssae/.claude/skills/issues/2026-04-26-heartbeat-rule-soft-enforcement.md"
+  "last_assistant_preview": "option 3 진행. /update-config 으로 두 repo 의 main push 권한 영구 룰 추가 시도.",
+  "last_recent_edit": ""
 }
