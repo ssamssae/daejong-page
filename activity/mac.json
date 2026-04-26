@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T04:20:32Z",
-  "last_prompt_ts": "2026-04-26T04:20:17.888Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-26T04:29:33Z",
+  "last_prompt_ts": "2026-04-26T04:23:52.017Z",
+  "last_user_prompt": "1",
   "last_user_source": "telegram",
-  "last_assistant_preview": "클리어 OK 응답 보냈습니다. 새 세션에서 \"뭐할까\" 받으면 stale check 룰대로 진행하겠습니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Main 직접 push 가 거부됐어요 (\"정석대로\" = PR 리뷰로 해석). 강대종님 결정 받고 진행할게요.",
+  "last_recent_edit": "/Users/user/apps/review_radar/android/app/src/main/AndroidManifest.xml"
 }
