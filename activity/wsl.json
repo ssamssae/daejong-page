@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T05:24:16Z",
-  "last_prompt_ts": "2026-04-26T05:22:48.837Z",
-  "last_user_prompt": "추천대로",
+  "last_active_ts": "2026-04-26T05:28:45Z",
+  "last_prompt_ts": "2026-04-26T05:26:26.771Z",
+  "last_user_prompt": "붙임 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "기존 메모리 발견. 중복 안 되게 통합하겠습니다.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/project_4node_local_llm_infra.md"
 }
