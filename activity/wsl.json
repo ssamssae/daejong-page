@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T22:18:37Z",
-  "last_prompt_ts": "2026-04-26T22:18:32.786Z",
-  "last_user_prompt": "<task-notification> <task-id>bfcb6f24f</task-id> <summary>Monitor event: \"review_radar arun build/install on S24\"</summary> <event>[Monitor ",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-26T23:12:50Z",
+  "last_prompt_ts": "2026-04-26T23:12:25.924Z",
+  "last_user_prompt": "지금 회�",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
