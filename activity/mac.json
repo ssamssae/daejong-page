@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T01:36:37Z",
-  "last_prompt_ts": "2026-04-26T01:35:57.084Z",
+  "last_active_ts": "2026-04-26T02:49:13Z",
+  "last_prompt_ts": "2026-04-26T02:48:32.269Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL 도 양쪽 repo pull 완료 (`~/.claude/automations` + `~/.claude/skills`). 심링크 구조도 같아서 fix 즉시 활성.",
+  "last_assistant_preview": "오늘 미완 중에 일요일 점심에 어울리는 후보 셋: 1. **🛰️ 심사레이더 v0.2 다듬기** — 자기쓰기 도구라 �",
   "last_recent_edit": ""
 }
