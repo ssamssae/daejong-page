@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T08:44:31Z",
-  "last_prompt_ts": "2026-04-26T08:43:23.766Z",
-  "last_user_prompt": "여기도 �",
+  "last_active_ts": "2026-04-26T08:46:45Z",
+  "last_prompt_ts": "2026-04-26T08:46:26.274Z",
+  "last_user_prompt": "세션초기",
   "last_user_source": "telegram",
-  "last_assistant_preview": "새 WSL 세션용 프롬프트 만들게요. 분리해서 두 메시지로 보냅니다 (분석 + 복붙 블록 별도).",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
