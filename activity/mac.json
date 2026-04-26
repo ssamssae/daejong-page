@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T02:51:03Z",
-  "last_prompt_ts": "2026-04-26T02:49:49.651Z",
-  "last_user_prompt": "💓 자동",
+  "last_active_ts": "2026-04-26T02:55:38Z",
+  "last_prompt_ts": "2026-04-26T02:51:06.762Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진단 끝. **원인:** - `last-tg-reply.epoch`: 10:36:35 (마지막 reply 후 갱신) - 그 후 사용자 메시지 없어서 1h13min 침�",
-  "last_recent_edit": ""
+  "last_assistant_preview": "WSL settings.json 도 패치 적용. 이제 todos 갱신.",
+  "last_recent_edit": "/Users/user/todo/todos.md"
 }
