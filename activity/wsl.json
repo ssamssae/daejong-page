@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T07:52:19Z",
-  "last_prompt_ts": "2026-04-26T07:38:48.290Z",
-  "last_user_prompt": "2",
+  "last_active_ts": "2026-04-26T07:54:35Z",
+  "last_prompt_ts": "2026-04-26T07:54:01.659Z",
+  "last_user_prompt": "b",
   "last_user_source": "telegram",
-  "last_assistant_preview": "git pull 이 HTTPS 인증으로 hang 거는 것 같아요. scp 로 파일만 직접 복사할게요.",
-  "last_recent_edit": "/home/ssamssae/trend-curator/curator.py"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
