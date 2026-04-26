@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T09:09:57Z",
-  "last_prompt_ts": "2026-04-26T09:06:12.555Z",
-  "last_user_prompt": "🍎 [MAC→WSL HANDOFF] cd ~/claude-skills && git pull 후 handoffs/2026-04-26-1801-mac-wsl-memory-cleanup-judgment-reply.md 읽고 본문 ",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "MEMORY.md 인덱스 갱신.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
+  "last_active_ts": "2026-04-26T09:11:32Z",
+  "last_prompt_ts": "2026-04-26T09:11:06.502Z",
+  "last_user_prompt": "쉽게 설�",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
