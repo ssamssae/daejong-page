@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T01:35:21Z",
-  "last_prompt_ts": "2026-04-26T01:27:58.158Z",
-  "last_user_prompt": "🔧 다음",
+  "last_active_ts": "2026-04-26T01:36:37Z",
+  "last_prompt_ts": "2026-04-26T01:35:57.084Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "**E2E PASS** — daemon now logs `sess=e2e-test` (was `unknown`), sibling Stop hook didn't touch it. Clean up the test, then write the issue",
-  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-20-telegram-typing-midsession-drop.md"
+  "last_assistant_preview": "WSL 도 양쪽 repo pull 완료 (`~/.claude/automations` + `~/.claude/skills`). 심링크 구조도 같아서 fix 즉시 활성.",
+  "last_recent_edit": ""
 }
