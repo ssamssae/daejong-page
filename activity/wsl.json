@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T15:49:08Z",
-  "last_prompt_ts": "2026-04-26T15:44:53.430Z",
-  "last_user_prompt": "<task-notification> <task-id>b20uszrft</task-id> <tool-use-id>toolu_013MFnWb5hfpgGLNYuAN38ZF</tool-use-id> <output-file>/tmp/claude-1000/-ho",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "마무리 보고 드림.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
+  "last_active_ts": "2026-04-26T15:54:26Z",
+  "last_prompt_ts": "2026-04-26T15:49:48.929Z",
+  "last_user_prompt": "맥에게 �",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "claude-skills push 도 harness 거부됨 (claude-automations 와 같은 직접 main push 차단). 핸드오프 directive 파일이 GitHub �",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/issues/2026-04-26-heartbeat-rule-soft-enforcement.md"
 }
