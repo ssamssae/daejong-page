@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T03:29:07Z",
-  "last_prompt_ts": "2026-04-26T03:28:11.933Z",
-  "last_user_prompt": "텔레그램",
+  "last_active_ts": "2026-04-26T03:32:17Z",
+  "last_prompt_ts": "2026-04-26T03:29:39.243Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2894\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T03:29:38",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "노트북 진단 완료(11434 닫힘) + 두 길 결정 요청. 강대종님 답 대기.",
   "last_recent_edit": ""
 }
