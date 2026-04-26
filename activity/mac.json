@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T09:05:02Z",
-  "last_prompt_ts": "2026-04-26T08:58:57.284Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-26T09:07:47Z",
+  "last_prompt_ts": "2026-04-26T09:05:36.020Z",
+  "last_user_prompt": "wsl handoff",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/daejong-page/issues/index.json"
+  "last_assistant_preview": "사진 분석 끝, fix 가이드 전달 완료. WSL handoff METHOD A 인젝션도 PASS. 강대종님이 ASC 콘솔에서 Notes 답변 + 화�",
+  "last_recent_edit": ""
 }
