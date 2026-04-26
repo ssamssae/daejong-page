@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T16:02:22Z",
-  "last_prompt_ts": "2026-04-26T16:01:20.734Z",
-  "last_user_prompt": "진행 완�",
+  "last_active_ts": "2026-04-26T16:08:30Z",
+  "last_prompt_ts": "2026-04-26T16:07:46.652Z",
+  "last_user_prompt": "이거는 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac 진행 상태 먼저 확인 (이미 첫 directive 처리 중인지).",
+  "last_assistant_preview": "내가 directive step 3 에 `launchctl kickstart` 박았기 때문임. 원인: - 변경 후 plist 가 정상 동작하는지 확인하려고",
   "last_recent_edit": ""
 }
