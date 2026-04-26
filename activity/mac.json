@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T05:43:02Z",
-  "last_prompt_ts": "2026-04-26T05:42:06.854Z",
-  "last_user_prompt": "뭐할까 </",
+  "last_active_ts": "2026-04-26T05:53:39Z",
+  "last_prompt_ts": "2026-04-26T05:53:15.389Z",
+  "last_user_prompt": "irun </chann",
   "last_user_source": "telegram",
-  "last_assistant_preview": "오후 시작 무드 기준으로 3가지 옵션 제안했습니다 — (1) 심사레이더 v0.2 잔여 UX 마무리(작은 작업), (2) 한",
+  "last_assistant_preview": "빌드 시작했습니다. iOS clean+release라 2~3분 걸려요. 빌드 이벤트 들어오는 대로 보고드릴게요.",
   "last_recent_edit": ""
 }
