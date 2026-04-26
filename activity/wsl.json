@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T08:54:49Z",
-  "last_prompt_ts": "2026-04-26T08:51:47.390Z",
-  "last_user_prompt": "abc ㄱ </ch",
+  "last_active_ts": "2026-04-26T09:00:47Z",
+  "last_prompt_ts": "2026-04-26T08:55:30.363Z",
+  "last_user_prompt": "나는 판�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "B 점검 결과 큰 발견 1건. 텔레그램 보고하면서 C 들어갑니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "세션 탐색 빈 결과 — 디버깅.",
+  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-26-1730-mac-wsl-rasp5-to-m1-mini-pivot.md"
 }
