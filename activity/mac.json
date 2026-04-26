@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T06:12:11Z",
-  "last_prompt_ts": "2026-04-26T06:08:41.459Z",
-  "last_user_prompt": "",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "A 마무리, B 사전 조사 완료 — 시안 4개 prep 다 끝나있고 픽 단계에서 멈춘 상태입니다. 어느 시안 갈지 결�",
-  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-26.md"
+  "last_active_ts": "2026-04-26T06:13:55Z",
+  "last_prompt_ts": "2026-04-26T06:13:47.894Z",
+  "last_user_prompt": "<task-notification> <task-id>bxshs64yn</task-id> <summary>Monitor event: \"review_radar iOS rebuild #2 (quiet hours included) → iPhone inst",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "Monitor 타임아웃은 flutter run이 release 모드로 계속 돌고 있을 뿐, 빌드/설치는 이미 완료된 상태라 추가 조치",
+  "last_recent_edit": ""
 }
