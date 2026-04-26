@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T01:05:19Z",
-  "last_prompt_ts": "2026-04-26T01:04:14.050Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2832\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T01:04:11",
+  "last_active_ts": "2026-04-26T01:07:12Z",
+  "last_prompt_ts": "2026-04-26T01:06:33.762Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2840\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T01:06:33",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "데스크탑 부트스트랩 완료. 호스트 DESKTOP-OVAB3OC, Llama 3.1 8B 모델 8192MB VRAM 에 성공 풀. 다음 단계: tailscale up ",
   "last_recent_edit": ""
 }
