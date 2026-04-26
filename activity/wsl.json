@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T07:15:31Z",
-  "last_prompt_ts": "2026-04-26T07:12:36.468Z",
-  "last_user_prompt": "박아요 </",
+  "last_active_ts": "2026-04-26T07:16:59Z",
+  "last_prompt_ts": "2026-04-26T07:16:34.311Z",
+  "last_user_prompt": "맥 > 본진",
   "last_user_source": "telegram",
-  "last_assistant_preview": "메모리 박을게요.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
