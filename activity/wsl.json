@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T09:52:23Z",
-  "last_prompt_ts": "2026-04-26T09:43:32.316Z",
-  "last_user_prompt": "다해 </cha",
+  "last_active_ts": "2026-04-26T11:19:41Z",
+  "last_prompt_ts": "2026-04-26T11:18:36.054Z",
+  "last_user_prompt": "1 ab 2 영�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "flutter.bat 직접 실행은 CRLF 깨짐. android-build-runner 에이전트로 다시.",
+  "last_assistant_preview": "",
   "last_recent_edit": "/home/ssamssae/.claude/plans/wordbook-mvp-2026-04-26.md"
 }
