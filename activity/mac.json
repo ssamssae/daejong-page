@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T09:13:35Z",
-  "last_prompt_ts": "2026-04-26T09:12:23.134Z",
-  "last_user_prompt": "",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "repo 위치 확인, 자동 플랜 7단계 + 강대종님 손 1번 (2FA). OK 트리거 받으면 시뮬레이터 빌드부터 시작.",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-26T11:19:28Z",
+  "last_prompt_ts": "2026-04-26T11:17:52.318Z",
+  "last_user_prompt": "<task-notification> <task-id>bhjd3ytig</task-id> <tool-use-id>toolu_01J9RKTEh2ZViTyjrH1G3WKE</tool-use-id> <output-file>/private/tmp/claude-",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "/irun 폰 device 안 잡힘 (지하철 외출 중 → Mac과 다른 LAN). 답변에 A/B/C 옵션 보냄. 강대종님이 폰에 약먹자/�",
+  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-26-heartbeat-rule-soft-enforcement.md"
 }
