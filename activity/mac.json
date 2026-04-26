@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T02:58:45Z",
-  "last_prompt_ts": "2026-04-26T02:58:00.801Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-26T03:02:20Z",
+  "last_prompt_ts": "2026-04-26T02:59:39.829Z",
+  "last_user_prompt": "둘다 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "원인 한 줄: 새 세션은 직전 conversation 못 보고 **memory + todos.md + git log** 셋만 봐서 추천하는데, 작업 완료 �",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이제 commit + push.",
+  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
 }
