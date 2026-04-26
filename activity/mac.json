@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T06:03:01Z",
-  "last_prompt_ts": "2026-04-26T06:00:20.468Z",
-  "last_user_prompt": "",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "quiet hours 마무리 완료 (review_radar 960cb2c, 25 tests PASS). 23~07 KST 묵음 + rejected 예외, 아이폰엔 재빌드해야 들어�",
-  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-26.md"
+  "last_active_ts": "2026-04-26T06:04:31Z",
+  "last_prompt_ts": "2026-04-26T06:04:27.283Z",
+  "last_user_prompt": "<task-notification> <task-id>bxshs64yn</task-id> <summary>Monitor event: \"review_radar iOS rebuild #2 (quiet hours included) → iPhone inst",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
