@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T14:12:13Z",
-  "last_prompt_ts": "2026-04-26T14:10:20.728Z",
-  "last_user_prompt": "sd 도 박�",
+  "last_active_ts": "2026-04-26T14:29:57Z",
+  "last_prompt_ts": "2026-04-26T14:25:20.008Z",
+  "last_user_prompt": "메모리갱",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
+  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-26-2326-wsl-mac-infra-policy-v2-on-demand.md"
 }
