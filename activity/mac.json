@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T02:55:38Z",
-  "last_prompt_ts": "2026-04-26T02:51:06.762Z",
+  "last_active_ts": "2026-04-26T02:58:45Z",
+  "last_prompt_ts": "2026-04-26T02:58:00.801Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL settings.json 도 패치 적용. 이제 todos 갱신.",
-  "last_recent_edit": "/Users/user/todo/todos.md"
+  "last_assistant_preview": "원인 한 줄: 새 세션은 직전 conversation 못 보고 **memory + todos.md + git log** 셋만 봐서 추천하는데, 작업 완료 �",
+  "last_recent_edit": ""
 }
