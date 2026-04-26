@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T08:17:03Z",
-  "last_prompt_ts": "2026-04-26T08:16:08.824Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-26T08:24:18Z",
+  "last_prompt_ts": "2026-04-26T08:17:54.385Z",
+  "last_user_prompt": "ab 둘다 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "지하철 시간(약 1시간) 활용 옵션 짚어볼게요. 현재 상태부터 한 줄로: 진행중 미완료 2개: - 🛒 라파5 구매",
-  "last_recent_edit": ""
+  "last_assistant_preview": "A(todos 갈아끼우기) → B(Ep.3 outline) → C(FCM 아키텍처 설계) 모두 완료했습니다. **요약 (3개 커밋, 3개 repo):** ",
+  "last_recent_edit": "/Users/user/apps/review_radar/docs/v0.3-d-fcm-architecture.md"
 }
