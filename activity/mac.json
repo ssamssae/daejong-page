@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T08:33:15Z",
-  "last_prompt_ts": "2026-04-26T08:27:32.557Z",
-  "last_user_prompt": "작업한거",
+  "last_active_ts": "2026-04-26T08:35:19Z",
+  "last_prompt_ts": "2026-04-26T08:33:53.857Z",
+  "last_user_prompt": "세션초기",
   "last_user_source": "telegram",
-  "last_assistant_preview": "1시간 풀가동: WSL 핸드오프 → todos 정리 → Ep.3 outline → FCM 아키텍처 → 한줄일기 라벨 → Ep.3 본문. 3개 rep",
-  "last_recent_edit": "/Users/user/daejong-page/newsletter/ep3-2026-04-26.md"
+  "last_assistant_preview": "세션 리셋 안전(3 repo 모두 clean) + 새 세션용 셋업 프롬프트(컨텍스트 확보 → 셋업 5단계 → 24/7 운영 셋업 ",
+  "last_recent_edit": ""
 }
