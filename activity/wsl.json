@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T03:47:19Z",
-  "last_prompt_ts": "2026-04-26T03:45:30.547Z",
-  "last_user_prompt": "너 좀 못�",
+  "last_active_ts": "2026-04-26T03:50:09Z",
+  "last_prompt_ts": "2026-04-26T03:49:03.711Z",
+  "last_user_prompt": "둘다했어",
   "last_user_source": "telegram",
-  "last_assistant_preview": "새 세션용 self-contained directive 보냄 (4-노드 구조, 진행 상황, 결정된 방식, 두 한 줄 복붙 명령, 검증 절차, �",
+  "last_assistant_preview": "SSH 키는 보냈는데 데스크탑이 거부. PowerShell 을 관리자로 띄웠는지, USERMD 가 Administrators 그룹인지 따져봐�",
   "last_recent_edit": ""
 }
