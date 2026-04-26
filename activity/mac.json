@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T21:52:25Z",
-  "last_prompt_ts": "2026-04-26T21:52:03.825Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-26T22:08:06Z",
+  "last_prompt_ts": "2026-04-26T22:03:05.333Z",
+  "last_user_prompt": "2 그리고",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_recent_edit": "/tmp/asc_check_reject2.py"
 }
