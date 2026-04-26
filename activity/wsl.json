@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T01:31:09Z",
-  "last_prompt_ts": "2026-04-26T01:28:50.969Z",
-  "last_user_prompt": "a",
+  "last_active_ts": "2026-04-26T01:32:58Z",
+  "last_prompt_ts": "2026-04-26T01:32:23.084Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2867\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T01:32:21",
   "last_user_source": "telegram",
-  "last_assistant_preview": "ps1 강화(winget 실패 fallback 추가) + push + 새 .ps1 텔레그램 첨부 + 자동검색 한 줄 명령 별도 메시지로 보냄. �",
-  "last_recent_edit": "/home/ssamssae/claude-automations/scripts/setup-local-llm.ps1"
+  "last_assistant_preview": "노트북 부트스트랩 진행 중 (DESKTOP-AMUJICO 확인). 5-15분 대기. 데스크탑은 idle (24h 캐시 유지). 강대종님 부트",
+  "last_recent_edit": ""
 }
