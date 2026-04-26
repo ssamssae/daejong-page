@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T05:53:39Z",
-  "last_prompt_ts": "2026-04-26T05:53:15.389Z",
-  "last_user_prompt": "irun </chann",
+  "last_active_ts": "2026-04-26T05:55:58Z",
+  "last_prompt_ts": "2026-04-26T05:54:03.367Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "빌드 시작했습니다. iOS clean+release라 2~3분 걸려요. 빌드 이벤트 들어오는 대로 보고드릴게요.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "iOS는 폰에서 실행 중, Android S24는 @Myclaude2 챗으로 directive 발송 완료 — 강대종님이 그 챗 열어서 paste 해주�",
+  "last_recent_edit": "/Users/user/.claude/skills/handoffs/2026-04-26-1455-mac-wsl-arun-review-radar.md"
 }
