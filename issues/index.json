@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-26-paste-block-label-leak.md",
+      "date": "2026-04-26",
+      "slug": "paste-block-label-leak",
+      "title": "복붙 메시지에 라벨/안내 텍스트 섞어 보냄 → PowerShell 명령 깨짐",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "텔레그램 reply 워크플로우 전체 (모든 기기)",
+      "occurred_at": "2026-04-26 09:46 KST",
+      "resolved_at": "2026-04-26 09:48 KST",
+      "updated": "2026-04-26T09:55:00+09:00"
+    },
+    {
       "file": "2026-04-26-handoff-method-a-fallback-regression.md",
       "date": "2026-04-26",
       "slug": "handoff-method-a-fallback-regression",
