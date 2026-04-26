@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T06:16:10Z",
-  "last_prompt_ts": "2026-04-26T06:13:53.389Z",
-  "last_user_prompt": "이 라우�",
+  "last_active_ts": "2026-04-26T06:29:17Z",
+  "last_prompt_ts": "2026-04-26T06:20:36.656Z",
+  "last_user_prompt": "1",
   "last_user_source": "telegram",
-  "last_assistant_preview": "GO. 먼저 큰 함정 하나 발견했으니 짚고 진행하겠습니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "시범 실행 텔레그램 도달 확인. 이제 Mac launchd directive 단계 — handoff 스킬 사용 절차 확인.",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/handoffs/2026-04-26-1530-wsl-mac-trend-curator-launchd.md"
 }
