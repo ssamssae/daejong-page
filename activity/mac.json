@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T14:30:16Z",
-  "last_prompt_ts": "2026-04-26T14:28:59.936Z",
-  "last_user_prompt": "",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "Handoff ack 처리 완료: - claude-skills git pull → directive 인지 - 메모리 git pull → `feedback_check_workflow_before_infra.md` ",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-26-2335-mac-wsl-infra-policy-v2-ack.md"
+  "last_active_ts": "2026-04-26T14:31:57Z",
+  "last_prompt_ts": "2026-04-26T14:30:45.200Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7801\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T14:30:42",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "화면 보니 **Tailscale 깔리긴 했는데 로그인이 안 된 상태** 입니다. (시스템 설정 > VPN > Tailscale 토글 OFF + \"연",
+  "last_recent_edit": ""
 }
