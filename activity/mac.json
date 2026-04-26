@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T14:08:59Z",
-  "last_prompt_ts": "2026-04-26T14:08:06.524Z",
-  "last_user_prompt": "셋업ㄱ </",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-26T14:30:16Z",
+  "last_prompt_ts": "2026-04-26T14:28:59.936Z",
+  "last_user_prompt": "",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "Handoff ack 처리 완료: - claude-skills git pull → directive 인지 - 메모리 git pull → `feedback_check_workflow_before_infra.md` ",
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-26-2335-mac-wsl-infra-policy-v2-ack.md"
 }
