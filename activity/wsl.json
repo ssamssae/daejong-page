@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T05:13:54Z",
-  "last_prompt_ts": "2026-04-26T05:10:41.799Z",
-  "last_user_prompt": "WSL 본진 C",
+  "last_active_ts": "2026-04-26T05:19:13Z",
+  "last_prompt_ts": "2026-04-26T05:19:03.522Z",
+  "last_user_prompt": "이거 파�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "데스크탑 진단 결과 확인: - `ollama.exe` 설치돼 있고 PATH 잡힘 ✅ - 그런데 schtask·startup·Run reg·service 어디에�",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
