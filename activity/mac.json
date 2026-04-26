@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T08:35:19Z",
-  "last_prompt_ts": "2026-04-26T08:33:53.857Z",
-  "last_user_prompt": "세션초기",
+  "last_active_ts": "2026-04-26T08:41:44Z",
+  "last_prompt_ts": "2026-04-26T08:38:59.424Z",
+  "last_user_prompt": "핑안간이",
   "last_user_source": "telegram",
-  "last_assistant_preview": "세션 리셋 안전(3 repo 모두 clean) + 새 세션용 셋업 프롬프트(컨텍스트 확보 → 셋업 5단계 → 24/7 운영 셋업 ",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이슈 등록(f39571d) + NOT LOADED 경고 답변 완료. 두 사안 모두 정리됐고 세션 리셋 가능합니다.",
+  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-26-handoff-active-session-marker-mismatch.md"
 }
