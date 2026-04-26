@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T11:52:39Z",
-  "last_prompt_ts": "2026-04-26T11:52:12.892Z",
-  "last_user_prompt": "맥이결정",
+  "last_active_ts": "2026-04-26T11:55:26Z",
+  "last_prompt_ts": "2026-04-26T11:52:56.595Z",
+  "last_user_prompt": "3",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "노트북 SSH 닿는 것·HTTPS origin 인 것까진 확인했는데, 거기서 더 깊은 인증 점검(SSH 키/credential helper 존재 �",
   "last_recent_edit": ""
 }
