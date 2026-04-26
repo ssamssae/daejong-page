@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T00:51:17Z",
-  "last_prompt_ts": "2026-04-26T00:31:59.363Z",
+  "last_active_ts": "2026-04-26T00:55:00Z",
+  "last_prompt_ts": "2026-04-26T00:54:04.132Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Ep2 발행 완료. 핵심 정리: - ✅ Ep1 (3-ai) + Ep2 (463) 둘 다 daejongkang.substack.com 에 라이브, archive API 확인됨 - ⚠�",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_assistant_preview": "Mac 새 세션 프롬프트 한 덩어리로 복사용 메시지 발송 완료. 시도 실패 4건 + 후보 4안 + 완료 조건까지 self-",
+  "last_recent_edit": ""
 }
