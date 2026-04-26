@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T12:44:18Z",
-  "last_prompt_ts": "2026-04-26T12:43:34.934Z",
-  "last_user_prompt": "<task-notification> <task-id>bjasscgql</task-id> <tool-use-id>toolu_01HyiRQ433kn73v4LMgTCukN</tool-use-id> <output-file>/tmp/claude-1000/-ho",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-26T12:49:57Z",
+  "last_prompt_ts": "2026-04-26T12:49:16.206Z",
+  "last_user_prompt": "맥미니 �",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
