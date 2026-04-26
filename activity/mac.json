@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T04:52:01Z",
-  "last_prompt_ts": "2026-04-26T04:51:22.083Z",
-  "last_user_prompt": "<task-notification> <task-id>bzxtevyxv</task-id> <summary>Monitor event: \"hanjul iPhone release build progress\"</summary> <event>Installing ",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "hanjul 폰 설치 + 커밋 ccb37f8 까지 완료. push 결정 대기.",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-26T04:57:48Z",
+  "last_prompt_ts": "2026-04-26T04:55:58.201Z",
+  "last_user_prompt": "사용자경",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "두 커밋 push 완료. 영구 허용 + 톤 확인 /irun 강대종님 결정 대기.",
+  "last_recent_edit": "/Users/user/apps/hanjul/lib/theme.dart"
 }
