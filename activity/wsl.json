@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T03:27:37Z",
-  "last_prompt_ts": "2026-04-26T03:24:57.699Z",
-  "last_user_prompt": "/grant </cha",
+  "last_active_ts": "2026-04-26T03:29:07Z",
+  "last_prompt_ts": "2026-04-26T03:28:11.933Z",
+  "last_user_prompt": "텔레그램",
   "last_user_source": "telegram",
-  "last_assistant_preview": "상황 정리(데스크탑 잠자기 OFF 됨, SSH 키 미등록, 노트북 결과 모름) + 비번 방식 옵션 A/B 결정 요청 + sshpass",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
