@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T05:55:58Z",
-  "last_prompt_ts": "2026-04-26T05:54:03.367Z",
+  "last_active_ts": "2026-04-26T06:03:01Z",
+  "last_prompt_ts": "2026-04-26T06:00:20.468Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "iOS는 폰에서 실행 중, Android S24는 @Myclaude2 챗으로 directive 발송 완료 — 강대종님이 그 챗 열어서 paste 해주�",
-  "last_recent_edit": "/Users/user/.claude/skills/handoffs/2026-04-26-1455-mac-wsl-arun-review-radar.md"
+  "last_assistant_preview": "quiet hours 마무리 완료 (review_radar 960cb2c, 25 tests PASS). 23~07 KST 묵음 + rejected 예외, 아이폰엔 재빌드해야 들어�",
+  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-26.md"
 }
