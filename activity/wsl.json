@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T01:17:13Z",
-  "last_prompt_ts": "2026-04-26T01:15:57.792Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2856\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T01:15:57",
+  "last_active_ts": "2026-04-26T01:28:40Z",
+  "last_prompt_ts": "2026-04-26T01:27:49.314Z",
+  "last_user_prompt": "추천해줘",
   "last_user_source": "telegram",
-  "last_assistant_preview": "데스크탑 로컬 LLM 노드 e2e 검증 PASS. 78.7 tok/s, 한국어 응답 자연스러움. 강대종님께 다음 단계 우선순위 질",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
