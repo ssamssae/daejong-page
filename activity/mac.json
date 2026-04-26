@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-25T23:50:10Z",
-  "last_prompt_ts": "2026-04-25T23:48:10.379Z",
+  "last_active_ts": "2026-04-26T00:51:17Z",
+  "last_prompt_ts": "2026-04-26T00:31:59.363Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac 기본 브라우저가 Safari였고 Substack 인증이 Safari 안에만 있어서 Playwright(Chrome CDP) 자동 발행이 막혔습니�",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Ep2 발행 완료. 핵심 정리: - ✅ Ep1 (3-ai) + Ep2 (463) 둘 다 daejongkang.substack.com 에 라이브, archive API 확인됨 - ⚠�",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
