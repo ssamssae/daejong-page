@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T01:34:12Z",
-  "last_prompt_ts": "2026-04-26T01:33:45.053Z",
-  "last_user_prompt": "데스크탑",
+  "last_active_ts": "2026-04-26T01:35:22Z",
+  "last_prompt_ts": "2026-04-26T01:34:26.707Z",
+  "last_user_prompt": "노트북은",
   "last_user_source": "telegram",
-  "last_assistant_preview": "데스크탑 살아있음 확인 (ping 5.4ms, ollama 0.48초 응답). 노트북 부트스트랩 완료 보고 대기.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
