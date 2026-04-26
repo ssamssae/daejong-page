@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T04:24:53Z",
-  "last_prompt_ts": "2026-04-26T04:23:15.652Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2930\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T04:23:13",
+  "last_active_ts": "2026-04-26T04:31:41Z",
+  "last_prompt_ts": "2026-04-26T04:25:18.160Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2935\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T04:25:18",
   "last_user_source": "telegram",
-  "last_assistant_preview": "리전5도 같은 상태(ACL 문제). 양쪽 PC 모두 같은 fix 한 줄 돌리면 됩니다.",
+  "last_assistant_preview": "작업 멈춤. 노트북 ollama 가 안 뜨는 진짜 원인 찾았습니다 — 데스크탑과 달리 노트북은 Windows 가 11434 포�",
   "last_recent_edit": ""
 }
