@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T08:41:44Z",
-  "last_prompt_ts": "2026-04-26T08:38:59.424Z",
-  "last_user_prompt": "핑안간이",
+  "last_active_ts": "2026-04-26T08:44:15Z",
+  "last_prompt_ts": "2026-04-26T08:42:42.208Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이슈 등록(f39571d) + NOT LOADED 경고 답변 완료. 두 사안 모두 정리됐고 세션 리셋 가능합니다.",
-  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-26-handoff-active-session-marker-mismatch.md"
+  "last_assistant_preview": "옵션 A 완료. symlink + plist 파일 둘 다 제거(commit 09b55be, history 보존), 양쪽 clone 동기화. 이제 NOT LOADED 경고 안",
+  "last_recent_edit": ""
 }
