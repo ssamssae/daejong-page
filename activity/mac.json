@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T01:20:05Z",
-  "last_prompt_ts": "2026-04-26T01:10:03.416Z",
-  "last_user_prompt": "하트비트",
+  "last_active_ts": "2026-04-26T01:26:50Z",
+  "last_prompt_ts": "2026-04-26T01:25:59.668Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이슈 등록 + 조치 완료. heartbeat-check.sh 가 이제 5분 초과 시 자동으로 텔레그램에 알림 보냅니다 — Claude 인",
-  "last_recent_edit": "/Users/user/.claude/automations/hooks/heartbeat-check.sh"
+  "last_assistant_preview": "Directive 보냈습니다. /clear 하시고 새 세션에서 그 메시지 long-press → copy → 붙여넣기로 시작하시면 됩니다",
+  "last_recent_edit": ""
 }
