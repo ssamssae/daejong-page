@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T09:16:35Z",
-  "last_prompt_ts": "2026-04-26T09:16:25.178Z",
-  "last_user_prompt": "이메일 �",
+  "last_active_ts": "2026-04-26T09:18:22Z",
+  "last_prompt_ts": "2026-04-26T09:17:02.657Z",
+  "last_user_prompt": "다른할일",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "WSL 측 모든 repo 깨끗 (unpushed 변경 0). 새 후보 제시.",
   "last_recent_edit": ""
 }
