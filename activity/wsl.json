@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T00:33:41Z",
-  "last_prompt_ts": "2026-04-26T00:30:02.123Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2792\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T00:30:01",
+  "last_active_ts": "2026-04-26T00:50:10Z",
+  "last_prompt_ts": "2026-04-26T00:43:54.065Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2800\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T00:43:51",
   "last_user_source": "telegram",
-  "last_assistant_preview": "PowerShell 5.x 가 한글(UTF-8 BOM 없음)을 못 읽어서 파싱 에러. 빠르게 고칠게요 — 영어 only + CRLF로 다시 쓰고 �",
-  "last_recent_edit": "/home/ssamssae/claude-automations/scripts/setup-local-llm.ps1"
+  "last_assistant_preview": "",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/feedback_paste_blocks_as_separate_message.md"
 }
