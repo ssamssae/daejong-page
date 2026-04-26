@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T14:46:51Z",
-  "last_prompt_ts": "2026-04-26T14:46:12.421Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7819\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T14:46:09",
+  "last_active_ts": "2026-04-26T14:56:27Z",
+  "last_prompt_ts": "2026-04-26T14:54:42.617Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7821\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T14:54:40",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진척 분석: ✅ **성공한 것:** - `scutil --set HostName/LocalHostName/ComputerName mac-mini` → 다 통과 (sudo 비번 첫 시도 �",
+  "last_assistant_preview": "Task #2·#3 완료, #4 in_progress. brew 설치 가이드 + 복붙 명령 + 후속 안내 3-메시지 전송. 강대종님 brew 설치 결�",
   "last_recent_edit": ""
 }
