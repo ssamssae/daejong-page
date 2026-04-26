@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T15:44:53Z",
-  "last_prompt_ts": "2026-04-26T15:39:30.556Z",
-  "last_user_prompt": "2를 wsl 에",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "확정. 2노드(맥미니 24/7 + WSL본진 dual-purpose) + 데스크탑·노트북 셧다운. 진행.",
-  "last_recent_edit": "/home/ssamssae/claude-automations/scripts/run-trend-curator-on-notebook.sh"
+  "last_active_ts": "2026-04-26T15:49:08Z",
+  "last_prompt_ts": "2026-04-26T15:44:53.430Z",
+  "last_user_prompt": "<task-notification> <task-id>b20uszrft</task-id> <tool-use-id>toolu_013MFnWb5hfpgGLNYuAN38ZF</tool-use-id> <output-file>/tmp/claude-1000/-ho",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "마무리 보고 드림.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
 }
