@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-26-tahoe-ssh-cli-block.md",
+      "date": "2026-04-26",
+      "slug": "tahoe-ssh-cli-block",
+      "title": "macOS Tahoe 26.x: systemsetup -setremotelogin 이 Full Disk Access 부족으로 차단",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "24/7 자동화 허브 셋업, macOS 26.x 헤드리스 SSH 활성화",
+      "occurred_at": "2026-04-26 23:46 KST",
+      "resolved_at": "2026-04-26 23:54 KST",
+      "updated": "2026-04-27T00:43:00+09:00"
+    },
+    {
       "file": "2026-04-26-review-status-disabled-blind-spot.md",
       "date": "2026-04-26",
       "slug": "review-status-disabled-blind-spot",
