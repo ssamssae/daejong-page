@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T15:03:51Z",
-  "last_prompt_ts": "2026-04-26T15:02:01.442Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7826\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T15:01:58",
+  "last_active_ts": "2026-04-26T15:12:08Z",
+  "last_prompt_ts": "2026-04-26T15:11:14.471Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7829\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T15:11:11",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Task 상태: - #4 (brew) ✅ 완료 - #5 (launchd 이전) ✅ 보류 마감 (현재 이전 대상 없음, 일주일 후 trend-curator 마이",
+  "last_assistant_preview": "Tahoe 26 옵션 위치 변경 우회 — `pmset` CLI 한 줄로 6가지 설정 한 번에 처리하는 방향으로 가이드. 결과 사진",
   "last_recent_edit": ""
 }
