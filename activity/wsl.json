@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T01:09:42Z",
-  "last_prompt_ts": "2026-04-26T01:08:18.858Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2843\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T01:08:17",
+  "last_active_ts": "2026-04-26T01:11:57Z",
+  "last_prompt_ts": "2026-04-26T01:11:04.210Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2848\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T01:11:02",
   "last_user_source": "telegram",
-  "last_assistant_preview": "절대경로 tailscale up 명령 별도 메시지로 보냄. 강대종님이 GUI(트레이) 또는 PowerShell 절대경로 둘 중 편한 �",
+  "last_assistant_preview": "Tailscale winget silent install 실패 확인. 공식 인스톨러로 다운+silent install+up 한 줄 명령 별도 메시지로 보냄.",
   "last_recent_edit": ""
 }
