@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T14:44:22Z",
-  "last_prompt_ts": "2026-04-26T14:42:44.692Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7814\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T14:42:42",
+  "last_active_ts": "2026-04-26T14:46:51Z",
+  "last_prompt_ts": "2026-04-26T14:46:12.421Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7819\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T14:46:09",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Task 상태 그대로 — 복붙 결과 사진 받으면 Task #2·#3 같이 completed 마감 예정.",
+  "last_assistant_preview": "진척 분석: ✅ **성공한 것:** - `scutil --set HostName/LocalHostName/ComputerName mac-mini` → 다 통과 (sudo 비번 첫 시도 �",
   "last_recent_edit": ""
 }
