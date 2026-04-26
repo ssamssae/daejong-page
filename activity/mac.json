@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T04:37:54Z",
-  "last_prompt_ts": "2026-04-26T04:37:03.166Z",
-  "last_user_prompt": "<task-notification> <task-id>baowpsxba</task-id> <summary>Monitor event: \"review_radar iPhone release build progress\"</summary> <event>Insta",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "설치 완료. 폰에서 확인 가능. 동시에 iOS 14 bump 커밋도 push.",
+  "last_active_ts": "2026-04-26T04:45:28Z",
+  "last_prompt_ts": "2026-04-26T04:44:26.729Z",
+  "last_user_prompt": "심사레이",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "이전 monitor 자연 timeout (빌드+설치는 이미 완료됨). 사용자 다음 작업 결정 대기 중.",
   "last_recent_edit": ""
 }
