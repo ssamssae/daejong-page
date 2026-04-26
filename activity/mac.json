@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T04:57:48Z",
-  "last_prompt_ts": "2026-04-26T04:55:58.201Z",
-  "last_user_prompt": "사용자경",
+  "last_active_ts": "2026-04-26T05:00:03Z",
+  "last_prompt_ts": "2026-04-26T04:58:23.454Z",
+  "last_user_prompt": "ㄱㄱ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "두 커밋 push 완료. 영구 허용 + 톤 확인 /irun 강대종님 결정 대기.",
-  "last_recent_edit": "/Users/user/apps/hanjul/lib/theme.dart"
+  "last_assistant_preview": "빌드 진행 중. Monitor 이벤트 대기.",
+  "last_recent_edit": "/Users/user/.claude/settings.json"
 }
