@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T01:26:50Z",
-  "last_prompt_ts": "2026-04-26T01:25:59.668Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-26T01:35:21Z",
+  "last_prompt_ts": "2026-04-26T01:27:58.158Z",
+  "last_user_prompt": "🔧 다음",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Directive 보냈습니다. /clear 하시고 새 세션에서 그 메시지 long-press → copy → 붙여넣기로 시작하시면 됩니다",
-  "last_recent_edit": ""
+  "last_assistant_preview": "**E2E PASS** — daemon now logs `sess=e2e-test` (was `unknown`), sibling Stop hook didn't touch it. Clean up the test, then write the issue",
+  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-20-telegram-typing-midsession-drop.md"
 }
