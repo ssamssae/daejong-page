@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T06:34:43Z",
-  "last_prompt_ts": "2026-04-26T06:33:39.927Z",
-  "last_user_prompt": "라즈베리",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_active_ts": "2026-04-26T06:38:02Z",
+  "last_prompt_ts": "2026-04-26T06:36:08.532Z",
+  "last_user_prompt": "🪟 [WSL→MAC HANDOFF] git pull 후 handoffs/2026-04-26-1530-wsl-mac-trend-curator-launchd.md 읽고 본문 directive 따라 진행해줘",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "하네스가 sub-agent 발 launchd persist 를 차단해서 강대종님 직접 승인 받고 진행해야 합니다. 결정 기다릴게요",
   "last_recent_edit": ""
 }
