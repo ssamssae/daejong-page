@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T12:13:37Z",
-  "last_prompt_ts": "2026-04-26T12:08:43.007Z",
-  "last_user_prompt": "한줄일기",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "방향 변경 OK. 한줄일기 출시 준비로 넘어갑니다. 먼저 repo 위치·현재 상태부터 점검할게요.",
-  "last_recent_edit": "/home/ssamssae/apps/hanjul/.gitignore"
+  "last_active_ts": "2026-04-26T12:44:18Z",
+  "last_prompt_ts": "2026-04-26T12:43:34.934Z",
+  "last_user_prompt": "<task-notification> <task-id>bjasscgql</task-id> <tool-use-id>toolu_01HyiRQ433kn73v4LMgTCukN</tool-use-id> <output-file>/tmp/claude-1000/-ho",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
