@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T04:49:31Z",
-  "last_prompt_ts": "2026-04-26T04:46:20.822Z",
-  "last_user_prompt": "1",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "이전 review_radar 백그라운드 프로세스가 pkill 로 종료됨 (의도적, hanjul 빌드 시작 전 정리). hanjul monitor 이벤�",
-  "last_recent_edit": "/Users/user/apps/hanjul/lib/screens/stats_screen.dart"
+  "last_active_ts": "2026-04-26T04:50:56Z",
+  "last_prompt_ts": "2026-04-26T04:49:57.255Z",
+  "last_user_prompt": "<task-notification> <task-id>bzxtevyxv</task-id> <summary>Monitor event: \"hanjul iPhone release build progress\"</summary> <event>Installing ",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "이전 monitor 가 \"Error running application\" 잡음 — flutter run attached 가 stdin 끊겨서 detach 실패한 거. 폰에 install 은 ",
+  "last_recent_edit": ""
 }
