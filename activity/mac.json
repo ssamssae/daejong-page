@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T04:03:12Z",
-  "last_prompt_ts": "2026-04-26T03:33:09.461Z",
-  "last_user_prompt": "포모도로",
+  "last_active_ts": "2026-04-26T04:20:32Z",
+  "last_prompt_ts": "2026-04-26T04:20:17.888Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "두 작업 모두 완료. 최종 요약: 🍅 **포모도로 Play Console 심사 제출 완료** - 변경사항 13개 검토 큐 투입 → ",
-  "last_recent_edit": "/Users/user/.claude/skills/submit-app/lessons/android-track-country-required.md"
+  "last_assistant_preview": "클리어 OK 응답 보냈습니다. 새 세션에서 \"뭐할까\" 받으면 stale check 룰대로 진행하겠습니다.",
+  "last_recent_edit": ""
 }
