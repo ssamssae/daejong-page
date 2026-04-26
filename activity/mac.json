@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T06:54:13Z",
-  "last_prompt_ts": "2026-04-26T06:51:02.653Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7593\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T06:51:00",
+  "last_active_ts": "2026-04-26T06:59:32Z",
+  "last_prompt_ts": "2026-04-26T06:58:44.683Z",
+  "last_user_prompt": "세션초기",
   "last_user_source": "telegram",
-  "last_assistant_preview": "결정 정리(7598) + 라파5 구매 가이드 별도(7599) 두 메시지 발송 완료. 도착 후 셋업 단계 같이 진행할 준비 �",
-  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-26.md"
+  "last_assistant_preview": "안전하게 정리 완료, /clear 하셔도 됩니다.",
+  "last_recent_edit": ""
 }
