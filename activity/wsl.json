@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T06:36:40Z",
-  "last_prompt_ts": "2026-04-26T06:34:25.027Z",
-  "last_user_prompt": "A",
+  "last_active_ts": "2026-04-26T06:48:53Z",
+  "last_prompt_ts": "2026-04-26T06:48:13.727Z",
+  "last_user_prompt": "지금까지",
   "last_user_source": "telegram",
-  "last_assistant_preview": "세션 3개 활성. claude-68079 (가장 최근 attached) 에 핑 송신.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
