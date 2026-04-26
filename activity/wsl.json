@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T04:31:41Z",
-  "last_prompt_ts": "2026-04-26T04:25:18.160Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"2935\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-26T04:25:18",
+  "last_active_ts": "2026-04-26T04:38:19Z",
+  "last_prompt_ts": "2026-04-26T04:33:01.712Z",
+  "last_user_prompt": "추천대로",
   "last_user_source": "telegram",
-  "last_assistant_preview": "작업 멈춤. 노트북 ollama 가 안 뜨는 진짜 원인 찾았습니다 — 데스크탑과 달리 노트북은 Windows 가 11434 포�",
-  "last_recent_edit": ""
+  "last_assistant_preview": "다른 길로. ollama API `/api/pull` 직접 호출하면 데몬이 풀 수행 — SSH 끊겨도 진행.",
+  "last_recent_edit": "/home/ssamssae/.claude/settings.json"
 }
