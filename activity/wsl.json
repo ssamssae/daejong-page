@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T16:01:20Z",
-  "last_prompt_ts": "2026-04-26T15:59:40.214Z",
-  "last_user_prompt": "푸쉬드 </",
+  "last_active_ts": "2026-04-26T16:02:22Z",
+  "last_prompt_ts": "2026-04-26T16:01:20.734Z",
+  "last_user_prompt": "진행 완�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Push 확인. Mac 세션 탐색 + 핑 발사.",
+  "last_assistant_preview": "Mac 진행 상태 먼저 확인 (이미 첫 directive 처리 중인지).",
   "last_recent_edit": ""
 }
