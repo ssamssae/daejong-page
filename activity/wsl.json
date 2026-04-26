@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T21:52:30Z",
-  "last_prompt_ts": "2026-04-26T21:52:07.758Z",
-  "last_user_prompt": "근데 할�",
+  "last_active_ts": "2026-04-26T22:09:00Z",
+  "last_prompt_ts": "2026-04-26T22:03:26.459Z",
+  "last_user_prompt": "한줄일기",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "빌드 진행 중. Gradle assembleRelease 단계 (첫 빌드라 5~7분 예상). 진행 상황 사용자에 공유.",
   "last_recent_edit": ""
 }
