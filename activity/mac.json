@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T06:43:41Z",
-  "last_prompt_ts": "2026-04-26T06:40:51.483Z",
-  "last_user_prompt": "ㅇㅇ </cha",
+  "last_active_ts": "2026-04-26T06:47:24Z",
+  "last_prompt_ts": "2026-04-26T06:45:45.792Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "handoff 완료 + 토큰 답변 둘 다 보냈어요. 결정 기다릴게요.",
-  "last_recent_edit": "/Users/user/.claude/skills/handoffs/2026-04-26-1530-wsl-mac-trend-curator-launchd.md"
+  "last_assistant_preview": "WSL 한테 답신 핸드오프 발사 완료, @Myclaude2 챗에서 paste 해주시면 WSL Claude 가 status 마무리합니다.",
+  "last_recent_edit": "/Users/user/.claude/skills/handoffs/2026-04-26-1545-mac-wsl-trend-curator-launchd-reply.md"
 }
