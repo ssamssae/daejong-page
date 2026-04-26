@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-26-review-status-disabled-blind-spot.md",
+      "date": "2026-04-26",
+      "slug": "review-status-disabled-blind-spot",
+      "title": "review-status-check _disabled 이동 후 17h 동안 Apple issue 메일 누락",
+      "severity": "high",
+      "recurrence": "high",
+      "scope": "Mac launchd review-status-check / 약먹자 1.0.1 / 더치페이 1.0.2",
+      "occurred_at": "2026-04-25 00:44 KST",
+      "resolved_at": "2026-04-26 17:55 KST",
+      "updated": "2026-04-26T18:05:00+09:00"
+    },
+    {
       "file": "2026-04-26-heartbeat-rule-soft-enforcement.md",
       "date": "2026-04-26",
       "slug": "heartbeat-rule-soft-enforcement",
