@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T05:23:40Z",
-  "last_prompt_ts": "2026-04-26T05:20:10.977Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-26T05:43:02Z",
+  "last_prompt_ts": "2026-04-26T05:42:06.854Z",
+  "last_user_prompt": "뭐할까 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Push 완료(c6e8943..6c8f21f). 사용자에게 마무리 보고.",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-26-1405-wsl-mac-local-llm-nodes-active-reply.md"
+  "last_assistant_preview": "오후 시작 무드 기준으로 3가지 옵션 제안했습니다 — (1) 심사레이더 v0.2 잔여 UX 마무리(작은 작업), (2) 한",
+  "last_recent_edit": ""
 }
