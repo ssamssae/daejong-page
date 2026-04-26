@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T04:38:19Z",
-  "last_prompt_ts": "2026-04-26T04:33:01.712Z",
-  "last_user_prompt": "추천대로",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "다른 길로. ollama API `/api/pull` 직접 호출하면 데몬이 풀 수행 — SSH 끊겨도 진행.",
-  "last_recent_edit": "/home/ssamssae/.claude/settings.json"
+  "last_active_ts": "2026-04-26T04:39:47Z",
+  "last_prompt_ts": "2026-04-26T04:38:57.491Z",
+  "last_user_prompt": "<task-notification> <task-id>bt6s4ub8x</task-id> <tool-use-id>toolu_01BZtfq3PEENS6gweMVZvQSV</tool-use-id> <output-file>/tmp/claude-1000/-ho",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "✅ 양쪽 다 한국어 추론 통과. 본진 4단계 검증 끝.",
+  "last_recent_edit": ""
 }
