@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T03:02:20Z",
-  "last_prompt_ts": "2026-04-26T02:59:39.829Z",
-  "last_user_prompt": "둘다 </cha",
+  "last_active_ts": "2026-04-26T03:07:38Z",
+  "last_prompt_ts": "2026-04-26T03:07:01.115Z",
+  "last_user_prompt": "ㄱㄱ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이제 commit + push.",
-  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
+  "last_assistant_preview": "대기 중 — A/B 패치 + Mac/WSL 양쪽 sync 끝, 강대종님 점심.",
+  "last_recent_edit": ""
 }
