@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-26T07:19:15Z",
-  "last_prompt_ts": "2026-04-26T07:17:39.175Z",
-  "last_user_prompt": "노트북 q",
+  "last_active_ts": "2026-04-26T07:21:07Z",
+  "last_prompt_ts": "2026-04-26T07:20:23.787Z",
+  "last_user_prompt": "트렌드큐",
   "last_user_source": "telegram",
-  "last_assistant_preview": "직접 노트북에 가서 확인해볼게요.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/project_4node_local_llm_infra.md"
+  "last_assistant_preview": "확인해볼게요.",
+  "last_recent_edit": ""
 }
