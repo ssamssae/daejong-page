@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T04:36:31Z",
-  "last_prompt_ts": "2026-04-26T04:35:25.244Z",
-  "last_user_prompt": "<task-notification> <task-id>baowpsxba</task-id> <summary>Monitor event: \"review_radar iPhone release build progress\"</summary> <event>Error",
+  "last_active_ts": "2026-04-26T04:37:54Z",
+  "last_prompt_ts": "2026-04-26T04:37:03.166Z",
+  "last_user_prompt": "<task-notification> <task-id>baowpsxba</task-id> <summary>Monitor event: \"review_radar iPhone release build progress\"</summary> <event>Insta",
   "last_user_source": "terminal",
-  "last_assistant_preview": "이전 monitor 의 잔여 알림. 새 monitor (bwbxn1n4o) 이벤트 계속 대기.",
-  "last_recent_edit": "/Users/user/apps/review_radar/ios/Podfile"
+  "last_assistant_preview": "설치 완료. 폰에서 확인 가능. 동시에 iOS 14 bump 커밋도 push.",
+  "last_recent_edit": ""
 }
