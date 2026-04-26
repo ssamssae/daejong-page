@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T12:52:26Z",
-  "last_prompt_ts": "2026-04-26T12:51:43.574Z",
-  "last_user_prompt": "M1 맥미니",
+  "last_active_ts": "2026-04-26T12:58:35Z",
+  "last_prompt_ts": "2026-04-26T12:56:59.652Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "컨텍스트 읽기만 하는 한 턴이라 task 추적 대상 아님. 도착 후 \"셋업 ㄱ\" 트리거 받으면 그때 5단계 task 등�",
   "last_recent_edit": ""
 }
