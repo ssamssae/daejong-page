@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T07:57:37Z",
-  "last_prompt_ts": "2026-04-26T07:57:21.978Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-26T08:01:19Z",
+  "last_prompt_ts": "2026-04-26T07:59:34.821Z",
+  "last_user_prompt": "공덕산다",
   "last_user_source": "telegram",
-  "last_assistant_preview": "정확한 주소는 모른다고 솔직히 답했습니다. 진접이 본가인 거만 방금 메시지로 알게 됐고, 현재 거주지 �",
-  "last_recent_edit": ""
+  "last_assistant_preview": "메모리 보강(거주지 + 신상질문 grep 룰) 끝내고 사과 답변 텔레그램 전송까지 완료했습니다. 진접 도착 알�",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
