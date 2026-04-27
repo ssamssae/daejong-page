@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T15:30:25Z",
-  "last_prompt_ts": "2026-04-27T15:29:57.744Z",
-  "last_user_prompt": "입력중 ..",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_active_ts": "2026-04-27T15:33:57Z",
+  "last_prompt_ts": "2026-04-27T15:32:14.193Z",
+  "last_user_prompt": "<task-notification> <task-id>blfyob0c3</task-id> <tool-use-id>toolu_012t7aRfsVws9T79znaGsAw6</tool-use-id> <output-file>/private/tmp/claude-",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "🎯 **진짜 원인 발견** — Python urllib SSL 인증서 문제. timeout 아니었음. Install Certificates.command 실행으로 해결",
   "last_recent_edit": ""
 }
