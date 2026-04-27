@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T23:37:30Z",
-  "last_prompt_ts": "2026-04-27T23:35:24.779Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8269\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T23:35:22",
+  "last_active_ts": "2026-04-27T23:38:34Z",
+  "last_prompt_ts": "2026-04-27T23:37:30.609Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac 쪽 todo 드롭 처리 완료. WSL 의 메모리 파일 생성 + handoff reply 대기 중.",
-  "last_recent_edit": "/Users/user/daejong-page/todos/index.json"
+  "last_assistant_preview": "",
+  "last_recent_edit": "/Users/user/todo/todos.md"
 }
