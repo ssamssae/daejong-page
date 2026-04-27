@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T02:03:39Z",
-  "last_prompt_ts": "2026-04-27T02:02:25.860Z",
-  "last_user_prompt": "🍎 [MAC→WSL HANDOFF] git pull 후 handoffs/2026-04-27-1101-mac-wsl-recent-activity-check.md 읽고 본문 directive 따라 진행",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "Directive 확인. 1시간 내 작업 점검 + 텔레그램 한 줄 보고. 핸드오프 답신 파일 X.",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-27T02:11:54Z",
+  "last_prompt_ts": "2026-04-27T02:10:31.330Z",
+  "last_user_prompt": "핸드오프",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "핸드오프 답신 파일 작성 + 푸시할게요.",
+  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-27-1111-wsl-mac-recent-activity-check-reply.md"
 }
