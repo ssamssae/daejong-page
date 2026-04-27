@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:22:09Z",
-  "last_prompt_ts": "2026-04-27T14:22:06.715Z",
-  "last_user_prompt": "<task-notification> <task-id>b4v2fd1t1</task-id> <summary>Monitor event: \"flutter rebuild #3 to S24 (ccb291a, image share)\"</summary> <event",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "",
+  "last_active_ts": "2026-04-27T14:25:52Z",
+  "last_prompt_ts": "2026-04-27T14:25:20.247Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3504\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:25:18",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "PNG 캡처 완벽 — heatmap \"한 해의 결\" + 1일·연속 1 + DAYS/STREAK/LONGEST 1/1/1, 3x 픽셀비로 선명, 백그라운드 깔끔.",
   "last_recent_edit": ""
 }
