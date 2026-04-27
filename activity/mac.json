@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T08:14:24Z",
-  "last_prompt_ts": "2026-04-27T08:11:28.087Z",
-  "last_user_prompt": "끝났어? <",
+  "last_active_ts": "2026-04-27T08:17:48Z",
+  "last_prompt_ts": "2026-04-27T08:17:24.632Z",
+  "last_user_prompt": "뭐라는거",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/.claude/hooks/telegram-reply-no-raw-id.sh"
+  "last_recent_edit": ""
 }
