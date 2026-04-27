@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T01:25:18Z",
-  "last_prompt_ts": "2026-04-27T01:22:56.555Z",
-  "last_user_prompt": "a",
+  "last_active_ts": "2026-04-27T01:58:58Z",
+  "last_prompt_ts": "2026-04-27T01:56:59.795Z",
+  "last_user_prompt": "네 </channe",
   "last_user_source": "telegram",
-  "last_assistant_preview": "옵션 A 진행 — 내 본 폐기 + 어제 계획대로. 메모리 룰도 보강해서 같은 사고 재발 방지.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
+  "last_assistant_preview": "stale check + git log --grep 패스 다 돌렸어요. 회사 자투리 가능 후보 2건:",
+  "last_recent_edit": ""
 }
