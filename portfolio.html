@@ -432,46 +432,81 @@
   <script>
     const projects = [
       {
-        iconImg: './timeline_icon.svg',
-        name: '개발 타임라인',
-        status: '웹 프로젝트',
-        desc: 'AI와 함께한 개발 여정을 주간 히트맵·마일스톤·이벤트 타임라인으로 정리했습니다.',
-        actions: [{ label: '타임라인 열기 →', url: './timeline.html' }]
-      },
-      {
         iconImg: './yakmukja_icon.png',
         name: '약먹자',
-        status: '개발중',
-        desc: '복약 시간을 놓치지 않게 도와주는 알림 앱.',
-        actions: [{ label: '개발중', disabled: true }]
+        status: 'iOS 심사 대기 v1.0.1 · Android 비공개 테스트',
+        desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 복약을 빼먹지 않게 도와줍니다.',
+        actions: [{ label: 'iOS 심사 중', disabled: true }]
       },
       {
         iconImg: './dutchpay_icon.png',
         name: '더치페이 계산기',
-        status: 'iOS TestFlight · Android 비공개 테스트 준비',
+        status: 'iOS 심사 대기 v1.0.2 · Android 비공개 테스트',
         desc: '여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미. 금액 · 인원수 입력만으로 바로 정산하고 남은 금액도 알려줍니다.',
         actions: [
           { label: 'GitHub ↗', url: 'https://github.com/ssamssae/dutch_pay_calculator', external: true }
         ]
       },
       {
+        iconImg: './memo_icon.png',
+        name: '메모요',
+        status: '스토어 출시 보류 · 개인 사용',
+        desc: '심플한 라이트 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구. 첫 Flutter 앱.',
+        actions: []
+      },
+      {
+        iconImg: './hankeup_icon.png',
+        name: '한컵',
+        status: 'MVP 완성 · 비공개',
+        desc: '하루 물 섭취량 트래커. 1컵 단위 카운트와 일일 목표량으로 수분 섭취를 챙겨주는 미니 앱.',
+        actions: []
+      },
+      {
+        iconImg: './pomodoro_icon.png',
+        name: '포모도로',
+        status: '개발중',
+        desc: '25분 집중 + 5분 휴식 사이클 타이머. flutter-factory 템플릿 기반 집중 보조 앱.',
+        actions: [{ label: '개발중', disabled: true }]
+      },
+      {
+        iconImg: './review_radar_icon.png',
+        name: '심사레이더',
+        status: 'v0.2 디자인 적용 · 개인 운영',
+        desc: '1인 앱 개발자용 App Store · Google Play 심사 상태 모니터. Gmail 파싱으로 반려·승인·대기 상태를 한 화면에 통합.',
+        actions: [{ label: 'Private', disabled: true }]
+      },
+      {
+        iconImg: './newsletter_icon.svg',
+        name: '바이브코딩 뉴스레터',
+        status: 'Substack 준비중 · Ep.1 원고 완성',
+        desc: 'Claude Code 로 1인 앱 만드는 여정 기록. Ep.1 「3시간 만에 나만의 로컬 AI 어시스턴트 만들기」 원고 완성, 발행 준비 중.',
+        actions: [{ label: '뉴스레터 페이지 →', url: './newsletter.html' }]
+      },
+      {
+        iconImg: './timeline_icon.svg',
+        name: '개발 타임라인',
+        status: '웹 프로젝트 · 운영중',
+        desc: 'AI와 함께한 개발 여정을 주간 히트맵·마일스톤·이벤트 타임라인으로 정리했습니다.',
+        actions: [{ label: '타임라인 열기 →', url: './timeline.html' }]
+      },
+      {
         iconImg: './homepage_icon.svg',
         name: '홈페이지 제작',
         status: '운영중 · GitHub Pages',
         badge: '지금 여기',
-        desc: '다크테마 기반 개인 포트폴리오 & 개발 기록 페이지. HTML/CSS/JS만으로 제작, Claude Code 스킬 시스템과 연동됩니다.',
+        desc: '라이트 테마 기반 개인 포트폴리오 & 개발 기록 페이지. HTML/CSS/JS만으로 제작, Claude Code 스킬 시스템과 연동됩니다.',
         actions: [
           { label: 'GitHub ↗', url: 'https://github.com/ssamssae/daejong-page', external: true },
           { label: '현재 페이지', disabled: true }
         ]
       },
       {
-        icon: '',
-        iconImg: './memo_icon.png',
-        name: '메모요',
-        status: '스토어 출시 보류 · 베타 테스터 모집 종료',
-        desc: '심플한 다크테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구입니다. 현재 개인 사용 용도로만 유지합니다.',
-        links: []
+        iconImg: './hanjul_icon.png',
+        name: '한줄일기',
+        status: '출시 준비 · GPT-4o mini 연동 · ₩1,900 유료',
+        badge: '출시 임박',
+        desc: '하루 한 줄 일기와 AI(GPT-4o mini)의 따뜻한 응원 답글. dawn-sky 그라데이션 + 53주 감정 히트맵 디자인. Cloudflare Workers 프록시로 API 키 보호. 출시 직전.',
+        actions: []
       }
     ];
 
