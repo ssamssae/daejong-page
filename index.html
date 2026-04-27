@@ -115,6 +115,64 @@
     .contact-chip:hover svg {
       fill: #3182F6;
     }
+    .apps-section {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #F2F4F6;
+    }
+    .apps-section-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #8B95A1;
+      letter-spacing: 0.4px;
+      text-align: left;
+      margin-bottom: 10px;
+      padding-left: 4px;
+    }
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .app-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px;
+      padding: 12px 4px 10px;
+      border-radius: 14px;
+      background: transparent;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .app-tile .app-icon-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      object-fit: cover;
+    }
+    .app-tile .app-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #191F28;
+      letter-spacing: -0.1px;
+      line-height: 1.2;
+    }
+    .app-tile .app-status {
+      font-size: 9.5px;
+      color: #8B95A1;
+      letter-spacing: -0.1px;
+      line-height: 1.2;
+      margin-top: -2px;
+    }
+    .app-tile:hover {
+      background: #F9FAFB;
+      transform: translateY(-1px);
+    }
+    .app-tile:hover .app-label {
+      color: #3182F6;
+    }
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -236,6 +294,41 @@
       <a class="contact-chip" href="https://qr.kakaopay.com/FSNLBYmvW" target="_blank" rel="noopener" aria-label="응원하기" title="응원하기">
         <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       </a>
+    </div>
+    <div class="apps-section">
+      <div class="apps-section-title">APPS</div>
+      <div class="apps-grid">
+        <a class="app-tile" href="./portfolio.html" aria-label="한줄일기" title="한줄일기 — 출시 임박">
+          <img class="app-icon-img" src="./hanjul_icon.png?v=1" alt="한줄일기">
+          <div class="app-label">한줄일기</div>
+          <div class="app-status">출시 임박</div>
+        </a>
+        <a class="app-tile" href="./portfolio.html" aria-label="약먹자" title="약먹자 — iOS 심사 대기">
+          <img class="app-icon-img" src="./yakmukja_icon.png?v=1" alt="약먹자">
+          <div class="app-label">약먹자</div>
+          <div class="app-status">iOS 심사 대기</div>
+        </a>
+        <a class="app-tile" href="./portfolio.html" aria-label="더치페이" title="더치페이 — iOS 심사 대기">
+          <img class="app-icon-img" src="./dutchpay_icon.png?v=1" alt="더치페이">
+          <div class="app-label">더치페이</div>
+          <div class="app-status">iOS 심사 대기</div>
+        </a>
+        <a class="app-tile" href="./portfolio.html" aria-label="메모요" title="메모요 — 첫 Flutter 앱">
+          <img class="app-icon-img" src="./memo_icon.png?v=1" alt="메모요">
+          <div class="app-label">메모요</div>
+          <div class="app-status">개인 사용</div>
+        </a>
+        <a class="app-tile" href="./portfolio.html" aria-label="포모도로" title="포모도로 — 집중 타이머">
+          <img class="app-icon-img" src="./pomodoro_icon.png?v=1" alt="포모도로">
+          <div class="app-label">포모도로</div>
+          <div class="app-status">개발중</div>
+        </a>
+        <a class="app-tile" href="./portfolio.html" aria-label="한컵" title="한컵 — 물 섭취 트래커">
+          <img class="app-icon-img" src="./hankeup_icon.png?v=1" alt="한컵">
+          <div class="app-label">한컵</div>
+          <div class="app-status">MVP</div>
+        </a>
+      </div>
     </div>
     <div class="menu-grid">
       <a class="menu-tile" href="https://ssamssae.github.io/" target="_blank" rel="noopener" aria-label="홈" title="홈">
