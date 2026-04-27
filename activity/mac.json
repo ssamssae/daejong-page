@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T14:46:03Z",
-  "last_prompt_ts": "2026-04-27T14:44:55.207Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-27T14:48:41Z",
+  "last_prompt_ts": "2026-04-27T14:46:50.831Z",
+  "last_user_prompt": "A",
   "last_user_source": "telegram",
-  "last_assistant_preview": "worklog 없는 이유(자동 비활성화 + 오늘 첫 호출) + 토큰 분석 + A~E 옵션 보냈어요. 권장은 B(/worklog만) 또는 D(",
+  "last_assistant_preview": "Step 1.5 후보 2건 (한줄일기 UI + iOS reject 대응) 보냈어요. 답 기다릴게요.",
   "last_recent_edit": ""
 }
