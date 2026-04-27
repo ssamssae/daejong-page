@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:38:07Z",
-  "last_prompt_ts": "2026-04-27T14:35:05.467Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3512\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:35:03",
+  "last_active_ts": "2026-04-27T14:39:42Z",
+  "last_prompt_ts": "2026-04-27T14:39:12.777Z",
+  "last_user_prompt": "답변중인",
   "last_user_source": "telegram",
-  "last_assistant_preview": "AI 답변도 PNG 에 포함. `_ShareEntryLine` 위젯 확장.",
-  "last_recent_edit": "/home/ssamssae/apps/hanjul/lib/screens/stats_screen.dart"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
