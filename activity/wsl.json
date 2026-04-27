@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:59:15Z",
-  "last_prompt_ts": "2026-04-27T13:58:49.117Z",
-  "last_user_prompt": "apk 파일 �",
+  "last_active_ts": "2026-04-27T14:06:45Z",
+  "last_prompt_ts": "2026-04-27T14:05:31.023Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3486\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:05:28",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "5a83d0a 의 코드 변경은 **순수 관측(observability) 추가**만 — error enum 5종 분리, statusCode/detail 보존, UI 디버그 �",
   "last_recent_edit": ""
 }
