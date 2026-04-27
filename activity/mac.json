@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T15:37:16Z",
-  "last_prompt_ts": "2026-04-27T15:34:10.006Z",
-  "last_user_prompt": "<task-notification> <task-id>boo1zmjch</task-id> <tool-use-id>toolu_01TDKBRN1wY5MF8VdmavdAHa</tool-use-id> <output-file>/private/tmp/claude-",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "Graph API auth error 발견 (토큰-앱 권한 불일치). A/B/C 중 어떻게 갈지 답 기다릴게요. 권장은 B (스킵 후 WSL에서",
+  "last_active_ts": "2026-04-27T22:00:14Z",
+  "last_prompt_ts": "2026-04-27T21:59:33.819Z",
+  "last_user_prompt": "- C. 토큰",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
