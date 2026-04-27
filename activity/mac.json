@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T15:26:11Z",
-  "last_prompt_ts": "2026-04-27T15:23:10.664Z",
-  "last_user_prompt": "<task-notification> <task-id>b6p3hegic</task-id> <tool-use-id>toolu_01GPXXjv1TTAE4P1awyKcfxk</tool-use-id> <output-file>/private/tmp/claude-",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "근본 해결 + 백필 순서로 진행. publish.py 먼저 손질.",
-  "last_recent_edit": "/Users/user/insta-autopost/publish.py"
+  "last_active_ts": "2026-04-27T15:27:53Z",
+  "last_prompt_ts": "2026-04-27T15:26:11.357Z",
+  "last_user_prompt": "",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "",
+  "last_recent_edit": "/Users/user/.claude/skills/goodnight/SKILL.md"
 }
