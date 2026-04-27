@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T11:03:07Z",
-  "last_prompt_ts": "2026-04-27T11:02:58.950Z",
-  "last_user_prompt": "<task-notification> <task-id>b1rkjmo8h</task-id> <summary>Monitor event: \"flutter clean+release on S24 (hanjul d9d073d)\"</summary> <event>[M",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-27T11:06:04Z",
+  "last_prompt_ts": "2026-04-27T11:04:49.913Z",
+  "last_user_prompt": "세션클리",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
