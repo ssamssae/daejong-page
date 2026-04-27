@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T05:31:15Z",
-  "last_prompt_ts": "2026-04-27T05:30:03.754Z",
-  "last_user_prompt": "<task-notification> <task-id>bndxwyud9</task-id> <summary>Monitor event: \"hanjul arun build/install on S24\"</summary> <event>Running Gradle ",
+  "last_active_ts": "2026-04-27T05:38:38Z",
+  "last_prompt_ts": "2026-04-27T05:38:34.295Z",
+  "last_user_prompt": "<task-notification> <task-id>bndxwyud9</task-id> <summary>Monitor event: \"hanjul arun build/install on S24\"</summary> <event>[Monitor timed ",
   "last_user_source": "terminal",
-  "last_assistant_preview": "빌드 실패. 로그 확인할게요.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
