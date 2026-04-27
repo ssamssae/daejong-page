@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T09:13:05Z",
-  "last_prompt_ts": "2026-04-27T09:05:07.961Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7967\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T09:05:08",
+  "last_active_ts": "2026-04-27T09:34:24Z",
+  "last_prompt_ts": "2026-04-27T09:14:09.486Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "녹화 진행 중, 강대종님 GUI 클릭 대기.",
+  "last_assistant_preview": "영상 + 두 답변 본문 발송 완료. 강대종님 ASC Reply 발송 대기.",
   "last_recent_edit": "/tmp/asc-reply-dutchpay.txt"
 }
