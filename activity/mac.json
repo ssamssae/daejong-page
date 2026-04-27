@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T14:16:17Z",
-  "last_prompt_ts": "2026-04-27T14:15:43.353Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8176\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:15:41",
+  "last_active_ts": "2026-04-27T14:19:00Z",
+  "last_prompt_ts": "2026-04-27T14:18:19.586Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "`/pulls/` (복수) → 검색, `/pull/` (단수) → PR 상세. 올바른 링크 다시 보냈어요.",
+  "last_assistant_preview": "머지 + 로컬 동기화 완료. GitHub `ssamssae/trend-curator` private repo 처리(아카이브 추천)만 결정 남았어요.",
   "last_recent_edit": ""
 }
