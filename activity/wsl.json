@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T02:11:54Z",
-  "last_prompt_ts": "2026-04-27T02:10:31.330Z",
-  "last_user_prompt": "핸드오프",
+  "last_active_ts": "2026-04-27T02:19:31Z",
+  "last_prompt_ts": "2026-04-27T02:16:26.196Z",
+  "last_user_prompt": "ㄱ </channe",
   "last_user_source": "telegram",
-  "last_assistant_preview": "핸드오프 답신 파일 작성 + 푸시할게요.",
-  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-27-1111-wsl-mac-recent-activity-check-reply.md"
+  "last_assistant_preview": "#7 도 이미 처리됨 (Cost 섹션 + WSL/Mac mismatch 둘 다 박혀있음). 실제 작업한 건 #1 + #4 두 건만. 정리 + 보고.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/project_trend_curator.md"
 }
