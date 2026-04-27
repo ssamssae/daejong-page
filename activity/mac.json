@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T05:24:00Z",
-  "last_prompt_ts": "2026-04-27T05:22:35.284Z",
-  "last_user_prompt": "한줄일기",
+  "last_active_ts": "2026-04-27T05:54:49Z",
+  "last_prompt_ts": "2026-04-27T05:53:47.772Z",
+  "last_user_prompt": "새션초기",
   "last_user_source": "telegram",
-  "last_assistant_preview": "WSL APK 핸드오프 진행 중, 도착 대기. 강대종님 다음 신호 또는 WSL 결과 도착 시 이어갈게요.",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-27-1422-mac-wsl-hanjul-arun-apk.md"
+  "last_assistant_preview": "새 세션 첫 입력용 프롬프트 보냈어요. ~4시간 유휴 동안 review_radar v0.3 outline 잡는 거 추천. 자족적이라 그�",
+  "last_recent_edit": ""
 }
