@@ -2,9 +2,9 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T12:39:33Z",
-  "last_prompt_ts": "2026-04-27T12:37:04.188Z",
-  "last_user_prompt": "<task-notification> <task-id>blgma1lem</task-id> <summary>Monitor event: \"arun build outcome (hanjul on emulator-5554)\"</summary> <event>Ins",
+  "last_active_ts": "2026-04-27T12:42:07Z",
+  "last_prompt_ts": "2026-04-27T12:41:49.238Z",
+  "last_user_prompt": "<task-notification> <task-id>b8ikki4c8</task-id> <summary>Monitor event: \"hanjul worker tail (per-request status)\"</summary> <event>POST htt",
   "last_user_source": "terminal",
   "last_assistant_preview": "",
   "last_recent_edit": ""
