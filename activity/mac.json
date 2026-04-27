@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T08:19:02Z",
-  "last_prompt_ts": "2026-04-27T08:18:21.446Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7944\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T08:18:21",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-27T08:25:26Z",
+  "last_prompt_ts": "2026-04-27T08:22:13.276Z",
+  "last_user_prompt": "",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "완료. 종료 조건 4개 다 충족 — launchd 등록 ✅, calendar 4-tuple ✅, 회신 핸드오프 푸시 ✅, 텔레그램 보고 ✅.",
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-27-1724-mac-wsl-launchd-self-setup-reply.md"
 }
