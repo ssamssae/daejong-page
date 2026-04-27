@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T05:54:49Z",
-  "last_prompt_ts": "2026-04-27T05:53:47.772Z",
-  "last_user_prompt": "새션초기",
+  "last_active_ts": "2026-04-27T06:02:43Z",
+  "last_prompt_ts": "2026-04-27T05:58:32.865Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "새 세션 첫 입력용 프롬프트 보냈어요. ~4시간 유휴 동안 review_radar v0.3 outline 잡는 거 추천. 자족적이라 그�",
-  "last_recent_edit": ""
+  "last_assistant_preview": "완료. `docs/v0.3-outline-2026-04-27.md` (240줄, 커밋 `6cfeabd`) 가 review_radar main 에 올라갔고 텔레그램으로 한 줄 보�",
+  "last_recent_edit": "/Users/user/apps/review_radar/docs/v0.3-outline-2026-04-27.md"
 }
