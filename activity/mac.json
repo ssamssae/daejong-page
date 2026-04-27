@@ -2,9 +2,9 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T08:17:48Z",
-  "last_prompt_ts": "2026-04-27T08:17:24.632Z",
-  "last_user_prompt": "뭐라는거",
+  "last_active_ts": "2026-04-27T08:19:02Z",
+  "last_prompt_ts": "2026-04-27T08:18:21.446Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7944\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T08:18:21",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
