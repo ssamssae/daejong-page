@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T11:56:13Z",
-  "last_prompt_ts": "2026-04-27T11:55:46.310Z",
-  "last_user_prompt": "self-mod gat",
+  "last_active_ts": "2026-04-27T11:57:46Z",
+  "last_prompt_ts": "2026-04-27T11:57:08.175Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "복붙 분리 보냈습니다. paste 끝나시면 회신 주세요 — 그 다음 본 세션이 issue commit + handoff commit 둘 다 시도",
   "last_recent_edit": ""
 }
