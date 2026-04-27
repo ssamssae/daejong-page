@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T08:09:50Z",
-  "last_prompt_ts": "2026-04-27T08:09:01.464Z",
+  "last_active_ts": "2026-04-27T08:11:12Z",
+  "last_prompt_ts": "2026-04-27T08:09:50.113Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "사과 답장 보냈고, 메모리에 \"텔레그램 raw msg ID 인용 금지\" 피드백 기록했습니다 (`feedback_no_raw_telegram_msg_id",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_assistant_preview": "이슈 초안을 보냈습니다. 컨펌 기다리는 중입니다. (메모: 그 초안에 \"msg 7936\" 표현 한 번 들어갔는데 — 이",
+  "last_recent_edit": ""
 }
