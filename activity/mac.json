@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T15:33:57Z",
-  "last_prompt_ts": "2026-04-27T15:32:14.193Z",
-  "last_user_prompt": "<task-notification> <task-id>blfyob0c3</task-id> <tool-use-id>toolu_012t7aRfsVws9T79znaGsAw6</tool-use-id> <output-file>/private/tmp/claude-",
+  "last_active_ts": "2026-04-27T15:37:16Z",
+  "last_prompt_ts": "2026-04-27T15:34:10.006Z",
+  "last_user_prompt": "<task-notification> <task-id>boo1zmjch</task-id> <tool-use-id>toolu_01TDKBRN1wY5MF8VdmavdAHa</tool-use-id> <output-file>/private/tmp/claude-",
   "last_user_source": "terminal",
-  "last_assistant_preview": "🎯 **진짜 원인 발견** — Python urllib SSL 인증서 문제. timeout 아니었음. Install Certificates.command 실행으로 해결",
+  "last_assistant_preview": "Graph API auth error 발견 (토큰-앱 권한 불일치). A/B/C 중 어떻게 갈지 답 기다릴게요. 권장은 B (스킵 후 WSL에서",
   "last_recent_edit": ""
 }
