@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-27_v1.0.0.md",
+      "date": "2026-04-27",
+      "version": "v1.0.0",
+      "summary": "v3 노드 정책 두 가정(MacBook 이동성·WSL 24/7) 강대종님 직접 정정으로 폭로 → v4 옵션 X 확정 (현상 유지). trend-curator 풀제거 (Mac launchd + WSL + 양쪽 repo + private repo archive). /stale 5단계 wrapper SKILL 신설 (PR #3, lite/remote 모드 + 매트릭스). 약먹자/더치페이 iOS reject 18:42 ASC Reply 발송 완료 — 재심사 ~04-29. Karpathy 4룰 양 기기 동기화. session-close v0.3 lean (토큰 1/5). hanjul UI 마이크로 인터랙션 4개. 이슈 5건 정식 기록. 사이드 5→1.",
+      "updated": "2026-04-28T00:10:00+09:00"
+    },
+    {
       "file": "2026-04-26_v1.0.0.md",
       "date": "2026-04-26",
       "version": "v1.0.0",
