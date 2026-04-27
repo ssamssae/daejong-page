@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T01:16:12Z",
-  "last_prompt_ts": "2026-04-27T01:10:59.115Z",
-  "last_user_prompt": "발행ㄱㄱ",
+  "last_active_ts": "2026-04-27T01:25:18Z",
+  "last_prompt_ts": "2026-04-27T01:22:56.555Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "**중복 발견.** 어제 이미 ep3 두 본이 만들어져있고 발행 계획도 잡혀있었어요. 푸시 중단합니다.",
-  "last_recent_edit": "/home/ssamssae/daejong-page/newsletter/ep3-2026-04-27.md"
+  "last_assistant_preview": "옵션 A 진행 — 내 본 폐기 + 어제 계획대로. 메모리 룰도 보강해서 같은 사고 재발 방지.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
 }
