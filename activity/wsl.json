@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T12:12:19Z",
-  "last_prompt_ts": "2026-04-27T12:11:08.008Z",
-  "last_user_prompt": "섬데이 �",
+  "last_active_ts": "2026-04-27T12:16:14Z",
+  "last_prompt_ts": "2026-04-27T12:13:12.217Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3417\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T12:13:10",
   "last_user_source": "telegram",
-  "last_assistant_preview": "OK, someday 다 드롭. 체크포인트 박고 닫기 컨펌 받겠습니다.",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/checkpoint_2026-04-27-2111.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
