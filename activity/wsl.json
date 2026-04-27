@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:39:42Z",
-  "last_prompt_ts": "2026-04-27T14:39:12.777Z",
-  "last_user_prompt": "답변중인",
+  "last_active_ts": "2026-04-27T14:48:07Z",
+  "last_prompt_ts": "2026-04-27T14:40:13.204Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Now mirror the same edits to the marketplace source (so plugin reinstall preserves the change).",
+  "last_recent_edit": "/home/ssamssae/.claude/plugins/marketplaces/claude-plugins-official/external_plugins/telegram/server.ts"
 }
