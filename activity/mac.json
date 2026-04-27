@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T14:31:00Z",
-  "last_prompt_ts": "2026-04-27T14:28:29.744Z",
-  "last_user_prompt": "만들어줘",
+  "last_active_ts": "2026-04-27T14:32:23Z",
+  "last_prompt_ts": "2026-04-27T14:31:48.754Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "`/stale` 스킬 PR #3 올렸어요. 머지 결과 기다릴게요.",
-  "last_recent_edit": "/Users/user/.claude/skills/stale/SKILL.md"
+  "last_assistant_preview": "토큰 추정 ~3-7k/호출. 비교 컨텍스트와 토큰 절감 옵션(lite 모드, ssh 조건부) 제안 보냈어요. SKILL 손질할지 ",
+  "last_recent_edit": ""
 }
