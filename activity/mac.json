@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T15:11:24Z",
-  "last_prompt_ts": "2026-04-27T14:58:43.984Z",
-  "last_user_prompt": "없음 </cha",
+  "last_active_ts": "2026-04-27T15:22:25Z",
+  "last_prompt_ts": "2026-04-27T15:20:29.263Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Step 3·4 완료, Step 4.5 (insta-post) 처리 방식 답 기다릴게요.",
-  "last_recent_edit": "/Users/user/daejong-page/done/index.json"
+  "last_assistant_preview": "4/26 누락 원인은 어제 publish.py 의 wait_public timeout 으로 추정. 4/27 retry 끝나면 4/26 백필 여부 + 근본해결 옵션",
+  "last_recent_edit": ""
 }
