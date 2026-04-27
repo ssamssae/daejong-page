@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T11:35:48Z",
-  "last_prompt_ts": "2026-04-27T11:34:48.871Z",
-  "last_user_prompt": "4롤 다 박",
+  "last_active_ts": "2026-04-27T11:37:29Z",
+  "last_prompt_ts": "2026-04-27T11:36:16.286Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/.claude/CLAUDE.md"
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-27-2036-mac-wsl-claude-md-karpathy-4rules.md"
 }
