@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T04:28:15Z",
-  "last_prompt_ts": "2026-04-27T04:27:41.875Z",
-  "last_user_prompt": "<task-notification> <task-id>bc7va5dwu</task-id> <tool-use-id>toolu_018gSPgbB8bhmAe59XV4DbU3</tool-use-id> <output-file>/tmp/claude-1000/-ho",
+  "last_active_ts": "2026-04-27T04:29:36Z",
+  "last_prompt_ts": "2026-04-27T04:28:47.009Z",
+  "last_user_prompt": "<task-notification> <task-id>bz2ucngxq</task-id> <tool-use-id>toolu_01MH3fo9JUXKkN8ixdLYyhtE</tool-use-id> <output-file>/tmp/claude-1000/-ho",
   "last_user_source": "terminal",
-  "last_assistant_preview": "ollama pull 완료. 검증 단계.",
+  "last_assistant_preview": "Phase 2 검증 PASS. 결과 보고할게요.",
   "last_recent_edit": ""
 }
