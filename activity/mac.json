@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T08:52:37Z",
-  "last_prompt_ts": "2026-04-27T08:52:26.516Z",
-  "last_user_prompt": "세션클리",
+  "last_active_ts": "2026-04-27T08:54:02Z",
+  "last_prompt_ts": "2026-04-27T08:52:50.501Z",
+  "last_user_prompt": "오늘할일",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "Mac 본진 17:53 KST. todos + 메모리 + 24h git log 교차 확인했고, stale 항목은 없어 추천만 보냅니다.",
   "last_recent_edit": ""
 }
