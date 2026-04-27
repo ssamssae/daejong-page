@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T11:31:00Z",
-  "last_prompt_ts": "2026-04-27T11:29:33.911Z",
-  "last_user_prompt": "https://gith",
+  "last_active_ts": "2026-04-27T11:32:48Z",
+  "last_prompt_ts": "2026-04-27T11:32:24.231Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "읽었습니다. 92K stars 짜리 repo 인데 본체는 단일 CLAUDE.md (4 섹션) + 동일 내용을 plugin 화한 SKILL.md. **4 룰:** 1.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
