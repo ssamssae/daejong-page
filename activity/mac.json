@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T14:35:37Z",
-  "last_prompt_ts": "2026-04-27T14:33:29.537Z",
-  "last_user_prompt": "🪛 토큰",
+  "last_active_ts": "2026-04-27T14:37:27Z",
+  "last_prompt_ts": "2026-04-27T14:36:50.875Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이제 someday #7 검증 — Karpathy 4룰이 main 에 반영됐는지 확인.",
-  "last_recent_edit": "/Users/user/todo/someday.md"
+  "last_assistant_preview": "Repo 충돌 없음, 다만 worklog 누락 가능성. WSL 먼저 push 후 /goodnight 권장. handoff 보내달라 시 답 기다릴게요.",
+  "last_recent_edit": ""
 }
