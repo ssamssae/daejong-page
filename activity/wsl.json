@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T10:36:55Z",
-  "last_prompt_ts": "2026-04-27T10:35:34.821Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3363\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T10:35:33",
+  "last_active_ts": "2026-04-27T10:50:34Z",
+  "last_prompt_ts": "2026-04-27T10:48:39.803Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3365\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T10:48:37",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
 }
