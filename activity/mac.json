@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-26T23:19:54Z",
-  "last_prompt_ts": "2026-04-26T23:18:15.506Z",
+  "last_active_ts": "2026-04-27T00:09:31Z",
+  "last_prompt_ts": "2026-04-27T00:08:13.540Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "1차 진단 결과 보냈고, 친구분 컨텍스트 4가지 받기 전엔 막힌 상태라 2번(hanjul UI)으로 넘어갈지 답 기다릴",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
