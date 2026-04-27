@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:25:52Z",
-  "last_prompt_ts": "2026-04-27T14:25:20.247Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3504\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:25:18",
+  "last_active_ts": "2026-04-27T14:31:03Z",
+  "last_prompt_ts": "2026-04-27T14:26:17.235Z",
+  "last_user_prompt": "abc 그리�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "PNG 캡처 완벽 — heatmap \"한 해의 결\" + 1일·연속 1 + DAYS/STREAK/LONGEST 1/1/1, 3x 픽셀비로 선명, 백그라운드 깔끔.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "빌드 이벤트 대기 중. 도착하면 알림 갑니다.",
+  "last_recent_edit": "/home/ssamssae/apps/hanjul/lib/screens/root_shell.dart"
 }
