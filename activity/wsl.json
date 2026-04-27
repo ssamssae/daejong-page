@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:06:45Z",
-  "last_prompt_ts": "2026-04-27T14:05:31.023Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3486\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:05:28",
+  "last_active_ts": "2026-04-27T14:09:02Z",
+  "last_prompt_ts": "2026-04-27T14:07:22.863Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3488\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:07:20",
   "last_user_source": "telegram",
-  "last_assistant_preview": "5a83d0a 의 코드 변경은 **순수 관측(observability) 추가**만 — error enum 5종 분리, statusCode/detail 보존, UI 디버그 �",
+  "last_assistant_preview": "원인 찾음 — **stats 탭 새로고침 버그**. `root_shell.dart` 가 `IndexedStack` 으로 HomeScreen / StatsScreen 둘 다 앱 시작",
   "last_recent_edit": ""
 }
