@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:57:10Z",
-  "last_prompt_ts": "2026-04-27T13:57:05.860Z",
-  "last_user_prompt": "<task-notification> <task-id>bubaosewf</task-id> <summary>Monitor event: \"flutter release build to S24\"</summary> <event>√ Built build\\app",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-27T13:59:15Z",
+  "last_prompt_ts": "2026-04-27T13:58:49.117Z",
+  "last_user_prompt": "apk 파일 �",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
