@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T10:03:05Z",
-  "last_prompt_ts": "2026-04-27T10:01:57.397Z",
-  "last_user_prompt": "💤 세션",
+  "last_active_ts": "2026-04-27T10:15:07Z",
+  "last_prompt_ts": "2026-04-27T10:13:42.277Z",
+  "last_user_prompt": "뭐할까 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/checkpoint_2026-04-27-1858.md"
+  "last_assistant_preview": "stale check 부터 돌리고 추천 후보 추리겠습니다.",
+  "last_recent_edit": ""
 }
