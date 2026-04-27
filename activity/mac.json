@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T14:13:25Z",
-  "last_prompt_ts": "2026-04-27T14:08:16.779Z",
-  "last_user_prompt": "c",
+  "last_active_ts": "2026-04-27T14:16:17Z",
+  "last_prompt_ts": "2026-04-27T14:15:43.353Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8176\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:15:41",
   "last_user_source": "telegram",
-  "last_assistant_preview": "claude-automations push 됐어요. claude-skills 는 default branch 직접 push 가 막혀서 PR 라우트로 가야 해요.",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/project_4node_local_llm_infra.md"
+  "last_assistant_preview": "`/pulls/` (복수) → 검색, `/pull/` (단수) → PR 상세. 올바른 링크 다시 보냈어요.",
+  "last_recent_edit": ""
 }
