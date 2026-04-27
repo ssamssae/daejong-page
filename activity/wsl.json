@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T15:05:46Z",
-  "last_prompt_ts": "2026-04-27T15:05:33.876Z",
-  "last_user_prompt": "맥북이 �",
+  "last_active_ts": "2026-04-27T15:06:51Z",
+  "last_prompt_ts": "2026-04-27T15:05:54.163Z",
+  "last_user_prompt": "그럼 일�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "잠깐 — 그 Sonnet 답변이 v3 기반이라 stale 같아요. 메모리 한 번 확인하고 답할게요.",
   "last_recent_edit": ""
 }
