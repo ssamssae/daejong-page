@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T12:04:07Z",
-  "last_prompt_ts": "2026-04-27T11:59:30.993Z",
-  "last_user_prompt": "anjgkfRk </c",
+  "last_active_ts": "2026-04-27T12:09:03Z",
+  "last_prompt_ts": "2026-04-27T12:07:43.252Z",
+  "last_user_prompt": "세션클리",
   "last_user_source": "telegram",
-  "last_assistant_preview": "A 완료 ✅ (be7685b). step 4 보강(plans/ ls) + 새 step 5(시스템 상태 단정 금지) 추가, Why 본문에 오늘 사고 2건 기�",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/feedback_stale_check_before_recommend.md"
+  "last_assistant_preview": "세션 클리어 신호. /session-close 스킬 트리거 — 체크포인트 + 미실행 후속안 someday 박기 진행.",
+  "last_recent_edit": ""
 }
