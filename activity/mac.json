@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T00:09:31Z",
-  "last_prompt_ts": "2026-04-27T00:08:13.540Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-27T00:54:42Z",
+  "last_prompt_ts": "2026-04-27T00:51:54.205Z",
+  "last_user_prompt": "다해 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "hanjul UI 폴리시 6개 main 반영 완료. 다음 단계 (Ep.4 vs S24 빌드) 답 기다릴게요.",
+  "last_recent_edit": "/Users/user/apps/hanjul/lib/screens/stats_screen.dart"
 }
