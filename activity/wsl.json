@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T08:16:04Z",
-  "last_prompt_ts": "2026-04-27T08:14:59.882Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3295\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T08:14:57",
+  "last_active_ts": "2026-04-27T08:19:38Z",
+  "last_prompt_ts": "2026-04-27T08:19:08.444Z",
+  "last_user_prompt": "추천뭔데",
   "last_user_source": "telegram",
-  "last_assistant_preview": "아 이해했어요. 미스매치는 **실행 주체** 문제 — 제가 15:11 에 \"WSL 세션이라 iOS 빌드 못 함\" 이라 mismatch 라",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
