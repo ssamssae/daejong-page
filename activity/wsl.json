@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:32:03Z",
-  "last_prompt_ts": "2026-04-27T13:25:51.659Z",
-  "last_user_prompt": "🍎 [MAC→WSL HANDOFF] git pull 후 handoffs/2026-04-27-2223-mac-wsl-hanjul-push-retry.md 본문대로 진행",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "💤 Idle. 1번 cross-link WSL 자체 처리 완료, 2번 Mac 핸드오프 directive push 완료. 다음 발화 대기.",
-  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-27-2228-wsl-mac-issue-cross-link-and-keyerror-followup.md"
+  "last_active_ts": "2026-04-27T13:34:53Z",
+  "last_prompt_ts": "2026-04-27T13:33:43.117Z",
+  "last_user_prompt": "대기중이",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "체크포인트 후보 5건 + someday 후속안 4종(A-D) 정리해서 보냄. 강대종님 컨펌 대기 중.",
+  "last_recent_edit": ""
 }
