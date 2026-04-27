@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:22:45Z",
-  "last_prompt_ts": "2026-04-27T13:22:04.075Z",
-  "last_user_prompt": "hanjul push",
+  "last_active_ts": "2026-04-27T13:23:58Z",
+  "last_prompt_ts": "2026-04-27T13:23:10.953Z",
+  "last_user_prompt": "푸쉬 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Hanjul push 통과 ✅. claude-skills 의 issue 파일은 별도 인가 필요해서 보류 중.",
+  "last_assistant_preview": "Push 완료 ✅. Mac 세션과 동시에 같은 denial 다루고 있던 흔적 발견 — 중복 issue 정리 + settings.json allow 룰 KeyE",
   "last_recent_edit": ""
 }
