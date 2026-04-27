@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T23:29:55Z",
-  "last_prompt_ts": "2026-04-27T23:28:30.186Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8257\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T23:28:28",
+  "last_active_ts": "2026-04-27T23:34:53Z",
+  "last_prompt_ts": "2026-04-27T23:32:53.708Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "A/B/C 선택 대기 중. 앱은 Apple 내부에선 출시(READY_FOR_SALE)됐고 공개 CDN 전파만 늦어지는 상황입니다.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
