@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T09:46:28Z",
-  "last_prompt_ts": "2026-04-27T09:41:40.996Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7988\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T09:41:38",
+  "last_active_ts": "2026-04-27T09:56:55Z",
+  "last_prompt_ts": "2026-04-27T09:56:24.317Z",
+  "last_user_prompt": "너때매 AI",
   "last_user_source": "telegram",
-  "last_assistant_preview": "메모리 회귀 사례 추가 완료. 발송된 두 ASC 답변 결과는 24~48h 대기.",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_paste_blocks_as_separate_message.md"
+  "last_assistant_preview": "결과 대기. 24~48h 내 Apple 결과.",
+  "last_recent_edit": ""
 }
