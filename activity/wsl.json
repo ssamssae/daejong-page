@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:14:07Z",
-  "last_prompt_ts": "2026-04-27T13:10:41.958Z",
-  "last_user_prompt": "하네스로",
+  "last_active_ts": "2026-04-27T13:19:07Z",
+  "last_prompt_ts": "2026-04-27T13:17:36.449Z",
+  "last_user_prompt": "내 노드 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이슈 등록(local commit) + 재발방지 옵션 A/B/C 정리 보냈음. 강대종님 결정 대기 중.",
-  "last_recent_edit": "/home/ssamssae/claude-skills/issues/2026-04-27-harness-default-branch-push-block.md"
+  "last_assistant_preview": "5개 노드(Mac/맥미니/WSL/데스크탑/노트북) v3 운영 정책 기준으로 정리. 24/7(맥미니+WSL) + on-demand(데스크탑+노",
+  "last_recent_edit": ""
 }
