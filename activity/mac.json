@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T08:47:59Z",
-  "last_prompt_ts": "2026-04-27T08:47:24.169Z",
-  "last_user_prompt": "setting.json",
+  "last_active_ts": "2026-04-27T08:51:12Z",
+  "last_prompt_ts": "2026-04-27T08:50:58.110Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"7954\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T08:50:55",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "성공! \"wired\" 출력 = settings.json 에 PreToolUse 엔트리 추가 완료. 다음 reply 부터 hook 가동되어 raw msg ID 인용 패�",
   "last_recent_edit": ""
 }
