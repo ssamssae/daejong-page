@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T12:46:49Z",
-  "last_prompt_ts": "2026-04-27T12:44:39.711Z",
-  "last_user_prompt": "세션클리",
+  "last_active_ts": "2026-04-27T12:52:03Z",
+  "last_prompt_ts": "2026-04-27T12:49:42.341Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "강대종님 컨펌 대기.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "세션 닫기 완료. 체크포인트 저장 + 그린라이트 발송. 다음 세션이 인계 프롬프트로 이어받습니다.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/checkpoint_2026-04-27-2144.md"
 }
