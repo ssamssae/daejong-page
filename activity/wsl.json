@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:55:58Z",
-  "last_prompt_ts": "2026-04-27T13:53:54.192Z",
-  "last_user_prompt": "1",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "빌드 진행 중 — `Running Gradle task 'assembleRelease'` 단계. Gradle warm-up 첫회는 5~7분 가능. Monitor 로 완료/실패 이�",
+  "last_active_ts": "2026-04-27T13:57:10Z",
+  "last_prompt_ts": "2026-04-27T13:57:05.860Z",
+  "last_user_prompt": "<task-notification> <task-id>bubaosewf</task-id> <summary>Monitor event: \"flutter release build to S24\"</summary> <event>√ Built build\\app",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
