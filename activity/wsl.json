@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:47:23Z",
-  "last_prompt_ts": "2026-04-27T13:43:43.943Z",
-  "last_user_prompt": "1/5로 가�",
+  "last_active_ts": "2026-04-27T13:50:59Z",
+  "last_prompt_ts": "2026-04-27T13:48:45.419Z",
+  "last_user_prompt": "한줄일기",
   "last_user_source": "telegram",
-  "last_assistant_preview": "-227/+39 라인. 커밋하고 푸시합니다.",
-  "last_recent_edit": "/home/ssamssae/.claude/skills/session-close/SKILL.md"
+  "last_assistant_preview": "Stat 완전 일치 (write_screen.dart 68줄, ai_service.dart 84줄, +130/-22). Windows-side dirty 가 5a83d0a 와 같은 변경을 담고 �",
+  "last_recent_edit": ""
 }
