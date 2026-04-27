@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T12:11:18Z",
-  "last_prompt_ts": "2026-04-27T12:05:37.267Z",
-  "last_user_prompt": "닫았어 </",
+  "last_active_ts": "2026-04-27T12:13:05Z",
+  "last_prompt_ts": "2026-04-27T12:12:33.755Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "paste 결과 대기 중. issue commit 은 `handoffs/` 가 아닌 `issues/` 라 거부 사유 키워드(\"Committing a handoff file\") 안 잡�",
-  "last_recent_edit": "/Users/user/.claude/hooks/telegram-reply-no-raw-id.sh"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
