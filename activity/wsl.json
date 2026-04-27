@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:34:53Z",
-  "last_prompt_ts": "2026-04-27T13:33:43.117Z",
-  "last_user_prompt": "대기중이",
+  "last_active_ts": "2026-04-27T13:37:40Z",
+  "last_prompt_ts": "2026-04-27T13:36:29.482Z",
+  "last_user_prompt": "닫아 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "체크포인트 후보 5건 + someday 후속안 4종(A-D) 정리해서 보냄. 강대종님 컨펌 대기 중.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "세션 닫기 완료. 체크포인트 박음, /clear OK.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/checkpoint_2026-04-27-2233.md"
 }
