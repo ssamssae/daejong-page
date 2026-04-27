@@ -46,7 +46,7 @@
       "scope": "모든 장시간 텔레그램 inbound 작업 세션",
       "occurred_at": "2026-04-26 09:58 KST",
       "resolved_at": "2026-04-26 10:15 KST",
-      "updated": "2026-04-26T10:18:00+09:00"
+      "updated": "2026-04-27T19:32:55+09:00"
     },
     {
       "file": "2026-04-26-paste-block-label-leak.md",
