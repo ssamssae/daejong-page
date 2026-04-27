@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T11:57:46Z",
-  "last_prompt_ts": "2026-04-27T11:57:08.175Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-27T11:59:21Z",
+  "last_prompt_ts": "2026-04-27T11:58:48.531Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8059\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T11:58:46",
   "last_user_source": "telegram",
-  "last_assistant_preview": "복붙 분리 보냈습니다. paste 끝나시면 회신 주세요 — 그 다음 본 세션이 issue commit + handoff commit 둘 다 시도",
+  "last_assistant_preview": "아 죄송, 안내가 덜 친절했네요. 강대종님이 paste 본문을 **터미널 명령어**로 그대로 입력하셨습니다 (zsh: ",
   "last_recent_edit": ""
 }
