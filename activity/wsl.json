@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T05:41:27Z",
-  "last_prompt_ts": "2026-04-27T05:39:25.453Z",
-  "last_user_prompt": "c 복사해",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "빌드 백그라운드 시작 (keystore 복사 + Gradle 데몬 정리 완료). Monitor 가 결과 알려줄 거예요.",
+  "last_active_ts": "2026-04-27T05:44:00Z",
+  "last_prompt_ts": "2026-04-27T05:42:55.175Z",
+  "last_user_prompt": "<task-notification> <task-id>bfiq5dit4</task-id> <summary>Monitor event: \"hanjul arun retry with keystore\"</summary> <event>Installing build",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "S24 설치도 두 번째 시도에 성공 (Flutter 가 자동 uninstall 후 재시도). 둘 다 PASS.",
   "last_recent_edit": ""
 }
