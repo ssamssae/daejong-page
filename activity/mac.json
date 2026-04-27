@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T06:02:43Z",
-  "last_prompt_ts": "2026-04-27T05:58:32.865Z",
+  "last_active_ts": "2026-04-27T08:07:38Z",
+  "last_prompt_ts": "2026-04-27T08:07:16.849Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "완료. `docs/v0.3-outline-2026-04-27.md` (240줄, 커밋 `6cfeabd`) 가 review_radar main 에 올라갔고 텔레그램으로 한 줄 보�",
-  "last_recent_edit": "/Users/user/apps/review_radar/docs/v0.3-outline-2026-04-27.md"
+  "last_assistant_preview": "확인 답장 보냈습니다. 14:58 KST 에 시작 → 커밋 `6cfeabd` 로 main 에 푸시 완료, 15:30 쯤 보고했던 메시지(id 793",
+  "last_recent_edit": ""
 }
