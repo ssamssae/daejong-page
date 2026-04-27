@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T13:18:17Z",
-  "last_prompt_ts": "2026-04-27T13:14:03.862Z",
+  "last_active_ts": "2026-04-27T13:26:16Z",
+  "last_prompt_ts": "2026-04-27T13:22:43.708Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "paste 통과 후 Mac 하네스가 push 트리거(SSH METHOD A)도 일관되게 막아서, 사람 손으로 한 줄만 트리거 부탁드렸",
-  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-27-wsl-hanjul-push-classifier-block.md"
+  "last_assistant_preview": "WSL claude-619 가 handoff 파일 pull → read 단계 통과했어요 (Stewing 중). 곧 push 실행 → 텔레그램 결과 도착할 겁�",
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-27-2223-mac-wsl-hanjul-push-retry.md"
 }
