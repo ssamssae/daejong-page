@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:31:03Z",
-  "last_prompt_ts": "2026-04-27T14:26:17.235Z",
-  "last_user_prompt": "abc 그리�",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "빌드 이벤트 대기 중. 도착하면 알림 갑니다.",
-  "last_recent_edit": "/home/ssamssae/apps/hanjul/lib/screens/root_shell.dart"
+  "last_active_ts": "2026-04-27T14:32:15Z",
+  "last_prompt_ts": "2026-04-27T14:32:12.155Z",
+  "last_user_prompt": "<task-notification> <task-id>bo0q6gpls</task-id> <summary>Monitor event: \"flutter rebuild #4 to S24 (8ab1fcd, polish)\"</summary> <event>√ ",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
