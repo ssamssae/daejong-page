@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T14:32:23Z",
-  "last_prompt_ts": "2026-04-27T14:31:48.754Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-27T14:35:37Z",
+  "last_prompt_ts": "2026-04-27T14:33:29.537Z",
+  "last_user_prompt": "🪛 토큰",
   "last_user_source": "telegram",
-  "last_assistant_preview": "토큰 추정 ~3-7k/호출. 비교 컨텍스트와 토큰 절감 옵션(lite 모드, ssh 조건부) 제안 보냈어요. SKILL 손질할지 ",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이제 someday #7 검증 — Karpathy 4룰이 main 에 반영됐는지 확인.",
+  "last_recent_edit": "/Users/user/todo/someday.md"
 }
