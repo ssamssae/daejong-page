@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-27-telegram-msg-id-leak.md",
+      "date": "2026-04-27",
+      "slug": "telegram-msg-id-leak",
+      "title": "텔레그램 답장에 Bot API raw msg ID 인용해서 사용자 혼선",
+      "severity": "low",
+      "recurrence": "high",
+      "scope": "텔레그램 reply 워크플로우 전체 (모든 기기)",
+      "occurred_at": "2026-04-27 17:09 KST",
+      "resolved_at": "2026-04-27 17:14 KST",
+      "updated": "2026-04-27T17:13:31+09:00"
+    },
+    {
       "file": "2026-04-26-tahoe-ssh-cli-block.md",
       "date": "2026-04-26",
       "slug": "tahoe-ssh-cli-block",
