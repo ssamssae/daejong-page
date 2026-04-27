@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T02:02:54Z",
-  "last_prompt_ts": "2026-04-27T02:00:54.115Z",
+  "last_active_ts": "2026-04-27T02:05:27Z",
+  "last_prompt_ts": "2026-04-27T02:05:00.571Z",
   "last_user_prompt": "",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "핑 발사 완료, WSL Claude 응답 대기 중. 2분 후 결과 합쳐서 정리해드릴게요.",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-27-1101-mac-wsl-recent-activity-check.md"
+  "last_user_source": "terminal",
+  "last_assistant_preview": "WSL 응답 확인됨, 강대종님 폰의 @Myclaude2 챗에 도착해 있을 거예요. 거기 내용 paste 해주시거나 핵심 한 줄 �",
+  "last_recent_edit": ""
 }
