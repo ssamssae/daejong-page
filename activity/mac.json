@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T10:51:34Z",
-  "last_prompt_ts": "2026-04-27T10:49:32.651Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-27T11:06:21Z",
+  "last_prompt_ts": "2026-04-27T10:59:09.377Z",
+  "last_user_prompt": "B session c",
   "last_user_source": "telegram",
-  "last_assistant_preview": "활성 세션 확인됐습니다 (`claude-619` attached). grep 패턴 escape 가 단지 매치 못한 거고 실제로는 살아있음. 직�",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-27-1949-mac-wsl-hanjul-arun-d9d073d.md"
+  "last_assistant_preview": "v0.2 패치 끝. SKILL.md 본체 4개 항목 + alias 들 push, 다음 세션 닫을 때부터 새 흐름 적용.",
+  "last_recent_edit": "/Users/user/.claude/skills/session-close/SKILL.md"
 }
