@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:15:32Z",
-  "last_prompt_ts": "2026-04-27T14:14:50.159Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3495\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T14:14:48",
+  "last_active_ts": "2026-04-27T14:21:00Z",
+  "last_prompt_ts": "2026-04-27T14:16:55.196Z",
+  "last_user_prompt": "1",
   "last_user_source": "telegram",
-  "last_assistant_preview": "먼저 좋은 소식: 1일/STREAK 1/LONGEST 1 — **통계 reload 패치 정상 작동**. 오늘 글 즉시 반영됨. 공유 버튼은 stat",
-  "last_recent_edit": ""
+  "last_assistant_preview": "분석 통과. Gradle 데몬 stop → 재빌드.",
+  "last_recent_edit": "/home/ssamssae/apps/hanjul/lib/screens/stats_screen.dart"
 }
