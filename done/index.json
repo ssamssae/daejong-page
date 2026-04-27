@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-04-28.md",
+      "date": "2026-04-28",
+      "count": 1,
+      "updated": "2026-04-28T08:38:02+09:00"
+    },
+    {
       "file": "2026-04-27.md",
       "date": "2026-04-27",
       "summary": "v3→v4 옵션 X 확정 + trend-curator 풀제거 + /stale 스킬 신설 + 약먹자/더치페이 iOS reject ASC Reply 발송 + Karpathy 4룰 양기기 동기화 + session-close v0.3 lean + hanjul UI 마이크로 인터랙션 4개 + 이슈 5건 신규 + 사이드 5→1",
