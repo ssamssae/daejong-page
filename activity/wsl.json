@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T12:35:52Z",
-  "last_prompt_ts": "2026-04-27T12:32:45.096Z",
-  "last_user_prompt": "/arun emulat",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "Build에 들어갔어. 폰에 보낸 친구 빌드와 동일한 release 모드. 끝나면 알려줄게.",
+  "last_active_ts": "2026-04-27T12:39:33Z",
+  "last_prompt_ts": "2026-04-27T12:37:04.188Z",
+  "last_user_prompt": "<task-notification> <task-id>blgma1lem</task-id> <summary>Monitor event: \"arun build outcome (hanjul on emulator-5554)\"</summary> <event>Ins",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
