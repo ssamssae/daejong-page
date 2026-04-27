@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T14:06:56Z",
-  "last_prompt_ts": "2026-04-27T14:06:20.069Z",
-  "last_user_prompt": "이거 disab",
+  "last_active_ts": "2026-04-27T14:13:25Z",
+  "last_prompt_ts": "2026-04-27T14:08:16.779Z",
+  "last_user_prompt": "c",
   "last_user_source": "telegram",
-  "last_assistant_preview": "A/B/C 중 답 기다릴게요. 권장은 B (Mac 쪽 완전 제거).",
-  "last_recent_edit": ""
+  "last_assistant_preview": "claude-automations push 됐어요. claude-skills 는 default branch 직접 push 가 막혀서 PR 라우트로 가야 해요.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/project_4node_local_llm_infra.md"
 }
