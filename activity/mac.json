@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T13:28:55Z",
-  "last_prompt_ts": "2026-04-27T13:28:17.177Z",
+  "last_active_ts": "2026-04-27T13:30:22Z",
+  "last_prompt_ts": "2026-04-27T13:28:55.913Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "대기 중입니다. 다음 지시 주시면 진행할게요.",
+  "last_assistant_preview": "체크포인트 후보 + someday 5개 발송. 응답 받으면 저장 stage 진행할게요.",
   "last_recent_edit": ""
 }
