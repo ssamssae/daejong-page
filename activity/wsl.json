@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T10:50:34Z",
-  "last_prompt_ts": "2026-04-27T10:48:39.803Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3365\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T10:48:37",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
+  "last_active_ts": "2026-04-27T10:53:29Z",
+  "last_prompt_ts": "2026-04-27T10:51:12.393Z",
+  "last_user_prompt": "🍎 [MAC→WSL HANDOFF] git pull 후 ~/claude-skills/handoffs/2026-04-27-1949-mac-wsl-hanjul-arun-d9d073d.md 읽고 본문 directive 따라",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "hanjul 빌드 Gradle 진입. 다음 milestone 대기 중.",
+  "last_recent_edit": ""
 }
