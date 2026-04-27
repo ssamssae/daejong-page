@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T05:51:26Z",
-  "last_prompt_ts": "2026-04-27T05:51:23.298Z",
-  "last_user_prompt": "<task-notification> <task-id>bfiq5dit4</task-id> <summary>Monitor event: \"hanjul arun retry with keystore\"</summary> <event>[Monitor timed o",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "Monitor 타임아웃 — 빌드/설치 이미 완료, 재무장 불필요. hanjul directive 종료 상태.",
+  "last_active_ts": "2026-04-27T05:58:53Z",
+  "last_prompt_ts": "2026-04-27T05:56:16.442Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3284\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T05:56:11",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "원인 좁혀졌어요.",
   "last_recent_edit": ""
 }
