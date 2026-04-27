@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T12:57:56Z",
-  "last_prompt_ts": "2026-04-27T12:56:25.539Z",
-  "last_user_prompt": "방향성도",
+  "last_active_ts": "2026-04-27T12:59:28Z",
+  "last_prompt_ts": "2026-04-27T12:58:20.225Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "방향성 박았습니다. 양쪽 repo push 완료, 홈페이지 someday.html 에서도 보이실 거예요. 본 세션 끝.",
-  "last_recent_edit": "/Users/user/daejong-page/someday.md"
+  "last_assistant_preview": "Step 0 끝났고 텔레그램으로 paste 완료 신호 기다리는 중입니다. 메모리는 최신 상태고 claude-skills 의 미커밋",
+  "last_recent_edit": ""
 }
