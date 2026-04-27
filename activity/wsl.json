@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:09:42Z",
-  "last_prompt_ts": "2026-04-27T13:09:35.584Z",
-  "last_user_prompt": "<task-notification> <task-id>bsufnb2md</task-id> <summary>Monitor event: \"arun rebuild outcome (hanjul UX update on emulator)\"</summary> <ev",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-27T13:14:07Z",
+  "last_prompt_ts": "2026-04-27T13:10:41.958Z",
+  "last_user_prompt": "하네스로",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "이슈 등록(local commit) + 재발방지 옵션 A/B/C 정리 보냈음. 강대종님 결정 대기 중.",
+  "last_recent_edit": "/home/ssamssae/claude-skills/issues/2026-04-27-harness-default-branch-push-block.md"
 }
