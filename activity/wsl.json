@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T10:07:43Z",
-  "last_prompt_ts": "2026-04-27T10:07:02.652Z",
-  "last_user_prompt": "5분더 기�",
-  "last_user_source": "telegram",
+  "last_active_ts": "2026-04-27T10:15:13Z",
+  "last_prompt_ts": "2026-04-27T10:12:01.015Z",
+  "last_user_prompt": "android-build-runner agent (a3cbe0e6c2e01d1e5) 가 review_radar emulator install + 화면 캡처 결과를 통지했는지 확인. 통지 �",
+  "last_user_source": "terminal",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
