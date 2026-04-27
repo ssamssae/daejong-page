@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T11:37:29Z",
-  "last_prompt_ts": "2026-04-27T11:36:16.286Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-27T11:45:51Z",
+  "last_prompt_ts": "2026-04-27T11:42:24.204Z",
+  "last_user_prompt": "근본적인",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-27-2036-mac-wsl-claude-md-karpathy-4rules.md"
+  "last_assistant_preview": "강대종님 컨펌 대기.",
+  "last_recent_edit": "/Users/user/.claude/skills/issues/2026-04-27-same-turn-commit-fp.md"
 }
