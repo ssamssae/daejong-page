@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T04:29:36Z",
-  "last_prompt_ts": "2026-04-27T04:28:47.009Z",
-  "last_user_prompt": "<task-notification> <task-id>bz2ucngxq</task-id> <tool-use-id>toolu_01MH3fo9JUXKkN8ixdLYyhtE</tool-use-id> <output-file>/tmp/claude-1000/-ho",
+  "last_active_ts": "2026-04-27T04:33:14Z",
+  "last_prompt_ts": "2026-04-27T04:33:09.516Z",
+  "last_user_prompt": "<task-notification> <task-id>brxtfmfj1</task-id> <summary>Monitor event: \"curator.py Phase 2 verify run\"</summary> <event>[Monitor timed out",
   "last_user_source": "terminal",
-  "last_assistant_preview": "Phase 2 검증 PASS. 결과 보고할게요.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
