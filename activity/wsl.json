@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T08:22:49Z",
-  "last_prompt_ts": "2026-04-27T08:19:47.820Z",
-  "last_user_prompt": "추천재로",
+  "last_active_ts": "2026-04-27T08:45:47Z",
+  "last_prompt_ts": "2026-04-27T08:45:19.494Z",
+  "last_user_prompt": "세션클리",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-27-1719-wsl-mac-launchd-self-setup.md"
+  "last_recent_edit": ""
 }
