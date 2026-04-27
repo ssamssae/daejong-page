@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T01:58:58Z",
-  "last_prompt_ts": "2026-04-27T01:56:59.795Z",
-  "last_user_prompt": "네 </channe",
+  "last_active_ts": "2026-04-27T02:01:53Z",
+  "last_prompt_ts": "2026-04-27T02:00:12.629Z",
+  "last_user_prompt": "2",
   "last_user_source": "telegram",
-  "last_assistant_preview": "stale check + git log --grep 패스 다 돌렸어요. 회사 자투리 가능 후보 2건:",
+  "last_assistant_preview": "룰 작동 — 어제 sweep 액션 7건이 정해진 채로 **미처리** 상태. 즉시 보고.",
   "last_recent_edit": ""
 }
