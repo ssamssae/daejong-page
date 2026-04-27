@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:21:00Z",
-  "last_prompt_ts": "2026-04-27T14:16:55.196Z",
-  "last_user_prompt": "1",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "분석 통과. Gradle 데몬 stop → 재빌드.",
-  "last_recent_edit": "/home/ssamssae/apps/hanjul/lib/screens/stats_screen.dart"
+  "last_active_ts": "2026-04-27T14:22:09Z",
+  "last_prompt_ts": "2026-04-27T14:22:06.715Z",
+  "last_user_prompt": "<task-notification> <task-id>b4v2fd1t1</task-id> <summary>Monitor event: \"flutter rebuild #3 to S24 (ccb291a, image share)\"</summary> <event",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
