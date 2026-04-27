@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T11:28:27Z",
-  "last_prompt_ts": "2026-04-27T11:27:06.082Z",
-  "last_user_prompt": "근데 이�",
+  "last_active_ts": "2026-04-27T11:32:53Z",
+  "last_prompt_ts": "2026-04-27T11:31:00.288Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "좋아요, A 컨펌 — 어제 결정 유지. 먼저 메모리 1개 박아 다음 세션 stale 재발 막겠습니다.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
 }
