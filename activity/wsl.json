@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T04:24:52Z",
-  "last_prompt_ts": "2026-04-27T04:23:38.904Z",
-  "last_user_prompt": "추천ㄱ </",
+  "last_active_ts": "2026-04-27T04:26:58Z",
+  "last_prompt_ts": "2026-04-27T04:25:06.674Z",
+  "last_user_prompt": "12 </channel",
   "last_user_source": "telegram",
-  "last_assistant_preview": "후보 점검 끝. 추천 보냅니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "curator.py 수정 완료. todos 분석 끝났어요. 진행 상황 보고합니다.",
+  "last_recent_edit": "/home/ssamssae/trend-curator/curator.py"
 }
