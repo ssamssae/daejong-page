@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T12:03:51Z",
-  "last_prompt_ts": "2026-04-27T12:02:08.644Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-27T12:11:18Z",
+  "last_prompt_ts": "2026-04-27T12:05:37.267Z",
+  "last_user_prompt": "닫았어 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "/issue 호출하면 절차 길어지니 본 세션이 직접 새 issue 파일 + hook 보강까지 한 번에 처리. 먼저 기존 reply hoo",
-  "last_recent_edit": ""
+  "last_assistant_preview": "paste 결과 대기 중. issue commit 은 `handoffs/` 가 아닌 `issues/` 라 거부 사유 키워드(\"Committing a handoff file\") 안 잡�",
+  "last_recent_edit": "/Users/user/.claude/hooks/telegram-reply-no-raw-id.sh"
 }
