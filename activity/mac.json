@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T11:59:21Z",
-  "last_prompt_ts": "2026-04-27T11:58:48.531Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8059\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T11:58:46",
+  "last_active_ts": "2026-04-27T12:01:29Z",
+  "last_prompt_ts": "2026-04-27T12:00:33.587Z",
+  "last_user_prompt": "터미널에",
   "last_user_source": "telegram",
-  "last_assistant_preview": "아 죄송, 안내가 덜 친절했네요. 강대종님이 paste 본문을 **터미널 명령어**로 그대로 입력하셨습니다 (zsh: ",
+  "last_assistant_preview": "강대종님 paste 결과 대기.",
   "last_recent_edit": ""
 }
