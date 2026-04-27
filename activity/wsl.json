@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:12:12Z",
-  "last_prompt_ts": "2026-04-27T14:09:49.985Z",
-  "last_user_prompt": "A",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "3cdebf9 양쪽 동기화 완료. 재빌드 — Gradle 캐시 warm 이라 30~60초 예상.",
-  "last_recent_edit": "/home/ssamssae/apps/hanjul/lib/screens/root_shell.dart"
+  "last_active_ts": "2026-04-27T14:13:23Z",
+  "last_prompt_ts": "2026-04-27T14:13:20.422Z",
+  "last_user_prompt": "<task-notification> <task-id>b1glahejb</task-id> <summary>Monitor event: \"flutter rebuild #2 to S24 (3cdebf9)\"</summary> <event>√ Built bu",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "APK 재빌드 완료 (17.8MB). 설치 단계 대기.",
+  "last_recent_edit": ""
 }
