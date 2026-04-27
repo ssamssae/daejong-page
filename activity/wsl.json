@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T22:14:48Z",
-  "last_prompt_ts": "2026-04-27T22:06:42.214Z",
-  "last_user_prompt": "https://ssam",
+  "last_active_ts": "2026-04-27T22:18:32Z",
+  "last_prompt_ts": "2026-04-27T22:17:08.768Z",
+  "last_user_prompt": "이미지 �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Now handling the Mac→WSL handoff that came in earlier.",
-  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-28-0712-wsl-mac-insta-post-426-427-reply.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
