@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T08:55:01Z",
-  "last_prompt_ts": "2026-04-27T08:54:30.077Z",
-  "last_user_prompt": "퇴근했어",
+  "last_active_ts": "2026-04-27T09:00:02Z",
+  "last_prompt_ts": "2026-04-27T08:55:05.327Z",
+  "last_user_prompt": "2️⃣ 🪟",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이제 Mac 으로 todos 사후 기록 directive 별도 self-contained 메시지로 쏠게요.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
 }
