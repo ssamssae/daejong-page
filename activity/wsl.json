@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T05:58:53Z",
-  "last_prompt_ts": "2026-04-27T05:56:16.442Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3284\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T05:56:11",
+  "last_active_ts": "2026-04-27T06:11:39Z",
+  "last_prompt_ts": "2026-04-27T06:10:59.547Z",
+  "last_user_prompt": "📋 프롬�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "원인 좁혀졌어요.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
