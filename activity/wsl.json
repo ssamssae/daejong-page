@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T14:58:28Z",
-  "last_prompt_ts": "2026-04-27T14:52:08.164Z",
-  "last_user_prompt": "1 2 3 다 </",
+  "last_active_ts": "2026-04-27T15:04:21Z",
+  "last_prompt_ts": "2026-04-27T15:00:35.615Z",
+  "last_user_prompt": "전부 진�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "스킬 description 손대기 전에 한 번 확인 받는 게 안전해서 잠깐 멈춤. 텔레그램으로 현재 상태 + Phase 2/3 제�",
-  "last_recent_edit": "/home/ssamssae/.claude/skills/handoff/SKILL.md"
+  "last_assistant_preview": "전부 완료. 최종 보고합니다.",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/submit-app/SKILL.md"
 }
