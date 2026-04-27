@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T12:45:05Z",
-  "last_prompt_ts": "2026-04-27T12:42:28.485Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3434\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T12:42:28",
+  "last_active_ts": "2026-04-27T12:49:46Z",
+  "last_prompt_ts": "2026-04-27T12:48:23.968Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3438\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T12:48:22",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": "/tmp/arun_logs/wrangler_summary.js"
+  "last_recent_edit": ""
 }
