@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:07:03Z",
-  "last_prompt_ts": "2026-04-27T13:01:04.083Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3445\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T13:01:02",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "Karpathy 4룰 섹션 동기화 + 답신 핸드오프 push 완료. hanjul main push 만 user 결정 대기 중.",
-  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-27-2206-wsl-mac-claude-md-karpathy-4rules-reply.md"
+  "last_active_ts": "2026-04-27T13:09:42Z",
+  "last_prompt_ts": "2026-04-27T13:09:35.584Z",
+  "last_user_prompt": "<task-notification> <task-id>bsufnb2md</task-id> <summary>Monitor event: \"arun rebuild outcome (hanjul UX update on emulator)\"</summary> <ev",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
