@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T13:39:54Z",
-  "last_prompt_ts": "2026-04-27T13:38:41.049Z",
-  "last_user_prompt": "강대종님",
+  "last_active_ts": "2026-04-27T13:43:49Z",
+  "last_prompt_ts": "2026-04-27T13:43:07.718Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "핵심 차이는 **저는 실측 / 그쪽 Claude 는 정책 추론**이에요. 둘 다 부분적으로 맞고, 결론이 갈려요.",
+  "last_assistant_preview": "Plan-mode 깊이로 가려면 먼저 무엇을 토론할지 정렬이 필요해서, 4개 후보(원칙/타당성/실행/토폴로지) 와 4�",
   "last_recent_edit": ""
 }
