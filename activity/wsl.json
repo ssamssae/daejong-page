@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:19:07Z",
-  "last_prompt_ts": "2026-04-27T13:17:36.449Z",
-  "last_user_prompt": "내 노드 �",
+  "last_active_ts": "2026-04-27T13:22:45Z",
+  "last_prompt_ts": "2026-04-27T13:22:04.075Z",
+  "last_user_prompt": "hanjul push",
   "last_user_source": "telegram",
-  "last_assistant_preview": "5개 노드(Mac/맥미니/WSL/데스크탑/노트북) v3 운영 정책 기준으로 정리. 24/7(맥미니+WSL) + on-demand(데스크탑+노",
+  "last_assistant_preview": "Hanjul push 통과 ✅. claude-skills 의 issue 파일은 별도 인가 필요해서 보류 중.",
   "last_recent_edit": ""
 }
