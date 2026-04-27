@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T10:15:07Z",
-  "last_prompt_ts": "2026-04-27T10:13:42.277Z",
-  "last_user_prompt": "뭐할까 </",
+  "last_active_ts": "2026-04-27T10:30:19Z",
+  "last_prompt_ts": "2026-04-27T10:28:14.362Z",
+  "last_user_prompt": "한줄일기",
   "last_user_source": "telegram",
-  "last_assistant_preview": "stale check 부터 돌리고 추천 후보 추리겠습니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "강대종님 픽 대기. 그동안 daejong-page 클레임 마커는 어차피 곧 활동 자동 커밋에 묻힐 것 같아 별도 푸시는",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/project_hanjul_ui_polish_in_progress.md"
 }
