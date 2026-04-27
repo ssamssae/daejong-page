@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T13:50:59Z",
-  "last_prompt_ts": "2026-04-27T13:48:45.419Z",
-  "last_user_prompt": "한줄일기",
+  "last_active_ts": "2026-04-27T13:55:58Z",
+  "last_prompt_ts": "2026-04-27T13:53:54.192Z",
+  "last_user_prompt": "1",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Stat 완전 일치 (write_screen.dart 68줄, ai_service.dart 84줄, +130/-22). Windows-side dirty 가 5a83d0a 와 같은 변경을 담고 �",
+  "last_assistant_preview": "빌드 진행 중 — `Running Gradle task 'assembleRelease'` 단계. Gradle warm-up 첫회는 5~7분 가능. Monitor 로 완료/실패 이�",
   "last_recent_edit": ""
 }
