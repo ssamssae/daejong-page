@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T04:33:14Z",
-  "last_prompt_ts": "2026-04-27T04:33:09.516Z",
-  "last_user_prompt": "<task-notification> <task-id>brxtfmfj1</task-id> <summary>Monitor event: \"curator.py Phase 2 verify run\"</summary> <event>[Monitor timed out",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "",
+  "last_active_ts": "2026-04-27T05:28:48Z",
+  "last_prompt_ts": "2026-04-27T05:23:25.558Z",
+  "last_user_prompt": "일단 끝�",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "백그라운드 launcher 종료 (exit 0) — 실제 flutter clean + release 는 계속 진행 중. Monitor 가 결과 알려줄 거예요.",
   "last_recent_edit": ""
 }
