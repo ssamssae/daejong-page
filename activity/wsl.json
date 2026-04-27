@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-27T05:44:00Z",
-  "last_prompt_ts": "2026-04-27T05:42:55.175Z",
-  "last_user_prompt": "<task-notification> <task-id>bfiq5dit4</task-id> <summary>Monitor event: \"hanjul arun retry with keystore\"</summary> <event>Installing build",
+  "last_active_ts": "2026-04-27T05:51:26Z",
+  "last_prompt_ts": "2026-04-27T05:51:23.298Z",
+  "last_user_prompt": "<task-notification> <task-id>bfiq5dit4</task-id> <summary>Monitor event: \"hanjul arun retry with keystore\"</summary> <event>[Monitor timed o",
   "last_user_source": "terminal",
-  "last_assistant_preview": "S24 설치도 두 번째 시도에 성공 (Flutter 가 자동 uninstall 후 재시도). 둘 다 PASS.",
+  "last_assistant_preview": "Monitor 타임아웃 — 빌드/설치 이미 완료, 재무장 불필요. hanjul directive 종료 상태.",
   "last_recent_edit": ""
 }
