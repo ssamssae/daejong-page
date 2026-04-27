@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T14:37:27Z",
-  "last_prompt_ts": "2026-04-27T14:36:50.875Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-27T14:42:08Z",
+  "last_prompt_ts": "2026-04-27T14:41:09.620Z",
+  "last_user_prompt": "굿나잇 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Repo 충돌 없음, 다만 worklog 누락 가능성. WSL 먼저 push 후 /goodnight 권장. handoff 보내달라 시 답 기다릴게요.",
+  "last_assistant_preview": "Step 1 미리보기 보냈어요. WSL 한줄일기 미커밋분 어떻게 처리할지 답 기다릴게요.",
   "last_recent_edit": ""
 }
