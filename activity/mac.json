@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-27T13:08:23Z",
-  "last_prompt_ts": "2026-04-27T13:00:29.191Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8122\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-27T13:00:27",
+  "last_active_ts": "2026-04-27T13:13:00Z",
+  "last_prompt_ts": "2026-04-27T13:11:07.482Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "새 세션이라 이전 세션의 same-turn FP 가 안 걸릴 수 있어요. paste 안 하고 commit 가능한지 먼저 테스트해볼게�",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_paste_blocks_as_separate_message.md"
+  "last_assistant_preview": "Mac 하네스가 SSH 우회도 (대종님 본인 룰로) 막았어요. 옵션 3개 중 선택 대기 중. 1) 가 가장 빠른데 폰에서 ",
+  "last_recent_edit": ""
 }
