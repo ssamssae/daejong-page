@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T04:21:35Z",
-  "last_prompt_ts": "2026-04-28T04:17:16.208Z",
-  "last_user_prompt": "1,2 </channe",
+  "last_active_ts": "2026-04-28T04:30:33Z",
+  "last_prompt_ts": "2026-04-28T04:29:26.768Z",
+  "last_user_prompt": "출처 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진단 결과: - `~/.claude/skills` 가 stale (origin 9커밋 뒤) + working tree 에 **진짜 변경 9건** (description 줄 압축 작업,",
+  "last_assistant_preview": "추적 완료: **출처: WSL 본진 세션 `48a0341b-b230-46a3-91b8-ab972d3d5bbf`** - 위치: `~/.claude/projects/-home-ssamssae/` (= 이 WS",
   "last_recent_edit": ""
 }
