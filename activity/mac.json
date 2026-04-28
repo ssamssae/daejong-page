@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T10:13:08Z",
-  "last_prompt_ts": "2026-04-28T10:07:27.004Z",
-  "last_user_prompt": "B",
+  "last_active_ts": "2026-04-28T10:15:42Z",
+  "last_prompt_ts": "2026-04-28T10:14:52.842Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8537\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T10:14:50",
   "last_user_source": "telegram",
-  "last_assistant_preview": "뉴스레터 ep3 4개 파일 30군데 \"박다\"→\"들이다\" 치환 완료, 푸시했습니다.",
-  "last_recent_edit": "/Users/user/daejong-page/newsletter/ep3-wsl-2026-04-26.md"
+  "last_assistant_preview": "메모리가 stale 해서 Ep.3 발행 상태 잘못 알았습니다. 수정 옵션 A/B/C 제안 중 A(수동) 추천했습니다.",
+  "last_recent_edit": ""
 }
