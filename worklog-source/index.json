@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-28_v1.0.1.md",
+      "date": "2026-04-28",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 이후 추가분: 지휘관 1명 원칙 Mac 본진 적용 + 운반체 예외 한 줄 (a00825b) + 정합성 보강 R1/R2/R3 (3e85237). /night-runner v0 → v1 안전모드 재설계 (read-only 점검 5개, claude headless 0, commit/push/PR 0, timeout 1200) + Mac mini launchd 03:00 KST 자동 실행 install + 1회 검증 PASS (bccc165, 5b072ff, ca6ac01). Mac mini SSH 키 generate + GitHub 등록 (4/29 00:33) → claude-automations/skills clone + telegram 채널 미러링 + projects.yaml SCP. 부수 발견 (someday 박힘): install.sh hostname case 패턴 mac-mini* 미매칭, d19a315 night-build Mac mini install 미완료, dutch_pay_calculator Mac mini clone + flutter 미설치. 메모리 3건 박음.",
+      "updated": "2026-04-29T00:50:00+09:00"
+    },
+    {
       "file": "2026-04-28_v1.0.0.md",
       "date": "2026-04-28",
       "version": "v1.0.0",
