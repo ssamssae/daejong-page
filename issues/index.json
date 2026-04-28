@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-04-28-cf-colo-region-block.md",
+      "date": "2026-04-28",
+      "slug": "cf-colo-region-block",
+      "title": "CF colo region-block 으로 친구 wifi 에서만 OpenAI 호출 거부",
+      "severity": "high",
+      "recurrence": "medium",
+      "scope": "hanjul worker, 향후 LLM 연동 신규 앱 전체",
+      "occurred_at": "2026-04-28 (친구 카톡 알림 17시 전)",
+      "resolved_at": "2026-04-28 17:20 KST",
+      "updated": "2026-04-28T20:31:00+09:00"
+    },
+    {
       "file": "2026-04-27-telegram-msg-id-leak.md",
       "date": "2026-04-27",
       "slug": "telegram-msg-id-leak",
