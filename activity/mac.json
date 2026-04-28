@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T14:41:33Z",
-  "last_prompt_ts": "2026-04-28T14:40:06.539Z",
-  "last_user_prompt": "A",
+  "last_active_ts": "2026-04-28T14:46:11Z",
+  "last_prompt_ts": "2026-04-28T14:45:15.524Z",
+  "last_user_prompt": "## 점검만",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/claude-skills/todo/SKILL.md"
+  "last_recent_edit": ""
 }
