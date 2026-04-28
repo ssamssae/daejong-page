@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T00:53:30Z",
-  "last_prompt_ts": "2026-04-28T00:52:15.036Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-28T00:57:04Z",
+  "last_prompt_ts": "2026-04-28T00:56:03.490Z",
+  "last_user_prompt": "앱스토어",
   "last_user_source": "telegram",
-  "last_assistant_preview": "stale lite + todo 등록 push 완료. 19:00 이후 최우선으로 잡혔다.",
-  "last_recent_edit": "/Users/user/todo/todos.md"
+  "last_assistant_preview": "ASC 상태 확인 결과 + iOS 같이 출시 옵션 제시. 다음 지시 대기.",
+  "last_recent_edit": ""
 }
