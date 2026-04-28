@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T23:57:21Z",
-  "last_prompt_ts": "2026-04-28T23:56:45.077Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8912\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T23:56:42",
+  "last_active_ts": "2026-04-28T23:58:39Z",
+  "last_prompt_ts": "2026-04-28T23:57:50.823Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "사이클 완료 보고 + 작동 확인 완료. WSL SessionStart hook + Mac wrapper + 텔레그램 자동 포워딩 모두 검증됐습니�",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
