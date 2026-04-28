@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T09:32:14Z",
-  "last_prompt_ts": "2026-04-28T09:31:31.331Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8519\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T09:31:27",
+  "last_active_ts": "2026-04-28T09:34:20Z",
+  "last_prompt_ts": "2026-04-28T09:33:58.659Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "push 확인 + task #10 closed. 강대종님 브라우저 검증만 남았습니다.",
+  "last_assistant_preview": "\"박다\" = 기기에 launchd/cron 자동 잡 등록한다는 은어 — 풀어쓸지 물어봤습니다.",
   "last_recent_edit": ""
 }
