@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T00:41:17Z",
-  "last_prompt_ts": "2026-04-28T00:36:27.381Z",
-  "last_user_prompt": "🪟 [WSL→MAC HANDOFF] git pull 후 handoffs/2026-04-28-0934-wsl-mac-ep3-substack-publish.md 읽고 본문 directive 따라 진행",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "발행 성공. 텔레그램 보고.",
+  "last_active_ts": "2026-04-28T00:47:08Z",
+  "last_prompt_ts": "2026-04-28T00:44:58.572Z",
+  "last_user_prompt": "",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "스크린샷 + 폼 상태 보내고 GO 대기.",
   "last_recent_edit": ""
 }
