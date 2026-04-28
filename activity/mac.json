@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T09:59:53Z",
-  "last_prompt_ts": "2026-04-28T09:58:34.089Z",
-  "last_user_prompt": "뉴스레터",
+  "last_active_ts": "2026-04-28T10:05:39Z",
+  "last_prompt_ts": "2026-04-28T10:05:09.420Z",
+  "last_user_prompt": "substack 발",
   "last_user_source": "telegram",
-  "last_assistant_preview": "뉴스레터 폴더 빠뜨렸습니다. Ep.3 가 \"박다\" 를 핵심 키워드로 쓰고 있어서 대체 후보 A/B/C 어느 거로 갈지 ",
+  "last_assistant_preview": "Ep.1·Ep.2 발행본은 박다 미사용이라 수정 불필요. Ep.3 draft 만 키워드 선택 받으면 진행합니다.",
   "last_recent_edit": ""
 }
