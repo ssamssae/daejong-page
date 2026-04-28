@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T04:30:33Z",
-  "last_prompt_ts": "2026-04-28T04:29:26.768Z",
-  "last_user_prompt": "출처 </cha",
+  "last_active_ts": "2026-04-28T04:37:17Z",
+  "last_prompt_ts": "2026-04-28T04:30:49.761Z",
+  "last_user_prompt": "y",
   "last_user_source": "telegram",
-  "last_assistant_preview": "추적 완료: **출처: WSL 본진 세션 `48a0341b-b230-46a3-91b8-ab972d3d5bbf`** - 위치: `~/.claude/projects/-home-ssamssae/` (= 이 WS",
-  "last_recent_edit": ""
+  "last_assistant_preview": "plan 두 파일 다 확인. **plan 이 이미 충분히 자세하고 ChatGPT 시드 prompt 6종도 ready** — 한줄일기 출시 전에 �",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/merge-janitor/SKILL.md"
 }
