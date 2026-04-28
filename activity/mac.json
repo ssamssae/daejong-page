@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T16:07:33Z",
-  "last_prompt_ts": "2026-04-28T16:07:03.444Z",
-  "last_user_prompt": "sync 스킬",
+  "last_active_ts": "2026-04-28T16:09:51Z",
+  "last_prompt_ts": "2026-04-28T16:08:28.185Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "좋은 질문. 의존성/사용 빈도 먼저 확인하고 답변합니다.",
   "last_recent_edit": ""
 }
