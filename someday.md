@@ -18,6 +18,12 @@
 
 - 🤝 🧹 **globals/CLAUDE.md 미커밋 commit** — Karpathy 4룰 변경이 `~/.claude/CLAUDE.md → globals/CLAUDE.md` symlink 통해 claude-skills 미커밋 변경으로 잡혀있음. Mac/WSL 양 기기 동기화 완료된 지금이 commit 적기. 한 줄 `git add + commit + push` 면 끝. 단순 정리.  *(추가: 2026-04-27)*
 
+- 🍎 🌐 **Open WebUI mac-mini 셋업** — ChatGPT-style 셀프호스팅 UI for ollama. 이미 mac-mini 에 깔려있는 llama3.1:8b-instruct-q4_K_M 그대로 쓰고, Tailscale 별칭 mac-mini 로 폰/맥에서 `http://mac-mini:8080` 접속. OpenClaw 발화에서 파생. 빌드 추정 5~15분 (`brew install open-webui` 또는 docker). 본인 자체 호스팅 + Claude API 토큰 0.  *(추가: 2026-04-28)*
+
+- 🍎 📧 **mail-watcher false positive 튜닝** — 4h 주기 운영하다 important=true 잘못 잡힌 케이스 누적되면 prompt 더 엄격화 또는 1차 keyword 필터에 false 통과 패턴 추가. 운영 1~2주 후 데이터 쌓이면. 위치 `~/secrets/mail-watcher/mail_watcher.py` 의 `ollama_classify` 함수.  *(추가: 2026-04-28)*
+
+- 🍎 🐍 **mac-mini system Python 3.9.6 정리** — 지금 venv 만 brew python@3.14 사용 중, 시스템 Python 은 EOL 3.9.6 그대로. PATH 우선순위 정리하거나 system Python 그대로 둬도 됨 (사용 안 하면 무해). 정리 옵션.  *(추가: 2026-04-28)*
+
 ## 승격됨 (→ 할일)
 
 (없음)
