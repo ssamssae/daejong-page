@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T04:03:52Z",
-  "last_prompt_ts": "2026-04-28T04:02:30.990Z",
-  "last_user_prompt": "a",
+  "last_active_ts": "2026-04-28T04:09:19Z",
+  "last_prompt_ts": "2026-04-28T04:08:04.143Z",
+  "last_user_prompt": "뭐할까 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "SSH OK, Mac 에 plan 파일 없음 — 새로 박는다. wordbook-mvp 파일도 Mac 에 있는지 확인 + 없으면 같이 push.",
+  "last_assistant_preview": "상황 파악했습니다. WSL 본진, 오전 청소(자동화 3건 폐기 + 심사레이더 D 옵션 묶음 + mail-watcher v5 트리거) �",
   "last_recent_edit": ""
 }
