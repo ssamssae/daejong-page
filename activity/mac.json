@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T09:50:40Z",
-  "last_prompt_ts": "2026-04-28T09:37:26.458Z",
-  "last_user_prompt": "A",
+  "last_active_ts": "2026-04-28T09:59:53Z",
+  "last_prompt_ts": "2026-04-28T09:58:34.089Z",
+  "last_user_prompt": "뉴스레터",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Both tasks complete: **1. \"박다\" 치환** - 26개 파일 (worklog/, worklog-source/, done/) 48군데 문맥별 치환 - 자동 잡 등록 ",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-28-1842-wsl-mac-hanjul-keystore-sha.md"
+  "last_assistant_preview": "뉴스레터 폴더 빠뜨렸습니다. Ep.3 가 \"박다\" 를 핵심 키워드로 쓰고 있어서 대체 후보 A/B/C 어느 거로 갈지 ",
+  "last_recent_edit": ""
 }
