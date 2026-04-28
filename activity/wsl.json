@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T04:11:20Z",
-  "last_prompt_ts": "2026-04-28T04:10:43.895Z",
-  "last_user_prompt": "1번 트렌�",
+  "last_active_ts": "2026-04-28T04:21:35Z",
+  "last_prompt_ts": "2026-04-28T04:17:16.208Z",
+  "last_user_prompt": "1,2 </channe",
   "last_user_source": "telegram",
-  "last_assistant_preview": "확인 결과 강대종님 기억 맞습니다. - `~/trend-curator/` 디렉토리 = 삭제됨 - `claude-automations` 에 `d63c490 chore: rem",
+  "last_assistant_preview": "진단 결과: - `~/.claude/skills` 가 stale (origin 9커밋 뒤) + working tree 에 **진짜 변경 9건** (description 줄 압축 작업,",
   "last_recent_edit": ""
 }
