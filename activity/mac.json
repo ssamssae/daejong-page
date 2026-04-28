@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T05:10:55Z",
-  "last_prompt_ts": "2026-04-28T05:08:42.920Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-28T05:24:31Z",
+  "last_prompt_ts": "2026-04-28T05:20:51.381Z",
+  "last_user_prompt": "a 인지 리",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진단 + 3개 결정 항목 강대종님께 일임. 결정 받으면 일괄 처리합니다.",
+  "last_assistant_preview": "안내 + 복붙용 jq 명령 분리 송부 완료. 강대종님 적용 후 알림 주시면 hanjul push 재시도합니다. (다른 두 repo",
   "last_recent_edit": ""
 }
