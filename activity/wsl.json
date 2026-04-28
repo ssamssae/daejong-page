@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T23:52:43Z",
-  "last_prompt_ts": "2026-04-28T23:52:35.069Z",
-  "last_user_prompt": "디렉티브 자동 포워딩 동작 테스트 (이건 실제로 WSL Claude 한테는 가지만 짧은 sanity check)",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-28T23:57:42Z",
+  "last_prompt_ts": "2026-04-28T23:57:09.659Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3855\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T23:57:07",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
