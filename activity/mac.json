@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T06:15:20Z",
-  "last_prompt_ts": "2026-04-28T06:14:34.107Z",
-  "last_user_prompt": "했어 </cha",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_active_ts": "2026-04-28T06:33:58Z",
+  "last_prompt_ts": "2026-04-28T06:32:31.063Z",
+  "last_user_prompt": "<task-notification> <task-id>b4u7rloqh</task-id> <summary>Monitor event: \"wrangler tail — hanjul-proxy upstream_failed events\"</summary> <",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "사진 확인했고 wrangler tail 로 이미 잡힌 시도와 동일함을 알렸습니다. A(CF AI Gateway) / B(placement smart) / C(retry+",
   "last_recent_edit": ""
 }
