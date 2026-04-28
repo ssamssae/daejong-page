@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T13:02:49Z",
-  "last_prompt_ts": "2026-04-28T12:53:23.139Z",
-  "last_user_prompt": "<task-notification> <task-id>bvyt39w2z</task-id> <tool-use-id>toolu_01G57G7ca3UQzbLHD8kgcrdh</tool-use-id> <output-file>/private/tmp/claude-",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "🎉 **\"심사에 추가\" 버튼 활성화** — 모든 준비 끝.",
+  "last_active_ts": "2026-04-28T13:04:04Z",
+  "last_prompt_ts": "2026-04-28T13:02:49.229Z",
+  "last_user_prompt": "go </channel",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "맞아요, 기존 store/screenshots/ios PNG 들이 stale (4/27 이전 디자인 캡처). 그 후 launch image, 마이크로 인터랙션, �",
   "last_recent_edit": ""
 }
