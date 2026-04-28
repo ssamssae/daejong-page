@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T05:48:50Z",
-  "last_prompt_ts": "2026-04-28T05:47:43.653Z",
-  "last_user_prompt": "뭐할까 </",
+  "last_active_ts": "2026-04-28T05:55:45Z",
+  "last_prompt_ts": "2026-04-28T05:50:17.723Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "활성 todo 점검하고 답변할게요.",
+  "last_assistant_preview": "APK 빌드 완료 (50.3MB). 텔레그램 50MB 한도 빠듯해서 정확한 크기 + 전송 시도.",
   "last_recent_edit": ""
 }
