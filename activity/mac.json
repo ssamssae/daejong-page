@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T06:42:35Z",
-  "last_prompt_ts": "2026-04-28T06:42:08.544Z",
-  "last_user_prompt": "<task-notification> <task-id>b4u7rloqh</task-id> <summary>Monitor event: \"wrangler tail — hanjul-proxy upstream_failed events\"</summary> <",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "",
+  "last_active_ts": "2026-04-28T06:44:23Z",
+  "last_prompt_ts": "2026-04-28T06:43:27.524Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8458\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T06:43:24",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "강대종님 dashboard 에서 AI Gateway 만들고 endpoint URL 보내주시기 대기 중입니다.",
   "last_recent_edit": ""
 }
