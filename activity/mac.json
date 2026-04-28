@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T09:28:40Z",
-  "last_prompt_ts": "2026-04-28T09:20:39.475Z",
-  "last_user_prompt": "뉴스레터",
+  "last_active_ts": "2026-04-28T09:32:14Z",
+  "last_prompt_ts": "2026-04-28T09:31:31.331Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8519\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T09:31:27",
   "last_user_source": "telegram",
-  "last_assistant_preview": "3개 분리 메시지 (작업 결과 / commit 명령 / 검증 안내) 전송. 강대종님 push 후 newsletter.html 에 Ep.3 노출 확인�",
-  "last_recent_edit": "/Users/user/daejong-page/newsletter/index.json"
+  "last_assistant_preview": "push 확인 + task #10 closed. 강대종님 브라우저 검증만 남았습니다.",
+  "last_recent_edit": ""
 }
