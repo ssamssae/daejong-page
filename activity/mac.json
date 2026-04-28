@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T05:24:31Z",
-  "last_prompt_ts": "2026-04-28T05:20:51.381Z",
-  "last_user_prompt": "a 인지 리",
+  "last_active_ts": "2026-04-28T05:32:55Z",
+  "last_prompt_ts": "2026-04-28T05:31:45.700Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8420\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T05:31:42",
   "last_user_source": "telegram",
-  "last_assistant_preview": "안내 + 복붙용 jq 명령 분리 송부 완료. 강대종님 적용 후 알림 주시면 hanjul push 재시도합니다. (다른 두 repo",
+  "last_assistant_preview": "3 repo 정리 완료, hanjul d179710 main push 통과. autoMode 룰 효과 검증됨. 19:00 한줄일기 양 스토어 출시 사전준비 1",
   "last_recent_edit": ""
 }
