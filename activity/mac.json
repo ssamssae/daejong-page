@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T01:21:48Z",
-  "last_prompt_ts": "2026-04-28T01:17:59.473Z",
-  "last_user_prompt": "🪟 [WSL→MAC HANDOFF] git pull 후 handoffs/2026-04-28-1018-wsl-mac-review-radar-cleanup.md 읽고 본문 directive 따라 진행 (심사",
+  "last_active_ts": "2026-04-28T01:47:11Z",
+  "last_prompt_ts": "2026-04-28T01:43:55.315Z",
+  "last_user_prompt": "🪟 [WSL→MAC HANDOFF] git pull 후 handoffs/2026-04-28-1041-wsl-mac-mac-mini-mail-watcher.md 읽고 본문 directive 따라 진행 (Part ",
   "last_user_source": "terminal",
-  "last_assistant_preview": "정리 완료했습니다. 요약: **삭제**: `~/Library/LaunchAgents/_disabled/com.claude.review-status-check.plist` (rm) **이미 깨끗*",
-  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-28-1018-wsl-mac-review-radar-cleanup.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
