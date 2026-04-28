@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T02:04:48Z",
-  "last_prompt_ts": "2026-04-28T02:01:54.526Z",
-  "last_user_prompt": "권고대로",
+  "last_active_ts": "2026-04-28T02:16:22Z",
+  "last_prompt_ts": "2026-04-28T02:14:20.218Z",
+  "last_user_prompt": "자동으로",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": "/Users/user/daejong-page/todos/index.json"
+  "last_recent_edit": ""
 }
