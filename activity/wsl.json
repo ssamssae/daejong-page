@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T02:14:20Z",
-  "last_prompt_ts": "2026-04-28T02:10:23.105Z",
-  "last_user_prompt": "추천 ㄱ�",
+  "last_active_ts": "2026-04-28T02:19:32Z",
+  "last_prompt_ts": "2026-04-28T02:16:50.956Z",
+  "last_user_prompt": "gpt 시드�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "저장 완료 (~/.claude/plans/wordyo-seeds-prompts-2026-04-28.md). 이제 텔레그램으로 안내 1통 + prompt 6통 = 총 7통 보낼게",
-  "last_recent_edit": "/home/ssamssae/.claude/plans/wordyo-seeds-prompts-2026-04-28.md"
+  "last_assistant_preview": "회의 영어 30개 ~/wordyo-seeds/wordyo-seed-meeting.json 저장 완료. level 분포 basic 5 / intermediate 20 / advanced 5 정확. sampl",
+  "last_recent_edit": "/home/ssamssae/wordyo-seeds/wordyo-seed-meeting.json"
 }
