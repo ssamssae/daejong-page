@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T12:44:41Z",
-  "last_prompt_ts": "2026-04-28T12:43:40.589Z",
-  "last_user_prompt": "끝 </channe",
+  "last_active_ts": "2026-04-28T12:46:48Z",
+  "last_prompt_ts": "2026-04-28T12:45:51.841Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8656\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T12:45:49",
   "last_user_source": "telegram",
-  "last_assistant_preview": "강대종님 공유 버튼 증상 답변 대기. 답에 따라 출시 진행/보류 결정. 영상은 14MB 안전하게 저장됨.",
+  "last_assistant_preview": "🔥 **에러 정확히 확인**: 공유 버튼 = **PlatformException sharePositionOrigin** 에러 — share_plus 가 iPad/iPhone share shee",
   "last_recent_edit": ""
 }
