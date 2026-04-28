@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T11:17:53Z",
-  "last_prompt_ts": "2026-04-28T11:04:47.273Z",
-  "last_user_prompt": "C 미루기",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "빌드 백그라운드 진행 중. 끝나면 자동 알림 받고 Play Console 업로드로 진행합니다.",
+  "last_active_ts": "2026-04-28T11:20:38Z",
+  "last_prompt_ts": "2026-04-28T11:17:56.168Z",
+  "last_user_prompt": "<task-notification> <task-id>byo5m7y3j</task-id> <tool-use-id>toolu_01Tv9WnsEJ2ypi7LPngWvmC3</tool-use-id> <output-file>/private/tmp/claude-",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "재빌드 백그라운드 진행 중. 완료 알림 대기.",
   "last_recent_edit": ""
 }
