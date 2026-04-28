@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T13:34:57Z",
-  "last_prompt_ts": "2026-04-28T13:18:12.561Z",
-  "last_user_prompt": "작업진행",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "캡쳐 6컷 완료. iPhone 16 Pro Max + iPad Pro 13\" 양쪽 native 해상도로 home / stats / empty 3종 셋업 끝. 시드 트릭(plistlib",
-  "last_recent_edit": "/tmp/hanjul_seed.json"
+  "last_active_ts": "2026-04-28T13:42:59Z",
+  "last_prompt_ts": "2026-04-28T13:35:55.327Z",
+  "last_user_prompt": "[Image: original 1320x2868, displayed at 1186x2576. Multiply coordinates by 1.11 to map to original image.]",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "파이프라인 현황: - ✅ 빌드 / 설치 / 캡처 / 시드 트릭 검증 / 데모 영상 (19.1초) - ⏸ ASC 업로드 — 사용자 GO",
+  "last_recent_edit": ""
 }
