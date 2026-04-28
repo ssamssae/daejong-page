@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T07:58:17Z",
-  "last_prompt_ts": "2026-04-28T07:57:35.785Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8487\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T07:57:33",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "방금 내 sanity test 가 tail 에 잡힌 것. 추가 알림 X. 친구폰 wifi 재시도 결과 대기 중입니다.",
+  "last_active_ts": "2026-04-28T08:20:42Z",
+  "last_prompt_ts": "2026-04-28T08:20:20.675Z",
+  "last_user_prompt": "<task-notification> <task-id>b4u7rloqh</task-id> <summary>Monitor event: \"wrangler tail — hanjul-proxy upstream_failed events\"</summary> <",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
