@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T09:46:09Z",
-  "last_prompt_ts": "2026-04-28T09:41:35.700Z",
-  "last_user_prompt": "A",
+  "last_active_ts": "2026-04-28T10:27:29Z",
+  "last_prompt_ts": "2026-04-28T10:25:35.792Z",
+  "last_user_prompt": "퇴근했어",
   "last_user_source": "telegram",
-  "last_assistant_preview": "claude-31190 idle 확인 — 거기에 핑 인젝션.",
-  "last_recent_edit": "/home/ssamssae/.claude/skills/handoffs/2026-04-28-1842-wsl-mac-hanjul-keystore-sha.md"
+  "last_assistant_preview": "Stale 점검 끝. 핵심은 **한줄일기 19:00 KST 1900원 유료 출시**가 오늘 쳐야할 큰 일.",
+  "last_recent_edit": ""
 }
