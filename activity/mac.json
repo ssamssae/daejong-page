@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T02:38:26Z",
-  "last_prompt_ts": "2026-04-28T02:38:00.872Z",
-  "last_user_prompt": "Re-check ~/.config/gcloud/application_default_credentials.json and bg task b046ru8qk status. If ADC exists, proceed with full mail-watcher d",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-28T02:44:46Z",
+  "last_prompt_ts": "2026-04-28T02:44:08.981Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8331\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T02:44:06",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
