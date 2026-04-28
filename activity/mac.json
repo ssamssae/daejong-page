@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T02:27:39Z",
-  "last_prompt_ts": "2026-04-28T02:26:23.958Z",
-  "last_user_prompt": "지금 </cha",
-  "last_user_source": "telegram",
+  "last_active_ts": "2026-04-28T02:31:23Z",
+  "last_prompt_ts": "2026-04-28T02:29:07.106Z",
+  "last_user_prompt": "Continue mac-mini mail-watcher setup: check if ~/.config/gcloud/application_default_credentials.json exists. If yes, proceed with: SCP to ma",
+  "last_user_source": "terminal",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
