@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T02:19:32Z",
-  "last_prompt_ts": "2026-04-28T02:16:50.956Z",
-  "last_user_prompt": "gpt 시드�",
+  "last_active_ts": "2026-04-28T02:28:53Z",
+  "last_prompt_ts": "2026-04-28T02:25:01.707Z",
+  "last_user_prompt": "ㄱㄱ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "회의 영어 30개 ~/wordyo-seeds/wordyo-seed-meeting.json 저장 완료. level 분포 basic 5 / intermediate 20 / advanced 5 정확. sampl",
-  "last_recent_edit": "/home/ssamssae/wordyo-seeds/wordyo-seed-meeting.json"
+  "last_assistant_preview": "6개 다 완성. 검증 + 보고.",
+  "last_recent_edit": "/home/ssamssae/wordyo-seeds/wordyo-seed-encouragement.json"
 }
