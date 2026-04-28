@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T11:19:32Z",
-  "last_prompt_ts": "2026-04-28T11:18:50.134Z",
-  "last_user_prompt": "한줄일기",
+  "last_active_ts": "2026-04-28T11:25:59Z",
+  "last_prompt_ts": "2026-04-28T11:24:41.703Z",
+  "last_user_prompt": "ㄱㄱ </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "기존 이슈 스캔 결과: OpenAI/CF/colo/region 키워드 매칭 없음 → 신규로 진행. slug `cf-colo-region-block` (20자) 으로 ",
   "last_recent_edit": ""
 }
