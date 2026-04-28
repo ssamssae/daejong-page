@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T12:38:09Z",
-  "last_prompt_ts": "2026-04-28T12:32:15.493Z",
-  "last_user_prompt": "A 권한 줬",
+  "last_active_ts": "2026-04-28T12:40:15Z",
+  "last_prompt_ts": "2026-04-28T12:38:43.510Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "권한 안 들어감 — computer-use MCP server 가 별도 프로세스라 다른 권한 필요. 더 단순한 길:",
   "last_recent_edit": ""
 }
