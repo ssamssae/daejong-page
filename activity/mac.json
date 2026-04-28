@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T08:30:44Z",
-  "last_prompt_ts": "2026-04-28T08:30:07.448Z",
-  "last_user_prompt": "clear 하려",
+  "last_active_ts": "2026-04-28T08:32:01Z",
+  "last_prompt_ts": "2026-04-28T08:30:53.626Z",
+  "last_user_prompt": "여기서는",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "Mac sync 한 줄 (hanjul docs pull) 자동 처리 완료. 다른 repo 모두 동기화됨. 강대종님 clear 진행 OK 알렸습니다.",
   "last_recent_edit": ""
 }
