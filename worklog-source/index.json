@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-28_v1.0.0.md",
+      "date": "2026-04-28",
+      "version": "v1.0.0",
+      "summary": "약먹자/더치페이 새벽 자동 승인 (1.0.1/1.0.2 READY_FOR_SALE). 한줄일기 1900원 1.0 iOS 심사 제출 23:04 KST (com.ssamssae→com.daejongkang 점유 충돌 전환, AI Gateway region-block 우회, 1.1.0+4 ipa, ASC stale 6.5\" 3컷 → 1284×2778 신규 + iPad 13\" 2064×2752 신규 + 콘텐츠권리 + 4+ 연령등급, 첨부파일 ASC navigate 버그). 자동화 3건 폐기 (morning-briefing/evening-wrap, 심사레이더, 가계부). \"박다\" 은어 26개 파일 일괄 교체. 4-node v4 옵션 X 결정. Android Play 패키지 등록됨 (SHA-256 확인).",
+      "updated": "2026-04-28T23:11:00+09:00"
+    },
+    {
       "file": "2026-04-27_v1.0.0.md",
       "date": "2026-04-27",
       "version": "v1.0.0",
