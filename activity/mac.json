@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T07:41:26Z",
-  "last_prompt_ts": "2026-04-28T07:40:48.805Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8473\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T07:40:46",
+  "last_active_ts": "2026-04-28T07:43:21Z",
+  "last_prompt_ts": "2026-04-28T07:42:56.934Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8477\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T07:42:54",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "Endpoint URL 또는 스크롤 후 스크린샷 받기 대기 중입니다.",
   "last_recent_edit": ""
 }
