@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T13:42:59Z",
-  "last_prompt_ts": "2026-04-28T13:35:55.327Z",
-  "last_user_prompt": "[Image: original 1320x2868, displayed at 1186x2576. Multiply coordinates by 1.11 to map to original image.]",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "파이프라인 현황: - ✅ 빌드 / 설치 / 캡처 / 시드 트릭 검증 / 데모 영상 (19.1초) - ⏸ ASC 업로드 — 사용자 GO",
+  "last_active_ts": "2026-04-28T13:52:11Z",
+  "last_prompt_ts": "2026-04-28T13:42:59.424Z",
+  "last_user_prompt": "",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "블로커 3개 모두 해제 완료. \"심사에 추가\" 버튼 활성화 확인. 사용자 GO 대기 중. 카테고리 \"개발자 도구\"로",
   "last_recent_edit": ""
 }
