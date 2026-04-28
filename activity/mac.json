@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T11:23:08Z",
-  "last_prompt_ts": "2026-04-28T11:20:38.262Z",
-  "last_user_prompt": "<task-notification> <task-id>bsh11u10e</task-id> <tool-use-id>toolu_01UPqP4zavdSiw9Tv58zJF6y</tool-use-id> <output-file>/private/tmp/claude-",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "강대종님 A/B/C 결정 대기 중입니다. 제출 다이얼로그 떠있는 상태에서 멈춰있어요.",
+  "last_active_ts": "2026-04-28T11:26:18Z",
+  "last_prompt_ts": "2026-04-28T11:23:59.114Z",
+  "last_user_prompt": "C",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "원복 완료. Mac git status 깨끗. 강대종님 새 패키지 이름 결정 (A/B/C/D/E) 대기 중입니다.",
   "last_recent_edit": ""
 }
