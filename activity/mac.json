@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T15:09:41Z",
-  "last_prompt_ts": "2026-04-28T15:07:47.882Z",
-  "last_user_prompt": "클로드를",
+  "last_active_ts": "2026-04-28T15:20:15Z",
+  "last_prompt_ts": "2026-04-28T15:10:07.109Z",
+  "last_user_prompt": "한국시간",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "claude-automations bccc165 push 완료. SKILL.md commit + directive 2/2 진행은 시각 (02:00 vs 03:00) 결정 받고. Standby.",
+  "last_recent_edit": "/Users/user/claude-automations/scripts/night-runner-check.sh"
 }
