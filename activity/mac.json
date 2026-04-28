@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T06:00:13Z",
-  "last_prompt_ts": "2026-04-28T05:58:18.187Z",
-  "last_user_prompt": "풀그린 </",
+  "last_active_ts": "2026-04-28T06:04:44Z",
+  "last_prompt_ts": "2026-04-28T06:02:04.955Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8439\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T06:02:05",
   "last_user_source": "telegram",
-  "last_assistant_preview": "IPA 빌드 진행 모니터링 중. 그동안 ASC 등록 스크립트 준비.",
+  "last_assistant_preview": "강대종님 답 대기 중. 친구폰 위치(옆/원격) + 디버깅 방식 선택(A 네트워크 토글 / B wrangler tail / C 앱 코드 �",
   "last_recent_edit": ""
 }
