@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T11:44:22Z",
-  "last_prompt_ts": "2026-04-28T11:39:18.379Z",
-  "last_user_prompt": "ㄱㄱ </cha",
+  "last_active_ts": "2026-04-28T11:45:31Z",
+  "last_prompt_ts": "2026-04-28T11:44:32.839Z",
+  "last_user_prompt": "A",
   "last_user_source": "telegram",
-  "last_assistant_preview": "⚠️ ASC API 가 신규 앱 생성을 막음 (\"apps does not allow CREATE\"). 자동화 옵션 변경 필요.",
+  "last_assistant_preview": "ipa 빌드 백그라운드 진행 중. 강대종님 ASC 신규 앱 만들기 신호 + 빌드 알림 대기합니다.",
   "last_recent_edit": ""
 }
