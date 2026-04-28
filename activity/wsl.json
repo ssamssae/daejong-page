@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T23:36:26Z",
-  "last_prompt_ts": "2026-04-28T23:35:10.085Z",
-  "last_user_prompt": "📥 Mac → WSL 디렉티브 #2 (2026-04-29 ~23:35 KST, SessionStart auto-pull hook 박기) [배경] - 직전 사이클에서 /sync + daily",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "JSON validation + 명령어 자체 dry-run 검증.",
-  "last_recent_edit": "/home/ssamssae/.claude/settings.json"
+  "last_active_ts": "2026-04-28T23:48:43Z",
+  "last_prompt_ts": "2026-04-28T23:48:12.676Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3850\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T23:48:10",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
