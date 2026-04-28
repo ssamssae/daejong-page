@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T00:47:24Z",
-  "last_prompt_ts": "2026-04-28T00:46:19.898Z",
-  "last_user_prompt": "다음 할�",
+  "last_active_ts": "2026-04-28T00:53:05Z",
+  "last_prompt_ts": "2026-04-28T00:49:30.485Z",
+  "last_user_prompt": "b 한줄일�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "메모리 정리 들어갑니다. checkpoint 4개 + drop 된 프로젝트 잔여 메모 + 옛 트렌드 정리.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
 }
