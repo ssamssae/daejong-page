@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T03:08:15Z",
-  "last_prompt_ts": "2026-04-28T03:07:53.364Z",
-  "last_user_prompt": "몇시간마",
+  "last_active_ts": "2026-04-28T03:09:59Z",
+  "last_prompt_ts": "2026-04-28T03:09:37.970Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "3개 질문에 답변: 4시간 주기 / important=true 만 텔레그램 / Claude API 0원 (ollama 로컬). 평상시 알림 0, 중요 메일",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
