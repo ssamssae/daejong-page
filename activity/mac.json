@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T13:14:36Z",
-  "last_prompt_ts": "2026-04-28T13:14:11.170Z",
-  "last_user_prompt": "핸드오프",
+  "last_active_ts": "2026-04-28T13:34:57Z",
+  "last_prompt_ts": "2026-04-28T13:18:12.561Z",
+  "last_user_prompt": "작업진행",
   "last_user_source": "telegram",
-  "last_assistant_preview": "세션 종료 확인 메시지 전송 완료. 다음 세션 첫 paste 로 핸드오프 이어가시면 됩니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "캡쳐 6컷 완료. iPhone 16 Pro Max + iPad Pro 13\" 양쪽 native 해상도로 home / stats / empty 3종 셋업 끝. 시드 트릭(plistlib",
+  "last_recent_edit": "/tmp/hanjul_seed.json"
 }
