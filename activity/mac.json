@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T16:01:20Z",
-  "last_prompt_ts": "2026-04-28T15:59:19.360Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-28T16:07:33Z",
+  "last_prompt_ts": "2026-04-28T16:07:03.444Z",
+  "last_user_prompt": "sync 스킬",
   "last_user_source": "telegram",
-  "last_assistant_preview": "5건 발견했고 총 25분 추정. 어디부터/언제 손댈지 사용자 결정 대기 중입니다.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
