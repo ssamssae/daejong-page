@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T12:00:44Z",
-  "last_prompt_ts": "2026-04-28T11:52:49.210Z",
-  "last_user_prompt": "B",
+  "last_active_ts": "2026-04-28T12:10:05Z",
+  "last_prompt_ts": "2026-04-28T12:02:57.926Z",
+  "last_user_prompt": "자동화 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "강대종님 결정 (Claude 자동화 계속 vs 직접 진행) 대기 중입니다.",
+  "last_assistant_preview": "답 + 추가 문제 보고:",
   "last_recent_edit": ""
 }
