@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T00:58:23Z",
-  "last_prompt_ts": "2026-04-28T00:57:35.281Z",
-  "last_user_prompt": "추가 </cha",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "todo 양 스토어 사이클로 확장. 19:00 이후 작업 시 `/submit-app hanjul --platform=android` / `/submit-app hanjul --platform=ios",
-  "last_recent_edit": "/Users/user/todo/todos.md"
+  "last_active_ts": "2026-04-28T01:04:29Z",
+  "last_prompt_ts": "2026-04-28T01:03:33.917Z",
+  "last_user_prompt": "🪟 [WSL→MAC HANDOFF] git pull 후 handoffs/2026-04-28-1005-wsl-mac-morning-evening-plist-cleanup.md 읽고 본문 directive 따라 진�",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "plist 두 개 삭제, 검증 0건, 다른 잡 보존. 핸드오프 완결.",
+  "last_recent_edit": ""
 }
