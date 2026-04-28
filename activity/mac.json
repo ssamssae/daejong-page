@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T12:31:45Z",
-  "last_prompt_ts": "2026-04-28T12:19:30.994Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8637\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T12:19:29",
+  "last_active_ts": "2026-04-28T12:38:09Z",
+  "last_prompt_ts": "2026-04-28T12:32:15.493Z",
+  "last_user_prompt": "A 권한 줬",
   "last_user_source": "telegram",
-  "last_assistant_preview": "죄송해요 — Mac 시스템 권한 패널 (Accessibility + Screen Recording) 이 떠있을 거에요. Claude 가 시뮬 자동 조작하�",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
