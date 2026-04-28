@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T14:18:12Z",
-  "last_prompt_ts": "2026-04-28T14:10:33.780Z",
-  "last_user_prompt": "지금까지",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "세션 종료 준비 완료. 작업일지 + 메모리 박제 + daejong-page 푸시 다 끝남. 새 세션에서 컨텍스트 자동 인계.",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_active_ts": "2026-04-28T14:19:14Z",
+  "last_prompt_ts": "2026-04-28T14:19:00.590Z",
+  "last_user_prompt": "<command-message>loop</command-message> <command-name>/loop</command-name> <command-args>continue hanjul ios screenshot pipeline (stats buil",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "/loop 종료. 파이프라인 완료 상태: - ✅ iOS 한줄일기 1.0 심사 제출 (23:04 KST, 1.0 심사 대기 중) - ✅ 작업일지 ",
+  "last_recent_edit": ""
 }
