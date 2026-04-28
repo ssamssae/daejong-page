@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T11:49:39Z",
-  "last_prompt_ts": "2026-04-28T11:45:15.612Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3746\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T11:45:15",
+  "last_active_ts": "2026-04-28T12:03:29Z",
+  "last_prompt_ts": "2026-04-28T11:56:09.329Z",
+  "last_user_prompt": "대신 권�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "두 export 파싱 끝. **Mac 봇 채팅 (MyClaude)** 19~20시 흐름이 핵심:",
-  "last_recent_edit": ""
+  "last_assistant_preview": "",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/submit-app/keystore-sot.md"
 }
