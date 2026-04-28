@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T05:36:28Z",
-  "last_prompt_ts": "2026-04-28T05:35:24.582Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-28T05:48:50Z",
+  "last_prompt_ts": "2026-04-28T05:47:43.653Z",
+  "last_user_prompt": "뭐할까 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "/sync exit 0. 스크립트 내부에서 텔레그램에 변경 요약 + 오늘의 복기 전송됨.",
+  "last_assistant_preview": "활성 todo 점검하고 답변할게요.",
   "last_recent_edit": ""
 }
