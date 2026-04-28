@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T00:36:54Z",
-  "last_prompt_ts": "2026-04-28T00:33:26.071Z",
-  "last_user_prompt": "a",
+  "last_active_ts": "2026-04-28T00:47:24Z",
+  "last_prompt_ts": "2026-04-28T00:46:19.898Z",
+  "last_user_prompt": "다음 할�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "세션 셋 다 그룹 활성 Claude Code. `claude` 세션에 핑 발사합니다.",
-  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-28-0934-wsl-mac-ep3-substack-publish.md"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
