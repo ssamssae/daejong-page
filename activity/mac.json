@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T23:36:23Z",
-  "last_prompt_ts": "2026-04-28T23:33:56.125Z",
+  "last_active_ts": "2026-04-28T23:53:23Z",
+  "last_prompt_ts": "2026-04-28T23:51:03.983Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac wrapper 커밋·푸시 완료 (`82b62d7`). #1 WSL SessionStart hook 은 WSL Claude 가 마무리 중 — 곧 별도 텔레그램 보고 ",
+  "last_assistant_preview": "Wrapper 에 Telegram 자동 포워딩 추가 (커밋 `6052c6d`). 이제 Mac→WSL 디렉티브 보낼 때마다 그 내용이 텔레그램�",
   "last_recent_edit": "/Users/user/.claude/automations/scripts/wsl-directive.sh"
 }
