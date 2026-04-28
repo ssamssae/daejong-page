@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T06:07:27Z",
-  "last_prompt_ts": "2026-04-28T06:05:40.027Z",
-  "last_user_prompt": "b",
+  "last_active_ts": "2026-04-28T06:15:20Z",
+  "last_prompt_ts": "2026-04-28T06:14:34.107Z",
+  "last_user_prompt": "했어 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "deploy 명령어 별도 메시지로 보냈고, 마무리 안내도 분리했습니다. 강대종님이 deploy 실행 후 \"ㅇㅋ\" 보내면",
-  "last_recent_edit": "/Users/user/apps/hanjul/worker/worker.js"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
