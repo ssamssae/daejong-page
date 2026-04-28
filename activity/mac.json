@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T05:08:18Z",
-  "last_prompt_ts": "2026-04-28T05:07:55.115Z",
-  "last_user_prompt": "<task-notification> <task-id>baun3lqk2</task-id> <tool-use-id>toolu_01R87iL8bTMFrvaDKfCNrWyr</tool-use-id> <output-file>/private/tmp/claude-",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "D3 PASS. ipa 19.0MB, 워닝 0건. Launch image 그라데이션 풀프레임 + C 부카피 + 수직 중앙 정렬 모두 적용된 최종 빌",
+  "last_active_ts": "2026-04-28T05:10:55Z",
+  "last_prompt_ts": "2026-04-28T05:08:42.920Z",
+  "last_user_prompt": "",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "진단 + 3개 결정 항목 강대종님께 일임. 결정 받으면 일괄 처리합니다.",
   "last_recent_edit": ""
 }
