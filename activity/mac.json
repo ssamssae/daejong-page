@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T10:05:39Z",
-  "last_prompt_ts": "2026-04-28T10:05:09.420Z",
-  "last_user_prompt": "substack 발",
+  "last_active_ts": "2026-04-28T10:13:08Z",
+  "last_prompt_ts": "2026-04-28T10:07:27.004Z",
+  "last_user_prompt": "B",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Ep.1·Ep.2 발행본은 박다 미사용이라 수정 불필요. Ep.3 draft 만 키워드 선택 받으면 진행합니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "뉴스레터 ep3 4개 파일 30군데 \"박다\"→\"들이다\" 치환 완료, 푸시했습니다.",
+  "last_recent_edit": "/Users/user/daejong-page/newsletter/ep3-wsl-2026-04-26.md"
 }
