@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T23:49:55Z",
-  "last_prompt_ts": "2026-04-28T23:49:30.724Z",
-  "last_user_prompt": "내가 보�",
-  "last_user_source": "telegram",
+  "last_active_ts": "2026-04-28T23:52:43Z",
+  "last_prompt_ts": "2026-04-28T23:52:35.069Z",
+  "last_user_prompt": "디렉티브 자동 포워딩 동작 테스트 (이건 실제로 WSL Claude 한테는 가지만 짧은 sanity check)",
+  "last_user_source": "terminal",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
