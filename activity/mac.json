@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T15:20:15Z",
-  "last_prompt_ts": "2026-04-28T15:10:07.109Z",
-  "last_user_prompt": "한국시간",
+  "last_active_ts": "2026-04-28T15:26:56Z",
+  "last_prompt_ts": "2026-04-28T15:23:30.973Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "claude-automations bccc165 push 완료. SKILL.md commit + directive 2/2 진행은 시각 (02:00 vs 03:00) 결정 받고. Standby.",
-  "last_recent_edit": "/Users/user/claude-automations/scripts/night-runner-check.sh"
+  "last_assistant_preview": "Mac mini 인프라 부재 발견 — 결정 대기. plist 는 작성 완료 (03:00 KST), install 단계만 결정 후 진행. Standby.",
+  "last_recent_edit": "/Users/user/claude-automations/launchd/com.claude.night-runner-check.plist"
 }
