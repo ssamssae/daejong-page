@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T14:04:01Z",
-  "last_prompt_ts": "2026-04-28T13:52:11.473Z",
-  "last_user_prompt": "<command-message>loop</command-message> <command-name>/loop</command-name> <command-args>continue hanjul ios screenshot pipeline (stats buil",
-  "last_user_source": "terminal",
+  "last_active_ts": "2026-04-28T14:07:02Z",
+  "last_prompt_ts": "2026-04-28T14:04:24.611Z",
+  "last_user_prompt": "",
+  "last_user_source": "telegram",
   "last_assistant_preview": "",
   "last_recent_edit": ""
 }
