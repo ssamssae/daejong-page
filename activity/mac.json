@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T12:46:48Z",
-  "last_prompt_ts": "2026-04-28T12:45:51.841Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8656\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T12:45:49",
+  "last_active_ts": "2026-04-28T12:52:25Z",
+  "last_prompt_ts": "2026-04-28T12:47:35.601Z",
+  "last_user_prompt": "A",
   "last_user_source": "telegram",
-  "last_assistant_preview": "🔥 **에러 정확히 확인**: 공유 버튼 = **PlatformException sharePositionOrigin** 에러 — share_plus 가 iPad/iPhone share shee",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Clean + 재빌드 백그라운드. 강대종님 영상 옵션 결정 + 빌드 알림 대기.",
+  "last_recent_edit": "/Users/user/apps/hanjul/lib/screens/stats_screen.dart"
 }
