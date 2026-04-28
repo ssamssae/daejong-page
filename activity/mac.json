@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T11:31:05Z",
-  "last_prompt_ts": "2026-04-28T11:28:50.621Z",
-  "last_user_prompt": "a",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "iOS 변경 완료. Android 빌드 결과 대기 중.",
-  "last_recent_edit": "/Users/user/apps/hanjul/android/app/src/main/kotlin/com/daejongkang/hanjul/MainActivity.kt"
+  "last_active_ts": "2026-04-28T11:36:03Z",
+  "last_prompt_ts": "2026-04-28T11:31:05.616Z",
+  "last_user_prompt": "<task-notification> <task-id>bmv4h2ge1</task-id> <tool-use-id>toolu_01CL4yo9RfKpDsX8QdtyyE5G</tool-use-id> <output-file>/private/tmp/claude-",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "메모리 정리 완료 (project + feedback 한 개씩, MEMORY.md 인덱스도 갱신). 강대종님 다음 액션 결정 대기 중입니�",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
