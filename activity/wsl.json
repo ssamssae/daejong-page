@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T02:28:53Z",
-  "last_prompt_ts": "2026-04-28T02:25:01.707Z",
-  "last_user_prompt": "ㄱㄱ </cha",
+  "last_active_ts": "2026-04-28T02:56:52Z",
+  "last_prompt_ts": "2026-04-28T02:55:56.332Z",
+  "last_user_prompt": "세션클리",
   "last_user_source": "telegram",
-  "last_assistant_preview": "6개 다 완성. 검증 + 보고.",
-  "last_recent_edit": "/home/ssamssae/wordyo-seeds/wordyo-seed-encouragement.json"
+  "last_assistant_preview": "대화 컨텍스트 후속안 추출: - 19시 한줄일기 본작업 → 이미 todos 진행중 - 단어요 repo 생성/트리아지/빌드 ",
+  "last_recent_edit": ""
 }
