@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T02:02:26Z",
-  "last_prompt_ts": "2026-04-28T01:57:18.023Z",
-  "last_user_prompt": "acb 순서�",
+  "last_active_ts": "2026-04-28T02:14:20Z",
+  "last_prompt_ts": "2026-04-28T02:10:23.105Z",
+  "last_user_prompt": "추천 ㄱ�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "plan + 메모리 읽고 보니 중요한 락다운 발견: \"한줄일기 출시 후 큐, 미출시 시 강대종님 컨펌 필요\" (회귀 �",
-  "last_recent_edit": "/home/ssamssae/daejong-page/index.html"
+  "last_assistant_preview": "저장 완료 (~/.claude/plans/wordyo-seeds-prompts-2026-04-28.md). 이제 텔레그램으로 안내 1통 + prompt 6통 = 총 7통 보낼게",
+  "last_recent_edit": "/home/ssamssae/.claude/plans/wordyo-seeds-prompts-2026-04-28.md"
 }
