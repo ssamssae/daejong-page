@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T02:56:52Z",
-  "last_prompt_ts": "2026-04-28T02:55:56.332Z",
-  "last_user_prompt": "세션클리",
+  "last_active_ts": "2026-04-28T02:59:02Z",
+  "last_prompt_ts": "2026-04-28T02:57:59.111Z",
+  "last_user_prompt": "뭐할까요",
   "last_user_source": "telegram",
-  "last_assistant_preview": "대화 컨텍스트 후속안 추출: - 19시 한줄일기 본작업 → 이미 todos 진행중 - 단어요 repo 생성/트리아지/빌드 ",
+  "last_assistant_preview": "상태 파악 끝. 답변 보낸다.",
   "last_recent_edit": ""
 }
