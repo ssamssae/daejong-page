@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T09:38:54Z",
-  "last_prompt_ts": "2026-04-28T09:37:44.323Z",
-  "last_user_prompt": "ㅐㅏ </cha",
+  "last_active_ts": "2026-04-28T09:46:09Z",
+  "last_prompt_ts": "2026-04-28T09:41:35.700Z",
+  "last_user_prompt": "A",
   "last_user_source": "telegram",
-  "last_assistant_preview": "OK 로 받음. hanjul keystore 위치부터 찾아 SHA fingerprint 뽑겠습니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "claude-31190 idle 확인 — 거기에 핑 인젝션.",
+  "last_recent_edit": "/home/ssamssae/.claude/skills/handoffs/2026-04-28-1842-wsl-mac-hanjul-keystore-sha.md"
 }
