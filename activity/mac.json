@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T09:35:33Z",
-  "last_prompt_ts": "2026-04-28T09:34:43.331Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-28T09:50:40Z",
+  "last_prompt_ts": "2026-04-28T09:37:26.458Z",
+  "last_user_prompt": "A",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Both tasks complete: **1. \"박다\" 치환** - 26개 파일 (worklog/, worklog-source/, done/) 48군데 문맥별 치환 - 자동 잡 등록 ",
+  "last_recent_edit": "/Users/user/claude-skills/handoffs/2026-04-28-1842-wsl-mac-hanjul-keystore-sha.md"
 }
