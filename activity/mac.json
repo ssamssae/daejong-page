@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T07:44:42Z",
-  "last_prompt_ts": "2026-04-28T07:43:58.789Z",
-  "last_user_prompt": "https://gate",
+  "last_active_ts": "2026-04-28T07:46:23Z",
+  "last_prompt_ts": "2026-04-28T07:45:21.025Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8484\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T07:45:19",
   "last_user_source": "telegram",
-  "last_assistant_preview": "3개 메시지 (패치 안내 / deploy 명령 / 다음 단계) 분리 전송 완료. 강대종님 deploy 후 알림 받으면 친구폰 wifi",
+  "last_assistant_preview": "방금 내 sanity test 가 tail 에 잡힌 것 (Mac IP, device prefix=post-aigatew). 이미 분석 완료된 이벤트, 추가 알림 안 �",
   "last_recent_edit": "/Users/user/apps/hanjul/worker/worker.js"
 }
