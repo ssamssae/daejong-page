@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T05:49:24Z",
-  "last_prompt_ts": "2026-04-28T05:47:42.334Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3688\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T05:47:40",
+  "last_active_ts": "2026-04-28T06:06:49Z",
+  "last_prompt_ts": "2026-04-28T06:06:13.134Z",
+  "last_user_prompt": "왜이렇게",
   "last_user_source": "telegram",
-  "last_assistant_preview": "워커 직접 호출해보니 HTTP 200 + 정상 답글 옴 (3.5s). 지금은 살아있고, 그때 502 는 OpenAI API 쪽 일시 장애였을",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
