@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T01:45:41Z",
-  "last_prompt_ts": "2026-04-28T01:44:57.741Z",
-  "last_user_prompt": "세션초기",
+  "last_active_ts": "2026-04-28T01:48:10Z",
+  "last_prompt_ts": "2026-04-28T01:47:42.170Z",
+  "last_user_prompt": "닫아 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "세션 닫기 흐름. session-close 스킬로 후속안 정리 + 체크포인트 메모리 박을게요.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/checkpoint_2026-04-28-1047.md"
 }
