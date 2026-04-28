@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T11:45:31Z",
-  "last_prompt_ts": "2026-04-28T11:44:32.839Z",
-  "last_user_prompt": "A",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "ipa 빌드 백그라운드 진행 중. 강대종님 ASC 신규 앱 만들기 신호 + 빌드 알림 대기합니다.",
+  "last_active_ts": "2026-04-28T11:49:12Z",
+  "last_prompt_ts": "2026-04-28T11:46:18.851Z",
+  "last_user_prompt": "<task-notification> <task-id>brqvk254g</task-id> <tool-use-id>toolu_01A799WcZg1kCYTaBBHKC8mW</tool-use-id> <output-file>/private/tmp/claude-",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "스크린샷 첨부 보냄. 강대종님 GO 신호 대기 중입니다.",
   "last_recent_edit": ""
 }
