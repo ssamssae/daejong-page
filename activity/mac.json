@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T06:52:03Z",
-  "last_prompt_ts": "2026-04-28T06:51:41.762Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-28T07:41:26Z",
+  "last_prompt_ts": "2026-04-28T07:40:48.805Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8473\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T07:40:46",
   "last_user_source": "telegram",
-  "last_assistant_preview": "대기 상태 유지. 강대종님 endpoint URL 보내주시면 worker.js 패치 진행합니다.",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
