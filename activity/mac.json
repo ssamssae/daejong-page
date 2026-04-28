@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T13:52:11Z",
-  "last_prompt_ts": "2026-04-28T13:42:59.424Z",
-  "last_user_prompt": "",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "블로커 3개 모두 해제 완료. \"심사에 추가\" 버튼 활성화 확인. 사용자 GO 대기 중. 카테고리 \"개발자 도구\"로",
+  "last_active_ts": "2026-04-28T14:04:01Z",
+  "last_prompt_ts": "2026-04-28T13:52:11.473Z",
+  "last_user_prompt": "<command-message>loop</command-message> <command-name>/loop</command-name> <command-args>continue hanjul ios screenshot pipeline (stats buil",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
