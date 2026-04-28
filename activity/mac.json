@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T03:37:57Z",
-  "last_prompt_ts": "2026-04-28T03:36:43.216Z",
-  "last_user_prompt": "abc 박기 <",
+  "last_active_ts": "2026-04-28T04:03:38Z",
+  "last_prompt_ts": "2026-04-28T04:02:21.393Z",
+  "last_user_prompt": "뭐할까 </",
   "last_user_source": "telegram",
-  "last_assistant_preview": "3건 someday 추가 완료. 양쪽 repo (~/todo, ~/daejong-page) 동시 commit + push. 세션 닫아도 OK.",
-  "last_recent_edit": "/Users/user/daejong-page/someday.md"
+  "last_assistant_preview": "지금 stale 확인 끝. 13:02 KST, MacBook Pro 본진. 19:00 한줄일기 양 스토어 출시가 다음 큰 마감 (~6h 여유). 그 전�",
+  "last_recent_edit": ""
 }
