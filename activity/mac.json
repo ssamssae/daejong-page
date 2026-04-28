@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T02:46:35Z",
-  "last_prompt_ts": "2026-04-28T02:46:18.492Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8335\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T02:46:16",
+  "last_active_ts": "2026-04-28T02:54:21Z",
+  "last_prompt_ts": "2026-04-28T02:48:30.244Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8337\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T02:48:28",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "credentials.json 저장 + Python deps 설치 + bootstrap_oauth.py 실행 (브라우저 동의 대기 중, 백그라운드 b715p9j7t). 2분 �",
+  "last_recent_edit": "/Users/user/secrets/mail-watcher/bootstrap_oauth.py"
 }
