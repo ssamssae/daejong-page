@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T00:57:04Z",
-  "last_prompt_ts": "2026-04-28T00:56:03.490Z",
-  "last_user_prompt": "앱스토어",
+  "last_active_ts": "2026-04-28T00:58:23Z",
+  "last_prompt_ts": "2026-04-28T00:57:35.281Z",
+  "last_user_prompt": "추가 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "ASC 상태 확인 결과 + iOS 같이 출시 옵션 제시. 다음 지시 대기.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "todo 양 스토어 사이클로 확장. 19:00 이후 작업 시 `/submit-app hanjul --platform=android` / `/submit-app hanjul --platform=ios",
+  "last_recent_edit": "/Users/user/todo/todos.md"
 }
