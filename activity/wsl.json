@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T11:25:59Z",
-  "last_prompt_ts": "2026-04-28T11:24:41.703Z",
-  "last_user_prompt": "ㄱㄱ </cha",
+  "last_active_ts": "2026-04-28T11:49:39Z",
+  "last_prompt_ts": "2026-04-28T11:45:15.612Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"3746\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T11:45:15",
   "last_user_source": "telegram",
-  "last_assistant_preview": "기존 이슈 스캔 결과: OpenAI/CF/colo/region 키워드 매칭 없음 → 신규로 진행. slug `cf-colo-region-block` (20자) 으로 ",
+  "last_assistant_preview": "두 export 파싱 끝. **Mac 봇 채팅 (MyClaude)** 19~20시 흐름이 핵심:",
   "last_recent_edit": ""
 }
