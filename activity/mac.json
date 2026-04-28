@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T11:03:55Z",
-  "last_prompt_ts": "2026-04-28T11:02:19.462Z",
-  "last_user_prompt": "ㅇㅇ </cha",
+  "last_active_ts": "2026-04-28T11:17:53Z",
+  "last_prompt_ts": "2026-04-28T11:04:47.273Z",
+  "last_user_prompt": "C 미루기",
   "last_user_source": "telegram",
-  "last_assistant_preview": "강대종님 결정 대기 중입니다. (B = 패키지 이름 변경, 작업량 있음 / C = 패키지 등록 보류 + 앱 만들기 우회",
+  "last_assistant_preview": "빌드 백그라운드 진행 중. 끝나면 자동 알림 받고 Play Console 업로드로 진행합니다.",
   "last_recent_edit": ""
 }
