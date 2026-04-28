@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T04:09:19Z",
-  "last_prompt_ts": "2026-04-28T04:08:04.143Z",
-  "last_user_prompt": "뭐할까 </",
+  "last_active_ts": "2026-04-28T04:11:20Z",
+  "last_prompt_ts": "2026-04-28T04:10:43.895Z",
+  "last_user_prompt": "1번 트렌�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "상황 파악했습니다. WSL 본진, 오전 청소(자동화 3건 폐기 + 심사레이더 D 옵션 묶음 + mail-watcher v5 트리거) �",
+  "last_assistant_preview": "확인 결과 강대종님 기억 맞습니다. - `~/trend-curator/` 디렉토리 = 삭제됨 - `claude-automations` 에 `d63c490 chore: rem",
   "last_recent_edit": ""
 }
