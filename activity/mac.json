@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T22:28:51Z",
-  "last_prompt_ts": "2026-04-28T22:27:53.561Z",
-  "last_user_prompt": "- /goodnight",
+  "last_active_ts": "2026-04-28T22:34:51Z",
+  "last_prompt_ts": "2026-04-28T22:30:41.545Z",
+  "last_user_prompt": "1",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "Now update the memory file and commit.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_goodnight_insta_integrated.md"
 }
