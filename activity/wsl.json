@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T04:37:17Z",
-  "last_prompt_ts": "2026-04-28T04:30:49.761Z",
-  "last_user_prompt": "y",
+  "last_active_ts": "2026-04-28T04:59:30Z",
+  "last_prompt_ts": "2026-04-28T04:57:52.138Z",
+  "last_user_prompt": "D로가고 a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "plan 두 파일 다 확인. **plan 이 이미 충분히 자세하고 ChatGPT 시드 prompt 6종도 ready** — 한줄일기 출시 전에 �",
-  "last_recent_edit": "/home/ssamssae/.claude/skills/merge-janitor/SKILL.md"
+  "last_assistant_preview": "WSL 에선 someday 쓰기를 Mac 으로 라우팅하는 룰이라, A/B 각각 별도 트리거 메시지로 보냅니다.",
+  "last_recent_edit": ""
 }
