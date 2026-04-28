@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T04:35:14Z",
-  "last_prompt_ts": "2026-04-28T04:30:43.147Z",
-  "last_user_prompt": "진행 </cha",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "빌드 PASS. 통합 보고.",
+  "last_active_ts": "2026-04-28T04:37:12Z",
+  "last_prompt_ts": "2026-04-28T04:37:00.620Z",
+  "last_user_prompt": "hanjul iOS 빌드 백그라운드 task b0xfk50qn 결과 확인하고 강대종님께 텔레그램 보고. 빌드 PASS 면 ipa 위치/크기 ",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
