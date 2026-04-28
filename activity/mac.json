@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T06:04:44Z",
-  "last_prompt_ts": "2026-04-28T06:02:04.955Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8439\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T06:02:05",
+  "last_active_ts": "2026-04-28T06:07:27Z",
+  "last_prompt_ts": "2026-04-28T06:05:40.027Z",
+  "last_user_prompt": "b",
   "last_user_source": "telegram",
-  "last_assistant_preview": "강대종님 답 대기 중. 친구폰 위치(옆/원격) + 디버깅 방식 선택(A 네트워크 토글 / B wrangler tail / C 앱 코드 �",
-  "last_recent_edit": ""
+  "last_assistant_preview": "deploy 명령어 별도 메시지로 보냈고, 마무리 안내도 분리했습니다. 강대종님이 deploy 실행 후 \"ㅇㅋ\" 보내면",
+  "last_recent_edit": "/Users/user/apps/hanjul/worker/worker.js"
 }
