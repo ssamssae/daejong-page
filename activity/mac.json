@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T06:38:32Z",
-  "last_prompt_ts": "2026-04-28T06:37:06.320Z",
-  "last_user_prompt": "추천대로",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "A 진행. 먼저 wrangler CLI 로 AI Gateway 생성 가능한지 확인.",
+  "last_active_ts": "2026-04-28T06:42:35Z",
+  "last_prompt_ts": "2026-04-28T06:42:08.544Z",
+  "last_user_prompt": "<task-notification> <task-id>b4u7rloqh</task-id> <summary>Monitor event: \"wrangler tail — hanjul-proxy upstream_failed events\"</summary> <",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
