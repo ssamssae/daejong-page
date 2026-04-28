@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T12:52:25Z",
-  "last_prompt_ts": "2026-04-28T12:47:35.601Z",
-  "last_user_prompt": "A",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "Clean + 재빌드 백그라운드. 강대종님 영상 옵션 결정 + 빌드 알림 대기.",
-  "last_recent_edit": "/Users/user/apps/hanjul/lib/screens/stats_screen.dart"
+  "last_active_ts": "2026-04-28T13:02:49Z",
+  "last_prompt_ts": "2026-04-28T12:53:23.139Z",
+  "last_user_prompt": "<task-notification> <task-id>bvyt39w2z</task-id> <tool-use-id>toolu_01G57G7ca3UQzbLHD8kgcrdh</tool-use-id> <output-file>/private/tmp/claude-",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "🎉 **\"심사에 추가\" 버튼 활성화** — 모든 준비 끝.",
+  "last_recent_edit": ""
 }
