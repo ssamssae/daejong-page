@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T00:23:11Z",
-  "last_prompt_ts": "2026-04-28T00:18:17.779Z",
+  "last_active_ts": "2026-04-28T00:36:54Z",
+  "last_prompt_ts": "2026-04-28T00:33:26.071Z",
   "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "본문 작성 완료 (276줄, 약 20KB — Ep1 14KB / Ep2 12KB 보다 좀 길어요. 5막 \"빼기 두 번\" 결말 추가로 의도적으로 ",
-  "last_recent_edit": "/home/ssamssae/daejong-page/newsletter/ep3-substack.md"
+  "last_assistant_preview": "세션 셋 다 그룹 활성 Claude Code. `claude` 세션에 핑 발사합니다.",
+  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-28-0934-wsl-mac-ep3-substack-publish.md"
 }
