@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T14:08:17Z",
-  "last_prompt_ts": "2026-04-28T14:08:00.355Z",
-  "last_user_prompt": "<command-message>loop</command-message> <command-name>/loop</command-name> <command-args>continue hanjul ios screenshot pipeline (build → ",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "/loop 종료. 한줄일기 iOS 스크린샷 파이프라인 끝났습니다 (제출 완료, \"1.0 심사 대기 중\"). 다음 wakeup 안 잡�",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-28T14:18:12Z",
+  "last_prompt_ts": "2026-04-28T14:10:33.780Z",
+  "last_user_prompt": "지금까지",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "세션 종료 준비 완료. 작업일지 + 메모리 박제 + daejong-page 푸시 다 끝남. 새 세션에서 컨텍스트 자동 인계.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
 }
