@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T02:37:15Z",
-  "last_prompt_ts": "2026-04-28T02:36:22.567Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8328\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T02:36:20",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "ADC 경로 차단 (Google 이 gcloud 의 default client 로 Gmail 같은 민감 스코프 차단). 원래 Plan A 로 회귀 — review-radar",
+  "last_active_ts": "2026-04-28T02:38:26Z",
+  "last_prompt_ts": "2026-04-28T02:38:00.872Z",
+  "last_user_prompt": "Re-check ~/.config/gcloud/application_default_credentials.json and bg task b046ru8qk status. If ADC exists, proceed with full mail-watcher d",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
