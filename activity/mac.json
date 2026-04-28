@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T04:37:12Z",
-  "last_prompt_ts": "2026-04-28T04:37:00.620Z",
-  "last_user_prompt": "hanjul iOS 빌드 백그라운드 task b0xfk50qn 결과 확인하고 강대종님께 텔레그램 보고. 빌드 PASS 면 ipa 위치/크기 ",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_active_ts": "2026-04-28T04:58:03Z",
+  "last_prompt_ts": "2026-04-28T04:55:27.467Z",
+  "last_user_prompt": "",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "시안 송부 완료. A/B/C/D/E 옵션 중 선택 대기 중입니다.",
+  "last_recent_edit": "/tmp/hanjul-launch-design.py"
 }
