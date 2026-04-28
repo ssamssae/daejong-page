@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T00:59:10Z",
-  "last_prompt_ts": "2026-04-28T00:58:14.096Z",
-  "last_user_prompt": "모닝 브�",
+  "last_active_ts": "2026-04-28T01:04:05Z",
+  "last_prompt_ts": "2026-04-28T00:59:59.842Z",
+  "last_user_prompt": "자동화자",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이제 Mac 핸드오프 (plist 정리). 별도 directive 메시지로 발사.",
+  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-28-1005-wsl-mac-morning-evening-plist-cleanup.md"
 }
