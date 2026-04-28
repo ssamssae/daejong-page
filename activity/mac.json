@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T08:32:01Z",
-  "last_prompt_ts": "2026-04-28T08:30:53.626Z",
-  "last_user_prompt": "여기서는",
+  "last_active_ts": "2026-04-28T09:28:40Z",
+  "last_prompt_ts": "2026-04-28T09:20:39.475Z",
+  "last_user_prompt": "뉴스레터",
   "last_user_source": "telegram",
-  "last_assistant_preview": "Mac sync 한 줄 (hanjul docs pull) 자동 처리 완료. 다른 repo 모두 동기화됨. 강대종님 clear 진행 OK 알렸습니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "3개 분리 메시지 (작업 결과 / commit 명령 / 검증 안내) 전송. 강대종님 push 후 newsletter.html 에 Ep.3 노출 확인�",
+  "last_recent_edit": "/Users/user/daejong-page/newsletter/index.json"
 }
