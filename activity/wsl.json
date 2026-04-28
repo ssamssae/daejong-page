@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T23:10:59Z",
-  "last_prompt_ts": "2026-04-28T23:10:25.785Z",
-  "last_user_prompt": "- daily-sync",
-  "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_active_ts": "2026-04-28T23:31:56Z",
+  "last_prompt_ts": "2026-04-28T23:29:58.937Z",
+  "last_user_prompt": "📥 Mac → WSL 디렉티브 (2026-04-29 ~23:30 KST, /sync ·to-iphone ·land 폐기 동기화) [배경] 강대종님 결정 (2026-04-28~29",
+  "last_user_source": "terminal",
+  "last_assistant_preview": "검증 완료. 텔레그램 보고 1통 전송.",
   "last_recent_edit": ""
 }
