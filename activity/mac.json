@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T08:25:47Z",
-  "last_prompt_ts": "2026-04-28T08:22:32.450Z",
-  "last_user_prompt": "123 </channe",
+  "last_active_ts": "2026-04-28T08:28:06Z",
+  "last_prompt_ts": "2026-04-28T08:26:31.884Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8500\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T08:26:30",
   "last_user_source": "telegram",
-  "last_assistant_preview": "3개 분리 메시지로 (결과 / commit 명령 / 옵션) 안내 보냈습니다. 강대종님 직접 commit 실행하거나 settings 갱�",
-  "last_recent_edit": "/Users/user/daejong-page/todos/2026-04-28.md"
+  "last_assistant_preview": "3개 분리 메시지 보냈습니다. 강대종님이 `gh auth setup-git && git push` 실행 후 결과 알려주시면 task #9 마무리�",
+  "last_recent_edit": ""
 }
