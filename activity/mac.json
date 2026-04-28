@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T11:49:12Z",
-  "last_prompt_ts": "2026-04-28T11:46:18.851Z",
-  "last_user_prompt": "<task-notification> <task-id>brqvk254g</task-id> <tool-use-id>toolu_01A799WcZg1kCYTaBBHKC8mW</tool-use-id> <output-file>/private/tmp/claude-",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "스크린샷 첨부 보냄. 강대종님 GO 신호 대기 중입니다.",
+  "last_active_ts": "2026-04-28T11:52:39Z",
+  "last_prompt_ts": "2026-04-28T11:51:49.497Z",
+  "last_user_prompt": "ㄱㄱ </cha",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "⚠️ \"입력한 앱 이름이 이미 사용 중입니다\" — \"한줄일기\" 가 ASC 에서 다른 사람 점유. 이름 변경 필요.",
   "last_recent_edit": ""
 }
