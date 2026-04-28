@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T10:46:06Z",
-  "last_prompt_ts": "2026-04-28T10:45:37.614Z",
-  "last_user_prompt": "- a188ed3: O",
+  "last_active_ts": "2026-04-28T11:04:29Z",
+  "last_prompt_ts": "2026-04-28T11:02:59.582Z",
+  "last_user_prompt": "박는다는",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "내 답변 다시 보니 \"두 개를 한 번에 박은 커밋\", \"ASC 앱등록 자동화 박음\" 두 군데서 썼다. 메모리 인덱스 4",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/MEMORY.md"
 }
