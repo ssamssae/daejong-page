@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T08:29:41Z",
-  "last_prompt_ts": "2026-04-28T08:28:58.028Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8505\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-28T08:28:56",
+  "last_active_ts": "2026-04-28T08:30:44Z",
+  "last_prompt_ts": "2026-04-28T08:30:07.448Z",
+  "last_user_prompt": "clear 하려",
   "last_user_source": "telegram",
-  "last_assistant_preview": "오늘 사이클 종합 정리 메시지 보냈습니다. 모든 작업 PASS, GitHub 반영 완료, 19:00 출시 사이클 준비 끝. 휴�",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
