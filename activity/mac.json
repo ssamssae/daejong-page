@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T03:06:13Z",
-  "last_prompt_ts": "2026-04-28T02:55:16.698Z",
-  "last_user_prompt": "<task-notification> <task-id>b715p9j7t</task-id> <tool-use-id>toolu_01SMPz5LBqJGdhqcJvNnU3op</tool-use-id> <output-file>/private/tmp/claude-",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "완료. 한 시간 만에 Part A부터 G까지 다 처리됐어요. 핵심: 1. **review_radar 디렉토리 삭제** ✓ 2. **Gmail OAuth cre",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/MEMORY.md"
+  "last_active_ts": "2026-04-28T03:08:15Z",
+  "last_prompt_ts": "2026-04-28T03:07:53.364Z",
+  "last_user_prompt": "몇시간마",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "3개 질문에 답변: 4시간 주기 / important=true 만 텔레그램 / Claude API 0원 (ollama 로컬). 평상시 알림 0, 중요 메일",
+  "last_recent_edit": ""
 }
