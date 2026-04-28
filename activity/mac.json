@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T03:35:53Z",
-  "last_prompt_ts": "2026-04-28T03:35:13.648Z",
-  "last_user_prompt": "세션초기",
+  "last_active_ts": "2026-04-28T03:37:57Z",
+  "last_prompt_ts": "2026-04-28T03:36:43.216Z",
+  "last_user_prompt": "abc 박기 <",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "3건 someday 추가 완료. 양쪽 repo (~/todo, ~/daejong-page) 동시 commit + push. 세션 닫아도 OK.",
+  "last_recent_edit": "/Users/user/daejong-page/someday.md"
 }
