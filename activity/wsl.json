@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T13:20:39Z",
-  "last_prompt_ts": "2026-04-28T13:18:26.065Z",
-  "last_user_prompt": "현재 상�",
+  "last_active_ts": "2026-04-28T13:25:43Z",
+  "last_prompt_ts": "2026-04-28T13:23:51.794Z",
+  "last_user_prompt": "승인 5. �",
   "last_user_source": "telegram",
-  "last_assistant_preview": "지휘관/작업자 구조 정리 요청 받음. 텔레그램 답변 + 수정 전 보고 형식으로 회신합니다.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "5건 모두 적용 확인. 텔레그램으로 변경 요약 + 남은 TODO 보고합니다.",
+  "last_recent_edit": "/home/ssamssae/.claude/projects/-home-ssamssae/memory/project_handoff_bidirectional_zero_touch.md"
 }
