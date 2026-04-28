@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T13:11:54Z",
-  "last_prompt_ts": "2026-04-28T13:09:35.754Z",
-  "last_user_prompt": "B",
+  "last_active_ts": "2026-04-28T13:14:36Z",
+  "last_prompt_ts": "2026-04-28T13:14:11.170Z",
+  "last_user_prompt": "핸드오프",
   "last_user_source": "telegram",
-  "last_assistant_preview": "핸드오프 directive 텔레그램 별도 메시지 (8682) 로 보냄. 강대종님 새 세션에서 그것만 복붙해서 paste 하시면",
+  "last_assistant_preview": "세션 종료 확인 메시지 전송 완료. 다음 세션 첫 paste 로 핸드오프 이어가시면 됩니다.",
   "last_recent_edit": ""
 }
