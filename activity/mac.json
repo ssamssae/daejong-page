@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T14:19:14Z",
-  "last_prompt_ts": "2026-04-28T14:19:00.590Z",
-  "last_user_prompt": "<command-message>loop</command-message> <command-name>/loop</command-name> <command-args>continue hanjul ios screenshot pipeline (stats buil",
-  "last_user_source": "terminal",
-  "last_assistant_preview": "/loop 종료. 파이프라인 완료 상태: - ✅ iOS 한줄일기 1.0 심사 제출 (23:04 KST, 1.0 심사 대기 중) - ✅ 작업일지 ",
+  "last_active_ts": "2026-04-28T14:21:06Z",
+  "last_prompt_ts": "2026-04-28T14:19:54.660Z",
+  "last_user_prompt": "백그라운",
+  "last_user_source": "telegram",
+  "last_assistant_preview": "크론 1건 정리 완료. 좀비 flutter 프로세스 8개는 정리 권한 대기 중.",
   "last_recent_edit": ""
 }
