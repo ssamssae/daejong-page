@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-28T01:13:08Z",
-  "last_prompt_ts": "2026-04-28T01:11:58.747Z",
-  "last_user_prompt": "심사레이",
+  "last_active_ts": "2026-04-28T01:18:31Z",
+  "last_prompt_ts": "2026-04-28T01:13:37.145Z",
+  "last_user_prompt": "D",
   "last_user_source": "telegram",
-  "last_assistant_preview": "심사레이더 관련 자동화/데이터 후보가 두 갈래라 컨펌 한 번 받을게요.",
-  "last_recent_edit": ""
+  "last_assistant_preview": "이제 Mac 핸드오프 발사 (review-status-check plist + 가능한 ~/apps/review_radar 디렉토리 정리).",
+  "last_recent_edit": "/home/ssamssae/claude-skills/handoffs/2026-04-28-1018-wsl-mac-review-radar-cleanup.md"
 }
