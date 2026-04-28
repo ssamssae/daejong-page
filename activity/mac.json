@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T14:34:02Z",
-  "last_prompt_ts": "2026-04-28T14:32:19.783Z",
-  "last_user_prompt": "## 5. 남은",
+  "last_active_ts": "2026-04-28T14:35:43Z",
+  "last_prompt_ts": "2026-04-28T14:34:39.503Z",
+  "last_user_prompt": "승인 </cha",
   "last_user_source": "telegram",
   "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_recent_edit": "/Users/user/claude-skills/globals/AGENT.md"
 }
