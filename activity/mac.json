@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-29T00:13:41Z",
-  "last_prompt_ts": "2026-04-29T00:09:53.923Z",
+  "last_active_ts": "2026-04-29T00:15:56Z",
+  "last_prompt_ts": "2026-04-29T00:15:06.378Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "홈페이지 /skills 에 graveyard 섹션 추가 완료 (커밋 `802d689`). 11개 폐기 스킬을 최근 → 과거 순으로 정렬해서 ",
-  "last_recent_edit": "/Users/user/daejong-page/skills.html"
+  "last_assistant_preview": "",
+  "last_recent_edit": ""
 }
