@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-29_v1.0.0.md",
+      "date": "2026-04-29",
+      "version": "v1.0.0",
+      "summary": "Mac mini 인프라 정비 큰 날. (1) Android night-build v2.0a 풀그린 PASS:4 FAIL:0 — keystore 4쌍 8파일 본진→Mac mini rsync 후 sign NPE 해소, 정책 박제 Mac mini=Android release SoT/WSL=debug only (6d59829). (2) iOS ipa 빌드 4단계 복구 (cert trust chain → Xcode 자동 provisioning → codesign partition list → DerivedData clean), hanjul.ipa 19,946,345 bytes PASS, project_mac_mini_ios_ipa_recovery.md 박음. (3) /handoff 184줄 스킬 → wsl-directive.sh wrapper 단순화 (75a9a70, 82b62d7, 6052c6d). (4) /night-runner v1 안전모드 (read-only, commit/push/PR 0) + Mac mini launchd 03:00 KST 활성 (bccc165, 5b072ff, ca6ac01). (5) claude-skills 정리: sync/to-iphone/land 제거 (b30abb7), goodnight step 4.5 hostname 분기 드롭 (6048b4b), irun --debug 통일 (cb5f0b2), todo 디바이스 태깅 정비 (c49a0dd). (6) 하드룰 3건 명문화: 지휘관 1명 원칙 운반체 예외, WSL 옵션 메뉴 금지, '박다' 은어 금지. (7) hanjul stats sharePositionOrigin 픽스 + 1.1.0+4 bump (4406d20, 525b549). 메모리 17건 갱신/신규.",
+      "updated": "2026-04-29T21:45:00+09:00"
+    },
+    {
       "file": "2026-04-28_v1.0.1.md",
       "date": "2026-04-28",
       "version": "v1.0.1",
