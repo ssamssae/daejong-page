@@ -30,6 +30,10 @@
 
 - 🍎 🛠 **Mac mini AGP 9+ newDsl 마이그레이션** — night-build v2.0a (2026-04-29) NOT IN SCOPE 였음. 현재 AGP 8 기반 4앱 빌드 풀그린이라 급하지 않음. AGP 9 가 강제되는 시점(Flutter SDK / Android Studio 메이저 업데이트)에 진행. 4앱 동시 마이그레이션 일관성 필요.  *(추가: 2026-04-29)*
 
+- 🤝 🛠 **irun/arun SKILL.md 에 M1 mac mini Rosetta 사전체크 코드화** — `ssh mac-mini 'pgrep oahd'` 검사 → 실패 시 abort + `sudo softwareupdate --install-rosetta --agree-to-license` 안내 1줄 박기. 2026-04-29 이슈 `rosetta-iproxy-attach` 의 forcing function 을 글로만 적고 실제 SKILL 수정은 안 함. oahd = Rosetta 데몬 (미설치 시 미실행).  *(추가: 2026-04-29)*
+
+- 🤝 🛠 **mac mini setup 체크리스트에 "Apple Silicon 빌드 호스트는 Rosetta 먼저" 항목** — globals/AGENT.md 또는 별도 setup checklist 에 박기. macOS 재설치 시 Xcode/flutter 셋업보다 우선 순서로 `sudo softwareupdate --install-rosetta --agree-to-license` 1줄. iOS debug attach 막힘 재발 방지.  *(추가: 2026-04-29)*
+
 ## 승격됨 (→ 할일)
 
 (없음)
