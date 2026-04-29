@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-29T03:35:21Z",
-  "last_prompt_ts": "2026-04-29T03:30:57.860Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8971\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-29T03:30:54",
+  "last_active_ts": "2026-04-29T03:44:46Z",
+  "last_prompt_ts": "2026-04-29T03:44:03.476Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "이미지 확인 — WSL 보충 의견 + 강대종님 GO. B1 + 보조 절차 (맥미니 빌드 후 adb install) 라인 추가, C1 복원 절",
-  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/project_mac_mini_night_builder_v2_passed.md"
+  "last_assistant_preview": "강대종님 결정 대기.",
+  "last_recent_edit": ""
 }
