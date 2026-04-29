@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-29T06:17:21Z",
-  "last_prompt_ts": "2026-04-29T06:16:06.318Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"9000\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-29T06:16:03",
+  "last_active_ts": "2026-04-29T06:23:00Z",
+  "last_prompt_ts": "2026-04-29T06:22:16.088Z",
+  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"9003\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-29T06:22:13",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진단됨. 폰 Termius 의 SSH 키가 Mac mini 의 authorized_keys 에 등록 안 돼있어서 fingerprint 통과 후 인증 단계에서 �",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
