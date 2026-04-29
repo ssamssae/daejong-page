@@ -24,6 +24,12 @@
 
 - 🍎 🐍 **mac-mini system Python 3.9.6 정리** — 지금 venv 만 brew python@3.14 사용 중, 시스템 Python 은 EOL 3.9.6 그대로. PATH 우선순위 정리하거나 system Python 그대로 둬도 됨 (사용 안 하면 무해). 정리 옵션.  *(추가: 2026-04-28)*
 
+- 🤝 🤖 **/night-runner v2 ramp-up** — v1 안전모드(read-only 점검 5개, headless·commit·push·PR 0) 가 03:00 KST launchd 로 가동 후 신뢰 쌓이면 단계 올리기. 다음 단계 후보: BACKLOG 자동 picking, 가벼운 자동 PR(예: TODO·FIXME 라인 한두 개 정리), 7일 silence repo 의 README 자동 갱신 등. 자동 commit/push 가 들어가는 순간 가드 한 단계 더 필요(diff 미리보기 텔레그램 컨펌). 진행 시 합의 필수.  *(추가: 2026-04-29)*
+
+- 🍎 🤖 **iOS Mac mini 빌드 자동화** — 2026-04-29 수동 4단계 복구(cert trust chain → Xcode 자동 provisioning → codesign partition list → DerivedData clean) 후 hanjul.ipa PASS 만 검증한 상태. 야간 자동 ipa 빌드는 별개 사이클. `com.claude.night-build-ios.plist` 류 launchd 잡 + 결과 알림. iOS 는 Apple cert 만료/갱신 같은 추가 가드가 Android 보다 까다로워 v2.0a Android 풀그린 안정화 후 진입.  *(추가: 2026-04-29)*
+
+- 🍎 🛠 **Mac mini AGP 9+ newDsl 마이그레이션** — night-build v2.0a (2026-04-29) NOT IN SCOPE 였음. 현재 AGP 8 기반 4앱 빌드 풀그린이라 급하지 않음. AGP 9 가 강제되는 시점(Flutter SDK / Android Studio 메이저 업데이트)에 진행. 4앱 동시 마이그레이션 일관성 필요.  *(추가: 2026-04-29)*
+
 ## 승격됨 (→ 할일)
 
 (없음)
