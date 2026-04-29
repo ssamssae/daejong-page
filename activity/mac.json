@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-29T05:17:29Z",
-  "last_prompt_ts": "2026-04-29T05:16:27.774Z",
-  "last_user_prompt": "<channel source=\"plugin:telegram:telegram\" chat_id=\"538806975\" message_id=\"8988\" user=\"ssamssae\" user_id=\"538806975\" ts=\"2026-04-29T05:16:25",
+  "last_active_ts": "2026-04-29T05:18:39Z",
+  "last_prompt_ts": "2026-04-29T05:17:56.684Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진단됨. Chrome Remote Desktop 데몬이 Mac mini 에 안 깔려있어요 — 그래서 \"온라인\" 으로 떠도 실제 화면 연결이 ",
+  "last_assistant_preview": "",
   "last_recent_edit": ""
 }
