@@ -2,10 +2,10 @@
   "device": "wsl",
   "icon": "🪟",
   "hostname": "DESKTOP-I4TR99I",
-  "last_active_ts": "2026-04-29T00:14:33Z",
-  "last_prompt_ts": "2026-04-29T00:13:45.715Z",
-  "last_user_prompt": "OK, 지휘�",
+  "last_active_ts": "2026-04-29T02:15:01Z",
+  "last_prompt_ts": "2026-04-29T02:12:08.521Z",
+  "last_user_prompt": "🍎 지휘�",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "작업 중지 directive 받음. Task 정리하고 관점만 답변.",
   "last_recent_edit": ""
 }
