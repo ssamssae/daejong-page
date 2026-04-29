@@ -184,7 +184,106 @@ DEVICE_BADGE = {
     "mac": ("🍎", "Mac"),
     "desktop": ("🪟", "Desktop"),
     "both": ("🔄", "Both"),
+    "dropped": ("🪦", "Dropped"),
 }
+
+# Dropped skills — kept on the page as a graveyard column. Each entry needs
+# `name`, `dropped_at` (YYYY-MM-DD), `reason` (one line, short), and the
+# device it was on before being dropped (`was`).
+DROPPED_SKILLS = [
+    {
+        "name": "evening-wrap",
+        "dropped_at": "2026-04-28",
+        "was": "mac",
+        "reason": "morning-briefing 묶음과 함께 폐기, 7일 운영 결과 안 읽음",
+    },
+    {
+        "name": "land",
+        "dropped_at": "2026-04-29",
+        "was": "mac",
+        "reason": "WSL→Mac→iPhone 페어 폐기, iOS 는 Mac 직접 /irun",
+    },
+    {
+        "name": "morning-briefing",
+        "dropped_at": "2026-04-28",
+        "was": "mac",
+        "reason": "7일 운영 결과 모닝리포트 안 읽음, 자동 + 슬래시 모두 폐기",
+    },
+    {
+        "name": "morning-reporter",
+        "dropped_at": "2026-04-21",
+        "was": "mac",
+        "reason": "morning-briefing 으로 통합 후 사용 0",
+    },
+    {
+        "name": "review-status-check",
+        "dropped_at": "2026-04-28",
+        "was": "mac",
+        "reason": "mac-mini mail-watcher v5 (Gmail + ollama) 로 대체",
+    },
+    {
+        "name": "side-project-briefing",
+        "dropped_at": "2026-04-21",
+        "was": "mac",
+        "reason": "morning-briefing 으로 통합",
+    },
+    {
+        "name": "sync",
+        "dropped_at": "2026-04-29",
+        "was": "both",
+        "reason": "WSL=worker only 흐름, step 0 git pull 룰 + /pull-apps 로 충분",
+    },
+    {
+        "name": "to-iphone",
+        "dropped_at": "2026-04-29",
+        "was": "desktop",
+        "reason": "/land 페어 폐기, iOS 작업은 Mac 직접",
+    },
+    {
+        "name": "toss-tone",
+        "dropped_at": "2026-04-23",
+        "was": "mac",
+        "reason": "/insta-post 에 기능 흡수 (커밋 ae207f3)",
+    },
+    {
+        "name": "trend",
+        "dropped_at": "2026-04-27",
+        "was": "desktop",
+        "reason": "사용 빈도 낮음, 트렌드 큐레이팅 워크플로우 변경",
+    },
+    {
+        "name": "weather-dust",
+        "dropped_at": "2026-04-21",
+        "was": "mac",
+        "reason": "morning-briefing 으로 통합",
+    },
+]
+
+
+def render_dropped_cards() -> list[str]:
+    """Render the graveyard cards. Sorted by dropped_at descending (most recent first)."""
+    sorted_dropped = sorted(DROPPED_SKILLS, key=lambda s: s["dropped_at"], reverse=True)
+    lines: list[str] = []
+    for s in sorted_dropped:
+        name = escape_html(s["name"])
+        was_emoji, was_label = DEVICE_BADGE.get(s["was"], DEVICE_BADGE["both"])
+        dropped_at = s["dropped_at"]
+        reason = escape_html(s["reason"])
+        emoji, label = DEVICE_BADGE["dropped"]
+        # Reuse the original CARD_DESC_OVERRIDE if available, plus reason
+        original_desc = CARD_DESC_OVERRIDE.get(s["name"], "")
+        if original_desc:
+            desc = f"<i>{original_desc}</i><br><br>🪦 <b>{dropped_at} 폐기</b> · 원래 {was_emoji} {was_label} · {reason}"
+        else:
+            desc = f"🪦 <b>{dropped_at} 폐기</b> · 원래 {was_emoji} {was_label} · {reason}"
+        lines.append(f"""      <div class="card is-dropped" data-device="dropped">
+        <div class="card-header"><span class="card-name">/{name}</span><span class="card-tag">{dropped_at}</span><span class="card-device dev-dropped" title="Dropped">{emoji} {label}</span></div>
+        <div class="card-desc">{desc}</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/commits/main/{name}" target="_blank" rel="noopener">GitHub history →</a>
+        </div>
+      </div>""")
+    return lines
 
 
 def render_cards(skills: list[dict]) -> str:
@@ -208,6 +307,8 @@ def render_cards(skills: list[dict]) -> str:
           <a href="https://github.com/ssamssae/claude-skills/blob/main/{name}/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>""")
+    # Append graveyard cards
+    lines.extend(render_dropped_cards())
     return "\n\n".join(lines)
 
 
