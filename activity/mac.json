@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-29T04:22:36Z",
-  "last_prompt_ts": "2026-04-29T04:19:09.487Z",
-  "last_user_prompt": "2",
+  "last_active_ts": "2026-04-29T04:47:00Z",
+  "last_prompt_ts": "2026-04-29T04:44:04.684Z",
+  "last_user_prompt": "a",
   "last_user_source": "telegram",
-  "last_assistant_preview": "강대종님 결정 대기.",
-  "last_recent_edit": "/Users/user/.claude/skills/irun/SKILL.md"
+  "last_assistant_preview": "night-build.sh 구조 파악 끝. iOS 분기 추가 코드는 메모리에 정리해뒀으니 강대종님 다운로드 끝났다는 신호 ",
+  "last_recent_edit": ""
 }
