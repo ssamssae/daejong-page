@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-28T23:58:39Z",
-  "last_prompt_ts": "2026-04-28T23:57:50.823Z",
-  "last_user_prompt": "",
+  "last_active_ts": "2026-04-29T00:03:34Z",
+  "last_prompt_ts": "2026-04-28T23:59:20.563Z",
+  "last_user_prompt": "전부 </cha",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
-  "last_recent_edit": ""
+  "last_assistant_preview": "/todo 스킬 5건 정비 완료, 메모리 인덱스도 최신 동기화 반영됐습니다. 추가 요청 대기 중.",
+  "last_recent_edit": "/Users/user/.claude/projects/-Users-user/memory/feedback_device_affinity_tagging.md"
 }
