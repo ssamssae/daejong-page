@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-29T02:33:34Z",
-  "last_prompt_ts": "2026-04-29T02:31:58.130Z",
+  "last_active_ts": "2026-04-29T02:39:05Z",
+  "last_prompt_ts": "2026-04-29T02:36:17.682Z",
   "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "진단 결과 표 + v2.0a 재작성 계획 송신. gitignore 검증 통과(push 사고 위험 0). 강대종님 \"ㄱ\" OK 받으면 4앱 일�",
+  "last_assistant_preview": "핸드오프 본문(8956) + paste 안내(8957) 두 메시지로 분리 송신. 새 세션 첫 메시지로 8956 본문 그대로 복붙하�",
   "last_recent_edit": ""
 }
