@@ -198,6 +198,12 @@ DROPPED_SKILLS = [
         "reason": "morning-briefing 묶음과 함께 폐기, 7일 운영 결과 안 읽음",
     },
     {
+        "name": "handoff",
+        "dropped_at": "2026-04-29",
+        "was": "both",
+        "reason": "wsl-directive.sh wrapper 로 단순화. 184줄 스킬 redundant.",
+    },
+    {
         "name": "land",
         "dropped_at": "2026-04-29",
         "was": "mac",

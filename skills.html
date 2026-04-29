@@ -214,14 +214,6 @@
       </div>
 
       <div class="card" data-device="both">
-        <div class="card-header"><span class="card-name">/handoff</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
-        <div class="card-desc">Mac↔WSL 크로스 디바이스 프롬프트 넘기기. Primary = SSH+tmux METHOD A 무복붙(zero-touch), 텔레그램 peer-bot 폴백. 트리거 "맥에 시켜 / 맥으로 넘겨 / WSL 로 넘겨 / 다른 기기에 보내 / handoff / /handoff / 쏴줘 / 맥도 알게 / 맥에 알려 / WSL 도 알게 / 양방향 / 양쪽 다 알게 / 둘 다 인지 / 상대도 알아야 / 저쪽 Claude 한테 / 다른 Claude 한테" 또는 Claude 스스로 상대 기기도 알아야 한다고 판단 시. "쏴줘/보내줘/알려" = METHOD A. "복붙용으로/복사해서" 만 reply 복붙 모드.</div>
-        <div class="card-links">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/handoff/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="card" data-device="both">
         <div class="card-header"><span class="card-name">/insta-post</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
         <div class="card-desc">오늘(또는 지정 날짜) worklog 를 1080×1350 인스타 텍스트 카드 PNG 로 렌더해 Instagram Graph API 로 개인 인스타 피드에 완전 자동 업로드한다. 사용자가 "인스타", "인스타 올려", "인스타 카드", "인스타 포스팅", "/insta-post" 라고 하면 이 스킬을 실행.</div>
         <div class="card-links">
@@ -322,6 +314,14 @@
         <div class="card-desc">하루 작업 내용(맥+데스크탑 세션 로그 + 모든 git 커밋)을 수집·요약 → docs/worklog/YYYY-MM-DD_vX.Y.Z.md 저장 + git 푸시. 실행 시 Tailscale rsync 로 데스크탑 세션도 자동 당겨 옴.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/worklog/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card is-dropped" data-device="dropped">
+        <div class="card-header"><span class="card-name">/handoff</span><span class="card-tag">2026-04-29</span><span class="card-device dev-dropped" title="Dropped">🪦 Dropped</span></div>
+        <div class="card-desc">🪦 <b>2026-04-29 폐기</b> · 원래 🔄 Both · wsl-directive.sh wrapper 로 단순화. 184줄 스킬 redundant.</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/commits/main/handoff" target="_blank" rel="noopener">GitHub history →</a>
         </div>
       </div>
 
