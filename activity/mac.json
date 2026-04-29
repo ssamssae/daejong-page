@@ -2,10 +2,10 @@
   "device": "mac",
   "icon": "🍎",
   "hostname": "USERui-MacBookPro",
-  "last_active_ts": "2026-04-29T01:38:20Z",
-  "last_prompt_ts": "2026-04-29T01:37:51.250Z",
-  "last_user_prompt": "추천작업",
+  "last_active_ts": "2026-04-29T02:15:34Z",
+  "last_prompt_ts": "2026-04-29T02:14:49.116Z",
+  "last_user_prompt": "",
   "last_user_source": "telegram",
-  "last_assistant_preview": "",
+  "last_assistant_preview": "장단점 표로 정리해서 송신. 핵심 단점은 release-only 30% 사각지대지만 실제 출시 흐름상 위험 키우지 않는�",
   "last_recent_edit": ""
 }
