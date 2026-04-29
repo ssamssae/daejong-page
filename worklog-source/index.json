@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-29_v1.0.1.md",
+      "date": "2026-04-29",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 이후 자정 직전 추가 사이클: WSL→Mac 자동 깨우기 운반체 mac-report.sh 신설 + zero-touch end-to-end 검증 PASS (23:54 KST, 418 bytes paste 본진 tmux 도달). 빌드 막힘 1건 fix (SSH non-interactive shell PATH 부재 → MAC_TMUX_BIN 환경변수 절대경로). 3-device 운영 플레이북 12 섹션 (~/.claude/ops/3device-playbook.md) — Mac본진/WSL/맥미니 역할, 표준 directive 9-필드, 표준 보고서 양식, 작업별 프롬프트(빌드실패/git diff/DEPLOY.md/night-build.sh), 맥미니 실행 전 10항목 체크리스트, A-L 12 섹션. globals/CLAUDE.md 'WSL → Mac' 항목 1줄 → 2-channel 운반체 룰 (97f57e8). 워밍업 directive 1759 bytes WSL 송신 + WSL 보고서 4.3KB G 양식 준수. 본진 idle 사고 (23:38~23:41) 노출 → 운반체 도입 결정. /sync 부활 논의 → 강대종님 폐지 결정 정정 → 메모리 채널만으로 충분 결론, 추가 인프라 0. mac mini Apple Silicon iOS debug Rosetta 의존성 박제 (project_mac_mini_ios_debug_rosetta.md, 453ae77). symlink 그림자 정리 (~/.claude/CLAUDE.md → claude-skills/globals/CLAUDE.md, 누락 commit 처리 97f57e8). 한줄일기 iPhone17 debug attach 백그라운드 자연 종료 PASS. 메모리 박제 7건 (project_wsl_to_mac_carrier_deployed 신규 외).",
+      "updated": "2026-04-30T00:13:14+09:00"
+    },
+    {
       "file": "2026-04-29_v1.0.0.md",
       "date": "2026-04-29",
       "version": "v1.0.0",
