@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-29.md",
+      "date": "2026-04-29",
+      "summary": "Mac mini 인프라 정비 큰 날. Android night-build v2.0a 풀그린 PASS:4 FAIL:0 + keystore SoT 박음. iOS ipa 4단계 복구 (cert/provisioning/partition/DerivedData) + hanjul.ipa 19MB PASS. /handoff 184줄 → wsl-directive.sh wrapper 단순화. /night-runner v1 안전모드 가동 + Mac mini launchd 03:00 KST. claude-skills 정리 7건 (sync/to-iphone/land 제거 등). 하드룰 3건 명문화 (지휘관 운반체 예외, WSL 옵션 메뉴 금지, '박다' 은어 금지). hanjul 1.1.0+4 ipa + sharePositionOrigin 픽스. 메모리 17건 갱신/신규.",
+      "count": 28,
+      "updated": "2026-04-29T21:50:00+09:00"
+    },
+    {
       "file": "2026-04-28.md",
       "date": "2026-04-28",
       "summary": "약먹자/더치페이 새벽 승인 + 한줄일기 iOS 1900원 1.0 심사 제출 + Android Play 패키지 등록. mail-watcher v5 Mac mini 가동. 지휘관 1명 원칙 + 운반체 예외 + R1/R2/R3 정합성 보강. /night-runner v0→v1 안전모드 + Mac mini launchd 03:00 KST install + 1회 검증 PASS. Mac mini SSH 키 GitHub 등록 + 인프라 미러링. morning-briefing/evening-wrap/심사레이더/가계부 드롭. 4-node v4 옵션 X 결정. \"박다\" 은어 일괄 교체.",
