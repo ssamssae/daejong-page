@@ -599,7 +599,7 @@
       return (m && m[1]) || '';
     }
 
-    function renderGrid(list) {
+    function renderGrid(list, featured) {
       var html = '';
       for (var i = 0; i < list.length; i++) {
         var p = list[i];
@@ -608,8 +608,13 @@
           : '<div class="p-card-icon">' + (p.icon || '') + '</div>';
         var badgeHtml = p.badge ? '<span class="p-badge">' + p.badge + '</span>' : '';
         var key = projectKey(p);
+        var isActive = (p === featured);
+        var cls = 'p-card' + (isActive ? ' is-active' : '');
+        var aria = isActive
+          ? p.name + ' (현재 선택됨)'
+          : p.name + ' 선택';
         html +=
-          '<div class="p-card" data-key="' + key + '" role="button" tabindex="0" aria-label="' + p.name + ' 자세히 보기">' +
+          '<div class="' + cls + '" data-key="' + key + '" role="button" tabindex="0" aria-label="' + aria + '" aria-pressed="' + isActive + '">' +
             '<div class="p-card-head-wrap">' +
               '<div class="p-card-head">' +
                 iconHtml +
@@ -628,9 +633,8 @@
     }
 
     function selectFeatured(p) {
-      var others = projects.filter(function(x) { return x !== p; });
       renderHero(p);
-      renderGrid(others);
+      renderGrid(projects, p);
       var key = projectKey(p);
       if (key) {
         try {
@@ -646,14 +650,11 @@
       var params = new URLSearchParams(location.search);
       var appKey = params.get('app');
       var byKey = appKey ? projects.find(function(p) {
-        return p.iconImg && p.iconImg.indexOf('/' + appKey + '_icon') >= 0;
+        return projectKey(p) === appKey;
       }) : null;
-      var featured = byKey
-        || projects.find(function(p) { return p.showSignup; })
-        || projects[projects.length - 1];
-      var others = projects.filter(function(p) { return p !== featured; });
+      var featured = byKey || projects[projects.length - 1];
       renderHero(featured);
-      renderGrid(others);
+      renderGrid(projects, featured);
     }
 
     function showDetail(p, li) {
