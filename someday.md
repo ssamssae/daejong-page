@@ -40,6 +40,14 @@
 
 - 🤝 🛡 **ASC Resolution Center 답글 ASC API 자동화** — territory/availability 변경 케이스에 한해 reject → 답글 → 재제출까지 한 번에. 답글은 ASC reviewSubmission messages 엔드포인트(별도 API) 사용. 강대종님이 4/29 손으로 친 답글을 대체. 위 cancel & resubmit 항목과 묶어서 한 사이클로 완결 가능.  *(추가: 2026-04-30)*
 
+- 🤝 🔧 **자동발행 파이프라인에 이미지 업로드 단계 추가** — Ep.3 4장 이미지 누락 사고(2026-04-30 발견·수동 패치)의 근본 fix. Substack 자동발행이 본문 paste 만 하고 이미지 업로드는 안 하는 회귀. Playwright MCP 로 본문 paste 후 IMAGE 1~N placeholder 자리에 PNG 자동 업로드까지 묶기. lesson 자료: 2026-04-30 Ep.3 수동 패치 흐름(NSPasteboard + 4 file_upload).  *(추가: 2026-04-30)*
+
+- 🤝 ✍️ **Ep.1·Ep.2·Ep.5 도 Ep.3 와 같은 이미지 회귀 검증/패치** — Ep.3 가 누락이었다면 다른 회차도 동일 가능성. curl probe 로 본문 img 카운트 확인 후 누락분 같은 PIL+Pretendard 라인으로 생성·업로드 + 기존 발행본 update. 위 자동발행 파이프라인 fix 와 묶어서 한 사이클로.  *(추가: 2026-04-30)*
+
+- 🤝 🛠 **단어요 lib/ 브랜드 트리아지** — 2026-04-30 wordyo repo 부트스트랩 시 sed 일괄 변환 후 lib/ 안 14군데 잔여 한줄일기/hanjul 텍스트. 결정 지점 3개: (1) SharedPreferences 키 `hanjul_entries_v1` → `wordyo_entries_v1` 마이그레이션 정책, (2) Cloudflare Workers 신규 endpoint `hanjul-proxy` → `wordyo-proxy` 발급 + 코드 갱신, (3) UI 타이틀/PNG 파일명/theme 코멘트 일괄 갱신. 결정 후 1~2시간.  *(추가: 2026-04-30)*
+
+- 🤝 🛰️ **한줄일기 Android alpha → production 자동 schedule** — 2026-04-30 19:00 alpha 트랙 vc=5 commit 직후 14일 카운트 시작 (Testers Community 결제 + 테스터 등록 후). 14일 통과 후 production 트랙 ₩1,900 KOR commit 1회 자동 사이클. /schedule 으로 5/14 경 1회성 agent 박아두면 망각 방지. 14일 카운트 정확한 시작점이 테스터 등록 시점이라 그 시점 확인 후 D-day 계산 필요.  *(추가: 2026-04-30)*
+
 ## 승격됨 (→ 할일)
 
 (없음)
