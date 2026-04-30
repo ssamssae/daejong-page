@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-04-30_v1.0.0.md",
+      "date": "2026-04-30",
+      "version": "v1.0.0",
+      "summary": "한줄일기 1.0 iOS App Store LIVE 확정 — Apple 4/29 06:43 UNRESOLVED_ISSUES (China Deep Synthesis) reject → 4/30 11:06 KST ASC API 우회 재제출 (PATCH cancel old sub → POST new attach → PATCH submit) → 13:29 KST 승인+자동 release, 턴어라운드 2h23m. ₩1,900 KOR READY_FOR_SALE 검증 (customerPrice 1900). 다만 9h 경과 후에도 공개 채널 (apps.apple.com/iTunes Lookup KR/US/JP/GB/DE) propagation 미완 — Apple CDN 지연. Mac mini SoT 자동배포 Phase B 풀그린: iOS .p8 + Android service account scp + 권한 부여 + play-upload --check REGISTERED PASS, 한줄일기 alpha 1.1.0+5 promote 첫 사용 (6b9551c). 단어요(wordyo) 부트스트랩 진입 (~/apps/wordyo init c051bfa, plan step 2 완료). Skills: MACHINE_ROLES.md (3a3bb13), submit-app/create-play-app SSH 라우팅 (b95cdad), mac-report.sh 룰 (97f57e8), session-close 박다 제거 (37ed84e), lesson apple-reject-resubmit-via-cancel (6b3308a). Automations: create-play-app.js + play-upload --check (9bde77f). Newsletter Ep.4 본진 검토 (35f7878) + Substack 발행본 (6fec2e5) + Ep.5 outline (21bcfcf) + 드래프트 ~3500자 (7adf35c). Someday 3건 추가 (ASC reject 자동화, territory 가드, 자동발행/회귀/단어요/Android schedule).",
+      "updated": "2026-04-30T22:55:00+09:00"
+    },
+    {
       "file": "2026-04-29_v1.0.1.md",
       "date": "2026-04-29",
       "version": "v1.0.1",
