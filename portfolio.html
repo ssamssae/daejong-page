@@ -566,8 +566,9 @@
             '<div class="signup-count" id="signupCount">현재 ' + (localStorage.getItem('signupCount') || '2') + '명이 베타테스터로 등록했습니다.</div>' +
           '</div>';
       }
+      var heroBadgeHtml = p.badge ? '<div class="hero-badge">' + p.badge + '</div>' : '';
       heroEl.innerHTML =
-        '<div class="hero-badge">지금 진행 중 · 출시 임박</div>' +
+        heroBadgeHtml +
         '<div class="hero-main">' +
           iconHtml +
           '<div class="hero-info">' +
@@ -609,7 +610,14 @@
     }
 
     function renderPortfolio() {
-      var featured = projects.find(function(p) { return p.showSignup; }) || projects[projects.length - 1];
+      var params = new URLSearchParams(location.search);
+      var appKey = params.get('app');
+      var byKey = appKey ? projects.find(function(p) {
+        return p.iconImg && p.iconImg.indexOf('/' + appKey + '_icon') >= 0;
+      }) : null;
+      var featured = byKey
+        || projects.find(function(p) { return p.showSignup; })
+        || projects[projects.length - 1];
       var others = projects.filter(function(p) { return p !== featured; });
       renderHero(featured);
       renderGrid(others);
