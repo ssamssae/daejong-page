@@ -36,6 +36,10 @@
 
 - 🤝 🛡 **/submit-app 출시 후 territory 자동 검증·복구 가드** — ASC 자동 출시(AFTER_APPROVAL) 가 territory record 를 만들지 않는 quirk 가 있어 출시 직후 공개 페이지가 404 가 되는 사고 발생. `/submit-app` 또는 후속 자동화에 출시 직후 `GET /v2/appAvailabilities/{appId}` 검증 + record 없으면 자동으로 174 territory + CHN 1 unavailable POST 단계 내장. 2026-04-30 약먹자·더치페이 unlist 사고(약 22분 만에 수동 복구) 재발 방지 가드.  *(추가: 2026-04-30)*
 
+- 🤝 🛡 **/submit-app 에 reject → 자동 cancel & resubmit 통합** — Apple UNRESOLVED_ISSUES reject 시 옛 reviewSubmission `PATCH canceled=true` → 새 sub 에 appStoreVersion attach + `submitted=true` 우회 경로(2026-04-30 한줄일기 사례, 11:06 우회 → 13:29 승인 PASS) 를 `~/.claude/automations/scripts/asc-resubmit.py` 스크립트로 만들고 `/submit-app` 본체에서 호출되게 연결. lesson 은 `apple-reject-resubmit-via-cancel.md` 에 이미 정리돼있음. 위 territory 자동 검증·복구 가드 항목과 같은 흐름(출시 사이클 자동화 강화).  *(추가: 2026-04-30)*
+
+- 🤝 🛡 **ASC Resolution Center 답글 ASC API 자동화** — territory/availability 변경 케이스에 한해 reject → 답글 → 재제출까지 한 번에. 답글은 ASC reviewSubmission messages 엔드포인트(별도 API) 사용. 강대종님이 4/29 손으로 친 답글을 대체. 위 cancel & resubmit 항목과 묶어서 한 사이클로 완결 가능.  *(추가: 2026-04-30)*
+
 ## 승격됨 (→ 할일)
 
 (없음)
