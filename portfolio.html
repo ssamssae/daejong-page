@@ -336,6 +336,17 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      cursor: pointer;
+      transition: border-color .15s, transform .15s, box-shadow .15s;
+    }
+    .p-card:hover {
+      border-color: #3182F6;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(49, 130, 246, 0.12);
+    }
+    .p-card.is-active {
+      border-color: #3182F6;
+      box-shadow: 0 0 0 2px rgba(49, 130, 246, 0.15);
     }
     .p-card-head {
       display: flex;
@@ -582,6 +593,12 @@
       if (p.showSignup) setTimeout(loadSignupCount, 100);
     }
 
+    function projectKey(p) {
+      if (!p || !p.iconImg) return '';
+      var m = p.iconImg.match(/\/([^/]+)_icon/);
+      return (m && m[1]) || '';
+    }
+
     function renderGrid(list) {
       var html = '';
       for (var i = 0; i < list.length; i++) {
@@ -590,8 +607,9 @@
           ? '<img class="p-card-icon" src="' + p.iconImg + '?v=7" alt="' + p.name + '">'
           : '<div class="p-card-icon">' + (p.icon || '') + '</div>';
         var badgeHtml = p.badge ? '<span class="p-badge">' + p.badge + '</span>' : '';
+        var key = projectKey(p);
         html +=
-          '<div class="p-card">' +
+          '<div class="p-card" data-key="' + key + '" role="button" tabindex="0" aria-label="' + p.name + ' 자세히 보기">' +
             '<div class="p-card-head-wrap">' +
               '<div class="p-card-head">' +
                 iconHtml +
@@ -607,6 +625,21 @@
           '</div>';
       }
       gridEl.innerHTML = html;
+    }
+
+    function selectFeatured(p) {
+      var others = projects.filter(function(x) { return x !== p; });
+      renderHero(p);
+      renderGrid(others);
+      var key = projectKey(p);
+      if (key) {
+        try {
+          history.replaceState(null, '', location.pathname + '?app=' + key);
+        } catch (e) {}
+      }
+      if (heroEl && heroEl.scrollIntoView) {
+        heroEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
     function renderPortfolio() {
@@ -787,6 +820,25 @@
     }
 
     renderPortfolio();
+
+    gridEl.addEventListener('click', function(e) {
+      if (e.target.closest('a')) return;
+      var card = e.target.closest('.p-card');
+      if (!card) return;
+      var key = card.getAttribute('data-key');
+      if (!key) return;
+      var p = projects.find(function(x) { return projectKey(x) === key; });
+      if (p) selectFeatured(p);
+    });
+    gridEl.addEventListener('keydown', function(e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var card = e.target.closest('.p-card');
+      if (!card) return;
+      e.preventDefault();
+      var key = card.getAttribute('data-key');
+      var p = projects.find(function(x) { return projectKey(x) === key; });
+      if (p) selectFeatured(p);
+    });
   </script>
 </body>
 </html>
