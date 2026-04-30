@@ -48,6 +48,10 @@
 
 - 🤝 🛰️ **한줄일기 Android alpha → production 자동 schedule** — 2026-04-30 19:00 alpha 트랙 vc=5 commit 직후 14일 카운트 시작 (Testers Community 결제 + 테스터 등록 후). 14일 통과 후 production 트랙 ₩1,900 KOR commit 1회 자동 사이클. /schedule 으로 5/14 경 1회성 agent 박아두면 망각 방지. 14일 카운트 정확한 시작점이 테스터 등록 시점이라 그 시점 확인 후 D-day 계산 필요.  *(추가: 2026-04-30)*
 
+- 🤝 📚 **단어요 카드 학습 진척률 UX (학습완료/즐겨찾기/SRS)** — step 3b-3 시드 6카테고리 교체 끝나면 검토. 현 swipe/tap next 5단어 modulo 순환만 있고 학습 트래킹/즐겨찾기/간격 반복 없음. v1 출시 후 자기쓰기 단계에서 우선순위 결정.  *(추가: 2026-04-30)*
+
+- 🍎 🛠 **단어요 빌드/배포 = Mac mini SoT 통합** — 본진 push 권한 룰 wordyo 미등록 상태에서 PR 흐름 유지(2026-04-30 23:29 KST 결정). Mac mini SoT 자동 배포 시스템(4앱 REGISTERED)에 wordyo 추가 + AAB 자동 빌드 등록 작업 미실행. 단어요 v1 첫 Android 출시 직전에 박으면 됨.  *(추가: 2026-04-30)*
+
 ## 승격됨 (→ 할일)
 
 (없음)
