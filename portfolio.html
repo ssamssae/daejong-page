@@ -409,6 +409,20 @@
       cursor: default;
       pointer-events: none;
     }
+    .p-store-badge {
+      display: inline-block;
+      line-height: 0;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .p-store-badge:hover {
+      transform: translateY(-1px);
+      opacity: 0.85;
+    }
+    .p-store-badge img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
     @media (max-width: 640px) {
       .hero { padding: 28px 20px; }
       .hero-name { font-size: 24px; }
@@ -436,7 +450,7 @@
         name: '약먹자',
         status: 'iOS 출시 v1.0.1 · Android 비공개 테스트',
         desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 복약을 빼먹지 않게 도와줍니다.',
-        actions: [{ label: 'App Store ↗', url: 'https://apps.apple.com/app/id6762100639', external: true }]
+        actions: [{ store: 'appstore', url: 'https://apps.apple.com/kr/app/id6762100639' }]
       },
       {
         iconImg: './dutchpay_icon.png',
@@ -444,7 +458,7 @@
         status: 'iOS 출시 v1.0.2 · Android 비공개 테스트',
         desc: '여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미. 금액 · 인원수 입력만으로 바로 정산하고 남은 금액도 알려줍니다.',
         actions: [
-          { label: 'App Store ↗', url: 'https://apps.apple.com/app/id6762072499', external: true },
+          { store: 'appstore', url: 'https://apps.apple.com/kr/app/id6762072499' },
           { label: 'GitHub ↗', url: 'https://github.com/ssamssae/dutch_pay_calculator', external: true }
         ]
       },
@@ -453,7 +467,10 @@
         name: '메모요',
         status: '스토어 출시 보류 · 개인 사용',
         desc: '심플한 라이트 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구. 첫 Flutter 앱.',
-        actions: []
+        actions: [
+          { store: 'appstore', url: 'https://apps.apple.com/kr/app/id6762068073' },
+          { store: 'googleplay', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app' }
+        ]
       },
       {
         iconImg: './hankeup_icon.png',
@@ -500,7 +517,10 @@
         status: '출시 준비 · GPT-4o mini 연동 · ₩1,900 유료',
         badge: '출시 임박',
         desc: '하루 한 줄 일기와 AI(GPT-4o mini)의 따뜻한 응원 답글. dawn-sky 그라데이션 + 53주 감정 히트맵 디자인. Cloudflare Workers 프록시로 API 키 보호. 출시 직전.',
-        actions: []
+        actions: [
+          { store: 'appstore', url: 'https://apps.apple.com/kr/app/id6764308678' },
+          { store: 'googleplay', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.hanjul' }
+        ]
       }
     ];
 
@@ -510,6 +530,12 @@
     function renderActions(actions) {
       if (!actions || actions.length === 0) return '';
       var items = actions.map(function(a) {
+        if (a.store === 'appstore') {
+          return '<a class="p-store-badge" href="' + a.url + '" target="_blank" rel="noopener" aria-label="App Store에서 받기"><img src="./badge_appstore_kr.svg" alt="App Store에서 받기"></a>';
+        }
+        if (a.store === 'googleplay') {
+          return '<a class="p-store-badge" href="' + a.url + '" target="_blank" rel="noopener" aria-label="Google Play에서 받기"><img src="./badge_googleplay_kr.png" alt="Google Play에서 받기"></a>';
+        }
         if (a.disabled) return '<span class="p-btn disabled">' + a.label + '</span>';
         var target = a.external ? ' target="_blank" rel="noopener"' : '';
         return '<a class="p-btn" href="' + a.url + '"' + target + '>' + a.label + '</a>';
@@ -543,6 +569,7 @@
             '<div class="hero-name">' + p.name + '</div>' +
             '<div class="hero-status">' + p.status + '</div>' +
             '<div class="hero-desc">' + p.desc + '</div>' +
+            renderActions(p.actions) +
             signupHtml +
           '</div>' +
         '</div>';
