@@ -34,6 +34,8 @@
 
 - 🤝 🛠 **mac mini setup 체크리스트에 "Apple Silicon 빌드 호스트는 Rosetta 먼저" 항목** — globals/AGENT.md 또는 별도 setup checklist 에 박기. macOS 재설치 시 Xcode/flutter 셋업보다 우선 순서로 `sudo softwareupdate --install-rosetta --agree-to-license` 1줄. iOS debug attach 막힘 재발 방지.  *(추가: 2026-04-29)*
 
+- 🤝 🛡 **/submit-app 출시 후 territory 자동 검증·복구 가드** — ASC 자동 출시(AFTER_APPROVAL) 가 territory record 를 만들지 않는 quirk 가 있어 출시 직후 공개 페이지가 404 가 되는 사고 발생. `/submit-app` 또는 후속 자동화에 출시 직후 `GET /v2/appAvailabilities/{appId}` 검증 + record 없으면 자동으로 174 territory + CHN 1 unavailable POST 단계 내장. 2026-04-30 약먹자·더치페이 unlist 사고(약 22분 만에 수동 복구) 재발 방지 가드.  *(추가: 2026-04-30)*
+
 ## 승격됨 (→ 할일)
 
 (없음)
