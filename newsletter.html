@@ -167,8 +167,9 @@
           return;
         }
         root.innerHTML = eps.map(function(e) {
+          var f = e.cacheFile || e.file;
           return [
-            '<a class="episode" href="./newsletter/view.html?file=' + encodeURIComponent(e.file) + '">',
+            '<a class="episode" href="./newsletter/view.html?file=' + encodeURIComponent(f) + '">',
             '  <div class="episode-head">',
             '    <span class="ep-no">Ep.' + e.number + '</span>',
             '    <span class="ep-date">' + e.date + '</span>',

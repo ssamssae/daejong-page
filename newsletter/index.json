@@ -3,6 +3,16 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 5,
+      "cacheFile": "ep5-substack.md",
+      "date": "2026-04-30",
+      "publishedAt": "2026-04-30T07:13:17+00:00",
+      "title": "거절을 큐에서 다시 돌리는 법",
+      "subtitle": "바이브코딩 뉴스레터 Ep.5 — 한줄일기 1.0 출시기, 거절과 승인 사이 30시간",
+      "readingTime": "13분",
+      "substackUrl": "https://daejongkang.substack.com/p/32b"
+    },
+    {
       "number": 3,
       "file": "ep3-2026-04-28.md",
       "date": "2026-04-28",

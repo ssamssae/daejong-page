@@ -119,6 +119,7 @@
 
     <div class="toolbar" id="toolbar" style="display:none;">
       <button class="btn primary" id="copyBtn">본문 복사</button>
+      <a class="btn" id="substackLink" target="_blank" rel="noopener" style="display:none;">Substack 원본 ↗</a>
       <a class="btn" id="githubLink" target="_blank" rel="noopener">GitHub 원본 ↗</a>
     </div>
 
@@ -139,6 +140,7 @@
     var readingTimeEl = document.getElementById('readingTime');
     var toolbarEl = document.getElementById('toolbar');
     var copyBtn = document.getElementById('copyBtn');
+    var substackLink = document.getElementById('substackLink');
     var githubLink = document.getElementById('githubLink');
 
     async function load() {
@@ -150,7 +152,7 @@
       try {
         var idxRes = await fetch('./index.json?_=' + Date.now());
         var idx = await idxRes.json();
-        var meta = (idx.episodes || []).find(function(e) { return e.file === file; });
+        var meta = (idx.episodes || []).find(function(e) { return e.cacheFile === file || e.file === file; });
 
         var mdRes = await fetch('./' + file + '?_=' + Date.now());
         if (!mdRes.ok) throw new Error('fetch failed');
@@ -162,6 +164,10 @@
           readingTimeEl.textContent = '읽는 시간 ' + (meta.readingTime || '~');
           metaEl.style.display = 'flex';
           document.title = 'Ep.' + meta.number + ' ' + meta.title + ' - 바이브코딩 뉴스레터';
+          if (meta.substackUrl) {
+            substackLink.href = meta.substackUrl;
+            substackLink.style.display = 'inline-block';
+          }
         }
 
         articleEl.innerHTML = marked.parse(md);
