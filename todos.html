@@ -18,191 +18,25 @@
 
     header {
       display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+      margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
     header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
     header a { color: #4E5968; text-decoration: none; font-size: 14px; }
     header a:hover { color: #3182F6; }
 
-    /* Hero */
-    .hero {
-      display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;
-    }
-    .hero-priority {
-      background: linear-gradient(135deg, #DCE9FA 0%, #EAF2FF 100%);
-      border: 1px solid rgba(49, 130, 246, 0.45);
-      border-radius: 16px;
-      padding: 18px 20px;
-      box-shadow: 0 0 24px rgba(49, 130, 246, 0.06);
-    }
-    .hero-priority-label {
-      font-size: 11px; color: #3182F6; font-weight: 700; letter-spacing: 1.5px;
-      margin-bottom: 6px;
-    }
-    .hero-priority-text {
-      font-size: 15px; color: #191F28; font-weight: 600; line-height: 1.55;
-    }
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .hero-card {
-      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
-      padding: 14px 16px;
-    }
-    .hero-card-label {
-      font-size: 11px; color: #4E5968; margin-bottom: 6px;
-      text-transform: uppercase; letter-spacing: 0.5px;
-    }
-    .hero-card-value { font-size: 20px; color: #191F28; font-weight: 700; }
-    .hero-card-sub { font-size: 11px; color: #8B95A1; margin-top: 4px; }
-    .progress-bar-wrap {
-      margin-top: 8px; height: 6px; background: #E5E8EB;
-      border-radius: 3px; overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #3182F6 0%, #3182F6 100%);
-      border-radius: 3px; transition: width 0.6s ease;
-    }
-
-    /* Countdown widget */
-    .countdown {
-      background: linear-gradient(135deg, #EAF2FF 0%, #F9FAFB 100%);
-      border: 1px solid rgba(249, 115, 22, 0.35);
-      border-radius: 14px; padding: 14px 18px;
-    }
-    .countdown-label {
-      font-size: 10px; color: #F97316; font-weight: 700;
-      letter-spacing: 1.5px; margin-bottom: 6px;
-    }
-    .countdown-title { font-size: 13px; color: #191F28; font-weight: 600; margin-bottom: 8px; }
-    .countdown-days {
-      display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px;
-    }
-    .countdown-num { font-size: 28px; color: #F97316; font-weight: 800; line-height: 1; }
-    .countdown-unit { font-size: 13px; color: #4E5968; }
-    .countdown-date { font-size: 11px; color: #8B95A1; }
-    .countdown-progress {
-      margin-top: 10px; height: 5px; background: #E5E8EB; border-radius: 3px; overflow: hidden;
-    }
-    .countdown-progress-fill {
-      height: 100%; background: linear-gradient(90deg, #F97316 0%, #F97316 100%);
-      border-radius: 3px;
-    }
-
-    /* Filters */
-    .controls {
-      margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px;
-    }
-    .tabs {
-      display: flex; gap: 6px; flex-wrap: wrap;
-    }
-    .tab {
-      background: #F9FAFB; border: 1px solid #E5E8EB;
-      color: #4E5968; font-size: 13px; font-weight: 600;
-      padding: 7px 14px; border-radius: 20px; cursor: pointer;
-      transition: all 0.15s;
-      font-family: inherit;
-    }
-    .tab:hover { border-color: #D1D6DB; color: #191F28; }
-    .tab.active {
-      background: #DCE9FA; border-color: #3182F6; color: #3182F6;
-    }
-    .tab-count {
-      display: inline-block; margin-left: 6px;
-      font-size: 11px; color: #8B95A1;
-    }
-    .tab.active .tab-count { color: #3182F6; }
-
-    .chip-scroll {
-      display: flex; gap: 6px;
-      overflow-x: auto; padding-bottom: 4px;
-      scrollbar-width: none;
-    }
-    .chip-scroll::-webkit-scrollbar { display: none; }
-    .chip {
-      flex-shrink: 0;
-      background: transparent; border: 1px solid #E5E8EB;
-      color: #4E5968; font-size: 12px;
-      padding: 5px 12px; border-radius: 14px; cursor: pointer;
-      transition: all 0.15s; font-family: inherit;
-    }
-    .chip:hover { border-color: #B0B8C1; color: #191F28; }
-    .chip.active {
-      background: rgba(49, 130, 246, 0.12);
-      border-color: #3182F6;
-      color: #3182F6;
-    }
-
-    /* Todo cards */
     .todo-list { display: flex; flex-direction: column; gap: 10px; }
     .todo {
       background: #F9FAFB; border: 1px solid #E5E8EB;
       border-radius: 12px; padding: 14px 16px;
-      transition: border-color 0.15s;
     }
-    .todo:hover { border-color: #E5E8EB; }
-    .todo.priority {
-      border-color: rgba(49, 130, 246, 0.4);
-      background: linear-gradient(135deg, #EAF2FF 0%, #F9FAFB 100%);
-    }
-    .todo.done { opacity: 0.55; }
-
-    .todo-head {
-      display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;
-    }
-    .todo-check {
-      flex-shrink: 0; width: 18px; height: 18px; border-radius: 5px;
-      border: 2px solid #B0B8C1; margin-top: 3px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .todo.done .todo-check { border-color: #22C55E; background: #22C55E; }
-    .todo.done .todo-check::after {
-      content: '✓'; color: #191F28; font-size: 11px; font-weight: bold;
-    }
-    .todo.priority .todo-check { border-color: #3182F6; }
-
     .todo-text {
-      flex: 1; font-size: 14px; color: #191F28; line-height: 1.55;
+      font-size: 14px; color: #191F28; line-height: 1.55;
       word-break: keep-all; overflow-wrap: break-word;
     }
-    .todo.done .todo-text { text-decoration: line-through; color: #8B95A1; }
-    .todo-star { color: #3182F6; margin-right: 4px; }
-
-    .todo-meta {
-      display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
-      margin-top: 8px; padding-left: 28px;
-    }
-    .todo-tag {
-      font-size: 10px; padding: 2px 8px; border-radius: 8px;
-      background: #E5E8EB; color: #4E5968; border: 1px solid #E5E8EB;
-      font-weight: 500;
-    }
-    .todo-tag.memoyo { border-color: #22C55E; color: #22C55E; }
-    .todo-tag.web { border-color: #3182F6; color: #3182F6; }
-    .todo-tag.infra { border-color: #A855F7; color: #A855F7; }
-    .todo-tag.remote { border-color: #8B95A1; color: #8B95A1; }
-    .todo-tag.skill { border-color: #3182F6; color: #3182F6; }
-    .todo-tag.release { border-color: #F97316; color: #F97316; }
-    .todo-tag.ios { border-color: #EC4899; color: #EC4899; }
-    .todo-tag.android { border-color: #22C55E; color: #22C55E; }
-
-    .dday {
-      font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 8px;
-      background: #E5E8EB; color: #4E5968; border: 1px solid #E5E8EB;
-      letter-spacing: 0.3px;
-    }
-    .dday.urgent { background: rgba(240, 68, 82, 0.15); color: #F04452; border-color: rgba(240, 68, 82, 0.45); }
-    .dday.soon { background: rgba(249, 115, 22, 0.12); color: #F97316; border-color: rgba(249, 115, 22, 0.4); }
-    .dday.passed { background: rgba(139, 149, 161, 0.2); color: #8B95A1; border-color: #D1D6DB; }
-
-    .todo-date-info {
-      font-size: 11px; color: #8B95A1;
+    .todo-date {
+      font-size: 11px; color: #8B95A1; margin-top: 6px;
     }
 
-    /* Drawer */
     .drawer {
       margin-top: 28px; border-top: 1px solid #E5E8EB; padding-top: 20px;
     }
@@ -228,29 +62,15 @@
       display: flex; justify-content: space-between; align-items: center;
       transition: all 0.15s; font-size: 13px;
     }
-    .snap-item:hover { border-color: #D1D6DB; background: #F9FAFB; }
+    .snap-item:hover { border-color: #D1D6DB; }
     .snap-item.active { border-color: #3182F6; background: #DCE9FA; }
     .snap-date { color: #191F28; font-weight: 600; }
-    .snap-version {
+    .snap-rel {
       font-size: 10px; color: #3182F6;
       background: rgba(49, 130, 246, 0.12);
       padding: 2px 8px; border-radius: 8px;
       border: 1px solid rgba(49, 130, 246, 0.3);
     }
-    .snap-tags { display: flex; gap: 6px; align-items: center; }
-    .snap-reconstructed {
-      font-size: 10px; color: #4E5968;
-      background: transparent;
-      padding: 2px 8px; border-radius: 8px;
-      border: 1px dashed #B0B8C1;
-    }
-    .reconstructed-note {
-      background: #F9FAFB; border: 1px dashed #B0B8C1;
-      border-radius: 10px; padding: 10px 14px; margin-bottom: 14px;
-      font-size: 12px; color: #4E5968;
-      line-height: 1.5;
-    }
-    .reconstructed-note strong { color: #4E5968; }
 
     .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
     .error { color: #F04452; text-align: center; padding: 40px 0; font-size: 14px; }
@@ -261,11 +81,6 @@
       text-decoration: none; font-size: 14px;
     }
     .back:hover { color: #3182F6; }
-
-    @media (max-width: 480px) {
-      .hero-stats { grid-template-columns: 1fr; }
-    }
-
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 </head>
@@ -286,73 +101,17 @@
   <script>
     const viewEl = document.getElementById('view');
 
-    // Project tag keywords
-    const PROJECT_TAGS = [
-      { cls: 'memoyo', label: '메모요', keywords: ['메모요', 'memoyo', 'simple_memo', 'simpleMemoApp'] },
-      { cls: 'web', label: '홈페이지', keywords: ['daejong-page', '홈페이지', '포트폴리오'] },
-      { cls: 'infra', label: '자동화', keywords: ['launchd', 'Playwright', '자동 등록', '워커', '인프라', 'Apps Script', 'Google Groups'] },
-      { cls: 'remote', label: '원격제어', keywords: ['원격제어', 'WebRTC', 'Parsec', 'TURN'] },
-      { cls: 'skill', label: '스킬', keywords: ['스킬', 'Claude Code', '/usage', '/briefing'] },
-      { cls: 'ios', label: 'iOS', keywords: ['iOS', 'App Store', 'UIPasteControl', 'TestFlight', 'Xcode'] },
-      { cls: 'android', label: 'Android', keywords: ['Android', 'Play Store', 'Closed Testing', 'Play Console', 'aab'] },
-      { cls: 'release', label: '출시', keywords: ['출시', '심사', '제출', '사전예약', '베타테스터'] },
-    ];
-
-    function detectTags(text) {
-      const found = [];
-      for (const t of PROJECT_TAGS) {
-        for (const kw of t.keywords) {
-          if (text.indexOf(kw) !== -1) { found.push(t); break; }
-        }
-      }
-      return found;
-    }
-
-    // Date helpers
-    function todayKST() {
-      const now = new Date();
-      const kst = new Date(now.getTime() + (now.getTimezoneOffset() + 540) * 60000);
-      kst.setHours(0, 0, 0, 0);
-      return kst;
-    }
-
     function parseDate(s) {
-      // YYYY-MM-DD
       const m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
       if (!m) return null;
       return new Date(+m[1], +m[2] - 1, +m[3]);
     }
 
-    function extractDeadline(text, addedDate) {
-      // Try patterns in order:
-      // "~2026-05-01", "(~05-01)", "YYYY-MM-DD~YYYY-MM-DD" (use end), "Day 14(~05-01)"
-      let m = text.match(/~\s*(\d{4}-\d{2}-\d{2})/);
-      if (m) return m[1];
-
-      m = text.match(/(\d{4}-\d{2}-\d{2})\s*~\s*(\d{4}-\d{2}-\d{2})/);
-      if (m) return m[2];
-
-      m = text.match(/~\s*(\d{2}-\d{2})(?![\d])/);
-      if (m) {
-        const yr = addedDate ? addedDate.slice(0, 4) : new Date().getFullYear();
-        return yr + '-' + m[1];
-      }
-      return null;
-    }
-
-    function ddayLabel(deadlineStr) {
-      const d = parseDate(deadlineStr);
-      if (!d) return null;
-      const today = todayKST();
-      const diff = Math.round((d - today) / 86400000);
-      let cls = '';
-      let label = '';
-      if (diff < 0) { cls = 'passed'; label = 'D+' + Math.abs(diff) + ' 지남'; }
-      else if (diff === 0) { cls = 'urgent'; label = 'D-DAY'; }
-      else if (diff <= 7) { cls = 'urgent'; label = 'D-' + diff; }
-      else if (diff <= 30) { cls = 'soon'; label = 'D-' + diff; }
-      else { cls = ''; label = 'D-' + diff; }
-      return { cls: cls, label: label, date: deadlineStr, diff: diff };
+    function todayKST() {
+      const now = new Date();
+      const kst = new Date(now.getTime() + (now.getTimezoneOffset() + 540) * 60000);
+      kst.setHours(0, 0, 0, 0);
+      return kst;
     }
 
     function relativeDay(dateStr) {
@@ -366,98 +125,40 @@
       return Math.floor(diff / 30) + '달 전';
     }
 
-    function daysSince(dateStr) {
-      const d = parseDate(dateStr);
-      if (!d) return null;
-      return Math.round((todayKST() - d) / 86400000);
-    }
-
-    // Markdown parser
-    function parseTodos(md) {
-      const sections = { inprogress: [], done: [], hold: [] };
-      let current = null;
-      for (const line of md.split('\n')) {
-        const trimmed = line.trim();
-        if (/^## 진행중/.test(trimmed)) { current = 'inprogress'; continue; }
-        if (/^## 완료/.test(trimmed)) { current = 'done'; continue; }
-        if (/^## 보류|^## 취소|^## 드롭/.test(trimmed)) { current = 'hold'; continue; }
-        if (/^#/.test(trimmed)) { current = null; continue; }
-        if (current && /^- \[/.test(trimmed)) {
-          const isDone = /^- \[x\]/i.test(trimmed);
-          const isPriority = trimmed.includes('\u2B50');
-          let text = trimmed.replace(/^- \[.\]\s*/, '').replace(/\u2B50\s*/g, '');
-          const dateMatch = text.match(/\(추가:\s*([^,)]+)(?:,\s*완료:\s*([^)]+))?\)/);
-          let addedDate = '', doneDate = '';
-          if (dateMatch) {
-            addedDate = (dateMatch[1] || '').trim();
-            doneDate = (dateMatch[2] || '').trim();
-            text = text.replace(dateMatch[0], '').trim();
-          }
-          const tags = detectTags(text);
-          const deadline = extractDeadline(text, addedDate);
-          const dday = deadline ? ddayLabel(deadline) : null;
-          sections[current].push({
-            text, isDone, isPriority, addedDate, doneDate, tags, deadline, dday,
-            section: current,
-          });
-        }
-      }
-      return sections;
-    }
-
-    // Special: detect memoyo Closed Testing countdown
-    function findMemoyoCountdown(items) {
-      for (const it of items) {
-        if (it.isDone) continue;
-        const m = it.text.match(/Closed Testing[^(]*?(\d{4}-\d{2}-\d{2})\s*~\s*(\d{4}-\d{2}-\d{2})/);
-        if (m) {
-          const start = parseDate(m[1]);
-          const end = parseDate(m[2]);
-          const today = todayKST();
-          const total = Math.round((end - start) / 86400000);
-          const elapsed = Math.round((today - start) / 86400000);
-          const remaining = Math.max(0, Math.round((end - today) / 86400000));
-          const pct = Math.max(0, Math.min(100, (elapsed / total) * 100));
-          return {
-            start: m[1], end: m[2],
-            totalDays: total, elapsedDays: Math.max(0, elapsed),
-            remainingDays: remaining, progressPct: pct,
-          };
-        }
-      }
-      return null;
-    }
-
-    // Sorting
-    function sortTodos(items) {
-      return items.slice().sort((a, b) => {
-        if (a.isPriority !== b.isPriority) return a.isPriority ? -1 : 1;
-        // Deadline sooner first (nulls last)
-        const ad = a.dday ? a.dday.diff : null;
-        const bd = b.dday ? b.dday.diff : null;
-        if (ad !== null && bd !== null) return ad - bd;
-        if (ad !== null) return -1;
-        if (bd !== null) return 1;
-        // Added date newer first
-        return (b.addedDate || '').localeCompare(a.addedDate || '');
-      });
-    }
-
     function escapeHtml(s) {
       return (s || '').replace(/[&<>"']/g, c => ({
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
       }[c]));
     }
 
-    // State
+    function parseInprogress(md) {
+      const items = [];
+      let inSection = false;
+      for (const line of md.split('\n')) {
+        const trimmed = line.trim();
+        if (/^## 진행중/.test(trimmed)) { inSection = true; continue; }
+        if (/^##/.test(trimmed)) { inSection = false; continue; }
+        if (!inSection) continue;
+        const m = trimmed.match(/^- \[( |x|X)\]\s*(.+)$/);
+        if (!m) continue;
+        if (m[1].toLowerCase() === 'x') continue;
+        let text = m[2].replace(/⭐\s*/g, '');
+        const dm = text.match(/\(추가:\s*([^,)]+)(?:,\s*완료:\s*([^)]+))?\)/);
+        let added = '';
+        if (dm) {
+          added = (dm[1] || '').trim();
+          text = text.replace(dm[0], '').trim();
+        }
+        items.push({ text, added });
+      }
+      return items;
+    }
+
     const state = {
       versions: [],
       currentVersion: null,
-      sections: null,
-      tab: 'inprogress',
-      activeTag: null,
+      items: [],
       drawerOpen: false,
-      prevSections: null, // for "recent completions" count
     };
 
     async function init() {
@@ -478,23 +179,10 @@
 
     async function loadVersion(version) {
       state.currentVersion = version;
-      state.activeTag = null;
       try {
         const res = await fetch('./todos/' + version.file + '?_=' + Date.now());
         const text = await res.text();
-        state.sections = parseTodos(text);
-
-        // Load previous version for "completed in last N days" metric
-        const idx = state.versions.findIndex(v => v.file === version.file);
-        if (idx >= 0 && idx < state.versions.length - 1) {
-          try {
-            const prevRes = await fetch('./todos/' + state.versions[idx + 1].file + '?_=' + Date.now());
-            const prevText = await prevRes.text();
-            state.prevSections = parseTodos(prevText);
-          } catch (e) { state.prevSections = null; }
-        } else {
-          state.prevSections = null;
-        }
+        state.items = parseInprogress(text);
         render();
       } catch (e) {
         viewEl.innerHTML = '<div class="error">파일을 불러오지 못했습니다.</div>';
@@ -502,210 +190,30 @@
     }
 
     function render() {
-      const s = state.sections;
-      if (!s) return;
-
-      const all = [...s.inprogress, ...s.done];
-      const total = all.length;
-      const doneCount = s.done.length + s.inprogress.filter(i => i.isDone).length;
-      const activeCount = s.inprogress.filter(i => !i.isDone).length;
-      const donePct = total > 0 ? Math.round((doneCount / total) * 100) : 0;
-
-      // Priority item
-      const priority = s.inprogress.find(i => i.isPriority && !i.isDone);
-
-      // Memoyo countdown
-      const countdown = findMemoyoCountdown(s.inprogress);
-
-      // Recent completions (compare with prev snapshot)
-      let recentCompleted = 0;
-      let recentDays = null;
-      if (state.prevSections && state.currentVersion) {
-        const prevDoneKeys = new Set();
-        const prevAll = [...state.prevSections.inprogress, ...state.prevSections.done];
-        for (const it of prevAll) {
-          if (it.isDone) prevDoneKeys.add(it.text.slice(0, 40));
-        }
-        for (const it of all) {
-          if (it.isDone && !prevDoneKeys.has(it.text.slice(0, 40))) recentCompleted++;
-        }
-        // Days between snapshots
-        const cur = parseDate(state.currentVersion.date);
-        const idx = state.versions.findIndex(v => v.file === state.currentVersion.file);
-        const prev = state.versions[idx + 1];
-        if (cur && prev) {
-          const prevD = parseDate(prev.date);
-          if (prevD) recentDays = Math.max(1, Math.round((cur - prevD) / 86400000));
-        }
-      }
-
-      // Collect available tags from current tab items
-      const tabItems = (state.tab === 'inprogress')
-        ? s.inprogress.filter(i => !i.isDone)
-        : (state.tab === 'done')
-          ? [...s.done, ...s.inprogress.filter(i => i.isDone)]
-          : all;
-      const tagCounts = {};
-      for (const it of tabItems) {
-        for (const t of it.tags) {
-          tagCounts[t.cls] = (tagCounts[t.cls] || 0) + 1;
-        }
-      }
-
-      // Reconstructed note
-      let noteHtml = '';
-      if (state.currentVersion.reconstructed) {
-        noteHtml =
-          '<div class="reconstructed-note">' +
-          '<strong>사후 재구성 스냅샷</strong> — /todo 스킬 도입(2026-04-15) 이전이라 그날의 실제 todos.md 는 없습니다. 같은 날 worklog 를 기준으로 "그날 진행 중이었을 법한 할일"을 되짚어 구성했어요.' +
-          '</div>';
-      }
-
-      // Hero HTML
-      let heroHtml = '<div class="hero">';
-      if (priority) {
-        heroHtml +=
-          '<div class="hero-priority">' +
-          '<div class="hero-priority-label">★ 지금 집중</div>' +
-          '<div class="hero-priority-text">' + escapeHtml(priority.text) + '</div>' +
-          '</div>';
-      }
-
-      heroHtml += '<div class="hero-stats">';
-      heroHtml +=
-        '<div class="hero-card">' +
-        '<div class="hero-card-label">진행률</div>' +
-        '<div class="hero-card-value">' + donePct + '%</div>' +
-        '<div class="hero-card-sub">' + doneCount + '개 완료 · ' + activeCount + '개 진행중</div>' +
-        '<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:' + donePct + '%"></div></div>' +
-        '</div>';
-
-      if (recentCompleted > 0 && recentDays !== null) {
-        heroHtml +=
-          '<div class="hero-card">' +
-          '<div class="hero-card-label">최근 완료 속도</div>' +
-          '<div class="hero-card-value">' + recentCompleted + '<span style="font-size:13px;color:#4E5968;font-weight:500;">건</span></div>' +
-          '<div class="hero-card-sub">지난 ' + recentDays + '일 동안</div>' +
-          '</div>';
-      } else {
-        heroHtml +=
-          '<div class="hero-card">' +
-          '<div class="hero-card-label">스냅샷</div>' +
-          '<div class="hero-card-value" style="font-size:14px;">' + state.currentVersion.date + '</div>' +
-          '<div class="hero-card-sub">스냅샷 ' + state.versions.length + '개</div>' +
-          '</div>';
-      }
-      heroHtml += '</div>';
-
-      if (countdown) {
-        heroHtml +=
-          '<div class="countdown">' +
-          '<div class="countdown-label">⏱ 메모요 CLOSED TESTING</div>' +
-          '<div class="countdown-title">Day ' + countdown.elapsedDays + ' / ' + countdown.totalDays + ' · Production Access Form 제출까지</div>' +
-          '<div class="countdown-days">' +
-          '<div class="countdown-num">' + countdown.remainingDays + '</div>' +
-          '<div class="countdown-unit">일 남음</div>' +
-          '</div>' +
-          '<div class="countdown-date">' + countdown.start + ' ~ ' + countdown.end + '</div>' +
-          '<div class="countdown-progress"><div class="countdown-progress-fill" style="width:' + countdown.progressPct + '%"></div></div>' +
-          '</div>';
-      }
-      heroHtml += '</div>';
-
-      // Controls
-      let controlsHtml = '<div class="controls">';
-      controlsHtml += '<div class="tabs">';
-      const tabDefs = [
-        { key: 'inprogress', label: '진행중', count: activeCount },
-        { key: 'done', label: '완료', count: doneCount },
-        { key: 'all', label: '전체', count: total },
-      ];
-      // 드롭 탭은 빈 스냅샷에서도 '없음(0)' 으로 항상 노출 — 4/11 처럼 초창기 날짜도 구조 일관성 유지
-      tabDefs.push({ key: 'hold', label: '드롭', count: s.hold.length });
-      for (const t of tabDefs) {
-        const active = t.key === state.tab ? ' active' : '';
-        controlsHtml +=
-          '<button class="tab' + active + '" data-tab="' + t.key + '">' +
-          t.label + '<span class="tab-count">' + t.count + '</span></button>';
-      }
-      controlsHtml += '</div>';
-
-      // Tag chips
-      const tagKeys = Object.keys(tagCounts);
-      if (tagKeys.length > 0) {
-        controlsHtml += '<div class="chip-scroll">';
-        controlsHtml += '<button class="chip' + (state.activeTag === null ? ' active' : '') + '" data-chip="">전체</button>';
-        for (const t of PROJECT_TAGS) {
-          if (!tagCounts[t.cls]) continue;
-          const active = state.activeTag === t.cls ? ' active' : '';
-          controlsHtml +=
-            '<button class="chip' + active + '" data-chip="' + t.cls + '">' +
-            t.label + ' · ' + tagCounts[t.cls] + '</button>';
-        }
-        controlsHtml += '</div>';
-      }
-      controlsHtml += '</div>';
-
-      // Filtered items
-      let items;
-      if (state.tab === 'inprogress') items = s.inprogress.filter(i => !i.isDone);
-      else if (state.tab === 'done') items = [...s.done, ...s.inprogress.filter(i => i.isDone)];
-      else if (state.tab === 'hold') items = s.hold;
-      else items = all;
-
-      if (state.activeTag) {
-        items = items.filter(it => it.tags.some(t => t.cls === state.activeTag));
-      }
-      items = sortTodos(items);
-
-      // Todo list
       let listHtml = '<div class="todo-list">';
-      if (items.length === 0) {
-        let emptyMsg;
-        if (state.tab === 'hold') emptyMsg = '이 날짜엔 드롭된 항목이 없습니다.';
-        else if (state.activeTag) emptyMsg = '조건에 맞는 항목이 없습니다.';
-        else emptyMsg = '해당 탭에 항목이 없습니다.';
-        listHtml += '<div class="empty">' + emptyMsg + '</div>';
+      if (state.items.length === 0) {
+        listHtml += '<div class="empty">진행중인 할일이 없습니다.</div>';
       } else {
-        for (const it of items) {
-          const cls = 'todo' + (it.isPriority ? ' priority' : '') + (it.isDone ? ' done' : '');
-          listHtml += '<div class="' + cls + '">';
-          listHtml +=
-            '<div class="todo-head">' +
-            '<div class="todo-check"></div>' +
-            '<div class="todo-text">' +
-            (it.isPriority ? '<span class="todo-star">★</span>' : '') +
-            escapeHtml(it.text) +
-            '</div></div>';
-
-          // Meta line
-          const metaParts = [];
-          for (const t of it.tags) {
-            metaParts.push('<span class="todo-tag ' + t.cls + '">' + t.label + '</span>');
-          }
-          if (it.dday && !it.isDone) {
-            metaParts.push('<span class="dday ' + it.dday.cls + '">' + it.dday.label + ' · ' + it.dday.date + '</span>');
-          }
-          if (it.isDone && it.doneDate) {
-            const ds = daysSince(it.doneDate);
-            const suffix = ds === 0 ? '오늘' : ds === 1 ? '어제' : ds + '일 전';
-            metaParts.push('<span class="todo-date-info">완료 ' + suffix + ' · ' + it.doneDate + '</span>');
-          } else if (it.addedDate) {
-            const ds = daysSince(it.addedDate);
-            if (ds !== null) {
-              const suffix = ds === 0 ? '오늘 추가' : ds === 1 ? '어제 추가' : ds + '일 전 추가';
-              metaParts.push('<span class="todo-date-info">' + suffix + '</span>');
-            }
-          }
-          if (metaParts.length > 0) {
-            listHtml += '<div class="todo-meta">' + metaParts.join('') + '</div>';
+        for (const it of state.items) {
+          listHtml += '<div class="todo">';
+          listHtml += '<div class="todo-text">' + escapeHtml(it.text) + '</div>';
+          if (it.added) {
+            const ds = (function () {
+              const d = parseDate(it.added);
+              if (!d) return null;
+              return Math.round((todayKST() - d) / 86400000);
+            })();
+            const suffix = ds === 0 ? '오늘 추가'
+              : ds === 1 ? '어제 추가'
+              : ds !== null ? ds + '일 전 추가'
+              : '추가 ' + it.added;
+            listHtml += '<div class="todo-date">' + suffix + '</div>';
           }
           listHtml += '</div>';
         }
       }
       listHtml += '</div>';
 
-      // Drawer
       let drawerHtml = '';
       if (state.versions.length > 1) {
         const openCls = state.drawerOpen ? ' open' : '';
@@ -718,38 +226,20 @@
         drawerHtml += '<div class="drawer-content">';
         for (const v of state.versions) {
           const active = v.file === state.currentVersion.file ? ' active' : '';
-          const rel = relativeDay(v.date);
-          const reconTag = v.reconstructed
-            ? '<span class="snap-reconstructed">재구성</span>' : '';
           drawerHtml +=
             '<div class="snap-item' + active + '" data-file="' + v.file + '">' +
             '<span class="snap-date">' + v.date + '</span>' +
-            '<span class="snap-tags">' + reconTag +
-            '<span class="snap-version">' + rel + '</span></span>' +
+            '<span class="snap-rel">' + relativeDay(v.date) + '</span>' +
             '</div>';
         }
         drawerHtml += '</div></div>';
       }
 
-      viewEl.innerHTML = noteHtml + heroHtml + controlsHtml + listHtml + drawerHtml;
+      viewEl.innerHTML = listHtml + drawerHtml;
       bindEvents();
     }
 
     function bindEvents() {
-      viewEl.querySelectorAll('[data-tab]').forEach(el => {
-        el.addEventListener('click', () => {
-          state.tab = el.dataset.tab;
-          state.activeTag = null;
-          render();
-        });
-      });
-      viewEl.querySelectorAll('[data-chip]').forEach(el => {
-        el.addEventListener('click', () => {
-          const v = el.dataset.chip;
-          state.activeTag = (v === '' || state.activeTag === v) ? null : v;
-          render();
-        });
-      });
       const toggle = document.getElementById('drawer-toggle');
       if (toggle) {
         toggle.addEventListener('click', () => {
