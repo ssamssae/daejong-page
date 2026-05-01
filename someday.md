@@ -53,6 +53,12 @@
 
 - [ ] 🤝 🛡 wsl-directive.sh 에 main HEAD SHA 자동 첨부 가드 — 2026-05-01 wsl-mac-race-skill-edit /issue 의 forcing function (c) 코드화. 디렉티브 발송 시점 main HEAD SHA 를 운반체가 본문에 자동 1줄 첨부 → WSL 측이 그 SHA 와 본인 작업 base 가 다르면 경고. mac-report.sh 거울 구조에 추가. 다음 race 발생 전 적용 가치. 트리거: 다음 wsl-directive.sh 호출 흐름에서 동시 또는 별도 PR. (추가: 2026-05-01)
 
+- [ ] 🍎 ✍️ /newsletter-publish SKILL.md "검증 PASS 기록" 섹션에 v0 첫 사이클(Ep.4) 학습점 박기 — substack 본문 에디터 selector 가 `div.tiptap.ProseMirror.mousetrap` (role=textbox 가 아니라 사이드 패널). publish 모달 위에 "Add subscribe buttons" 모달이 한 번 더 뜸 → "Publish without buttons" 버튼 통과. /share-center redirect 후 archive API 보다 page.innerText 의 "Your post is live!" + `/p/<slug>` 링크 직접 추출이 빠름. 다음 v0 호출 전에 박아두면 같은 시행착오 안 반복. (추가: 2026-05-01)
+
+- [ ] 🤝 🧠 단어요 메모리 stale 정정 — `project_wordbook_decision_locked.md` 의 "다음=step 3b-2" 라인을 실제 git log 반영해서 "3b-4 (ChatGPT 시드 1회차) 완료, 다음=step 3b-5" 로 갱신. 2026-05-01 21:24 KST WSL 보고서가 surface 한 stale. 단어요 작업 재개 시점에 같이 처리하면 자연스러움. (추가: 2026-05-01)
+
+- [ ] 🍎 🛰️ 새 프로젝트 발굴 (WSL 라우팅 사안) — 강대종님 2026-05-01 20:59 KST "새로운 프로젝트 발굴" + 21:24 KST "진행" 발화. WSL 가 21:24 KST mac-report.sh 로 본진 라우팅. 본진(지휘관)이 활성앱(한줄일기/약먹자/더치페이/포모도로/단어요) + 드롭이력(가계부/모닝브리핑/이브닝랩/심사레이더/라이브액티비티) + 라이프스타일 매핑 grep 후 후보 1~3개 surface → 강대종 결정 → wsl-directive.sh 라우팅. 다음 본진 새 세션에서 처리. (추가: 2026-05-01)
+
 
 ## 승격됨 (→ todos.md)
 
