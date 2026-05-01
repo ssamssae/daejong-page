@@ -24,6 +24,19 @@
     header a { color: #4E5968; text-decoration: none; font-size: 14px; }
     header a:hover { color: #3182F6; }
 
+    .lede {
+      background: linear-gradient(135deg, #F0F9FF 0%, #F9FAFB 100%);
+      border: 1px solid #DBEAFE;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #4E5968;
+    }
+    .lede strong { color: #191F28; }
+    .lede a { color: #3182F6; text-decoration: none; }
+    .lede a:hover { text-decoration: underline; }
+
     .todo-list { display: flex; flex-direction: column; gap: 10px; }
     .todo {
       background: #F9FAFB; border: 1px solid #E5E8EB;
@@ -90,6 +103,10 @@
       <h1>할일</h1>
       <a href="./">← 홈으로</a>
     </header>
+
+    <div class="lede">
+      <strong>지금 해야 하는 일들.</strong> <a href="./someday.html">언젠가</a> · <a href="./parking-lot.html">손이 가면</a> 과 분리해 우선순위 노이즈 없이 처리하는 항목만 모았습니다. 끝나면 <a href="./done.html">완료</a>로, 못 하게 되면 <a href="./cancelled.html">취소</a>로 이동.
+    </div>
 
     <div id="view">
       <div class="loading">불러오는 중…</div>
