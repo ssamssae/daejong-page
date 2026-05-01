@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-01-ep5-backfill-overwrite.md",
+      "date": "2026-05-01",
+      "slug": "ep5-backfill-overwrite",
+      "title": "Substack backfill 이 Ep5 원본 prose 를 덮어씀 — 컨벤션 두 갈래 공존",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "daejong-page newsletter 파이프라인 / naver-blog-publish / ep<N> 원본 prose 보존",
+      "occurred_at": "2026-04-30 23:45 KST (50c5ad4 커밋 시점)",
+      "resolved_at": "2026-05-01 20:50 KST (이슈 등록, 데이터 원복 X)",
+      "updated": "2026-05-01T20:55:00+09:00"
+    },
+    {
       "file": "2026-05-01-wsl-mac-race-skill-edit.md",
       "date": "2026-05-01",
       "slug": "wsl-mac-race-skill-edit",
