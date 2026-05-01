@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-01.md",
+      "date": "2026-05-01",
+      "count": 1,
+      "updated": "2026-05-01T11:49:48+09:00"
+    },
+    {
       "file": "2026-04-30.md",
       "date": "2026-04-30",
       "summary": "한줄일기 1.0 iOS App Store LIVE (₩1,900 KOR, 13:29 KST 승인+자동 release, 턴어라운드 2h23m). ASC API 우회 재제출 (PATCH cancel old sub → 새 sub attach → submit) — China Deep Synthesis reject 후 절차 일반화 lesson 추가. Mac mini SoT 자동배포 Phase B 풀그린 (iOS .p8 + Android service account scp + 권한 부여 + play-upload --check REGISTERED, alpha 1.1.0+5 promote 첫 사용). 단어요(wordyo) 부트스트랩 진입 (~/apps/wordyo init). Skills 5건 + Automations 1건 (MACHINE_ROLES, SSH 라우팅, mac-report 룰, session-close 박다 제거, create-play-app.js). 뉴스레터 Ep.4 본진 검토+Substack 발행본 + Ep.5 한줄일기 출시기 outline+드래프트 + Ep.3 누락 이미지 4장 + Someday 3건.",
