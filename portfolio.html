@@ -463,11 +463,25 @@
   <script>
     const projects = [
       {
-        iconImg: './yakmukja_icon.png',
-        name: '약먹자',
-        status: 'iOS 출시 v1.0.1 · Android 비공개 테스트',
-        desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 복약을 빼먹지 않게 도와줍니다.',
-        actions: [{ store: 'appstore', url: 'https://apps.apple.com/kr/app/id6762100639' }]
+        iconImg: './hanjul_icon.png',
+        name: '한줄일기',
+        status: '출시 준비 · GPT-4o mini 연동 · ₩1,900 유료',
+        badge: '출시 임박',
+        desc: '하루 한 줄 일기와 AI(GPT-4o mini)의 따뜻한 응원 답글. dawn-sky 그라데이션 + 53주 감정 히트맵 디자인. Cloudflare Workers 프록시로 API 키 보호. 출시 직전.',
+        actions: [
+          { store: 'appstore', url: 'https://apps.apple.com/kr/app/id6764308678' },
+          { store: 'googleplay', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.hanjul' }
+        ]
+      },
+      {
+        iconImg: './memo_icon.png',
+        name: '메모요',
+        status: '스토어 출시 보류 · 개인 사용',
+        desc: '심플한 라이트 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구. 첫 Flutter 앱.',
+        actions: [
+          { store: 'appstore', url: 'https://apps.apple.com/kr/app/id6762068073' },
+          { store: 'googleplay', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app' }
+        ]
       },
       {
         iconImg: './dutchpay_icon.png',
@@ -480,14 +494,11 @@
         ]
       },
       {
-        iconImg: './memo_icon.png',
-        name: '메모요',
-        status: '스토어 출시 보류 · 개인 사용',
-        desc: '심플한 라이트 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구. 첫 Flutter 앱.',
-        actions: [
-          { store: 'appstore', url: 'https://apps.apple.com/kr/app/id6762068073' },
-          { store: 'googleplay', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app' }
-        ]
+        iconImg: './yakmukja_icon.png',
+        name: '약먹자',
+        status: 'iOS 출시 v1.0.1 · Android 비공개 테스트',
+        desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 복약을 빼먹지 않게 도와줍니다.',
+        actions: [{ store: 'appstore', url: 'https://apps.apple.com/kr/app/id6762100639' }]
       },
       {
         iconImg: './hankeup_icon.png',
@@ -526,17 +537,6 @@
         actions: [
           { label: 'GitHub ↗', url: 'https://github.com/ssamssae/daejong-page', external: true },
           { label: '현재 페이지', disabled: true }
-        ]
-      },
-      {
-        iconImg: './hanjul_icon.png',
-        name: '한줄일기',
-        status: '출시 준비 · GPT-4o mini 연동 · ₩1,900 유료',
-        badge: '출시 임박',
-        desc: '하루 한 줄 일기와 AI(GPT-4o mini)의 따뜻한 응원 답글. dawn-sky 그라데이션 + 53주 감정 히트맵 디자인. Cloudflare Workers 프록시로 API 키 보호. 출시 직전.',
-        actions: [
-          { store: 'appstore', url: 'https://apps.apple.com/kr/app/id6764308678' },
-          { store: 'googleplay', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.hanjul' }
         ]
       }
     ];
@@ -653,7 +653,7 @@
       var byKey = appKey ? projects.find(function(p) {
         return projectKey(p) === appKey;
       }) : null;
-      var featured = byKey || projects[projects.length - 1];
+      var featured = byKey || projects[0];
       renderHero(featured);
       renderGrid(projects, featured);
     }
