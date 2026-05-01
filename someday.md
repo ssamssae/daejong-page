@@ -7,10 +7,6 @@
 
 ## 모아둠
 
-- [ ] 🤝 ⚙️ settings.json allow rule generic 화 — 현재 handoffs/* 만 cover 중인 specific Bash rule 을 issues/ + worklog/ 등 claude-skills repo 의 다른 sub-dir 도 cover 하게 확장. 2026-04-27 handoff commit harness sandbox false positive 사고에서 첫 paste 한 룰 3개가 handoffs/ 디렉토리만 매칭. issue commit 등 다른 sub-dir 작업할 때 같은 false positive 또 날 가능성. handoff commit 첫 통과 검증 후 다음 진화 단계로 자연스러움. WSL 본진은 경로만 /home/ssamssae/claude-skills.  (추가: 2026-04-27)
-
-- [ ] 🤝 🛠 신규 앱 repo 추가 스킬에 "Mac/WSL 양쪽 settings.json allow 룰 추가" step 박기 — hanjul push 차단 사건(2026-04-27 22:08 KST) 같은 것이 다른 앱 도입 시 재발 가능. 신규 앱 등록 시 양 기기 settings.json 에 push allow 룰 자동 박는 step 운영 패턴화. wildcard 룰 박힌 후엔 자동 흡수.  (추가: 2026-04-27)
-
 - [ ] 🍎 📧 mail-watcher false positive 튜닝 — 4h 주기 운영하다 important=true 잘못 잡힌 케이스 누적되면 prompt 더 엄격화 또는 1차 keyword 필터에 false 통과 패턴 추가. 운영 1~2주 후 데이터 쌓이면. 위치 ~/secrets/mail-watcher/mail_watcher.py 의 ollama_classify 함수. (추가: 2026-04-28)
 
 - [ ] 🤝 🛠 install.sh hostname case 패턴에 mac-mini* 추가 — 현재 ~/claude-automations/install.sh 의 case 분기 `*.local|Daejong*|USER*` 가 Mac mini hostname `mac-mini` 매칭 안 함. 4/29 00:36 night-runner-check 직접 launchctl bootstrap 으로 우회했지만, 다음 Mac mini 잡 install 시 같은 우회 반복. 한 줄 패치로 자동화. (추가: 2026-04-29)
@@ -20,8 +16,6 @@
 - [ ] 🤝 📨 night-runner v1.1 — 보고서 텔레그램 inline 본문 또는 Mac 본진 SCP fetch. 현 v1 은 Mac mini 로컬 reports/night-runner/YYYY-MM-DD.md 에만 보고서 저장 + 텔레그램 알림은 path 만. 강대종님 검토 위해 SSH 로 cat 또는 별도 sync 필요. v1.1: 텔레그램 알림에 보고서 본문 inline (truncate 포함) 또는 Mac 본진이 매일 06:30 SCP fetch. (추가: 2026-04-29)
 
 - [ ] 🍎 📦 dutch_pay_calculator Mac mini clone + flutter brew install — night-runner-check v1 의 점검 실효성 확보. 현재 Mac mini 에 dutch_pay_calculator 미clone 으로 보고서 SKIPPED. + flutter 미설치로 test/lint 도 SKIPPED. clone (~30초) + brew install --cask flutter (~10~30분, 1GB 다운로드) 필요. 첫 실효 점검까지 가는 마지막 마일. (추가: 2026-04-29)
-
-- [ ] 🍎 🖥 Chrome Remote Desktop mac-mini 호스트 데몬 재설치 — 옛 등록 흔적만 남고 데몬 부재 → 웹 UI 에서는 "온라인" 으로 보여도 실제 연결 X. 본진에서 https://remotedesktop.google.com/access 다시 셋업 필요. 이게 되면 Xcode 같은 GUI 설치도 폰에서 마우스로 처리 가능. (추가: 2026-04-29)
 
 - [ ] 🤝 🤖 /night-runner v2 ramp-up — v1 안전모드(read-only 점검 5개, headless·commit·push·PR 0) 가 03:00 KST launchd 로 가동 후 신뢰 쌓이면 단계 올리기. 다음 단계 후보: BACKLOG 자동 picking, 가벼운 자동 PR(예: TODO·FIXME 라인 한두 개 정리), 7일 silence repo 의 README 자동 갱신 등. 자동 commit/push 가 들어가는 순간 가드 한 단계 더 필요(diff 미리보기 텔레그램 컨펌?). 진행 시 합의 필수. (추가: 2026-04-29)
 
@@ -38,10 +32,6 @@
 - [ ] 🤝 🔧 자동발행 파이프라인에 이미지 업로드 단계 추가 — Ep.3 4장 이미지 누락 사고(2026-04-30 발견·수동 패치)의 근본 fix. Substack 자동발행이 본문 paste 만 하고 이미지 업로드는 안 하는 회귀. Playwright MCP 로 본문 paste 후 IMAGE 1~N placeholder 자리에 PNG 자동 업로드까지 묶기. /submit-app 의 4단계 우회와 같은 결의 자동화 강화. lesson 자료: 2026-04-30 Ep.3 수동 패치 흐름(NSPasteboard + 4 file_upload). (추가: 2026-04-30)
 
 - [ ] 🤝 ✍️ Ep.1·Ep.2·Ep.5 도 Ep.3 와 같은 이미지 회귀 검증/패치 — Ep.3 가 누락이었다면 다른 회차도 동일 가능성. curl probe 로 본문 img 카운트 확인 후 누락분 같은 PIL+Pretendard 라인으로 생성·업로드 + 기존 발행본 update. 위 자동발행 파이프라인 fix 와 묶어서 한 사이클로 처리하면 자연스러움. (추가: 2026-04-30)
-
-- [ ] 🤝 🛠 단어요 lib/ 브랜드 트리아지 — 2026-04-30 wordyo repo 부트스트랩 시 sed 일괄 변환 후 lib/ 안 14군데 잔여 한줄일기/hanjul 텍스트 (UI 타이틀, SharedPreferences 키 hanjul_entries_v1, Cloudflare Workers URL hanjul-proxy.ssamssae.workers.dev, stats PNG 파일명, theme.dart 코멘트). 결정 지점 3개: (1) SharedPreferences 키 hanjul_entries_v1 → wordyo_entries_v1 마이그레이션 정책 (신규 시작 vs 기존 사용자 키 임포트), (2) Cloudflare Workers 신규 endpoint hanjul-proxy → wordyo-proxy 발급 + 코드 갱신, (3) UI 타이틀/PNG 파일명/theme 코멘트 일괄 갱신. 결정 후 sed + 수동 손질 1~2시간. (추가: 2026-04-30)
-
-- [ ] 🤝 📚 단어요 카드 학습 진척률 UX (학습완료/즐겨찾기/SRS) — step 3b-3 시드 6카테고리 교체 끝나면 검토. 학습 인터랙션 다음 단계 후보. 현 swipe/tap next 5단어 modulo 순환만 있고 학습 트래킹/즐겨찾기/간격 반복 없음. v1 출시 후 자기쓰기 단계에서 우선순위 결정 권고. (추가: 2026-04-30)
 
 - [ ] 🍎 🛠 단어요 빌드/배포 = Mac mini SoT 통합 — 본진 push 권한 룰 wordyo 미등록 상태에서 PR 흐름 유지(2026-04-30 23:29 KST 결정). Mac mini SoT 자동 배포 시스템(project_auto_deploy_setup_in_progress.md, 4앱 REGISTERED) 에 wordyo 추가 + AAB 자동 빌드 등록 작업 미실행. 단어요 v1 첫 Android 출시 직전에 박으면 됨. (추가: 2026-04-30)
 
@@ -69,6 +59,8 @@
 - 🛰️ 한줄일기 Android alpha→production /schedule 1회성 등록 — 2026-05-01 14:48 KST P 승격. 14일 카운트 트리거.
 - 🌙 night-build launchd schedule 활성화 + 텔레그램 자동 송신 — 2026-05-01 14:48 KST P 승격. v2.0a 풀그린 후 활성화 한 줄.
 - 📱 한줄일기 v1.1 iOS Mac mini 이전 재개 — 2026-05-01 14:48 KST P 승격. 본진 키보드 직접 가용.
+- 🛠 단어요 lib/ 브랜드 트리아지 — 2026-05-01 21:46 KST P 승격 (someday batch 병렬 처리). SharedPreferences 키 / Cloudflare Workers endpoint / UI·PNG·theme 일괄 갱신 결정 3개.
+- 📚 단어요 카드 학습 진척률 UX (학습완료/즐겨찾기/SRS) — 2026-05-01 21:46 KST P 승격 (someday batch). step 3b-3 끝난 후 학습 인터랙션 다음 단계.
 
 ## 드롭
 
@@ -87,3 +79,9 @@
 - 🔍 goodnight step 1.5 4/27~4/30 안 돈 원인 진단 — 2026-05-01 14:48 KST D. -mtime -1 → -7 우회로 작동. root cause 미진단이지만 -7 윈도우 충분, 다음 사고 발생 시 재진단.
 
 - 📩 Ep.5 Substack subscribe buttons 사후 추가 — 2026-05-01 14:48 KST D. 0 구독자 효과 작음 + 발행본 retro update 비용. 구독자 100명 도달 시 재기소.
+
+- ⚙️ settings.json allow rule generic 화 (handoffs/* → 다른 sub-dir cover) — 2026-05-01 21:46 KST D (someday batch). 단순함 우선. handoff false positive 후속 재발 안 보임 + 진짜 필요할 때 specific 규칙 추가가 더 안전.
+
+- 🛠 신규 앱 등록 스킬에 양 기기 settings.json allow 룰 자동 박는 step — 2026-05-01 21:46 KST D (someday batch). hanjul push 차단 사건(2026-04-27) 후속 재발 안 보임 + ~/apps/* wildcard 룰 5/1 박힘으로 흡수됨.
+
+- 🖥 Chrome Remote Desktop mac-mini 호스트 데몬 재설치 — 2026-05-01 21:46 KST D (someday batch). 사용 빈도 0 (Tailscale SSH 메쉬로 cover). 진짜 필요한 사례 발생 시 재기소.
