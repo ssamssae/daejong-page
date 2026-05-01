@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Lot - 강대종</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
+
+    .lede {
+      background: linear-gradient(135deg, #F0F9FF 0%, #F9FAFB 100%);
+      border: 1px solid #DBEAFE;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: #4E5968;
+    }
+    .lede strong { color: #191F28; }
+
+    article {
+      background: #FFFFFF;
+      border: 1px solid #E5E8EB;
+      border-radius: 16px;
+      padding: 24px 24px 16px;
+    }
+    article h1 {
+      font-size: 24px; color: #191F28; font-weight: 700;
+      margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #E5E8EB;
+    }
+    article h2 {
+      font-size: 17px; color: #3182F6; font-weight: 700;
+      margin: 24px 0 12px; padding-top: 8px;
+    }
+    article p { font-size: 14px; color: #4E5968; margin-bottom: 12px; }
+    article ul { list-style: none; padding: 0; margin: 0 0 12px; }
+    article li {
+      background: #F9FAFB;
+      border: 1px solid #E5E8EB;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #191F28;
+      line-height: 1.6;
+    }
+    article li strong { color: #3182F6; font-weight: 700; }
+    article li em { color: #8B95A1; font-style: normal; font-size: 12px; }
+    article code {
+      background: #EFF6FF;
+      color: #1B64DA;
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    article a { color: #3182F6; text-decoration: none; }
+    article a:hover { text-decoration: underline; }
+
+    footer {
+      margin-top: 32px; padding-top: 16px;
+      border-top: 1px solid #E5E8EB;
+      text-align: center; font-size: 12px; color: #8B95A1;
+    }
+    footer a { color: #4E5968; text-decoration: none; }
+
+    .empty { color: #8B95A1; font-style: italic; }
+
+    @media (max-width: 480px) {
+      body { padding: 20px 12px 60px; }
+      article { padding: 18px 16px 10px; }
+      article h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Parking Lot</h1>
+      <a href="./">← 홈</a>
+    </header>
+
+    <div class="lede">
+      <strong>해야 할 일은 아니지만 손이 가면 도전하고 싶은 프로젝트 후보들.</strong> <a href="./todos.html">할일</a>(진행중·완료·드롭) 과 분리해 우선순위 노이즈 없이 따로 모아둡니다. 실제 시작하면 할일 진행중으로 promote, 아니면 그대로 두거나 <a href="./someday.html">언젠가</a> 또는 드롭으로 이동.
+    </div>
+
+    <article id="content">
+      <p class="empty">불러오는 중...</p>
+    </article>
+
+    <footer>
+      <a href="https://github.com/ssamssae/daejong-page/blob/main/parking-lot.md">parking-lot.md 원본</a>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (async () => {
+      const el = document.getElementById('content');
+      try {
+        const res = await fetch('./parking-lot.md?_=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error('fetch failed');
+        const md = await res.text();
+        const stripped = md.replace(/^# [^\n]*\n+/, '').replace(/^[^#]+(?=\n## )/, '');
+        el.innerHTML = marked.parse(stripped);
+      } catch (e) {
+        el.innerHTML = '<p class="empty">parking-lot.md 를 불러올 수 없습니다.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>

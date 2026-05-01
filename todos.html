@@ -510,14 +510,13 @@
 
     // Markdown parser
     function parseTodos(md) {
-      const sections = { inprogress: [], done: [], hold: [], ideas: [] };
+      const sections = { inprogress: [], done: [], hold: [] };
       let current = null;
       for (const line of md.split('\n')) {
         const trimmed = line.trim();
         if (/^## 진행중/.test(trimmed)) { current = 'inprogress'; continue; }
         if (/^## 완료/.test(trimmed)) { current = 'done'; continue; }
         if (/^## 보류|^## 취소|^## 드롭/.test(trimmed)) { current = 'hold'; continue; }
-        if (/^## 사이드/.test(trimmed)) { current = 'ideas'; continue; }
         if (/^#/.test(trimmed)) { current = null; continue; }
         if (current && /^- \[/.test(trimmed)) {
           const isDone = /^- \[x\]/i.test(trimmed);
@@ -757,9 +756,8 @@
         { key: 'done', label: '완료', count: doneCount },
         { key: 'all', label: '전체', count: total },
       ];
-      // 드롭·아이디어 탭은 빈 스냅샷에서도 '없음(0)' 으로 항상 노출 — 4/11 처럼 초창기 날짜도 구조 일관성 유지
+      // 드롭 탭은 빈 스냅샷에서도 '없음(0)' 으로 항상 노출 — 4/11 처럼 초창기 날짜도 구조 일관성 유지
       tabDefs.push({ key: 'hold', label: '드롭', count: s.hold.length });
-      tabDefs.push({ key: 'ideas', label: '아이디어', count: s.ideas.length });
       for (const t of tabDefs) {
         const active = t.key === state.tab ? ' active' : '';
         controlsHtml +=
@@ -788,7 +786,6 @@
       let items;
       if (state.tab === 'inprogress') items = s.inprogress.filter(i => !i.isDone);
       else if (state.tab === 'done') items = [...s.done, ...s.inprogress.filter(i => i.isDone)];
-      else if (state.tab === 'ideas') items = s.ideas;
       else if (state.tab === 'hold') items = s.hold;
       else items = all;
 
@@ -802,7 +799,6 @@
       if (items.length === 0) {
         let emptyMsg;
         if (state.tab === 'hold') emptyMsg = '이 날짜엔 드롭된 항목이 없습니다.';
-        else if (state.tab === 'ideas') emptyMsg = '이 날짜엔 기록된 아이디어가 없습니다.';
         else if (state.activeTag) emptyMsg = '조건에 맞는 항목이 없습니다.';
         else emptyMsg = '해당 탭에 항목이 없습니다.';
         listHtml += '<div class="empty">' + emptyMsg + '</div>';
