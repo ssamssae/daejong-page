@@ -222,9 +222,9 @@
           }
         }
 
-        // Extract cancel date
+        // Extract cancel date — closing `)` 자체는 매칭에서 빼서 메타 (, someday→drop) 등 trailing 토큰 허용
         let cancelDate = '';
-        const mDate = content.match(/\((?:취소|드롭):\s*(\d{4}-\d{2}-\d{2})\)/);
+        const mDate = content.match(/\((?:취소|드롭):\s*(\d{4}-\d{2}-\d{2})[^)]*\)/);
         if (mDate) {
           cancelDate = mDate[1];
           content = content.replace(mDate[0], '').trim();
