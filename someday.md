@@ -52,6 +52,10 @@
 
 - 🍎 🛠 **단어요 빌드/배포 = Mac mini SoT 통합** — 본진 push 권한 룰 wordyo 미등록 상태에서 PR 흐름 유지(2026-04-30 23:29 KST 결정). Mac mini SoT 자동 배포 시스템(4앱 REGISTERED)에 wordyo 추가 + AAB 자동 빌드 등록 작업 미실행. 단어요 v1 첫 Android 출시 직전에 박으면 됨.  *(추가: 2026-04-30)*
 
+- 🍎 🍅 **pomodoro main push allowlist 또는 명시 승인** — `apps/pomodoro` `4033c85` (iOS notifier 권한 미룸 + 1.0.0+7 + fastlane 자산) 가 로컬 commit 만 되고 push 차단. 현재 harness rule 이 hanjul/yakmukja/dutchpay 만 solo-dev allowlist 로 두고 있어 매번 명시 승인 필요. 옵션: (1) settings.local.json 에 pomodoro 룰 추가, (2) wildcard 룰 `~/apps/* main push` 로 흡수.  *(추가: 2026-05-01)*
+
+- 🍎 🛠 **기기 역할 구조 업데이트 (WSL 직접 개발자 브랜치 정책)** — 2026-05-01 directive. WSL = "받은 지시 수행 + 결과 보고만" → "wsl/* 브랜치 직접 개발 가능, main 직접 push 금지·빌드/배포 금지 유지". Mac mini = "빌드/배포 실행 전용" 명시화. 변경 파일: `~/.claude/CLAUDE.md` (지휘관 1명 원칙 항목) + `~/.claude/AGENT.md` + handoff/SKILL.md. 기존 wsl-directive.sh / mac-report.sh 흐름 유지하면서 wsl/* 브랜치 제출 패턴 추가. **강대종님 확인 완료, 다음 세션 첫 작업으로 진행 OK**. ~15-20분 focused 작업 + 본인 review 후 commit.  *(추가: 2026-05-01)*
+
 ## 승격됨 (→ 할일)
 
 (없음)
