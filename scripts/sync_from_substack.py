@@ -5,7 +5,9 @@ daejong-page newsletter cache and update index.json.
 
 2026-04-30 directive (A2/B1/C1/D + 23:42 KST 보충):
 - Substack 이 SoT
-- 캐시 파일 = ~/daejong-page/newsletter/ep<N>-substack.md (덮어쓰기)
+- 캐시 파일 = ~/daejong-page/newsletter/ep<N>-cache.md (덮어쓰기)
+  (2026-05-01 변경: 이전 ep<N>-substack.md 는 Ep4/5 의 원본 prose 와 같은 파일명이라
+   sync 가 원본을 덮어쓰는 사고가 있었음. issue 2026-05-01-ep5-backfill-overwrite.md)
 - 강대종 원본 ep<N>-<YYYY-MM-DD>.md 는 안 건드림 (originFile 로 index.json 에 보존)
 - index.json entry: number, cacheFile, originFile (옵션), date, publishedAt, title, subtitle, readingTime, substackUrl
 - view.html / newsletter.html 은 cacheFile 을 fetch 해서 렌더
@@ -89,7 +91,7 @@ def update_index(ep_num, art, reading_min, substack_url):
     else:
         idx = {'title': '바이브코딩 뉴스레터', 'description': '', 'episodes': []}
 
-    cache_file = f'ep{ep_num}-substack.md'
+    cache_file = f'ep{ep_num}-cache.md'
     entry = {
         'number': ep_num,
         'cacheFile': cache_file,
@@ -126,7 +128,13 @@ def main():
     md_body = html_to_markdown(art['body_html'])
     reading_min = args.reading_time or estimate_reading_minutes(md_body)
 
-    cache_path = NEWS_DIR / f'ep{args.ep}-substack.md'
+    cache_path = NEWS_DIR / f'ep{args.ep}-cache.md'
+
+    # Forcing function: never let cache write clobber a canonical original.
+    # If a same-stem non-cache file exists (e.g. ep5-2026-04-30.md), refuse.
+    canonical = find_origin_file(args.ep)
+    if canonical and (NEWS_DIR / canonical) == cache_path:
+        sys.exit(f'refuse: cache_path {cache_path.name} collides with canonical {canonical}')
 
     header = (
         f'<!--\n'
