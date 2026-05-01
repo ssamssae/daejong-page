@@ -41,6 +41,10 @@
 
 - [ ] 🤝 ✍️ Plan C 자동화 노하우 콘텐츠화 (Substack) — night-builder v2 / asc-deliver 자동 심사 제출 인사이트 1편. 1인 Flutter 개발자 타깃 콘텐츠. 트리거: Plan A (한줄일기 ASO) 1주차 결과 보고 결정 시점. (추가: 2026-05-01)
 
+- [ ] 🍎 🧹 claude-automations dirty 3건 commit — `hooks/activity-writer.sh` DISABLED 2026-05-01 패치 (사생활 침해 사유, exit 0) + `hooks/session-start-git-pull.sh` (Apr 30 신규, untracked) + `hooks/telegram-reply-no-raw-id.sh` (Apr 27 신규, untracked). 4/27~5/1 사이 dirty 누적. 다음 세션 시작 직전 git status 확인 후 단순 commit 또는 의도 점검. (추가: 2026-05-01 session-close)
+
+- [ ] 🤝 🖼 Substack 회귀 의심 3편 이미지 패치 사이클 — 21:55 KST WSL 점검 결과 /p/3-ai (3시간만에 로컬 AI), /p/32b (거절을 큐에서 다시 돌리는 법), /p/f33 (이 뉴스레터가 여기 도착하기까지) 본문 이미지 0~1 (회귀 의심). curl 정적 grep 한계라 Playwright 로 재검증 필요. Ep 번호 매핑 후 누락분 PIL+Pretendard 라인으로 생성·업로드 + 발행본 update. (someday #16 후속, 추가: 2026-05-01 session-close)
+
 - [ ] 🤝 🛡 wsl-directive.sh 에 main HEAD SHA 자동 첨부 가드 — 2026-05-01 wsl-mac-race-skill-edit /issue 의 forcing function (c) 코드화. 디렉티브 발송 시점 main HEAD SHA 를 운반체가 본문에 자동 1줄 첨부 → WSL 측이 그 SHA 와 본인 작업 base 가 다르면 경고. mac-report.sh 거울 구조에 추가. 다음 race 발생 전 적용 가치. 트리거: 다음 wsl-directive.sh 호출 흐름에서 동시 또는 별도 PR. (추가: 2026-05-01)
 
 - [ ] 🍎 ✍️ /newsletter-publish SKILL.md "검증 PASS 기록" 섹션에 v0 첫 사이클(Ep.4) 학습점 박기 — substack 본문 에디터 selector 가 `div.tiptap.ProseMirror.mousetrap` (role=textbox 가 아니라 사이드 패널). publish 모달 위에 "Add subscribe buttons" 모달이 한 번 더 뜸 → "Publish without buttons" 버튼 통과. /share-center redirect 후 archive API 보다 page.innerText 의 "Your post is live!" + `/p/<slug>` 링크 직접 추출이 빠름. 다음 v0 호출 전에 박아두면 같은 시행착오 안 반복. (추가: 2026-05-01)
