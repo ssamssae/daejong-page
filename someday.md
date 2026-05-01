@@ -40,5 +40,9 @@
 
 - [ ] 🍎 🛰️ 새 프로젝트 발굴 (WSL 라우팅 사안) — 강대종님 2026-05-01 20:59 KST "새로운 프로젝트 발굴" + 21:24 KST "진행" 발화. WSL 가 21:24 KST mac-report.sh 로 본진 라우팅. 본진(지휘관)이 활성앱(한줄일기/약먹자/더치페이/포모도로/단어요) + 드롭이력(가계부/모닝브리핑/이브닝랩/심사레이더/라이브액티비티) + 라이프스타일 매핑 grep 후 후보 1~3개 surface → 강대종 결정 → wsl-directive.sh 라우팅. 다음 본진 새 세션에서 처리. (추가: 2026-05-01)
 
+- [ ] 🍎 🛡 정책 race 사고 issue 기록 — 2026-05-02 본진·WSL 가 같은 파일 `globals/CLAUDE.md` 를 stale-on-stale 로 동시 수정한 race 사고. WSL 가 「지휘관 1명 원칙」 폐지 직접 push (eedef42, 3줄 요약), 그 직후 본진이 강대종 8항 풀 정책으로 다시 갱신 → 본진 PR #4 (1405ad1, 8항 풀) 가 WSL 변경 위에 적용. 새 정책 #4 (파일 충돌 방지: 작업 시작 전 git fetch + 수정 예정 파일 텔레그램 선언 + 같은 파일 즉시 중단) 도입의 직접 forcing function. /issue 스킬로 lesson 기록하면 같은 사고 재발 시 자료. (추가: 2026-05-02 session-close)
+
+- [ ] 🍎 🛠 운반체 권한 영구 등록 — 이번 세션 `scp wsl:` / `ssh wsl` / `wsl-directive.sh` 가 inferred "WSL 동결" boundary 로 반복 차단됨. 강대종 명시 unfreeze 발화로 풀었지만 같은 패턴 재발 위험. /update-config 또는 fewer-permission-prompts 스킬로 ~/.claude/settings.local.json 에 운반체 명령 영구 허용(예: `Bash(scp wsl:*)`, `Bash(ssh wsl *)`, `Bash(~/.claude/automations/scripts/wsl-directive.sh *)`) 추가 권장. (추가: 2026-05-02 session-close)
+
 <!-- 2026-05-01 청소: 승격됨/드롭 archive 섹션 폐기. promote 시 → 모아둠에서 제거 + todos.md 진행중 추가 (history 는 git log). drop 시 → 모아둠에서 제거 + todos.md ## 보류/취소 추가 (cancelled.html 에서 보임). 자세한 정책은 SKILL.md 참고. -->
 
