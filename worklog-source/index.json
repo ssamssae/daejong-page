@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-02_v1.0.1.md",
+      "date": "2026-05-02",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 이후 21:40~24:00 KST 후반 사이클. 단어요 step 4b/4c/4d/4d-후속 4 PR 머지 (진척률 막대 + 디버그 패널 + 칩 % 라벨). lotto-calc 시드 (e) superkts xlsx US IP PASS 검증 → 23:21 강대종 결정으로 HOLD (방향 확정 대기). 23:54 KST WSL→본진 mac-report.sh 자동 paste → PICK #7 단어요 칩 % → wsl-directive.sh 송신 → PR #13 +2/-2 23:57 머지 = 정책(11:00 KST e7b334c) → 첫 양방향 자율 사이클 13시간. 강대종 손 0 zero-touch.",
+      "updated": "2026-05-03T00:14:19+09:00"
+    },
+    {
       "file": "2026-05-02_v1.0.0.md",
       "date": "2026-05-02",
       "version": "v1.0.0",
