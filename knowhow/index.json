@@ -1,6 +1,17 @@
 {
   "entries": [
     {
+      "file": "2026-05-02-wsl-flutter-test-cmd-pushd-unc.md",
+      "date": "2026-05-02",
+      "slug": "wsl-flutter-test-cmd-pushd-unc",
+      "title": "WSL 에서 Windows-native flutter test 실행 — cmd.exe pushd UNC 우회",
+      "category": "환경 설정",
+      "tags": ["wsl", "flutter", "test", "windows", "cmd", "pushd", "unc"],
+      "first_discovered": "2026-05-02",
+      "summary": "WSL bash 에서 /mnt/c/src/flutter/bin/flutter.bat 직접 호출은 CRLF/PATH 로 깨지고 powershell.exe + UNC cwd 도 .bat 내부 cmd 가 거부. cmd.exe /c 'pushd \\\\wsl.localhost\\Ubuntu\\... && C:\\src\\flutter\\bin\\flutter.bat test 2>&1 & popd' 한 줄로 우회. lotto-calc PR #3 V4 검증 (8/8 PASS, 4.85s).",
+      "updated": "2026-05-02T17:55:00+09:00"
+    },
+    {
       "file": "2026-05-02-playwright-google-oauth-stealth.md",
       "date": "2026-05-02",
       "slug": "playwright-google-oauth-stealth",
