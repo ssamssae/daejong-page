@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACK - 강대종</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
+    .intro {
+      color: #4E5968;
+      font-size: 14px;
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      background: #F9FAFB;
+      border-radius: 12px;
+      border-left: 3px solid #3182F6;
+    }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 700px) {
+      .stack-grid { grid-template-columns: 1fr; }
+    }
+    .device-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E8EB;
+      border-radius: 14px;
+      padding: 20px 22px;
+    }
+    .device-head {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .device-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .device-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #191F28;
+      letter-spacing: -0.2px;
+    }
+    .device-spec {
+      font-size: 12.5px;
+      color: #8B95A1;
+      margin-bottom: 4px;
+    }
+    .device-role {
+      font-size: 13px;
+      color: #4E5968;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed #E5E8EB;
+    }
+    .device-features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .feat-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 8px;
+      align-items: baseline;
+      font-size: 12.5px;
+    }
+    .feat-key {
+      color: #8B95A1;
+      font-weight: 500;
+    }
+    .feat-val {
+      color: #191F28;
+    }
+    .feat-yes { color: #16A34A; font-weight: 600; }
+    .feat-no  { color: #C0C7D1; }
+    .feat-meta { color: #4E5968; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>STACK · 기기 6대</h1>
+      <a href="./">← 홈</a>
+    </header>
+    <div class="intro">
+      바이브코딩 한 사람 인프라. 본진 1대 + 빌드/배포 워커 1대 + 낮 작업자 1대 + LLM 노드 2대 + 모바일 1대. ssh / tmux / Claude Code / 텔레그램 봇 / Google Remote Desktop 등 어디 깔려있는지 한눈에.
+    </div>
+    <div class="stack-grid">
+
+      <div class="device-card">
+        <div class="device-head">
+          <span class="device-icon" role="img" aria-label="Mac 본진">🍎</span>
+          <span class="device-name">Mac 본진</span>
+        </div>
+        <div class="device-spec">MacBook Pro · 24/7 stationary · 집 데스크톱화</div>
+        <div class="device-role">지휘관 · SoT · 최종 결정 · 메인 챗봇 세션</div>
+        <div class="device-features">
+          <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">main + claude 2 세션</span></span></div>
+          <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server + client</span></span></div>
+          <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@MyClaude</span></span></div>
+        </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-head">
+          <span class="device-icon" role="img" aria-label="Mac mini">🏭</span>
+          <span class="device-name">Mac mini</span>
+        </div>
+        <div class="device-spec">M1 arm64 · 24/7 진짜 가동</div>
+        <div class="device-role">빌드·배포 엔진 · iOS ipa / Android aab 서명 + 업로드 · launchd 워커 (night-builder v2 / night-runner v1)</div>
+        <div class="device-features">
+          <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server</span></span></div>
+          <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-no">❌ <span class="feat-meta">워커 전용, 챗봇 세션 X</span></span></div>
+          <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-no">❌</span></div>
+        </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-head">
+          <span class="device-icon" role="img" aria-label="WSL 데스크탑">🪟</span>
+          <span class="device-name">WSL</span>
+        </div>
+        <div class="device-spec">DESKTOP-I4TR99I · Ryzen 3900X + RTX 2070S · 낮 ON / 밤 OFF</div>
+        <div class="device-role">낮 즉응 작업자 · wsl/* 브랜치 코드 수정·commit·push (main 직접 push 금지) · 빌드/배포 X</div>
+        <div class="device-features">
+          <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌ <span class="feat-meta">Windows Terminal</span></span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server + client</span></span></div>
+          <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@Myclaude2</span></span></div>
+        </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-head">
+          <span class="device-icon" role="img" aria-label="데스크탑 RTX 3060Ti">🎮</span>
+          <span class="device-name">데스크탑 3060Ti</span>
+        </div>
+        <div class="device-spec">DESKTOP-0VAB3QC · RTX 3060Ti 8GB · LLM 75 tok/s</div>
+        <div class="device-role">로컬 LLM 즉응 노드 (보류 — 2026-04-27 LLM 인프라 v4 옵션 X 결정)</div>
+        <div class="device-features">
+          <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌ <span class="feat-meta">Windows</span></span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-no">❌</span></div>
+          <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server</span></span></div>
+          <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Ubuntu WSL 안</span></span></div>
+          <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-no">❌</span></div>
+        </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-head">
+          <span class="device-icon" role="img" aria-label="노트북 RTX 3060">💻</span>
+          <span class="device-name">노트북 3060</span>
+        </div>
+        <div class="device-spec">DESKTOP-4MNJ1C0 · Lenovo Legion 5 · RTX 3060 Laptop 6GB · LLM 22 tok/s</div>
+        <div class="device-role">로컬 LLM 밤 배치 노드 (보류 — 2026-04-27 LLM 인프라 v4 옵션 X 결정)</div>
+        <div class="device-features">
+          <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌ <span class="feat-meta">Windows</span></span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-no">❌</span></div>
+          <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server</span></span></div>
+          <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">winget native</span></span></div>
+          <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-no">❌</span></div>
+        </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-head">
+          <span class="device-icon" role="img" aria-label="iPhone">📱</span>
+          <span class="device-name">iPhone</span>
+        </div>
+        <div class="device-spec">iPhone 17 · 외출 시 휴대 · Termius (SSH 클라이언트)</div>
+        <div class="device-role">외출 SSH 트리거 · GRD 웹 접근으로 5대 PC 컨트롤 가능</div>
+        <div class="device-features">
+          <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌</span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-no">❌</span></div>
+          <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Termius client</span></span></div>
+          <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">웹 접근으로 5대 컨트롤</span></span></div>
+          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-no">❌</span></div>
+          <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-no">— <span class="feat-meta">트리거 없음</span></span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
