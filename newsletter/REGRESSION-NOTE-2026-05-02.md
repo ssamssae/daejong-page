@@ -8,23 +8,18 @@
 
 | substack URL | 매핑 | 소스 IMAGE placeholder | assets 디렉토리 | 진단 |
 |---|---|---|---|---|
-| `https://daejongkang.substack.com/p/3-ai` | Ep.1 | 4개 (`ep1-substack.md`) | `assets/ep1/` 부재 | **회귀 CONFIRMED** |
+| `https://daejongkang.substack.com/p/3-ai` | Ep.1 | 4개 (`ep1-substack.md`) | `assets/ep1/` 생성 ✅ | **회귀 CONFIRMED + fallback 자산 적재 완료** |
+| `https://daejongkang.substack.com/p/463` | Ep.2 | 4개 (`ep2-substack.md`) | `assets/ep2/` 생성 ✅ | **회귀 CONFIRMED + fallback 자산 적재 완료** |
+| `https://daejongkang.substack.com/p/70-0-1` | Ep.3 | (이번 점검 대상 아님) | (별개) | 본문 IMAGE N 텍스트 0 — 회귀 NOT |
 | `https://daejongkang.substack.com/p/32b` | Ep.5 | 0개 (`ep5-2026-04-30.md`) | — | 회귀 NOT (디자인상 이미지 0) |
 | `https://daejongkang.substack.com/p/f33` | Ep.4 | 0개 (`ep4-cache.md`) | — | 회귀 NOT (디자인상 이미지 0) |
 
-추가 — 디렉티브 누락된 회귀:
-
-| substack URL | 매핑 | 소스 IMAGE | assets | 진단 |
-|---|---|---|---|---|
-| (Ep.2 슬러그 미확정 — `index.json` 에 substackUrl 누락) | Ep.2 | 4개 (`ep2-substack.md`) | `assets/ep2/` 부재 | **회귀 의심** (Ep.1 과 동일 패턴) |
-
-→ Ep.2 substack URL 은 강대종 본진에서 substack archive 로 1회 확인 후 본 문서 갱신 필요.
+→ Ep.2 슬러그 = `/p/463` 로 본진 Mac 에서 RSS 피드 (`/feed`) + curl 비교로 확정 (2026-05-02 15:50 KST).
 
 ## 검증 한계
 
-- WSL 은 substack 본문이 JS 하이드레이션 후 렌더되는 부분을 curl 로 못 봄. 소스 markdown 의 placeholder 카운트 vs assets 디렉토리 상태로 1차 추정만 함.
-- 디렉티브 권고대로 **Playwright MCP (Mac 본진) 로 실제 발행본 본문 img 카운트 재검증** 필요 후 본 문서 갱신.
-- Ep.4 / Ep.5 가 진짜로 본문에 이미지가 0개인지 (소스가 그렇게 디자인) Playwright 재확인하면 100% 확정. 현재는 markdown 신뢰.
+- ~~WSL 은 substack 본문이 JS 하이드레이션 후 렌더되는 부분을 curl 로 못 봄.~~ → Mac 본진에서 curl 만으로도 raw HTML 안에 `IMAGE 1`/`IMAGE 2`/`IMAGE 3`/`IMAGE 4` 리터럴 텍스트가 그대로 노출돼있어 회귀 100% 확정. JS 하이드레이션 무관하게 본문 placeholder 텍스트가 그대로 발행본에 박혀있는 패턴.
+- Ep.4 / Ep.5 / Ep.3 도 같은 grep 으로 0건 확인 → 소스 markdown 신뢰 가능.
 
 ## 패치 대상 (회귀 CONFIRMED 시 작업 풀)
 
@@ -65,12 +60,12 @@ python3 scripts/generate_fallback_image.py \
 
 ## Mac 본진 follow-up 플랜
 
-1. Playwright MCP 로 `/p/3-ai` 재진입 → 본문 img 카운트 확인 (회귀 100% 확정)
-2. Ep.2 substack URL 확정 → 같은 카운트 확인
-3. Ep.1 / Ep.2 fallback 자산 8개 생성 (또는 강대종 본인 디자인 우선)
-4. Substack 본문 edit → image insert + placeholder 텍스트 제거 → republish
-5. `~/daejong-page/newsletter/index.json` 의 Ep.1 / Ep.2 entry 에 `substackUrl` 보강
-6. 본 노트의 "회귀 의심" → "회귀 패치 완료" 로 갱신 + 패치된 commit/post URL 기록
+1. ~~Playwright MCP 로 `/p/3-ai` 재진입 → 본문 img 카운트 확인~~ → 본진 curl grep `IMAGE [0-9]` 으로 회귀 100% 확정 (2026-05-02 15:50 KST). Playwright 불필요.
+2. ~~Ep.2 substack URL 확정~~ → `/p/463` 으로 확정 (RSS feed + 제목 매칭). 같은 IMAGE 1/2/3/4 노출 확인.
+3. ~~Ep.1 / Ep.2 fallback 자산 8개 생성~~ → 본진 `mac/track-d-fallback-assets-2026-05-02` 브랜치에서 PIL+Pretendard 8컷 적재 완료 (1200×630). 강대종님은 본인 디자인 우선이지만 그동안 IMAGE N 텍스트 노출 차단을 위해 fallback 박는 하이브리드 채택.
+4. Substack 본문 edit → image insert + placeholder 텍스트 제거 → republish (Ep.1, Ep.2). **PENDING** — Mac 본진 Playwright MCP 가 cwd 이슈로 안 떠있음, 별도 수정 후 진행.
+5. ~~index.json 의 Ep.1 / Ep.2 entry 에 `substackUrl` 보강~~ → Ep.1 / Ep.2 / Ep.3 모두 보강 완료 (Ep.3 도 누락 발견).
+6. 본 노트의 "회귀 의심" → "회귀 패치 완료" 로 갱신 + 패치된 commit/post URL 기록 → Substack republish 후 별도 PR 에서 마무리.
 
 ## 본 PR 이 다루지 않는 것
 

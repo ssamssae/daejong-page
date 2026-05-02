@@ -29,7 +29,8 @@
       "date": "2026-04-28",
       "title": "70만원짜리 인프라 사려다가 본가에서 0원으로 끝낸 1시간",
       "subtitle": "1인 개발자의 인프라 빼기, 그리고 그 다음날 빼기가 한 번 더 일어난 이야기",
-      "readingTime": "11분"
+      "readingTime": "11분",
+      "substackUrl": "https://daejongkang.substack.com/p/70-0-1"
     },
     {
       "number": 2,
@@ -37,7 +38,8 @@
       "date": "2026-04-21",
       "title": "기억이를 드롭했다",
       "subtitle": "Ep.1 에서 예고한 Phase 3 를 안 하게 된 이유 — Claude Code auto memory 가 이미 하던 일",
-      "readingTime": "7분"
+      "readingTime": "7분",
+      "substackUrl": "https://daejongkang.substack.com/p/463"
     },
     {
       "number": 1,
@@ -45,7 +47,8 @@
       "date": "2026-04-20",
       "title": "3시간 만에 나만의 로컬 AI 어시스턴트 만들기",
       "subtitle": "기억이 제작기 — apt Ctrl-Z, [Service] 헤더, 봇 중복 폴링까지 막힌 3가지",
-      "readingTime": "8분"
+      "readingTime": "8분",
+      "substackUrl": "https://daejongkang.substack.com/p/3-ai"
     }
   ]
 }
