@@ -35,6 +35,28 @@
       "updated": "2026-04-29T23:30:00+09:00"
     },
     {
+      "file": "2026-04-26-ssh-keepalive-bidir-config.md",
+      "date": "2026-04-26",
+      "slug": "ssh-keepalive-bidir-config",
+      "title": "양방향 SSH config 에 ServerAliveInterval 박기 = stale 소켓 차단 영구 fix",
+      "category": "환경 설정",
+      "tags": ["ssh", "keepalive", "mac", "wsl", "sleep", "stale-socket", "terminal"],
+      "first_discovered": "2026-04-26",
+      "summary": "서버 sleep / 네트워크 끊김 시 stale 소켓이 살아있는 듯 남아 키 입력 무반응. 양쪽 ~/.ssh/config 에 Host * 글로벌로 ServerAliveInterval 60 + ServerAliveCountMax 3 박으면 1분 keepalive + 3분 안에 죽은 연결 자동 종료. 한 번 박으면 영구 fix.",
+      "updated": "2026-05-02T20:58:00+09:00"
+    },
+    {
+      "file": "2026-04-24-playwright-mcp-dialog-by-name-not-ref.md",
+      "date": "2026-04-24",
+      "slug": "playwright-mcp-dialog-by-name-not-ref",
+      "title": "Playwright MCP 다이얼로그 확정 버튼은 ref 직접 X, role+name+dialog scope 우선",
+      "category": "자동화",
+      "tags": ["playwright", "mcp", "dialog", "asc", "role", "getByRole", "ref"],
+      "first_discovered": "2026-04-24",
+      "summary": "Playwright snapshot 의 [ref=eXXX] 번호는 DOM 순서 기반이라 '먼저 나오는 게 긍정 버튼' 직관 규칙 깨짐. 다이얼로그 취소/완료 쌍 버튼이 있으면 ref 직접 클릭 = 오클릭의 직접 원인. role-based selector + name 매칭 + dialog scope 안에서 찾도록 박기.",
+      "updated": "2026-05-02T20:58:00+09:00"
+    },
+    {
       "file": "2026-04-20-flutter-noninteractive-shell-resolver.md",
       "date": "2026-04-20",
       "slug": "flutter-noninteractive-shell-resolver",
@@ -55,6 +77,39 @@
       "first_discovered": "2026-04-19",
       "summary": "IPA 에 시뮬레이터용 x86_64 슬라이스 섞이면 ITMS-90087 reject. 빌드 직후 lipo -info 또는 unzip -p .../Runner | file - 로 arm64-only 검증을 배포 스크립트 고정 단계로. EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64 설정 필수.",
       "updated": "2026-04-19T23:59:00+09:00"
+    },
+    {
+      "file": "2026-04-17-applescript-coord-tap-retry.md",
+      "date": "2026-04-17",
+      "slug": "applescript-coord-tap-retry",
+      "title": "AppleScript 좌표 기반 탭 자동화는 단발 X, 검증+재시도 디폴트",
+      "category": "자동화",
+      "tags": ["applescript", "ios", "simulator", "coordinate", "tap", "retina", "scaling"],
+      "first_discovered": "2026-04-17",
+      "summary": "macOS Retina 스케일링(2x) + 시뮬레이터 자체 하드웨어 스케일이 겹치면서 AppleScript 좌표가 ±1 행 drift. 단일 탭으로 끝내지 말고 탭 → 결과 검증 → 실패 시 ±1 행 보정 재시도 패턴 디폴트. 가능하면 좌표 대신 accessibility identifier 우선.",
+      "updated": "2026-05-02T20:58:00+09:00"
+    },
+    {
+      "file": "2026-04-17-ios-sim-prefs-simctl-import.md",
+      "date": "2026-04-17",
+      "slug": "ios-sim-prefs-simctl-import",
+      "title": "iOS 시뮬레이터 preferences 주입은 simctl spawn defaults import 만 쓴다",
+      "category": "iOS 빌드",
+      "tags": ["ios", "simulator", "plist", "cfprefsd", "simctl", "defaults", "sharedprefs"],
+      "first_discovered": "2026-04-17",
+      "summary": "iOS cfprefsd (Preferences Daemon) 가 plist 내용을 메모리에 캐시. PlistBuddy/plutil 직접 수정 = 파일은 바뀌어도 앱은 옛 값 계속 읽음. xcrun simctl spawn <sim_id> defaults import <domain> <plist> 로 cfprefsd 거치게 만들어야 정상 반영.",
+      "updated": "2026-05-02T20:58:00+09:00"
+    },
+    {
+      "file": "2026-04-15-bg-daemon-pkill-pattern.md",
+      "date": "2026-04-15",
+      "slug": "bg-daemon-pkill-pattern",
+      "title": "장시간 백그라운드 데몬은 pkill 패턴 매칭으로 전/후 청소 디폴트",
+      "category": "자동화",
+      "tags": ["daemon", "pkill", "claude-code", "lifecycle", "orphan", "cleanup"],
+      "first_discovered": "2026-04-15",
+      "summary": "세션 강제 종료 시 자식 데몬에 종료 신호 미전달 → 오펀 누적 + 다음 세션 중복 기동. PID 기반 종료 신뢰 X, pkill -f <고유패턴> 을 데몬 기동 스크립트 전/후 모두 박기. 고유 패턴 신중 선정 (광범위 pkill 금지).",
+      "updated": "2026-05-02T20:58:00+09:00"
     },
     {
       "file": "2026-04-15-applescript-large-binary-disk-path.md",
