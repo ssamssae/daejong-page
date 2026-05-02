@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "file": "2026-05-02-playwright-google-oauth-stealth.md",
+      "date": "2026-05-02",
+      "slug": "playwright-google-oauth-stealth",
+      "title": "Playwright 로 Google OAuth 로그인 우회 — stealth 4종 디폴트",
+      "category": "자동화",
+      "tags": ["playwright", "google", "oauth", "stealth", "chrome"],
+      "first_discovered": "2026-04-16",
+      "rediscovered": "2026-05-02",
+      "summary": "Playwright 로 띄운 Chrome 에서 Google 로그인하면 차단됨. channel:'chrome' + --disable-blink-features=AutomationControlled + --disable-features=IsolateOrigins,site-per-process + ignoreDefaultArgs:['--enable-automation'] 4종 동시 적용으로 우회. 어느 하나 빠지면 차단.",
+      "updated": "2026-05-02T13:10:00+09:00"
+    }
+  ]
+}

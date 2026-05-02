@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노하우 - 강대종</title>
+  <meta name="description" content="다음 작업에서 다시 꺼내쓸 수 있는 재사용 가능 노하우 — 우회·트릭·일반화된 패턴.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
+
+    .intro {
+      font-size: 13px; color: #4E5968;
+      margin-bottom: 20px; padding: 12px 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
+      line-height: 1.55;
+    }
+
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-card {
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
+      padding: 14px 14px;
+    }
+    .hero-card-label {
+      font-size: 10px; color: #4E5968; margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .hero-card-value { font-size: 22px; color: #191F28; font-weight: 700; }
+    .hero-card-value .unit {
+      font-size: 13px; color: #4E5968; font-weight: 500; margin-left: 4px;
+    }
+    .hero-card-sub { font-size: 11px; color: #8B95A1; margin-top: 4px; }
+
+    .list { display: flex; flex-direction: column; gap: 14px; }
+
+    .knowhow-card {
+      display: block;
+      background: #F9FAFB; border: 1px solid #E5E8EB;
+      border-radius: 12px; padding: 16px 18px;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+      cursor: pointer;
+    }
+    .knowhow-card:hover {
+      border-color: #3182F6;
+      background: #FFFFFF;
+      transform: translateY(-1px);
+    }
+    .knowhow-card:active { transform: translateY(0); }
+
+    .kh-head {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 8px; flex-wrap: wrap;
+    }
+    .kh-title {
+      flex: 1 1 auto; min-width: 0;
+      font-size: 16px; color: #191F28; font-weight: 600;
+      line-height: 1.45;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .kh-tags {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;
+    }
+    .kh-tag {
+      font-size: 10px; padding: 2px 8px; border-radius: 6px;
+      font-weight: 600; letter-spacing: 0.3px;
+      color: #3182F6; background: rgba(49, 130, 246, 0.08);
+      border: 1px solid rgba(49, 130, 246, 0.2);
+    }
+    .kh-cat {
+      font-size: 10px; padding: 2px 8px; border-radius: 6px;
+      font-weight: 700; letter-spacing: 0.3px;
+      color: #FFFFFF; background: #3182F6;
+    }
+
+    .kh-meta {
+      font-size: 11px; color: #8B95A1;
+      margin-bottom: 10px;
+    }
+    .kh-meta .sep { color: #E5E8EB; margin: 0 6px; }
+
+    .kh-summary {
+      font-size: 13px; color: #4E5968; line-height: 1.65;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+
+    .detail-hint {
+      font-size: 11px; color: #3182F6; margin-top: 10px;
+      font-weight: 600; letter-spacing: 0.3px;
+    }
+
+    .empty {
+      color: #8B95A1; text-align: center; padding: 60px 20px; font-size: 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
+    }
+    .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
+    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error { color: #F04452; text-align: center; padding: 40px 0; font-size: 14px; }
+
+    .back {
+      display: inline-block; margin-top: 28px; color: #4E5968;
+      text-decoration: none; font-size: 14px;
+    }
+    .back:hover { color: #3182F6; }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>노하우</h1>
+      <a href="./">← 홈으로</a>
+    </header>
+
+    <div class="intro">
+      다음 작업에서 다시 꺼내쓸 수 있는 재사용 노하우. 한 번 발견하면 정리해서 비슷한 작업에 0차 reflex 로 쓸 수 있게 만듭니다. <strong>이슈(포스트모템)</strong> 와 분리되어 사건/시점에 묶이지 않는 일반화된 knowledge 만 모읍니다.
+    </div>
+
+    <div id="view">
+      <div class="loading">불러오는 중…</div>
+    </div>
+
+    <a class="back" href="./">← 홈으로</a>
+  </div>
+
+  <script>
+    const viewEl = document.getElementById('view');
+
+    function escapeHtml(s) {
+      return (s || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    async function init() {
+      try {
+        const idxRes = await fetch('./knowhow/index.json?_=' + Date.now());
+        const idxData = await idxRes.json();
+        const entries = (idxData.entries || [])
+          .slice()
+          .sort((a, b) => {
+            if (a.date !== b.date) return b.date.localeCompare(a.date);
+            return (a.slug || '').localeCompare(b.slug || '');
+          });
+
+        if (entries.length === 0) {
+          viewEl.innerHTML = renderEmpty();
+          return;
+        }
+
+        render(entries);
+      } catch (e) {
+        viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    function renderEmpty() {
+      return '' +
+        '<div class="empty">' +
+        '<div class="empty-emoji">💡</div>' +
+        '<div>아직 누적된 노하우가 없습니다.</div>' +
+        '<div style="font-size:12px;color:#B0B8C1;margin-top:6px;">재사용 가능 우회·트릭이 발견되면 여기 모입니다.</div>' +
+        '</div>';
+    }
+
+    function render(items) {
+      const total = items.length;
+      const categories = new Set(items.map(it => it.category).filter(Boolean));
+
+      let html = '';
+      html += '<div class="hero-stats">';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">누적 노하우</div>' +
+        '<div class="hero-card-value">' + total + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">다시 꺼내쓰는 knowledge</div>' +
+        '</div>';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">카테고리</div>' +
+        '<div class="hero-card-value">' + categories.size + '<span class="unit">개</span></div>' +
+        '<div class="hero-card-sub">' + Array.from(categories).join(' · ') + '</div>' +
+        '</div>';
+      html += '</div>';
+
+      html += '<div class="list">';
+      for (const it of items) {
+        html += renderCard(it);
+      }
+      html += '</div>';
+
+      viewEl.innerHTML = html;
+    }
+
+    function renderCard(it) {
+      const title = it.title || '(제목 없음)';
+      const cat = it.category || '';
+      const tags = it.tags || [];
+      const slug = it.slug || '';
+      const date = it.date || '';
+      const summary = it.summary || '';
+      const firstDiscovered = it.first_discovered || '';
+      const rediscovered = it.rediscovered || '';
+
+      // detail link → markdown 파일 직접 (GitHub raw 가 아니라 GitHub Pages 로 .md 는 안 보이니 GitHub blob 링크)
+      const ghHref = 'https://github.com/ssamssae/daejong-page/blob/main/knowhow/' + encodeURIComponent(it.file);
+
+      let html = '<a class="knowhow-card" href="' + ghHref + '" target="_blank" rel="noopener">';
+      html += '<div class="kh-head">';
+      html += '<div class="kh-title">' + escapeHtml(title) + '</div>';
+      html += '<div class="kh-tags">';
+      if (cat) html += '<span class="kh-cat">' + escapeHtml(cat) + '</span>';
+      for (const t of tags) html += '<span class="kh-tag">' + escapeHtml(t) + '</span>';
+      html += '</div>';
+      html += '</div>';
+
+      const metaBits = [];
+      if (firstDiscovered) metaBits.push('첫 발견 ' + firstDiscovered);
+      if (rediscovered && rediscovered !== firstDiscovered) metaBits.push('재발견 ' + rediscovered);
+      if (!firstDiscovered && date) metaBits.push('등록 ' + date);
+      if (metaBits.length) {
+        html += '<div class="kh-meta">' +
+          metaBits.map(b => '<span>' + escapeHtml(b) + '</span>').join('<span class="sep">·</span>') +
+          '</div>';
+      }
+
+      if (summary) {
+        html += '<div class="kh-summary">' + escapeHtml(summary) + '</div>';
+      }
+
+      html += '<div class="detail-hint">전체 본문 보기 (GitHub) →</div>';
+
+      html += '</a>';
+      return html;
+    }
+
+    init();
+  </script>
+</body>
+</html>
