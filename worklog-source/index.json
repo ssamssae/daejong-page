@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-02_v1.0.0.md",
+      "date": "2026-05-02",
+      "version": "v1.0.0",
+      "summary": "「지휘관 1명 원칙」 폐기 → 「병렬 작업 + 충돌 방지」 8항. Stack 페이지 + 단어요 step 4a + 로또 v0/v1 + Android alpha LIVE + knowhow 카테고리 + Track D 마무리. 110+ 커밋.",
+      "updated": "2026-05-02T21:39:05+09:00"
+    },
+    {
       "file": "2026-05-01_v1.0.0.md",
       "date": "2026-05-01",
       "version": "v1.0.0",
