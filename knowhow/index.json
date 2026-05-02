@@ -11,6 +11,50 @@
       "rediscovered": "2026-05-02",
       "summary": "Playwright 로 띄운 Chrome 에서 Google 로그인하면 차단됨. channel:'chrome' + --disable-blink-features=AutomationControlled + --disable-features=IsolateOrigins,site-per-process + ignoreDefaultArgs:['--enable-automation'] 4종 동시 적용으로 우회. 어느 하나 빠지면 차단.",
       "updated": "2026-05-02T13:10:00+09:00"
+    },
+    {
+      "file": "2026-04-29-apple-silicon-rosetta-iproxy.md",
+      "date": "2026-04-29",
+      "slug": "apple-silicon-rosetta-iproxy",
+      "title": "Apple Silicon Mac 에서 Flutter iOS debug attach = Rosetta 필수",
+      "category": "iOS 빌드",
+      "tags": ["apple-silicon", "m1", "m2", "rosetta", "flutter", "ios", "debug", "iproxy"],
+      "first_discovered": "2026-04-29",
+      "summary": "Flutter 가 묶어 보내는 iproxy 바이너리(libusbmuxd) 가 x86_64. Apple Silicon Mac 은 sudo softwareupdate --install-rosetta --agree-to-license 1회 필수. release ipa 영향 X, debug attach 만 막힘. /irun /arun 에 사전 게이트 박힘.",
+      "updated": "2026-04-29T23:30:00+09:00"
+    },
+    {
+      "file": "2026-04-20-flutter-noninteractive-shell-resolver.md",
+      "date": "2026-04-20",
+      "slug": "flutter-noninteractive-shell-resolver",
+      "title": "Claude Code Bash 도구의 비대화형 zsh + flutter 절대 경로 resolver",
+      "category": "환경 설정",
+      "tags": ["flutter", "fvm", "zsh", "claude-code", "bash", "path"],
+      "first_discovered": "2026-04-20",
+      "summary": "Claude Code Bash = 비대화형 zsh, ~/.zshrc 미로드. fvm PATH 가 interactive rc 에만 박혀있으면 flutter not found. 모든 스킬 상단에 절대 경로 resolver 헤더 (FLUTTER_BIN=$(command -v flutter || ls /Users/user/fvm/versions/*/bin/flutter | head -1)) 박는 게 정답.",
+      "updated": "2026-04-20T21:16:00+09:00"
+    },
+    {
+      "file": "2026-04-19-ios-ipa-arm64-only-lipo-check.md",
+      "date": "2026-04-19",
+      "slug": "ios-ipa-arm64-only-lipo-check",
+      "title": "iOS 릴리즈 IPA = arm64-only 보장 + lipo 검증",
+      "category": "iOS 빌드",
+      "tags": ["ios", "ipa", "arm64", "lipo", "app-store", "flutter"],
+      "first_discovered": "2026-04-19",
+      "summary": "IPA 에 시뮬레이터용 x86_64 슬라이스 섞이면 ITMS-90087 reject. 빌드 직후 lipo -info 또는 unzip -p .../Runner | file - 로 arm64-only 검증을 배포 스크립트 고정 단계로. EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64 설정 필수.",
+      "updated": "2026-04-19T23:59:00+09:00"
+    },
+    {
+      "file": "2026-04-15-applescript-large-binary-disk-path.md",
+      "date": "2026-04-15",
+      "slug": "applescript-large-binary-disk-path",
+      "title": "AppleScript 로 대용량 바이너리 자동화 — 디스크 경로 패턴",
+      "category": "자동화",
+      "tags": ["applescript", "macos", "automation", "file-upload"],
+      "first_discovered": "2026-04-15",
+      "summary": "AppleScript-osa 브리지는 페이로드 크기 상한이 있어 1MB+ 바이너리를 텍스트로 못 넘김. 디스크에 먼저 두고 osascript 에 경로만 전달. base64 청크 우회는 가능하지만 안 권장.",
+      "updated": "2026-04-15T23:59:00+09:00"
     }
   ]
 }

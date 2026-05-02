@@ -25,18 +25,6 @@
       "updated": "2026-05-01T23:59:00+09:00"
     },
     {
-      "file": "2026-04-29-rosetta-iproxy-attach.md",
-      "date": "2026-04-29",
-      "slug": "rosetta-iproxy-attach",
-      "title": "Apple Silicon mac mini 에서 Flutter iOS debug attach 가 Rosetta 없이는 실패",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": "mac mini (M1, arm64) SSH 빌드 — irun/arun 워크플로우",
-      "occurred_at": "2026-04-29 22:30 KST",
-      "resolved_at": "2026-04-29 23:24 KST",
-      "updated": "2026-04-29T23:30:00+09:00"
-    },
-    {
       "file": "2026-04-28-cf-colo-region-block.md",
       "date": "2026-04-28",
       "slug": "cf-colo-region-block",
@@ -373,30 +361,6 @@
       "updated": "2026-04-20T21:16:00+09:00"
     },
     {
-      "file": "2026-04-20-flutter-not-in-path.md",
-      "date": "2026-04-20",
-      "slug": "flutter-not-in-path",
-      "title": "flutter 명령 PATH 누락으로 APK 빌드 초기 실패",
-      "severity": "medium",
-      "recurrence": "high",
-      "scope": "Claude Code Bash 도구로 실행되는 모든 Flutter 빌드",
-      "occurred_at": "2026-04-20 20:29 KST",
-      "resolved_at": "2026-04-20 20:31 KST",
-      "updated": "2026-04-20T21:16:00+09:00"
-    },
-    {
-      "file": "2026-04-19-ipa-x86-64-slice-rejection.md",
-      "date": "2026-04-19",
-      "slug": "ipa-x86-64-slice-rejection",
-      "title": "약먹자 IPA 에 x86_64 슬라이스가 섞여 App Store 검증 실패",
-      "severity": "high",
-      "recurrence": "medium",
-      "scope": "약먹자 iOS 릴리즈 빌드",
-      "occurred_at": "2026-04-19",
-      "resolved_at": "2026-04-19",
-      "updated": "2026-04-20T11:55:00+09:00"
-    },
-    {
       "file": "2026-04-19-android-text-selection-twotone.md",
       "date": "2026-04-19",
       "slug": "android-text-selection-twotone",
@@ -464,18 +428,6 @@
       "severity": "medium",
       "recurrence": "medium",
       "scope": "Claude Code 세션 수명주기에 딸린 백그라운드 데몬 전반",
-      "occurred_at": "2026-04-15",
-      "resolved_at": "2026-04-15",
-      "updated": "2026-04-20T11:55:00+09:00"
-    },
-    {
-      "file": "2026-04-15-aab-40mb-applescript-chunking.md",
-      "date": "2026-04-15",
-      "slug": "aab-40mb-applescript-chunking",
-      "title": "AAB 40MB 파일을 AppleScript 로 직접 못 넣어서 막힘",
-      "severity": "medium",
-      "recurrence": "medium",
-      "scope": "메모요 AAB 업로드 자동화 (Play Console)",
       "occurred_at": "2026-04-15",
       "resolved_at": "2026-04-15",
       "updated": "2026-04-20T11:55:00+09:00"
