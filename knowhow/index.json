@@ -1,89 +1,19 @@
 {
   "entries": [
     {
-      "file": "2026-04-27-harness-default-branch-push.md",
-      "date": "2026-04-27",
-      "slug": "harness-default-branch-push",
-      "title": "하네스가 default branch 직접 push 를 PR review 우회로 차단 — settings.json 좁은 allow 로 해결",
-      "category": "Claude Code",
-      "tags": ["claude-code", "harness", "git", "push", "default-branch", "settings", "permissions", "solo-dev"],
-      "first_discovered": "2026-04-27",
-      "summary": "하네스 분류기가 git push origin main 을 PR review 우회로 판단, CLAUDE.md 일반 가이드는 명시 승인으로 안 쳐줌. settings.json permissions.allow 에 'Bash(git push origin main)' 추가가 유일한 근본 해결. force push 는 별도 차단 유지. solo-dev repo 는 이 패턴, multi-device PR 분기 repo 는 혼용 가능.",
-      "updated": "2026-05-03T16:30:00+09:00"
-    },
-    {
-      "file": "2026-04-27-harness-same-turn-write-commit-fp.md",
-      "date": "2026-04-27",
-      "slug": "harness-same-turn-write-commit-fp",
-      "title": "같은 turn 내 Write→commit 묶음, harness false positive — settings.json 영구 룰로 해결",
-      "category": "Claude Code",
-      "tags": ["claude-code", "harness", "sandbox", "git", "commit", "write", "false-positive", "settings"],
-      "first_discovered": "2026-04-27",
-      "summary": "Write 직후 같은 turn 에서 git commit 시 transcript flush timing race 로 harness sandbox 가 'Write 흔적 없다' false positive 발생. settings.json permissions.allow 에 'Bash(git commit*)' 추가가 근본 해결. auto mode 에선 1회성 Allow 무용.",
-      "updated": "2026-05-03T16:30:00+09:00"
-    },
-    {
-      "file": "2026-04-20-daemon-session-id-pid-isolation.md",
-      "date": "2026-04-20",
-      "slug": "daemon-session-id-pid-isolation",
-      "title": "Claude Code 훅 기동 데몬은 세션 ID 기반 PID 파일로 격리",
-      "category": "자동화",
-      "tags": ["daemon", "claude-code", "session-id", "pid", "isolation", "hooks", "telegram", "pkill"],
-      "first_discovered": "2026-04-20",
-      "summary": "Claude Code Stop/UserPromptSubmit 훅 JSON stdin 에서 session_id 를 jq 로 파싱해 PID 파일 키로 쓰면 병렬 세션 간 격추 0. CLAUDE_SESSION_ID 환경변수는 훅에 주입되지 않으므로 stdin JSON 파싱 필수. session_id 없으면 stop 훅은 아무것도 안 함 (sibling 오격추 방지). daemon 에 set -e 금지 + disown + heartbeat 로그 4종 세트.",
-      "updated": "2026-05-03T16:30:00+09:00"
-    },
-    {
-      "file": "2026-05-02-playwright-mcp-absolute-output-dir.md",
-      "date": "2026-05-02",
-      "slug": "playwright-mcp-absolute-output-dir",
-      "title": "Playwright MCP .mcp.json 에 --output-dir 절대 경로 필수 — cwd=/ 에서 ENOENT 방지",
-      "category": "자동화",
-      "tags": ["playwright", "mcp", "output-dir", "cwd", "enoent", "mcp-json", "absolute-path", "plugin"],
-      "first_discovered": "2026-05-02",
-      "summary": "@playwright/mcp 는 --output-dir 미지정 시 cwd 상대 경로 .playwright-mcp 를 mkdir 시도. Claude Code가 cwd /로 시작하면 root 쓰기 권한 없어 모든 MCP tool call이 ENOENT로 실패. .mcp.json args에 절대 경로 --output-dir 고정이 근본 fix. plugin update 후 재확인 필수.",
-      "updated": "2026-05-03T00:55:00+09:00"
-    },
-    {
-      "file": "2026-05-01-sync-script-source-cache-separation.md",
-      "date": "2026-05-01",
-      "slug": "sync-script-source-cache-separation",
-      "title": "동기화 스크립트는 원본 파일을 절대 덮어쓰지 않는다 — 원본/캐시 파일 분리 필수",
-      "category": "파이프라인",
-      "tags": ["sync", "backfill", "file-naming", "newsletter", "cache", "pipeline", "overwrite-prevention"],
-      "first_discovered": "2026-05-01",
-      "summary": "sync/backfill 스크립트의 cacheFile 경로가 원본 콘텐츠 파일과 같으면 실행마다 원본 덮어쓰기. ep<N>-<DATE>.md(원본)과 ep<N>-cache.md(캐시) 분리 + 스크립트 상단 PROTECTED_PATTERN assert 1줄이 근본 방지책.",
-      "updated": "2026-05-03T00:55:00+09:00"
-    },
-    {
-      "file": "2026-04-26-tmux-claude-session-dynamic-detect.md",
-      "date": "2026-04-26",
-      "slug": "tmux-claude-session-dynamic-detect",
-      "title": "tmux Claude Code 세션 탐색은 이름 하드코딩 X — 동적 마커 grep + process fallback",
-      "category": "자동화",
-      "tags": ["tmux", "handoff", "claude-code", "session-detection", "capture-pane", "grep-marker", "ssh", "dynamic"],
-      "first_discovered": "2026-04-26",
-      "summary": "원격 tmux 세션 이름 하드코딩(-t claude-main)은 빈 bash 수신으로 silent fail. 세션 목록 순회 + capture-pane -S -200 + 넓은 마커 grep(⏵⏵, shells · ↓ 포함) + process/attach fallback 2-layer로 활성 Claude Code 세션을 동적 탐색. Claude Code UI 업데이트로 마커 바뀌어도 fallback layer가 잡아줌.",
-      "updated": "2026-05-03T00:55:00+09:00"
-    },
-    {
-      "file": "2026-04-25-playwright-mcp-browser-env-override.md",
-      "date": "2026-04-25",
-      "slug": "playwright-mcp-browser-env-override",
-      "title": "Playwright MCP 채널/샌드박스 설정은 env var 로 — .mcp.json 직접 수정 X",
-      "category": "자동화",
-      "tags": ["playwright", "mcp", "env-var", "chromium", "wsl", "channel", "sandbox", "self-modification"],
-      "first_discovered": "2026-04-25",
-      "summary": "@playwright/mcp 디폴트 channel=chrome → WSL/Chrome-미설치 환경에서 100% fail. ~/.bashrc 에 PLAYWRIGHT_MCP_BROWSER=chromium + PLAYWRIGHT_MCP_NO_SANDBOX=1 두 줄로 .mcp.json 수정 없이 동등 설정. .mcp.json 직접 수정은 Claude Code self-modification gate 거부.",
-      "updated": "2026-05-03T00:55:00+09:00"
-    },
-    {
       "file": "2026-05-03-irun-device-lock-precheck.md",
       "date": "2026-05-03",
       "slug": "irun-device-lock-precheck",
       "title": "iOS device 잠금 상태에서 Flutter run = \"Could not run Runner.app\" 오탐 — devicectl pre-check + 폴백",
       "category": "iOS 빌드",
-      "tags": ["ios", "flutter", "irun", "devicectl", "device-lock", "error-translation"],
+      "tags": [
+        "ios",
+        "flutter",
+        "irun",
+        "devicectl",
+        "device-lock",
+        "error-translation"
+      ],
       "first_discovered": "2026-04-20",
       "summary": "Flutter 의 'Could not run Runner.app' + 'Try Xcode > Run' 안내는 device 잠금 거부(SBMainWorkspace ... Locked)를 가리는 번역 오탐. flutter run 호출 전 'devicectl device info connected | grep unlocked' 게이트 + 에러 매칭 시 'devicectl device process launch' 직접 호출로 진짜 원인 surface.",
       "updated": "2026-05-03T10:45:00+09:00"
@@ -94,7 +24,15 @@
       "slug": "google-signin-ios-gidclientid-precheck",
       "title": "google_sign_in 신규 iOS 빌드 = GIDClientID + URL scheme 사전 체크 게이트",
       "category": "iOS 빌드",
-      "tags": ["ios", "flutter", "google-sign-in", "oauth", "gidclientid", "info-plist", "fail-fast"],
+      "tags": [
+        "ios",
+        "flutter",
+        "google-sign-in",
+        "oauth",
+        "gidclientid",
+        "info-plist",
+        "fail-fast"
+      ],
       "first_discovered": "2026-04-23",
       "summary": "Android 는 SHA-1 + 패키지명 자동 매칭이라 코드 변경 0 이지만 iOS 는 Info.plist 의 GIDClientID + reversed URL scheme 가 없으면 첫 sign-in 시 NSInvalidArgumentException 으로 즉시 강종. pre-build 셸 게이트(tools/check_ios_oauth.sh) + Dart Platform.isIOS fail-fast 두 겹으로 차단.",
       "updated": "2026-05-03T10:45:00+09:00"
@@ -105,10 +43,97 @@
       "slug": "launchd-register-verification-gate",
       "title": "launchd register/bootstrap 직후 actually-running 검증 게이트 — silent fail 차단",
       "category": "자동화",
-      "tags": ["launchd", "macos", "bootstrap", "verification", "silent-failure", "daemon", "scheduling"],
+      "tags": [
+        "launchd",
+        "macos",
+        "bootstrap",
+        "verification",
+        "silent-failure",
+        "daemon",
+        "scheduling"
+      ],
       "first_discovered": "2026-04-21",
       "summary": "launchctl load/bootstrap 가 silent-fail (exit 0 인데 등록 안 됨) 하는 케이스가 일상적. plist 존재 ≠ 잡 활성. bootstrap 직후 launchctl list 검증 + 미등록 시 exit 1 디폴트. unload/load 짝은 silent fail 잘 일으키니 bootout/bootstrap 으로 교체.",
       "updated": "2026-05-03T10:45:00+09:00"
+    },
+    {
+      "file": "2026-05-03-launchd-monitoring-job-disabled-blind-spot.md",
+      "date": "2026-05-03",
+      "slug": "launchd-monitoring-job-disabled-blind-spot",
+      "title": "모니터링·알림 launchd 잡은 _disabled/ 바구니에 넣으면 안 된다 — 외부 신호 blind spot",
+      "category": "자동화",
+      "tags": [
+        "launchd",
+        "macos",
+        "monitoring",
+        "alerting",
+        "plist",
+        "disabled",
+        "blind-spot",
+        "automation-ops"
+      ],
+      "first_discovered": "2026-04-26",
+      "summary": "토큰 절감 목적으로 launchd 잡을 _disabled/에 몽땅 끄면 모니터링·알림 잡도 같이 꺼져 Apple 심사 메일 등 외부 신호가 수시간~수일 누락. 리소스 소비형 잡과 모니터링 잡 분류 게이트 + lite 모드 대체가 근본 방지책.",
+      "updated": "2026-05-03T00:00:00+09:00"
+    },
+    {
+      "file": "2026-05-03-ios-app-store-ipad-screenshot-required.md",
+      "date": "2026-05-03",
+      "slug": "ios-app-store-ipad-screenshot-required",
+      "title": "App Store 심사 제출: iPhone Only 앱도 iPad 13\" 스크린샷 필수",
+      "category": "iOS 배포",
+      "tags": [
+        "ios",
+        "app-store",
+        "app-store-connect",
+        "screenshot",
+        "ipad",
+        "flutter",
+        "targeted-device-family",
+        "submission"
+      ],
+      "first_discovered": "2026-04-24",
+      "summary": "Flutter 기본 TARGETED_DEVICE_FAMILY=1,2 설정으로 iPhone 전용 기획 앱도 iPad 지원으로 분류. '심사에 추가' 전 iPad 13\" (2048×2732) 스크린샷 필수. sips -z 2732 2048 으로 iPhone 스크린샷 리사이즈 임시 해결, 근본 해결은 TARGETED_DEVICE_FAMILY=1 설정.",
+      "updated": "2026-05-03T00:00:00+09:00"
+    },
+    {
+      "file": "2026-05-03-play-console-testers-api-google-groups-only.md",
+      "date": "2026-05-03",
+      "slug": "play-console-testers-api-google-groups-only",
+      "title": "Play Console testers REST API 는 개별 이메일을 받지 않는다 — Google Group 경유 설계 필수",
+      "category": "Android 배포",
+      "tags": [
+        "play-console",
+        "android",
+        "api",
+        "testers",
+        "google-groups",
+        "automation",
+        "closed-test"
+      ],
+      "first_discovered": "2026-04-16",
+      "summary": "edits.testers API 의 emails 필드는 문서에 있지만 실제 400 반환. googleGroups 배열만 유효. 개별 이메일 → Google Group 멤버 추가 → API 에 그룹 전달 흐름으로 설계해야 함.",
+      "updated": "2026-05-03T00:00:00+09:00"
+    },
+    {
+      "file": "2026-05-02-playwright-mcp-absolute-output-dir.md",
+      "date": "2026-05-02",
+      "slug": "playwright-mcp-absolute-output-dir",
+      "title": "Playwright MCP .mcp.json 에 --output-dir 절대 경로 필수 — cwd=/ 에서 ENOENT 방지",
+      "category": "자동화",
+      "tags": [
+        "playwright",
+        "mcp",
+        "output-dir",
+        "cwd",
+        "enoent",
+        "mcp-json",
+        "absolute-path",
+        "plugin"
+      ],
+      "first_discovered": "2026-05-02",
+      "summary": "@playwright/mcp 는 --output-dir 미지정 시 cwd 상대 경로 .playwright-mcp 를 mkdir 시도. Claude Code가 cwd /로 시작하면 root 쓰기 권한 없어 모든 MCP tool call이 ENOENT로 실패. .mcp.json args에 절대 경로 --output-dir 고정이 근본 fix. plugin update 후 재확인 필수.",
+      "updated": "2026-05-03T00:55:00+09:00"
     },
     {
       "file": "2026-05-02-wsl-flutter-test-cmd-pushd-unc.md",
@@ -116,7 +141,15 @@
       "slug": "wsl-flutter-test-cmd-pushd-unc",
       "title": "WSL 에서 Windows-native flutter test 실행 — cmd.exe pushd UNC 우회",
       "category": "환경 설정",
-      "tags": ["wsl", "flutter", "test", "windows", "cmd", "pushd", "unc"],
+      "tags": [
+        "wsl",
+        "flutter",
+        "test",
+        "windows",
+        "cmd",
+        "pushd",
+        "unc"
+      ],
       "first_discovered": "2026-05-02",
       "summary": "WSL bash 에서 /mnt/c/src/flutter/bin/flutter.bat 직접 호출은 CRLF/PATH 로 깨지고 powershell.exe + UNC cwd 도 .bat 내부 cmd 가 거부. cmd.exe /c 'pushd \\\\wsl.localhost\\Ubuntu\\... && C:\\src\\flutter\\bin\\flutter.bat test 2>&1 & popd' 한 줄로 우회. lotto-calc PR #3 V4 검증 (8/8 PASS, 4.85s).",
       "updated": "2026-05-02T17:55:00+09:00"
@@ -127,11 +160,36 @@
       "slug": "playwright-google-oauth-stealth",
       "title": "Playwright 로 Google OAuth 로그인 우회 — stealth 4종 디폴트",
       "category": "자동화",
-      "tags": ["playwright", "google", "oauth", "stealth", "chrome"],
+      "tags": [
+        "playwright",
+        "google",
+        "oauth",
+        "stealth",
+        "chrome"
+      ],
       "first_discovered": "2026-04-16",
       "rediscovered": "2026-05-02",
       "summary": "Playwright 로 띄운 Chrome 에서 Google 로그인하면 차단됨. channel:'chrome' + --disable-blink-features=AutomationControlled + --disable-features=IsolateOrigins,site-per-process + ignoreDefaultArgs:['--enable-automation'] 4종 동시 적용으로 우회. 어느 하나 빠지면 차단.",
       "updated": "2026-05-02T13:10:00+09:00"
+    },
+    {
+      "file": "2026-05-01-sync-script-source-cache-separation.md",
+      "date": "2026-05-01",
+      "slug": "sync-script-source-cache-separation",
+      "title": "동기화 스크립트는 원본 파일을 절대 덮어쓰지 않는다 — 원본/캐시 파일 분리 필수",
+      "category": "파이프라인",
+      "tags": [
+        "sync",
+        "backfill",
+        "file-naming",
+        "newsletter",
+        "cache",
+        "pipeline",
+        "overwrite-prevention"
+      ],
+      "first_discovered": "2026-05-01",
+      "summary": "sync/backfill 스크립트의 cacheFile 경로가 원본 콘텐츠 파일과 같으면 실행마다 원본 덮어쓰기. ep<N>-<DATE>.md(원본)과 ep<N>-cache.md(캐시) 분리 + 스크립트 상단 PROTECTED_PATTERN assert 1줄이 근본 방지책.",
+      "updated": "2026-05-03T00:55:00+09:00"
     },
     {
       "file": "2026-04-29-apple-silicon-rosetta-iproxy.md",
@@ -139,10 +197,79 @@
       "slug": "apple-silicon-rosetta-iproxy",
       "title": "Apple Silicon Mac 에서 Flutter iOS debug attach = Rosetta 필수",
       "category": "iOS 빌드",
-      "tags": ["apple-silicon", "m1", "m2", "rosetta", "flutter", "ios", "debug", "iproxy"],
+      "tags": [
+        "apple-silicon",
+        "m1",
+        "m2",
+        "rosetta",
+        "flutter",
+        "ios",
+        "debug",
+        "iproxy"
+      ],
       "first_discovered": "2026-04-29",
       "summary": "Flutter 가 묶어 보내는 iproxy 바이너리(libusbmuxd) 가 x86_64. Apple Silicon Mac 은 sudo softwareupdate --install-rosetta --agree-to-license 1회 필수. release ipa 영향 X, debug attach 만 막힘. /irun /arun 에 사전 게이트 박힘.",
       "updated": "2026-04-29T23:30:00+09:00"
+    },
+    {
+      "file": "2026-04-27-harness-default-branch-push.md",
+      "date": "2026-04-27",
+      "slug": "harness-default-branch-push",
+      "title": "하네스가 default branch 직접 push 를 PR review 우회로 차단 — settings.json 좁은 allow 로 해결",
+      "category": "Claude Code",
+      "tags": [
+        "claude-code",
+        "harness",
+        "git",
+        "push",
+        "default-branch",
+        "settings",
+        "permissions",
+        "solo-dev"
+      ],
+      "first_discovered": "2026-04-27",
+      "summary": "하네스 분류기가 git push origin main 을 PR review 우회로 판단, CLAUDE.md 일반 가이드는 명시 승인으로 안 쳐줌. settings.json permissions.allow 에 'Bash(git push origin main)' 추가가 유일한 근본 해결. force push 는 별도 차단 유지. solo-dev repo 는 이 패턴, multi-device PR 분기 repo 는 혼용 가능.",
+      "updated": "2026-05-03T16:30:00+09:00"
+    },
+    {
+      "file": "2026-04-27-harness-same-turn-write-commit-fp.md",
+      "date": "2026-04-27",
+      "slug": "harness-same-turn-write-commit-fp",
+      "title": "같은 turn 내 Write→commit 묶음, harness false positive — settings.json 영구 룰로 해결",
+      "category": "Claude Code",
+      "tags": [
+        "claude-code",
+        "harness",
+        "sandbox",
+        "git",
+        "commit",
+        "write",
+        "false-positive",
+        "settings"
+      ],
+      "first_discovered": "2026-04-27",
+      "summary": "Write 직후 같은 turn 에서 git commit 시 transcript flush timing race 로 harness sandbox 가 'Write 흔적 없다' false positive 발생. settings.json permissions.allow 에 'Bash(git commit*)' 추가가 근본 해결. auto mode 에선 1회성 Allow 무용.",
+      "updated": "2026-05-03T16:30:00+09:00"
+    },
+    {
+      "file": "2026-04-26-tmux-claude-session-dynamic-detect.md",
+      "date": "2026-04-26",
+      "slug": "tmux-claude-session-dynamic-detect",
+      "title": "tmux Claude Code 세션 탐색은 이름 하드코딩 X — 동적 마커 grep + process fallback",
+      "category": "자동화",
+      "tags": [
+        "tmux",
+        "handoff",
+        "claude-code",
+        "session-detection",
+        "capture-pane",
+        "grep-marker",
+        "ssh",
+        "dynamic"
+      ],
+      "first_discovered": "2026-04-26",
+      "summary": "원격 tmux 세션 이름 하드코딩(-t claude-main)은 빈 bash 수신으로 silent fail. 세션 목록 순회 + capture-pane -S -200 + 넓은 마커 grep(⏵⏵, shells · ↓ 포함) + process/attach fallback 2-layer로 활성 Claude Code 세션을 동적 탐색. Claude Code UI 업데이트로 마커 바뀌어도 fallback layer가 잡아줌.",
+      "updated": "2026-05-03T00:55:00+09:00"
     },
     {
       "file": "2026-04-26-ssh-keepalive-bidir-config.md",
@@ -150,10 +277,38 @@
       "slug": "ssh-keepalive-bidir-config",
       "title": "양방향 SSH config 에 ServerAliveInterval 박기 = stale 소켓 차단 영구 fix",
       "category": "환경 설정",
-      "tags": ["ssh", "keepalive", "mac", "wsl", "sleep", "stale-socket", "terminal"],
+      "tags": [
+        "ssh",
+        "keepalive",
+        "mac",
+        "wsl",
+        "sleep",
+        "stale-socket",
+        "terminal"
+      ],
       "first_discovered": "2026-04-26",
       "summary": "서버 sleep / 네트워크 끊김 시 stale 소켓이 살아있는 듯 남아 키 입력 무반응. 양쪽 ~/.ssh/config 에 Host * 글로벌로 ServerAliveInterval 60 + ServerAliveCountMax 3 박으면 1분 keepalive + 3분 안에 죽은 연결 자동 종료. 한 번 박으면 영구 fix.",
       "updated": "2026-05-02T20:58:00+09:00"
+    },
+    {
+      "file": "2026-04-25-playwright-mcp-browser-env-override.md",
+      "date": "2026-04-25",
+      "slug": "playwright-mcp-browser-env-override",
+      "title": "Playwright MCP 채널/샌드박스 설정은 env var 로 — .mcp.json 직접 수정 X",
+      "category": "자동화",
+      "tags": [
+        "playwright",
+        "mcp",
+        "env-var",
+        "chromium",
+        "wsl",
+        "channel",
+        "sandbox",
+        "self-modification"
+      ],
+      "first_discovered": "2026-04-25",
+      "summary": "@playwright/mcp 디폴트 channel=chrome → WSL/Chrome-미설치 환경에서 100% fail. ~/.bashrc 에 PLAYWRIGHT_MCP_BROWSER=chromium + PLAYWRIGHT_MCP_NO_SANDBOX=1 두 줄로 .mcp.json 수정 없이 동등 설정. .mcp.json 직접 수정은 Claude Code self-modification gate 거부.",
+      "updated": "2026-05-03T00:55:00+09:00"
     },
     {
       "file": "2026-04-24-playwright-mcp-dialog-by-name-not-ref.md",
@@ -161,10 +316,38 @@
       "slug": "playwright-mcp-dialog-by-name-not-ref",
       "title": "Playwright MCP 다이얼로그 확정 버튼은 ref 직접 X, role+name+dialog scope 우선",
       "category": "자동화",
-      "tags": ["playwright", "mcp", "dialog", "asc", "role", "getByRole", "ref"],
+      "tags": [
+        "playwright",
+        "mcp",
+        "dialog",
+        "asc",
+        "role",
+        "getByRole",
+        "ref"
+      ],
       "first_discovered": "2026-04-24",
       "summary": "Playwright snapshot 의 [ref=eXXX] 번호는 DOM 순서 기반이라 '먼저 나오는 게 긍정 버튼' 직관 규칙 깨짐. 다이얼로그 취소/완료 쌍 버튼이 있으면 ref 직접 클릭 = 오클릭의 직접 원인. role-based selector + name 매칭 + dialog scope 안에서 찾도록 박기.",
       "updated": "2026-05-02T20:58:00+09:00"
+    },
+    {
+      "file": "2026-04-20-daemon-session-id-pid-isolation.md",
+      "date": "2026-04-20",
+      "slug": "daemon-session-id-pid-isolation",
+      "title": "Claude Code 훅 기동 데몬은 세션 ID 기반 PID 파일로 격리",
+      "category": "자동화",
+      "tags": [
+        "daemon",
+        "claude-code",
+        "session-id",
+        "pid",
+        "isolation",
+        "hooks",
+        "telegram",
+        "pkill"
+      ],
+      "first_discovered": "2026-04-20",
+      "summary": "Claude Code Stop/UserPromptSubmit 훅 JSON stdin 에서 session_id 를 jq 로 파싱해 PID 파일 키로 쓰면 병렬 세션 간 격추 0. CLAUDE_SESSION_ID 환경변수는 훅에 주입되지 않으므로 stdin JSON 파싱 필수. session_id 없으면 stop 훅은 아무것도 안 함 (sibling 오격추 방지). daemon 에 set -e 금지 + disown + heartbeat 로그 4종 세트.",
+      "updated": "2026-05-03T16:30:00+09:00"
     },
     {
       "file": "2026-04-20-flutter-noninteractive-shell-resolver.md",
@@ -172,7 +355,14 @@
       "slug": "flutter-noninteractive-shell-resolver",
       "title": "Claude Code Bash 도구의 비대화형 zsh + flutter 절대 경로 resolver",
       "category": "환경 설정",
-      "tags": ["flutter", "fvm", "zsh", "claude-code", "bash", "path"],
+      "tags": [
+        "flutter",
+        "fvm",
+        "zsh",
+        "claude-code",
+        "bash",
+        "path"
+      ],
       "first_discovered": "2026-04-20",
       "summary": "Claude Code Bash = 비대화형 zsh, ~/.zshrc 미로드. fvm PATH 가 interactive rc 에만 박혀있으면 flutter not found. 모든 스킬 상단에 절대 경로 resolver 헤더 (FLUTTER_BIN=$(command -v flutter || ls /Users/user/fvm/versions/*/bin/flutter | head -1)) 박는 게 정답.",
       "updated": "2026-04-20T21:16:00+09:00"
@@ -183,7 +373,14 @@
       "slug": "ios-ipa-arm64-only-lipo-check",
       "title": "iOS 릴리즈 IPA = arm64-only 보장 + lipo 검증",
       "category": "iOS 빌드",
-      "tags": ["ios", "ipa", "arm64", "lipo", "app-store", "flutter"],
+      "tags": [
+        "ios",
+        "ipa",
+        "arm64",
+        "lipo",
+        "app-store",
+        "flutter"
+      ],
       "first_discovered": "2026-04-19",
       "summary": "IPA 에 시뮬레이터용 x86_64 슬라이스 섞이면 ITMS-90087 reject. 빌드 직후 lipo -info 또는 unzip -p .../Runner | file - 로 arm64-only 검증을 배포 스크립트 고정 단계로. EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64 설정 필수.",
       "updated": "2026-04-19T23:59:00+09:00"
@@ -194,7 +391,15 @@
       "slug": "applescript-coord-tap-retry",
       "title": "AppleScript 좌표 기반 탭 자동화는 단발 X, 검증+재시도 디폴트",
       "category": "자동화",
-      "tags": ["applescript", "ios", "simulator", "coordinate", "tap", "retina", "scaling"],
+      "tags": [
+        "applescript",
+        "ios",
+        "simulator",
+        "coordinate",
+        "tap",
+        "retina",
+        "scaling"
+      ],
       "first_discovered": "2026-04-17",
       "summary": "macOS Retina 스케일링(2x) + 시뮬레이터 자체 하드웨어 스케일이 겹치면서 AppleScript 좌표가 ±1 행 drift. 단일 탭으로 끝내지 말고 탭 → 결과 검증 → 실패 시 ±1 행 보정 재시도 패턴 디폴트. 가능하면 좌표 대신 accessibility identifier 우선.",
       "updated": "2026-05-02T20:58:00+09:00"
@@ -205,7 +410,15 @@
       "slug": "ios-sim-prefs-simctl-import",
       "title": "iOS 시뮬레이터 preferences 주입은 simctl spawn defaults import 만 쓴다",
       "category": "iOS 빌드",
-      "tags": ["ios", "simulator", "plist", "cfprefsd", "simctl", "defaults", "sharedprefs"],
+      "tags": [
+        "ios",
+        "simulator",
+        "plist",
+        "cfprefsd",
+        "simctl",
+        "defaults",
+        "sharedprefs"
+      ],
       "first_discovered": "2026-04-17",
       "summary": "iOS cfprefsd (Preferences Daemon) 가 plist 내용을 메모리에 캐시. PlistBuddy/plutil 직접 수정 = 파일은 바뀌어도 앱은 옛 값 계속 읽음. xcrun simctl spawn <sim_id> defaults import <domain> <plist> 로 cfprefsd 거치게 만들어야 정상 반영.",
       "updated": "2026-05-02T20:58:00+09:00"
@@ -216,7 +429,14 @@
       "slug": "bg-daemon-pkill-pattern",
       "title": "장시간 백그라운드 데몬은 pkill 패턴 매칭으로 전/후 청소 디폴트",
       "category": "자동화",
-      "tags": ["daemon", "pkill", "claude-code", "lifecycle", "orphan", "cleanup"],
+      "tags": [
+        "daemon",
+        "pkill",
+        "claude-code",
+        "lifecycle",
+        "orphan",
+        "cleanup"
+      ],
       "first_discovered": "2026-04-15",
       "summary": "세션 강제 종료 시 자식 데몬에 종료 신호 미전달 → 오펀 누적 + 다음 세션 중복 기동. PID 기반 종료 신뢰 X, pkill -f <고유패턴> 을 데몬 기동 스크립트 전/후 모두 박기. 고유 패턴 신중 선정 (광범위 pkill 금지).",
       "updated": "2026-05-02T20:58:00+09:00"
@@ -227,7 +447,12 @@
       "slug": "applescript-large-binary-disk-path",
       "title": "AppleScript 로 대용량 바이너리 자동화 — 디스크 경로 패턴",
       "category": "자동화",
-      "tags": ["applescript", "macos", "automation", "file-upload"],
+      "tags": [
+        "applescript",
+        "macos",
+        "automation",
+        "file-upload"
+      ],
       "first_discovered": "2026-04-15",
       "summary": "AppleScript-osa 브리지는 페이로드 크기 상한이 있어 1MB+ 바이너리를 텍스트로 못 넘김. 디스크에 먼저 두고 osascript 에 경로만 전달. base64 청크 우회는 가능하지만 안 권장.",
       "updated": "2026-04-15T23:59:00+09:00"
