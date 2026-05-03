@@ -1,6 +1,39 @@
 {
   "entries": [
     {
+      "file": "2026-04-28-cf-workers-llm-api-region-block.md",
+      "date": "2026-04-28",
+      "slug": "cf-workers-llm-api-region-block",
+      "title": "CF Workers 에서 외부 LLM API 직접 호출 금지 — AI Gateway 경유 필수",
+      "category": "배포",
+      "tags": ["cloudflare", "cf-workers", "openai", "anthropic", "llm", "region-block", "ai-gateway", "colo", "502", "403"],
+      "first_discovered": "2026-04-28",
+      "summary": "CF colo 라우팅이 특정 ISP·지역 IP 를 한국 colo 로 매핑하면 outbound IP 가 OpenAI region-block 권역에 걸려 403 반환. api.openai.com 직접 호출 대신 CF AI Gateway 경유가 근본 fix. 출시 전 2개 이상 ISP/환경에서 LLM 호출 검증 필수.",
+      "updated": "2026-05-03T18:00:00+09:00"
+    },
+    {
+      "file": "2026-04-26-macos-ssh-cli-fda-block.md",
+      "date": "2026-04-26",
+      "slug": "macos-ssh-cli-fda-block",
+      "title": "macOS Ventura 이상에서 SSH 활성화는 GUI 토글만 — CLI systemsetup 차단",
+      "category": "환경 설정",
+      "tags": ["macos", "ssh", "systemsetup", "fda", "full-disk-access", "tahoe", "terminal", "ghostty", "remote-login"],
+      "first_discovered": "2026-04-26",
+      "summary": "macOS 13+ 부터 sudo systemsetup -setremotelogin on 은 호출 터미널 앱에 FDA 가 있어야 실행됨. 신규 설치 터미널은 항상 FDA 미부여 상태. 시스템 설정 > 공유 > 원격 로그인 GUI 토글이 유일한 무조건 통과 경로. CLI 자동화 스크립트에서 이 명령 사용 금지.",
+      "updated": "2026-05-03T18:00:00+09:00"
+    },
+    {
+      "file": "2026-04-21-interrupt-git-status-guard.md",
+      "date": "2026-04-21",
+      "slug": "interrupt-git-status-guard",
+      "title": "세션 중단 후 미커밋 파일 방지 — git status 가드 패턴",
+      "category": "워크플로우",
+      "tags": ["git", "interrupt", "untracked", "orphan", "session-start", "skill-file", "stop-hook", "safety-net"],
+      "first_discovered": "2026-04-21",
+      "summary": "Write() 로 파일 생성 후 세션이 중단되면 git add/commit/push 가 누락된 채 로컬에만 남는다. 세션 시작 첫 단계로 git status --short 를 skills + daejong-page 양쪽에서 실행하는 것이 가장 단순한 안전망. 파일 쓰기는 commit + push 까지 한 묶음으로 처리.",
+      "updated": "2026-05-03T18:00:00+09:00"
+    },
+    {
       "file": "2026-05-03-irun-device-lock-precheck.md",
       "date": "2026-05-03",
       "slug": "irun-device-lock-precheck",
