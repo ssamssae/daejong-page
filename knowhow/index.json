@@ -116,6 +116,46 @@
       "updated": "2026-05-03T00:00:00+09:00"
     },
     {
+      "file": "2026-05-03-telegram-paste-block-purity.md",
+      "date": "2026-05-03",
+      "slug": "telegram-paste-block-purity",
+      "title": "텔레그램 복붙용 명령어는 단독 메시지 — 설명 텍스트 0줄 혼합 금지",
+      "category": "텔레그램",
+      "tags": [
+        "telegram",
+        "paste",
+        "copy",
+        "code-block",
+        "reply",
+        "mobile",
+        "ux",
+        "powershell",
+        "shell"
+      ],
+      "first_discovered": "2026-04-26",
+      "summary": "모바일 텔레그램 long-press copy = 메시지 전체 복사. 명령어와 설명 텍스트가 같은 메시지에 섞이면 복붙 시 라벨까지 붙어 명령이 깨짐. 복붙용 블록은 명령어만 든 별도 reply 1통으로 분리 필수. 예외 0줄 원칙.",
+      "updated": "2026-05-03T00:00:00+09:00"
+    },
+    {
+      "file": "2026-05-03-multi-device-stale-todo-reality-check.md",
+      "date": "2026-05-03",
+      "slug": "multi-device-stale-todo-reality-check",
+      "title": "멀티기기 환경에서 할일 추천·편집 전 reality check — stale 상태 추천 차단",
+      "category": "멀티기기",
+      "tags": [
+        "multi-device",
+        "todos",
+        "stale",
+        "reality-check",
+        "mac-wsl",
+        "parallel",
+        "preflight"
+      ],
+      "first_discovered": "2026-04-21",
+      "summary": "한 기기가 코드 작업을 완료해도 todos 미갱신 시, 다른 기기가 stale todos 로 이미 끝난 일을 재추천하는 stale-on-stale 이중 사고 발생. 할일 추천 전 git pull + gh repo list 24h activity reality check 의무화 + 코드 완료 이벤트 시 todos 업데이트 트리거가 근본 방지책.",
+      "updated": "2026-05-03T00:00:00+09:00"
+    },
+    {
       "file": "2026-05-02-playwright-mcp-absolute-output-dir.md",
       "date": "2026-05-02",
       "slug": "playwright-mcp-absolute-output-dir",
