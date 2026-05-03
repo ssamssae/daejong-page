@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-03_v1.0.1.md",
+      "date": "2026-05-03",
+      "version": "v1.0.1",
+      "title": "오후의 폭발: 뉴스레터 2편 발행 + 53커밋 (lotto-calc stats/BarChart, Ep6+Plan-C, stock_monitor scaffold)",
+      "updated": "2026-05-03T23:58:00+09:00"
+    },
+    {
       "file": "2026-05-03_v1.0.0.md",
       "date": "2026-05-03",
       "version": "v1.0.0",

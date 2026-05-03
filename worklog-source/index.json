@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-03_v1.0.1.md",
+      "date": "2026-05-03",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 이후 추가: lotto-calc stats/BarChart, knowhow batch, 뉴스레터 Ep6+Plan-C 발행, Ep.1+Ep.2 디자인 교체, stack.html 갱신, stock_monitor scaffold",
+      "updated": "2026-05-03T23:58:00+09:00"
+    },
+    {
       "file": "2026-05-03_v1.0.0.md",
       "date": "2026-05-03",
       "version": "v1.0.0",
