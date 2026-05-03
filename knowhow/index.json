@@ -1,6 +1,50 @@
 {
   "entries": [
     {
+      "file": "2026-05-02-playwright-mcp-absolute-output-dir.md",
+      "date": "2026-05-02",
+      "slug": "playwright-mcp-absolute-output-dir",
+      "title": "Playwright MCP .mcp.json 에 --output-dir 절대 경로 필수 — cwd=/ 에서 ENOENT 방지",
+      "category": "자동화",
+      "tags": ["playwright", "mcp", "output-dir", "cwd", "enoent", "mcp-json", "absolute-path", "plugin"],
+      "first_discovered": "2026-05-02",
+      "summary": "@playwright/mcp 는 --output-dir 미지정 시 cwd 상대 경로 .playwright-mcp 를 mkdir 시도. Claude Code가 cwd /로 시작하면 root 쓰기 권한 없어 모든 MCP tool call이 ENOENT로 실패. .mcp.json args에 절대 경로 --output-dir 고정이 근본 fix. plugin update 후 재확인 필수.",
+      "updated": "2026-05-03T00:55:00+09:00"
+    },
+    {
+      "file": "2026-05-01-sync-script-source-cache-separation.md",
+      "date": "2026-05-01",
+      "slug": "sync-script-source-cache-separation",
+      "title": "동기화 스크립트는 원본 파일을 절대 덮어쓰지 않는다 — 원본/캐시 파일 분리 필수",
+      "category": "파이프라인",
+      "tags": ["sync", "backfill", "file-naming", "newsletter", "cache", "pipeline", "overwrite-prevention"],
+      "first_discovered": "2026-05-01",
+      "summary": "sync/backfill 스크립트의 cacheFile 경로가 원본 콘텐츠 파일과 같으면 실행마다 원본 덮어쓰기. ep<N>-<DATE>.md(원본)과 ep<N>-cache.md(캐시) 분리 + 스크립트 상단 PROTECTED_PATTERN assert 1줄이 근본 방지책.",
+      "updated": "2026-05-03T00:55:00+09:00"
+    },
+    {
+      "file": "2026-04-26-tmux-claude-session-dynamic-detect.md",
+      "date": "2026-04-26",
+      "slug": "tmux-claude-session-dynamic-detect",
+      "title": "tmux Claude Code 세션 탐색은 이름 하드코딩 X — 동적 마커 grep + process fallback",
+      "category": "자동화",
+      "tags": ["tmux", "handoff", "claude-code", "session-detection", "capture-pane", "grep-marker", "ssh", "dynamic"],
+      "first_discovered": "2026-04-26",
+      "summary": "원격 tmux 세션 이름 하드코딩(-t claude-main)은 빈 bash 수신으로 silent fail. 세션 목록 순회 + capture-pane -S -200 + 넓은 마커 grep(⏵⏵, shells · ↓ 포함) + process/attach fallback 2-layer로 활성 Claude Code 세션을 동적 탐색. Claude Code UI 업데이트로 마커 바뀌어도 fallback layer가 잡아줌.",
+      "updated": "2026-05-03T00:55:00+09:00"
+    },
+    {
+      "file": "2026-04-25-playwright-mcp-browser-env-override.md",
+      "date": "2026-04-25",
+      "slug": "playwright-mcp-browser-env-override",
+      "title": "Playwright MCP 채널/샌드박스 설정은 env var 로 — .mcp.json 직접 수정 X",
+      "category": "자동화",
+      "tags": ["playwright", "mcp", "env-var", "chromium", "wsl", "channel", "sandbox", "self-modification"],
+      "first_discovered": "2026-04-25",
+      "summary": "@playwright/mcp 디폴트 channel=chrome → WSL/Chrome-미설치 환경에서 100% fail. ~/.bashrc 에 PLAYWRIGHT_MCP_BROWSER=chromium + PLAYWRIGHT_MCP_NO_SANDBOX=1 두 줄로 .mcp.json 수정 없이 동등 설정. .mcp.json 직접 수정은 Claude Code self-modification gate 거부.",
+      "updated": "2026-05-03T00:55:00+09:00"
+    },
+    {
       "file": "2026-05-03-irun-device-lock-precheck.md",
       "date": "2026-05-03",
       "slug": "irun-device-lock-precheck",
