@@ -12,6 +12,13 @@
       "status": "draft"
     },
     {
+      "id": "plan-c",
+      "file": "ep-draft-plan-c-automation.md",
+      "date": "2026-05-03",
+      "title": "Plan C: Claude Code + 자동화로 App Store 심사 제출까지 자동화한 이야기",
+      "status": "review"
+    },
+    {
       "number": 5,
       "file": "ep5-2026-04-30.md",
       "date": "2026-04-30",

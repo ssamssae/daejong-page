@@ -1,221 +1,200 @@
-# 제출 버튼이 스스로 눌릴 때
+# [검토 대기] Plan C: Claude Code + 자동화로 App Store 심사 제출까지 자동화한 이야기
 
-_바이브코딩 뉴스레터 Ep.6 — Plan C, 빌드부터 심사 제출까지 자동화한 이야기_
-
-> 작성: 2026-05-03
-> 상태: 초안 (미발행 — Substack/네이버 발행 전 검토 필요)
-
----
-
-> 4월 29일 새벽 6시 43분, Apple 메일이 왔다. 거절이었다.
->
-> 나는 이미 자러 간 상태였다. Mac mini 는 혼자 빌드를 끝내고, 서명을 끝내고, 업로드를 끝낸 뒤였다. 인간이 필요한 게 하나만 남아있었다. **심사 제출 버튼.** 그걸 내가 자고 일어나서 눌렀고, 6시 43분에 거절이 왔다.
->
-> 이건 자동화 미완성의 이야기가 아니다. **자동화가 막히는 정확한 지점** 을 찾아낸 이야기다.
-
-이 뉴스레터는 1인 인디 개발자가 Claude Code 두 대(Mac·WSL)와 함께 의사결정을 내리는 흐름의 기록이다. Ep.1 은 **만들기**, Ep.2 는 **죽이기**, Ep.3 는 **빼기**, Ep.4 는 **잇기**, Ep.5 는 **돌리기** 였다. 이번 Ep.6 는 **자동화** — 반복 작업을 기계에게 맡기는 과정, 그리고 기계가 혼자 못 하는 것을 정확하게 발견하는 과정이다.
+> 작성 날짜: 2026-05-03
+> 상태: 검토 대기 (미발행 — Substack/네이버 발행 전 검토 필요)
+> 분량: ~2700자
 
 ---
 
-## 1막 — Plan A 의 한계
+1인 Flutter 개발자로 앱을 여러 개 관리하다 보면, 빌드하고 스크린샷 찍고 App Store Connect에 올리는 루틴이 어느 순간 하루 반나절을 먹기 시작한다. "이걸 자동화할 수 없을까?" 라는 생각은 누구나 하지만, 실제로 끝까지 막는 벽들이 있다.
 
-4월 초, 앱이 세 개가 됐다. 한줄일기, 약먹자, 더치페이. 모두 Flutter, 모두 iOS + Android 타깃.
-
-릴리스 루틴이 생겼다. 각 앱마다:
-
-1. `flutter build appbundle --release`
-2. `jarsigner` 로 서명
-3. Play Console 에 AAB 드래그앤드롭
-4. `flutter build ipa`
-5. Xcode Organizer 에서 App Store Connect 업로드
-6. App Store Connect 에서 메타데이터 입력
-7. 심사 제출 버튼 클릭
-
-3개 앱 × 7단계 = 21번의 수작업. 빌드 시간을 빼면 실제 손이 가는 클릭만 40분이다. 매 릴리스마다.
-
-이걸 "Plan A" 라고 부르기로 했다. 모든 게 수동이고, 모든 단계에 내가 있어야 한다.
+나는 그 벽을 Claude Code + Playwright로 넘었다. 완전하지는 않지만, 실제로 동작하는 자동화 파이프라인이 됐다.
 
 ---
 
-## 2막 — Plan B 의 시작
+## night-builder v2: 멀티 앱 AAB 자동 빌드
 
-Ep.4 에서 Substack 발행을 자동화했다. 그 과정에서 배운 게 하나 있다. **API 가 없어도 브라우저는 있다.** Playwright 로 클릭할 수 있으면 자동화할 수 있다.
-
-같은 논리를 빌드 파이프라인에 적용했다.
-
-첫 번째 시도: Mac mini 에 cronjob 을 걸었다. 새벽 2시에 켜져서 빌드하고, 결과를 텔레그램으로 알려주는 스크립트. 결과는 절반의 성공이었다. 빌드는 됐다. 그런데 **업로드가 조용히 실패하고 있었다.** `|| true` 로 에러를 삼키는 패턴이 문제였다.
+야간에 Mac mini가 자동으로 켜져서 4개 앱의 Android AAB를 빌드하고 서명한다. 핵심은 단순하다.
 
 ```bash
-# 문제가 있는 패턴
-flutter build appbundle --release || true
-jarsigner -keystore ... || true
-```
-
-로그에는 "완료" 가 찍혔다. 실제로는 keystore 파일이 없어서 서명이 안 됐다. **조용한 실패** 가 제일 비싸다는 걸 그 때 배웠다.
-
-수정 후:
-
-```bash
-# 올바른 패턴
-set -euo pipefail
-flutter build appbundle --release 2>&1 | tee /tmp/build-${app}.log
-jarsigner -keystore "$KEYSTORE_PATH" ...
-```
-
-`set -e` 하나가 세 시간짜리 디버깅 세션을 막아준다.
-
----
-
-## 3막 — night-builder v2 의 탄생
-
-빌드 + 서명까지 자동화한 게 night-builder v1 이었다. v2 는 멀티 앱 + 텔레그램 결과 리포트를 추가했다.
-
-구조는 단순하다:
-
-```bash
-APPS=(hanjul wordyo pomodoro hankeup)
-
-for app in "${APPS[@]}"; do
-  cd ~/apps/$app
-  flutter clean && flutter pub get
+for app in hanjul wordyo pomodoro hankeup; do
   flutter build appbundle --release
-  
-  # 서명
-  jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
-    -keystore "$KEYSTORE_PATH" \
-    -storepass "$KEYSTORE_PASS" \
-    "build/app/outputs/bundle/release/app-release.aab" \
-    "$KEY_ALIAS"
-  
-  # 결과 텔레그램 전송
-  send_telegram "✅ $app AAB 빌드+서명 완료"
+  jarsigner -keystore $KEYSTORE_PATH ...
 done
 ```
 
-여기서 keystore 8개 파일을 Mac mini 에 rsync 하는 게 v2 가 v1 과 달라진 핵심이다. keystore 가 없으면 서명이 안 되고, 서명이 없으면 Play Console 이 거부한다. Mac mini 에 keystore 가 있는지 없는지를 v1 은 확인 안 했다.
-
-v2 검증 결과: PASS 4, FAIL 0.
+문제는 keystore 파일 경로와 환경변수 관리였다. 처음에는 빌드가 조용히 실패했다 — `set -e` 없이 `|| true`로 오류를 삼키는 패턴이 원인이었다. 지금은 각 앱의 빌드 결과를 텔레그램으로 즉시 받는다.
 
 ---
 
-## 4막 — 진짜 막히는 벽
+## 진짜 막히는 부분: App Store Connect API의 한계
 
-빌드와 서명까지 자동화됐다. 다음은 업로드와 심사 제출이다. 여기서 두 개의 벽을 만났다.
+App Store Connect API는 생각보다 많은 것을 못 한다. 단순히 "공식 API가 있으니 자동화 가능하겠지"라고 가정하면 벽에 부딪힌다.
 
-### 벽 1: App Store Connect API 의 구멍
+구체적으로 막히는 세 가지다.
 
-App Store Connect API 는 생각보다 많은 것을 **못 한다**:
+**App Privacy 질문지 — API 없음**
 
-- **App Privacy 질문지**: UI 전용, API 없음
-- **가격 책정 최초 설정**: Pricing API 가 있지만 신규 앱은 UI 필요
-- **Health & Safety 카테고리**: 앱 유형 특화 화면, API 없음
-- **심사 제출 자체**: API 로 가능하지만, 위 3개 중 하나라도 미완이면 제출 실패
+앱이 수집하는 데이터 종류를 카테고리별로 체크하는 화면이다. 식별 데이터, 사용 데이터, 진단 데이터 등 수십 개의 체크박스를 앱마다 채워야 한다. App Store Connect API에 이 화면을 처리하는 엔드포인트가 없다. 공식 문서 어디에도 없다. UI에서만 된다.
 
-이 세 화면을 채우지 않으면 `xcrun altool --upload-package` 가 성공해도 심사 제출 API 가 에러를 던진다.
+**App Privacy 질문지를 건너뛰면 심사 제출 자체가 안 된다.** 새 앱을 등록할 때마다 이 화면을 통과해야 다음 단계로 넘어간다.
 
-### 벽 2: Google Play API 의 관리 게시 함정
+**가격 책정 — 부분 지원**
 
-Play Console 에는 **Managed Publishing (관리 게시)** 설정이 있다. 이게 ON 이면 검토가 통과해도 앱이 자동으로 배포되지 않는다. 수동으로 "게시" 버튼을 눌러야 한다.
+Pricing API는 존재한다. 하지만 신규 앱의 최초 가격 설정, 특히 특정 국가별 가격 플랜 지정은 여전히 웹 UI에서만 처리된다. API로 가격을 올리려고 하면 "앱이 아직 설정되지 않았다"는 오류가 나온다. 웹에서 한 번 해줘야 API도 먹힌다.
 
-신규 앱 등록 시 이 설정이 기본으로 ON 된다. API 로는 이 설정을 해제할 수 없다. UI 에서만 토글 가능하다. 이것 때문에 14일을 기다렸다. 검토 통과 후 게시가 안 돼서.
+**Privacy Manifest 업로드 — 방법이 없다**
+
+2024년부터 Apple이 요구하는 `PrivacyInfo.xcprivacy` 파일 관련 설정이다. 빌드에 포함되어 자동으로 처리되는 부분도 있지만, 심사 중 추가 질문이 오면 App Store Connect 웹에서 응답해야 한다. API로 이 응답을 제출하는 방법은 공개되어 있지 않다.
+
+이 세 화면을 자동화하려면 브라우저를 직접 다뤄야 한다.
 
 ---
 
-## 5막 — Playwright 가 API 를 대체하는 법
+## Playwright로 뚫기 — App Privacy/Pricing 클릭 자동화
 
-두 벽을 같은 도구로 뚫었다. Playwright MCP.
+Claude Code에 Playwright MCP를 연결하면 브라우저를 직접 제어할 수 있다. App Store Connect의 웹 UI가 Playwright 앞에서는 그냥 HTML이다.
 
-App Store Connect 에서 App Privacy 체크박스를 클릭하는 건 사람이 하는 것과 다를 게 없다. Playwright 가 동일한 클릭을 한다. 차이는 사람이 자리에 없어도 된다는 것이다.
+**기본 흐름**
+
+```
+browser_navigate → appstoreconnect.apple.com 로그인 세션
+browser_snapshot → 현재 페이지 DOM 구조 확인
+browser_click → 필요한 버튼/체크박스 클릭
+browser_wait_for → 다음 화면 로드 대기
+```
+
+로그인은 Safari의 자동 로그인 세션을 그대로 쓴다. Playwright가 Chrome을 새로 뜨게 하면 Apple ID 2단계 인증이 걸린다. Safari가 이미 로그인된 상태면 쿠키를 공유해서 인증 없이 들어가진다.
+
+**App Privacy 체크 흐름**
 
 ```javascript
-// App Privacy 질문지 자동화 핵심
-const page = playwright.page;
+// 앱 페이지 → App Privacy 탭 이동
+await page.goto('https://appstoreconnect.apple.com/apps/<APP_ID>/distribution/appprivacy');
 
-// ❌ 이렇게 하면 오클릭 (ref 번호가 DOM 순서 기반이라 취소 버튼이 먼저 나옴)
-await page.click('[ref=e123]');
+// 카테고리별 체크박스 선택
+// ref 번호 직접 사용 X — DOM 순서가 바뀌면 취소 버튼을 클릭하게 됨
+await page.getByRole('checkbox', { name: /contact info/i }).check();
+await page.getByRole('checkbox', { name: /usage data/i }).check();
 
-// ✅ role + name + dialog scope 조합
-const dialog = page.locator('[role=dialog]').last();
-await dialog.getByRole('checkbox', { name: /Third-party advertising/i }).check();
+// 각 카테고리 안에서 세부 항목도 체크
+// dialog scope로 범위 제한 — 팝업 안의 버튼과 밖의 버튼 혼동 방지
+const dialog = page.getByRole('dialog');
+await dialog.getByRole('checkbox', { name: /name/i }).check();
 await dialog.getByRole('button', { name: '저장' }).click();
 ```
 
-ref 번호를 직접 쓰지 않는 게 핵심이다. Playwright MCP 의 `browser_snapshot` 이 제공하는 `[ref=eNNN]` 번호는 DOM 순서 기반이라, 화면 구조가 살짝 바뀌면 다른 요소를 클릭한다.
+한 가지 중요한 교훈: Playwright snapshot의 `[ref=e123]` 번호를 직접 쓰면 오클릭이 난다. DOM 순서 기반이라 취소 버튼이 먼저 나오기도 하기 때문이다. `role + name + dialog scope` 조합으로 바꿨더니 안정됐다.
 
-### Google OAuth 차단 우회
-
-Play Console 에 접근하려면 Google 로그인이 필요하다. 그런데 일반 Playwright Chrome 에서 Google 로그인하면 "안전하지 않은 브라우저" 로 차단된다. stealth 4종을 동시에 적용해야 한다:
+**Pricing 설정 흐름**
 
 ```javascript
-const browser = await chromium.launch({
-  args: [
-    '--disable-blink-features=AutomationControlled',
-    '--disable-features=IsolateOrigins,site-per-process',
-    '--flag-switches-begin --disable-site-isolation-trials --flag-switches-end'
-  ]
-});
+// Pricing 탭 이동
+await page.goto('https://appstoreconnect.apple.com/apps/<APP_ID>/distribution/pricing');
 
-// channel: 'chrome' (설치된 실제 Chrome 사용)
-const context = await browser.newContext({ channel: 'chrome' });
-// + navigator.webdriver = false override
-await context.addInitScript(() => {
-  Object.defineProperty(navigator, 'webdriver', { get: () => false });
-});
+// 가격 티어 선택 (예: Tier 2 → ₩1,900)
+await page.getByRole('combobox', { name: /base country/i }).selectOption('KOR');
+await page.getByRole('option', { name: /1,900/i }).click();
+
+// 확인 모달
+const confirmModal = page.getByRole('dialog', { name: /가격 설정/i });
+await confirmModal.getByRole('button', { name: '확인' }).click();
 ```
-
-하나라도 빠지면 Google 이 차단한다.
 
 ---
 
-## 6막 — asc-deliver 로 IPA 업로드까지
+## asc-deliver로 IPA/AAB 업로드까지
 
-App Privacy 와 가격을 Playwright 로 채우고 나면, IPA 업로드와 심사 제출은 API 로 자동화할 수 있다.
+빌드 → 업로드는 `xcrun altool` (구) 또는 `asc-deliver` 로 자동화한다. 새 방법이 더 안정적이다.
 
 ```bash
-# IPA 업로드
 xcrun altool --upload-package Runner.ipa \
-  --type ios \
-  --apiKey "$ASC_KEY_ID" \
-  --apiIssuer "$ASC_ISSUER_ID"
-
-# 심사 제출 (App Store Connect API)
-curl -X POST "https://api.appstoreconnect.apple.com/v1/appStoreVersionSubmissions" \
-  -H "Authorization: Bearer $JWT_TOKEN" \
-  -d '{"data":{"type":"appStoreVersionSubmissions","relationships":{"appStoreVersion":{"data":{"type":"appStoreVersions","id":"'"$VERSION_ID"'"}}}}}'
+  --type ios --apiKey $ASC_KEY_ID \
+  --apiIssuer $ASC_ISSUER_ID
 ```
 
-업로드부터 심사 제출까지 사람 손이 안 간다. 결과는 텔레그램으로 온다.
+업로드가 끝나면 심사 제출 API를 호출하고, 결과를 텔레그램으로 받는다. 업로드부터 심사 제출까지 손을 안 댄다.
 
 ---
 
-## 1인 개발자가 재현 가능한 핵심 패턴
+## 결과와 한계 — 완전 자동화는 아직
 
-**1. 빌드는 스크립트, 실패는 크게**
+실제로 자동화된 것과 아직 수동인 것을 구분해 두는 게 중요하다. 과장하면 다음에 같은 작업을 할 때 다시 실망한다.
 
-`set -euo pipefail` + 텔레그램 알림. 조용한 실패가 제일 비싸다. 빌드 로그를 파일로 남기면 디버깅 시간이 반으로 줄어든다.
+**자동화된 것**
 
-**2. API 없는 화면은 Playwright 로**
+- Flutter 빌드 (`flutter build ipa`, `flutter build appbundle`)
+- 코드 서명 (`codesign`, `jarsigner`)
+- TestFlight / Play 내부 트랙 업로드
+- 메타데이터 업데이트 (앱 이름, 설명, 키워드) — fastlane deliver
+- 스크린샷 캡처 — iOS 시뮬레이터 + `applesimutils`
+- App Privacy 설문 클릭 — Playwright
+- Pricing 설정 클릭 — Playwright
+- 심사 제출 클릭 — ASC API `PATCH reviewSubmissions`
+- 제출 결과 알림 — 텔레그램
 
-App Store Connect, Play Console 모두 브라우저 자동화가 닿는다. ref 번호 대신 `role + name + scope` 조합으로 클릭하면 안정성이 높다. Google OAuth 차단은 stealth 4종이 해답이다.
+**여전히 수동인 것**
 
-**3. 운반체를 설계하라**
+- 심사 결과 대응 (리젝 메일 읽기, 사유 분석)
+- 리젝 시 앱 코드 수정
+- 첫 번째 앱 등록 폼 (App Store Connect에서 "새 앱 만들기" 클릭)
+- Play Console 신규 앱 등록 (정책상 API 불가, 웹 UI만)
+- Apple ID 2단계 인증 (새 브라우저 세션이면 무조건 수동)
 
-Mac mini(빌드) → 본진(리뷰) → WSL(코드 수정) 흐름이 자동으로 이어져야 진짜 자동화다. 결과를 사람이 받아서 다음 기기로 전달하는 순간, 그건 반자동화다. `mac-report.sh` 같은 운반체가 빠진 자동화는 절반짜리다.
+**시간 절약 효과**
 
-**4. API 가 없는 곳이 자동화의 병목이다**
+앱 하나 기준으로 측정했다. 빌드부터 심사 제출까지 수동으로 하면 45분 이상 걸렸다. 스크린샷 크기 맞추고, 각 언어별 메타데이터 복붙하고, App Privacy 체크박스 하나씩 누르고, 가격 설정하고, 제출 버튼 누르고.
 
-App Privacy, 관리 게시 설정, Health & Safety — 이런 화면들이 API 를 열지 않는 이유가 있다. 정책 결정이 필요한 화면이기 때문이다. 이 화면들을 어떻게 처리하느냐가 자동화 파이프라인의 수준을 가른다.
+지금은 스크립트 실행 후 자리를 비우면 된다. 5분 내외로 텔레그램에 "심사 대기" 알림이 온다. 앱 4개면 예전에는 3시간 작업이었고, 지금은 커피 한 잔 마시는 동안 끝난다.
 
 ---
 
-지금 이 파이프라인은 앱 4개 기준으로 하루 평균 2~3시간의 반복 작업을 없앴다. 완성은 아니다. App Store Review 가이드라인이 바뀌면 Playwright 스크립트도 업데이트해야 한다. Play Console UI 가 바뀌면 selector 를 다시 찾아야 한다.
+## 1인 개발자가 재현 가능한 핵심 패턴 3가지
 
-하지만 그게 소프트웨어의 본질이기도 하다. 완성된 자동화란 없다. **유지 비용이 낮은 자동화** 가 있을 뿐이다.
+**1. 빌드는 스크립트, 실패는 큰 소리로**
+`set -e` + 텔레그램 알림. 조용한 실패가 제일 비싸다.
 
-그리고 4월 29일 새벽 6시 43분의 그 거절 메일 — 그 이후로 한줄일기 iOS 는 1.0 이 승인됐고, Android 는 알파 트랙에 올랐다. 심사 제출 버튼은 아직 사람이 누른다. 하지만 그 버튼 위에 도달하는 데 걸리는 시간이 40분에서 0분이 됐다.
+**2. API가 없는 화면은 Playwright로 잡기**
+App Store Connect, Play Console 모두 브라우저 자동화가 닿는다. 단, Google OAuth 차단을 피하려면 stealth 4종(channel, AutomationControlled, IsolateOrigins, enable-automation 제거)을 동시에 써야 한다.
 
-다음 편에서는 Play Console 의 관리 게시 함정과 closed test 14일 보류 사고를, 그리고 그 사이에 태어난 로또번호 계산기 앱 이야기를 쓸 예정이다.
+**3. 운반체를 만들어라**
+Mac mini(빌드 엔진) → 본진(검토) → WSL(코드 수정)로 결과가 자동으로 흐르게 만들어야 "자동화"다. 사람이 결과를 받아서 다음 기기로 복붙하면 자동화가 아니다.
 
 ---
 
-*태그: flutter, claude-code, automation, app-store, playwright, night-builder, 1인개발, side-project, cicd*
+## 어디서부터 시작할까 — 1인 개발자 권고
+
+처음부터 전체 파이프라인을 만들려고 하면 지친다. 단계별로 쌓는 게 현실적이다.
+
+**Step 1: fastlane deliver로 메타데이터 자동화**
+
+가장 시작하기 쉽고 효과가 명확하다. `Deliverfile`에 앱 이름, 설명, 키워드, 스크린샷 경로를 넣고 `fastlane deliver`만 실행하면 된다. App Store Connect 웹에서 언어별로 복붙하던 작업이 사라진다. 여기서만 30분을 아낄 수 있다.
+
+```ruby
+# Deliverfile 예시
+app_identifier "com.daejongkang.hanjul"
+username "your@apple.id"
+metadata_path "./metadata"
+screenshots_path "./screenshots"
+skip_binary_upload true  # 빌드 업로드는 별도로
+```
+
+**Step 2: ASC API로 빌드 업로드**
+
+fastlane의 `upload_to_app_store` 또는 `xcrun altool`로 IPA를 TestFlight에 올린다. API 키(`AuthKey_*.p8`)를 발급받고 환경변수로 관리하면 2단계 인증 없이 CI에서도 올릴 수 있다. 이 단계를 마치면 빌드 → 업로드까지 완전 자동이 된다.
+
+**Step 3: Playwright로 나머지 클릭 자동화**
+
+App Privacy, Pricing처럼 API가 없는 화면만 남긴다. Claude Code에 Playwright MCP를 연결하고, 화면 스냅샷을 찍어 어떤 버튼을 눌러야 하는지 Claude에게 물으면 된다. 스크립트를 직접 짜지 않아도, "이 화면에서 App Privacy를 설정해줘"라고 지시하면 Claude가 클릭 흐름을 만든다.
+
+이 세 단계를 순서대로 밟으면, 세 번째 단계를 마칠 때 앱 심사 제출이 명령어 하나로 끝난다.
+
+---
+
+지금 이 파이프라인은 앱 4개 기준으로 하루 평균 2~3시간의 반복 작업을 없앴다. 완성은 아니다 — App Store Review 가이드라인 변경으로 새 화면이 생기면 또 Playwright를 업데이트해야 한다. 하지만 그게 소프트웨어의 본질이기도 하다.
+
+다음 편에서는 Play Console의 관리 게시(Managed Publishing) 함정과, closed test 14일 보류 사고 해결 이야기를 쓸 예정이다.
+
+---
+
+*태그: flutter, claude-code, automation, app-store, playwright, 1인개발, side-project*
