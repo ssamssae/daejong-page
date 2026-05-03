@@ -1,6 +1,39 @@
 {
   "entries": [
     {
+      "file": "2026-04-27-harness-default-branch-push.md",
+      "date": "2026-04-27",
+      "slug": "harness-default-branch-push",
+      "title": "하네스가 default branch 직접 push 를 PR review 우회로 차단 — settings.json 좁은 allow 로 해결",
+      "category": "Claude Code",
+      "tags": ["claude-code", "harness", "git", "push", "default-branch", "settings", "permissions", "solo-dev"],
+      "first_discovered": "2026-04-27",
+      "summary": "하네스 분류기가 git push origin main 을 PR review 우회로 판단, CLAUDE.md 일반 가이드는 명시 승인으로 안 쳐줌. settings.json permissions.allow 에 'Bash(git push origin main)' 추가가 유일한 근본 해결. force push 는 별도 차단 유지. solo-dev repo 는 이 패턴, multi-device PR 분기 repo 는 혼용 가능.",
+      "updated": "2026-05-03T16:30:00+09:00"
+    },
+    {
+      "file": "2026-04-27-harness-same-turn-write-commit-fp.md",
+      "date": "2026-04-27",
+      "slug": "harness-same-turn-write-commit-fp",
+      "title": "같은 turn 내 Write→commit 묶음, harness false positive — settings.json 영구 룰로 해결",
+      "category": "Claude Code",
+      "tags": ["claude-code", "harness", "sandbox", "git", "commit", "write", "false-positive", "settings"],
+      "first_discovered": "2026-04-27",
+      "summary": "Write 직후 같은 turn 에서 git commit 시 transcript flush timing race 로 harness sandbox 가 'Write 흔적 없다' false positive 발생. settings.json permissions.allow 에 'Bash(git commit*)' 추가가 근본 해결. auto mode 에선 1회성 Allow 무용.",
+      "updated": "2026-05-03T16:30:00+09:00"
+    },
+    {
+      "file": "2026-04-20-daemon-session-id-pid-isolation.md",
+      "date": "2026-04-20",
+      "slug": "daemon-session-id-pid-isolation",
+      "title": "Claude Code 훅 기동 데몬은 세션 ID 기반 PID 파일로 격리",
+      "category": "자동화",
+      "tags": ["daemon", "claude-code", "session-id", "pid", "isolation", "hooks", "telegram", "pkill"],
+      "first_discovered": "2026-04-20",
+      "summary": "Claude Code Stop/UserPromptSubmit 훅 JSON stdin 에서 session_id 를 jq 로 파싱해 PID 파일 키로 쓰면 병렬 세션 간 격추 0. CLAUDE_SESSION_ID 환경변수는 훅에 주입되지 않으므로 stdin JSON 파싱 필수. session_id 없으면 stop 훅은 아무것도 안 함 (sibling 오격추 방지). daemon 에 set -e 금지 + disown + heartbeat 로그 4종 세트.",
+      "updated": "2026-05-03T16:30:00+09:00"
+    },
+    {
       "file": "2026-05-02-playwright-mcp-absolute-output-dir.md",
       "date": "2026-05-02",
       "slug": "playwright-mcp-absolute-output-dir",
