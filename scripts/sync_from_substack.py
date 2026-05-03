@@ -108,7 +108,7 @@ def update_index(ep_num, art, reading_min, substack_url):
 
     eps = [e for e in idx.get('episodes', []) if e.get('number') != ep_num]
     eps.append(entry)
-    eps.sort(key=lambda e: -e['number'])
+    eps.sort(key=lambda e: -e.get('number', 0))
     idx['episodes'] = eps
 
     INDEX_PATH.write_text(json.dumps(idx, ensure_ascii=False, indent=2) + '\n')

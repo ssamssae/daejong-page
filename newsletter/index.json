@@ -3,20 +3,15 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
-      "id": "ep6",
       "number": 6,
-      "file": "ep6-2026-05-03.md",
+      "cacheFile": "ep6-cache.md",
       "date": "2026-05-03",
+      "publishedAt": "2026-05-03T10:35:53+00:00",
       "title": "맥북 + WSL + Mac mini 삼각 편대로 Flutter 앱 6개 동시 운영하기",
       "subtitle": "바이브코딩 뉴스레터 Ep.6 — 1인 개발자의 멀티 기기 병렬 작업기",
-      "status": "draft"
-    },
-    {
-      "id": "plan-c",
-      "file": "ep-draft-plan-c-automation.md",
-      "date": "2026-05-03",
-      "title": "Plan C: Claude Code + 자동화로 App Store 심사 제출까지 자동화한 이야기",
-      "status": "review"
+      "readingTime": "8분",
+      "substackUrl": "https://daejongkang.substack.com/p/wsl-mac-mini-flutter-6",
+      "originFile": "ep6-2026-05-03.md"
     },
     {
       "number": 5,
@@ -65,6 +60,13 @@
       "subtitle": "기억이 제작기 — apt Ctrl-Z, [Service] 헤더, 봇 중복 폴링까지 막힌 3가지",
       "readingTime": "8분",
       "substackUrl": "https://daejongkang.substack.com/p/3-ai"
+    },
+    {
+      "id": "plan-c",
+      "file": "ep-draft-plan-c-automation.md",
+      "date": "2026-05-03",
+      "title": "Plan C: Claude Code + 자동화로 App Store 심사 제출까지 자동화한 이야기",
+      "status": "review"
     }
   ]
 }
