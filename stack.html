@@ -144,7 +144,7 @@
       <a href="./">← 홈</a>
     </header>
     <div class="intro">
-      바이브코딩 한 사람 인프라. 본진 1대 + 빌드/배포 워커 1대 + 낮 작업자 1대 + LLM 노드 2대 + 모바일 1대. ssh / tmux / Claude Code / 텔레그램 봇 / Google Remote Desktop 등 어디 깔려있는지 한눈에.
+      바이브코딩 한 사람 인프라. 본진 1대 + OpenClaw 샌드박스 1대 + 낮 작업자 1대 + LLM 노드 2대 + 모바일 1대. ssh / tmux / Claude Code / 텔레그램 봇 / Google Remote Desktop 등 어디 깔려있는지 한눈에.
     </div>
     <div class="stack-grid">
 
@@ -168,18 +168,18 @@
 
       <div class="device-card">
         <div class="device-head">
-          <span class="device-icon" role="img" aria-label="Mac mini">🏭</span>
+          <span class="device-icon" role="img" aria-label="Mac mini">🧪</span>
           <span class="device-name">Mac mini</span>
         </div>
-        <div class="device-spec">M1 arm64 · 24/7 진짜 가동</div>
-        <div class="device-role">빌드·배포 엔진 · iOS ipa / Android aab 서명 + 업로드 · launchd 워커 (night-builder v2 / night-runner v1)</div>
+        <div class="device-spec">M1 arm64 · OpenClaw 샌드박스</div>
+        <div class="device-role">OpenClaw 샌드박스 호스트 (2026-05-03~) · 빌드·배포 역할 본진 이전 · launchd 워커 전부 제거</div>
         <div class="device-features">
-          <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-yes">✅</span></div>
+          <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌ <span class="feat-meta">샌드박스 전용</span></span></div>
           <div class="feat-row"><span class="feat-key">WSL/Ubuntu</span><span class="feat-val feat-no">❌ <span class="feat-meta">macOS</span></span></div>
-          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">remote attach mb/w (본진/WSL)</span></span></div>
-          <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server + client</span></span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-no">❌ <span class="feat-meta">워커 제거 후 미사용</span></span></div>
+          <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server 유지 (설정 그대로)</span></span></div>
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅</span></div>
-          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-no">❌ <span class="feat-meta">워커 전용, 챗봇 세션 X</span></span></div>
+          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-no">❌</span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-no">❌</span></div>
         </div>
       </div>
@@ -293,10 +293,10 @@
 
           <!-- Mac mini (좌측 하단) -->
           <g class="topo-node" transform="translate(60, 240)">
-            <rect x="0" y="0" width="180" height="70" rx="12" fill="#FEF9EE" stroke="#F59E0B" stroke-width="1.5"/>
-            <text x="90" y="22" text-anchor="middle" font-size="20">🏭</text>
+            <rect x="0" y="0" width="180" height="70" rx="12" fill="#F3F0FF" stroke="#7C3AED" stroke-width="1.5"/>
+            <text x="90" y="22" text-anchor="middle" font-size="20">🧪</text>
             <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">Mac mini</text>
-            <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">mac-mini (M1 arm64)</text>
+            <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">OpenClaw 샌드박스</text>
           </g>
 
           <!-- WSL (우측 하단) -->
