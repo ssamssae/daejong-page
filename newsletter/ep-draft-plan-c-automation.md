@@ -1,7 +1,9 @@
-# [검토 대기] Plan C: Claude Code + 자동화로 App Store 심사 제출까지 자동화한 이야기
+# Plan C: Claude Code + 자동화로 App Store 심사 제출까지 자동화한 이야기
 
 > 작성 날짜: 2026-05-03
-> 상태: 검토 대기 (미발행 — Substack/네이버 발행 전 검토 필요)
+> 상태: 발행 완료 (2026-05-03 20:17 KST)
+> Substack: https://daejongkang.substack.com/p/plan-c-claude-code-app-store
+> 네이버: https://blog.naver.com/ssamssae/224273569613
 > 분량: ~2700자
 
 ---
