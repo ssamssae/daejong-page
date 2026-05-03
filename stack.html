@@ -261,100 +261,95 @@
     <!-- 토폴로지 다이어그램 -->
     <section class="topo-section">
       <h2 class="topo-title">기기 연결 토폴로지</h2>
-      <p class="topo-desc">4개 노드 간 SSH 핸드오프 · wsl-directive / mac-report 운반체 · 텔레그램 채널</p>
+      <p class="topo-desc">3개 핵심 노드 간 SSH 핸드오프 · wsl-directive.sh / mac-report.sh 운반체</p>
       <div class="topo-wrap">
-        <svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="기기 토폴로지 다이어그램" class="topo-svg">
+        <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="기기 토폴로지 다이어그램" class="topo-svg">
           <defs>
+            <!-- 파란 화살표: Mac→WSL (wsl-directive.sh) -->
             <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
               <path d="M0,0 L0,6 L8,3 z" fill="#3182F6"/>
             </marker>
+            <!-- 초록 화살표: WSL→Mac (mac-report.sh) -->
+            <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#16A34A"/>
+            </marker>
+            <!-- 회색 화살표: SSH 양방향 -->
             <marker id="arr-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
               <path d="M0,0 L0,6 L8,3 z" fill="#8B95A1"/>
             </marker>
-            <marker id="arr-teal" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="#17A589"/>
+            <marker id="arr-gray-start" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
+              <path d="M0,0 L0,6 L8,3 z" fill="#8B95A1"/>
             </marker>
           </defs>
 
           <!-- ── 노드 배치 ── -->
           <!-- Mac 본진 (중앙 상단) -->
-          <g class="topo-node" transform="translate(280, 30)">
-            <rect x="0" y="0" width="160" height="68" rx="12" fill="#EBF3FF" stroke="#3182F6" stroke-width="1.5"/>
-            <text x="80" y="22" text-anchor="middle" font-size="20">🍎</text>
-            <text x="80" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">Mac 본진</text>
-            <text x="80" y="57" text-anchor="middle" font-size="10" fill="#4E5968">USERui-MacBookPro</text>
+          <g class="topo-node" transform="translate(270, 30)">
+            <rect x="0" y="0" width="180" height="70" rx="12" fill="#EBF3FF" stroke="#3182F6" stroke-width="1.5"/>
+            <text x="90" y="22" text-anchor="middle" font-size="20">🍎</text>
+            <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">Mac 본진</text>
+            <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">USERui-MacBookPro</text>
           </g>
 
-          <!-- Mac mini (좌측 중단) -->
-          <g class="topo-node" transform="translate(60, 190)">
-            <rect x="0" y="0" width="160" height="68" rx="12" fill="#FEF9EE" stroke="#F59E0B" stroke-width="1.5"/>
-            <text x="80" y="22" text-anchor="middle" font-size="20">🏭</text>
-            <text x="80" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">Mac mini</text>
-            <text x="80" y="57" text-anchor="middle" font-size="10" fill="#4E5968">OpenClaw 샌드박스</text>
+          <!-- Mac mini (좌측 하단) -->
+          <g class="topo-node" transform="translate(60, 240)">
+            <rect x="0" y="0" width="180" height="70" rx="12" fill="#FEF9EE" stroke="#F59E0B" stroke-width="1.5"/>
+            <text x="90" y="22" text-anchor="middle" font-size="20">🏭</text>
+            <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">Mac mini</text>
+            <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">mac-mini (M1 arm64)</text>
           </g>
 
-          <!-- WSL (우측 중단) -->
-          <g class="topo-node" transform="translate(500, 190)">
-            <rect x="0" y="0" width="160" height="68" rx="12" fill="#EDF9F6" stroke="#17A589" stroke-width="1.5"/>
-            <text x="80" y="22" text-anchor="middle" font-size="20">🪟</text>
-            <text x="80" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">WSL</text>
-            <text x="80" y="57" text-anchor="middle" font-size="10" fill="#4E5968">DESKTOP-I4TR99I</text>
-          </g>
-
-          <!-- iPhone (하단 중앙) -->
-          <g class="topo-node" transform="translate(280, 340)">
-            <rect x="0" y="0" width="160" height="68" rx="12" fill="#F4F4F9" stroke="#8B95A1" stroke-width="1.5"/>
-            <text x="80" y="22" text-anchor="middle" font-size="20">📱</text>
-            <text x="80" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">iPhone</text>
-            <text x="80" y="57" text-anchor="middle" font-size="10" fill="#4E5968">Termius SSH 클라이언트</text>
-          </g>
-
-          <!-- 텔레그램 (우측 하단) -->
-          <g class="topo-node" transform="translate(570, 350)">
-            <rect x="0" y="0" width="130" height="56" rx="12" fill="#E8F4FD" stroke="#229ED9" stroke-width="1.5"/>
-            <text x="65" y="22" text-anchor="middle" font-size="18">✈️</text>
-            <text x="65" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="#191F28">Telegram</text>
+          <!-- WSL (우측 하단) -->
+          <g class="topo-node" transform="translate(480, 240)">
+            <rect x="0" y="0" width="180" height="70" rx="12" fill="#EDF9F6" stroke="#16A34A" stroke-width="1.5"/>
+            <text x="90" y="22" text-anchor="middle" font-size="20">🪟</text>
+            <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">WSL</text>
+            <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">DESKTOP-I4TR99I</text>
           </g>
 
           <!-- ── 화살표 ── -->
-          <!-- 본진 ↔ Mac mini: SSH (tailscale) 양방향 -->
-          <line x1="280" y1="84" x2="220" y2="190" stroke="#3182F6" stroke-width="1.5" marker-end="url(#arr-blue)" stroke-dasharray="5,3"/>
-          <line x1="216" y1="190" x2="276" y2="86" stroke="#3182F6" stroke-width="1.5" marker-end="url(#arr-blue)" stroke-dasharray="5,3"/>
-          <text x="210" y="140" text-anchor="middle" font-size="9" fill="#3182F6">SSH</text>
-          <text x="210" y="152" text-anchor="middle" font-size="9" fill="#3182F6">tailscale</text>
+          <!-- Mac ↔ Mac mini: 회색 양방향 실선 (ssh) -->
+          <line x1="268" y1="82" x2="182" y2="240" stroke="#8B95A1" stroke-width="1.5"
+                marker-start="url(#arr-gray-start)" marker-end="url(#arr-gray)"/>
+          <text x="192" y="165" text-anchor="middle" font-size="10" fill="#8B95A1" font-weight="600">ssh</text>
 
-          <!-- 본진 → WSL: wsl-directive.sh -->
-          <line x1="440" y1="72" x2="500" y2="190" stroke="#17A589" stroke-width="2" marker-end="url(#arr-teal)"/>
-          <text x="490" y="128" text-anchor="middle" font-size="9" fill="#17A589">wsl-directive.sh</text>
+          <!-- Mac → WSL: 파란 실선 (wsl-directive.sh) -->
+          <line x1="460" y1="75" x2="576" y2="240" stroke="#3182F6" stroke-width="2"
+                marker-end="url(#arr-blue)"/>
+          <text x="554" y="148" text-anchor="middle" font-size="10" fill="#3182F6" font-weight="600">wsl-directive.sh</text>
 
-          <!-- WSL → 본진: mac-report.sh -->
-          <line x1="504" y1="190" x2="444" y2="74" stroke="#E67E22" stroke-width="2" marker-end="url(#arr-blue)" stroke-dasharray="4,2"/>
-          <text x="442" y="152" text-anchor="middle" font-size="9" fill="#E67E22">mac-report.sh</text>
+          <!-- WSL → Mac: 초록 실선 (mac-report.sh) -->
+          <line x1="488" y1="240" x2="452" y2="104" stroke="#16A34A" stroke-width="2"
+                marker-end="url(#arr-green)"/>
+          <text x="435" y="178" text-anchor="middle" font-size="10" fill="#16A34A" font-weight="600">mac-report.sh</text>
 
-          <!-- 본진 → iPhone: SSH -->
-          <line x1="360" y1="98" x2="360" y2="340" stroke="#8B95A1" stroke-width="1.2" marker-end="url(#arr-gray)" stroke-dasharray="4,3"/>
-          <text x="375" y="225" font-size="9" fill="#8B95A1">SSH</text>
+          <!-- WSL ↔ Mac mini: 회색 양방향 점선 (ssh) -->
+          <line x1="480" y1="278" x2="240" y2="278" stroke="#8B95A1" stroke-width="1.5"
+                stroke-dasharray="6,4"
+                marker-start="url(#arr-gray-start)" marker-end="url(#arr-gray)"/>
+          <text x="360" y="270" text-anchor="middle" font-size="10" fill="#8B95A1" font-weight="600">ssh</text>
 
-          <!-- 모든 노드 → Telegram (4개 화살표) -->
-          <!-- 본진 → Telegram -->
-          <line x1="440" y1="90" x2="605" y2="350" stroke="#229ED9" stroke-width="1.2" marker-end="url(#arr-blue)" stroke-dasharray="3,3" opacity="0.6"/>
-          <!-- WSL → Telegram -->
-          <line x1="630" y1="258" x2="635" y2="350" stroke="#229ED9" stroke-width="1.2" marker-end="url(#arr-blue)" stroke-dasharray="3,3" opacity="0.6"/>
-          <!-- Mac mini → Telegram -->
-          <line x1="220" y1="244" x2="580" y2="370" stroke="#229ED9" stroke-width="1.2" marker-end="url(#arr-blue)" stroke-dasharray="3,3" opacity="0.6"/>
-          <!-- iPhone → Telegram -->
-          <line x1="440" y1="374" x2="570" y2="380" stroke="#229ED9" stroke-width="1.2" marker-end="url(#arr-blue)" stroke-dasharray="3,3" opacity="0.6"/>
-
-          <!-- 범례 -->
-          <g transform="translate(16, 400)">
-            <line x1="0" y1="8" x2="24" y2="8" stroke="#3182F6" stroke-width="1.5" stroke-dasharray="5,3"/>
-            <text x="28" y="12" font-size="9" fill="#4E5968">SSH (tailscale)</text>
-            <line x1="110" y1="8" x2="134" y2="8" stroke="#17A589" stroke-width="2"/>
-            <text x="138" y="12" font-size="9" fill="#4E5968">wsl-directive</text>
-            <line x1="218" y1="8" x2="242" y2="8" stroke="#E67E22" stroke-width="2" stroke-dasharray="4,2"/>
-            <text x="246" y="12" font-size="9" fill="#4E5968">mac-report</text>
-            <line x1="326" y1="8" x2="350" y2="8" stroke="#229ED9" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.6"/>
-            <text x="354" y="12" font-size="9" fill="#4E5968">→ Telegram</text>
+          <!-- ── 범례 박스 (우측 하단) ── -->
+          <g transform="translate(496, 326)">
+            <rect x="0" y="0" width="200" height="42" rx="8" fill="#FFFFFF" stroke="#E5E8EB" stroke-width="1"/>
+            <!-- wsl-directive -->
+            <line x1="10" y1="13" x2="34" y2="13" stroke="#3182F6" stroke-width="2"/>
+            <polygon points="30,10 38,13 30,16" fill="#3182F6"/>
+            <text x="44" y="17" font-size="9" fill="#4E5968">Mac→WSL wsl-directive.sh</text>
+            <!-- mac-report -->
+            <line x1="10" y1="31" x2="34" y2="31" stroke="#16A34A" stroke-width="2"/>
+            <polygon points="30,28 38,31 30,34" fill="#16A34A"/>
+            <text x="44" y="35" font-size="9" fill="#4E5968">WSL→Mac mac-report.sh</text>
+          </g>
+          <!-- ssh 범례 (범례 박스 왼쪽) -->
+          <g transform="translate(280, 326)">
+            <rect x="0" y="0" width="200" height="42" rx="8" fill="#FFFFFF" stroke="#E5E8EB" stroke-width="1"/>
+            <line x1="10" y1="13" x2="34" y2="13" stroke="#8B95A1" stroke-width="1.5"/>
+            <polygon points="30,10 38,13 30,16" fill="#8B95A1"/>
+            <text x="44" y="17" font-size="9" fill="#4E5968">Mac↔mini ssh (실선)</text>
+            <line x1="10" y1="31" x2="34" y2="31" stroke="#8B95A1" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <polygon points="30,28 38,31 30,34" fill="#8B95A1"/>
+            <text x="44" y="35" font-size="9" fill="#4E5968">WSL↔mini ssh (점선)</text>
           </g>
         </svg>
       </div>
