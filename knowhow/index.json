@@ -1,6 +1,39 @@
 {
   "entries": [
     {
+      "file": "2026-05-03-irun-device-lock-precheck.md",
+      "date": "2026-05-03",
+      "slug": "irun-device-lock-precheck",
+      "title": "iOS device 잠금 상태에서 Flutter run = \"Could not run Runner.app\" 오탐 — devicectl pre-check + 폴백",
+      "category": "iOS 빌드",
+      "tags": ["ios", "flutter", "irun", "devicectl", "device-lock", "error-translation"],
+      "first_discovered": "2026-04-20",
+      "summary": "Flutter 의 'Could not run Runner.app' + 'Try Xcode > Run' 안내는 device 잠금 거부(SBMainWorkspace ... Locked)를 가리는 번역 오탐. flutter run 호출 전 'devicectl device info connected | grep unlocked' 게이트 + 에러 매칭 시 'devicectl device process launch' 직접 호출로 진짜 원인 surface.",
+      "updated": "2026-05-03T10:45:00+09:00"
+    },
+    {
+      "file": "2026-05-03-google-signin-ios-gidclientid-precheck.md",
+      "date": "2026-05-03",
+      "slug": "google-signin-ios-gidclientid-precheck",
+      "title": "google_sign_in 신규 iOS 빌드 = GIDClientID + URL scheme 사전 체크 게이트",
+      "category": "iOS 빌드",
+      "tags": ["ios", "flutter", "google-sign-in", "oauth", "gidclientid", "info-plist", "fail-fast"],
+      "first_discovered": "2026-04-23",
+      "summary": "Android 는 SHA-1 + 패키지명 자동 매칭이라 코드 변경 0 이지만 iOS 는 Info.plist 의 GIDClientID + reversed URL scheme 가 없으면 첫 sign-in 시 NSInvalidArgumentException 으로 즉시 강종. pre-build 셸 게이트(tools/check_ios_oauth.sh) + Dart Platform.isIOS fail-fast 두 겹으로 차단.",
+      "updated": "2026-05-03T10:45:00+09:00"
+    },
+    {
+      "file": "2026-05-03-launchd-register-verification-gate.md",
+      "date": "2026-05-03",
+      "slug": "launchd-register-verification-gate",
+      "title": "launchd register/bootstrap 직후 actually-running 검증 게이트 — silent fail 차단",
+      "category": "자동화",
+      "tags": ["launchd", "macos", "bootstrap", "verification", "silent-failure", "daemon", "scheduling"],
+      "first_discovered": "2026-04-21",
+      "summary": "launchctl load/bootstrap 가 silent-fail (exit 0 인데 등록 안 됨) 하는 케이스가 일상적. plist 존재 ≠ 잡 활성. bootstrap 직후 launchctl list 검증 + 미등록 시 exit 1 디폴트. unload/load 짝은 silent fail 잘 일으키니 bootout/bootstrap 으로 교체.",
+      "updated": "2026-05-03T10:45:00+09:00"
+    },
+    {
       "file": "2026-05-02-wsl-flutter-test-cmd-pushd-unc.md",
       "date": "2026-05-02",
       "slug": "wsl-flutter-test-cmd-pushd-unc",
