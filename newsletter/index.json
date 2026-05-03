@@ -3,6 +3,15 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "id": "ep6",
+      "number": 6,
+      "file": "ep6-2026-05-03.md",
+      "date": "2026-05-03",
+      "title": "맥북 + WSL + Mac mini 삼각 편대로 Flutter 앱 6개 동시 운영하기",
+      "subtitle": "바이브코딩 뉴스레터 Ep.6 — 1인 개발자의 멀티 기기 병렬 작업기",
+      "status": "draft"
+    },
+    {
       "number": 5,
       "file": "ep5-2026-04-30.md",
       "date": "2026-04-30",
