@@ -10,9 +10,9 @@
 
 ## 모아둠
 
-- [x] 🤝 💡 한줄일기 + AI 응원 앱 — WSL 포트폴리오 반영 작업 중 (2026-05-03 디렉티브 전송)
-- [x] 🤝 💡 바이브코딩 뉴스레터 — WSL 포트폴리오 반영 작업 중 (2026-05-03 디렉티브 전송)
-- [x] 🤝 💡 메모요 — WSL 포트폴리오 반영 작업 중 (2026-05-03 디렉티브 전송)
+- [x] 🤝 💡 한줄일기 + AI 응원 앱 (Flutter, 메모요 코드 80% 재활용. 하루 한 줄 일기 쓰면 AI가 공감+응원 한 줄 답글. 로컬 저장, 계정 0, 광고 0. 스택: Flutter + Cloudflare Workers 프록시 + GPT-4o mini. 2026-04-30 LIVE — 포트폴리오 엔트리)  (추가: 2026-04-17, 완료: 2026-05-03 — portfolio.html iOS LIVE·Android alpha LIVE·₩1,900 KOR 갱신)
+- [x] 🤝 💡 바이브코딩 뉴스레터 (Claude Code 로 1인 앱 만드는 여정. 심사레이더 개발기 = 시즌 1. Substack 운영중 — 포트폴리오 엔트리)  (추가: 2026-04-19, 완료: 2026-05-03 — portfolio.html Ep.6 나누기 반영)
+- [x] 🤝 💡 메모요 (운영중 Flutter 메모 앱 — 포트폴리오 엔트리. 세부 작업은 todos.md 진행중/완료 섹션에서 개별 관리)  (추가: 2026-04-19, 완료: 2026-05-03 — portfolio.html 엔트리 확인 (iOS·Android LIVE 기재 유지))
 - [x] 🤝 💡 주식 모니터링 앱 (Flutter) — scaffold 완료 (2026-05-03, ~/apps/stock_monitor, com.daejongkang.stock_monitor, 관심종목 watchlist UI 뼈대. 다음=KRX API 연동)
 - [x] 🤝 💡 Plan C 자동화 노하우 콘텐츠화 (Substack) — night-builder v2 / asc-deliver 자동 심사 제출 인사이트 1편. 1인 Flutter 개발자 타깃 콘텐츠. (완료: 2026-05-03 ep6-draft-2026-05-03.md 초안 생성, WSL PR 예정)
 - [x] 🤝 🛠 /stack.html SVG 토폴로지 다이어그램 — WSL 작업 중 (2026-05-03 디렉티브 전송, PR 예정)
