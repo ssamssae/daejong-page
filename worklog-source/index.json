@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-04_v1.0.1.md",
+      "date": "2026-05-04",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 이후 추가: session-clear v0.1→v0.2, Play 개발자 에셋+문구, lottocalc 통계 제거+카지노 결합+PR #14 opened. irun 3차 좀비 프로세스(pkill) 해결. 흰화면 버그 resolved.",
+      "updated": "2026-05-05T01:08:00+09:00"
+    },
+    {
       "file": "2026-05-04_v1.0.0.md",
       "date": "2026-05-04",
       "version": "v1.0.0",
