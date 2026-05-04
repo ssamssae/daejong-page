@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-04_v1.0.0.md",
+      "date": "2026-05-04",
+      "version": "v1.0.0",
+      "summary": "4개 앱(lottocalc/wordyo/hanjul/stock_monitor) 동시 출시 준비. parallel-cycle v0.1→v0.5 당일 완성. AI 인사이더 클럽 knowhow 8건. ~55커밋.",
+      "updated": "2026-05-04T20:55:00+09:00"
+    },
+    {
       "file": "2026-05-03_v1.0.1.md",
       "date": "2026-05-03",
       "version": "v1.0.1",
