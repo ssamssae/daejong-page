@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-05.md",
+      "date": "2026-05-05",
+      "count": 3,
+      "updated": "2026-05-05T01:04:26+09:00"
+    },
+    {
       "file": "2026-05-04.md",
       "date": "2026-05-04",
       "summary": "4개 앱 출시 준비 (lottocalc/wordyo/hanjul/stock_monitor), parallel-cycle v0.1→v0.5, knowhow 8건",
