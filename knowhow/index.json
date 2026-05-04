@@ -6,7 +6,18 @@
       "slug": "cf-workers-llm-api-region-block",
       "title": "CF Workers 에서 외부 LLM API 직접 호출 금지 — AI Gateway 경유 필수",
       "category": "배포",
-      "tags": ["cloudflare", "cf-workers", "openai", "anthropic", "llm", "region-block", "ai-gateway", "colo", "502", "403"],
+      "tags": [
+        "cloudflare",
+        "cf-workers",
+        "openai",
+        "anthropic",
+        "llm",
+        "region-block",
+        "ai-gateway",
+        "colo",
+        "502",
+        "403"
+      ],
       "first_discovered": "2026-04-28",
       "summary": "CF colo 라우팅이 특정 ISP·지역 IP 를 한국 colo 로 매핑하면 outbound IP 가 OpenAI region-block 권역에 걸려 403 반환. api.openai.com 직접 호출 대신 CF AI Gateway 경유가 근본 fix. 출시 전 2개 이상 ISP/환경에서 LLM 호출 검증 필수.",
       "updated": "2026-05-03T18:00:00+09:00"
@@ -17,7 +28,17 @@
       "slug": "macos-ssh-cli-fda-block",
       "title": "macOS Ventura 이상에서 SSH 활성화는 GUI 토글만 — CLI systemsetup 차단",
       "category": "환경 설정",
-      "tags": ["macos", "ssh", "systemsetup", "fda", "full-disk-access", "tahoe", "terminal", "ghostty", "remote-login"],
+      "tags": [
+        "macos",
+        "ssh",
+        "systemsetup",
+        "fda",
+        "full-disk-access",
+        "tahoe",
+        "terminal",
+        "ghostty",
+        "remote-login"
+      ],
       "first_discovered": "2026-04-26",
       "summary": "macOS 13+ 부터 sudo systemsetup -setremotelogin on 은 호출 터미널 앱에 FDA 가 있어야 실행됨. 신규 설치 터미널은 항상 FDA 미부여 상태. 시스템 설정 > 공유 > 원격 로그인 GUI 토글이 유일한 무조건 통과 경로. CLI 자동화 스크립트에서 이 명령 사용 금지.",
       "updated": "2026-05-03T18:00:00+09:00"
@@ -28,7 +49,16 @@
       "slug": "interrupt-git-status-guard",
       "title": "세션 중단 후 미커밋 파일 방지 — git status 가드 패턴",
       "category": "워크플로우",
-      "tags": ["git", "interrupt", "untracked", "orphan", "session-start", "skill-file", "stop-hook", "safety-net"],
+      "tags": [
+        "git",
+        "interrupt",
+        "untracked",
+        "orphan",
+        "session-start",
+        "skill-file",
+        "stop-hook",
+        "safety-net"
+      ],
       "first_discovered": "2026-04-21",
       "summary": "Write() 로 파일 생성 후 세션이 중단되면 git add/commit/push 가 누락된 채 로컬에만 남는다. 세션 시작 첫 단계로 git status --short 를 skills + daejong-page 양쪽에서 실행하는 것이 가장 단순한 안전망. 파일 쓰기는 commit + push 까지 한 묶음으로 처리.",
       "updated": "2026-05-03T18:00:00+09:00"
@@ -529,6 +559,26 @@
       "first_discovered": "2026-04-15",
       "summary": "AppleScript-osa 브리지는 페이로드 크기 상한이 있어 1MB+ 바이너리를 텍스트로 못 넘김. 디스크에 먼저 두고 osascript 에 경로만 전달. base64 청크 우회는 가능하지만 안 권장.",
       "updated": "2026-04-15T23:59:00+09:00"
+    },
+    {
+      "file": "2026-05-04-parallel-cycle-mac-wsl.md",
+      "date": "2026-05-04",
+      "slug": "parallel-cycle-mac-wsl",
+      "title": "Mac + WSL 병렬 사이클 스킬 — /parallel-cycle 한 번으로 두 기기 동시 지휘",
+      "category": "워크플로우",
+      "tags": [
+        "claude-code",
+        "parallel",
+        "mac",
+        "wsl",
+        "multi-device",
+        "skill",
+        "automation",
+        "productivity"
+      ],
+      "first_discovered": "2026-05-04",
+      "summary": "/parallel-cycle 스킬 1회로 Mac N개 + WSL N개 작업을 동시 분산 실행. todos 자동 선택 → 텔레그램 브리핑 → WSL 디렉티브 자동 발송 → Mac 순차 실행 → mac-report.sh 완료 감지 → session-close 자동 호출까지 원스톱. 기존 순차 진행 대비 처리량 2배.",
+      "updated": "2026-05-04T20:15:00+09:00"
     }
   ]
 }
