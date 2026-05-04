@@ -10,9 +10,17 @@
 
 ## 모아둠
 
-- [x] 🤝 💡 한줄일기 + AI 응원 앱 (Flutter, 메모요 코드 80% 재활용. 하루 한 줄 일기 쓰면 AI가 공감+응원 한 줄 답글. 로컬 저장, 계정 0, 광고 0. 스택: Flutter + Cloudflare Workers 프록시 + GPT-4o mini. 2026-04-30 LIVE — 포트폴리오 엔트리)  (추가: 2026-04-17, 완료: 2026-05-03 — portfolio.html iOS LIVE·Android alpha LIVE·₩1,900 KOR 갱신)
-- [x] 🤝 💡 바이브코딩 뉴스레터 (Claude Code 로 1인 앱 만드는 여정. 심사레이더 개발기 = 시즌 1. Substack 운영중 — 포트폴리오 엔트리)  (추가: 2026-04-19, 완료: 2026-05-03 — portfolio.html Ep.6 나누기 반영)
-- [x] 🤝 💡 메모요 (운영중 Flutter 메모 앱 — 포트폴리오 엔트리. 세부 작업은 todos.md 진행중/완료 섹션에서 개별 관리)  (추가: 2026-04-19, 완료: 2026-05-03 — portfolio.html 엔트리 확인 (iOS·Android LIVE 기재 유지))
+- [ ] 🍎 💡 메모요 iCloud/Google 동기화 + 인앱결제 출시 — 동기화 버튼 추가 + 구독/일회결제 IAP 연동. 현재 무료·로컬 전용인 메모요를 유료 기능(클라우드 백업) 추가 후 재출시.  (추가: 2026-05-05)
+
+- [ ] 🤝 💡 한줄일기 앱 개선 사이클 — 강대종 사용 중 발견한 개선사항 모음. 다음 버전 기획 시 꺼내기.  (추가: 2026-05-05)
+
+- [ ] 🤝 💡 더치페이 앱 개선 사이클 — 강대종 사용 중 발견한 개선사항 모음.  (추가: 2026-05-05)
+
+- [ ] 🤝 💡 약먹자 앱 개선 사이클 — 강대종 사용 중 발견한 개선사항 모음.  (추가: 2026-05-05)
+
+- [x] 🤝 💡 한줄일기 + AI 응원 앱 — WSL 포트폴리오 반영 작업 중 (2026-05-03 디렉티브 전송)
+- [x] 🤝 💡 바이브코딩 뉴스레터 — WSL 포트폴리오 반영 작업 중 (2026-05-03 디렉티브 전송)
+- [x] 🤝 💡 메모요 — WSL 포트폴리오 반영 작업 중 (2026-05-03 디렉티브 전송)
 - [x] 🤝 💡 주식 모니터링 앱 (Flutter) — scaffold 완료 (2026-05-03, ~/apps/stock_monitor, com.daejongkang.stock_monitor, 관심종목 watchlist UI 뼈대. 다음=KRX API 연동)
 - [x] 🤝 💡 Plan C 자동화 노하우 콘텐츠화 (Substack) — night-builder v2 / asc-deliver 자동 심사 제출 인사이트 1편. 1인 Flutter 개발자 타깃 콘텐츠. (완료: 2026-05-03 ep6-draft-2026-05-03.md 초안 생성, WSL PR 예정)
 - [x] 🤝 🛠 /stack.html SVG 토폴로지 다이어그램 — WSL 작업 중 (2026-05-03 디렉티브 전송, PR 예정)
@@ -24,10 +32,8 @@
 
 - [x] 🍎 🛡 Mac mini SSH 보안 강화 — 완료 (2026-05-03, PasswordAuthentication no 적용, authorized_keys 5개 확인)
 
-- [ ] 🍎 🔀 parallel-cycle v0.2 — 6개 고정 → N개 유연 지원 (2026-05-04). 현재 스킬이 정확히 6개 요구. 3+3이 아닌 2+2, 4+2 등 자유롭게 나눌 수 있도록 개선. 트리거: 다음 사이클 불편함 느낄 때.
-
 - [ ] 🍎 🐛 lottocalc irun 흰화면 버그 (2026-05-04) — iOS 26.3.1 실기기에서 debug/release 모두 흰화면. `flutter run --release` 는 빌드를 `Release-iphoneos/`에 뱉어 코드서명 미적용, `flutter build ios --release` + devicectl 설치해도 흰화면. iproxy Dart VM attach 실패도 동반. 원인 미확정(iOS 26 + Flutter 3.41.9 렌더링 호환 의심). 재시도 시 flutter doctor 상태 + iOS 26 release note 먼저 확인.
 
-- [ ] 🍎 🎨 Google Play 개발자 페이지 에셋 제작 (2026-05-04) — 개발자 아이콘 512×512px (JPEG/24비트 PNG, 투명 없음) + 헤더 이미지 4096×2304px 제작 후 Play Console 개발자 페이지에 업로드.
+- [x] 🍎 🎨 Google Play 개발자 페이지 에셋 제작 (2026-05-04) — 완료: daejong-page/store/play-dev-assets/ (아이콘 512×512 + 헤더 4096×2304) commit 382736a.
 
-- [ ] 🍎 ✍️ Google Play 개발자 페이지 문구 작성 (2026-05-04) — 개발자 웹사이트 URL + 광고 문구 140자(영문 기준) 작성 후 Play Console에 입력.
+- [x] 🍎 ✍️ Google Play 개발자 페이지 문구 작성 (2026-05-04) — 완료: daejong-page/store/play-developer-profile.md. 한국어 84자 / 영어 135자 최종.
