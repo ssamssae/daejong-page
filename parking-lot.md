@@ -10,6 +10,12 @@
 
 ## 모아둠
 
+- [ ] 🍎 🛠 rtk (Rust Token Killer) 적용 — 쉘 명령어 출력 60~90% 토큰 압축. `rtk init -g` 로 Claude Code 훅 등록. github.com/rtk-ai/rtk  (추가: 2026-05-05)
+
+- [ ] 🍎 🛠 superpowers 플러그인 적용 — /brainstorm·/write-plan·/execute-plan 슬래시 커맨드로 계획→TDD→디버깅 워크플로우 강제. `/plugin install superpowers@superpowers-marketplace`. github.com/obra/superpowers  (추가: 2026-05-05)
+
+- [ ] 🍎 🛠 secall 적용 — AI 채팅 세션 검색 및 브라우징 도구. 친구 후배 추천. 정확한 링크/설치법 확인 필요.  (추가: 2026-05-05)
+
 - [ ] 🍎 💡 메모요 iCloud/Google 동기화 + 인앱결제 출시 — 동기화 버튼 추가 + 구독/일회결제 IAP 연동. 현재 무료·로컬 전용인 메모요를 유료 기능(클라우드 백업) 추가 후 재출시.  (추가: 2026-05-05)
 
 - [ ] 🤝 💡 한줄일기 앱 개선 사이클 — 강대종 사용 중 발견한 개선사항 모음. 다음 버전 기획 시 꺼내기.  (추가: 2026-05-05)
