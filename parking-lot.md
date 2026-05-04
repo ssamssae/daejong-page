@@ -24,4 +24,6 @@
 
 - [x] 🍎 🛡 Mac mini SSH 보안 강화 — 완료 (2026-05-03, PasswordAuthentication no 적용, authorized_keys 5개 확인)
 
+- [ ] 🍎 🔀 parallel-cycle v0.2 — 6개 고정 → N개 유연 지원 (2026-05-04). 현재 스킬이 정확히 6개 요구. 3+3이 아닌 2+2, 4+2 등 자유롭게 나눌 수 있도록 개선. 트리거: 다음 사이클 불편함 느낄 때.
+
 - [ ] 🍎 🐛 lottocalc irun 흰화면 버그 (2026-05-04) — iOS 26.3.1 실기기에서 debug/release 모두 흰화면. `flutter run --release` 는 빌드를 `Release-iphoneos/`에 뱉어 코드서명 미적용, `flutter build ios --release` + devicectl 설치해도 흰화면. iproxy Dart VM attach 실패도 동반. 원인 미확정(iOS 26 + Flutter 3.41.9 렌더링 호환 의심). 재시도 시 flutter doctor 상태 + iOS 26 release note 먼저 확인.
