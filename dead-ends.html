@@ -58,7 +58,7 @@
       border-radius: 12px; padding: 16px 18px;
       text-decoration: none; color: inherit;
       transition: border-color 0.15s, background 0.15s, transform 0.15s;
-      cursor: pointer;
+      cursor: default;
     }
     .de-card:hover {
       border-color: #F04452;
@@ -208,7 +208,7 @@
         const href = it.file ? './dead-ends/' + it.file : '#';
         const tags = (it.tags || []).slice(0, 5);
 
-        html += '<a class="de-card" href="' + escapeHtml(href) + '" target="_blank">';
+        html += '<div class="de-card">';
         html += '<div class="de-head">';
         if (it.category) html += '<span class="de-cat">' + escapeHtml(it.category) + '</span>';
         html += '<span class="de-title">' + escapeHtml(it.title) + '</span>';
@@ -229,8 +229,7 @@
           html += '<div class="de-summary" style="margin-top:10px;">' + escapeHtml(it.summary) + '</div>';
         }
 
-        if (it.file) html += '<div class="detail-hint">→ 상세 보기</div>';
-        html += '</a>';
+        html += '</div>';
       }
       html += '</div>';
 
