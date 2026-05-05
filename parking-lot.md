@@ -45,3 +45,5 @@
 - [x] 🍎 🎨 Google Play 개발자 페이지 에셋 제작 (2026-05-04) — 완료: daejong-page/store/play-dev-assets/ (아이콘 512×512 + 헤더 4096×2304) commit 382736a.
 
 - [x] 🍎 ✍️ Google Play 개발자 페이지 문구 작성 (2026-05-04) — 완료: daejong-page/store/play-developer-profile.md. 한국어 84자 / 영어 135자 최종.
+
+- [ ] 🍎 ⏳ 행운번호 생성기 심사 결과 대기 (2026-05-05 제출) — 2.3.6 거절 대응: 슬롯머신 애니메이션→페이드 교체, 앱이름 변경, 키워드 정리, 면책 문구 추가. 재거절 시 Resolution Center Appeal 준비 (경쟁앱 근거: SMART LOTTO id1544943147, Lotto Lottery Number Generator id1209851150).
