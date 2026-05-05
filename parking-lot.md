@@ -10,6 +10,20 @@
 
 ## 모아둠
 
+- [ ] 🤝 🔐 ASC Playwright 로그인 자동화 — Apple ID 2FA 장벽 우회. 방향: (1) Playwright persistent profile + Safari keychain 연동, (2) applescript 세션 재사용, (3) 비밀번호 secrets 저장 + TOTP 코드 자동생성. 현재는 로그인만 수동, 이후 전부 자동화 가능. (추가: 2026-05-05, 트리거: wordyo ASC 앱 생성 시도 중 발견)
+
+- [ ] 🍎 📋 메모요 개인정보처리방침/이용약관 추가 — 테스터스 커뮤니티 피드백: 스토어 정책 필수 항목. Play Store 링크 + 앱 설정 내 접근 가능하게. (추가: 2026-05-05, 출처: TC 피드백 5번)
+
+- [ ] 🍎 📋 메모요 ASO 최적화 — 앱 설명에 키워드(메모/노트/메모장 등) + 기능 불릿 추가. 전환율 향상 목적. (추가: 2026-05-05, 출처: TC 피드백 1번)
+
+- [ ] 🍎 📋 메모요 Play Store 스크린샷 개선 — 다크모드/즉시 실행/빠른 편집 특화 기능 중심 스크린샷 교체. 텍스트 오버레이 추가. (추가: 2026-05-05, 출처: TC 피드백 2번)
+
+- [ ] 🍎 📋 메모요 앱 평가 버튼 추가 — 설정 내 "앱 평가하기" 버튼 + 마일스톤 달성 시 인앱 프롬프트. Play Store 리뷰 유도. (추가: 2026-05-05, 출처: TC 피드백 6번)
+
+- [ ] 🍎 📋 메모요 온보딩 튜토리얼 — 첫 실행 시 핵심 기능 안내 인터랙티브 워크스루 + 도움말 섹션. (추가: 2026-05-05, 출처: TC 피드백 3번)
+
+- [ ] 🍎 📋 메모요 다국어 지원 — 설정에서 언어 선택 메뉴 추가. 현재 영어 고정. (추가: 2026-05-05, 출처: TC 피드백 4번)
+
 - [ ] 🍎 🛠 rtk (Rust Token Killer) 적용 — 쉘 명령어 출력 60~90% 토큰 압축. `rtk init -g` 로 Claude Code 훅 등록. github.com/rtk-ai/rtk  (추가: 2026-05-05)
 
 - [ ] 🍎 🛠 superpowers 플러그인 적용 — /brainstorm·/write-plan·/execute-plan 슬래시 커맨드로 계획→TDD→디버깅 워크플로우 강제. `/plugin install superpowers@superpowers-marketplace`. github.com/obra/superpowers  (추가: 2026-05-05)
@@ -45,8 +59,6 @@
 - [x] 🍎 🎨 Google Play 개발자 페이지 에셋 제작 (2026-05-04) — 완료: daejong-page/store/play-dev-assets/ (아이콘 512×512 + 헤더 4096×2304) commit 382736a.
 
 - [x] 🍎 ✍️ Google Play 개발자 페이지 문구 작성 (2026-05-04) — 완료: daejong-page/store/play-developer-profile.md. 한국어 84자 / 영어 135자 최종.
-
-- [ ] 🍎 ⏳ 행운번호 생성기 심사 결과 대기 (2026-05-05 제출) — 2.3.6 거절 대응: 슬롯머신 애니메이션→페이드 교체, 앱이름 변경, 키워드 정리, 면책 문구 추가. 재거절 시 Resolution Center Appeal 준비 (경쟁앱 근거: SMART LOTTO id1544943147, Lotto Lottery Number Generator id1209851150).
 
 - [ ] 🍎 💡 코레일 앱 mitmproxy API 스니핑 — iOS 시뮬레이터 + mitmproxy 로 코레일 앱 네이티브 API 엔드포인트 추출. PerimeterX 미적용 예상. 추출 후 Python으로 직접 호출하면 봇탐지 우회 가능. (추가: 2026-05-05, 막다른길: korail-playwright-bot-detection)
 
