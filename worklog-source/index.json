@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-05_v1.0.0.md",
+      "date": "2026-05-05",
+      "version": "v1.0.0",
+      "summary": "Apple Guideline 2.3.6 리젝 2연속 → lotto→randompick 재포장. 코레일 봇 PerimeterX 차단 → dead-ends 기록. wordyo PR 3개, AI 카톡방 인사이트 3번째, WSL alias 누락 수정.",
+      "updated": "2026-05-05T18:30:00+09:00"
+    },
+    {
       "file": "2026-05-04_v1.0.1.md",
       "date": "2026-05-04",
       "version": "v1.0.1",
