@@ -53,3 +53,5 @@
 - [ ] 🍎 💡 코레일 앱 Appium 자동화 — 웹 자동화(Playwright) 대신 iOS 시뮬레이터 앱 UI 직접 조작. CDP 기반 아닌 Appium XCUITest 드라이버 사용 → PerimeterX 웹 탐지 레이어 완전 우회. (추가: 2026-05-05, 막다른길: korail-playwright-bot-detection)
 
 - [ ] 🪟 💡 dead-ends 상세 렌더러 페이지 신설 — dead-ends.html 카드 클릭 시 .md 를 HTML로 렌더링하는 상세 페이지 추가. 현재는 클릭 제거로 임시 처리. (추가: 2026-05-05)
+
+- [ ] 🪟 🧪 submit-app ASC 가드 --apply 실 테스트 — Mac mini에서 asc-api-key.json 있을 때 `python3 asc-territory-verify.py --app-id <ID> --apply` → JWT 생성 + 실 GET 1회 확인. claude-skills PR #23 머지 후 진행. (추가: 2026-05-05)
