@@ -47,3 +47,7 @@
 - [x] 🍎 ✍️ Google Play 개발자 페이지 문구 작성 (2026-05-04) — 완료: daejong-page/store/play-developer-profile.md. 한국어 84자 / 영어 135자 최종.
 
 - [ ] 🍎 ⏳ 행운번호 생성기 심사 결과 대기 (2026-05-05 제출) — 2.3.6 거절 대응: 슬롯머신 애니메이션→페이드 교체, 앱이름 변경, 키워드 정리, 면책 문구 추가. 재거절 시 Resolution Center Appeal 준비 (경쟁앱 근거: SMART LOTTO id1544943147, Lotto Lottery Number Generator id1209851150).
+
+- [ ] 🍎 💡 코레일 앱 mitmproxy API 스니핑 — iOS 시뮬레이터 + mitmproxy 로 코레일 앱 네이티브 API 엔드포인트 추출. PerimeterX 미적용 예상. 추출 후 Python으로 직접 호출하면 봇탐지 우회 가능. (추가: 2026-05-05, 막다른길: korail-playwright-bot-detection)
+
+- [ ] 🍎 💡 코레일 앱 Appium 자동화 — 웹 자동화(Playwright) 대신 iOS 시뮬레이터 앱 UI 직접 조작. CDP 기반 아닌 Appium XCUITest 드라이버 사용 → PerimeterX 웹 탐지 레이어 완전 우회. (추가: 2026-05-05, 막다른길: korail-playwright-bot-detection)
