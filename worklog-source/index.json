@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-05_v1.0.1.md",
+      "date": "2026-05-05",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 이후 추가: 4번째 리젝 수신 → Gambling=Yes 최종 수용 → 5번째 재제출 WAITING_FOR_REVIEW. 메모요 Play Console 프로덕션 액세스 신청 완료.",
+      "updated": "2026-05-05T20:16:00+09:00"
+    },
+    {
       "file": "2026-05-05_v1.0.0.md",
       "date": "2026-05-05",
       "version": "v1.0.0",
