@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>막다른 길 - 강대종</title>
+  <meta name="description" content="시도했지만 막힌 것들 — 브라우저 자동화 차단, API 제한, 구조적 한계 등 실패 사례 모음.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #F04452; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #F04452; }
+
+    .intro {
+      font-size: 13px; color: #4E5968;
+      margin-bottom: 20px; padding: 12px 14px;
+      background: #FFF5F5; border: 1px solid #FFD6D6; border-radius: 10px;
+      line-height: 1.55;
+    }
+
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-card {
+      background: #FFF5F5; border: 1px solid #FFD6D6; border-radius: 12px;
+      padding: 14px 14px;
+    }
+    .hero-card-label {
+      font-size: 10px; color: #4E5968; margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .hero-card-value { font-size: 22px; color: #191F28; font-weight: 700; }
+    .hero-card-value .unit {
+      font-size: 13px; color: #4E5968; font-weight: 500; margin-left: 4px;
+    }
+    .hero-card-sub { font-size: 11px; color: #8B95A1; margin-top: 4px; }
+
+    .list { display: flex; flex-direction: column; gap: 14px; }
+
+    .de-card {
+      display: block;
+      background: #FFF5F5; border: 1px solid #FFD6D6;
+      border-radius: 12px; padding: 16px 18px;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+      cursor: pointer;
+    }
+    .de-card:hover {
+      border-color: #F04452;
+      background: #FFFFFF;
+      transform: translateY(-1px);
+    }
+    .de-card:active { transform: translateY(0); }
+
+    .de-head {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 8px; flex-wrap: wrap;
+    }
+    .de-title {
+      flex: 1 1 auto; min-width: 0;
+      font-size: 16px; color: #191F28; font-weight: 600;
+      line-height: 1.45;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .de-tags {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;
+    }
+    .de-tag {
+      font-size: 10px; padding: 2px 8px; border-radius: 6px;
+      font-weight: 600; letter-spacing: 0.3px;
+      color: #F04452; background: rgba(240, 68, 82, 0.08);
+      border: 1px solid rgba(240, 68, 82, 0.2);
+    }
+    .de-cat {
+      font-size: 10px; padding: 2px 8px; border-radius: 6px;
+      font-weight: 700; letter-spacing: 0.3px;
+      color: #FFFFFF; background: #F04452;
+    }
+
+    .de-meta {
+      font-size: 11px; color: #8B95A1;
+      margin-bottom: 10px;
+    }
+    .de-meta .sep { color: #E5E8EB; margin: 0 6px; }
+
+    .de-summary {
+      font-size: 13px; color: #4E5968; line-height: 1.65;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+
+    .detail-hint {
+      font-size: 11px; color: #F04452; margin-top: 10px;
+      font-weight: 600; letter-spacing: 0.3px;
+    }
+
+    .empty {
+      color: #8B95A1; text-align: center; padding: 60px 20px; font-size: 14px;
+      background: #FFF5F5; border: 1px solid #FFD6D6; border-radius: 12px;
+    }
+    .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
+    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error { color: #F04452; text-align: center; padding: 40px 0; font-size: 14px; }
+
+    .back {
+      display: inline-block; margin-top: 28px; color: #4E5968;
+      text-decoration: none; font-size: 14px;
+    }
+    .back:hover { color: #F04452; }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>막다른 길</h1>
+      <a href="./">← 홈으로</a>
+    </header>
+
+    <div class="intro">
+      시도했지만 막힌 것들. 브라우저 자동화 차단, API 제한, 구조적 장벽 등 — <strong>왜 안 됐는지</strong> 기록해두면 같은 벽에 두 번 부딪히지 않는다. <strong>노하우(되는 것)</strong>·<strong>이슈(사건)</strong>와 분리된 실패 사례 모음.
+    </div>
+
+    <div id="view">
+      <div class="loading">불러오는 중…</div>
+    </div>
+
+    <a class="back" href="./">← 홈으로</a>
+  </div>
+
+  <script>
+    const viewEl = document.getElementById('view');
+
+    function escapeHtml(s) {
+      return (s || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    async function init() {
+      try {
+        const idxRes = await fetch('./dead-ends/index.json?_=' + Date.now());
+        const idxData = await idxRes.json();
+        const entries = (idxData.entries || [])
+          .slice()
+          .sort((a, b) => {
+            if (a.date !== b.date) return b.date.localeCompare(a.date);
+            return (a.slug || '').localeCompare(b.slug || '');
+          });
+
+        if (entries.length === 0) {
+          viewEl.innerHTML = renderEmpty();
+          return;
+        }
+
+        render(entries);
+      } catch (e) {
+        viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    function renderEmpty() {
+      return '' +
+        '<div class="empty">' +
+        '<div class="empty-emoji">🚧</div>' +
+        '<div>아직 기록된 막다른 길이 없습니다.</div>' +
+        '<div style="font-size:12px;color:#B0B8C1;margin-top:6px;">시도했지만 막힌 사례가 생기면 여기 모입니다.</div>' +
+        '</div>';
+    }
+
+    function render(items) {
+      const total = items.length;
+      const categories = new Set(items.map(it => it.category).filter(Boolean));
+
+      let html = '';
+      html += '<div class="hero-stats">';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">누적 실패 사례</div>' +
+        '<div class="hero-card-value">' + total + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">두 번 부딪히지 않기 위한 기록</div>' +
+        '</div>';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">카테고리</div>' +
+        '<div class="hero-card-value">' + categories.size + '<span class="unit">개</span></div>' +
+        '<div class="hero-card-sub">영역별 막다른 길</div>' +
+        '</div>';
+      html += '</div>';
+
+      html += '<div class="list">';
+      for (const it of items) {
+        const slug = it.slug || (it.file || '').replace(/\.md$/, '');
+        const href = it.file ? './dead-ends/' + it.file : '#';
+        const tags = (it.tags || []).slice(0, 5);
+
+        html += '<a class="de-card" href="' + escapeHtml(href) + '" target="_blank">';
+        html += '<div class="de-head">';
+        if (it.category) html += '<span class="de-cat">' + escapeHtml(it.category) + '</span>';
+        html += '<span class="de-title">' + escapeHtml(it.title) + '</span>';
+        html += '</div>';
+
+        html += '<div class="de-meta">';
+        html += escapeHtml(it.date || '');
+        if (slug) html += '<span class="sep">|</span>' + escapeHtml(slug);
+        html += '</div>';
+
+        if (tags.length) {
+          html += '<div class="de-tags">';
+          for (const t of tags) html += '<span class="de-tag">' + escapeHtml(t) + '</span>';
+          html += '</div>';
+        }
+
+        if (it.summary) {
+          html += '<div class="de-summary" style="margin-top:10px;">' + escapeHtml(it.summary) + '</div>';
+        }
+
+        if (it.file) html += '<div class="detail-hint">→ 상세 보기</div>';
+        html += '</a>';
+      }
+      html += '</div>';
+
+      viewEl.innerHTML = html;
+    }
+
+    init();
+  </script>
+</body>
+</html>

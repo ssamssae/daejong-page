@@ -1,21 +1,6 @@
 {
   "entries": [
     {
-      "slug": "2026-05-05-korail-perimeter-x-bypass",
-      "title": "코레일 PerimeterX 봇 탐지 우회 — 실패 사례 & 극복 패턴",
-      "date": "2026-05-05",
-      "category": "크롤링",
-      "tags": [
-        "korail",
-        "playwright",
-        "PerimeterX",
-        "봇탐지",
-        "자동화",
-        "예약봇"
-      ],
-      "summary": "코레일(korail.com)은 PerimeterX를 적용해 CDP 기반 자동화를 차단한다. 핵심 우회법은 **headed 모드 + FormData.prototype.append 가로채기 + 쿨다운 대기**."
-    },
-    {
       "file": "2026-04-28-cf-workers-llm-api-region-block.md",
       "date": "2026-04-28",
       "slug": "cf-workers-llm-api-region-block",

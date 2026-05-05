@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "file": "2026-05-05-korail-playwright-bot-detection.md",
+      "slug": "2026-05-05-korail-playwright-bot-detection",
+      "title": "코레일 Playwright 봇 자동화 — PerimeterX 3단계 우회 전부 실패",
+      "date": "2026-05-05",
+      "category": "자동화",
+      "tags": ["korail", "playwright", "perimeter-x", "bot-detection", "stealth"],
+      "summary": "headed 모드 + playwright-stealth + 베지어 마우스 + 퍼시스턴트 프로필까지 적용했으나 코레일 PerimeterX 서버사이드 차단을 뚫지 못함. CDP 기반 브라우저 자동화는 korail.com 에서 막힌 길. 앱 API 스니핑 또는 수동 체크로 우회 필요."
+    }
+  ]
+}
