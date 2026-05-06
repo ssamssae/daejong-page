@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-06.md",
+      "date": "2026-05-06",
+      "count": 1,
+      "updated": "2026-05-06T12:58:58+09:00"
+    },
+    {
       "file": "2026-05-05.md",
       "date": "2026-05-05",
       "summary": "lottocalc→randompick 재포장, Apple 2.3.6 대응(5번째 재제출), 메모요 프로덕션 신청, wordyo PR 3개, 코레일 봇 dead-ends",
