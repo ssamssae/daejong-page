@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "file": "2026-05-05_v1.0.3.md",
+      "date": "2026-05-05",
+      "version": "v1.0.3",
+      "title": "봇이 드디어 예약 버튼에 손을 댔다 — korail-sniff KTX 자동예매 봇 v1 + 4앱 정비",
+      "updated": "2026-05-06T09:19:00+09:00"
+    },
+    {
+      "file": "2026-05-05_v1.0.2.md",
+      "date": "2026-05-05",
+      "version": "v1.0.2",
+      "title": "자정을 넘겨서도 계속됐다 — submit-app wiring + korail-sniff mitmproxy + 단어요 재심사",
+      "updated": "2026-05-06T01:02:00+09:00"
+    },
+    {
       "file": "2026-05-05_v1.0.1.md",
       "date": "2026-05-05",
       "version": "v1.0.1",

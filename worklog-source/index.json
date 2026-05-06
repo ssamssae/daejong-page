@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "file": "2026-05-05_v1.0.3.md",
+      "date": "2026-05-05",
+      "version": "v1.0.3",
+      "summary": "오전 parallel-cycle 4앱 누락 보강(hanjul/yakmukja/stock_monitor/dutch_pay 햅틱) + dutch_pay AdMob + korail-sniff KTX 자동예매 봇 v1(23:00). newsletter Ep.7 초안.",
+      "updated": "2026-05-06T09:19:00+09:00"
+    },
+    {
+      "file": "2026-05-05_v1.0.2.md",
+      "date": "2026-05-05",
+      "version": "v1.0.2",
+      "summary": "v1.0.1 이후 추가: 행운번호 메타데이터 정비 + submit-app ASC 가드 wiring(PR#23) + korail-sniff mitmproxy 설정(PR#24) + 단어요 새 아이콘 iOS 재심사(00:33 KST).",
+      "updated": "2026-05-06T01:02:00+09:00"
+    },
+    {
       "file": "2026-05-05_v1.0.1.md",
       "date": "2026-05-05",
       "version": "v1.0.1",
