@@ -579,6 +579,25 @@
       "first_discovered": "2026-05-04",
       "summary": "/parallel-cycle 스킬 1회로 Mac N개 + WSL N개 작업을 동시 분산 실행. todos 자동 선택 → 텔레그램 브리핑 → WSL 디렉티브 자동 발송 → Mac 순차 실행 → mac-report.sh 완료 감지 → session-close 자동 호출까지 원스톱. 기존 순차 진행 대비 처리량 2배.",
       "updated": "2026-05-04T20:15:00+09:00"
+    },
+    {
+      "file": "2026-05-06-asc-unresolved-issues-version-state-api-check.md",
+      "date": "2026-05-06",
+      "slug": "asc-unresolved-issues-version-state-api-check",
+      "title": "ASC UI '해결되지 않은 문제' ≠ 실제 심사 거절 — API로 정확한 버전 상태 확인",
+      "category": "iOS 배포",
+      "tags": [
+        "ios",
+        "asc",
+        "app-store",
+        "api",
+        "submit",
+        "review",
+        "unresolved-issues"
+      ],
+      "first_discovered": "2026-05-06",
+      "summary": "ASC UI의 UNRESOLVED_ISSUES 배너는 reviewSubmission 컨테이너 상태이고, 실제 심사 상태는 appStoreVersions.appVersionState가 truth. Playwright 로그인 없이 JWT API 키로 정확한 상태 확인 가능. 유령 제출(items 0개) 다수 생성돼도 실제 심사에는 영향 없음.",
+      "updated": "2026-05-06T16:24:00+09:00"
     }
   ]
 }
