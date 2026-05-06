@@ -65,3 +65,5 @@
 - [ ] 🍎 💡 코레일 앱 Appium 자동화 — 웹 자동화(Playwright) 대신 iOS 시뮬레이터 앱 UI 직접 조작. CDP 기반 아닌 Appium XCUITest 드라이버 사용 → PerimeterX 웹 탐지 레이어 완전 우회. (추가: 2026-05-05, 막다른길: korail-playwright-bot-detection)
 
 - [ ] 🤝 💡 막다른길 상세 렌더러 페이지 — dead-ends 카드 클릭 시 .md 내용을 렌더링해 보여주는 detail.html 신설. issue.html 방식 참고. 현재는 카드 클릭 비활성화 상태. (추가: 2026-05-05)
+
+- [ ] 🤝 🤖 AI 에이전트 3종 활용법 학습 — Claude Code / OpenClaw / Codex 같은 작업 각각 실행 비교 → "이 작업엔 이 도구" 선택 기준 정립. 스펙: ~/.claude/plans/brainstorm-ai-agent-learn-2026-05-06.md. (추가: 2026-05-06)
