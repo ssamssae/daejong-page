@@ -245,6 +245,22 @@
         </div>
       </div>
 
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/naver-blog-publish</span><span class="card-tag">블로그</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
+        <div class="card-desc">마크다운 파일을 네이버 블로그(SmartEditor ONE)에 자동 발행. Mac 본진 Playwright MCP + 본인 자동로그인 세션 활용. 1일 1~2건·본인 계정·기본 전체공개 4조건 충족 시만 GO. 트리거 "/naver-publish &lt;md_path&gt;", "네이버에 올려".</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/naver-blog-publish/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/newsletter-publish</span><span class="card-tag">발행</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
+        <div class="card-desc">뉴스레터 ep 1개를 Substack · 홈페이지 · 네이버 블로그 3채널에 한 번에 발행. 채널별 독립 진행(1개 실패해도 나머지 계속). Mac 본진 한정. 트리거 "/newsletter-publish &lt;N&gt;", "뉴스레터 발행 EpN".</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/newsletter-publish/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
       <div class="card" data-device="desktop">
         <div class="card-header"><span class="card-name">/night-runner</span><span class="card-tag">야간 자동</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
         <div class="card-desc">야간 사이드 프로젝트 러너. projects.yaml 기반 라운드로빈으로 매일 밤 1개 repo 선정 → repo-janitor 에이전트가 TODO 1~2개 처리 → janitor/YYYY-MM-DD 브랜치 push → 텔레그램 보고. 아침 /merge-janitor 로 머지.</div>
@@ -258,6 +274,22 @@
         <div class="card-desc">모든 Flutter 앱 repo(~/ 최상위 + ~/apps/*/) 를 git pull --rebase --autostash 로 일괄 최신화. 다른 기기(주로 Mac)에서 push 한 앱 코드 변경을 이 기기(주로 WSL)에서 받아올 때 호출. 강대종님이 "앱 당겨줘", "앱 pull", "/pull-apps", "WSL 에 앱 받아", "맥에서 넘긴 앱 받아" 라고 하면 실행.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/pull-apps/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac">
+        <div class="card-header"><span class="card-name">/parallel-cycle</span><span class="card-tag">병렬 작업</span><span class="card-device dev-mac" title="Mac">🍎 Mac</span></div>
+        <div class="card-desc">Mac N개 + WSL N개 작업을 병렬로 나눠 실행하고 둘 다 끝나면 session-close 자동 호출. N 유연 지원(3+3 고정 폐기). Mac 본진 전용. 트리거 "/parallel-cycle", "병렬 사이클", "N개씩", "N개 나눠서 해줘".</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/parallel-cycle/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="both">
+        <div class="card-header"><span class="card-name">/session-clear</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
+        <div class="card-desc">텔레그램에서 현재 세션을 /clear. 후속안 정리 후 자동 실행. 트리거 "세션 클리어", "세션클리어하자", "클리어하자", "/reset". ⚠️ 이 트리거에서 /goodnight 절대 금지.</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/session-clear/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
@@ -306,6 +338,14 @@
         <div class="card-desc">하루 작업 내용(맥+데스크탑 세션 로그 + 모든 git 커밋)을 수집·요약 → docs/worklog/YYYY-MM-DD_vX.Y.Z.md 저장 + git 푸시. 실행 시 Tailscale rsync 로 데스크탑 세션도 자동 당겨 옴.</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/worklog/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="desktop">
+        <div class="card-header"><span class="card-name">/wsl-flutter-test</span><span class="card-tag">Flutter</span><span class="card-device dev-desktop" title="Desktop">🪟 Desktop</span></div>
+        <div class="card-desc">WSL bash 에서 flutter analyze/test 실행 시 cmd.exe pushd UNC cwd 거부 함정 우회. run.sh 1줄 호출로 4단계 자동화. 트리거 "/wsl-flutter-test", "WSL 에서 flutter test".</div>
+        <div class="card-links">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/wsl-flutter-test/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
