@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "file": "2026-05-05-session-clear-triggered-goodnight.md",
+      "date": "2026-05-05",
+      "slug": "session-clear-triggered-goodnight",
+      "title": "\"세션클리어하자\" → /goodnight 잘못 발화 사고",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "",
+      "occurred_at": "",
+      "resolved_at": "",
+      "updated": "2026-05-06T16:27:18+09:00"
+    },
+    {
+      "file": "2026-05-04-lottocalc-irun-white-screen.md",
+      "date": "2026-05-04",
+      "slug": "lottocalc-irun-white-screen",
+      "title": "lottocalc irun 흰화면 버그",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "",
+      "occurred_at": "",
+      "resolved_at": "",
+      "updated": "2026-05-06T16:27:18+09:00"
+    },
+    {
       "file": "2026-05-02-policy-race-mac-wsl.md",
       "date": "2026-05-02",
       "slug": "policy-race-mac-wsl",
