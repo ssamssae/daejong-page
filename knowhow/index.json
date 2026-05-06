@@ -1,104 +1,268 @@
 {
   "entries": [
     {
-      "file": "2026-04-28-cf-workers-llm-api-region-block.md",
-      "date": "2026-04-28",
-      "slug": "cf-workers-llm-api-region-block",
-      "title": "CF Workers 에서 외부 LLM API 직접 호출 금지 — AI Gateway 경유 필수",
-      "category": "배포",
+      "file": "2026-05-06-asc-unresolved-issues-version-state-api-check.md",
+      "date": "2026-05-06",
+      "slug": "asc-unresolved-issues-version-state-api-check",
+      "title": "ASC UI '해결되지 않은 문제' ≠ 실제 심사 거절 — API로 정확한 버전 상태 확인",
+      "category": "iOS 배포",
       "tags": [
-        "cloudflare",
-        "cf-workers",
-        "openai",
-        "anthropic",
-        "llm",
-        "region-block",
-        "ai-gateway",
-        "colo",
-        "502",
-        "403"
+        "ios",
+        "asc",
+        "app-store",
+        "api",
+        "submit",
+        "review",
+        "unresolved-issues"
       ],
-      "first_discovered": "2026-04-28",
-      "summary": "CF colo 라우팅이 특정 ISP·지역 IP 를 한국 colo 로 매핑하면 outbound IP 가 OpenAI region-block 권역에 걸려 403 반환. api.openai.com 직접 호출 대신 CF AI Gateway 경유가 근본 fix. 출시 전 2개 이상 ISP/환경에서 LLM 호출 검증 필수.",
-      "updated": "2026-05-03T18:00:00+09:00"
+      "first_discovered": "2026-05-06",
+      "summary": "ASC UI의 UNRESOLVED_ISSUES 배너는 reviewSubmission 컨테이너 상태이고, 실제 심사 상태는 appStoreVersions.appVersionState가 truth. Playwright 로그인 없이 JWT API 키로 정확한 상태 확인 가능. 유령 제출(items 0개) 다수 생성돼도 실제 심사에는 영향 없음.",
+      "updated": "2026-05-06T16:24:00+09:00"
     },
     {
-      "file": "2026-04-26-macos-ssh-cli-fda-block.md",
-      "date": "2026-04-26",
-      "slug": "macos-ssh-cli-fda-block",
-      "title": "macOS Ventura 이상에서 SSH 활성화는 GUI 토글만 — CLI systemsetup 차단",
-      "category": "환경 설정",
+      "file": "2026-05-05-wsl-alias-mesh-m-missing.md",
+      "date": "2026-05-05",
+      "slug": "wsl-alias-mesh-m-missing",
+      "title": "WSL alias mesh 점검 — `m` alias 누락 시 리눅스 기본 명령어 충돌",
+      "category": "멀티기기",
       "tags": [
-        "macos",
-        "ssh",
-        "systemsetup",
-        "fda",
-        "full-disk-access",
-        "tahoe",
-        "terminal",
-        "ghostty",
-        "remote-login"
+        "wsl",
+        "alias",
+        "tmux",
+        "bash",
+        "alias-mesh",
+        "multi-device"
       ],
-      "first_discovered": "2026-04-26",
-      "summary": "macOS 13+ 부터 sudo systemsetup -setremotelogin on 은 호출 터미널 앱에 FDA 가 있어야 실행됨. 신규 설치 터미널은 항상 FDA 미부여 상태. 시스템 설정 > 공유 > 원격 로그인 GUI 토글이 유일한 무조건 통과 경로. CLI 자동화 스크립트에서 이 명령 사용 금지.",
-      "updated": "2026-05-03T18:00:00+09:00"
+      "first_discovered": "2026-05-05",
+      "summary": "WSL `~/.bashrc`에 3-노드 alias mesh 일부(`m1`, `mb`)만 추가하고 `m`(자기 자신 tmux main attach)을 빠뜨리면, 리눅스 기본 명령어가 충돌하거나 command not found가 난다.",
+      "updated": "2026-05-06T18:48:23+09:00"
     },
     {
-      "file": "2026-04-21-interrupt-git-status-guard.md",
-      "date": "2026-04-21",
-      "slug": "interrupt-git-status-guard",
-      "title": "세션 중단 후 미커밋 파일 방지 — git status 가드 패턴",
+      "file": "2026-05-05-korail-perimeter-x-bypass.md",
+      "date": "2026-05-05",
+      "slug": "korail-perimeter-x-bypass",
+      "title": "코레일 PerimeterX 봇 탐지 우회 — 실패 사례 & 극복 패턴",
+      "category": "크롤링",
+      "tags": [
+        "korail",
+        "playwright",
+        "PerimeterX",
+        "봇탐지",
+        "자동화",
+        "예약봇"
+      ],
+      "first_discovered": "2026-05-05",
+      "summary": "코레일(korail.com)은 PerimeterX를 적용해 CDP 기반 자동화를 차단한다. 핵심 우회법은 **headed 모드 + FormData.prototype.append 가로채기 + 쿨다운 대기**.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
+      "file": "2026-05-04-undetected-chromedriver-python310.md",
+      "date": "2026-05-04",
+      "slug": "undetected-chromedriver-python310",
+      "title": "undetected-chromedriver — Python 3.10 전용, 3.11+ 크래시",
+      "category": "크롤링",
+      "tags": [
+        "selenium",
+        "undetected-chromedriver",
+        "python",
+        "captcha",
+        "자동화",
+        "버전호환"
+      ],
+      "first_discovered": "2026-05-04",
+      "summary": "undetected-chromedriver(uc)는 Google/Cloudflare captcha를 전부 통과하지만 **Python 3.11 이상에서 크래시**. pyenv로 3.10 환경 격리 필수.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
+      "file": "2026-05-04-playwright-codegen-workflow.md",
+      "date": "2026-05-04",
+      "slug": "playwright-codegen-workflow",
+      "title": "Playwright codegen — 브라우저 조작 녹화로 자동화 코드 즉시 생성",
+      "category": "크롤링",
+      "tags": [
+        "playwright",
+        "codegen",
+        "자동화",
+        "브라우저",
+        "uv",
+        "chrome-devtools-mcp"
+      ],
+      "first_discovered": "2026-05-04",
+      "summary": "`playwright codegen`으로 브라우저 조작을 직접 녹화하면 Python/JS 코드가 자동 생성됨. 설치 없이 `uvx`로 바로 실행 가능.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
+      "file": "2026-05-04-play-managed-publishing-trap.md",
+      "date": "2026-05-04",
+      "slug": "play-managed-publishing-trap",
+      "title": "Play Console 관리 게시(Managed Publishing) 함정",
+      "category": "Android 배포",
+      "tags": [
+        "play-console",
+        "android",
+        "managed-publishing",
+        "closed-test",
+        "publish",
+        "trap"
+      ],
+      "first_discovered": "2026-05-02",
+      "summary": "closed test 검토가 통과돼도 **관리 게시(Managed Publishing)가 ON이면 자동 publish가 차단**된다. 게시 개요 화면에서 관리 게시를 OFF로 토글해야 정상 게시된다.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
+      "file": "2026-05-04-parallel-cycle-mac-wsl.md",
+      "date": "2026-05-04",
+      "slug": "parallel-cycle-mac-wsl",
+      "title": "Mac + WSL 병렬 사이클 스킬 — /parallel-cycle 한 번으로 두 기기 동시 지휘",
       "category": "워크플로우",
       "tags": [
-        "git",
-        "interrupt",
-        "untracked",
-        "orphan",
-        "session-start",
-        "skill-file",
-        "stop-hook",
-        "safety-net"
+        "claude-code",
+        "parallel",
+        "mac",
+        "wsl",
+        "multi-device",
+        "skill",
+        "automation",
+        "productivity"
+      ],
+      "first_discovered": "2026-05-04",
+      "summary": "/parallel-cycle 스킬 1회로 Mac N개 + WSL N개 작업을 동시 분산 실행. todos 자동 선택 → 텔레그램 브리핑 → WSL 디렉티브 자동 발송 → Mac 순차 실행 → mac-report.sh 완료 감지 → session-close 자동 호출까지 원스톱. 기존 순차 진행 대비 처리량 2배.",
+      "updated": "2026-05-04T20:15:00+09:00"
+    },
+    {
+      "file": "2026-05-04-litellm-proxy-team-llm-sharing.md",
+      "date": "2026-05-04",
+      "slug": "litellm-proxy-team-llm-sharing",
+      "title": "LiteLLM 프록시 — 로컬 LLM을 팀에 OpenAI API 형식으로 공유",
+      "category": "인프라",
+      "tags": [
+        "litellm",
+        "ollama",
+        "local-llm",
+        "proxy",
+        "openai-api",
+        "팀공유",
+        "self-hosted"
+      ],
+      "first_discovered": "2026-05-04",
+      "summary": "LiteLLM 프록시 서버 1개로 Ollama 로컬 LLM을 다른 PC에서 OpenAI API 형식으로 사용 가능. 기존 OpenAI SDK 코드 수정 없이 로컬 모델로 전환.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
+      "file": "2026-05-04-hyperframes-video-automation.md",
+      "date": "2026-05-04",
+      "slug": "hyperframes-video-automation",
+      "title": "Hyperframes — CC 스킬로 스크립트→TTS→자막→영상 풀자동화",
+      "category": "AI 도구",
+      "tags": [
+        "hyperframes",
+        "claude-code",
+        "영상자동화",
+        "tts",
+        "자막",
+        "remotion",
+        "콘텐츠생성"
+      ],
+      "first_discovered": "2026-05-04",
+      "summary": "`heygen-com/hyperframes` CC 스킬을 추가하면 자연어 지시 한 줄로 스크립트 작성 → TTS 생성 → 자막 합성 → 영상 렌더링 전 과정 자동화.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
+      "file": "2026-05-04-flutter-ios-whitesreen-physical-device.md",
+      "date": "2026-05-04",
+      "slug": "flutter-ios-whitesreen-physical-device",
+      "title": "Flutter iOS 흰화면 — 물리 기기 CoreDevice unavailable",
+      "category": "Flutter iOS",
+      "tags": [
+        "flutter",
+        "ios",
+        "physical-device",
+        "coredevice",
+        "whitesreen",
+        "trust",
+        "developer-mode",
+        "usb"
+      ],
+      "first_discovered": "2026-05-04",
+      "summary": "Flutter iOS 물리 기기 실행 시 흰화면이 뜨거나 `CoreDevice unavailable` 오류가 나면, **USB 연결 + 기기 신뢰(Trust) 허용 + 개발자 모드 활성화** 3단계를 순서대로 확인한다.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
+      "file": "2026-05-04-claude-code-cache-ttl-optimization.md",
+      "date": "2026-05-04",
+      "slug": "claude-code-cache-ttl-optimization",
+      "title": "Claude Code 캐시 TTL 5분 최적화 — 토큰 절약 리듬",
+      "category": "Claude Code",
+      "tags": [
+        "claude-code",
+        "token",
+        "cache",
+        "ttl",
+        "최적화",
+        "비용절감"
+      ],
+      "first_discovered": "2026-05-04",
+      "summary": "Anthropic 프롬프트 캐시 TTL은 5분(300초). 같은 컨텍스트에서 **300초 안에 다음 메시지를 보내면 캐시 히트** → 입력 토큰 90% 할인. 리듬 조정만으로 비용 대폭 절감 가능.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
+      "file": "2026-05-03-telegram-paste-block-purity.md",
+      "date": "2026-05-03",
+      "slug": "telegram-paste-block-purity",
+      "title": "텔레그램 복붙용 명령어는 단독 메시지 — 설명 텍스트 0줄 혼합 금지",
+      "category": "텔레그램",
+      "tags": [
+        "telegram",
+        "paste",
+        "copy",
+        "code-block",
+        "reply",
+        "mobile",
+        "ux",
+        "powershell",
+        "shell"
+      ],
+      "first_discovered": "2026-04-26",
+      "summary": "모바일 텔레그램 long-press copy = 메시지 전체 복사. 명령어와 설명 텍스트가 같은 메시지에 섞이면 복붙 시 라벨까지 붙어 명령이 깨짐. 복붙용 블록은 명령어만 든 별도 reply 1통으로 분리 필수. 예외 0줄 원칙.",
+      "updated": "2026-05-03T00:00:00+09:00"
+    },
+    {
+      "file": "2026-05-03-play-console-testers-api-google-groups-only.md",
+      "date": "2026-05-03",
+      "slug": "play-console-testers-api-google-groups-only",
+      "title": "Play Console testers REST API 는 개별 이메일을 받지 않는다 — Google Group 경유 설계 필수",
+      "category": "Android 배포",
+      "tags": [
+        "play-console",
+        "android",
+        "api",
+        "testers",
+        "google-groups",
+        "automation",
+        "closed-test"
+      ],
+      "first_discovered": "2026-04-16",
+      "summary": "edits.testers API 의 emails 필드는 문서에 있지만 실제 400 반환. googleGroups 배열만 유효. 개별 이메일 → Google Group 멤버 추가 → API 에 그룹 전달 흐름으로 설계해야 함.",
+      "updated": "2026-05-03T00:00:00+09:00"
+    },
+    {
+      "file": "2026-05-03-multi-device-stale-todo-reality-check.md",
+      "date": "2026-05-03",
+      "slug": "multi-device-stale-todo-reality-check",
+      "title": "멀티기기 환경에서 할일 추천·편집 전 reality check — stale 상태 추천 차단",
+      "category": "멀티기기",
+      "tags": [
+        "multi-device",
+        "todos",
+        "stale",
+        "reality-check",
+        "mac-wsl",
+        "parallel",
+        "preflight"
       ],
       "first_discovered": "2026-04-21",
-      "summary": "Write() 로 파일 생성 후 세션이 중단되면 git add/commit/push 가 누락된 채 로컬에만 남는다. 세션 시작 첫 단계로 git status --short 를 skills + daejong-page 양쪽에서 실행하는 것이 가장 단순한 안전망. 파일 쓰기는 commit + push 까지 한 묶음으로 처리.",
-      "updated": "2026-05-03T18:00:00+09:00"
-    },
-    {
-      "file": "2026-05-03-irun-device-lock-precheck.md",
-      "date": "2026-05-03",
-      "slug": "irun-device-lock-precheck",
-      "title": "iOS device 잠금 상태에서 Flutter run = \"Could not run Runner.app\" 오탐 — devicectl pre-check + 폴백",
-      "category": "iOS 빌드",
-      "tags": [
-        "ios",
-        "flutter",
-        "irun",
-        "devicectl",
-        "device-lock",
-        "error-translation"
-      ],
-      "first_discovered": "2026-04-20",
-      "summary": "Flutter 의 'Could not run Runner.app' + 'Try Xcode > Run' 안내는 device 잠금 거부(SBMainWorkspace ... Locked)를 가리는 번역 오탐. flutter run 호출 전 'devicectl device info connected | grep unlocked' 게이트 + 에러 매칭 시 'devicectl device process launch' 직접 호출로 진짜 원인 surface.",
-      "updated": "2026-05-03T10:45:00+09:00"
-    },
-    {
-      "file": "2026-05-03-google-signin-ios-gidclientid-precheck.md",
-      "date": "2026-05-03",
-      "slug": "google-signin-ios-gidclientid-precheck",
-      "title": "google_sign_in 신규 iOS 빌드 = GIDClientID + URL scheme 사전 체크 게이트",
-      "category": "iOS 빌드",
-      "tags": [
-        "ios",
-        "flutter",
-        "google-sign-in",
-        "oauth",
-        "gidclientid",
-        "info-plist",
-        "fail-fast"
-      ],
-      "first_discovered": "2026-04-23",
-      "summary": "Android 는 SHA-1 + 패키지명 자동 매칭이라 코드 변경 0 이지만 iOS 는 Info.plist 의 GIDClientID + reversed URL scheme 가 없으면 첫 sign-in 시 NSInvalidArgumentException 으로 즉시 강종. pre-build 셸 게이트(tools/check_ios_oauth.sh) + Dart Platform.isIOS fail-fast 두 겹으로 차단.",
-      "updated": "2026-05-03T10:45:00+09:00"
+      "summary": "한 기기가 코드 작업을 완료해도 todos 미갱신 시, 다른 기기가 stale todos 로 이미 끝난 일을 재추천하는 stale-on-stale 이중 사고 발생. 할일 추천 전 git pull + gh repo list 24h activity reality check 의무화 + 코드 완료 이벤트 시 todos 업데이트 트리거가 근본 방지책.",
+      "updated": "2026-05-03T00:00:00+09:00"
     },
     {
       "file": "2026-05-03-launchd-register-verification-gate.md",
@@ -140,6 +304,24 @@
       "updated": "2026-05-03T00:00:00+09:00"
     },
     {
+      "file": "2026-05-03-irun-device-lock-precheck.md",
+      "date": "2026-05-03",
+      "slug": "irun-device-lock-precheck",
+      "title": "iOS device 잠금 상태에서 Flutter run = \"Could not run Runner.app\" 오탐 — devicectl pre-check + 폴백",
+      "category": "iOS 빌드",
+      "tags": [
+        "ios",
+        "flutter",
+        "irun",
+        "devicectl",
+        "device-lock",
+        "error-translation"
+      ],
+      "first_discovered": "2026-04-20",
+      "summary": "Flutter 의 'Could not run Runner.app' + 'Try Xcode > Run' 안내는 device 잠금 거부(SBMainWorkspace ... Locked)를 가리는 번역 오탐. flutter run 호출 전 'devicectl device info connected | grep unlocked' 게이트 + 에러 매칭 시 'devicectl device process launch' 직접 호출로 진짜 원인 surface.",
+      "updated": "2026-05-03T10:45:00+09:00"
+    },
+    {
       "file": "2026-05-03-ios-app-store-ipad-screenshot-required.md",
       "date": "2026-05-03",
       "slug": "ios-app-store-ipad-screenshot-required",
@@ -160,63 +342,42 @@
       "updated": "2026-05-03T00:00:00+09:00"
     },
     {
-      "file": "2026-05-03-play-console-testers-api-google-groups-only.md",
+      "file": "2026-05-03-google-signin-ios-gidclientid-precheck.md",
       "date": "2026-05-03",
-      "slug": "play-console-testers-api-google-groups-only",
-      "title": "Play Console testers REST API 는 개별 이메일을 받지 않는다 — Google Group 경유 설계 필수",
-      "category": "Android 배포",
+      "slug": "google-signin-ios-gidclientid-precheck",
+      "title": "google_sign_in 신규 iOS 빌드 = GIDClientID + URL scheme 사전 체크 게이트",
+      "category": "iOS 빌드",
       "tags": [
-        "play-console",
-        "android",
-        "api",
-        "testers",
-        "google-groups",
-        "automation",
-        "closed-test"
+        "ios",
+        "flutter",
+        "google-sign-in",
+        "oauth",
+        "gidclientid",
+        "info-plist",
+        "fail-fast"
       ],
-      "first_discovered": "2026-04-16",
-      "summary": "edits.testers API 의 emails 필드는 문서에 있지만 실제 400 반환. googleGroups 배열만 유효. 개별 이메일 → Google Group 멤버 추가 → API 에 그룹 전달 흐름으로 설계해야 함.",
-      "updated": "2026-05-03T00:00:00+09:00"
+      "first_discovered": "2026-04-23",
+      "summary": "Android 는 SHA-1 + 패키지명 자동 매칭이라 코드 변경 0 이지만 iOS 는 Info.plist 의 GIDClientID + reversed URL scheme 가 없으면 첫 sign-in 시 NSInvalidArgumentException 으로 즉시 강종. pre-build 셸 게이트(tools/check_ios_oauth.sh) + Dart Platform.isIOS fail-fast 두 겹으로 차단.",
+      "updated": "2026-05-03T10:45:00+09:00"
     },
     {
-      "file": "2026-05-03-telegram-paste-block-purity.md",
-      "date": "2026-05-03",
-      "slug": "telegram-paste-block-purity",
-      "title": "텔레그램 복붙용 명령어는 단독 메시지 — 설명 텍스트 0줄 혼합 금지",
-      "category": "텔레그램",
+      "file": "2026-05-02-wsl-flutter-test-cmd-pushd-unc.md",
+      "date": "2026-05-02",
+      "slug": "wsl-flutter-test-cmd-pushd-unc",
+      "title": "WSL 에서 Windows-native flutter test 실행 — cmd.exe pushd UNC 우회",
+      "category": "환경 설정",
       "tags": [
-        "telegram",
-        "paste",
-        "copy",
-        "code-block",
-        "reply",
-        "mobile",
-        "ux",
-        "powershell",
-        "shell"
+        "wsl",
+        "flutter",
+        "test",
+        "windows",
+        "cmd",
+        "pushd",
+        "unc"
       ],
-      "first_discovered": "2026-04-26",
-      "summary": "모바일 텔레그램 long-press copy = 메시지 전체 복사. 명령어와 설명 텍스트가 같은 메시지에 섞이면 복붙 시 라벨까지 붙어 명령이 깨짐. 복붙용 블록은 명령어만 든 별도 reply 1통으로 분리 필수. 예외 0줄 원칙.",
-      "updated": "2026-05-03T00:00:00+09:00"
-    },
-    {
-      "file": "2026-05-03-multi-device-stale-todo-reality-check.md",
-      "date": "2026-05-03",
-      "slug": "multi-device-stale-todo-reality-check",
-      "title": "멀티기기 환경에서 할일 추천·편집 전 reality check — stale 상태 추천 차단",
-      "category": "멀티기기",
-      "tags": [
-        "multi-device",
-        "todos",
-        "stale",
-        "reality-check",
-        "mac-wsl",
-        "parallel",
-        "preflight"
-      ],
-      "first_discovered": "2026-04-21",
-      "summary": "한 기기가 코드 작업을 완료해도 todos 미갱신 시, 다른 기기가 stale todos 로 이미 끝난 일을 재추천하는 stale-on-stale 이중 사고 발생. 할일 추천 전 git pull + gh repo list 24h activity reality check 의무화 + 코드 완료 이벤트 시 todos 업데이트 트리거가 근본 방지책.",
-      "updated": "2026-05-03T00:00:00+09:00"
+      "first_discovered": "2026-05-02",
+      "summary": "WSL bash 에서 /mnt/c/src/flutter/bin/flutter.bat 직접 호출은 CRLF/PATH 로 깨지고 powershell.exe + UNC cwd 도 .bat 내부 cmd 가 거부. cmd.exe /c 'pushd \\\\wsl.localhost\\Ubuntu\\... && C:\\src\\flutter\\bin\\flutter.bat test 2>&1 & popd' 한 줄로 우회. lotto-calc PR #3 V4 검증 (8/8 PASS, 4.85s).",
+      "updated": "2026-05-02T17:55:00+09:00"
     },
     {
       "file": "2026-05-02-playwright-mcp-absolute-output-dir.md",
@@ -239,25 +400,6 @@
       "updated": "2026-05-03T00:55:00+09:00"
     },
     {
-      "file": "2026-05-02-wsl-flutter-test-cmd-pushd-unc.md",
-      "date": "2026-05-02",
-      "slug": "wsl-flutter-test-cmd-pushd-unc",
-      "title": "WSL 에서 Windows-native flutter test 실행 — cmd.exe pushd UNC 우회",
-      "category": "환경 설정",
-      "tags": [
-        "wsl",
-        "flutter",
-        "test",
-        "windows",
-        "cmd",
-        "pushd",
-        "unc"
-      ],
-      "first_discovered": "2026-05-02",
-      "summary": "WSL bash 에서 /mnt/c/src/flutter/bin/flutter.bat 직접 호출은 CRLF/PATH 로 깨지고 powershell.exe + UNC cwd 도 .bat 내부 cmd 가 거부. cmd.exe /c 'pushd \\\\wsl.localhost\\Ubuntu\\... && C:\\src\\flutter\\bin\\flutter.bat test 2>&1 & popd' 한 줄로 우회. lotto-calc PR #3 V4 검증 (8/8 PASS, 4.85s).",
-      "updated": "2026-05-02T17:55:00+09:00"
-    },
-    {
       "file": "2026-05-02-playwright-google-oauth-stealth.md",
       "date": "2026-05-02",
       "slug": "playwright-google-oauth-stealth",
@@ -274,6 +416,25 @@
       "rediscovered": "2026-05-02",
       "summary": "Playwright 로 띄운 Chrome 에서 Google 로그인하면 차단됨. channel:'chrome' + --disable-blink-features=AutomationControlled + --disable-features=IsolateOrigins,site-per-process + ignoreDefaultArgs:['--enable-automation'] 4종 동시 적용으로 우회. 어느 하나 빠지면 차단.",
       "updated": "2026-05-02T13:10:00+09:00"
+    },
+    {
+      "file": "2026-05-02-concurrent-file-edit-conflict-prevention.md",
+      "date": "2026-05-02",
+      "slug": "concurrent-file-edit-conflict-prevention",
+      "title": "다기기 동시 작업 시 같은 파일 수정 충돌 방지 패턴",
+      "category": "인프라",
+      "tags": [
+        "multi-device",
+        "git",
+        "conflict",
+        "concurrent",
+        "coordination",
+        "mac",
+        "wsl"
+      ],
+      "first_discovered": "2026-05-02",
+      "summary": "두 작업자(Mac 본진·WSL)가 같은 파일을 31분 안에 각각 수정하면 git merge 충돌 0이어도 **의미적 race** 가 발생한다. `git merge --no-conflict` 는 안전성 보증이 아니다. **작업 시작 전 파일 선언 + 중복 감지 + 즉시 중단** 3단계가 충돌 방지의 전부다.",
+      "updated": "2026-05-06T18:48:23+09:00"
     },
     {
       "file": "2026-05-01-sync-script-source-cache-separation.md",
@@ -293,6 +454,24 @@
       "first_discovered": "2026-05-01",
       "summary": "sync/backfill 스크립트의 cacheFile 경로가 원본 콘텐츠 파일과 같으면 실행마다 원본 덮어쓰기. ep<N>-<DATE>.md(원본)과 ep<N>-cache.md(캐시) 분리 + 스크립트 상단 PROTECTED_PATTERN assert 1줄이 근본 방지책.",
       "updated": "2026-05-03T00:55:00+09:00"
+    },
+    {
+      "file": "2026-05-01-newsletter-cache-source-separation.md",
+      "date": "2026-05-01",
+      "slug": "newsletter-cache-source-separation",
+      "title": "뉴스레터 원본 파일과 싱크 캐시 파일은 반드시 분리",
+      "category": "자동화",
+      "tags": [
+        "newsletter",
+        "substack",
+        "sync",
+        "cache",
+        "file-naming",
+        "source-of-truth"
+      ],
+      "first_discovered": "2026-05-01",
+      "summary": "로컬 원본 파일과 외부 플랫폼 backfill 캐시가 **같은 파일명을 공유하면** sync 스크립트가 원본을 덮어쓴다. **파일명 컨벤션을 처음부터 둘로 나눠야** 한다.",
+      "updated": "2026-05-06T18:48:23+09:00"
     },
     {
       "file": "2026-04-29-apple-silicon-rosetta-iproxy.md",
@@ -315,24 +494,44 @@
       "updated": "2026-04-29T23:30:00+09:00"
     },
     {
-      "file": "2026-04-27-harness-default-branch-push.md",
-      "date": "2026-04-27",
-      "slug": "harness-default-branch-push",
-      "title": "하네스가 default branch 직접 push 를 PR review 우회로 차단 — settings.json 좁은 allow 로 해결",
-      "category": "Claude Code",
+      "file": "2026-04-28-cf-workers-llm-api-region-block.md",
+      "date": "2026-04-28",
+      "slug": "cf-workers-llm-api-region-block",
+      "title": "CF Workers 에서 외부 LLM API 직접 호출 금지 — AI Gateway 경유 필수",
+      "category": "배포",
       "tags": [
-        "claude-code",
-        "harness",
-        "git",
-        "push",
-        "default-branch",
-        "settings",
-        "permissions",
-        "solo-dev"
+        "cloudflare",
+        "cf-workers",
+        "openai",
+        "anthropic",
+        "llm",
+        "region-block",
+        "ai-gateway",
+        "colo",
+        "502",
+        "403"
+      ],
+      "first_discovered": "2026-04-28",
+      "summary": "CF colo 라우팅이 특정 ISP·지역 IP 를 한국 colo 로 매핑하면 outbound IP 가 OpenAI region-block 권역에 걸려 403 반환. api.openai.com 직접 호출 대신 CF AI Gateway 경유가 근본 fix. 출시 전 2개 이상 ISP/환경에서 LLM 호출 검증 필수.",
+      "updated": "2026-05-03T18:00:00+09:00"
+    },
+    {
+      "file": "2026-04-27-telegram-bot-api-raw-id.md",
+      "date": "2026-04-27",
+      "slug": "telegram-bot-api-raw-id",
+      "title": "텔레그램 Bot API raw msg ID 는 사용자 폰에 안 보인다",
+      "category": "자동화",
+      "tags": [
+        "telegram",
+        "bot",
+        "api",
+        "msg-id",
+        "ux",
+        "debug"
       ],
       "first_discovered": "2026-04-27",
-      "summary": "하네스 분류기가 git push origin main 을 PR review 우회로 판단, CLAUDE.md 일반 가이드는 명시 승인으로 안 쳐줌. settings.json permissions.allow 에 'Bash(git push origin main)' 추가가 유일한 근본 해결. force push 는 별도 차단 유지. solo-dev repo 는 이 패턴, multi-device PR 분기 repo 는 혼용 가능.",
-      "updated": "2026-05-03T16:30:00+09:00"
+      "summary": "`mcp__plugin_telegram_telegram__reply` 가 반환하는 `sent (id: NNNN)` 은 **Bot API 내부 message_id** 다. 사용자 폰 텔레그램 UI 에는 이 ID 가 노출되지 않는다. \"id 7930 받으셨어요?\" 는 사용자에게 의미 없는 정보다. **메시지를 특정할 때는 발송 시각(KST) + 메시지 키워드** 로 가리켜라.",
+      "updated": "2026-05-06T18:48:23+09:00"
     },
     {
       "file": "2026-04-27-harness-same-turn-write-commit-fp.md",
@@ -355,6 +554,44 @@
       "updated": "2026-05-03T16:30:00+09:00"
     },
     {
+      "file": "2026-04-27-harness-default-branch-push.md",
+      "date": "2026-04-27",
+      "slug": "harness-default-branch-push",
+      "title": "하네스가 default branch 직접 push 를 PR review 우회로 차단 — settings.json 좁은 allow 로 해결",
+      "category": "Claude Code",
+      "tags": [
+        "claude-code",
+        "harness",
+        "git",
+        "push",
+        "default-branch",
+        "settings",
+        "permissions",
+        "solo-dev"
+      ],
+      "first_discovered": "2026-04-27",
+      "summary": "하네스 분류기가 git push origin main 을 PR review 우회로 판단, CLAUDE.md 일반 가이드는 명시 승인으로 안 쳐줌. settings.json permissions.allow 에 'Bash(git push origin main)' 추가가 유일한 근본 해결. force push 는 별도 차단 유지. solo-dev repo 는 이 패턴, multi-device PR 분기 repo 는 혼용 가능.",
+      "updated": "2026-05-03T16:30:00+09:00"
+    },
+    {
+      "file": "2026-04-26-tmux-claude-session-marker-detection.md",
+      "date": "2026-04-26",
+      "slug": "tmux-claude-session-marker-detection",
+      "title": "tmux capture-pane 으로 Claude 세션 감지 — 마커 확장 + viewport 범위 패턴",
+      "category": "인프라",
+      "tags": [
+        "tmux",
+        "claude",
+        "detection",
+        "handoff",
+        "grep",
+        "capture-pane"
+      ],
+      "first_discovered": "2026-04-26",
+      "summary": "`tmux capture-pane` 기본값은 현재 viewport 만 캡처하고, grep 마커는 Claude Code UI 업데이트마다 바뀐다. **마커 확장 + `-S -200` viewport 확대 + 프로세스 fallback 3단계** 를 모두 적용해야 false-negative 0에 가까워진다.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
       "file": "2026-04-26-tmux-claude-session-dynamic-detect.md",
       "date": "2026-04-26",
       "slug": "tmux-claude-session-dynamic-detect",
@@ -375,6 +612,23 @@
       "updated": "2026-05-03T00:55:00+09:00"
     },
     {
+      "file": "2026-04-26-telegram-paste-block-purity.md",
+      "date": "2026-04-26",
+      "slug": "telegram-paste-block-purity",
+      "title": "텔레그램 복붙 메시지는 순수 블록만 — 라벨·안내 텍스트 혼입 금지",
+      "category": "자동화",
+      "tags": [
+        "telegram",
+        "reply",
+        "paste",
+        "bot",
+        "ux"
+      ],
+      "first_discovered": "2026-04-26",
+      "summary": "폰에서 텔레그램 메시지를 long-press copy 하면 **메시지 전체가 클립보드에 들어간다.** 명령어 블록에 `[관리자 PowerShell 에 그대로 복붙]` 같은 안내 텍스트를 같이 보내면 그 텍스트도 실행줄에 붙어 syntax error 가 난다. **복붙 전용 메시지에는 실행 가능한 코드 라인만** 들어가야 한다.",
+      "updated": "2026-05-06T18:48:23+09:00"
+    },
+    {
       "file": "2026-04-26-ssh-keepalive-bidir-config.md",
       "date": "2026-04-26",
       "slug": "ssh-keepalive-bidir-config",
@@ -392,6 +646,27 @@
       "first_discovered": "2026-04-26",
       "summary": "서버 sleep / 네트워크 끊김 시 stale 소켓이 살아있는 듯 남아 키 입력 무반응. 양쪽 ~/.ssh/config 에 Host * 글로벌로 ServerAliveInterval 60 + ServerAliveCountMax 3 박으면 1분 keepalive + 3분 안에 죽은 연결 자동 종료. 한 번 박으면 영구 fix.",
       "updated": "2026-05-02T20:58:00+09:00"
+    },
+    {
+      "file": "2026-04-26-macos-ssh-cli-fda-block.md",
+      "date": "2026-04-26",
+      "slug": "macos-ssh-cli-fda-block",
+      "title": "macOS Ventura 이상에서 SSH 활성화는 GUI 토글만 — CLI systemsetup 차단",
+      "category": "환경 설정",
+      "tags": [
+        "macos",
+        "ssh",
+        "systemsetup",
+        "fda",
+        "full-disk-access",
+        "tahoe",
+        "terminal",
+        "ghostty",
+        "remote-login"
+      ],
+      "first_discovered": "2026-04-26",
+      "summary": "macOS 13+ 부터 sudo systemsetup -setremotelogin on 은 호출 터미널 앱에 FDA 가 있어야 실행됨. 신규 설치 터미널은 항상 FDA 미부여 상태. 시스템 설정 > 공유 > 원격 로그인 GUI 토글이 유일한 무조건 통과 경로. CLI 자동화 스크립트에서 이 명령 사용 금지.",
+      "updated": "2026-05-03T18:00:00+09:00"
     },
     {
       "file": "2026-04-25-playwright-mcp-browser-env-override.md",
@@ -433,24 +708,24 @@
       "updated": "2026-05-02T20:58:00+09:00"
     },
     {
-      "file": "2026-04-20-daemon-session-id-pid-isolation.md",
-      "date": "2026-04-20",
-      "slug": "daemon-session-id-pid-isolation",
-      "title": "Claude Code 훅 기동 데몬은 세션 ID 기반 PID 파일로 격리",
-      "category": "자동화",
+      "file": "2026-04-21-interrupt-git-status-guard.md",
+      "date": "2026-04-21",
+      "slug": "interrupt-git-status-guard",
+      "title": "세션 중단 후 미커밋 파일 방지 — git status 가드 패턴",
+      "category": "워크플로우",
       "tags": [
-        "daemon",
-        "claude-code",
-        "session-id",
-        "pid",
-        "isolation",
-        "hooks",
-        "telegram",
-        "pkill"
+        "git",
+        "interrupt",
+        "untracked",
+        "orphan",
+        "session-start",
+        "skill-file",
+        "stop-hook",
+        "safety-net"
       ],
-      "first_discovered": "2026-04-20",
-      "summary": "Claude Code Stop/UserPromptSubmit 훅 JSON stdin 에서 session_id 를 jq 로 파싱해 PID 파일 키로 쓰면 병렬 세션 간 격추 0. CLAUDE_SESSION_ID 환경변수는 훅에 주입되지 않으므로 stdin JSON 파싱 필수. session_id 없으면 stop 훅은 아무것도 안 함 (sibling 오격추 방지). daemon 에 set -e 금지 + disown + heartbeat 로그 4종 세트.",
-      "updated": "2026-05-03T16:30:00+09:00"
+      "first_discovered": "2026-04-21",
+      "summary": "Write() 로 파일 생성 후 세션이 중단되면 git add/commit/push 가 누락된 채 로컬에만 남는다. 세션 시작 첫 단계로 git status --short 를 skills + daejong-page 양쪽에서 실행하는 것이 가장 단순한 안전망. 파일 쓰기는 commit + push 까지 한 묶음으로 처리.",
+      "updated": "2026-05-03T18:00:00+09:00"
     },
     {
       "file": "2026-04-20-flutter-noninteractive-shell-resolver.md",
@@ -471,6 +746,26 @@
       "updated": "2026-04-20T21:16:00+09:00"
     },
     {
+      "file": "2026-04-20-daemon-session-id-pid-isolation.md",
+      "date": "2026-04-20",
+      "slug": "daemon-session-id-pid-isolation",
+      "title": "Claude Code 훅 기동 데몬은 세션 ID 기반 PID 파일로 격리",
+      "category": "자동화",
+      "tags": [
+        "daemon",
+        "claude-code",
+        "session-id",
+        "pid",
+        "isolation",
+        "hooks",
+        "telegram",
+        "pkill"
+      ],
+      "first_discovered": "2026-04-20",
+      "summary": "Claude Code Stop/UserPromptSubmit 훅 JSON stdin 에서 session_id 를 jq 로 파싱해 PID 파일 키로 쓰면 병렬 세션 간 격추 0. CLAUDE_SESSION_ID 환경변수는 훅에 주입되지 않으므로 stdin JSON 파싱 필수. session_id 없으면 stop 훅은 아무것도 안 함 (sibling 오격추 방지). daemon 에 set -e 금지 + disown + heartbeat 로그 4종 세트.",
+      "updated": "2026-05-03T16:30:00+09:00"
+    },
+    {
       "file": "2026-04-19-ios-ipa-arm64-only-lipo-check.md",
       "date": "2026-04-19",
       "slug": "ios-ipa-arm64-only-lipo-check",
@@ -489,25 +784,6 @@
       "updated": "2026-04-19T23:59:00+09:00"
     },
     {
-      "file": "2026-04-17-applescript-coord-tap-retry.md",
-      "date": "2026-04-17",
-      "slug": "applescript-coord-tap-retry",
-      "title": "AppleScript 좌표 기반 탭 자동화는 단발 X, 검증+재시도 디폴트",
-      "category": "자동화",
-      "tags": [
-        "applescript",
-        "ios",
-        "simulator",
-        "coordinate",
-        "tap",
-        "retina",
-        "scaling"
-      ],
-      "first_discovered": "2026-04-17",
-      "summary": "macOS Retina 스케일링(2x) + 시뮬레이터 자체 하드웨어 스케일이 겹치면서 AppleScript 좌표가 ±1 행 drift. 단일 탭으로 끝내지 말고 탭 → 결과 검증 → 실패 시 ±1 행 보정 재시도 패턴 디폴트. 가능하면 좌표 대신 accessibility identifier 우선.",
-      "updated": "2026-05-02T20:58:00+09:00"
-    },
-    {
       "file": "2026-04-17-ios-sim-prefs-simctl-import.md",
       "date": "2026-04-17",
       "slug": "ios-sim-prefs-simctl-import",
@@ -524,6 +800,25 @@
       ],
       "first_discovered": "2026-04-17",
       "summary": "iOS cfprefsd (Preferences Daemon) 가 plist 내용을 메모리에 캐시. PlistBuddy/plutil 직접 수정 = 파일은 바뀌어도 앱은 옛 값 계속 읽음. xcrun simctl spawn <sim_id> defaults import <domain> <plist> 로 cfprefsd 거치게 만들어야 정상 반영.",
+      "updated": "2026-05-02T20:58:00+09:00"
+    },
+    {
+      "file": "2026-04-17-applescript-coord-tap-retry.md",
+      "date": "2026-04-17",
+      "slug": "applescript-coord-tap-retry",
+      "title": "AppleScript 좌표 기반 탭 자동화는 단발 X, 검증+재시도 디폴트",
+      "category": "자동화",
+      "tags": [
+        "applescript",
+        "ios",
+        "simulator",
+        "coordinate",
+        "tap",
+        "retina",
+        "scaling"
+      ],
+      "first_discovered": "2026-04-17",
+      "summary": "macOS Retina 스케일링(2x) + 시뮬레이터 자체 하드웨어 스케일이 겹치면서 AppleScript 좌표가 ±1 행 drift. 단일 탭으로 끝내지 말고 탭 → 결과 검증 → 실패 시 ±1 행 보정 재시도 패턴 디폴트. 가능하면 좌표 대신 accessibility identifier 우선.",
       "updated": "2026-05-02T20:58:00+09:00"
     },
     {
@@ -559,45 +854,6 @@
       "first_discovered": "2026-04-15",
       "summary": "AppleScript-osa 브리지는 페이로드 크기 상한이 있어 1MB+ 바이너리를 텍스트로 못 넘김. 디스크에 먼저 두고 osascript 에 경로만 전달. base64 청크 우회는 가능하지만 안 권장.",
       "updated": "2026-04-15T23:59:00+09:00"
-    },
-    {
-      "file": "2026-05-04-parallel-cycle-mac-wsl.md",
-      "date": "2026-05-04",
-      "slug": "parallel-cycle-mac-wsl",
-      "title": "Mac + WSL 병렬 사이클 스킬 — /parallel-cycle 한 번으로 두 기기 동시 지휘",
-      "category": "워크플로우",
-      "tags": [
-        "claude-code",
-        "parallel",
-        "mac",
-        "wsl",
-        "multi-device",
-        "skill",
-        "automation",
-        "productivity"
-      ],
-      "first_discovered": "2026-05-04",
-      "summary": "/parallel-cycle 스킬 1회로 Mac N개 + WSL N개 작업을 동시 분산 실행. todos 자동 선택 → 텔레그램 브리핑 → WSL 디렉티브 자동 발송 → Mac 순차 실행 → mac-report.sh 완료 감지 → session-close 자동 호출까지 원스톱. 기존 순차 진행 대비 처리량 2배.",
-      "updated": "2026-05-04T20:15:00+09:00"
-    },
-    {
-      "file": "2026-05-06-asc-unresolved-issues-version-state-api-check.md",
-      "date": "2026-05-06",
-      "slug": "asc-unresolved-issues-version-state-api-check",
-      "title": "ASC UI '해결되지 않은 문제' ≠ 실제 심사 거절 — API로 정확한 버전 상태 확인",
-      "category": "iOS 배포",
-      "tags": [
-        "ios",
-        "asc",
-        "app-store",
-        "api",
-        "submit",
-        "review",
-        "unresolved-issues"
-      ],
-      "first_discovered": "2026-05-06",
-      "summary": "ASC UI의 UNRESOLVED_ISSUES 배너는 reviewSubmission 컨테이너 상태이고, 실제 심사 상태는 appStoreVersions.appVersionState가 truth. Playwright 로그인 없이 JWT API 키로 정확한 상태 확인 가능. 유령 제출(items 0개) 다수 생성돼도 실제 심사에는 영향 없음.",
-      "updated": "2026-05-06T16:24:00+09:00"
     }
   ]
 }
