@@ -335,7 +335,7 @@
 
       <div class="card" data-device="both">
         <div class="card-header"><span class="card-name">/worklog</span><span class="card-tag">작업일지</span><span class="card-device dev-both" title="Both">🔄 Both</span></div>
-        <div class="card-desc">하루 작업 내용(맥+데스크탑 세션 로그 + 모든 git 커밋)을 수집·요약 → docs/worklog/YYYY-MM-DD_vX.Y.Z.md 저장 + git 푸시. 실행 시 Tailscale rsync 로 데스크탑 세션도 자동 당겨 옴.</div>
+        <div class="card-desc">하루 전체 작업(현재 세션 + 그날 모든 Claude 세션 로그 + 모든 프로젝트 git 커밋) 수집·요약 → worklog-source/(원본) + worklog/(뉴스레터 공개본) 이원화 저장 + GitHub·홈페이지 반영. 트리거 "작업일지", "일지 써줘", "/worklog".</div>
         <div class="card-links">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/worklog/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
