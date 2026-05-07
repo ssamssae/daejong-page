@@ -69,3 +69,5 @@
 - [ ] 🤝 🤖 AI 에이전트 3종 활용법 학습 — Claude Code / OpenClaw / Codex 같은 작업 각각 실행 비교 → "이 작업엔 이 도구" 선택 기준 정립. 스펙: ~/.claude/plans/brainstorm-ai-agent-learn-2026-05-06.md. (추가: 2026-05-06)
 
 - [ ] 🤝 🛠 Mac mini agent-mesh-watcher bootstrap 결정 — `ai.openclaw.agent-mesh-watcher.plist` 가 LaunchAgents 에 있지만 launchctl list 미로드. mesh 인바운드 자동 응답이 안 됨. 켜면 평생 자동, 끄면 SSH 우회 패턴 유지. (추가: 2026-05-07, 트리거: 2026-05-07 wsl↔macmini round-trip 테스트)
+
+- [ ] 🤝 🤖 Pi (pi-agent) 한 번 깔아보고 평가 — Mario Zechner 의 미니멀 터미널 코딩 에이전트 (4툴: read/write/edit/bash, 시스템 프롬프트 1K 미만, MCP/permissions 없음, 모델 자유). OpenClaw 와 같은 철학. github.com/badlogic/pi-mono. Claude Code 와 비교 평가, 강대종 워크플로우에 자리 있는지 판단. (추가: 2026-05-08, 트리거: 2026-05-07 강대종 "pi agent 인기라던데" 조사)
