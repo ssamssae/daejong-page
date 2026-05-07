@@ -10,6 +10,8 @@
 
 ## 모아둠
 
+- [ ] 🔧 Codex→WSL [명령] 2번 수신 버그 — Mac mini Codex가 agent-msg-notify.sh 중복 호출로 WSL에 [명령] 2회 전송. AGENTS.md 규칙 점검 또는 호출 중복 방지 로직 추가 필요. (추가: 2026-05-08)
+
 - [ ] 🤝 🔐 ASC Playwright 로그인 자동화 — Apple ID 2FA 장벽 우회. 방향: (1) Playwright persistent profile + Safari keychain 연동, (2) applescript 세션 재사용, (3) 비밀번호 secrets 저장 + TOTP 코드 자동생성. 현재는 로그인만 수동, 이후 전부 자동화 가능. (추가: 2026-05-05, 트리거: wordyo ASC 앱 생성 시도 중 발견)
 
 - [ ] 🍎 📋 메모요 개인정보처리방침/이용약관 추가 — 테스터스 커뮤니티 피드백: 스토어 정책 필수 항목. Play Store 링크 + 앱 설정 내 접근 가능하게. (추가: 2026-05-05, 출처: TC 피드백 5번)
@@ -65,9 +67,3 @@
 - [ ] 🍎 💡 코레일 앱 Appium 자동화 — 웹 자동화(Playwright) 대신 iOS 시뮬레이터 앱 UI 직접 조작. CDP 기반 아닌 Appium XCUITest 드라이버 사용 → PerimeterX 웹 탐지 레이어 완전 우회. (추가: 2026-05-05, 막다른길: korail-playwright-bot-detection)
 
 - [ ] 🤝 💡 막다른길 상세 렌더러 페이지 — dead-ends 카드 클릭 시 .md 내용을 렌더링해 보여주는 detail.html 신설. issue.html 방식 참고. 현재는 카드 클릭 비활성화 상태. (추가: 2026-05-05)
-
-- [ ] 🤝 🤖 AI 에이전트 3종 활용법 학습 — Claude Code / OpenClaw / Codex 같은 작업 각각 실행 비교 → "이 작업엔 이 도구" 선택 기준 정립. 스펙: ~/.claude/plans/brainstorm-ai-agent-learn-2026-05-06.md. (추가: 2026-05-06)
-
-- [ ] 🤝 🛠 Mac mini agent-mesh-watcher bootstrap 결정 — `ai.openclaw.agent-mesh-watcher.plist` 가 LaunchAgents 에 있지만 launchctl list 미로드. mesh 인바운드 자동 응답이 안 됨. 켜면 평생 자동, 끄면 SSH 우회 패턴 유지. (추가: 2026-05-07, 트리거: 2026-05-07 wsl↔macmini round-trip 테스트)
-
-- [ ] 🤝 🤖 Pi (pi-agent) 한 번 깔아보고 평가 — Mario Zechner 의 미니멀 터미널 코딩 에이전트 (4툴: read/write/edit/bash, 시스템 프롬프트 1K 미만, MCP/permissions 없음, 모델 자유). OpenClaw 와 같은 철학. github.com/badlogic/pi-mono. Claude Code 와 비교 평가, 강대종 워크플로우에 자리 있는지 판단. (추가: 2026-05-08, 트리거: 2026-05-07 강대종 "pi agent 인기라던데" 조사)
