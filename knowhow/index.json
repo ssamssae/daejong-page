@@ -16,8 +16,8 @@
                 "macmini"
             ],
             "first_discovered": "2026-05-08",
-            "summary": "맥북·WSL·맥미니 3대 간 텔레그램 6방향 메시지 표준화. [발신이모지→수신이모지] [타입] 내용 포맷, 수신자 채팅방으로 올바르게 라우팅. TELEGRAM_BOT_TOKEN_MACBOOK/WSL/MACMINI named 토큰 구조. OpenClaw dmScope per-channel-peer 미러링 함정 포함.",
-            "updated": "2026-05-08T00:20:00+09:00"
+            "summary": "맥북·WSL·맥미니 3대 간 텔레그램 6방향 메시지 표준화. [발신이모지→수신이모지] [타입] 내용 포맷, 수신자 채팅방으로 올바르게 라우팅. TELEGRAM_BOT_TOKEN_MACBOOK/WSL/MACMINI named 토큰 구조. mac-report.sh 자동 [결과] 알림·stop-ping 터미널 응답 포워딩 함정 + 맥미니 자율 응답 불가(본진 SSH 코디 패턴) 추가.",
+            "updated": "2026-05-08T01:55:00+09:00"
         },
         {
             "file": "2026-05-06-asc-unresolved-issues-version-state-api-check.md",

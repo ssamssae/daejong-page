@@ -107,10 +107,49 @@ launchctl kickstart -k gui/$(id -u)/ai.openclaw.gateway
 
 두 openclaw 인스턴스가 동시 실행되면 구 인스턴스가 구 설정으로 미러링 지속 → `ps aux | grep openclaw`로 확인 후 구 프로세스 kill.
 
+## 함정: mac-report.sh 자동 [결과] 알림 (2026-05-08)
+
+mac-report.sh 끝에 `agent-msg-notify.sh $FROM_DEVICE macbook 결과 $TITLE` 호출이 있으면:
+- WSL/맥미니가 본진에 보고를 보낼 때 **맥북 채팅방에 가짜 [결과] 메시지 자동 전송**
+- 방향도 반대처럼 보여서 혼선 유발
+
+**해결**: mac-report.sh 마지막 agent-msg-notify 호출 제거. 결과 알림은 수신측 Claude가 직접 보냄.
+
+## 함정: telegram-stop-ping.sh의 mac-report 응답 포워딩 (2026-05-08)
+
+`telegram-stop-ping.sh` stop hook은 터미널 세션(비텔레그램 입력) Claude 응답을 `💬 터미널 응답` 헤더로 @MyClaude 채팅에 포워딩함. mac-report로 본진 tmux가 깨어나 처리한 결과도 이 채널로 흘러들어 노이즈 발생.
+
+**해결**: hook 상단에 `[Mac report title:` 패턴 감지 시 skip 추가:
+
+```bash
+if echo "$last_user" | grep -q '\[Mac report title:'; then
+  echo "  skip: mac-report internal message" >> "$LOG"
+  exit 0
+fi
+```
+
+## 맥미니 자율 응답 불가 — 본진 SSH 코디 패턴 (2026-05-08)
+
+맥미니는 2026-05-03 launchd 잡 전부 제거(OpenClaw 샌드박스 호스트로 전환) 이후 **inbox listener / 자율 응답 워커 없음**.
+
+WSL→맥미니 왕복 테스트 결과:
+- WSL이 `agent-msg-notify.sh wsl macmini 명령 "..."` 전송 → 맥미니 채팅방 도착 ✓
+- 맥미니 자율 응답 X (inbox polling 워커 없음)
+- **본진 코디 패턴**: 본진이 `ssh mac-mini "agent-msg-notify.sh macmini wsl 결과 ..."` 실행
+
+```bash
+# 본진에서 맥미니 대신 결과 전송
+ssh mac-mini "source ~/.claude/channels/telegram/.env 2>/dev/null; \
+  ~/.claude/automations/scripts/agent-msg-notify.sh macmini wsl 결과 '맥미니 수신 확인'"
+```
+
+새 LaunchAgent 추가는 5/3 결정 위반이므로 현재 패턴 유지. 자율 응답이 필요해지면 재검토.
+
 ## 관련 파일
 
 - `~/.claude/automations/scripts/agent-msg-notify.sh` — 라우팅 헬퍼
-- `~/.claude/automations/scripts/codex-directive.sh` — 맥→맥미니 명령 전달
+- `~/.claude/automations/scripts/mac-report.sh` — WSL/맥미니→본진 보고 래퍼 (자동 알림 없음)
 - `~/.claude/automations/scripts/wsl-directive.sh` — 맥→WSL 명령 전달
+- `~/.claude/hooks/telegram-stop-ping.sh` — 터미널 응답 포워딩 (mac-report skip 포함)
 - `~/.claude/channels/telegram/.env` — 토큰 설정 (각 기기별)
 - `~/.openclaw/openclaw.json` — OpenClaw 설정 (맥미니)
