@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-08-mac-report-fake-result-notify.md",
+      "date": "2026-05-08",
+      "slug": "mac-report-fake-result-notify",
+      "title": "mac-report.sh 래퍼가 자동으로 가짜 [결과] 알림 생성",
+      "severity": "medium",
+      "recurrence": "low",
+      "scope": "mac-mini → MacBook 왕복 테스트 / agent-msg-notify.sh 기기 간 메시지",
+      "occurred_at": "2026-05-08T01:40:00+09:00",
+      "resolved_at": "2026-05-08T01:40:00+09:00",
+      "updated": "2026-05-08T01:43:00+09:00"
+    },
+    {
       "file": "2026-05-08-codex-session-relay-telegram-mirror.md",
       "date": "2026-05-08",
       "slug": "codex-session-relay-telegram-mirror",
