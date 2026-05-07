@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-08_v1.0.0.md",
+      "date": "2026-05-08",
+      "version": "v1.0.0",
+      "summary": "3way 기기 간 왕복 통신(맥북↔WSL↔맥미니) 완성, mac-report 자동 알림·stop-ping 포워딩 버그 제거, 이슈 2건·노하우 업데이트·worklog Obsidian 수집 추가.",
+      "updated": "2026-05-08T02:05:00+09:00"
+    },
+    {
       "file": "2026-05-06_v1.0.0.md",
       "date": "2026-05-06",
       "version": "v1.0.0",
