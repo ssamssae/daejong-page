@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-08.md",
+      "date": "2026-05-08",
+      "summary": "3way 왕복 통신 완성, mac-report·stop-ping 버그 수정, 이슈 2건, knowhow 업데이트",
+      "count": 15,
+      "updated": "2026-05-08T02:07:00+09:00"
+    },
+    {
       "file": "2026-05-07.md",
       "date": "2026-05-07",
       "count": 2,
