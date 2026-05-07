@@ -67,3 +67,5 @@
 - [ ] 🤝 💡 막다른길 상세 렌더러 페이지 — dead-ends 카드 클릭 시 .md 내용을 렌더링해 보여주는 detail.html 신설. issue.html 방식 참고. 현재는 카드 클릭 비활성화 상태. (추가: 2026-05-05)
 
 - [ ] 🤝 🤖 AI 에이전트 3종 활용법 학습 — Claude Code / OpenClaw / Codex 같은 작업 각각 실행 비교 → "이 작업엔 이 도구" 선택 기준 정립. 스펙: ~/.claude/plans/brainstorm-ai-agent-learn-2026-05-06.md. (추가: 2026-05-06)
+
+- [ ] 🤝 🛠 Mac mini agent-mesh-watcher bootstrap 결정 — `ai.openclaw.agent-mesh-watcher.plist` 가 LaunchAgents 에 있지만 launchctl list 미로드. mesh 인바운드 자동 응답이 안 됨. 켜면 평생 자동, 끄면 SSH 우회 패턴 유지. (추가: 2026-05-07, 트리거: 2026-05-07 wsl↔macmini round-trip 테스트)
