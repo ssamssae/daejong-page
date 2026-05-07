@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-08-codex-session-relay-telegram-mirror.md",
+      "date": "2026-05-08",
+      "slug": "codex-session-relay-telegram-mirror",
+      "title": "codex-session-relay가 Codex 응답을 본진 채팅에 중복 미러링",
+      "severity": "medium",
+      "recurrence": "low",
+      "scope": "본진(@MyClaude) 텔레그램 채팅",
+      "occurred_at": "2026-05-07T12:58:00+09:00",
+      "resolved_at": "2026-05-08T00:55:00+09:00",
+      "updated": "2026-05-08T00:58:00+09:00"
+    },
+    {
       "file": "2026-05-06-hanjul-openai-org-member-removed.md",
       "date": "2026-05-06",
       "slug": "hanjul-openai-org-member-removed",
