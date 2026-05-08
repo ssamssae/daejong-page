@@ -3,6 +3,16 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 7,
+      "cacheFile": "ep7-cache.md",
+      "date": "2026-05-08",
+      "publishedAt": "2026-05-08T22:12:02+00:00",
+      "title": "새벽 4시 Apple 리젝 메일 — 2.1 Information Needed 대응기",
+      "subtitle": "바이브코딩 뉴스레터 Ep.7 — 인디 개발자의 앱 심사 대응 자동화기",
+      "readingTime": "13분",
+      "substackUrl": "https://daejongkang.substack.com/p/4-apple-21-information-needed"
+    },
+    {
       "number": 6,
       "cacheFile": "ep6-cache.md",
       "date": "2026-05-03",
