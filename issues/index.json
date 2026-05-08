@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-08-clawd-openclaw-codex-pid-unreachable.md",
+      "date": "2026-05-08",
+      "slug": "clawd-openclaw-codex-pid-unreachable",
+      "title": "Clawd on Desk — OpenClaw Codex 연동 실패 (openclaw-trajectory pidReachable=0)",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "Mac mini Clawd on Desk ↔ OpenClaw Codex 세션 추적",
+      "occurred_at": "2026-05-08T21:11:00+09:00",
+      "resolved_at": "2026-05-08T22:51:00+09:00",
+      "updated": "2026-05-08T23:00:00+09:00"
+    },
+    {
       "file": "2026-05-08-codex-inject-websocket-silent-fail.md",
       "date": "2026-05-08",
       "slug": "codex-inject-websocket-silent-fail",
