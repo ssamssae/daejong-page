@@ -4,4 +4,5 @@
 
 
 - [ ] 🏭 🔧 ~/.claude/automations 12개 untracked plugin hook 정리 — codex-hook.js, clawd-hook.js, codex-install*.js 등 12개 파일. .gitignore 추가 또는 별도 plugin repo 분리. WSL 2026-05-08 diverge 해결 중 발견.
+- [ ] 🤝 🧠 /trio-vote 3기기 분산 버전 — 맥북·WSL·Codex 각자 1역할 담당. 맥북 오케스트레이터, wsl-directive+agent-msg-notify로 주제+역할 전달, 각자 응답 회신, 맥북 취합·투표. 현재 /trio-vote 서브에이전트 방식 대체. 강대종 승인 후 시작. (추가: 2026-05-08)
 - [ ] 🍎 🛠 단어요 Android 출시 파이프라인 재설계 — Mac mini 역할 폐기(OpenClaw 전환) 후 wordyo Android AAB 빌드·Play 배포 자동화 경로가 없어진 상태. 단어요 v1 Android 출시 결정 시 새 파이프라인(본진 SSH → 별도 빌드 노드? or 수동) 설계 필요. 지금은 ~/apps/wordyo 수동 SSH 빌드만 가능.  (추가: 2026-05-05 session-close)
