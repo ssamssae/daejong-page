@@ -3,9 +3,9 @@
     {
       "file": "2026-05-08.md",
       "date": "2026-05-08",
-      "summary": "3way 왕복 통신 완성, mac-report·stop-ping 버그 수정, 이슈 2건, knowhow 업데이트",
-      "count": 15,
-      "updated": "2026-05-08T02:07:00+09:00"
+      "summary": "3way 프로토콜 버그 4개(Layer 1/2 분리), loop-judge+loop-run 에이전트 루프 구현, 스킬 2개 등록",
+      "count": 25,
+      "updated": "2026-05-08T23:30:00+09:00"
     },
     {
       "file": "2026-05-07.md",
