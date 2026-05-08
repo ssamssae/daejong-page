@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-08-codex-inject-websocket-silent-fail.md",
+      "date": "2026-05-08",
+      "slug": "codex-inject-websocket-silent-fail",
+      "title": "Codex inject WebSocket 무음 실패 — directive ok 리턴했지만 미도달",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "codex-directive.sh → Mac mini Codex 연동",
+      "occurred_at": "2026-05-08T14:13:00+09:00",
+      "resolved_at": "2026-05-08T14:21:00+09:00",
+      "updated": "2026-05-08T15:13:03+09:00"
+    },
+    {
       "file": "2026-05-08-mac-report-fake-result-notify.md",
       "date": "2026-05-08",
       "slug": "mac-report-fake-result-notify",
