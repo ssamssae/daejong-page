@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-09-play-managed-publishing-on.md",
+      "date": "2026-05-09",
+      "slug": "play-managed-publishing-on",
+      "title": "Play Console 관리 게시 ON — 심사 통과 후 미발행",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "Android Play Store 출시 앱 전체",
+      "occurred_at": "2026-05-09T06:49:00+09:00",
+      "resolved_at": "2026-05-09T06:51:00+09:00",
+      "updated": "2026-05-09T06:54:00+09:00"
+    },
+    {
       "file": "2026-05-08-clawd-openclaw-codex-pid-unreachable.md",
       "date": "2026-05-08",
       "slug": "clawd-openclaw-codex-pid-unreachable",
