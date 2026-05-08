@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-08_v1.0.2.md",
+      "date": "2026-05-08",
+      "version": "v1.0.2",
+      "summary": "loop-run 첫 실전 PARTIAL + judge stdout 오염 버그 수정 + loop-judge v2 (WSL 자동감지 + 토론 라운드 + 다수결)",
+      "updated": "2026-05-08T12:07:00+09:00"
+    },
+    {
       "file": "2026-05-08_v1.0.1.md",
       "date": "2026-05-08",
       "version": "v1.0.1",
