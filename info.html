@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정보 - 강대종</title>
+  <meta name="description" content="자주 헷갈리는 것들 모음 — 개념 정리, 차이 비교, 짧은 팁.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
+
+    .intro {
+      font-size: 13px; color: #4E5968;
+      margin-bottom: 24px; padding: 12px 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
+    }
+
+    .list { display: flex; flex-direction: column; gap: 16px; }
+
+    .info-card {
+      background: #F9FAFB; border: 1px solid #E5E8EB;
+      border-radius: 12px; padding: 18px 20px;
+    }
+    .info-card-title {
+      font-size: 15px; font-weight: 700; color: #191F28;
+      margin-bottom: 12px;
+    }
+    .info-card-tag {
+      display: inline-block;
+      font-size: 10px; font-weight: 600; color: #3182F6;
+      background: #EFF6FF; border-radius: 6px;
+      padding: 2px 7px; margin-bottom: 10px;
+      text-transform: uppercase; letter-spacing: 0.4px;
+    }
+
+    .compare-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .compare-table th, .compare-table td {
+      text-align: left; padding: 8px 10px;
+      font-size: 13px; border-bottom: 1px solid #E5E8EB;
+    }
+    .compare-table th {
+      font-size: 11px; color: #4E5968; font-weight: 600;
+      background: #F2F4F6; text-transform: uppercase; letter-spacing: 0.4px;
+    }
+    .compare-table td:first-child { font-weight: 600; color: #3182F6; width: 120px; }
+    .compare-table tr:last-child td { border-bottom: none; }
+
+    .tip {
+      margin-top: 12px; padding: 10px 12px;
+      background: #EFF6FF; border-radius: 8px;
+      font-size: 12px; color: #4E5968;
+    }
+    .tip strong { color: #3182F6; }
+
+    .date { font-size: 11px; color: #8B95A1; margin-top: 12px; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>📋 정보</h1>
+    <a href="./index.html">← 홈</a>
+  </header>
+
+  <div class="intro">자주 헷갈리는 것들 모음. 개념 정리, 차이 비교, 짧은 팁.</div>
+
+  <div class="list">
+
+    <!-- Entry 1: zprofile vs zshrc -->
+    <div class="info-card">
+      <div class="info-card-tag">Shell / macOS</div>
+      <div class="info-card-title">.zprofile vs .zshrc — 뭐가 다른가</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>파일</th>
+            <th>언제 실행</th>
+            <th>주로 쓰는 것</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>.zprofile</td>
+            <td>로그인 셸 시작 시 (터미널 앱 새 창)</td>
+            <td>PATH, 환경변수</td>
+          </tr>
+          <tr>
+            <td>.zshrc</td>
+            <td>인터랙티브 셸마다 (탭 새로 열 때마다)</td>
+            <td>alias, 함수, 프롬프트</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> Ghostty·iTerm2 같은 터미널이 로그인 셸로 시작하면 <code>.zprofile</code>만 읽고 <code>.zshrc</code>를 안 읽음.
+        alias가 없으면 <code>.zprofile</code>에 <code>[[ -f ~/.zshrc ]] &amp;&amp; source ~/.zshrc</code> 한 줄 추가.
+      </div>
+      <div class="date">2026-05-08</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
