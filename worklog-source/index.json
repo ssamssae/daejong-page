@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-08_v1.0.3.md",
+      "date": "2026-05-08",
+      "version": "v1.0.3",
+      "summary": "저녁 세션: inbox-watcher.sh E2E, codex-relay 2차 재발 수습, Apple ID 역산 + 저장",
+      "updated": "2026-05-08T21:38:58+09:00"
+    },
+    {
       "file": "2026-05-08_v1.0.2.md",
       "date": "2026-05-08",
       "version": "v1.0.2",
