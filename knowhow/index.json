@@ -1,12 +1,38 @@
 {
   "entries": [
     {
+      "file": "2026-05-09-launchagent-persistent-claude-code-as-codex.md",
+      "date": "2026-05-09",
+      "slug": "launchagent-persistent-claude-code-as-codex",
+      "title": "LaunchAgent로 Claude Code를 상시 대기 Codex로 운영하는 패턴",
+      "category": "멀티기기",
+      "tags": [
+        "launchagent",
+        "claude-code",
+        "mac-mini",
+        "codex",
+        "agent-mesh",
+        "tmux",
+        "process-agent-inbox"
+      ],
+      "first_discovered": "2026-05-09",
+      "summary": "맥미니 LaunchAgent가 tmux에 Claude Code(--dangerously-skip-permissions)를 상시 유지. process-agent-inbox.sh가 30s 폴링으로 agent-inbox 읽어 이 세션에 inject → 디렉티브 처리. OpenClaw와 독립된 구조.",
+      "updated": "2026-05-09T22:30:00+09:00"
+    },
+    {
       "file": "2026-05-08-clawd-openclaw-codex-reconnect.md",
       "date": "2026-05-08",
       "slug": "clawd-openclaw-codex-reconnect",
       "title": "Clawd on Desk + OpenClaw Codex 연동 끊길 때 재연결 방법",
       "category": "멀티기기",
-      "tags": ["clawd", "openclaw", "codex", "mac-mini", "pid-tracking", "reconnect"],
+      "tags": [
+        "clawd",
+        "openclaw",
+        "codex",
+        "mac-mini",
+        "pid-tracking",
+        "reconnect"
+      ],
       "first_discovered": "2026-05-08",
       "summary": "OpenClaw이 Codex를 app-server --listen stdio:// 모드로 실행 시 openclaw-trajectory 소스가 pidReachable=0으로 실패. Clawd + OpenClaw 재시작으로 openclaw-plugin 소스로 전환되어 정상 연결됨.",
       "updated": "2026-05-08T23:00:00+09:00"
