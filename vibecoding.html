@@ -212,6 +212,37 @@
       gap: 8px;
     }
 
+    /* Workflow */
+    .workflow-wrap { margin-bottom: 56px; display: flex; flex-direction: column; gap: 20px; }
+    .wf-block { background: #FFFFFF; border-radius: 12px; padding: 24px; border: 1px solid #E5E8EB; }
+    .wf-subtitle { font-size: 12px; font-weight: 700; color: #8B95A1; margin-bottom: 18px; letter-spacing: 0.8px; text-transform: uppercase; }
+    .routing-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: start; }
+    .routing-col { display: flex; flex-direction: column; gap: 8px; }
+    .routing-label { font-size: 11px; font-weight: 700; color: #8B95A1; margin-bottom: 2px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .routing-node { border-radius: 10px; padding: 10px 14px; font-size: 13px; font-weight: 600; line-height: 1.5; }
+    .routing-node small { display: block; font-size: 11px; font-weight: 400; color: #8B95A1; margin-top: 2px; }
+    .routing-node.trigger { background: rgba(49,130,246,0.10); color: #3182F6; }
+    .routing-node.mac { background: rgba(234,88,12,0.10); color: #EA580C; }
+    .routing-node.wsl { background: rgba(49,130,246,0.07); color: #3182F6; }
+    .routing-node.mini { background: rgba(22,163,74,0.07); color: #16A34A; }
+    .routing-node.result { background: rgba(124,58,237,0.07); color: #7C3AED; }
+    .routing-mid { display: flex; align-items: center; justify-content: center; font-size: 22px; color: #C3CAD9; padding-top: 28px; }
+    .wf-pipeline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .wf-step { border-radius: 10px; padding: 12px 14px; text-align: center; font-size: 13px; font-weight: 700; min-width: 88px; flex: 1; }
+    .wf-step small { display: block; font-size: 11px; font-weight: 400; color: #8B95A1; margin-top: 3px; line-height: 1.4; }
+    .wf-step.plan { background: rgba(49,130,246,0.10); color: #3182F6; }
+    .wf-step.execute { background: rgba(22,163,74,0.10); color: #16A34A; }
+    .wf-step.judge { background: rgba(234,88,12,0.10); color: #EA580C; }
+    .wf-step.report { background: rgba(124,58,237,0.10); color: #7C3AED; }
+    .wf-arr { font-size: 16px; color: #C3CAD9; flex-shrink: 0; }
+    .wf-note { margin-top: 12px; font-size: 12px; color: #8B95A1; }
+    @media (max-width: 600px) {
+      .routing-grid { grid-template-columns: 1fr; }
+      .routing-mid { padding-top: 0; transform: rotate(90deg); width: fit-content; }
+      .wf-pipeline { gap: 4px; }
+      .wf-step { min-width: 64px; padding: 10px 8px; font-size: 12px; }
+    }
+
     /* Proposal section */
     .proposal {
       background: #FFFFFF;
@@ -407,8 +438,46 @@
       </div>
     </div>
 
+    <!-- Workflow -->
+    <h2 class="section-title"><span>03</span> 자동화 흐름도</h2>
+    <div class="workflow-wrap">
+
+      <div class="wf-block">
+        <div class="wf-subtitle">📡 메시지 라우팅 — 기기 간 작업 배분</div>
+        <div class="routing-grid">
+          <div class="routing-col">
+            <div class="routing-label">입력</div>
+            <div class="routing-node trigger">📱 강대종 텔레그램</div>
+            <div class="routing-node mac">🍎 Mac 본진<br><small>수신 · 판단 · 직접 처리</small></div>
+          </div>
+          <div class="routing-mid">→</div>
+          <div class="routing-col">
+            <div class="routing-label">위임 경로</div>
+            <div class="routing-node wsl">🪟 WSL — wsl-directive.sh<br><small>SSH tmux inject → 자율 작업자</small></div>
+            <div class="routing-node mini">🏭 Codex — agent-msg-notify.sh<br><small>Telegram DM → Mac mini 수신</small></div>
+            <div class="routing-node result">↩ 결과 — mac-report.sh + 텔레그램<br><small>zero-touch 양방향 보고</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wf-block">
+        <div class="wf-subtitle">🔄 loop-run 4단계 파이프라인</div>
+        <div class="wf-pipeline">
+          <div class="wf-step plan">PLAN<br><small>Claude가 task 배열 JSON 생성</small></div>
+          <div class="wf-arr">→</div>
+          <div class="wf-step execute">EXECUTE<br><small>macbook / wsl / macmini 기기별 실행</small></div>
+          <div class="wf-arr">→</div>
+          <div class="wf-step judge">JUDGE<br><small>3-way 에이전트 합의 검증</small></div>
+          <div class="wf-arr">→</div>
+          <div class="wf-step report">REPORT<br><small>텔레그램 알림 + 에스컬레이션</small></div>
+        </div>
+        <div class="wf-note">⟳ JUDGE FAIL 시 최대 2회 재시도 → 합의 불가 시 강대종 에스컬레이션</div>
+      </div>
+
+    </div>
+
     <!-- Current skills -->
-    <h2 class="section-title"><span>03</span> 현재 활성 스킬 24개</h2>
+    <h2 class="section-title"><span>04</span> 현재 활성 스킬 24개</h2>
     <div class="skills-summary">
       <p>클린업을 거쳐 살아남은 스킬만 남김. 각 스킬은 실제 반복 사용 기록이 있는 것만. "언젠가 쓸 것 같아서" 만들어두는 스킬은 만들지 않는 것이 원칙.</p>
       <div class="skills-grid">
@@ -440,7 +509,7 @@
     </div>
 
     <!-- Proposal -->
-    <h2 class="section-title"><span>04</span> 앞으로 이렇게 바이브코딩 하면 좋겠다</h2>
+    <h2 class="section-title"><span>05</span> 앞으로 이렇게 바이브코딩 하면 좋겠다</h2>
     <div class="proposal">
       <h3>🔮 다음 단계 제안</h3>
 
