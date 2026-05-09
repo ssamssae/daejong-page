@@ -3,9 +3,9 @@
     {
       "file": "2026-05-09.md",
       "date": "2026-05-09",
-      "summary": "skills 기기 태그 다중화, vibecoding 발행+수정, session-clear v0.8 버그픽스, skill-exists.sh PR#28, mesh-vote v0.1, 작업일지 v1.1.1",
-      "count": 18,
-      "updated": "2026-05-09T16:00:00+09:00"
+      "summary": "self-heal-scanner v1 / loop-run SSH 전환 / session-clear v0.9 / mesh-vote / skill-exists",
+      "count": 24,
+      "updated": "2026-05-09T20:18:00+09:00"
     },
     {
       "file": "2026-05-08.md",
