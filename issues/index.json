@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-09-typing-indicator-stop-on-midtask-wait.md",
+      "date": "2026-05-09",
+      "slug": "typing-indicator-stop-on-midtask-wait",
+      "title": "작업 중간 확인 대기 시 입력 중 표시 꺼짐",
+      "severity": "low",
+      "recurrence": "low",
+      "scope": "Telegram typing indicator / Stop hook",
+      "occurred_at": "2026-05-09T23:45:00+09:00",
+      "resolved_at": "2026-05-09T23:50:00+09:00",
+      "updated": "2026-05-09T23:50:30.160029+09:00"
+    },
+    {
       "file": "2026-05-09-loop-run-wsl-abort-flutter-path.md",
       "date": "2026-05-09",
       "slug": "loop-run-wsl-abort-flutter-path",
