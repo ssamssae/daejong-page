@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-09-telegram-typing-zombie-after-clear.md",
+      "date": "2026-05-09",
+      "slug": "telegram-typing-zombie-after-clear",
+      "title": "/clear 후 이전 세션 typing daemon 좀비 잔류",
+      "severity": "low",
+      "recurrence": "high",
+      "scope": "Telegram typing heartbeat daemon, session-clear",
+      "occurred_at": "2026-05-09T07:10:00+09:00",
+      "resolved_at": "2026-05-09T07:27:00+09:00",
+      "updated": "2026-05-09T16:36:27+09:00"
+    },
+    {
       "file": "2026-05-09-play-managed-publishing-on.md",
       "date": "2026-05-09",
       "slug": "play-managed-publishing-on",
