@@ -555,6 +555,94 @@
 
     </div>
 
+    <!-- Agentic Engineering -->
+    <h2 class="section-title"><span>06</span> 바이브코딩에서 에이전틱 엔지니어링으로</h2>
+
+    <div class="proposal" style="background:#F0FDF4; border-color:#BBF7D0;">
+      <h3 style="color:#15803D;">🤖 에이전틱 엔지니어링이란?</h3>
+      <p style="margin-top:12px; color:#374151; font-size:15px; line-height:1.8;">
+        바이브코딩이 <strong>"내가 원하는 걸 말하면 AI가 코드 초안을 써주고, 내가 감으로 고친다"</strong>라면,<br>
+        에이전틱 엔지니어링은 <strong>"AI 에이전트가 목표를 이해하고, 탐색·계획·구현·테스트·검증까지 스스로 한다"</strong>는 개념이다.<br><br>
+        더 정확히 나누면 이렇다.
+      </p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px;">
+        <div style="background:#FEF9C3; border-radius:12px; padding:20px; border:1px solid #FDE68A;">
+          <div style="font-weight:700; color:#92400E; margin-bottom:8px;">바이브코딩</div>
+          <ul style="color:#78350F; font-size:14px; line-height:1.8; padding-left:16px;">
+            <li>사람이 방향 + AI가 코드 초안</li>
+            <li>사람이 결과 검토 후 감으로 수정</li>
+            <li>단일 작업 단위</li>
+            <li>AI = 코파일럿</li>
+          </ul>
+        </div>
+        <div style="background:#DCFCE7; border-radius:12px; padding:20px; border:1px solid #BBF7D0;">
+          <div style="font-weight:700; color:#166534; margin-bottom:8px;">에이전틱 엔지니어링</div>
+          <ul style="color:#15803D; font-size:14px; line-height:1.8; padding-left:16px;">
+            <li>사람이 목표만 설정</li>
+            <li>에이전트가 계획·실행·검증·보고</li>
+            <li>복수 에이전트 병렬 처리</li>
+            <li>AI = 자율 엔지니어</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="proposal" style="margin-top:24px; background:#EFF6FF; border-color:#BFDBFE;">
+      <h3 style="color:#1D4ED8;">📍 사실 이미 하고 있다</h3>
+      <p style="margin-top:12px; color:#374151; font-size:15px; line-height:1.8;">
+        "에이전틱 엔지니어링 갈 수 있을까, 어디서부터 시작해야 할까"를 물었는데 — 답은 이미 시작했다는 것이다.
+        2026년 5월 9일 오늘 하루만 봐도 이렇다.
+      </p>
+      <div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+        <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
+          <strong>16:10</strong> — 텔레그램에서 "입력 중" 좀비 신고 → 에이전트가 원인 진단 (typing heartbeat PID 파일 2개 잔류)
+        </div>
+        <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
+          <strong>16:27</strong> — 에이전트가 좀비 프로세스 kill + 이슈 초안 작성 → 강대종님 OK 한 마디
+        </div>
+        <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
+          <strong>16:38</strong> — 예방 코드 2곳 수정(session-clear v0.9 + start.sh 고아 정리) → 3개 repo 자동 push
+        </div>
+        <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #8B5CF6; font-size:14px; color:#374151; line-height:1.7;">
+          <strong>동시에</strong> — WSL 에이전트가 브랜치 상태 자진 보고 → 본진이 디렉티브 전송 → WSL이 자율 실행
+        </div>
+      </div>
+      <p style="margin-top:16px; color:#4E5968; font-size:14px; line-height:1.7;">
+        사람이 한 건 "텔레그램에서 OK 2번". 나머지는 에이전트들이 탐색·진단·수정·검증·보고를 스스로 했다.<br>
+        이게 에이전틱 엔지니어링이다.
+      </p>
+    </div>
+
+    <div class="proposal" style="margin-top:24px; background:#FDF4FF; border-color:#E9D5FF;">
+      <h3 style="color:#7C3AED;">🗺️ 어디서부터 시작하면 될까</h3>
+      <p style="margin-top:12px; color:#374151; font-size:15px; line-height:1.8;">
+        이미 하고 있다면 다음 단계는 "수준을 높이는 것"이다. 세 가지 축으로 나눌 수 있다.
+      </p>
+      <div style="margin-top:16px; display:flex; flex-direction:column; gap:12px;">
+        <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
+          <div style="font-weight:700; color:#6D28D9; margin-bottom:6px;">1. 목표 명세를 더 정밀하게</div>
+          <p style="font-size:14px; color:#4E5968; line-height:1.7;">
+            "되게 만들어줘" 대신 "X 테스트 PASS / Y 화면 렌더링 / Z 커밋 push" 식으로 검증 가능한 목표를 주면 에이전트 자율도가 올라간다.
+            목표가 흐릿할수록 사람이 더 많이 개입해야 한다.
+          </p>
+        </div>
+        <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
+          <div style="font-weight:700; color:#6D28D9; margin-bottom:6px;">2. 에이전트 간 핸드오프를 자동화</div>
+          <p style="font-size:14px; color:#4E5968; line-height:1.7;">
+            Mac → WSL → Mac mini 디렉티브 체계처럼, 에이전트끼리 결과를 주고받을 때 사람이 중간에 끼지 않아도 되는 구조를 만든다.
+            mac-report.sh / wsl-directive.sh 같은 운반체가 그 예다.
+          </p>
+        </div>
+        <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
+          <div style="font-weight:700; color:#6D28D9; margin-bottom:6px;">3. 이슈 → 예방 → 자동화 사이클</div>
+          <p style="font-size:14px; color:#4E5968; line-height:1.7;">
+            문제가 생기면 이슈 등록 → 재발 방지 코드 → 훅·스킬 자동화. 이 사이클을 빨리 돌릴수록 에이전트 신뢰도가 올라가고 사람 개입이 줄어든다.
+            오늘 typing 좀비 건이 딱 이 패턴이다.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <footer>
       소스: <a href="https://github.com/ssamssae/claude-skills" target="_blank" rel="noopener">github.com/ssamssae/claude-skills</a>
       · <a href="./skills.html">스킬 목록</a>
