@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-09_v1.0.0.md",
+      "date": "2026-05-09",
+      "version": "v1.0.0",
+      "summary": "바이브코딩 제안 5개 trio-vote 실행 + loop-judge 빈출력 픽스 + worklog SRP 해소",
+      "updated": "2026-05-09T12:30:00+09:00"
+    },
+    {
       "file": "2026-05-08_v1.0.3.md",
       "date": "2026-05-08",
       "version": "v1.0.3",
