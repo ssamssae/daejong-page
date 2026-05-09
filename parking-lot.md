@@ -69,3 +69,7 @@
 - [ ] 🤝 💡 막다른길 상세 렌더러 페이지 — dead-ends 카드 클릭 시 .md 내용을 렌더링해 보여주는 detail.html 신설. issue.html 방식 참고. 현재는 카드 클릭 비활성화 상태. (추가: 2026-05-05)
 
 - self-heal: 반복 Tier2 패턴 자동 이슈화 (같은 패턴 2일 연속 → /issue 초안 텔레그램) — 2026-05-09 trio-vote 1표 탈락, 나중에 고려
+
+- [ ] 🤝 🛠 loop-run dumb-retry 가드 — Mac loop-run 이 directive 변경 없이 동일 task 를 N회 재시도하는 사고(2026-05-09 run-18252/t1 4회+ ABORT 누적). worker 가 ABORT 사유 보고해도 orchestrator 가 같은 directive 재발송 → 무한 루프 + 토큰 소모. 옵션: (a) 같은 hash directive N=2회 ABORT 시 auto-stop (b) judge 의 FAIL 사유 파싱해 path/precondition 류면 stop (c) round budget 명시. (추가: 2026-05-09)
+
+- [ ] 🍎 💡 단어요 SRS(간격 반복 학습) 도입 — mesh-vote Phase 1 WSL 제안(199자). Anki/Quizlet 검증된 정석, 안 외워진 단어 자동 큐잉 + 망각곡선 기반 다음 노출 시점. 기존 swipe/next 위에 얹기 = 작은 변경 큰 retention. ChatGPT 시드 + SRS = 무료 차별화. mesh-vote Phase 2/3 결과 + 본진 결정 후 todos promote. (추가: 2026-05-09)
