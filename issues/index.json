@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-09-clear-queued-during-processing.md",
+      "date": "2026-05-09",
+      "slug": "clear-queued-during-processing",
+      "title": "/clear 처리 중 큐 지연 — 슬래시 커맨드 큐잉 동작",
+      "severity": "low",
+      "recurrence": "high",
+      "scope": "Claude Code CLI / 슬래시 커맨드 큐잉",
+      "occurred_at": "2026-05-09T22:48:00+09:00",
+      "resolved_at": "2026-05-09T22:51:00+09:00",
+      "updated": "2026-05-09T23:57:25.214603+09:00"
+    },
+    {
       "file": "2026-05-09-typing-indicator-stop-on-midtask-wait.md",
       "date": "2026-05-09",
       "slug": "typing-indicator-stop-on-midtask-wait",
