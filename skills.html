@@ -167,6 +167,7 @@
     .dev-mac { background: rgba(34,197,94,0.12); color: #16A34A; }
     .dev-wsl { background: rgba(49,130,246,0.12); color: #3182F6; }
     .dev-both { background: rgba(168,85,247,0.12); color: #A855F7; }
+    .dev-codex { background: rgba(251,146,60,0.12); color: #EA580C; }
 
     .card-tag {
       font-size: 11px;
@@ -230,6 +231,7 @@
         <button class="filter-pill" data-filter="mac">🍎 Mac 전용</button>
         <button class="filter-pill" data-filter="wsl">🪟 WSL 전용</button>
         <button class="filter-pill" data-filter="both">🔄 공용</button>
+        <button class="filter-pill" data-filter="codex">🏭 Codex</button>
       </div>
       <div class="topbar-right">
         <span class="count-badge" id="countBadge">24개 활성</span>
@@ -396,14 +398,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="codex">
         <div class="card-header">
           <span class="card-name">/device-run</span>
           <span class="card-tag">Flutter</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <span class="card-device dev-codex">🏭 Codex</span>
           <span class="card-new-badge">NEW</span>
         </div>
-        <div class="card-desc">mac mini USB 연결 실기기에 clean+debug 빌드·실행. <code>/device-run ios</code>(iPhone17) · <code>/device-run android</code>(Galaxy S24). 구 irun+arun 통합.</div>
+        <div class="card-desc">mac mini USB 연결 실기기에 clean+debug 빌드·실행. <code>/device-run ios</code>(iPhone17) · <code>/device-run android</code>(Galaxy S24). SSH로 mac-mini에 위임. 구 irun+arun 통합.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/device-run/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -517,11 +519,11 @@
         </div>
       </div>
 
-      <div class="card" data-device="mac">
+      <div class="card" data-device="codex">
         <div class="card-header">
           <span class="card-name">/night-runner</span>
           <span class="card-tag">야간 자동</span>
-          <span class="card-device dev-mac">🍎 Mac</span>
+          <span class="card-device dev-codex">🏭 Codex</span>
         </div>
         <div class="card-desc">야간 repo 점검 v1 안전모드. projects.yaml 라운드로빈으로 1개 repo 선정 → read-only 점검 5종 → 텔레그램 보고. 코드 수정·push 0.</div>
         <div class="card-footer">
@@ -563,11 +565,11 @@
         </div>
       </div>
 
-      <div class="card" data-device="mac">
+      <div class="card" data-device="codex">
         <div class="card-header">
           <span class="card-name">/submit-app</span>
           <span class="card-tag">스토어 제출</span>
-          <span class="card-device dev-mac">🍎 Mac</span>
+          <span class="card-device dev-codex">🏭 Codex</span>
         </div>
         <div class="card-desc">앱 스토어 제출 루틴. lessons/ 의 과거 실수·리젝 사례를 Step 0 에서 읽어 재발 방지 체크리스트 후 빌드·업로드·심사 제출.</div>
         <div class="card-footer">
@@ -676,6 +678,7 @@
           let show;
           if (f === 'all') show = true;
           else if (f === 'both') show = (d === 'both');
+          else if (f === 'codex') show = (d === 'codex');
           else show = (d === f || d === 'both');
           c.classList.toggle('hidden', !show);
         });
