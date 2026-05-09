@@ -156,17 +156,16 @@
       color: #3182F6;
       font-family: 'SF Mono', Menlo, Consolas, monospace;
     }
+    .card-devices { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
     .card-device {
       font-size: 11px;
       padding: 2px 8px;
       border-radius: 10px;
       white-space: nowrap;
       font-weight: 600;
-      margin-left: auto;
     }
     .dev-mac { background: rgba(34,197,94,0.12); color: #16A34A; }
     .dev-wsl { background: rgba(49,130,246,0.12); color: #3182F6; }
-    .dev-both { background: rgba(168,85,247,0.12); color: #A855F7; }
     .dev-codex { background: rgba(251,146,60,0.12); color: #EA580C; }
 
     .card-tag {
@@ -230,7 +229,6 @@
         <button class="filter-pill active" data-filter="all">전체</button>
         <button class="filter-pill" data-filter="mac">🍎 Mac 전용</button>
         <button class="filter-pill" data-filter="wsl">🪟 WSL 전용</button>
-        <button class="filter-pill" data-filter="both">🔄 공용</button>
         <button class="filter-pill" data-filter="codex">🏭 Codex</button>
       </div>
       <div class="topbar-right">
@@ -363,11 +361,14 @@
     <!-- Skills grid (active only) -->
     <div class="grid" id="skillGrid">
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/brainstorm</span>
           <span class="card-tag">아이디어</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">새 기능·앱·아이디어를 소크라테스식 대화로 요구사항 정리. 질문→답변 반복으로 스펙 문서 생성.</div>
         <div class="card-footer">
@@ -375,10 +376,13 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/create-play-app</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">Google Play Console 에 Flutter 앱을 Playwright 자동 클릭 + API probe 조합으로 등록. "앱 만들기" 폼 자동화.</div>
         <div class="card-footer">
@@ -386,11 +390,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/ctx</span>
           <span class="card-tag">세션 요약</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">지금까지 한 작업 + 현재 상태 + 다음 액션 요약. "어디까지 했지?" 빠르게 파악할 때 호출.</div>
         <div class="card-footer">
@@ -398,11 +405,15 @@
         </div>
       </div>
 
-      <div class="card" data-device="codex">
+      <div class="card" data-device="mac wsl codex">
         <div class="card-header">
           <span class="card-name">/device-run</span>
           <span class="card-tag">Flutter</span>
-          <span class="card-device dev-codex">🏭 Codex</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
           <span class="card-new-badge">NEW</span>
         </div>
         <div class="card-desc">mac mini USB 연결 실기기에 clean+debug 빌드·실행. <code>/device-run ios</code>(iPhone17) · <code>/device-run android</code>(Galaxy S24). SSH로 mac-mini에 위임. 구 irun+arun 통합.</div>
@@ -411,11 +422,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/done</span>
           <span class="card-tag">체크리스트</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">오늘 한 일을 체크박스 리스트로 저장 → 홈페이지 /done 반영. worklog=산문, done=리스트 담백하게.</div>
         <div class="card-footer">
@@ -427,7 +441,9 @@
         <div class="card-header">
           <span class="card-name">/goodnight</span>
           <span class="card-tag">하루 마무리</span>
-          <span class="card-device dev-mac">🍎 Mac</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
         </div>
         <div class="card-desc">하루 마무리 종합 스킬. worklog + done + 이슈 점검을 한 번에. claude-automations·claude-skills·daejong-page 3개 repo 점검 후 홈페이지 반영.</div>
         <div class="card-footer">
@@ -439,7 +455,9 @@
         <div class="card-header">
           <span class="card-name">/insta-post</span>
           <span class="card-tag">SNS</span>
-          <span class="card-device dev-mac">🍎 Mac</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
         </div>
         <div class="card-desc">오늘 worklog 를 1080×1350 텍스트 카드 PNG 로 렌더해 Instagram Graph API 로 자동 업로드.</div>
         <div class="card-footer">
@@ -447,11 +465,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/issue</span>
           <span class="card-tag">포스트모템</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">이슈·사건을 증상·원인·조치·예방 4칸으로 구조화 기록. 예방 섹션 비어있으면 저장 거부. daejong-page /issues 페이지 공개 동기화.</div>
         <div class="card-footer">
@@ -459,11 +480,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/loop</span>
           <span class="card-tag">반복 실행</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">프롬프트·슬래시 커맨드를 반복 실행. 종료 조건(횟수/시간/수동) 지원. <code>/loop 5m /foo</code> 또는 인터벌 없이 자기 조절.</div>
         <div class="card-footer">
@@ -471,11 +495,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/loop-run</span>
           <span class="card-tag">에이전트 루프</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">목표 입력 → PLAN→EXECUTE→JUDGE→REPORT 전체 루프 자동 실행. 기기별 task 분배, 최대 2회 재시도, 텔레그램 보고.</div>
         <div class="card-footer">
@@ -483,11 +510,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/merge-janitor</span>
           <span class="card-tag">PR 관리</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">night-runner 가 만든 janitor 브랜치 PR 을 머지·닫기. "PR #N 머지" 자연어로 호출. 대형 변경·민감파일 자동 경고.</div>
         <div class="card-footer">
@@ -499,7 +529,9 @@
         <div class="card-header">
           <span class="card-name">/naver-blog-publish</span>
           <span class="card-tag">블로그</span>
-          <span class="card-device dev-mac">🍎 Mac</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
         </div>
         <div class="card-desc">마크다운 → 네이버 블로그(SmartEditor ONE) 자동 발행. Mac 본진 Playwright + 자동로그인. 1일 1~2건·본인 계정·기본 전체공개 4조건 충족 시만 GO.</div>
         <div class="card-footer">
@@ -511,7 +543,9 @@
         <div class="card-header">
           <span class="card-name">/newsletter-publish</span>
           <span class="card-tag">발행</span>
-          <span class="card-device dev-mac">🍎 Mac</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
         </div>
         <div class="card-desc">뉴스레터 ep 1개를 Substack · 홈페이지 · 네이버 블로그 3채널 동시 발행. 채널별 독립 진행(1개 실패해도 나머지 계속).</div>
         <div class="card-footer">
@@ -523,7 +557,9 @@
         <div class="card-header">
           <span class="card-name">/night-runner</span>
           <span class="card-tag">야간 자동</span>
-          <span class="card-device dev-codex">🏭 Codex</span>
+          <div class="card-devices">
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
         </div>
         <div class="card-desc">야간 repo 점검 v1 안전모드. projects.yaml 라운드로빈으로 1개 repo 선정 → read-only 점검 5종 → 텔레그램 보고. 코드 수정·push 0.</div>
         <div class="card-footer">
@@ -535,7 +571,9 @@
         <div class="card-header">
           <span class="card-name">/parallel-cycle</span>
           <span class="card-tag">병렬 작업</span>
-          <span class="card-device dev-mac">🍎 Mac</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
         </div>
         <div class="card-desc">Mac M개 + WSL W개 + 맥미니 P개 작업을 병렬 배분·실행. 모두 완료되면 session-close 자동 호출.</div>
         <div class="card-footer">
@@ -543,10 +581,13 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/pull-apps</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">모든 Flutter 앱 repo(~/ + ~/apps/*/) 를 git pull --rebase --autostash 일괄 최신화. 다른 기기에서 push 한 코드 한 번에 수신.</div>
         <div class="card-footer">
@@ -554,10 +595,13 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/session-clear</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">텔레그램에서 현재 세션 클리어. 후속안 저장 후 /clear 자동 실행. 트리거 "세션 클리어", "클리어하자", "/reset".</div>
         <div class="card-footer">
@@ -565,11 +609,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="codex">
+      <div class="card" data-device="mac codex">
         <div class="card-header">
           <span class="card-name">/submit-app</span>
           <span class="card-tag">스토어 제출</span>
-          <span class="card-device dev-codex">🏭 Codex</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
         </div>
         <div class="card-desc">앱 스토어 제출 루틴. lessons/ 의 과거 실수·리젝 사례를 Step 0 에서 읽어 재발 방지 체크리스트 후 빌드·업로드·심사 제출.</div>
         <div class="card-footer">
@@ -577,11 +624,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/todo</span>
           <span class="card-tag">할일 관리</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">할일·사이드 프로젝트를 ~/daejong-page/todos/YYYY-MM-DD.md 에 기록. "해야 해 / 끝났어 / 취소" 자연어 트리거로 자동 처리.</div>
         <div class="card-footer">
@@ -593,7 +643,9 @@
         <div class="card-header">
           <span class="card-name">/todo-reminder</span>
           <span class="card-tag">밤 알림</span>
-          <span class="card-device dev-mac">🍎 Mac</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
         </div>
         <div class="card-desc">매일 밤 할일 리마인더. 오늘 뭐 했고 뭐 못 했나 정리 + 내일 우선순위 TOP 3 제안. 텔레그램 전송.</div>
         <div class="card-footer">
@@ -601,11 +653,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/trio-vote</span>
           <span class="card-tag">브레인스토밍</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">PM·엔지니어·비판론자 3역할 병렬 브레인스토밍 → 상호 투표 → 다수결. 동점 시 9명 확장투표. 어떤 기기에서도 단독 실행 가능.</div>
         <div class="card-footer">
@@ -613,11 +668,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/usage</span>
           <span class="card-tag">토큰</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">ccusage 기반 토큰 사용량 ASCII 바 그래프. 현재 5시간 블록 진행률, 히스토리, 모델별 분포, 주·일별 합계.</div>
         <div class="card-footer">
@@ -625,11 +683,14 @@
         </div>
       </div>
 
-      <div class="card" data-device="both">
+      <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/worklog</span>
           <span class="card-tag">작업일지</span>
-          <span class="card-device dev-both">🔄 공용</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">하루 전체 작업(세션 로그 + git 커밋) 수집·요약 → 원본(worklog-source/) + 공개본(worklog/) 이원화 저장 + GitHub·홈페이지 반영.</div>
         <div class="card-footer">
@@ -641,7 +702,9 @@
         <div class="card-header">
           <span class="card-name">/wsl-flutter-test</span>
           <span class="card-tag">Flutter</span>
-          <span class="card-device dev-wsl">🪟 WSL</span>
+          <div class="card-devices">
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
         </div>
         <div class="card-desc">WSL bash 에서 flutter analyze/test 실행 시 cmd.exe pushd UNC cwd 거부 함정 우회. run.sh 1줄 호출로 4단계 자동화.</div>
         <div class="card-footer">
@@ -674,12 +737,8 @@
         const f = p.dataset.filter;
         pills.forEach(x => x.classList.toggle('active', x === p));
         cards.forEach(c => {
-          const d = c.dataset.device || 'both';
-          let show;
-          if (f === 'all') show = true;
-          else if (f === 'both') show = (d === 'both');
-          else if (f === 'codex') show = (d === 'codex');
-          else show = (d === f || d === 'both');
+          const d = c.dataset.device || '';
+          const show = f === 'all' || d.split(' ').includes(f);
           c.classList.toggle('hidden', !show);
         });
         updateCount();
