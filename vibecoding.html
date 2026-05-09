@@ -532,8 +532,8 @@
       <div class="proposal-item">
         <div class="proposal-num">3</div>
         <div class="proposal-text">
-          <h4>loop-judge 판정 기준은 빈 출력도 SUCCESS로</h4>
-          <p>현재 loop-judge는 빈 출력(rm -rf 성공 등)을 FAIL로 판정하는 버그가 있다. 판정 기준을 "exit 0 + 기대 출력 없음"도 SUCCESS로 처리하도록 개선하면 루프 신뢰도가 크게 오른다.</p>
+          <h4>loop-run JUDGE 단계 — 빈 출력도 SUCCESS로</h4>
+          <p>loop-run 내 JUDGE 단계는 빈 출력(rm -rf 성공 등)을 FAIL로 판정하는 버그가 있다. "exit 0 + 기대 출력 없음"도 SUCCESS로 처리하도록 개선하면 루프 신뢰도가 크게 오른다.</p>
         </div>
       </div>
 
