@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-09-loop-run-wsl-abort-flutter-path.md",
+      "date": "2026-05-09",
+      "slug": "loop-run-wsl-abort-flutter-path",
+      "title": "loop-run WSL 태스크 ABORT 무한 재시도 + flutter PATH 미설정",
+      "severity": "medium",
+      "recurrence": "low",
+      "scope": "loop-run WSL/macmini device 태스크",
+      "occurred_at": "2026-05-09T18:16:00+09:00",
+      "resolved_at": "2026-05-09T19:03:00+09:00",
+      "updated": "2026-05-09T19:05:07+09:00"
+    },
+    {
       "file": "2026-05-09-telegram-typing-zombie-after-clear.md",
       "date": "2026-05-09",
       "slug": "telegram-typing-zombie-after-clear",
