@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-09_v1.2.0.md",
+      "date": "2026-05-09",
+      "version": "v1.2.0",
+      "title": "파이프라인이 스스로 살아남는 법 — loop-run SSH 전환·self-heal-scanner v1",
+      "updated": "2026-05-09T20:15:00+09:00"
+    },
+    {
       "file": "2026-05-09_v1.1.1.md",
       "date": "2026-05-09",
       "version": "v1.1.1",
