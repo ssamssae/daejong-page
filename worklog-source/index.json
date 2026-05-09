@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-09_v1.3.0.md",
+      "date": "2026-05-09",
+      "version": "v1.3.0",
+      "summary": "WSL→Mac 봇차단 픽스 + trio-vote Codex 설치 + 메모요 동결 + typing indicator mid-task 버그 수정",
+      "updated": "2026-05-10T00:15:00+09:00"
+    },
+    {
       "file": "2026-05-09_v1.2.0.md",
       "date": "2026-05-09",
       "version": "v1.2.0",
