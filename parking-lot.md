@@ -68,4 +68,4 @@
 
 - [ ] 🤝 💡 막다른길 상세 렌더러 페이지 — dead-ends 카드 클릭 시 .md 내용을 렌더링해 보여주는 detail.html 신설. issue.html 방식 참고. 현재는 카드 클릭 비활성화 상태. (추가: 2026-05-05)
 
-- [ ] 🪟 🧹 ~/.claude/automations 의 12개 untracked plugin hook 정리 — claude-automations repo 두 클론(~/claude-automations, ~/.claude/automations) 사이 후자가 plugin install 잔여로 codex-hook.js / clawd-hook.js / codex-install*.js / json-utils.js / server-config.js / shared-process.js / install.js / telegram-typing-refresh.sh 등 12 파일 untracked 보유. 옵션: (a) repo .gitignore 에 추가 (b) 별도 plugin repo 분리 (c) 두 clone 통합(~/.claude/automations → ~/claude-automations symlink). 매 pull 마다 status noise 줄이기 목적. (추가: 2026-05-08)
+- self-heal: 반복 Tier2 패턴 자동 이슈화 (같은 패턴 2일 연속 → /issue 초안 텔레그램) — 2026-05-09 trio-vote 1표 탈락, 나중에 고려
