@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-09_v1.1.1.md",
+      "date": "2026-05-09",
+      "version": "v1.1.1",
+      "title": "세 기기가 동시에 브레인스토밍하기까지 — session-clear 버그픽스·skill-exists.sh·mesh-vote 신규",
+      "updated": "2026-05-09T16:05:08.819205+09:00"
+    },
+    {
       "file": "2026-05-09_v1.0.0.md",
       "date": "2026-05-09",
       "version": "v1.0.0",
