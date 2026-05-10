@@ -52,9 +52,37 @@
     }
     .device-head {
       display: flex;
-      align-items: baseline;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 4px;
+    }
+    .agent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px 3px 7px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: -0.1px;
+      white-space: nowrap;
+    }
+    .agent-badge svg { display: block; flex-shrink: 0; }
+    .agent-badge-cc {
+      background: #FFF3ED;
+      color: #C5613B;
+      border: 1px solid #F3D5C2;
+    }
+    .agent-badge-oc {
+      background: #F3F0FF;
+      color: #6D28D9;
+      border: 1px solid #DDD6FE;
+    }
+    .agent-badge-hermes {
+      background: #EBF3FF;
+      color: #1E40AF;
+      border: 1px solid #BFDBFE;
     }
     .device-icon {
       font-size: 28px;
@@ -152,6 +180,17 @@
         <div class="device-head">
           <span class="device-icon" role="img" aria-label="Mac 본진">🍎</span>
           <span class="device-name">Mac 본진</span>
+          <span class="agent-badge agent-badge-cc" aria-label="Claude Code 운영">
+            <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true">
+              <g stroke="#C5613B" stroke-width="2.6" stroke-linecap="round">
+                <line x1="12" y1="3" x2="12" y2="21"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="5.5" y1="5.5" x2="18.5" y2="18.5"/>
+                <line x1="5.5" y1="18.5" x2="18.5" y2="5.5"/>
+              </g>
+            </svg>
+            Claude Code
+          </span>
         </div>
         <div class="device-spec">MacBook Pro · arm64 · macOS 26.4.1 · 24/7 stationary · 집 데스크톱화</div>
         <div class="device-role">지휘관 · SoT · 최종 결정 · 메인 챗봇 세션 · agent-mesh hub (wsl-directive.sh sender · mac-report.sh receiver)</div>
@@ -172,6 +211,14 @@
         <div class="device-head">
           <span class="device-icon" role="img" aria-label="Mac mini">🏭</span>
           <span class="device-name">Mac mini</span>
+          <span class="agent-badge agent-badge-oc" aria-label="OpenClaw 운영">
+            <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="#6D28D9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 4 C 6 11, 7 16, 9 21"/>
+              <path d="M12 3 C 12 11, 12 16, 12 21"/>
+              <path d="M19 4 C 18 11, 17 16, 15 21"/>
+            </svg>
+            OpenClaw
+          </span>
         </div>
         <div class="device-spec">M1 arm64 · macOS(Darwin) · Codex (OpenClaw) · Telegram 직접 세션</div>
         <div class="device-role">Codex 에이전트 / OpenClaw 메인 워크스페이스. iOS/Android 빌드·배포 전담 · SSH · Chrome Remote Desktop · 실기기 debug 담당</div>
@@ -191,6 +238,17 @@
         <div class="device-head">
           <span class="device-icon" role="img" aria-label="WSL 데스크탑">🪟</span>
           <span class="device-name">WSL</span>
+          <span class="agent-badge agent-badge-cc" aria-label="Claude Code 운영">
+            <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true">
+              <g stroke="#C5613B" stroke-width="2.6" stroke-linecap="round">
+                <line x1="12" y1="3" x2="12" y2="21"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="5.5" y1="5.5" x2="18.5" y2="18.5"/>
+                <line x1="5.5" y1="18.5" x2="18.5" y2="5.5"/>
+              </g>
+            </svg>
+            Claude Code
+          </span>
         </div>
         <div class="device-spec">DESKTOP-I4TR99I · Ryzen 3900X + RTX 2070S · 낮 ON / 밤 OFF</div>
         <div class="device-role">낮 즉응 작업자 · wsl/* 브랜치 코드 수정·commit·push (main 직접 push 금지) · 빌드/배포 X · agent-mesh node (mac-report.sh sender)</div>
@@ -235,6 +293,16 @@
         <div class="device-head">
           <span class="device-icon" role="img" aria-label="노트북 RTX 3060">💻</span>
           <span class="device-name">노트북 3060</span>
+          <span class="agent-badge agent-badge-hermes" aria-label="Hermes 운영">
+            <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 13 C 6 9, 9 9, 12 12"/>
+              <path d="M3 13 C 6 11, 9 11, 11 13"/>
+              <path d="M21 13 C 18 9, 15 9, 12 12"/>
+              <path d="M21 13 C 18 11, 15 11, 13 13"/>
+              <line x1="12" y1="6" x2="12" y2="14"/>
+            </svg>
+            Hermes
+          </span>
         </div>
         <div class="device-spec">DESKTOP-4MNJ1C0 · Lenovo Legion 5 · Ubuntu 24.04.4 LTS on WSL2 · RTX 3060 Laptop 6GB (추정)</div>
         <div class="device-role">외출 시 SSH 터미널 접속 코딩 가능 · Hermes(에이전트 프레임워크, OpenAI Codex provider · gpt-5.5) + Codex CLI 설치 확인 (2026-05-10)</div>
