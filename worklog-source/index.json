@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-10_v1.0.3.md",
+      "date": "2026-05-10",
+      "version": "v1.0.3",
+      "summary": "v1.0.2 이후 19:20~24:33 KST 5시간 — 3060Ti 봇 토큰 placeholder paste 분실 사고로 reply-purity 가드 + 메모리 1건. 23:06 \"200분짜리 토큰 9-to-6 에 쓰고 싶다\" 한 마디로 fleet-director 메타 시스템 Q1~Q8 + spec 983L + Codex line review 6 finding 반영 + plan 14일 3124L 완성. D01 시작은 fresh 컨디션 보류 + 트리거 메모리 박음.",
+      "updated": "2026-05-11T00:48:13+09:00"
+    },
+    {
       "file": "2026-05-10_v1.0.2.md",
       "date": "2026-05-10",
       "version": "v1.0.2",
