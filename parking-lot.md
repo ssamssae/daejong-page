@@ -76,3 +76,4 @@
 - mini ~/.claude/automations 를 정식 git repo 화 (현재 home 디렉터리가 빈 master + remote 없음, process-agent-inbox.sh 등 변경 추적 안 됨) — 2026-05-10
 - mini inbox bucket 별 처리 카운트 모니터링 + 24h wsl/ 처리 0건이면 텔레그램 경고 (mesh 통신 silent fail 자동 감지) — 2026-05-10
 - TELEGRAM_CHAT_ID_MACMINI 를 .env 에 별도 분리 (현재 강대종 chat 538806975 fallback 으로 Codex 챗과 사람 알림이 같은 채널 공유) — 2026-05-10
+- 3060 Jarvis2 페르소나 인계 — 백업 `~/openclaw-archive/jarvis2-2026-05-10/` 의 IDENTITY/SOUL/MEMORY/USER/skills/auto-memory 를 3060 의 새 claude-main 세션 메모리로 이식 (옵션, 페르소나 연속성이 중요해질 때 — 2026-05-10)
