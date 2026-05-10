@@ -1,10 +1,29 @@
 # Issues Index
 
 _자동 생성됨. 이 파일은 수동 편집 금지 — `python3 ~/.claude/skills/issue/tools/regen_index.py` 로만 갱신._
-_마지막 생성: 2026-05-02 21:01 KST_
+_마지막 생성: 2026-05-10 18:11 KST_
 
 | 날짜 | slug | 제목 | 심각도 | 재발 가능성 | 재발 이력 | 예방 deferred |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-05-10 | [session-clear-marker-race](2026-05-10-session-clear-marker-race.md) | session-clear 마커 조기 소모 레이스 컨디션 | ? | ? | — | — |
+| 2026-05-10 | [session-clear-full-investigation](2026-05-10-session-clear-full-investigation.md) | session-clear 전 구현 실패 원인 + 최종 성공 분석 | ? | ? | — | — |
+| 2026-05-10 | [session-clear-buffer-polling-bug](2026-05-10-session-clear-buffer-polling-bug.md) | session-clear /clear 씹힘 — 입력 버퍼 + polling 조건 버그 | ? | ? | — | — |
+| 2026-05-10 | [mini-agent-inbox-bot-bridge](2026-05-10-mini-agent-inbox-bot-bridge.md) | Mac mini agent-inbox watcher — wsl/ 무시 + tmux 부재로 inject 양방향 죽음 | medium | medium (새로운 inbox bucket 추가나 stdio 모드 환경 추가 시) | — | — |
+| 2026-05-10 | [loop-run-92771-failure-analysis](2026-05-10-loop-run-92771-failure-analysis.md) | loop-run run-92771 실패 원인 분석 + 수정 | ? | ? | — | — |
+| 2026-05-10 | [claude-code-terminal-stdin-lag](2026-05-10-claude-code-terminal-stdin-lag.md) | Claude Code 터미널 입력 지연 (3~4타에 1글자) | medium | medium | — | — |
+| 2026-05-09 | [wsl-agent-msg-notify-bot-blocked](2026-05-09-wsl-agent-msg-notify-bot-blocked.md) | WSL agent-msg-notify.sh → Telegram 봇차단으로 Mac 수신 불가 | medium (WSL→Mac 양방향 통신 미작동) | high (구조적 오해, WSL이 잘못된 경로 계속 사용) | — | — |
+| 2026-05-09 | [typing-indicator-stop-on-midtask-wait](2026-05-09-typing-indicator-stop-on-midtask-wait.md) | 작업 중간 확인 대기 시 입력 중 표시 꺼짐 | low (UX — 봇 죽었나 오해 유발) | low (수정 완료) | — | — |
+| 2026-05-09 | [telegram-typing-zombie-after-clear](2026-05-09-telegram-typing-zombie-after-clear.md) | /clear 후 이전 세션 typing daemon 좀비 잔류 | low (UX — 작업 안 하는데 "입력 중" 표시) | high | — | — |
+| 2026-05-09 | [play-managed-publishing-on](2026-05-09-play-managed-publishing-on.md) | Play Console 관리 게시 ON — 심사 통과 후 미발행 | medium | high | 2회 | — |
+| 2026-05-09 | [loop-run-wsl-abort-flutter-path](2026-05-09-loop-run-wsl-abort-flutter-path.md) | loop-run WSL 태스크 ABORT 무한 재시도 + flutter PATH 미설정 | medium (loop-run WSL/macmini device 태스크 전체 불능) | low (수정 완료) | — | — |
+| 2026-05-09 | [clear-queued-during-processing](2026-05-09-clear-queued-during-processing.md) | /clear 처리 중 큐 지연 — 슬래시 커맨드 큐잉 동작 | low (기능 동작은 정상, UX 혼선) | high (설계 동작, 항상 해당) | — | — |
+| 2026-05-08 | [mac-report-fake-result-notify](2026-05-08-mac-report-fake-result-notify.md) | mac-report.sh 래퍼가 자동으로 가짜 [결과] 알림 생성 | medium | low | — | — |
+| 2026-05-08 | [codex-session-relay-telegram-mirror](2026-05-08-codex-session-relay-telegram-mirror.md) | codex-session-relay가 Codex 응답을 본진 채팅에 중복 미러링 | medium | low | — | — |
+| 2026-05-08 | [codex-inject-websocket-silent-fail](2026-05-08-codex-inject-websocket-silent-fail.md) | Codex inject WebSocket 무음 실패 — directive ok 리턴했지만 미도달 | medium | medium | — | — |
+| 2026-05-08 | [clawd-openclaw-codex-pid-unreachable](2026-05-08-clawd-openclaw-codex-pid-unreachable.md) | Clawd on Desk — OpenClaw Codex 연동 실패 (openclaw-trajectory pidReachable=0) | low | medium | — | — |
+| 2026-05-06 | [hanjul-openai-org-member-removed](2026-05-06-hanjul-openai-org-member-removed.md) | 한줄일기 AI 응원 기능 중단 — OpenAI Organization 멤버 remove로 API 키 접근 차단 | high (유료 앱 핵심 기능 전체 중단) | medium | — | — |
+| 2026-05-05 | [session-clear-triggered-goodnight](2026-05-05-session-clear-triggered-goodnight.md) | "세션클리어하자" → /goodnight 잘못 발화 사고 | ? | ? | — | — |
+| 2026-05-04 | [lottocalc-irun-white-screen](2026-05-04-lottocalc-irun-white-screen.md) | lottocalc irun 흰화면 버그 | ? | ? | — | — |
 | 2026-05-02 | [policy-race-mac-wsl](2026-05-02-policy-race-mac-wsl.md) | 본진·WSL 가 globals/CLAUDE.md 를 stale-on-stale 로 동시 수정 — 「지휘관 1명 원칙」 폐기 사이클의 race | medium (정책 파일 → 잘못 통합되면 두 작업자 행동 룰 자체가 깨짐) | medium (정책 갱신 사이클 또는 같은 파일 동시 작업 발생 시 동일 패턴) | — | — |
 | 2026-05-02 | [playwright-mcp-cwd-output-dir](2026-05-02-playwright-mcp-cwd-output-dir.md) | Playwright MCP server cwd 가 `/` 일 때 `/.playwright-mcp` mkdir ENOENT | medium (Playwright MCP 도구 호출 100% 실패 → Substack republish · Play Console 자동화 등 차단) | high (plugin update / cache 재생성 시 .mcp.json 원복되면서 재현) | — | — |
 | 2026-05-02 | [google-oauth-playwright-stealth-bypass](2026-05-02-google-oauth-playwright-stealth-bypass.md) | Playwright 로 띄운 Chrome 에서 Google OAuth 로그인 차단 — stealth args 3종 우회 성공 | medium (`/create-play-app` 자동화 + Play Console 신규 등록 자동화 전체가 차단되는 함정) | high (Google 자동화 차단 정책 상시 강화 추세, 규칙 변경 시 또 깨질 수 있음) | — | — |
