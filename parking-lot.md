@@ -83,3 +83,4 @@
 - 데스크탑 3060Ti / 노트북 3060 agent-mesh 정식 편입 결정 — 두 노드 모두 sshd inactive 라 인바운드 라우팅 비대칭. 정식 편입 선결: (1) sshd 활성 (2) 텔레그램 봇 채널 강대종 직접 채팅 vs agent mesh routing 분리 (3) Codex CLI 활성 사용 검증. 결정 시점은 mesh 6방향 완성 후. (2026-05-10)
 - GPU 작업 라우팅 — 3개 WSL 노드(WSL DESKTOP-I4TR99I RTX 2070S, 노트북 3060 RTX 3060 6GB, 데스크탑 3060Ti RTX 3060Ti 8GB) 중 데스크탑 3060Ti 만 nvidia-smi 정상 (CUDA 12.8 / driver 572.70 풀 가시성). WSL 본진/노트북은 /dev/dxg 브리지만. 향후 CUDA 작업 라우팅 시 데스크탑 3060Ti 1순위 후보 — 정책 결정 필요 (2026-05-10)
 - 페다(Feda) 스타일 자율 AI 조직 구현 — 강대종 발화 의존도 낮춘 multi-agent 자율 운영. 출발점 후보: (A) 에이전트 상태 1화면 대시보드 (B) 공유 inbox/blackboard SoT 강화 (C) 자율 트리거 늘리기 (cron+정책). 부족점 = 시각화/공유 메모리/자율 트리거. (2026-05-10, 트리거 = mstoday 페다 기사)
+- 데스크탑 3060Ti Clawd on Desk ↔ 데스크탑 WSL Ubuntu24 Claude/Codex 연결 — v0.7.0 설치 완료(보임). 같은 PC 안 에이전트만 감지하는 구조라 데스크탑 Windows Clawd가 WSL 안의 Claude 세션 잡으려면 별도 hook 셋업 필요할 수 있음. 가이드: github.com/rullerzhou-afk/clawd-on-desk/blob/main/docs/guides/codex-wsl-clarification.md (2026-05-10)
