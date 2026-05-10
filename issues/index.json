@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-10-mini-agent-inbox-bot-bridge.md",
+      "date": "2026-05-10",
+      "slug": "mini-agent-inbox-bot-bridge",
+      "title": "Mac mini agent-inbox watcher — wsl/ 무시 + tmux 부재로 inject 양방향 죽음",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "mini process-agent-inbox.sh / 6방향 mesh 통신 mini 양방향",
+      "occurred_at": "2026-05-07T21:01:00+09:00",
+      "resolved_at": "2026-05-10T18:08:00+09:00",
+      "updated": "2026-05-10T18:12:00+09:00"
+    },
+    {
       "file": "2026-05-10-claude-code-terminal-stdin-lag.md",
       "date": "2026-05-10",
       "slug": "claude-code-terminal-stdin-lag",
