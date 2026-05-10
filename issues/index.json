@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-10-placeholder-paste-loss.md",
+      "date": "2026-05-10",
+      "slug": "placeholder-paste-loss",
+      "title": "Telegram paste 명령 안 placeholder 가 그대로 paste 되어 3060Ti .env 봇 토큰 덮어써짐",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "모든 cross-device paste 셋업 안내",
+      "occurred_at": "2026-05-10T20:46+09:00",
+      "resolved_at": "2026-05-10T21:01+09:00",
+      "updated": "2026-05-10T21:07:19+0900"
+    },
+    {
       "file": "2026-05-10-session-clear-marker-race.md",
       "date": "2026-05-10",
       "slug": "session-clear-marker-race",
