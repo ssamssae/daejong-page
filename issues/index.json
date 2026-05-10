@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-10-claude-code-terminal-stdin-lag.md",
+      "date": "2026-05-10",
+      "slug": "claude-code-terminal-stdin-lag",
+      "title": "Claude Code 터미널 입력 지연 (3~4타에 1글자) — stdin backpressure 추정",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "Mac 본진 Claude Code 터미널 세션 입력 UX",
+      "occurred_at": "2026-05-10T08:00:00+09:00",
+      "resolved_at": "2026-05-10T17:08:00+09:00",
+      "updated": "2026-05-10T17:18:00+09:00"
+    },
+    {
       "file": "2026-05-09-clear-queued-during-processing.md",
       "date": "2026-05-09",
       "slug": "clear-queued-during-processing",
