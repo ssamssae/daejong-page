@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-10_v1.0.2.md",
+      "date": "2026-05-10",
+      "version": "v1.0.2",
+      "summary": "v1.0.1 이후 stack.html 4장 카드(Mac 본진/Mac mini/WSL/노트북 3060) 풍성 포맷 통일 + CLAUDE.md 'Mac mini 챗봇 세션 X' 표기 4곳 갱신 + 노트북 봇 @ssamssae_codex_bot 확정",
+      "updated": "2026-05-10T19:09:00+09:00"
+    },
+    {
       "file": "2026-05-10_v1.0.1.md",
       "date": "2026-05-10",
       "version": "v1.0.1",
