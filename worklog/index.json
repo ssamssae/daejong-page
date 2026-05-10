@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-10_v1.0.0.md",
+      "date": "2026-05-10",
+      "version": "v1.0.0",
+      "title": "`/clear`가 전송되기까지, 8번의 실패 — session-clear 포스트모템 + loop-run Triple-Velocity",
+      "updated": "2026-05-10T15:52:00+09:00"
+    },
+    {
       "file": "2026-05-09_v1.3.0.md",
       "date": "2026-05-09",
       "version": "v1.3.0",

@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-10_v1.0.0.md",
+      "date": "2026-05-10",
+      "version": "v1.0.0",
+      "summary": "session-clear 8회 실패 분석 + loop-run Triple-Velocity 디버깅 + loop-run.sh 개선",
+      "updated": "2026-05-10T15:52:00+09:00"
+    },
+    {
       "file": "2026-05-09_v1.3.0.md",
       "date": "2026-05-09",
       "version": "v1.3.0",
