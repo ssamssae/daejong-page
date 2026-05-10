@@ -299,7 +299,7 @@
     </header>
 
     <div class="hero">
-      <div class="hero-label">Report · 2026-05-09</div>
+      <div class="hero-label">Report · 2026-05-11</div>
       <h2>혼자 만들고 혼자 다듬어온<br>에이전트 스킬 시스템</h2>
       <p>Claude Code 커스텀 스킬(/skill)로 반복 작업을 자동화하는 시스템. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 바이브코딩 인프라가 어떻게 만들어졌는지 기록합니다.</p>
       <div class="hero-stats">
@@ -308,7 +308,7 @@
           <div class="stat-label">활성 스킬</div>
         </div>
         <div class="stat">
-          <div class="stat-num">3</div>
+          <div class="stat-num">5</div>
           <div class="stat-label">참여 기기</div>
         </div>
         <div class="stat">
@@ -316,7 +316,7 @@
           <div class="stat-label">커밋 (claude-skills)</div>
         </div>
         <div class="stat">
-          <div class="stat-num">~2주</div>
+          <div class="stat-num">~3주</div>
           <div class="stat-label">제작 기간</div>
         </div>
       </div>
@@ -416,10 +416,28 @@
         </div>
       </div>
 
+      <div class="tl-item epoch4">
+        <div class="tl-dot epoch4"></div>
+        <div class="tl-date">2026-05-10 ~ 05-11</div>
+        <div class="tl-card">
+          <span class="tl-epoch">5기 · 5노드 메시</span>
+          <div class="tl-title">데스크탑 3060Ti + 노트북 헤르메스 추가, fleet-director 등장</div>
+          <div class="tl-desc">
+            기기 5대 체제로 확장. 데스크탑 3060Ti(🖥️)가 GPU 노드 + 챗봇 노드로 합류, 노트북 헤르메스(💻)가 OpenAI Codex provider 기반 Hermes 에이전트 + 외출용 SSH 헤드로 편입. 두 노드는 직접 운반체 미등록, claude-skills git pull 만으로 동기화.
+            <br><br>fleet-director v1 plan 도입(D01 시작 예정) — 5대 노드 일과 자동 분배 + subagent-driven 실행. mesh-vote 등장으로 trio-vote의 물리기기 버전(Mac 본진·WSL·Codex 3노드 병렬 브레인스토밍 + 상호 투표)도 가능.
+          </div>
+          <div class="tl-skills">
+            <span class="skill-badge new">/mesh-vote</span>
+            <span class="skill-badge new">/araseo</span>
+            <span class="skill-badge new">/fleet-director</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Architecture -->
-    <h2 class="section-title"><span>02</span> 현재 기기 구조</h2>
+    <h2 class="section-title"><span>02</span> 현재 기기 구조 — 5대</h2>
     <div class="arch-grid">
       <div class="arch-card">
         <div class="arch-icon">🍎</div>
@@ -428,13 +446,23 @@
       </div>
       <div class="arch-card">
         <div class="arch-icon">🪟</div>
-        <div class="arch-name">WSL</div>
+        <div class="arch-name">WSL Ryzen</div>
         <div class="arch-role">낮 즉응 작업자<br>wsl/* 브랜치 코드 수정<br>분석·테스트</div>
       </div>
       <div class="arch-card">
         <div class="arch-icon">🏭</div>
         <div class="arch-name">Mac mini (Codex)</div>
         <div class="arch-role">24/7 야간 워커<br>실기기 빌드·배포<br>night-runner 점검</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">🖥️</div>
+        <div class="arch-name">데스크탑 3060Ti</div>
+        <div class="arch-role">GPU 노드 (LLM/SD/Whisper)<br>챗봇 노드 (2026-05-10~)<br>git pull only 동기화</div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-icon">💻</div>
+        <div class="arch-name">노트북 헤르메스 3060</div>
+        <div class="arch-role">Hermes 에이전트<br>OpenAI Codex provider<br>외출용 원격 SSH 헤드</div>
       </div>
     </div>
 
