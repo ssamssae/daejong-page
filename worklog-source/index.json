@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-11_v1.0.0.md",
+      "date": "2026-05-11",
+      "version": "v1.0.0",
+      "summary": "00:52 launchd /clear abort 5+회 누적 사고 → 이슈 박음. 01~02시 5기기 메시 토폴로지 LIVE(stack.html SVG + 운반체 4종 + agent-msg-notify 5기기 매핑) + insta-post-general v0.1 dry-run. 05:04 routine #1 자동 commit 매일 새벽 충돌 + GitHub PAT 평문 노출 발견. 09:35 routine disabled+redacted+todos 봉합+4기기 sync. 09:49 insta-post 별도 cron(매일 23:50 KST) 으로 /goodnight 결합 해체. 결정 4건 박제(insta-post cron 분리/5노드 메시/Mac mini 역할/routine 시크릿 금지).",
+      "updated": "2026-05-11T14:30:00+09:00"
+    },
+    {
       "file": "2026-05-10_v1.0.3.md",
       "date": "2026-05-10",
       "version": "v1.0.3",

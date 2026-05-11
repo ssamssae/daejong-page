@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-11_v1.0.0.md",
+      "date": "2026-05-11",
+      "version": "v1.0.0",
+      "title": "routine 이 매일 새벽 5시에 GitHub PAT 를 들고 commit 하고 있었다",
+      "updated": "2026-05-11T14:30:00+09:00"
+    },
+    {
       "file": "2026-05-10_v1.0.3.md",
       "date": "2026-05-10",
       "version": "v1.0.3",
