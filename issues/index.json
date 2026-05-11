@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-11-routine-todos-collision-pat-leak.md",
+      "date": "2026-05-11",
+      "slug": "routine-todos-collision-pat-leak",
+      "title": "Anthropic Cloud routine 이 /todo 스킬 파일경로에 매일 commit + prompt 안 GitHub PAT 평문 노출",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "Anthropic Cloud routines, daejong-page/todos, /todo 스킬, GitHub OAuth 토큰",
+      "occurred_at": "2026-05-10T05:04+09:00",
+      "resolved_at": "2026-05-11T09:35+09:00",
+      "updated": "2026-05-11T13:42:26+0900"
+    },
+    {
       "file": "2026-05-11-launchd-clear-trigger-abort-loop.md",
       "date": "2026-05-11",
       "slug": "launchd-clear-trigger-abort-loop",
