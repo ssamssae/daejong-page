@@ -3,8 +3,9 @@
     {
       "file": "2026-05-11.md",
       "date": "2026-05-11",
-      "count": 2,
-      "updated": "2026-05-11T14:07:14+09:00"
+      "summary": "5기기 메시 LIVE(운반체+매핑+토폴로지) + insta-post 별도 cron 분리 + routine PAT 평문 노출 봉합 + launchd /clear abort 이슈 + insta-post-general v0.1 dry-run + 결정 박제 4건",
+      "count": 18,
+      "updated": "2026-05-11T14:35:00+09:00"
     },
     {
       "file": "2026-05-10.md",
