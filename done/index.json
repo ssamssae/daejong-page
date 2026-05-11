@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-11.md",
+      "date": "2026-05-11",
+      "count": 2,
+      "updated": "2026-05-11T14:07:14+09:00"
+    },
+    {
       "file": "2026-05-10.md",
       "date": "2026-05-10",
       "summary": "fleet-director v1 spec+plan 완성 (저녁 5시간) + 3060Ti 봇 토큰 분실 사고 → reply-purity 가드 + stack.html PR #59/#60 운영 에이전트 배지 + worklog v1.0.3",
