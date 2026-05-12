@@ -1,13 +1,20 @@
 # Issues Index
 
 _자동 생성됨. 이 파일은 수동 편집 금지 — `python3 ~/.claude/skills/issue/tools/regen_index.py` 로만 갱신._
-_마지막 생성: 2026-05-10 18:11 KST_
+_마지막 생성: 2026-05-13 00:05 KST_
 
 | 날짜 | slug | 제목 | 심각도 | 재발 가능성 | 재발 이력 | 예방 deferred |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-05-13 | [mac-report-reverse-reply-missed](2026-05-13-mac-report-reverse-reply-missed.md) | mac-report 1차 회신 누락 — Mac→WSL reverse reply 빠뜨림 | medium | medium-high (2026-04-20 telegram-only reply 와 동일 패턴, 채널 누락 일반화 함정) | — | — |
+| 2026-05-12 | [fleet-state-tests-auto-push-leak](2026-05-12-fleet-state-tests-auto-push-leak.md) | fleet-state test harness 의 git push 가 리뷰 미통과 commit 까지 origin 으로 끌고 올라감 | medium (process 룰 위반 — 코드 손상 X, 보안 영향 X. 그러나 "commit 은 review 후" 원칙 무력화) | 100% (현재 test harness 구조 유지 시 매번 발생) | — | — |
+| 2026-05-12 | [dutchpay-gad-application-identifier-missing](2026-05-12-dutchpay-gad-application-identifier-missing.md) | 더치페이 release 빌드 iPhone 설치 후 앱 launch crash — Info.plist GADApplicationIdentifier 누락 | ? | ? | — | — |
+| 2026-05-12 | [codex-bidirectional-routing-failure](2026-05-12-codex-bidirectional-routing-failure.md) | Codex(맥미니) ↔ 본진(Mac) 양방향 메시지 자동 회수 경로 부재 | high (멀티 디바이스 fleet 운영에서 본진이 Codex 결과를 자동으로 받지 못함 = 강대종 hands-off 시간 확보 목표 자체와 충돌) | 100% (구조적 결함, 코드 변경 없으면 매번 재현) | — | — |
+| 2026-05-11 | [routine-todos-collision-pat-leak](2026-05-11-routine-todos-collision-pat-leak.md) | Anthropic Cloud routine 이 /todo 스킬 파일경로에 매일 commit + prompt 안 GitHub PAT 평문 노출 | medium (데이터 손실 0. 다만 PAT 평문 노출은 high.) | medium (routine 재활성화 시 같은 문제, 다른 routine 도 같은 패턴 가능) | — | — |
+| 2026-05-11 | [launchd-clear-trigger-abort-loop](2026-05-11-launchd-clear-trigger-abort-loop.md) | launchd 자동 /clear 트리거 abort 반복 — busy-loop 시 fire 마다 timeout | medium | high | — | — |
 | 2026-05-10 | [session-clear-marker-race](2026-05-10-session-clear-marker-race.md) | session-clear 마커 조기 소모 레이스 컨디션 | ? | ? | — | — |
 | 2026-05-10 | [session-clear-full-investigation](2026-05-10-session-clear-full-investigation.md) | session-clear 전 구현 실패 원인 + 최종 성공 분석 | ? | ? | — | — |
 | 2026-05-10 | [session-clear-buffer-polling-bug](2026-05-10-session-clear-buffer-polling-bug.md) | session-clear /clear 씹힘 — 입력 버퍼 + polling 조건 버그 | ? | ? | — | — |
+| 2026-05-10 | [placeholder-paste-loss](2026-05-10-placeholder-paste-loss.md) | Telegram paste 명령 안 `<...>` placeholder 가 그대로 paste 되어 3060Ti .env 봇 토큰 덮어써짐 | medium (transcript 에서 복구 성공. transcript GC 됐으면 high — 봇 자체 분실) | medium (cross-device 셋업 paste 안내마다 재발 가능. 기존 paste-block hook 미검사 패턴) | — | — |
 | 2026-05-10 | [mini-agent-inbox-bot-bridge](2026-05-10-mini-agent-inbox-bot-bridge.md) | Mac mini agent-inbox watcher — wsl/ 무시 + tmux 부재로 inject 양방향 죽음 | medium | medium (새로운 inbox bucket 추가나 stdio 모드 환경 추가 시) | — | — |
 | 2026-05-10 | [loop-run-92771-failure-analysis](2026-05-10-loop-run-92771-failure-analysis.md) | loop-run run-92771 실패 원인 분석 + 수정 | ? | ? | — | — |
 | 2026-05-10 | [claude-code-terminal-stdin-lag](2026-05-10-claude-code-terminal-stdin-lag.md) | Claude Code 터미널 입력 지연 (3~4타에 1글자) | medium | medium | — | — |
