@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-12.md",
+      "date": "2026-05-12",
+      "summary": "fleet-director D07-prereq triad 종료 (PASS) — bc2bbbf + 31a3635 / SIGPIPE family 4·5번째 close / 9/10 tests PASS with known claim-race env failure / review 전 push 사고 fix-forward 수습 + test harness push 격리 D07 cron 전 blocker 승격 + 5/11 인스타 캐러셀 수동 복구",
+      "count": 14,
+      "updated": "2026-05-12T07:45:00+09:00"
+    },
+    {
       "file": "2026-05-11.md",
       "date": "2026-05-11",
       "summary": "5기기 메시 LIVE(운반체+매핑+토폴로지) + insta-post 별도 cron 분리 + routine PAT 평문 노출 봉합 + launchd /clear abort 이슈 + insta-post-general v0.1 dry-run + 결정 박제 4건",

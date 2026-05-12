@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-12_v1.0.0.md",
+      "date": "2026-05-12",
+      "version": "v1.0.0",
+      "summary": "5/11 인스타 캐러셀 cron `EXTRA[@]: unbound variable` 사고 → 수동 복구. fleet-director D07-prereq triad 6항목 single cycle 패치(bc2bbbf) 후 tests auto-push 가 implementer commit 끌고 올라가는 process 사고. force-push/revert 대신 fix-forward 선택. spec/code-quality-reviewer subagent 2-track 검증. reviewer 가 non-blocking 으로 마크한 SIGPIPE family 1건이 empirical 검증으로 active blocker 격상(D05#6 family 4·5번째 인스턴스). fix-forward 31a3635 → re-review PASS. 최종 라벨: D07-prereq triad 종료 (PASS), Targeted SIGPIPE repro PASS, Full tests 9/10 PASS with known claim-race env failure (mac-mini reset 보류). fleet-state test harness push 격리 D07 cron 전 blocker 승격.",
+      "updated": "2026-05-12T07:45:00+09:00"
+    },
+    {
       "file": "2026-05-11_v1.0.0.md",
       "date": "2026-05-11",
       "version": "v1.0.0",
