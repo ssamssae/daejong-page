@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-13-mac-report-reverse-reply-missed.md",
+      "date": "2026-05-13",
+      "slug": "mac-report-reverse-reply-missed",
+      "title": "mac-report 1차 회신 누락 — Mac→WSL reverse reply 빠뜨림",
+      "severity": "medium",
+      "recurrence": "medium-high (2026-04-20 telegram-only reply 와 동일 패턴, 채널 누락 일반화 함정)",
+      "scope": "Mac 본진 챗봇 / WSL→Mac mac-report 흐름 / 양방향 cross-device communication",
+      "occurred_at": "2026-05-12 23:56 KST",
+      "resolved_at": "2026-05-13 00:01 KST (지적 받고 즉시 wsl-directive.sh 송신)",
+      "updated": "2026-05-13T00:05:43.894952+09:00"
+    },
+    {
       "file": "2026-05-12-codex-bidirectional-routing-failure.md",
       "date": "2026-05-12",
       "slug": "codex-bidirectional-routing-failure",
