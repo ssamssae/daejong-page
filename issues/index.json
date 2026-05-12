@@ -1,6 +1,33 @@
 {
   "entries": [
     {
+      "file": "2026-05-12-codex-bidirectional-routing-failure.md",
+      "date": "2026-05-12",
+      "slug": "codex-bidirectional-routing-failure",
+      "title": "Codex(맥미니) ↔ 본진(Mac) 양방향 메시지 자동 회수 경로 부재",
+      "severity": "medium",
+      "category": "",
+      "updated": "2026-05-12T22:33:00+0900"
+    },
+    {
+      "file": "2026-05-12-dutchpay-gad-application-identifier-missing.md",
+      "date": "2026-05-12",
+      "slug": "dutchpay-gad-application-identifier-missing",
+      "title": "더치페이 release 빌드 iPhone 설치 후 앱 launch crash — Info.plist GADApplicationIdentifier 누락",
+      "severity": "high",
+      "category": "ios-build-launch",
+      "updated": "2026-05-12T22:33:00+0900"
+    },
+    {
+      "file": "2026-05-12-fleet-state-tests-auto-push-leak.md",
+      "date": "2026-05-12",
+      "slug": "fleet-state-tests-auto-push-leak",
+      "title": "fleet-state test harness 의 git push 가 리뷰 미통과 commit 까지 origin 으로 끌고 올라감",
+      "severity": "medium",
+      "category": "",
+      "updated": "2026-05-12T22:33:00+0900"
+    },
+    {
       "file": "2026-05-11-routine-todos-collision-pat-leak.md",
       "date": "2026-05-11",
       "slug": "routine-todos-collision-pat-leak",
