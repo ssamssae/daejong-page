@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-13_v1.0.1.md",
+      "date": "2026-05-13",
+      "version": "v1.0.1",
+      "summary": "새벽 /loop 3 dynamic 12 iter 4h44min 자동 운영 (PR #5 머지 + sync 4건 + 보류 5건) → 강대종 cron/loop 질문 8개 → knowhow 박제 + /goodnight 마감",
+      "updated": "2026-05-13T07:42:00+09:00"
+    },
+    {
       "file": "2026-05-13_v1.0.0.md",
       "date": "2026-05-13",
       "version": "v1.0.0",
