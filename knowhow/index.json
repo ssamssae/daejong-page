@@ -1,6 +1,25 @@
 {
   "entries": [
     {
+      "file": "2026-05-13-claude-loop-vs-launchd-cron-lifecycle.md",
+      "date": "2026-05-13",
+      "slug": "claude-loop-vs-launchd-cron-lifecycle",
+      "title": "Claude Code /loop 와 launchd / /schedule — 3가지 스케줄 메커니즘과 만료 정책",
+      "category": "챗봇/세션",
+      "tags": [
+        "claude-code",
+        "loop",
+        "cron",
+        "launchd",
+        "schedule",
+        "lifecycle",
+        "session"
+      ],
+      "first_discovered": "2026-05-13",
+      "summary": "/loop fixed-interval(7일 cap, 세션 의존) / /loop dynamic(cap 없음, ScheduleWakeup chain) / /schedule(원격 cloud cron) / macOS launchd(영구) 4가지 메커니즘의 종료 정책·세션 의존성 비교. dynamic loop 의 컨텍스트·토큰 비용·prompt caching TTL 함정 포함.",
+      "updated": "2026-05-13T06:58:00+09:00"
+    },
+    {
       "file": "2026-05-09-launchagent-persistent-claude-code-as-codex.md",
       "date": "2026-05-09",
       "slug": "launchagent-persistent-claude-code-as-codex",
