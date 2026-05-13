@@ -5,7 +5,7 @@ prevention_deferred: null
 # desktop3060ti `~/.claude/automations/` repo 부재 — WSL 디렉티브 회수 시 surface
 
 - **발생 일자:** 2026-05-13 11:02 KST (WSL 디렉티브 회수 phase 2 desktop3060ti reverse reply)
-- **해결 일자:** 미해결 (강대종 결정 보류)
+- **해결 일자:** 2026-05-14 00:12 KST — case B 확정 (chatbot-only 노드, hooks 불필요, 현 상태 유지)
 - **심각도:** medium (다기기 회수 자동화의 호환성 함정 surface)
 - **재발 가능성:** medium (다른 기기에서도 같은 패턴 가능 — hermes, 향후 추가 노드)
 - **영향 범위:** desktop3060ti 챗봇 노드 자동화 호환성, WSL 디렉티브 회수 가정 ("타 OS 는 코드만 박힘 no-op")
@@ -61,6 +61,23 @@ case B — chatbot 노드만이라 hooks 불필요:
 ### 본 사이클 (D09 close 직전)
 
 issue 파일 박제 — 본 파일. 강대종 결정은 별 후속.
+
+### 2026-05-14 case B 확정
+
+WSL 가 SSH 로 desktop3060ti 상태 재검증:
+```
+hostname: DESKTOP-0VAB3QC
+~/.claude/automations/: scripts/ 1개만 (mac-report.sh / macmini-report.sh / wsl-directive.sh)
+~/.claude/automations/.git: 없음
+~/.claude/CLAUDE.md: symlink → ~/claude-skills/globals/CLAUDE.md ✓
+```
+상태는 issue 작성 시점과 동일. 강대종 ack `ㄱㄱ` (2026-05-14, 본진 추정안 = case B 수락):
+- desktop3060ti 는 chatbot 전용 노드 (Claude Code 챗봇 + LLM/SD 실험)
+- hooks 자체 불필요. session-clear keepalive 등 자동화는 WSL 본진 영역
+- scripts/ 3개 (cross-device 운반체) 만 유지하면 충분
+- claude-automations clone X, 현 상태 유지
+
+위 "예방" 섹션의 **(automations 노드 policy)** 항목이 본 결정의 근거.
 
 ## 예방
 
