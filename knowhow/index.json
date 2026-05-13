@@ -1,6 +1,27 @@
 {
   "entries": [
     {
+      "file": "2026-05-13-session-clear-not-firing-failure-modes.md",
+      "date": "2026-05-13",
+      "slug": "session-clear-not-firing-failure-modes",
+      "title": "session-clear /clear 안 발화 — 실패 모드 카탈로그 + v0.8 fallback 갈아타기",
+      "category": "챗봇/세션",
+      "tags": [
+        "session-clear",
+        "claude-code",
+        "launchd",
+        "tmux",
+        "failure-modes",
+        "fallback",
+        "marker",
+        "polling",
+        "busy-loop"
+      ],
+      "first_discovered": "2026-05-13",
+      "summary": "/clear 안 먹힐 때 의심해야 하는 실패 모드 5종 (polling 오탐 / 입력 버퍼 잔여 / 마커 race / 큐잉 / busy-loop abort) + 각 fix + 권장 흐름 (turn 분리 + 3회 abort 시 v0.8 nohup detached send-keys fallback). 2026-04~05 발견 5건 통합.",
+      "updated": "2026-05-13T21:31:53+0900"
+    },
+    {
       "file": "2026-05-13-claude-loop-vs-launchd-cron-lifecycle.md",
       "date": "2026-05-13",
       "slug": "claude-loop-vs-launchd-cron-lifecycle",
