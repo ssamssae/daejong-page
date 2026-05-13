@@ -3,9 +3,9 @@
     {
       "file": "2026-05-13.md",
       "date": "2026-05-13",
-      "summary": "/loop 커스텀 폐지 + privacy-memoyo.html 라이브 + PR #5 머지 + 새벽 /loop 3 dynamic 12 iter 자동 운영 (4h44min) + knowhow 박제(loop vs daemon) + info.html /loop 카드 2장 + 메모요 라벨 갱신 + PR #12/#4 close + worklog v1.0.0/v1.0.1/v1.0.2 + 메모리 박제 6건",
-      "count": 40,
-      "updated": "2026-05-13T20:16:41+09:00"
+      "summary": "/loop 커스텀 폐지 + privacy-memoyo.html 라이브 + PR #5 머지 + 새벽 /loop 3 dynamic 12 iter (4h44min) + D09 fleet-director 사이클 (13 primitive + FLEET_NO_PUSH 가드 + sweep family 4회 audit-trail revert + 룰 3종 박제) + P1 plan §9.8 sync + WSL session-clear v2.4 PR #14/#34 머지 + 4기기 회수 + worklog v1.0.0/v1.0.1/v1.0.2/v1.0.3 + 메모리 박제 10건 + 이슈 박제 4건",
+      "count": 60,
+      "updated": "2026-05-13T20:20:00+09:00"
     },
     {
       "file": "2026-05-12.md",
