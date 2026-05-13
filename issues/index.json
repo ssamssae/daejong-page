@@ -1,6 +1,42 @@
 {
   "entries": [
     {
+      "file": "2026-05-13-d09-fleet-sweep-family-4-rounds.md",
+      "date": "2026-05-13",
+      "slug": "d09-fleet-sweep-family-4-rounds",
+      "title": "D09 fleet-director 사이클 sweep family 4회 반복 — bats 와 primitive 의 push side-effect 누적",
+      "severity": "high",
+      "recurrence": "low-after-fix (FLEET_NO_PUSH 가드 + parity prompt 표준 + sequential verification 룰 박제 후)",
+      "scope": "~/agent-fleet-state origin/main (24 noise commit + 24 audit-trail revert), D09 implementer/reviewer subagent flow",
+      "occurred_at": "2026-05-13 08:36 KST",
+      "resolved_at": "2026-05-13 11:15 KST",
+      "updated": "2026-05-13T20:22:00+09:00"
+    },
+    {
+      "file": "2026-05-13-fleet-state-mac-mini-divergence.md",
+      "date": "2026-05-13",
+      "slug": "fleet-state-mac-mini-divergence",
+      "title": "fleet-state mac-mini local main divergence — reviewer parity bats 의 local-only commit 누적",
+      "severity": "low",
+      "recurrence": "low-after-fix (FLEET_NO_PUSH 가드 적용 후)",
+      "scope": "Mac mini ~/agent-fleet-state local main, reviewer parity bats 검증",
+      "occurred_at": "2026-05-13 KST",
+      "resolved_at": "2026-05-13 11:14 KST (git reset --hard origin/main)",
+      "updated": "2026-05-13T20:22:00+09:00"
+    },
+    {
+      "file": "2026-05-13-desktop3060ti-claude-automations-absent.md",
+      "date": "2026-05-13",
+      "slug": "desktop3060ti-claude-automations-absent",
+      "title": "desktop3060ti ~/.claude/automations/ repo 부재 — WSL 디렉티브 회수 시 surface",
+      "severity": "medium",
+      "recurrence": "medium (다른 기기에서도 같은 패턴 가능 — hermes, 향후 추가 노드)",
+      "scope": "desktop3060ti 챗봇 노드 자동화 호환성, WSL 디렉티브 회수 가정",
+      "occurred_at": "2026-05-13 11:02 KST",
+      "resolved_at": "미해결 (강대종 case A/B 결정 보류)",
+      "updated": "2026-05-13T20:22:00+09:00"
+    },
+    {
       "file": "2026-05-13-mac-report-reverse-reply-missed.md",
       "date": "2026-05-13",
       "slug": "mac-report-reverse-reply-missed",
