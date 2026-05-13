@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-13_v1.0.3.md",
+      "date": "2026-05-13",
+      "version": "v1.0.3",
+      "summary": "D09 fleet-director 사이클 (13 shell primitive + FLEET_NO_PUSH guard) — sweep family 4회 반복 + audit-trail revert + 룰 3종 박제 (push 가드 + parity range + sequential verification) + P1 plan §9.8 sync + WSL session-clear v2.4 회수 PR #14/#34 머지",
+      "updated": "2026-05-13T20:15:00+09:00"
+    },
+    {
       "file": "2026-05-13_v1.0.2.md",
       "date": "2026-05-13",
       "version": "v1.0.2",
