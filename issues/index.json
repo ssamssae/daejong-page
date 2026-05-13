@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-14-rotate-token-channel-mode-dead.md",
+      "date": "2026-05-14",
+      "slug": "rotate-token-channel-mode-dead",
+      "title": "rotate-token.sh --channel mode OpenClaw decom 후 dead path",
+      "severity": "",
+      "recurrence": "",
+      "scope": "",
+      "occurred_at": "",
+      "resolved_at": "",
+      "updated": "2026-05-14T06:54:05.354923+09:00"
+    },
+    {
       "file": "2026-05-14-macmini-bot-token-grep-leak.md",
       "date": "2026-05-14",
       "slug": "macmini-bot-token-grep-leak",
