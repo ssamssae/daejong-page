@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-14-macmini-bot-token-grep-leak.md",
+      "date": "2026-05-14",
+      "slug": "macmini-bot-token-grep-leak",
+      "title": "TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출",
+      "severity": "",
+      "recurrence": "",
+      "scope": "",
+      "occurred_at": "",
+      "resolved_at": "",
+      "updated": "2026-05-14T06:52:52.461509+09:00"
+    },
+    {
       "file": "2026-05-13-d09-fleet-sweep-family-4-rounds.md",
       "date": "2026-05-13",
       "slug": "d09-fleet-sweep-family-4-rounds",
