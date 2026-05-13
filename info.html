@@ -82,6 +82,88 @@
 
   <div class="list">
 
+    <!-- Entry: /loop fixed vs dynamic -->
+    <div class="info-card">
+      <div class="info-card-tag">Claude Code / 세션</div>
+      <div class="info-card-title">/loop fixed-interval vs dynamic — 두 모드의 차이</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>항목</th>
+            <th>fixed-interval</th>
+            <th>dynamic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>호출</td>
+            <td><code>/loop 5m /foo</code></td>
+            <td><code>/loop /foo</code> (interval 생략)</td>
+          </tr>
+          <tr>
+            <td>메커니즘</td>
+            <td>CronCreate (cron 표현식)</td>
+            <td>ScheduleWakeup (매 turn 자체 픽)</td>
+          </tr>
+          <tr>
+            <td>자동 cap</td>
+            <td>7일</td>
+            <td>없음 (모델이 끊을 때까지)</td>
+          </tr>
+          <tr>
+            <td>끄는 법</td>
+            <td>CronDelete / 세션 종료</td>
+            <td>"loop stop" → 모델이 wakeup 생략</td>
+          </tr>
+          <tr>
+            <td>적합 케이스</td>
+            <td>고정 주기 폴링 (5분~수시간)</td>
+            <td>모델이 페이스 조정 (지능형 loop)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> dynamic 모드는 모델이 다음 iter 를 자체 픽해서 즉시 진행. iter 사이 후보를 surface 하고 ack 받는 건 dynamic 의 의도 위반 — 매 iter ack 요구하면 그냥 수동 chain 이 됨.
+      </div>
+      <div class="date">2026-05-13</div>
+    </div>
+
+    <!-- Entry: /loop dynamic delaySeconds cache TTL -->
+    <div class="info-card">
+      <div class="info-card-tag">Claude Code / 세션</div>
+      <div class="info-card-title">/loop dynamic 의 delaySeconds — 5분 prompt cache TTL 분기점</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>구간</th>
+            <th>비용 특성</th>
+            <th>적합</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>60s ~ 270s</td>
+            <td>cache hit 유지</td>
+            <td>활성 폴링 (빌드 끝났나, PR 코멘트 왔나)</td>
+          </tr>
+          <tr>
+            <td>300s ~ 1000s</td>
+            <td>❌ worst-of-both</td>
+            <td>금지 — cache miss + 잦은 fire 둘 다 페이</td>
+          </tr>
+          <tr>
+            <td>1200s ~ 3600s</td>
+            <td>miss 1회를 길게 amortize</td>
+            <td>idle 사이클·휴리스틱 점검</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> Anthropic prompt cache TTL 이 5분(300s) 이라 그 근처 구간이 최악. dynamic 진입 시 즉시 fallback delay 결정 — 활성 폴링이면 250s, 아니면 1500s. ScheduleWakeup 의 reason 필드에 "cache TTL 안" 또는 "miss 1회 amortize" 명시하면 다음 self-review 때 검증 가능.
+      </div>
+      <div class="date">2026-05-13</div>
+    </div>
+
     <!-- Entry 1: zprofile vs zshrc -->
     <div class="info-card">
       <div class="info-card-tag">Shell / macOS</div>
