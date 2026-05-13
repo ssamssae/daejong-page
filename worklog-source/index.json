@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-13_v1.0.2.md",
+      "date": "2026-05-13",
+      "version": "v1.0.2",
+      "summary": "info.html /loop 비교 카드 2개 박제 + 새벽 ack 보류 5건 중 3건 처분 (메모요 라벨 + PR #12/#4 close) + /goodnight 자동 매칭 3건 [x]",
+      "updated": "2026-05-13T11:50:00+09:00"
+    },
+    {
       "file": "2026-05-13_v1.0.1.md",
       "date": "2026-05-13",
       "version": "v1.0.1",
