@@ -64,16 +64,18 @@
 
 - [ ] 🤝 💡 막다른길 상세 렌더러 페이지 — dead-ends 카드 클릭 시 .md 내용을 렌더링해 보여주는 detail.html 신설. issue.html 방식 참고. 현재는 카드 클릭 비활성화 상태. (추가: 2026-05-05)
 
-- self-heal: 반복 Tier2 패턴 자동 이슈화 (같은 패턴 2일 연속 → /issue 초안 텔레그램) — 2026-05-09 trio-vote 1표 탈락, 나중에 고려
-- 메모요 1.0.4+21 AAB 빌드 후 프로덕션 업데이트 (현재 1.0.3으로 출시됨, 2026-05-10)
+- [ ] self-heal: 반복 Tier2 패턴 자동 이슈화 (같은 패턴 2일 연속 → /issue 초안 텔레그램) — 2026-05-09 trio-vote 1표 탈락, 나중에 고려
+- [ ] 메모요 1.0.4+21 AAB 빌드 후 프로덕션 업데이트 (현재 1.0.3으로 출시됨, 2026-05-10)
 
-- mini ~/.claude/automations 를 정식 git repo 화 (현재 home 디렉터리가 빈 master + remote 없음, process-agent-inbox.sh 등 변경 추적 안 됨) — 2026-05-10
-- mini inbox bucket 별 처리 카운트 모니터링 + 24h wsl/ 처리 0건이면 텔레그램 경고 (mesh 통신 silent fail 자동 감지) — 2026-05-10
-- TELEGRAM_CHAT_ID_MACMINI 를 .env 에 별도 분리 (현재 강대종 chat 538806975 fallback 으로 Codex 챗과 사람 알림이 같은 채널 공유) — 2026-05-10
+- [ ] mini ~/.claude/automations 를 정식 git repo 화 (현재 home 디렉터리가 빈 master + remote 없음, process-agent-inbox.sh 등 변경 추적 안 됨) — 2026-05-10
+- [ ] mini inbox bucket 별 처리 카운트 모니터링 + 24h wsl/ 처리 0건이면 텔레그램 경고 (mesh 통신 silent fail 자동 감지) — 2026-05-10
+- [ ] TELEGRAM_CHAT_ID_MACMINI 를 .env 에 별도 분리 (현재 강대종 chat 538806975 fallback 으로 Codex 챗과 사람 알림이 같은 채널 공유) — 2026-05-10
 
-- Mac mini OpenClaw 에이전트 홈(`/Users/user/.openclaw/agents/main/agent/codex-home/home`) 의 `~/claude-skills` 동기 여부 확인 — macOS 사용자 홈은 이미 clone+동기됨 확인. 에이전트 홈은 별도 환경. CLAUDE.md line 178 에 "별도 관리" 표기됨 (2026-05-10)
-- 데스크탑 3060Ti(DESKTOP-0VAB3QC) Google RD 상태 확인 — stack.html 카드 🟡 확인 필요로 표기. CRD Host 설치/실행 여부 점검 후 ✅/❌ 확정 (2026-05-10)
-- 데스크탑 3060Ti / 노트북 3060 agent-mesh 정식 편입 결정 — 두 노드 모두 sshd inactive 라 인바운드 라우팅 비대칭. 정식 편입 선결: (1) sshd 활성 (2) 텔레그램 봇 채널 강대종 직접 채팅 vs agent mesh routing 분리 (3) Codex CLI 활성 사용 검증. 결정 시점은 mesh 6방향 완성 후. (2026-05-10)
-- GPU 작업 라우팅 — 3개 WSL 노드(WSL DESKTOP-I4TR99I RTX 2070S, 노트북 3060 RTX 3060 6GB, 데스크탑 3060Ti RTX 3060Ti 8GB) 중 데스크탑 3060Ti 만 nvidia-smi 정상 (CUDA 12.8 / driver 572.70 풀 가시성). WSL 본진/노트북은 /dev/dxg 브리지만. 향후 CUDA 작업 라우팅 시 데스크탑 3060Ti 1순위 후보 — 정책 결정 필요 (2026-05-10)
-- 메모요 1.1.0+ 중장기 enhancement — Testers Community 피드백 6건 중 우선 3건은 1.0.4 진행중에 묶고, 잔여 2건은 사이즈 커서 1.1.0 이상으로 이월: (3) 첫 실행 onboarding walkthrough + Help/FAQ 섹션, (4) 다국어(flutter_localizations + 영어/일본어 로컬라이제이션). 보고서: `~/simple_memo_app/docs/feedback/2026-04-23_testers-community-feedback-report.pdf` (2026-05-12)
-- 🍎 🛠 skills.html 카드 누락 3건 수동 추가 — `/goodnight` step 5.5 미러 sync audit 에서 검출: araseo / fleet / insta-post-general SKILL.md 존재하나 daejong-page/skills.html 에 카드 없음. SKILL.md frontmatter description 으로 자동 추가는 P3 미구현 영역. (추가: 2026-05-13)
+- [x] Mac mini OpenClaw 에이전트 홈(`/Users/user/.openclaw/agents/main/agent/codex-home/home`) 의 `~/claude-skills` 동기 여부 확인 — macOS 사용자 홈은 이미 clone+동기됨 확인. 에이전트 홈은 별도 환경. CLAUDE.md line 178 에 "별도 관리" 표기됨 (2026-05-10, 완료: 결론 인라인 기록됨 — macOS 사용자 홈 `/Users/user/claude-skills` clone+동기 PASS, 에이전트 홈은 별도 관리 영역으로 분리됨. 추가 작업 불필요. 2026-05-13 /loop 잡일 iter6)
+- [ ] 데스크탑 3060Ti(DESKTOP-0VAB3QC) Google RD 상태 확인 — stack.html 카드 🟡 확인 필요로 표기. CRD Host 설치/실행 여부 점검 후 ✅/❌ 확정 (2026-05-10)
+- [ ] 데스크탑 3060Ti / 노트북 3060 agent-mesh 정식 편입 결정 — 두 노드 모두 sshd inactive 라 인바운드 라우팅 비대칭. 정식 편입 선결: (1) sshd 활성 (2) 텔레그램 봇 채널 강대종 직접 채팅 vs agent mesh routing 분리 (3) Codex CLI 활성 사용 검증. 결정 시점은 mesh 6방향 완성 후. (2026-05-10)
+- [ ] GPU 작업 라우팅 — 3개 WSL 노드(WSL DESKTOP-I4TR99I RTX 2070S, 노트북 3060 RTX 3060 6GB, 데스크탑 3060Ti RTX 3060Ti 8GB) 중 데스크탑 3060Ti 만 nvidia-smi 정상 (CUDA 12.8 / driver 572.70 풀 가시성). WSL 본진/노트북은 /dev/dxg 브리지만. 향후 CUDA 작업 라우팅 시 데스크탑 3060Ti 1순위 후보 — 정책 결정 필요 (2026-05-10)
+- [ ] 메모요 1.1.0+ 중장기 enhancement — Testers Community 피드백 6건 중 우선 3건은 1.0.4 진행중에 묶고, 잔여 2건은 사이즈 커서 1.1.0 이상으로 이월: (3) 첫 실행 onboarding walkthrough + Help/FAQ 섹션, (4) 다국어(flutter_localizations + 영어/일본어 로컬라이제이션). 보고서: `~/simple_memo_app/docs/feedback/2026-04-23_testers-community-feedback-report.pdf` (2026-05-12)
+- [x] 🍎 🛠 skills.html 카드 누락 3건 수동 추가 — `/goodnight` step 5.5 미러 sync audit 에서 검출: araseo / fleet / insta-post-general SKILL.md 존재하나 daejong-page/skills.html 에 카드 없음. (추가: 2026-05-13, 완료: 2026-05-13 — /loop 잡일 iter2, 알파벳 위치에 3 카드 삽입 후 commit + push.)
+
+- [ ] 🍎 🛠 /loop 컨텍스트 누적 회피 — launchd → 텔레그램 → 새 세션 트리거 프로토타입 — 같은 세션에서 컨텍스트만 비우는 방법은 없음(/clear 가 ScheduleWakeup 큐 같이 날림). 우회: launchd/cron 이 N분마다 텔레그램 봇에 "/loop ..." 메시지 → 봇 → 새 Claude 세션이 깨어남 = /clear 효과 + 다음 iter 채팅방에서 연속 표시. 비교 대상 = (1) /compact 4~5 iter 마다 손호출, (2) /schedule cloud routine (본 채팅 분리). 첫 검증 ~1-2시간 예상. (추가: 2026-05-13, 트리거: backlog)
