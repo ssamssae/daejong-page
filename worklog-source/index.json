@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-13_v1.0.4.md",
+      "date": "2026-05-13",
+      "version": "v1.0.4",
+      "summary": "OpenClaw decom Phase A/B'/D 완료 + mac mini Codex→Claude Code 노드 전환 + 봇 토큰 사고 2건 박제",
+      "updated": "2026-05-14T07:04:50.135906+09:00"
+    },
+    {
       "file": "2026-05-13_v1.0.3.md",
       "date": "2026-05-13",
       "version": "v1.0.3",
