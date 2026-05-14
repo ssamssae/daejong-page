@@ -58,7 +58,7 @@
       border-radius: 12px; padding: 16px 18px;
       text-decoration: none; color: inherit;
       transition: border-color 0.15s, background 0.15s, transform 0.15s;
-      cursor: default;
+      cursor: pointer;
     }
     .de-card:hover {
       border-color: #F04452;
@@ -205,10 +205,12 @@
       html += '<div class="list">';
       for (const it of items) {
         const slug = it.slug || (it.file || '').replace(/\.md$/, '');
-        const href = it.file ? './dead-ends/' + it.file : '#';
+        const href = slug
+          ? './dead-ends/detail.html?slug=' + encodeURIComponent(slug)
+          : '#';
         const tags = (it.tags || []).slice(0, 5);
 
-        html += '<div class="de-card">';
+        html += '<a class="de-card" href="' + href + '">';
         html += '<div class="de-head">';
         if (it.category) html += '<span class="de-cat">' + escapeHtml(it.category) + '</span>';
         html += '<span class="de-title">' + escapeHtml(it.title) + '</span>';
@@ -229,7 +231,7 @@
           html += '<div class="de-summary" style="margin-top:10px;">' + escapeHtml(it.summary) + '</div>';
         }
 
-        html += '</div>';
+        html += '</a>';
       }
       html += '</div>';
 
