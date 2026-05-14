@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-14_v1.0.2.md",
+      "date": "2026-05-14",
+      "version": "v1.0.2",
+      "updated": "2026-05-15T00:10:10+09:00",
+      "summary": "Mac mini 재부팅 후 plist --channels 누락 + TELEGRAM_BOT_USERNAME 미설정 두 결함 별건 패치 + 이슈 2건 박제, WSL 발 Agent View 1단계 PASS 2단계 hold"
+    },
+    {
       "file": "2026-05-14_v1.0.1.md",
       "date": "2026-05-14",
       "version": "v1.0.1",
