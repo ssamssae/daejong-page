@@ -81,3 +81,5 @@
 - [x] 🍎 🛠 skills.html 카드 누락 3건 수동 추가 — `/goodnight` step 5.5 미러 sync audit 에서 검출: araseo / fleet / insta-post-general SKILL.md 존재하나 daejong-page/skills.html 에 카드 없음. (추가: 2026-05-13, 완료: 2026-05-13 — /loop 잡일 iter2, 알파벳 위치에 3 카드 삽입 후 commit + push.)
 
 - [ ] 🍎 🛠 /loop 컨텍스트 누적 회피 — launchd → 텔레그램 → 새 세션 트리거 프로토타입 — 같은 세션에서 컨텍스트만 비우는 방법은 없음(/clear 가 ScheduleWakeup 큐 같이 날림). 우회: launchd/cron 이 N분마다 텔레그램 봇에 "/loop ..." 메시지 → 봇 → 새 Claude 세션이 깨어남 = /clear 효과 + 다음 iter 채팅방에서 연속 표시. 비교 대상 = (1) /compact 4~5 iter 마다 손호출, (2) /schedule cloud routine (본 채팅 분리). 첫 검증 ~1-2시간 예상. (추가: 2026-05-13, 트리거: backlog. 2026-05-14 plan 작성: `~/.claude/plans/plan-loop-context-avoidance-2026-05-14.md` — Phase 1~4 검증 + 위험 분석 + (1) /compact 손호출 대안 ROI 비교 권고)
+
+- [ ] 🍎 📰 뉴스레터 자동 발행 cron 셋업 — 발견 2026-05-15 07:00 KST: 본진/맥미니/WSL 어디에도 newsletter/substack/letter launchd plist 0건, crontab 0 entry, _disabled 에도 없음. claude-skills git log 에 `newsletter-publish` 스킬 commit (c19c3c5) 만 있고 cron 셋업 commit 0건. 즉 자동 발행은 한번도 셋업된 적 없고, 수동 트리거 (`/newsletter-publish <N>`) 가 디폴트였음. 셋업 후보: 본진 또는 맥미니 launchd plist (주 1회 정도). 옵션 = (a) 수동 그대로 vs (b) 매주 N요일 N시 자동. (추가: 2026-05-15)
