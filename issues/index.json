@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-14-macmini-plugin-cache.md",
+      "date": "2026-05-14",
+      "slug": "macmini-plugin-cache",
+      "title": "mac mini Claude Code 텔레그램 plugin cache 손상",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "mac mini @MyClaude4 봇, Claude Code plugin:telegram MCP server spawn",
+      "occurred_at": "2026-05-14T09:04:00+09:00",
+      "resolved_at": "2026-05-14T11:26:00+09:00",
+      "updated": "2026-05-14T13:30:00+09:00"
+    },
+    {
       "file": "2026-05-14-rotate-token-channel-mode-dead.md",
       "date": "2026-05-14",
       "slug": "rotate-token-channel-mode-dead",
