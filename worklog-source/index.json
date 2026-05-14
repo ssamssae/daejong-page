@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-14_v1.0.0.md",
+      "date": "2026-05-14",
+      "version": "v1.0.0",
+      "summary": "크론 점검 한 마디 → deep-work.md SoT 신설 + B 묶음 5건 ack + 본진/WSL 양 트랙 dynamic /loop 9 iter 첫 운영 (충돌 0) + 강대종 ack 8건 hold",
+      "updated": "2026-05-14T11:05:00+09:00"
+    },
+    {
       "file": "2026-05-13_v1.0.4.md",
       "date": "2026-05-13",
       "version": "v1.0.4",
