@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>막다른 길 상세 - 강대종</title>
+  <meta name="description" content="시도했지만 막힌 사례의 상세 — 시도/원인/남은 선택지/결론.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #F04452; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #F04452; }
+
+    .detail-head { margin-bottom: 18px; }
+    .detail-date {
+      font-size: 13px; color: #F04452; font-weight: 700;
+      letter-spacing: 0.3px; margin-bottom: 8px;
+    }
+    .detail-title {
+      font-size: 22px; color: #191F28; font-weight: 700;
+      line-height: 1.4; margin-bottom: 10px;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+
+    .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .badge {
+      font-size: 10px; padding: 3px 9px; border-radius: 6px;
+      font-weight: 600; letter-spacing: 0.3px;
+      border: 1px solid transparent;
+    }
+    .badge-cat {
+      color: #FFFFFF; background: #F04452;
+      border-color: #F04452;
+    }
+    .badge-tag {
+      color: #F04452; background: rgba(240, 68, 82, 0.08);
+      border-color: rgba(240, 68, 82, 0.25);
+    }
+
+    .meta-grid {
+      display: grid; grid-template-columns: auto 1fr; gap: 6px 14px;
+      padding: 12px 14px; background: #FFF5F5;
+      border: 1px solid #FFD6D6; border-radius: 10px;
+      margin-bottom: 22px;
+      font-size: 12px;
+    }
+    .meta-grid dt { color: #8B95A1; font-weight: 600; }
+    .meta-grid dd { color: #191F28; word-break: keep-all; overflow-wrap: break-word; }
+
+    .de-sections { display: flex; flex-direction: column; gap: 14px; }
+    .de-section {
+      background: #F9FAFB;
+      border: 1px solid #F2F4F6;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .de-section.highlight {
+      background: rgba(240, 68, 82, 0.04);
+      border-color: rgba(240, 68, 82, 0.2);
+    }
+    .section-label {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.5px; color: #F04452;
+      margin-bottom: 8px; text-transform: uppercase;
+    }
+    .section-body {
+      font-size: 14px; color: #191F28; line-height: 1.7;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .section-body ul { padding-left: 20px; margin: 6px 0; }
+    .section-body ol { padding-left: 22px; margin: 6px 0; }
+    .section-body li { margin-bottom: 6px; }
+    .section-body code {
+      background: #F2F4F6; padding: 1px 6px; border-radius: 4px;
+      font-size: 13px; color: #F04452;
+    }
+    .section-body pre {
+      background: #191F28; color: #E5E8EB;
+      padding: 12px 14px; border-radius: 8px;
+      overflow-x: auto; font-size: 12px; line-height: 1.5;
+      margin: 8px 0;
+    }
+    .section-body pre code {
+      background: transparent; color: #E5E8EB; padding: 0; font-size: 12px;
+    }
+    .section-body p { margin: 6px 0; }
+    .section-body a { color: #F04452; text-decoration: none; word-break: break-all; }
+    .section-body a:hover { text-decoration: underline; }
+    .section-body h3 {
+      font-size: 15px; font-weight: 700; color: #191F28;
+      margin: 14px 0 6px;
+    }
+    .section-body table {
+      width: 100%; border-collapse: collapse; margin: 8px 0;
+      font-size: 13px;
+    }
+    .section-body th, .section-body td {
+      border: 1px solid #E5E8EB; padding: 6px 10px;
+      text-align: left; vertical-align: top;
+    }
+    .section-body th {
+      background: #F9FAFB; font-weight: 600; color: #4E5968;
+    }
+
+    .back {
+      display: inline-block; margin-top: 28px; color: #4E5968;
+      text-decoration: none; font-size: 14px;
+    }
+    .back:hover { color: #F04452; }
+
+    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error {
+      color: #F04452; text-align: center; padding: 40px 0; font-size: 14px;
+      background: rgba(240, 68, 82, 0.05);
+      border: 1px solid rgba(240, 68, 82, 0.2);
+      border-radius: 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>막다른 길 상세</h1>
+      <a href="../dead-ends.html">← 막다른 길 목록</a>
+    </header>
+
+    <div id="view">
+      <div class="loading">불러오는 중…</div>
+    </div>
+
+    <a class="back" href="../dead-ends.html">← 막다른 길 목록</a>
+  </div>
+
+  <script>
+    const viewEl = document.getElementById('view');
+
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    function escapeHtml(s) {
+      return (s || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function parseDeadEndMd(md) {
+      // strip frontmatter (---\n...\n---)
+      if (md.startsWith('---')) {
+        const end = md.indexOf('\n---', 3);
+        if (end > 0) md = md.slice(end + 4).trimStart();
+      }
+      const lines = md.split('\n');
+      let title = '';
+      const meta = {};
+      // sections: ordered list of {label, body}
+      const sections = [];
+      let currentLabel = null;
+      const bodyBuf = [];
+
+      const flush = () => {
+        if (currentLabel !== null) {
+          sections.push({
+            label: currentLabel,
+            body: bodyBuf.join('\n').trim()
+          });
+          bodyBuf.length = 0;
+        }
+      };
+
+      for (const raw of lines) {
+        const line = raw.replace(/\r$/, '');
+        const trimmed = line.trim();
+
+        if (!title && trimmed.startsWith('# ')) {
+          title = trimmed.slice(2).trim();
+          continue;
+        }
+
+        // meta line: `- **key:** val` (only before first ## section)
+        const metaMatch = trimmed.match(/^-\s*\*\*(.+?):\*\*\s*(.+)$/);
+        if (metaMatch && currentLabel === null) {
+          meta[metaMatch[1].trim()] = metaMatch[2].trim();
+          continue;
+        }
+
+        if (trimmed.startsWith('## ')) {
+          flush();
+          currentLabel = trimmed.slice(3).trim();
+          continue;
+        }
+
+        if (currentLabel !== null) {
+          bodyBuf.push(line);
+        }
+      }
+      flush();
+      return { title, meta, sections };
+    }
+
+    function renderBody(text) {
+      if (!text) return '';
+      const lines = text.split('\n');
+      const out = [];
+      let listBuf = [];
+      let listOrdered = false;
+      let inCode = false;
+      const codeBuf = [];
+      const tableBuf = [];
+      let inTable = false;
+
+      const inline = (s) => {
+        let x = escapeHtml(s);
+        x = x.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+          '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+        x = x.replace(/(^|[^"'>])((?:https?):\/\/[^\s<]+)/g,
+          '$1<a href="$2" target="_blank" rel="noreferrer">$2</a>');
+        x = x.replace(/`([^`]+)`/g, '<code>$1</code>');
+        x = x.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        return x;
+      };
+
+      const flushList = () => {
+        if (listBuf.length) {
+          const tag = listOrdered ? 'ol' : 'ul';
+          out.push('<' + tag + '>' + listBuf.map(l => '<li>' + inline(l) + '</li>').join('') + '</' + tag + '>');
+          listBuf = [];
+          listOrdered = false;
+        }
+      };
+      const flushCode = () => {
+        if (codeBuf.length) {
+          out.push('<pre><code>' + escapeHtml(codeBuf.join('\n')) + '</code></pre>');
+          codeBuf.length = 0;
+        }
+      };
+      const flushTable = () => {
+        if (tableBuf.length < 2) {
+          // not a real table — emit as paragraphs
+          for (const r of tableBuf) out.push('<p>' + inline(r) + '</p>');
+          tableBuf.length = 0;
+          inTable = false;
+          return;
+        }
+        // tableBuf[0] = header row, tableBuf[1] = separator (---|---), rest = body
+        const parseRow = (row) => row.replace(/^\|/, '').replace(/\|$/, '').split('|').map(s => s.trim());
+        const header = parseRow(tableBuf[0]);
+        const body = tableBuf.slice(2).map(parseRow);
+        let html = '<table><thead><tr>';
+        for (const c of header) html += '<th>' + inline(c) + '</th>';
+        html += '</tr></thead><tbody>';
+        for (const row of body) {
+          html += '<tr>';
+          for (const c of row) html += '<td>' + inline(c) + '</td>';
+          html += '</tr>';
+        }
+        html += '</tbody></table>';
+        out.push(html);
+        tableBuf.length = 0;
+        inTable = false;
+      };
+
+      for (const rawLine of lines) {
+        const line = rawLine.replace(/\s+$/, '');
+
+        if (/^```/.test(line)) {
+          if (inCode) {
+            flushCode();
+            inCode = false;
+          } else {
+            flushList();
+            flushTable();
+            inCode = true;
+          }
+          continue;
+        }
+        if (inCode) { codeBuf.push(rawLine); continue; }
+
+        // table row
+        if (/^\s*\|.*\|\s*$/.test(line)) {
+          flushList();
+          tableBuf.push(line);
+          inTable = true;
+          continue;
+        }
+        if (inTable) flushTable();
+
+        // h3 (### 만 지원 — h2 는 section 단위로 위에서 분할됨)
+        const h3 = line.match(/^###\s+(.*)$/);
+        if (h3) {
+          flushList();
+          out.push('<h3>' + inline(h3[1]) + '</h3>');
+          continue;
+        }
+
+        const ordered = line.match(/^\s*\d+\.\s+(.*)$/);
+        if (ordered) {
+          if (listBuf.length && !listOrdered) flushList();
+          listOrdered = true;
+          listBuf.push(ordered[1]);
+          continue;
+        }
+        if (/^\s*-\s+/.test(line)) {
+          if (listBuf.length && listOrdered) flushList();
+          listOrdered = false;
+          listBuf.push(line.replace(/^\s*-\s+/, ''));
+          continue;
+        }
+        flushList();
+
+        if (line === '') { out.push(''); continue; }
+        out.push('<p>' + inline(line) + '</p>');
+      }
+      flushList();
+      flushCode();
+      flushTable();
+      return out.join('\n');
+    }
+
+    async function init() {
+      const slug = getQueryParam('slug');
+      if (!slug) {
+        viewEl.innerHTML = '<div class="error">slug 파라미터가 없습니다. <a href="../dead-ends.html">막다른 길 목록</a>에서 항목을 선택해 주세요.</div>';
+        return;
+      }
+      try {
+        const idxRes = await fetch('./index.json?_=' + Date.now());
+        const idxData = await idxRes.json();
+        const entries = idxData.entries || [];
+        const entry = entries.find(e => e.slug === slug);
+        if (!entry) {
+          viewEl.innerHTML = '<div class="error">해당 막다른 길을 찾을 수 없습니다. (slug: ' + escapeHtml(slug) + ')</div>';
+          return;
+        }
+        const r = await fetch('./' + entry.file + '?_=' + Date.now());
+        if (!r.ok) {
+          viewEl.innerHTML = '<div class="error">파일을 불러올 수 없습니다.</div>';
+          return;
+        }
+        const md = await r.text();
+        const parsed = parseDeadEndMd(md);
+        render(entry, parsed);
+        document.title = (parsed.title || entry.title || '막다른 길 상세') + ' - 강대종';
+      } catch (e) {
+        viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    function render(entry, parsed) {
+      const title = parsed.title || entry.title || '(제목 없음)';
+      const meta = parsed.meta || {};
+      const sections = parsed.sections || [];
+      const date = entry.date || meta['시도 날짜'] || '';
+      const category = entry.category || '';
+      const tags = entry.tags || [];
+
+      let html = '';
+      html += '<div class="detail-head">';
+      if (date) html += '<div class="detail-date">' + escapeHtml(date) + '</div>';
+      html += '<div class="detail-title">' + escapeHtml(title) + '</div>';
+      html += '<div class="badges">';
+      if (category) html += '<span class="badge badge-cat">' + escapeHtml(category) + '</span>';
+      for (const t of tags.slice(0, 6)) {
+        html += '<span class="badge badge-tag">' + escapeHtml(t) + '</span>';
+      }
+      html += '</div>';
+      html += '</div>';
+
+      // meta grid — md 의 모든 `- **key:** val` 라인 (date 제외 시도)
+      const metaRows = [];
+      for (const [k, v] of Object.entries(meta)) {
+        metaRows.push([k, v]);
+      }
+      if (entry.summary && !metaRows.some(([k]) => /요약|summary/i.test(k))) {
+        metaRows.push(['요약', entry.summary]);
+      }
+      if (metaRows.length) {
+        html += '<dl class="meta-grid">';
+        for (const [k, v] of metaRows) {
+          html += '<dt>' + escapeHtml(k) + '</dt><dd>' + escapeHtml(v) + '</dd>';
+        }
+        html += '</dl>';
+      }
+
+      // sections — md 의 ## 섹션 순서대로
+      // "결론" / "남은 선택지" 류는 highlight
+      const highlightPatterns = [/결론/, /남은\s*선택지/, /해결/];
+      if (sections.length) {
+        html += '<div class="de-sections">';
+        for (const sec of sections) {
+          if (!sec.body || /^_?\(없음\)_?$/.test(sec.body)) continue;
+          const isHighlight = highlightPatterns.some(re => re.test(sec.label));
+          const cls = isHighlight ? 'de-section highlight' : 'de-section';
+          html += '<div class="' + cls + '">' +
+            '<div class="section-label">' + escapeHtml(sec.label) + '</div>' +
+            '<div class="section-body">' + renderBody(sec.body) + '</div>' +
+            '</div>';
+        }
+        html += '</div>';
+      }
+
+      viewEl.innerHTML = html;
+    }
+
+    init();
+  </script>
+</body>
+</html>
