@@ -121,6 +121,7 @@
     .tl-dot.epoch2 { background: #3182F6; box-shadow: 0 0 0 2px #3182F6; }
     .tl-dot.epoch3 { background: #16A34A; box-shadow: 0 0 0 2px #16A34A; }
     .tl-dot.epoch4 { background: #EA580C; box-shadow: 0 0 0 2px #EA580C; }
+    .tl-dot.epoch5 { background: #6D28D9; box-shadow: 0 0 0 2px #6D28D9; }
 
     .tl-date {
       font-size: 12px;
@@ -148,6 +149,7 @@
     .epoch2 .tl-epoch { background: rgba(49,130,246,0.10); color: #3182F6; }
     .epoch3 .tl-epoch { background: rgba(22,163,74,0.10); color: #16A34A; }
     .epoch4 .tl-epoch { background: rgba(234,88,12,0.10); color: #EA580C; }
+    .epoch5 .tl-epoch { background: rgba(109,40,217,0.10); color: #6D28D9; }
 
     .tl-title {
       font-size: 17px;
@@ -430,6 +432,19 @@
             <span class="skill-badge new">/mesh-vote</span>
             <span class="skill-badge new">/araseo</span>
             <span class="skill-badge new">/fleet-director</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item epoch5">
+        <div class="tl-dot epoch5"></div>
+        <div class="tl-date">2026-05-14 ~ 05-15</div>
+        <div class="tl-card">
+          <span class="tl-epoch">6기 · Claude Code 단일 스택</span>
+          <div class="tl-title">OpenClaw + Hermes 환경 decom, laptop3060 Claude Code 교체</div>
+          <div class="tl-desc">
+            Mac mini 의 OpenClaw 게이트웨이 + Codex app-server(<code>ws://100.120.156.7:18789</code>) 폐기, 노트북의 Hermes 에이전트(OpenAI Codex provider) 환경 정리 후 Claude Code 신규 셋업. 노트북 별칭 "노트북 헤르메스" → <code>laptop3060</code> 으로 변경, 24/7 워커 합류.
+            <br><br>5노드 mesh 구성(Mac 본진 · Mac mini · WSL · 데스크탑 3060Ti · laptop3060) 그대로 유지하되 Codex/Hermes 의존성 제거하고 Claude Code 단일 스택으로 통일. 텔레그램 봇 둘(@ssamssae_claw_bot · @ssamssae_codex_bot)은 재활용.
           </div>
         </div>
       </div>
