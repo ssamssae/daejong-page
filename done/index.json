@@ -3,9 +3,9 @@
     {
       "file": "2026-05-14.md",
       "date": "2026-05-14",
-      "summary": "B 묶음 5건 ack + deep-work.md SoT 신설 + 새벽/오후 두 사이클 양 트랙 dynamic /loop 19 iter + PR 5개 머지 + RC1 protocol skip + mac mini plugin cache 위임 진단",
-      "count": 32,
-      "updated": "2026-05-14T17:25:00+09:00"
+      "summary": "자정 직전 mac mini plist+env 두 결함 패치 + 이슈 2건 박제 + Agent View 1단계 PASS 추가 (오후 사이클 기존 분 보존)",
+      "count": 46,
+      "updated": "2026-05-15T00:11:02+09:00"
     },
     {
       "file": "2026-05-13.md",
