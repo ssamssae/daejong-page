@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "file": "2026-05-14-macmini-launchd-claude-channels-flag-missing.md",
+      "date": "2026-05-14",
+      "slug": "macmini-launchd-claude-channels-flag-missing",
+      "title": "mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨)",
+      "severity": "medium",
+      "recurrence": "low",
+      "scope": "mac mini Claude Code 노드 (Codex→Claude Code 전환 후 신규), @ssamssae_claw_bot 봇 incoming 수신 경로",
+      "occurred_at": "2026-05-14T23:30:00+09:00",
+      "resolved_at": "2026-05-14T23:34:00+09:00",
+      "updated": "2026-05-14T23:48:30+09:00"
+    },
+    {
+      "file": "2026-05-14-macmini-self-identity-default-mac-bonjin.md",
+      "date": "2026-05-14",
+      "slug": "macmini-self-identity-default-mac-bonjin",
+      "title": "mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패)",
+      "severity": "medium",
+      "recurrence": "low",
+      "scope": "mac mini Claude Code 노드, @ssamssae_claw_bot 챗 응답 전반",
+      "occurred_at": "2026-05-14T23:36:00+09:00",
+      "resolved_at": "2026-05-14T23:41:00+09:00",
+      "updated": "2026-05-14T23:48:30+09:00"
+    },
+    {
       "file": "2026-05-14-macmini-plugin-cache.md",
       "date": "2026-05-14",
       "slug": "macmini-plugin-cache",
