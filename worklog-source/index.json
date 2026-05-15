@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-16_v1.0.0.md",
+      "date": "2026-05-16",
+      "version": "v1.0.0",
+      "summary": "자정~01:30 KST 잔여 정리 (jq sync / codex 스크립트 3종 폐기 / SSH alias 박제 / telegram-typing-refresh hook) + 01:35~01:50 본진 RAM 진단 (병목 X) + 5대 기기 RAM 조사 (총 96GB) + .wslconfig α/β/γ 옵션 + WSL 본진 이전 고민 답변 (API latency 지배 환기). 결정은 전부 hold.",
+      "updated": "2026-05-16T01:55:00+09:00"
+    },
+    {
       "file": "2026-05-15_v1.0.1.md",
       "date": "2026-05-15",
       "version": "v1.0.1",
