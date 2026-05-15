@@ -32,9 +32,16 @@ prevention_deferred: null
 - 훅은 `exit 0` 기본값이라 오작동해도 세션 안 깨짐.
 - 훅 로그: `/tmp/claude-telegram-reply-check.log` — 여기서 재발 여부 관찰 가능.
 - **추가 검증(Mac 피드백, 2026-04-20):** 기존 `telegram-stop-ping.sh` 의 race retry 루프(0.5s × 6회)가 유지되는지, Stop 훅 exit 감지 로직에 failure path 로그가 제대로 찍히고 있는지 한 번 점검. 새 훅이 충돌하거나 막지 않도록.
+- **(2026-05-15 강화)** 본 hook 은 jq 의존인데 노드에 jq 미설치면 모든 호출이 silent fail → forcing function 자체가 무력화되는 함정 발견. 신규 챗봇 노드 onboarding 절차에 "jq · bash · curl · python3 등 hook 의존성 한 줄 점검" 단계 명시 필요. 추가로 `mcp-spawn-verify.sh` 또는 SessionStart hook 에 `command -v jq >/dev/null || telegram_warn` 한 줄 박아 부재 즉시 감지하는 자동 게이트가 다음 forcing function (후속 구현 TODO).
 
 ## 재발 이력
-_(없음)_
+- **2026-04-20 13:10 KST 사후점검:** 훅 설치 후 3시간 운영 결과
+  - `/tmp/claude-telegram-reply-check.log` 37건: `BLOCK` 1건(09:12:08 — 설치 직후 자체 트리거로 forcing function 작동 확인), 나머지 `ok` 또는 무한루프 방지 `skip`
+  - BLOCK 직후 곧바로 `ok: reply tool called 1 time(s)` — 차단→재호출 플로우 정상
+  - **실전 재발 0건** (동일 사고 발생하지 않음)
+  - `telegram-stop-ping.sh` race retry 루프(0.5s×6회) 코드에 유지 확인, failure path 로그 `skip: no assistant text ... after retry` 코드 존재 (최근 0건 기록 = retry 로 대부분 해결됨)
+  - 새 훅 `telegram-reply-check.sh` 는 retry 루프 없음 → transcript flush race 시 `skip: no transcript ()` 1건(초기 09:11:52)만 관찰, 이후 정상. 필요시 retry 추가 고려하되 현재는 실무 영향 없음.
+- **2026-05-15 23:30 KST 메타 재발 발견.** 노트북(💻) 클로드 세션에서 텔레그램 답변이 폰까지 안 가는 사고. 원인은 노트북에 `jq` 미설치라 본 forcing function (`telegram-reply-check.sh`) 자체가 silent fail — 13건 연속 `skip: no transcript ()`. 즉 옛 예방책이 인프라 의존성 부재로 무력화. system jq 설치로 복구. 데스크탑3060Ti(🖥)도 동일 상태였어서 동시 fix (강대종 콘솔 sudo apt 1회씩). WSL은 SSH 타임아웃이라 후속 점검 대기.
 
 ## 관련 링크
 - 훅 파일: `~/.claude/hooks/telegram-reply-check.sh`
