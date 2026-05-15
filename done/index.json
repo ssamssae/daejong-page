@@ -3,9 +3,9 @@
     {
       "file": "2026-05-15.md",
       "date": "2026-05-15",
-      "summary": "5노드 다이나믹 loop-fleet 2 사이클 + 4 PR 머지 + Mac 본진 SSH key 발급 + 노트북3060 alias rename + issue 박제",
-      "count": 24,
-      "updated": "2026-05-15T14:35:00+09:00"
+      "summary": "오전 + 오후 통합 — 9 PR squash 머지 (claude-automations 5 + claude-skills 1 + yakmukja 2 + dutchpay 1 + memoyo 1 + stock_monitor 1) + agent-fleet-state D11 fix push + 5 노드 hook deploy + 인프라 forcing function 2종",
+      "count": 57,
+      "updated": "2026-05-15T18:04:28+09:00"
     },
     {
       "file": "2026-05-14.md",
