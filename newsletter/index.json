@@ -3,6 +3,26 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 9,
+      "cacheFile": "ep9-cache.md",
+      "date": "2026-05-08",
+      "publishedAt": "2026-05-08T22:12:02+00:00",
+      "title": "새벽 4시 Apple 리젝 메일 — 2.1 Information Needed 대응기",
+      "subtitle": "바이브코딩 뉴스레터 Ep.7 — 인디 개발자의 앱 심사 대응 자동화기",
+      "readingTime": "13분",
+      "substackUrl": "https://daejongkang.substack.com/p/4-apple-21-information-needed"
+    },
+    {
+      "number": 8,
+      "cacheFile": "ep8-cache.md",
+      "date": "2026-05-06",
+      "publishedAt": "2026-05-06T09:08:21+00:00",
+      "title": "나의 첫 유료 앱을 출시했습니다 — 한줄일기",
+      "subtitle": "",
+      "readingTime": "1분",
+      "substackUrl": "https://daejongkang.substack.com/p/7b6"
+    },
+    {
       "number": 7,
       "cacheFile": "ep7-cache.md",
       "date": "2026-05-08",
@@ -25,13 +45,14 @@
     },
     {
       "number": 5,
-      "file": "ep5-2026-04-30.md",
+      "cacheFile": "ep5-cache.md",
       "date": "2026-04-30",
       "publishedAt": "2026-04-30T07:13:17+00:00",
       "title": "거절을 큐에서 다시 돌리는 법",
       "subtitle": "바이브코딩 뉴스레터 Ep.5 — 한줄일기 1.0 출시기, 거절과 승인 사이 30시간",
       "readingTime": "13분",
-      "substackUrl": "https://daejongkang.substack.com/p/32b"
+      "substackUrl": "https://daejongkang.substack.com/p/32b",
+      "originFile": "ep5-2026-04-30.md"
     },
     {
       "number": 4,
