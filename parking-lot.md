@@ -71,3 +71,27 @@
 - [ ] 🖥 더치페이 audit 차순위 묶음 정리 — P2 AdaptiveBanner setState 2회→1회 합치기 + D2 pubspec.yaml Flutter create boilerplate 주석 ~50줄 제거 + D3 `_AdaptiveBannerState._size` 필드 중복 제거 + D4 SplashScreen fade 중복(self _fadeOut + Navigator FadeTransition) 통합. 모두 저영향 cleanup, surgical PR 1~4개로 나눠 진행. (추가: 2026-05-15, 트리거: audit-2026-05-15 사이클)
 - [ ] 🖥 더치페이 차액 정산 단발 입력 1.1 검토 — 누가 얼마 냈는지 1탭 입력 → 누가 누구에게 보낼지 출력. "고마운 정산" 점령 영역, 정공 충돌 시 진입 시점·차별점은 강대종 결정 사안. (추가: 2026-05-15, 트리거: competitor-2026-05-15 사이클)
 - [ ] 🖥 더치페이 Android 출시 정책 확정 (audit D5) — README 는 iOS-only 명시, 코드는 멀티 OS(Platform.isAndroid 분기 + android/ 디렉토리) 유지. 영구 미배포면 Android 트리·분기 정리, 재개면 INTERNET permission 추가 등. 정책 결정 후 별 cleanup 사이클. (추가: 2026-05-15, 트리거: audit-2026-05-15 D5)
+
+- [ ] 🍎 📱 메모요 1.0.5/1.0.6 후보 3종 (사이클 3 competitor PR #80 도출) — (a) PIN/생체인증 잠금 (Standard Notes privacy-first 메시지 흡수 + 에스메모 비밀 메모 견제), (b) 사용자 클라우드 옵션 (iCloud Drive / Google Drive 파일 export — 본 앱 서버 0 유지하면서 sync 욕구 흡수), (c) 위젯 추가 (에스메모 강력 USP 견제). 강대종 우선순위 판단 후 1.0.5 또는 1.0.6 분배. (추가: 2026-05-15 22:00)
+
+- [ ] 🍎 📱 더치페이 1.1 카톡 공유 출력 P0 등재 (사이클 3 competitor PR #83 도출) — 계산 결과 카톡 메시지 1탭 공유. A 군 (한국 토종 1탭 계산기) 동등 진입. USP "권한 0" 훼손 X — OS 공유 시트만 사용. dutch_pay_calculator repo BACKLOG.md 에 P0 등재 + 별 사이클 구현. (추가: 2026-05-15 22:00)
+
+- [ ] 🍎 📱 한줄일기 1.2 강화 4종 (사이클 3 competitor PR #84 도출) — (a) PDF 북 내보내기 (DayGram 유저 리텐션 강점 흡수, 12월 "올해 한 줄들" 공유 카드 형태), (b) Worker AI fallback (OpenAI timeout 시 캐시 위로 문장 반환 — "AI 가 잠시 바빠요" 메시지, 현재 _offlineStub() Worker 버전), (c) 한국어 AI 프롬프트 고도화 (마인디 한국 정서 강점 견제 + Worker system prompt A/B 구조), (d) 온보딩 첫 화면 AI 답글 즉시 경험 (DayGram 직접 경쟁 차별점 노출). (추가: 2026-05-15 22:00)
+
+- [ ] 🍎 📱 약먹자 AdMob 정책 결정 사이클 (사이클 3 audit PR #77 + competitor PR #81 도출) — 옵션 A: Android 출시 + AdMob 실 ID 발급 (광고 노출 인정 + 마케팅 문구 수정) / 옵션 B: iOS-only + Android google_mobile_ads dep 제거 + AdMob meta 제거 (iOS 한정 배너 솔직 메시지) / 옵션 C: 광고 완전 제거 양 OS (광고 0 진정성 + 수익 모델 재설계, in-app 결제·Pro 티어). 강대종 판단 필요 — Medisafe 2026-01 유료 전환으로 무료 시장 빈자리 흡수 윈도우 열림. (추가: 2026-05-15 22:00)
+
+- [ ] 🪟 🧹 단어요 theme.dart 잔재 cleanup 추가 — sheatLegend / heatSummaryFaint / heatSummaryStrong TextStyles 3개 (audit-2026-05-15 범위 밖 발견, 사이클 3 competitor PR #82 메모에서 surface). 사용 0 확인 후 삭제. wordyo repo. (추가: 2026-05-15 22:00)
+
+- [ ] 🍎🪟🏭🖥💻 🚀 loop-fleet audit 미완 7앱 후속 사이클 — 사이클 2 audit 에서 5/12 만 처리 (메모요/단어요/약먹자/더치페이/한줄일기). 미완 = 밥먹자 / 한컵 / pomodoro / 랜덤픽(lottocalc) / 미니가계부 / stock_monitor / babmeokja. 5노드 × 2앱 = 1 사이클 또는 2 사이클로 마감. 출시된 앱 4개 (메모요/단어요/약먹자/더치페이) 우선 사이클 이미 끝났으니 후속은 active dev 정리. (추가: 2026-05-15 22:00)
+
+- [ ] 🪟 🧹 단어요 perf 사이클 (사이클 2 audit PR #75 도출) — P1+P2: `_load` / `_computeCategoryStats` await-in-loop fix (`listCompleted` 패턴 신설) + P3: `getStreak` 90일 상한. wordyo repo. (추가: 2026-05-15 22:05, WSL 위임)
+
+- [ ] 🪟 📱 단어요 카테고리 7번째 추가 검토 — 운동·헬스 영어 / 병원·약국 영어 / 데이팅 영어 중 1개. 사용자 시그널 수집 후 강대종 결정. wordyo repo. (추가: 2026-05-15 22:05, WSL 위임)
+
+- [ ] 🪟 📱 단어요 Play Console A/B 테스트 (Custom store listing) — A안 = 현재 description (장면별 우선) vs B안 = 보상·게임화 강조 (메모리워드 류 후크). 비가역 액션, 강대종 ack 필요. 4주 conversion rate 비교. (추가: 2026-05-15 22:05, WSL 위임)
+
+- [ ] 🪟 📱 단어요 Apple Search Ads 한국 캠페인 — USP 1 키워드 "상황별 영어 단어" / "비즈니스 영어 단어장" ~5만원 budget CPI 테스트. 비가역, 강대종 ack 필요. (추가: 2026-05-15 22:05, WSL 위임)
+
+- [ ] 🪟 📱 단어요 역방향 패키지 검토 — 한→영 (한국어 단어장, 영어권 출장자 대상). 별 앱/패키지로 분리. 단어요 USP "상황별" 그대로 재활용 가능. (추가: 2026-05-15 22:05, WSL 위임)
+
+- [ ] 🍎 📱 미니가계부(mini_expense) Flutter scaffold — 2026-05-13 결정만 박힌 상태 (project_mini_expense_revived.md), repo·코드 0. 다음 작업 빠르게 시작 가능하게 scaffold + 패키지 com.daejongkang.mini_expense 초기 세팅. (추가: 2026-05-15 22:05, WSL 위임)
