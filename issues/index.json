@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-15-notebook-hook-path-macos-node.md",
+      "date": "2026-05-15",
+      "slug": "notebook-hook-path-macos-node",
+      "title": "노트북 Claude Code SessionStart hook /opt/homebrew/bin/node: not found 실패",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "💻 노트북 Claude Code SessionStart hook + Auto-update",
+      "occurred_at": "2026-05-15T00:00:00+09:00",
+      "resolved_at": "2026-05-15T13:35:00+09:00",
+      "updated": "2026-05-15T22:32:16.165384+09:00"
+    },
+    {
       "file": "2026-05-15-macmini-reverse-asym.md",
       "date": "2026-05-15",
       "slug": "macmini-reverse-asym",
