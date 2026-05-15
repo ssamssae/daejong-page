@@ -68,3 +68,6 @@
 - [ ] 🤝 🛠 약먹자 P1 cold-start fix (1.0.4 후속) — `main.dart:36-37` NotificationService.init + AdsService.init 가 runApp 전 동기 await → cold-start TTI 1~3초 추가. fix: runApp 먼저 + addPostFrameCallback 또는 unawaited 백그라운드 init. App Store "느리다" 1점 리스크. 의존: refactor 1.0.3 머지 후 (추가: 2026-05-15)
 - [ ] 🤝 🛠 약먹자 ASO 재작성 사이클 — AdMob 정책 결정 후 specs/aso-2026-05-15/yakmukja.md v2 (PR #72) + 포지셔닝 A/B/C 안 (PR #81 competitor) 결합. Play short/ASC keywords 100자 + Subtitle 30자 강화. (추가: 2026-05-15)
 - [ ] 🤝 🛠 약먹자 ASC Subtitle 30자 강화안 — 현재 `복용 시간 알림 · 복용 기록` (16자) → `복용 시간 알림 · 복약 기록 · 카운트다운` (22자) 또는 포지셔닝 A안 ("자녀가 부모 폰에 5초 설치하는 약 알람") 압축형. ASO 재작성 사이클과 묶기 (추가: 2026-05-15)
+- [ ] 🖥 더치페이 audit 차순위 묶음 정리 — P2 AdaptiveBanner setState 2회→1회 합치기 + D2 pubspec.yaml Flutter create boilerplate 주석 ~50줄 제거 + D3 `_AdaptiveBannerState._size` 필드 중복 제거 + D4 SplashScreen fade 중복(self _fadeOut + Navigator FadeTransition) 통합. 모두 저영향 cleanup, surgical PR 1~4개로 나눠 진행. (추가: 2026-05-15, 트리거: audit-2026-05-15 사이클)
+- [ ] 🖥 더치페이 차액 정산 단발 입력 1.1 검토 — 누가 얼마 냈는지 1탭 입력 → 누가 누구에게 보낼지 출력. "고마운 정산" 점령 영역, 정공 충돌 시 진입 시점·차별점은 강대종 결정 사안. (추가: 2026-05-15, 트리거: competitor-2026-05-15 사이클)
+- [ ] 🖥 더치페이 Android 출시 정책 확정 (audit D5) — README 는 iOS-only 명시, 코드는 멀티 OS(Platform.isAndroid 분기 + android/ 디렉토리) 유지. 영구 미배포면 Android 트리·분기 정리, 재개면 INTERNET permission 추가 등. 정책 결정 후 별 cleanup 사이클. (추가: 2026-05-15, 트리거: audit-2026-05-15 D5)
