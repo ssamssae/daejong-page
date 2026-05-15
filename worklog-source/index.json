@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-15_v1.0.1.md",
+      "date": "2026-05-15",
+      "version": "v1.0.1",
+      "summary": "14:30~17:55 KST 오후 세션 — mac-mini 라우팅 transition 마무리 (PR #18/#19/#41/#22) + D11 dual-reviewer push + env-tool/mcp-spawn-verify forcing function + docs PR 5건",
+      "updated": "2026-05-15T18:02:33+09:00"
+    },
+    {
       "file": "2026-05-15_v1.0.0.md",
       "date": "2026-05-15",
       "version": "v1.0.0",
