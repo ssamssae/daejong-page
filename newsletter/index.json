@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 12,
+      "cacheFile": "ep12-cache.md",
+      "date": "2026-05-15",
+      "publishedAt": "2026-05-15T10:10:04+00:00",
+      "title": "앱 팔려면 신고부터 — 통신판매업 신고기",
+      "subtitle": "바이브코딩 뉴스레터 Ep.12 — 1인 인디 개발자의 사업자등록 + 통신판매업 신고 실전기",
+      "readingTime": "3분",
+      "substackUrl": "https://daejongkang.substack.com/p/92a",
+      "originFile": "ep12-2026-05-15.md"
+    },
+    {
       "number": 11,
       "cacheFile": "ep11-cache.md",
       "date": "2026-05-15",
