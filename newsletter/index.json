@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 11,
+      "cacheFile": "ep11-cache.md",
+      "date": "2026-05-15",
+      "publishedAt": "2026-05-15T10:07:00+00:00",
+      "title": "앱을 두 번 출시 못 한 이유 — Play Console 관리 게시 함정",
+      "subtitle": "바이브코딩 뉴스레터 Ep.11 — 같은 함정에 두 번 빠지고 나서야 자동화한 이야기",
+      "readingTime": "3분",
+      "substackUrl": "https://daejongkang.substack.com/p/play-console",
+      "originFile": "ep11-2026-05-15.md"
+    },
+    {
       "number": 10,
       "cacheFile": "ep10-cache.md",
       "date": "2026-05-15",
