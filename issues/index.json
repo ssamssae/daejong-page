@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-15-codex-directive-routing-stale.md",
+      "date": "2026-05-15",
+      "slug": "codex-directive-routing-stale",
+      "title": "codex-directive.sh routing stale — mac-mini Claude Code 노드 전환 후 옛 Codex inbox 경로 사용",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "codex-directive.sh / agent-msg-notify.sh macmini / loop-fleet 매핑 (mac-mini 슬롯) / cross-device directive 송신",
+      "occurred_at": "2026-05-15T10:13:00+09:00",
+      "resolved_at": null,
+      "updated": "2026-05-15T14:24:00+09:00"
+    },
+    {
       "file": "2026-05-14-macmini-launchd-claude-channels-flag-missing.md",
       "date": "2026-05-14",
       "slug": "macmini-launchd-claude-channels-flag-missing",
