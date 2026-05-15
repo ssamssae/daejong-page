@@ -97,3 +97,5 @@
 - [ ] 🍎 📱 미니가계부(mini_expense) Flutter scaffold — 2026-05-13 결정만 박힌 상태 (project_mini_expense_revived.md), repo·코드 0. 다음 작업 빠르게 시작 가능하게 scaffold + 패키지 com.daejongkang.mini_expense 초기 세팅. (추가: 2026-05-15 22:05, WSL 위임)
 
 - [ ] 🍎 🛠 본진 Mac 다음 기기 교체 시 RAM 24~32GB 검토 — 2026-05-15 점검에서 16GB 본진 swap 318MB 사용 + 누적 swapout 719,565 페이지(~11GB) 확인. claude.exe 452MB + iOS Simulator 16GB 마운트(98% 사용) + Chrome 다중 + ghostty + node 동시 부하 = 16GB unified memory 빠듯. 맥미니(같은 16GB)는 swap 0 으로 RAM 병목 X — 본진 워크로드 무게가 원인. M-series 사후 증설 불가, 다음 교체 시 결정. (추가: 2026-05-15, 트리거: 본진 vs 맥미니 비교 점검)
+
+- [ ] 🍎 🔍 automations 의 `scripts/newsletter-auto-publish.sh` 미커밋 surface 처리 — /goodnight (2026-05-16 01:55 KST) 3 repo audit 에서 untracked 발견. plist + script LIVE 2026-05-15 19:20 KST 의 잔여 자동 commit hold 분. 다음 사이클 강대종 검토 후 commit 또는 별도 PR 으로 굴리기. (추가: 2026-05-16 01:55, session-clear 후속안)
