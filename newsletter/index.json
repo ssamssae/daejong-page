@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 10,
+      "cacheFile": "ep10-cache.md",
+      "date": "2026-05-15",
+      "publishedAt": "2026-05-15T09:47:55+00:00",
+      "title": "OpenClaw에서 Codex로 — 24시간 AI 워커를 바꾼 이유",
+      "subtitle": "바이브코딩 뉴스레터 Ep.10 — 24시간 워커 호스트 도구 두 번 갈아탄 이야기",
+      "readingTime": "4분",
+      "substackUrl": "https://daejongkang.substack.com/p/openclaw-codex-24-ai",
+      "originFile": "ep10-2026-05-15.md"
+    },
+    {
       "number": 9,
       "cacheFile": "ep9-cache.md",
       "date": "2026-05-08",
