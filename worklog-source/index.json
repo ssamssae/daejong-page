@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-16_v1.0.1.md",
+      "date": "2026-05-16",
+      "version": "v1.0.1",
+      "summary": "정오~밤 사이클 — Ghostty App Nap defaults write 마감 + deep work 1 launchd 정리 5건 + 5 노드 cross-SSH key sweep + D07 install-launchd smoke self-load 사고 박제 + mesh-vote v0.3 stack 4 PR (v0.3/v0.3.1/v0.3.2/v0.3.3) + trio-vote v0.2 Phase 2.5 + fleet-state PR #3/#4 + D07 launchd install 3 노드 실호출 (mac-mini 2분 / 본진 5분 / WSL 5분) — fleet-director worker turn on, 자동 분배 시작. 텔레그램 AskUserQuestion 금지 메모리 박음.",
+      "updated": "2026-05-16T20:15:00+09:00"
+    },
+    {
       "file": "2026-05-16_v1.0.0.md",
       "date": "2026-05-16",
       "version": "v1.0.0",
