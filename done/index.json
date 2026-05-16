@@ -4,8 +4,8 @@
       "file": "2026-05-16.md",
       "date": "2026-05-16",
       "summary": "자정~01:30 잔여 정리 + 본진 RAM/throttling 진단 + 5 노드 cross-SSH key sweep + deep work 1 launchd 정리 + Ghostty App Nap defaults write + mesh-vote v0.3 stack 4 PR (v0.3/v0.3.1/v0.3.2/v0.3.3) + trio-vote v0.2 Phase 2.5 + fleet-state PR #3/#4 + D07 launchd install 3 노드 실호출 (mac-mini 2분 / 본진 5분 / WSL 5분) — fleet-director worker turn on + 작업일지 v1.0.1.",
-      "count": 59,
-      "updated": "2026-05-16T21:12:49+09:00"
+      "count": 62,
+      "updated": "2026-05-16T22:58:47+09:00"
     },
     {
       "file": "2026-05-15.md",
