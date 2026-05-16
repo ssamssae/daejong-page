@@ -4,8 +4,8 @@
       "file": "2026-05-16.md",
       "date": "2026-05-16",
       "summary": "자정~01:30 잔여 정리 (jq sync / codex 스크립트 3종 폐기 / SSH alias 박제 / telegram-typing hook) + 01:35~01:50 본진 RAM 진단 (병목 X) + 5대 기기 96GB 조사 + .wslconfig α/β/γ 옵션 + WSL 본진 이전 고민 답변 (API latency 환기). 결정 hold. + parallel-cycle v1.0 sentinel 가드 LIVE (PR #43→#44→#45) + throttling 진단 2차 round 종결 + 노트북 화면보호기 아이콘.",
-      "count": 29,
-      "updated": "2026-05-16T17:51:33+09:00"
+      "count": 30,
+      "updated": "2026-05-16T18:16:28+09:00"
     },
     {
       "file": "2026-05-15.md",
