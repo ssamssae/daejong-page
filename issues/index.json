@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-16-stale-recover-loss.md",
+      "date": "2026-05-16",
+      "slug": "stale-recover-loss",
+      "title": "fleet-state stale-recover 가 5분 cron cycle 마다 작업자 commit 까지 origin/main 으로 reset",
+      "severity": "high",
+      "recurrence": "high",
+      "scope": "fleet-state repo + 본진/Mac mini launchd 가 동작 중인 모든 작업자 워크플로우",
+      "occurred_at": "2026-05-16T11:48:00+09:00",
+      "resolved_at": "2026-05-16T11:55:00+09:00",
+      "updated": "2026-05-16T12:08:00+09:00"
+    },
+    {
       "file": "2026-05-16-d07-install-launchd-smoke-self-load.md",
       "date": "2026-05-16",
       "slug": "d07-install-launchd-smoke-self-load",
