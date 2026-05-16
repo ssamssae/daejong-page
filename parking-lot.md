@@ -96,6 +96,14 @@
 
 - [ ] 🍎 📱 미니가계부(mini_expense) Flutter scaffold — 2026-05-13 결정만 박힌 상태 (project_mini_expense_revived.md), repo·코드 0. 다음 작업 빠르게 시작 가능하게 scaffold + 패키지 com.daejongkang.mini_expense 초기 세팅. (추가: 2026-05-15 22:05, WSL 위임)
 
-- [ ] 🍎 🛠 본진 Mac 다음 기기 교체 시 RAM 24~32GB 검토 — 2026-05-15 점검에서 16GB 본진 swap 318MB 사용 + 누적 swapout 719,565 페이지(~11GB) 확인. claude.exe 452MB + iOS Simulator 16GB 마운트(98% 사용) + Chrome 다중 + ghostty + node 동시 부하 = 16GB unified memory 빠듯. 맥미니(같은 16GB)는 swap 0 으로 RAM 병목 X — 본진 워크로드 무게가 원인. M-series 사후 증설 불가, 다음 교체 시 결정. (추가: 2026-05-15, 트리거: 본진 vs 맥미니 비교 점검)
+- [ ] 🪟 🧹 WSL 작업 브랜치 `wsl/issue-prevention-action-field-2026-05-14` 마무리 (claude-skills, fda0e69 "issue: prevention-action 필수 필드 추가" — origin push 됨, PR/머지 미완). (추가: 2026-05-16 01:30, WSL 위임)
+
+- [ ] 🪟 🧹 WSL 작업 브랜치 `wsl/session-clear-keepalive-2026-05-13` 마무리 (claude-automations, 9dc37d3 "hook: session-clear-trigger.sh v2.4 WSL idle keepalive" — origin push 됨, PR/머지 미완). (추가: 2026-05-16 01:30, WSL 위임)
+
+- [ ] 🍎 🧹 CLAUDE.md "현재 기기 빠른 식별" 표에 SSH alias 컬럼 추가 — 2026-05-16 SSH alias 미스매치 이슈 (`issues/2026-05-16-ssh-alias-mismatch.md`) 예방 forcing function. hostname 컬럼 외에 alias 컬럼 별도로 한눈 구분. (추가: 2026-05-16 01:30, 본진 책임)
+
+- [ ] 🍎🏭💻🖥🪟 📦 vsnap-create.sh 미구현 — daejong-page-sync 스킬의 /vsnap-create 트리거가 호출할 스크립트가 어느 노드에도 없음 (memory project_vsnap_create_sh_unimplemented.md). 작성 옵션 둘 강대종 결정 후 commit + 모든 노드 배포. (추가: 2026-05-16 01:30)
 
 - [ ] 🍎 🔍 automations 의 `scripts/newsletter-auto-publish.sh` 미커밋 surface 처리 — /goodnight (2026-05-16 01:55 KST) 3 repo audit 에서 untracked 발견. plist + script LIVE 2026-05-15 19:20 KST 의 잔여 자동 commit hold 분. 다음 사이클 강대종 검토 후 commit 또는 별도 PR 으로 굴리기. (추가: 2026-05-16 01:55, session-clear 후속안)
+
+- [ ] 🪟 🛡️ parallel-cycle/SKILL.md L138 의 WSL session-clear 분기에 sentinel 가드 모델 확장 검토 — PR #45 (v1.0 sentinel 가드 5-c/5-d) 후속 권고. 본 사이클은 본진 chatbot 의 자동 /clear 만 가드. WSL session-clear (parallel-cycle 다단계 sync 마지막) 도 같은 sentinel 패턴 박을지 별 PR 분석 + 결정. WSL 본인이 디렉티브 받아 분석부터. (추가: 2026-05-16 13:28 KST, session-clear 후속안, WSL PR #45 surface)
