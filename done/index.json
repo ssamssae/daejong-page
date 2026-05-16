@@ -3,9 +3,9 @@
     {
       "file": "2026-05-16.md",
       "date": "2026-05-16",
-      "summary": "자정~01:30 잔여 정리 (jq sync / codex 스크립트 3종 폐기 / SSH alias 박제 / telegram-typing hook) + 01:35~01:50 본진 RAM 진단 (병목 X) + 5대 기기 96GB 조사 + .wslconfig α/β/γ 옵션 + WSL 본진 이전 고민 답변 (API latency 환기). 결정 hold. + parallel-cycle v1.0 sentinel 가드 LIVE (PR #43→#44→#45) + throttling 진단 2차 round 종결 + 노트북 화면보호기 아이콘.",
-      "count": 34,
-      "updated": "2026-05-16T20:12:38+09:00"
+      "summary": "자정~01:30 잔여 정리 + 본진 RAM/throttling 진단 + 5 노드 cross-SSH key sweep + deep work 1 launchd 정리 + Ghostty App Nap defaults write + mesh-vote v0.3 stack 4 PR (v0.3/v0.3.1/v0.3.2/v0.3.3) + trio-vote v0.2 Phase 2.5 + fleet-state PR #3/#4 + D07 launchd install 3 노드 실호출 (mac-mini 2분 / 본진 5분 / WSL 5분) — fleet-director worker turn on + 작업일지 v1.0.1.",
+      "count": 56,
+      "updated": "2026-05-16T20:18:00+09:00"
     },
     {
       "file": "2026-05-15.md",
