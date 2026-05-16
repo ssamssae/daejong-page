@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-16-d07-install-launchd-smoke-self-load.md",
+      "date": "2026-05-16",
+      "slug": "d07-install-launchd-smoke-self-load",
+      "title": "D07 install-launchd.sh smoke self-load — guard 검증 의도가 실 install 까지 가버린 사고",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "Mac 본진 ~/Library/LaunchAgents/ (rollback 완료) / agent-fleet-state D07 게이트 청소 사이클 / D0N strict trigger 룰 위반 사례",
+      "occurred_at": "2026-05-16T16:55:00+09:00",
+      "resolved_at": "2026-05-16T17:00:00+09:00",
+      "updated": "2026-05-16T17:35:00+09:00"
+    },
+    {
       "file": "2026-05-16-ssh-alias-mismatch.md",
       "date": "2026-05-16",
       "slug": "ssh-alias-mismatch",
