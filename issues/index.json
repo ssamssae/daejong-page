@@ -201,11 +201,11 @@
       "slug": "launchd-clear-trigger-abort-loop",
       "title": "launchd 자동 /clear 트리거 abort 반복 — busy-loop 시 fire 마다 timeout",
       "severity": "medium",
-      "recurrence": "high",
-      "scope": "Mac 본진 launchd com.daejongkang.session-clear-watcher / session-clear-trigger.sh v2.2",
+      "recurrence": "low",
+      "scope": "Mac 본진 launchd com.daejongkang.session-clear-watcher / session-clear-trigger.sh (v2.2 → v2.6 영구 fix)",
       "occurred_at": "2026-05-11T00:52+09:00",
-      "resolved_at": "2026-05-11T00:57+09:00",
-      "updated": "2026-05-13T21:26:34+0900"
+      "resolved_at": "2026-05-16T08:37+09:00",
+      "updated": "2026-05-16T09:01:46+0900"
     },
     {
       "file": "2026-05-10-placeholder-paste-loss.md",
