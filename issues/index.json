@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-17-gh-pages-cert-provisioning-stuck.md",
+      "title": "2026-05-17 — GH Pages custom domain cert provisioning 멈춤 → 브라우저 빨간 경고",
+      "date": "2026-05-17",
+      "updated": "2026-05-17T21:58:00.000000+09:00"
+    },
+    {
       "file": "2026-05-17-stop-hook-mac-mini-directive-not-detected.md",
       "title": "2026-05-17 — Stop hook 의 reverse-reply 감지 list 에 mac-mini-directive.sh 누락",
       "date": "2026-05-17",
