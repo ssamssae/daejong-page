@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-17_v1.0.1.md",
+      "date": "2026-05-17",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 (14:25) 이후 11시간 — kangdaejong.com 트리밍 + work.kangdaejong.com cert provisioning 5시간 멈춤 사고 CNAME 토글 트릭 + mac-report.sh sender-id fix 5노드 propagate + CLAUDE.md §3 5 prefix + main push 정책 표준화 + todo 자연어 번역 3 파일 111 active 라인 (본진+맥미니 분배) + insta-post-general 비용 0 패치 SKILL.md v0.3 + 페이지 정리 9건 + 이슈 박제 2건 + 메모리 1건 + 노하우 6건 + trio-vote 5회 + 노트북3060 smart-home cherry + spec/plan internal repo 이동.",
+      "updated": "2026-05-18T01:14:00+09:00"
+    },
+    {
       "file": "2026-05-17_v1.0.0.md",
       "date": "2026-05-17",
       "version": "v1.0.0",
