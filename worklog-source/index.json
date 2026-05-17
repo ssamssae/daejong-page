@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-17_v1.0.0.md",
+      "date": "2026-05-17",
+      "version": "v1.0.0",
+      "summary": "메모요 sync 자율루프 종료(02:36, S3 비가역 hold) + kangdaejong.com 첫 paid 도메인 Business 등록($10.46) + Cloudflare Zero Trust+Tunnel(Mac mini queue-dashboard)+Access(이메일 OTP) 인프라 100% + ~/todo Mac mini 클론 + 5 PR squash 머지 + lotto-calc PR #16 stale base 사고 이슈 박제.",
+      "updated": "2026-05-17T14:37:32+09:00"
+    },
+    {
       "file": "2026-05-16_v1.0.1.md",
       "date": "2026-05-16",
       "version": "v1.0.1",
