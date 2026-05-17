@@ -277,9 +277,20 @@
           <div class="hb-title">병렬 작업 = 작업 단위 분리</div>
         </div>
         <div class="hb-body">
-          작업 시작 전 <strong>담당 작업명 + 브랜치명 + 수정 예정 파일</strong> 텔레그램 선언. 본진 mac/&lt;task&gt;-YYYY-MM-DD · WSL wsl/&lt;task&gt;-YYYY-MM-DD. main 직접 push 금지 · 같은 파일 동시 수정 X. 다른 작업자가 이미 선언한 파일은 손대지 않고, 꼭 건드려야 하면 즉시 중단 + 형님 확인. 충돌 · 정책 애매함 = 즉시 중단 + 보고.
+          작업 시작 전 <strong>담당 작업명 + 브랜치명 + 수정 예정 파일</strong> 텔레그램 선언. 본진 mac/&lt;task&gt;-YYYY-MM-DD · WSL wsl/&lt;task&gt;-YYYY-MM-DD. main 직접 push 금지 · 같은 파일 동시 수정 X. 다른 작업자가 이미 선언한 파일은 손대지 않고, 꼭 건드려야 하면 즉시 중단 + 강대종 확인. 충돌 · 정책 애매함 = 즉시 중단 + 보고.
         </div>
         <div class="hb-source">2026-05-02 「병렬 작업 + 충돌 방지 원칙」 도입</div>
+      </div>
+
+      <div class="habit-card">
+        <div class="hb-head">
+          <div class="hb-num">17</div>
+          <div class="hb-title">5노드 prefix + main 직접 push 정책</div>
+        </div>
+        <div class="hb-body">
+          작업 브랜치는 노드별 prefix 고정 — 🍎 본진 <code>mac/*</code> · 🏭 맥미니 <code>macmini/*</code> · 🪟 WSL <code>wsl/*</code> · 🖥 데스크탑 <code>desktop/*</code> · 💻 노트북 <code>notebook/*</code>. <strong>main 직접 push 는 본진만 허용</strong> (지휘관 권한 / SoT). 나머지 4노드는 PR 통한 머지 흐름 필수. 데스크탑/맥미니가 본진 mac/* 위에 commit 박는 prefix 충돌 사고 방지.
+        </div>
+        <div class="hb-source">2026-05-17 trio-vote [B] 표준화 결정</div>
       </div>
 
     </div>
