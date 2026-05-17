@@ -301,12 +301,12 @@
     </header>
 
     <div class="hero">
-      <div class="hero-label">Report · 2026-05-11</div>
+      <div class="hero-label">Report · 2026-05-17</div>
       <h2>혼자 만들고 혼자 다듬어온<br>에이전트 스킬 시스템</h2>
       <p>Claude Code 커스텀 스킬(/skill)로 반복 작업을 자동화하는 시스템. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 바이브코딩 인프라가 어떻게 만들어졌는지 기록합니다.</p>
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-num">24</div>
+          <div class="stat-num">30+</div>
           <div class="stat-label">활성 스킬</div>
         </div>
         <div class="stat">
@@ -314,11 +314,11 @@
           <div class="stat-label">참여 기기</div>
         </div>
         <div class="stat">
-          <div class="stat-num">50+</div>
+          <div class="stat-num">500+</div>
           <div class="stat-label">커밋 (claude-skills)</div>
         </div>
         <div class="stat">
-          <div class="stat-num">~3주</div>
+          <div class="stat-num">~5주</div>
           <div class="stat-label">제작 기간</div>
         </div>
       </div>
@@ -358,7 +358,7 @@
           <span class="tl-epoch">2기 · 멀티기기 확장</span>
           <div class="tl-title">Mac + WSL 2-way 핸드오프 자동화</div>
           <div class="tl-desc">
-            WSL(Windows 개발 환경)을 두 번째 작업자로 편입. wsl-directive.sh / mac-report.sh 를 만들어 기기 간 작업을 zero-touch로 주고받기 시작. 브랜치 분리 원칙(mac/* · wsl/*)도 이때 확립.
+            WSL(Windows 개발 환경)을 두 번째 작업자로 편입. 본진 → WSL 자동 paste 운반체 + WSL → 본진 결과 자동 회신 채널을 만들어 기기 간 작업을 zero-touch로 주고받기 시작. 브랜치 분리 원칙(mac/* · wsl/*)도 이때 확립.
             <br><br>parallel-cycle 등장이 이 시기 핵심. 동시에 N개 작업을 각 기기에 배분하는 최초의 병렬 실행 패턴.
           </div>
           <div class="tl-skills">
@@ -423,10 +423,10 @@
         <div class="tl-date">2026-05-10 ~ 05-11</div>
         <div class="tl-card">
           <span class="tl-epoch">5기 · 5노드 메시</span>
-          <div class="tl-title">데스크탑 3060Ti + 노트북 헤르메스 추가, fleet-director 등장</div>
+          <div class="tl-title">데스크탑 3060Ti + 노트북3060 추가, fleet-director 등장</div>
           <div class="tl-desc">
-            기기 5대 체제로 확장. 데스크탑 3060Ti(🖥️)가 GPU 노드 + 챗봇 노드로 합류, 노트북 헤르메스(💻)가 OpenAI Codex provider 기반 Hermes 에이전트 + 외출용 SSH 헤드로 편입. 두 노드는 직접 운반체 미등록, claude-skills git pull 만으로 동기화.
-            <br><br>fleet-director v1 plan 도입(D01 시작 예정) — 5대 노드 일과 자동 분배 + subagent-driven 실행. mesh-vote 등장으로 trio-vote의 물리기기 버전(Mac 본진·WSL·Codex 3노드 병렬 브레인스토밍 + 상호 투표)도 가능.
+            기기 5대 체제로 확장. 데스크탑 3060Ti(🖥️)가 GPU 노드 + 챗봇 노드로 합류, 노트북3060(💻)이 외출용 원격 SSH 헤드로 편입.
+            <br><br>fleet-director v1 plan 도입(D01 시작) — 5대 노드 일과 자동 분배 + subagent-driven 실행. mesh-vote 등장으로 trio-vote의 물리기기 버전 — 3노드 병렬 브레인스토밍 + 상호 투표 — 도 가능.
           </div>
           <div class="tl-skills">
             <span class="skill-badge new">/mesh-vote</span>
@@ -441,10 +441,23 @@
         <div class="tl-date">2026-05-14 ~ 05-15</div>
         <div class="tl-card">
           <span class="tl-epoch">6기 · Claude Code 단일 스택</span>
-          <div class="tl-title">OpenClaw + Hermes 환경 decom, laptop3060 Claude Code 교체</div>
+          <div class="tl-title">외부 에이전트 환경 정리, 노트북3060 Claude Code 신규 셋업</div>
           <div class="tl-desc">
-            Mac mini 의 OpenClaw 게이트웨이 + Codex app-server(<code>ws://100.120.156.7:18789</code>) 폐기, 노트북의 Hermes 에이전트(OpenAI Codex provider) 환경 정리 후 Claude Code 신규 셋업. 노트북 별칭 "노트북 헤르메스" → <code>laptop3060</code> 으로 변경, 24/7 워커 합류.
-            <br><br>5노드 mesh 구성(Mac 본진 · Mac mini · WSL · 데스크탑 3060Ti · laptop3060) 그대로 유지하되 Codex/Hermes 의존성 제거하고 Claude Code 단일 스택으로 통일. 텔레그램 봇 둘(@ssamssae_claw_bot · @ssamssae_codex_bot)은 재활용.
+            Mac mini 의 외부 LLM provider 게이트웨이 폐기, 노트북 측 외부 에이전트 환경 정리 후 Claude Code 신규 셋업.
+            <br><br>5노드 mesh 구성(🍎 본진 · 🏭 Mac mini · 🪟 WSL · 🖥 데스크탑 3060Ti · 💻 노트북3060) 그대로 유지하되 외부 의존성 제거하고 Claude Code 단일 스택으로 통일.
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item epoch5">
+        <div class="tl-dot epoch5"></div>
+        <div class="tl-date">2026-05-16 ~ 05-17</div>
+        <div class="tl-card">
+          <span class="tl-epoch">7기 · 5노드 운반체 통일 + 도메인 라이브</span>
+          <div class="tl-title">5노드 동등 first-class peer + kangdaejong.com 회사 페이지 라이브</div>
+          <div class="tl-desc">
+            기존에 "직접 운반체 미등록" 이었던 데스크탑·노트북에도 운반체 등록 — 5노드 모두 Mac 본진 hub 와 양방향 자동 paste/회신 가능. tmux 세션 이름도 5노드 전부 통일.
+            <br><br>kangdaejong.com 도메인 paid 등록 + 회사 페이지(apex+www) · 작업일지(work) · 메일 라우팅 · 큐 대시보드 4개 표면 모두 라이브. 외부 공개 노출 본격 시작.
           </div>
         </div>
       </div>
@@ -472,12 +485,12 @@
       <div class="arch-card">
         <div class="arch-icon">🖥️</div>
         <div class="arch-name">데스크탑 3060Ti</div>
-        <div class="arch-role">낮 전용 워커<br>GPU 노드 (LLM/SD/Whisper) + 챗봇 노드<br>git pull only 동기화</div>
+        <div class="arch-role">온디맨드 GPU 노드<br>LLM/SD/Whisper 실험<br>5노드 mesh peer</div>
       </div>
       <div class="arch-card">
         <div class="arch-icon">💻</div>
-        <div class="arch-name">laptop3060</div>
-        <div class="arch-role">24/7 워커<br>Claude Code 신규 셋업 (2026-05-15)<br>외출용 원격 SSH 헤드</div>
+        <div class="arch-name">노트북3060</div>
+        <div class="arch-role">외출용 원격 SSH 헤드<br>Claude Code 5번째 노드<br>5노드 mesh peer</div>
       </div>
     </div>
 
@@ -491,14 +504,14 @@
           <div class="routing-col">
             <div class="routing-label">입력</div>
             <div class="routing-node trigger">📱 강대종 텔레그램</div>
-            <div class="routing-node mac">🍎 Mac 본진<br><small>수신 · 판단 · 직접 처리</small></div>
+            <div class="routing-node mac">🍎 Mac 본진 (hub)<br><small>수신 · 판단 · 직접 처리</small></div>
           </div>
           <div class="routing-mid">→</div>
           <div class="routing-col">
             <div class="routing-label">위임 경로</div>
-            <div class="routing-node wsl">🪟 WSL — wsl-directive.sh<br><small>SSH tmux inject → 자율 작업자</small></div>
-            <div class="routing-node mini">🏭 Codex — agent-msg-notify.sh<br><small>Telegram DM → Mac mini 수신</small></div>
-            <div class="routing-node result">↩ 결과 — mac-report.sh + 텔레그램<br><small>zero-touch 양방향 보고</small></div>
+            <div class="routing-node wsl">🪟 WSL · 🏭 Mac mini<br><small>자동 paste 운반 → 자율 작업자</small></div>
+            <div class="routing-node mini">🖥 데스크탑 · 💻 노트북<br><small>5노드 모두 동일 메커니즘</small></div>
+            <div class="routing-node result">↩ 결과 자동 회신 + 텔레그램<br><small>zero-touch 양방향 보고</small></div>
           </div>
         </div>
       </div>
@@ -508,7 +521,7 @@
         <div class="wf-pipeline">
           <div class="wf-step plan">PLAN<br><small>Claude가 task 배열 JSON 생성</small></div>
           <div class="wf-arr">→</div>
-          <div class="wf-step execute">EXECUTE<br><small>macbook / wsl / macmini 기기별 실행</small></div>
+          <div class="wf-step execute">EXECUTE<br><small>5노드 mesh 기기별 실행</small></div>
           <div class="wf-arr">→</div>
           <div class="wf-step judge">JUDGE<br><small>3-way 에이전트 합의 검증</small></div>
           <div class="wf-arr">→</div>
@@ -591,8 +604,8 @@
       <div class="proposal-item">
         <div class="proposal-num">5</div>
         <div class="proposal-text">
-          <h4>Codex 더 많이 활용</h4>
-          <p>Mac mini(Codex)는 24/7 가동 가능한 워커다. 현재는 야간 점검·실기기 빌드 정도만 맡기고 있지만, 코드 리뷰·PR 초안 작성·데이터 수집 같은 작업도 위임 가능하다.</p>
+          <h4>Mac mini 더 많이 활용</h4>
+          <p>Mac mini 는 24/7 가동 가능한 워커다. 현재는 야간 점검·실기기 빌드 정도만 맡기고 있지만, 코드 리뷰·PR 초안 작성·데이터 수집 같은 작업도 위임 가능하다.</p>
         </div>
       </div>
 
@@ -634,24 +647,24 @@
       <h3 style="color:#1D4ED8;">📍 사실 이미 하고 있다</h3>
       <p style="margin-top:12px; color:#374151; font-size:15px; line-height:1.8;">
         "에이전틱 엔지니어링 갈 수 있을까, 어디서부터 시작해야 할까"를 물었는데 — 답은 이미 시작했다는 것이다.
-        2026년 5월 9일 오늘 하루만 봐도 이렇다.
+        평범한 하루를 들여다보면 이런 식이다.
       </p>
       <div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
         <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
-          <strong>16:10</strong> — 텔레그램에서 "입력 중" 좀비 신고 → 에이전트가 원인 진단 (typing heartbeat PID 파일 2개 잔류)
+          <strong>1.</strong> 텔레그램에서 사용자 신고 → 에이전트가 원인 자동 진단
         </div>
         <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
-          <strong>16:27</strong> — 에이전트가 좀비 프로세스 kill + 이슈 초안 작성 → 강대종님 OK 한 마디
+          <strong>2.</strong> 에이전트가 즉시 대응 + 이슈 초안 작성 → 강대종 OK 한 마디
         </div>
         <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
-          <strong>16:38</strong> — 예방 코드 2곳 수정(session-clear v0.9 + start.sh 고아 정리) → 3개 repo 자동 push
+          <strong>3.</strong> 재발 방지 코드 수정 → 여러 repo 자동 commit + push
         </div>
         <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #8B5CF6; font-size:14px; color:#374151; line-height:1.7;">
-          <strong>동시에</strong> — WSL 에이전트가 브랜치 상태 자진 보고 → 본진이 디렉티브 전송 → WSL이 자율 실행
+          <strong>동시에</strong> — 다른 노드의 에이전트가 자기 상태 자진 보고 → 본진이 디렉티브 전송 → 노드가 자율 실행
         </div>
       </div>
       <p style="margin-top:16px; color:#4E5968; font-size:14px; line-height:1.7;">
-        사람이 한 건 "텔레그램에서 OK 2번". 나머지는 에이전트들이 탐색·진단·수정·검증·보고를 스스로 했다.<br>
+        사람이 한 건 "텔레그램에서 OK 두어 번". 나머지는 에이전트들이 탐색·진단·수정·검증·보고를 스스로 했다.<br>
         이게 에이전틱 엔지니어링이다.
       </p>
     </div>
@@ -672,8 +685,8 @@
         <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
           <div style="font-weight:700; color:#6D28D9; margin-bottom:6px;">2. 에이전트 간 핸드오프를 자동화</div>
           <p style="font-size:14px; color:#4E5968; line-height:1.7;">
-            Mac → WSL → Mac mini 디렉티브 체계처럼, 에이전트끼리 결과를 주고받을 때 사람이 중간에 끼지 않아도 되는 구조를 만든다.
-            mac-report.sh / wsl-directive.sh 같은 운반체가 그 예다.
+            본진 ↔ 각 노드 사이에 자동 paste 운반 채널 + 결과 자동 회신 채널을 두면, 에이전트끼리 결과를 주고받을 때 사람이 중간에 끼지 않아도 된다.
+            5노드 모두 동일 메커니즘으로 묶여있어 새 노드 추가도 어렵지 않다.
           </p>
         </div>
         <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
