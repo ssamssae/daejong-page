@@ -12,6 +12,8 @@
 
 ## 모아둠
 
+- [ ] 🤝 블라인드(Blind) 가입 + 마이너스베타스튜디오 회사 인증 — daejong@kangdaejong.com Email Routing 셋업 후 시도. 마이너스베타스튜디오는 2026-05-04 개업 신생 회사라 블라인드 DB 미등록 가능성 높음. 신규 회사 등록 신청 시 사업자등록증(878-21-02478) + 회사 이메일(daejong@kangdaejong.com) 둘 다 첨부. 가입 자체는 형님 손, 회사 인증은 블라인드 admin review 며칠 걸릴 수 있음. (추가: 2026-05-17 14:45 KST, /session-clear 후속안)
+- [ ] 🍎 🤝 메모요 sync 재개 (Firebase 프로젝트 생성 + 크레덴셜 두 파일 배치) — 메모요 sync 자율루프(`com.daejongkang.memoyo-sync-loop`) 가 S3 비가역 hold 에서 종료된 상태. 재개 시점: 형님이 Firebase Console 에서 프로젝트 생성 → `google-services.json` (Android) 와 `GoogleService-Info.plist` (iOS) 다운로드 → `~/simple_memo_app/android/app/` + `~/simple_memo_app/ios/Runner/` 각각 배치. 끝나면 `launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.daejongkang.memoyo-sync-loop.plist` 한 줄로 루프 복귀 → S4 부터 자율 진행. plist+runner 보존 (PR #30 merge 후). 메모리 [[project_memoyo_sync_loop_2026_05_17]]. (추가: 2026-05-17 14:45 KST, /session-clear 후속안)
 - [ ] 🔧 다른 plugin (playwright / swift-lsp / superpowers) launchd spawn 환경 PATH 의존 점검 — mac mini 2026-05-14 plugin:telegram cache 사고의 root cause = launchd EnvironmentVariables PATH 누락 + plugin `.mcp.json` 의 bare 명령 (`bun`) → spawn 실패 패턴. 다른 plugin 의 `.mcp.json` command 가 같은 함정 (bun / homebrew 절대경로 외부 명령) 쓰는지 grep + 다른 노드 launchd 잡 PATH 도 일관 점검. 즉발 사고 없음, 잠재 가드. (추가: 2026-05-14, 출처: mac-report 17:09 KST 후속 5종 중 하나)
 
 - [ ] 💡 고독사방지앱 만들기 — 컨셉/타깃/범위 미정. 아이디어 단계, repo 0 / 코드 0. brainstorm 필요. (추가: 2026-05-14, 트리거: WSL 위임)
