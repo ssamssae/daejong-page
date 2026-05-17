@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "본진→Codex(맥미니) 명령은 가는데 회수 자동 경로 부재 → 형님이 직접 paste 운반해야만 본진이 인지"
 ---
 
 # Codex(맥미니) ↔ 본진(Mac) 양방향 메시지 자동 회수 경로 부재

@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "심사레이더 첫 iOS 실행 시 GIDClientID Info.plist 누락으로 첫 프레임 뜨기 전 강제 종료된 크래시"
 ---
 
 # iOS GoogleSignIn GIDClientID 누락 크래시 (심사레이더)

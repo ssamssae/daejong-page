@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "응답 처리 중 /clear 입력 시 즉시 실행 안 되고 큐에 들어가 응답 끝나야 동작 — 안 먹힌 것처럼 보임"
 ---
 
 # /clear 처리 중 큐 지연 — 슬래시 커맨드 큐잉 동작

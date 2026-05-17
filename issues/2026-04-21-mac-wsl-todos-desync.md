@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥과 WSL이 같은 할일 리스트를 동시에 붙잡고 작업해서 todos 정합성이 깨진 첫 양기기 race 사고"
 ---
 
 # Mac 과 WSL 이 같은 심사레이더 작업을 병렬로 붙잡고 todos 정합성 파탄

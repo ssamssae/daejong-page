@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "메모요 앱을 한번 종료한 뒤 다시 열면 SharedPreferences 충돌로 곧장 꺼지던 사고"
 ---
 
 # iOS 재실행 시 SharedPreferencesPlugin 크래시

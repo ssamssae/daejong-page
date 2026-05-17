@@ -3,6 +3,8 @@ date: 2026-04-26
 slug: handoff-claude-main-empty-shell
 status: resolved
 device: mac
+summary: "tmux 세션은 살아있는데 안에 Claude Code가 안 돌아 핸드오프 명령이 빈 셸로 박혀 침묵 실패"
+
 ---
 
 # /handoff Primary 첫 실전 — claude-main 세션은 살아있는데 안에서 Claude Code 가 안 돌고 있었음

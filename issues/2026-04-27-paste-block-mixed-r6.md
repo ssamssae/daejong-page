@@ -4,6 +4,8 @@ date: 2026-04-27
 host: USERui-MacBookPro (Mac)
 status: workaround
 related: feedback_paste_blocks_as_separate_message
+summary: "복붙 블록과 한국어 안내를 한 메시지에 같이 박는 패턴이 6번째 재발 (하루 4회 반복)"
+
 ---
 
 # 복붙 블록 별도 메시지 룰 6번째 재발 (오늘만 4번)

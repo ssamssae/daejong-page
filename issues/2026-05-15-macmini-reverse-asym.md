@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 ~/.ssh/config에 'mac' alias 누락 → mac-report.sh reverse channel 5노드 중 맥미니만 비대칭"
 ---
 
 # mac-mini 의 ~/.ssh/config 본진 향 alias 'mac' 누락 — mac-report.sh reverse channel 비대칭

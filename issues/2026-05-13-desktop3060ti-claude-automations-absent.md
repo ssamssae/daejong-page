@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "desktop3060ti에 ~/.claude/automations/ repo가 부재해 WSL 디렉티브 회수 시 surface된 셋업 누락"
 ---
 
 # desktop3060ti `~/.claude/automations/` repo 부재 — WSL 디렉티브 회수 시 surface

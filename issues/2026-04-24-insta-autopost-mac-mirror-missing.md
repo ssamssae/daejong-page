@@ -3,6 +3,8 @@ date: 2026-04-24
 host: WSL → Mac mirror
 status: resolved-2026-04-25
 related: project_instagram_autopost_success
+summary: "맥에서 호출된 인스타 자동 포스팅이 시크릿/repo 부재로 침묵 실패 → WSL에서 미러링으로 복구"
+
 ---
 
 # 4/24 인스타 자동 포스팅 누락 — Mac 호출 시 시크릿/인프라 부재

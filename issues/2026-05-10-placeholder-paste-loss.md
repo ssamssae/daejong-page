@@ -4,6 +4,8 @@ date: 2026-05-10
 host: USERui-MacBookPro (Mac 본진)
 status: resolved
 related: feedback_telegram_paste_placeholders, 2026-04-26-paste-block-label-leak, 2026-04-27-paste-block-mixed-r6
+summary: "본진이 보낸 명령 안의 <placeholder> 문자열이 그대로 paste 되어 3060Ti 봇 토큰 .env가 덮어써진 사고"
+
 ---
 
 # Telegram paste 명령 안 `<...>` placeholder 가 그대로 paste 되어 3060Ti .env 봇 토큰 덮어써짐

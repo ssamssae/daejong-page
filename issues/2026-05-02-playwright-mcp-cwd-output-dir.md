@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Playwright MCP server cwd가 / 일 때 .playwright-mcp 디렉토리 생성 실패 (ENOENT)"
 ---
 
 # Playwright MCP server cwd 가 `/` 일 때 `/.playwright-mcp` mkdir ENOENT

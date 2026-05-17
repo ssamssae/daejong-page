@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "fleet-state D09 close 시 mac-mini local main이 origin과 diverge → bats 4/4 PASS 기대가 3건 FAIL"
 ---
 
 # fleet-state mac-mini local main divergence — reviewer parity bats 의 local-only commit 누적

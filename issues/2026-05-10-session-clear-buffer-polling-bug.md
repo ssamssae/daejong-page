@@ -5,6 +5,8 @@ status: resolved
 affected: session-clear skill
 versions: v1.0, v1.1
 fixed_in: v1.2
+summary: "텔레그램 '세션초기화' 트리거 시 /clear가 전송 안 되거나 무시되는 입력 버퍼 + polling 조건 버그"
+
 ---
 
 # session-clear /clear 씹힘 — 입력 버퍼 + polling 조건 버그

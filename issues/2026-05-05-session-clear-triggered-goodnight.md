@@ -2,6 +2,8 @@
 date: 2026-05-05
 slug: session-clear-triggered-goodnight
 status: open
+summary: "'세션클리어하자' 발화에 /session-clear 대신 /goodnight 실행되어 굿나잇 파이프라인 통째로 돈 사고"
+
 ---
 
 # "세션클리어하자" → /goodnight 잘못 발화 사고

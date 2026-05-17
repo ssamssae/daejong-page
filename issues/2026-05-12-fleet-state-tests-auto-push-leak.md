@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "fleet-state 테스트의 fixture-cleanup git push가 리뷰 미통과 commit까지 origin/main에 끌고 올라간 사고"
 ---
 
 # fleet-state test harness 의 git push 가 리뷰 미통과 commit 까지 origin 으로 끌고 올라감

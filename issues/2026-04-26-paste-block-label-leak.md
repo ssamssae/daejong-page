@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "복붙 메시지에 안내 라벨 텍스트를 같이 박아서 long-press copy 시 PowerShell 명령이 깨진 사고"
 ---
 
 # 복붙 메시지에 라벨/안내 텍스트 섞어 보냄 → PowerShell 명령 깨짐

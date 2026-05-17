@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 환경 점검 시 find 함수(bfs wrapper)가 빈 결과 반환해 keystore 부재로 잘못 단정한 false alarm 사고"
 ---
 
 # `find` shell function (bfs wrapper) 로 인한 mac-mini credential inventory false alarm

@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Codex 응답이 codex-session-relay 때문에 본진 채팅에 중복 미러링되어 화면이 어지러워진 사고"
 ---
 
 # codex-session-relay가 Codex 응답을 본진 채팅에 중복 미러링

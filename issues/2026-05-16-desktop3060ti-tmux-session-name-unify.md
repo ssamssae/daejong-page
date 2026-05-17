@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "desktop3060Ti tmux에 'claude-main' 잔존 → 폰 termius 진입 시 본진과 다른 격리 세션으로 빠지는 사고"
 ---
 
 # desktop3060Ti tmux 세션 이름 'claude-main' 잔존 — cc / .bashrc SoT 미통일

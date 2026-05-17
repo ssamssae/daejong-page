@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Codex inject WebSocket이 성공 리턴했지만 실제 미도달 → 10분 후 형님이 결과 안 와서 발견"
 ---
 
 # Codex inject WebSocket 무음 실패 — directive ok 리턴했지만 미도달

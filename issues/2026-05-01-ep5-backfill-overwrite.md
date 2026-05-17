@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "뉴스레터 Ep5 원본 글을 substack backfill 스크립트가 변환본으로 덮어쓴 사고 (컨벤션 두 갈래 공존)"
 ---
 
 # Substack backfill 이 Ep5 원본 prose 를 덮어씀 — 컨벤션 두 갈래 공존

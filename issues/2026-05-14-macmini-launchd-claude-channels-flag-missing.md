@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 launchd plist에 --channels 플래그 누락 → cc 첫 진입 시 텔레그램 incoming listen 안 되는 사고"
 ---
 
 # mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨)

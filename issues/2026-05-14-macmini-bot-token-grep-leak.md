@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 .env grep 시 sed/awk 정제 없이 TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트가 conversation에 노출"
 ---
 
 # TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출

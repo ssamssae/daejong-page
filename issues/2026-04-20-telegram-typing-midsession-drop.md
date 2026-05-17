@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "텔레그램 '입력 중' 표시가 작업 중간에 꺼져서 봇이 멈춘 줄 오해, daemon 자체가 죽어있던 게 원인"
 ---
 
 # 텔레그램 typing 표시가 채팅 중 "한번 쏘고" 완전 정지

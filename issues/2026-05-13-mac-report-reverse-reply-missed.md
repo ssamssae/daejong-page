@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "본진이 WSL 요청에 답하면서 WSL한테는 reverse reply를 안 보내 WSL이 결과 모르고 멍 때린 채널 누락 사고"
 ---
 
 # mac-report 1차 회신 누락 — Mac→WSL reverse reply 빠뜨림

@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "mac-report.sh 래퍼가 자동으로 가짜 [결과] 알림을 본진 채팅에 박아 방향 반대로 보여 혼선 유발"
 ---
 
 # mac-report.sh 래퍼가 자동으로 가짜 [결과] 알림 생성

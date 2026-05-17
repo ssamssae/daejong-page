@@ -5,6 +5,8 @@ status: open
 severity: medium
 related:
   - 2026-04-26-handoff-claude-main-empty-shell.md  # 같은 detection 함수의 또 다른 false-negative
+summary: "auto mode 일 때 핸드오프 SSH 감지가 활성 Claude 세션을 0개로 잡아 자동 인젝션 실패"
+
 ---
 
 # 발생

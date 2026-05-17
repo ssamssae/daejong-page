@@ -4,6 +4,8 @@ date: 2026-04-27
 host: USERui-MacBookPro (Mac)
 status: workaround
 related: feedback_respect_harness_denial, feedback_harness_self_modification_gate
+summary: "Write 직후 같은 turn에서 commit 묶음 발사 → 하네스가 '검증 불가 아티팩트'로 false positive 거부"
+
 ---
 
 # 같은 turn 내 Write→commit 묶음, harness sandbox false positive 거부

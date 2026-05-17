@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "D09 fleet primitive bats 사이클에서 push side-effect 누적으로 noise commit 4회 sweep 반복"
 ---
 
 # D09 fleet-director 사이클 sweep family 4회 반복 — bats 와 primitive 의 push side-effect 누적

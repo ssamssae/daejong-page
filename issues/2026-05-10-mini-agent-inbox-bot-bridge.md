@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 agent-inbox watcher가 wsl/ 메시지 7건을 무시 + tmux 부재로 양방향 inject 죽은 사고"
 ---
 
 # Mac mini agent-inbox watcher — wsl/ 무시 + tmux 부재로 inject 양방향 죽음

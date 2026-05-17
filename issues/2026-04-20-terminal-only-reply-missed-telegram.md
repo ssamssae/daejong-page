@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "텔레그램 질문에 터미널로만 답하고 reply 툴 호출을 빼먹어서 형님 폰에는 아무것도 안 뜬 사고"
 ---
 
 # Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락

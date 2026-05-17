@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "친구 와이파이에서만 한줄일기 AI가 502 → Cloudflare colo region-block으로 OpenAI 호출 거부"
 ---
 
 # CF colo region-block 으로 친구 wifi 에서만 OpenAI 호출 거부

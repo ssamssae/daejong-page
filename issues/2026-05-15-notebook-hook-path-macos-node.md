@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "노트북 Claude Code SessionStart hook가 macOS 경로 /opt/homebrew/bin/node를 찾아 not found 실패"
 ---
 
 # 노트북 Claude Code SessionStart hook `/opt/homebrew/bin/node: not found` 실패

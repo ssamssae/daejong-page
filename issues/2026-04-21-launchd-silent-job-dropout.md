@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "launchd가 등록된 자동 잡 2개를 조용히 떨어뜨려 수 주 동안 자동 스케줄이 침묵하던 사고"
 ---
 
 # launchd 가 등록된 잡을 소리 없이 떨궈서 수 주 동안 자동 스케줄 유실

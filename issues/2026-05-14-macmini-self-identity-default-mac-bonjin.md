@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 Claude Code가 자기 정체성을 Mac 본진으로 오인하고 🍎 prefix로 답하던 사고 (봇 username 미설정)"
 ---
 
 # mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패)

@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "GH Pages custom domain (work.kangdaejong.com) cert provisioning 멈춤 → 브라우저에 빨간 보안 경고"
 ---
 
 # GH Pages custom domain cert provisioning 멈춤 → 브라우저 빨간 경고

@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Playwright 크롬으로 구글 로그인 시도하면 '안전하지 않은 브라우저'로 차단되어 로그인 자동화 막힘"
 ---
 
 # Playwright Chromium 으로 Google 로그인 시 "안전하지 않은 브라우저" 차단

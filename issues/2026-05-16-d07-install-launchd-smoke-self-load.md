@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "D07 install-launchd.sh smoke 검증 의도였는데 실제로 plist 복사 + launchctl load까지 가버린 D0N 룰 위반"
 ---
 
 # D07 install-launchd.sh smoke self-load — guard 검증 의도가 실 install 까지 가버린 사고

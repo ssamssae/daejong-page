@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Anthropic Cloud routine이 /todo 파일에 매일 commit + prompt 안 GitHub PAT가 평문 노출된 사고"
 ---
 
 # Anthropic Cloud routine 이 /todo 스킬 파일경로에 매일 commit + prompt 안 GitHub PAT 평문 노출

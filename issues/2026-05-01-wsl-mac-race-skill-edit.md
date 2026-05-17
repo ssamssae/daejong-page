@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥 본진 push 직후 WSL이 stale base에서 같은 repo 작업 시작 → 자동 머지로 race 묻힌 사고"
 ---
 
 # Mac 본진 push 직후 WSL 가 stale base 로 같은 repo 작업 시작 — race 자동 merge

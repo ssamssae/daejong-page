@@ -1,3 +1,7 @@
+---
+summary: "Stop hook의 reverse-reply 감지 list에 mac-mini-directive.sh가 빠져 정상 회신을 미발화로 false positive 판정"
+---
+
 # 2026-05-17 — Stop hook 의 reverse-reply 감지 list 에 mac-mini-directive.sh 누락
 
 ## 발생

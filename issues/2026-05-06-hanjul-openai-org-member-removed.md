@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "한줄일기 AI 응원 버튼 무응답 → OpenAI Organization 멤버 제거로 API 키 접근 차단된 사고"
 ---
 
 # 한줄일기 AI 응원 기능 중단 — OpenAI Organization 멤버 remove로 API 키 접근 차단

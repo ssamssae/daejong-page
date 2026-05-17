@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "fleet-state stale-recover가 5분 cron마다 작업자 commit까지 origin/main으로 reset해 6번 연속 손실시킨 사고"
 ---
 
 # fleet-state stale-recover 가 5분 cron cycle 마다 작업자 commit 까지 origin/main 으로 reset
