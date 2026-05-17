@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스마트홈 - 강대종</title>
+  <meta name="description" content="이 집에서 텔레그램 자연어로 통제하는 Tuya 가전들 — 조명, IR, 씬.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
+    .intro {
+      font-size: 13px; color: #4E5968;
+      margin-bottom: 24px; padding: 12px 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
+    }
+    .floorplan {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto 16px;
+      display: block;
+      background: #FFFFFF;
+    }
+    .room-box {
+      fill: #FFFFFF;
+      stroke: #E5E8EB;
+      stroke-width: 1;
+      transition: fill 0.15s ease;
+    }
+    .room-box:hover { fill: #F9FAFB; }
+    .room-label {
+      font: 600 12px 'Pretendard', sans-serif;
+      fill: #4E5968;
+    }
+    .marker-dot {
+      stroke: #FFFFFF;
+      stroke-width: 1.5;
+      transition: r 0.15s ease, filter 0.15s ease;
+      cursor: pointer;
+    }
+    .marker-hit {
+      fill: transparent;
+      cursor: pointer;
+    }
+    .marker-group:hover .marker-dot,
+    .marker-group:focus .marker-dot {
+      r: 8;
+      filter: drop-shadow(0 0 4px currentColor);
+    }
+    .marker-tuya { fill: #3182F6; color: #3182F6; }
+    .marker-ir { fill: #FF8A3D; color: #FF8A3D; }
+    .marker-scene { fill: #00C73C; color: #00C73C; }
+
+    .legend {
+      display: flex; justify-content: center; gap: 18px;
+      font-size: 12px; color: #4E5968;
+      margin-bottom: 24px;
+    }
+    .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .legend-dot.tuya { background: #3182F6; }
+    .legend-dot.ir { background: #FF8A3D; }
+    .legend-dot.scene { background: #00C73C; }
+
+    #tooltip {
+      position: fixed;
+      pointer-events: none;
+      background: #191F28; color: #FFFFFF;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.12s ease;
+      z-index: 100;
+      max-width: 220px;
+    }
+    #tooltip.visible { opacity: 1; }
+    #tooltip .tt-name {
+      font-weight: 700; margin-bottom: 4px;
+    }
+    #tooltip .tt-triggers {
+      font-size: 11px; color: #A1A6B0;
+    }
+    #tooltip .tt-trigger { display: block; }
+    #tooltip .tt-trigger::before { content: '" '; }
+    #tooltip .tt-trigger::after { content: ' "'; }
+    @media (max-width: 600px) {
+      body { padding: 24px 12px 60px; }
+      .wrap { padding: 0; }
+      header h1 { font-size: 20px; }
+      .intro { font-size: 12px; padding: 10px 12px; }
+      #tooltip { font-size: 13px; padding: 10px 14px; max-width: 80vw; }
+      .marker-dot { stroke-width: 2; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🏠 스마트홈</h1>
+    <a href="./index.html">← 홈</a>
+  </header>
+  <div class="intro">이 집에서 텔레그램 자연어로 통제하는 가전들. 마커에 hover/tap 하면 디바이스 이름과 트리거 예시가 떠요.</div>
+  <svg class="floorplan" viewBox="0 0 480 320" role="img" aria-label="집 평면도 (거실, 내방, 화장실, 복도)">
+    <!-- 거실 240x200 (좌상) -->
+    <rect class="room-box" x="0" y="0" width="240" height="200" rx="6"/>
+    <text class="room-label" x="12" y="20">거실</text>
+    <!-- 내방 240x120 (우상) -->
+    <rect class="room-box" x="240" y="0" width="240" height="120" rx="6"/>
+    <text class="room-label" x="252" y="20">내방</text>
+    <!-- 화장실 160x120 (좌하) -->
+    <rect class="room-box" x="0" y="200" width="160" height="120" rx="6"/>
+    <text class="room-label" x="12" y="220">화장실</text>
+    <!-- 복도 320x120 (가운데 하단, 거실 + 내방 아래 일부) -->
+    <rect class="room-box" x="160" y="200" width="320" height="120" rx="6"/>
+    <text class="room-label" x="172" y="220">복도</text>
+    <!-- ▼ 거실 (9개, 0..240 × 0..200) -->
+    <g class="marker-group" data-name="거실 조명" data-cat="tuya" data-triggers='["거실 조명 켜","거실 조명 꺼"]'>
+      <circle class="marker-hit" cx="120" cy="100" r="20"/>
+      <circle class="marker-dot marker-tuya" cx="120" cy="100" r="6"/>
+    </g>
+    <g class="marker-group" data-name="에어컨" data-cat="ir" data-triggers='["에어컨 켜","에어컨 꺼"]'>
+      <circle class="marker-hit" cx="40" cy="55" r="20"/>
+      <circle class="marker-dot marker-ir" cx="40" cy="55" r="6"/>
+    </g>
+    <g class="marker-group" data-name="선풍기" data-cat="ir" data-triggers='["선풍기 켜","선풍기 꺼"]'>
+      <circle class="marker-hit" cx="200" cy="55" r="20"/>
+      <circle class="marker-dot marker-ir" cx="200" cy="55" r="6"/>
+    </g>
+    <g class="marker-group" data-name="공기청정기" data-cat="ir" data-triggers='["공기청정기 켜","공기청정기 꺼"]'>
+      <circle class="marker-hit" cx="40" cy="150" r="20"/>
+      <circle class="marker-dot marker-ir" cx="40" cy="150" r="6"/>
+    </g>
+    <g class="marker-group" data-name="이케아 조명" data-cat="ir" data-triggers='["이케아 켜","이케아 꺼"]'>
+      <circle class="marker-hit" cx="200" cy="150" r="20"/>
+      <circle class="marker-dot marker-ir" cx="200" cy="150" r="6"/>
+    </g>
+    <g class="marker-group" data-name="메인 조명" data-cat="scene" data-triggers='["메인 on","메인 off"]'>
+      <circle class="marker-hit" cx="120" cy="60" r="20"/>
+      <circle class="marker-dot marker-scene" cx="120" cy="60" r="6"/>
+    </g>
+    <g class="marker-group" data-name="스피커" data-cat="tuya" data-triggers='["스피커"]'>
+      <circle class="marker-hit" cx="60" cy="170" r="20"/>
+      <circle class="marker-dot marker-tuya" cx="60" cy="170" r="6"/>
+    </g>
+    <g class="marker-group" data-name="핑거봇" data-cat="tuya" data-triggers='["핑거봇 터치"]'>
+      <circle class="marker-hit" cx="180" cy="170" r="20"/>
+      <circle class="marker-dot marker-tuya" cx="180" cy="170" r="6"/>
+    </g>
+    <g class="marker-group" data-name="업라이트" data-cat="scene" data-triggers='["업라이트"]'>
+      <circle class="marker-hit" cx="120" cy="140" r="20"/>
+      <circle class="marker-dot marker-scene" cx="120" cy="140" r="6"/>
+    </g>
+
+    <!-- ▼ 내방 (2개, 240..480 × 0..120) -->
+    <g class="marker-group" data-name="내방 조명" data-cat="tuya" data-triggers='["내방 조명 켜","내방 조명 꺼"]'>
+      <circle class="marker-hit" cx="360" cy="50" r="20"/>
+      <circle class="marker-dot marker-tuya" cx="360" cy="50" r="6"/>
+    </g>
+    <g class="marker-group" data-name="온수매트" data-cat="ir" data-triggers='["온수매트 켜","온수매트 꺼"]'>
+      <circle class="marker-hit" cx="360" cy="90" r="20"/>
+      <circle class="marker-dot marker-ir" cx="360" cy="90" r="6"/>
+    </g>
+
+    <!-- ▼ 화장실 (3개, 0..160 × 200..320) -->
+    <g class="marker-group" data-name="화장실 조명" data-cat="tuya" data-triggers='["화장실 조명 켜","화장실 조명 꺼"]'>
+      <circle class="marker-hit" cx="50" cy="250" r="20"/>
+      <circle class="marker-dot marker-tuya" cx="50" cy="250" r="6"/>
+    </g>
+    <g class="marker-group" data-name="정수기" data-cat="tuya" data-triggers='["정수기"]'>
+      <circle class="marker-hit" cx="110" cy="250" r="20"/>
+      <circle class="marker-dot marker-tuya" cx="110" cy="250" r="6"/>
+    </g>
+    <g class="marker-group" data-name="정수기 급수" data-cat="scene" data-triggers='["정수기 급수","물"]'>
+      <circle class="marker-hit" cx="80" cy="290" r="20"/>
+      <circle class="marker-dot marker-scene" cx="80" cy="290" r="6"/>
+    </g>
+
+    <!-- ▼ 복도 (1개, 160..480 × 200..320) -->
+    <g class="marker-group" data-name="복도 조명" data-cat="tuya" data-triggers='["복도 조명 켜","복도 조명 꺼"]'>
+      <circle class="marker-hit" cx="320" cy="260" r="20"/>
+      <circle class="marker-dot marker-tuya" cx="320" cy="260" r="6"/>
+    </g>
+
+    <!-- ▼ 전체 씬 (3개, 가운데 floating) -->
+    <g class="marker-group" data-name="일괄소등" data-cat="scene" data-triggers='["일괄소등"]'>
+      <circle class="marker-hit" cx="240" cy="200" r="20"/>
+      <circle class="marker-dot marker-scene" cx="240" cy="200" r="6"/>
+    </g>
+    <g class="marker-group" data-name="전체 on" data-cat="scene" data-triggers='["전체 on"]'>
+      <circle class="marker-hit" cx="270" cy="285" r="20"/>
+      <circle class="marker-dot marker-scene" cx="270" cy="285" r="6"/>
+    </g>
+    <g class="marker-group" data-name="전체 off" data-cat="scene" data-triggers='["전체 off"]'>
+      <circle class="marker-hit" cx="210" cy="285" r="20"/>
+      <circle class="marker-dot marker-scene" cx="210" cy="285" r="6"/>
+    </g>
+  </svg>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot tuya"></span>Tuya 직접</span>
+    <span class="legend-item"><span class="legend-dot ir"></span>IR 가전</span>
+    <span class="legend-item"><span class="legend-dot scene"></span>씬</span>
+  </div>
+  <div id="tooltip" role="tooltip" aria-hidden="true"></div>
+</div>
+<script>
+(function () {
+  var tooltip = document.getElementById('tooltip');
+  var markers = document.querySelectorAll('.marker-group');
+  var pinnedMarker = null; // tap 으로 pin 된 마커
+
+  function showTooltip(marker, clientX, clientY) {
+    var name = marker.dataset.name || '';
+    var triggers = [];
+    try { triggers = JSON.parse(marker.dataset.triggers || '[]'); } catch (e) {}
+    var triggersHtml = triggers.map(function (t) {
+      return '<span class="tt-trigger">' + escapeHtml(t) + '</span>';
+    }).join('');
+    tooltip.innerHTML =
+      '<div class="tt-name">' + escapeHtml(name) + '</div>' +
+      '<div class="tt-triggers">' + triggersHtml + '</div>';
+    tooltip.classList.add('visible');
+    tooltip.setAttribute('aria-hidden', 'false');
+    positionTooltip(clientX, clientY);
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+    tooltip.setAttribute('aria-hidden', 'true');
+    pinnedMarker = null;
+  }
+
+  function positionTooltip(clientX, clientY) {
+    // 우상단 디폴트, 화면 경계 flip
+    var ttRect = tooltip.getBoundingClientRect();
+    var pad = 12;
+    var x = clientX + pad;
+    var y = clientY - ttRect.height - pad;
+    if (x + ttRect.width > window.innerWidth - 8) {
+      x = clientX - ttRect.width - pad;
+    }
+    if (y < 8) {
+      y = clientY + pad;
+    }
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c];
+    });
+  }
+
+  markers.forEach(function (m) {
+    m.addEventListener('mouseenter', function (e) {
+      if (pinnedMarker) return; // pin 중엔 hover 무시
+      showTooltip(m, e.clientX, e.clientY);
+    });
+    m.addEventListener('mousemove', function (e) {
+      if (pinnedMarker) return;
+      positionTooltip(e.clientX, e.clientY);
+    });
+    m.addEventListener('mouseleave', function () {
+      if (pinnedMarker) return;
+      hideTooltip();
+    });
+    m.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (pinnedMarker === m) {
+        hideTooltip();
+      } else {
+        pinnedMarker = m;
+        showTooltip(m, e.clientX, e.clientY);
+      }
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (pinnedMarker && !e.target.closest('.marker-group')) {
+      hideTooltip();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') hideTooltip();
+  });
+})();
+</script>
+</body>
+</html>
