@@ -3,9 +3,9 @@
     {
       "file": "2026-05-17.md",
       "date": "2026-05-17",
-      "summary": "메모요 sync 자율루프 10회 fire + 종료 / kangdaejong.com 도메인 + CF Zero Trust+Tunnel+Access 인프라 100% / 5 PR squash 머지 / lotto-calc 사고 이슈 박제 / 메모리 박제 2건",
-      "count": 30,
-      "updated": "2026-05-17T14:38:57+09:00"
+      "summary": "v1.0.0 (메모요 sync 자율루프 + kangdaejong.com 인프라) + v1.0.1 (work.kangdaejong.com cert provisioning 토글 + 페이지 정리 9건 + mac-report sender-id fix + CLAUDE.md §3 표준화 + todo 자연어 마이그레이션 3 파일 + insta-post-general 비용 0 패치 + 이슈 2 + 메모리 1 + 노하우 6 + trio-vote 5회 + PR 3 머지 + smart-home cherry)",
+      "count": 90,
+      "updated": "2026-05-18T01:14:00+09:00"
     },
     {
       "file": "2026-05-16.md",
