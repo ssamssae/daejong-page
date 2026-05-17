@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-18-find-bfs-inventory-false-alarm.md",
+      "title": "2026-05-18 — find shell function (bfs wrapper) 로 인한 mac-mini credential inventory false alarm",
+      "date": "2026-05-18",
+      "updated": "2026-05-18T07:36:07.439401+09:00"
+    },
+    {
       "file": "2026-05-17-mac-report-sender-id-missing.md",
       "title": "2026-05-17 — mac-report body 에 sender 노드 신원 누락 → 본진 챗봇 출처불명 식별 사고",
       "date": "2026-05-17",
