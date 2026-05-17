@@ -644,28 +644,28 @@
     </div>
 
     <div class="proposal" style="margin-top:24px; background:#EFF6FF; border-color:#BFDBFE;">
-      <h3 style="color:#1D4ED8;">📍 사실 이미 하고 있다</h3>
+      <h3 style="color:#1D4ED8;">📍 사실 이미 시작했다</h3>
       <p style="margin-top:12px; color:#374151; font-size:15px; line-height:1.8;">
         "에이전틱 엔지니어링 갈 수 있을까, 어디서부터 시작해야 할까"를 물었는데 — 답은 이미 시작했다는 것이다.
-        평범한 하루를 들여다보면 이런 식이다.
+        평범한 하루의 사이클을 들여다보면 이런 흐름이 자주 나온다.
       </p>
       <div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
         <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
-          <strong>1.</strong> 텔레그램에서 사용자 신고 → 에이전트가 원인 자동 진단
+          <strong>1.</strong> 텔레그램 한 줄 trigger → 에이전트가 후보 surface 또는 원인 자동 진단
         </div>
         <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
           <strong>2.</strong> 에이전트가 즉시 대응 + 이슈 초안 작성 → 강대종 OK 한 마디
         </div>
         <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #3B82F6; font-size:14px; color:#374151; line-height:1.7;">
-          <strong>3.</strong> 재발 방지 코드 수정 → 여러 repo 자동 commit + push
+          <strong>3.</strong> 재발 방지 코드 수정 + 메모리·이슈 박제 → 여러 repo 자동 commit + push
         </div>
         <div style="background:white; border-radius:10px; padding:14px 18px; border-left:4px solid #8B5CF6; font-size:14px; color:#374151; line-height:1.7;">
-          <strong>동시에</strong> — 다른 노드의 에이전트가 자기 상태 자진 보고 → 본진이 디렉티브 전송 → 노드가 자율 실행
+          <strong>동시에</strong> — 5노드 mesh 중 다른 노드가 자기 상태 자진 보고 → 본진이 디렉티브 전송 → 노드가 자율 실행
         </div>
       </div>
       <p style="margin-top:16px; color:#4E5968; font-size:14px; line-height:1.7;">
-        사람이 한 건 "텔레그램에서 OK 두어 번". 나머지는 에이전트들이 탐색·진단·수정·검증·보고를 스스로 했다.<br>
-        이게 에이전틱 엔지니어링이다.
+        사람이 한 건 "텔레그램에서 OK 두어 번". 나머지는 에이전트들이 탐색·진단·수정·검증·보고를 스스로 한다.<br>
+        에이전트가 자율로 처리하는 영역이 늘어날수록 사람이 손대지 않는 비율도 함께 올라간다 — 이게 우리가 가는 방향이다.
       </p>
     </div>
 
@@ -692,8 +692,7 @@
         <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
           <div style="font-weight:700; color:#6D28D9; margin-bottom:6px;">3. 이슈 → 예방 → 자동화 사이클</div>
           <p style="font-size:14px; color:#4E5968; line-height:1.7;">
-            문제가 생기면 이슈 등록 → 재발 방지 코드 → 훅·스킬 자동화. 이 사이클을 빨리 돌릴수록 에이전트 신뢰도가 올라가고 사람 개입이 줄어든다.
-            오늘 typing 좀비 건이 딱 이 패턴이다.
+            문제가 생기면 이슈 등록 → 재발 방지 코드 → 훅·스킬 자동화. 이슈/피드백을 자동 메모리로 박아두면 다음 세션이 같은 함정을 다시 밟지 않아, 사이클을 빨리 돌릴수록 에이전트 신뢰도가 올라가고 사람 개입이 줄어든다.
           </p>
         </div>
       </div>
