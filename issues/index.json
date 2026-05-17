@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-18-tmux-wheel-scroll.md",
+      "title": "2026-05-18 — Linux tmux 노드 마우스 휠 스크롤 안 됨 (mouse off default)",
+      "date": "2026-05-18",
+      "updated": "2026-05-18T08:10:30.178497+09:00"
+    },
+    {
       "file": "2026-05-18-find-bfs-inventory-false-alarm.md",
       "title": "2026-05-18 — find shell function (bfs wrapper) 로 인한 mac-mini credential inventory false alarm",
       "date": "2026-05-18",
