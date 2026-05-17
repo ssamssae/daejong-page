@@ -1,16 +1,31 @@
 # Issues Index
 
 _자동 생성됨. 이 파일은 수동 편집 금지 — `python3 ~/.claude/skills/issue/tools/regen_index.py` 로만 갱신._
-_마지막 생성: 2026-05-13 00:05 KST_
+_마지막 생성: 2026-05-16 21:08 KST_
 
 | 날짜 | slug | 제목 | 심각도 | 재발 가능성 | 재발 이력 | 예방 deferred |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-05-16 | [stale-recover-loss](2026-05-16-stale-recover-loss.md) | fleet-state stale-recover 가 5분 cron cycle 마다 작업자 commit 까지 origin/main 으로 reset | high (작업자 commit 분실 + 5분 주기 자동 재현 + 작업자 detection 없음) | high (root cause 미해결, 본진/Mac mini launchd 작업자 commit 위에 있는 동안 매 cycle 재현 가능) | — | — |
+| 2026-05-16 | [ssh-alias-mismatch](2026-05-16-ssh-alias-mismatch.md) | 본진 챗봇이 SSH alias 대신 hostname 그대로 사용 → 두 시간 timeout 추적 | medium (작업 두 시간 헛다리, 동시 진행 task 지연) | medium (CLAUDE.md hostname 컬럼과 ssh alias 가 매번 헷갈리는 패턴) | — | — |
+| 2026-05-16 | [desktop3060ti-tmux-session-name-unify](2026-05-16-desktop3060ti-tmux-session-name-unify.md) | desktop3060Ti tmux 세션 이름 'claude-main' 잔존 — cc / .bashrc SoT 미통일 | low (실 directive 운반 영향 0 — 운반체 타겟 'claude' 와 별 group 'claude-main' 격리) | low (SoT 양쪽 다 'claude' 로 박힘) | — | — |
+| 2026-05-16 | [d07-install-launchd-smoke-self-load](2026-05-16-d07-install-launchd-smoke-self-load.md) | D07 install-launchd.sh smoke self-load — guard 검증 의도가 실 install 까지 가버린 사고 | medium (실 부작용 0, 5분 worker spawn 발화 전 rollback 성공) | medium (스크립트 구조 단일 단계라 또 발생 가능) | — | — |
+| 2026-05-15 | [notebook-hook-path-macos-node](2026-05-15-notebook-hook-path-macos-node.md) | 노트북 Claude Code SessionStart hook `/opt/homebrew/bin/node: not found` 실패 | low | medium (desktop3060ti 잔존 — 본진 note) | — | — |
+| 2026-05-15 | [macmini-reverse-asym](2026-05-15-macmini-reverse-asym.md) | mac-mini 의 ~/.ssh/config 본진 향 alias 'mac' 누락 — mac-report.sh reverse channel 비대칭 | medium (loop-fleet/mesh 운영에서 mac mini 결과 자동 회수 0, 강대종 paste 운반 필요) | low (config 한 줄 fix, 회귀 위험 낮음) | — | — |
+| 2026-05-15 | [codex-directive-routing-stale](2026-05-15-codex-directive-routing-stale.md) | codex-directive.sh routing stale — mac-mini Claude Code 노드 전환 후 옛 Codex inbox 경로 사용 | medium (mac-mini 노드 작업 분배 0, loop-fleet 매번 4/5 PASS 천장) | high (구조적 — 2026-05-15 loop-fleet 사이클 1+2 둘 다 재현, 코드 변경 없으면 매 사이클 재현) | — | — |
+| 2026-05-14 | [rotate-token-channel-mode-dead](2026-05-14-rotate-token-channel-mode-dead.md) | rotate-token.sh --channel mode OpenClaw decom 후 dead path | medium | low | — | — |
+| 2026-05-14 | [macmini-self-identity-default-mac-bonjin](2026-05-14-macmini-self-identity-default-mac-bonjin.md) | mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패) | medium | low (`.env` 패치 후 차단, 다른 노드도 동일 forcing function 권장) | — | — |
+| 2026-05-14 | [macmini-plugin-cache](2026-05-14-macmini-plugin-cache.md) | mac mini Claude Code 텔레그램 plugin MCP server spawn 실패 (launchd PATH 누락) | medium | low (PATH 박힌 후) | — | — |
+| 2026-05-14 | [macmini-launchd-claude-channels-flag-missing](2026-05-14-macmini-launchd-claude-channels-flag-missing.md) | mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨) | medium | low (plist 패치 후 차단) | — | — |
+| 2026-05-14 | [macmini-bot-token-grep-leak](2026-05-14-macmini-bot-token-grep-leak.md) | TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출 | medium | medium | — | — |
 | 2026-05-13 | [mac-report-reverse-reply-missed](2026-05-13-mac-report-reverse-reply-missed.md) | mac-report 1차 회신 누락 — Mac→WSL reverse reply 빠뜨림 | medium | medium-high (2026-04-20 telegram-only reply 와 동일 패턴, 채널 누락 일반화 함정) | — | — |
+| 2026-05-13 | [fleet-state-mac-mini-divergence](2026-05-13-fleet-state-mac-mini-divergence.md) | fleet-state mac-mini local main divergence — reviewer parity bats 의 local-only commit 누적 | low (한 줄 reset 으로 즉시 해결, 손실 데이터 0) | low-after-fix (FLEET_NO_PUSH 가드 적용 후 bats 가 local commit 도 생성 안 함 — 실제로는 commit 은 여전히 생성, push 만 차단) | 2회 | — |
+| 2026-05-13 | [desktop3060ti-claude-automations-absent](2026-05-13-desktop3060ti-claude-automations-absent.md) | desktop3060ti `~/.claude/automations/` repo 부재 — WSL 디렉티브 회수 시 surface | medium (다기기 회수 자동화의 호환성 함정 surface) | medium (다른 기기에서도 같은 패턴 가능 — hermes, 향후 추가 노드) | 1회 | — |
+| 2026-05-13 | [d09-fleet-sweep-family-4-rounds](2026-05-13-d09-fleet-sweep-family-4-rounds.md) | D09 fleet-director 사이클 sweep family 4회 반복 — bats 와 primitive 의 push side-effect 누적 | high (review-before-push 룰 4회 반복 위반, 약 3.5 시간 손실, 룰 3종 박제 사이클) | low-after-fix (FLEET_NO_PUSH 가드 + parity prompt 표준 + sequential verification 룰 박제 후) | 2회 | — |
 | 2026-05-12 | [fleet-state-tests-auto-push-leak](2026-05-12-fleet-state-tests-auto-push-leak.md) | fleet-state test harness 의 git push 가 리뷰 미통과 commit 까지 origin 으로 끌고 올라감 | medium (process 룰 위반 — 코드 손상 X, 보안 영향 X. 그러나 "commit 은 review 후" 원칙 무력화) | 100% (현재 test harness 구조 유지 시 매번 발생) | — | — |
 | 2026-05-12 | [dutchpay-gad-application-identifier-missing](2026-05-12-dutchpay-gad-application-identifier-missing.md) | 더치페이 release 빌드 iPhone 설치 후 앱 launch crash — Info.plist GADApplicationIdentifier 누락 | ? | ? | — | — |
 | 2026-05-12 | [codex-bidirectional-routing-failure](2026-05-12-codex-bidirectional-routing-failure.md) | Codex(맥미니) ↔ 본진(Mac) 양방향 메시지 자동 회수 경로 부재 | high (멀티 디바이스 fleet 운영에서 본진이 Codex 결과를 자동으로 받지 못함 = 강대종 hands-off 시간 확보 목표 자체와 충돌) | 100% (구조적 결함, 코드 변경 없으면 매번 재현) | — | — |
 | 2026-05-11 | [routine-todos-collision-pat-leak](2026-05-11-routine-todos-collision-pat-leak.md) | Anthropic Cloud routine 이 /todo 스킬 파일경로에 매일 commit + prompt 안 GitHub PAT 평문 노출 | medium (데이터 손실 0. 다만 PAT 평문 노출은 high.) | medium (routine 재활성화 시 같은 문제, 다른 routine 도 같은 패턴 가능) | — | — |
-| 2026-05-11 | [launchd-clear-trigger-abort-loop](2026-05-11-launchd-clear-trigger-abort-loop.md) | launchd 자동 /clear 트리거 abort 반복 — busy-loop 시 fire 마다 timeout | medium | high | — | — |
+| 2026-05-11 | [launchd-clear-trigger-abort-loop](2026-05-11-launchd-clear-trigger-abort-loop.md) | launchd 자동 /clear 트리거 abort 반복 — busy-loop 시 fire 마다 timeout | medium | low (2026-05-16 v2.6 patch 후. 이전: high) | 2회 | — |
 | 2026-05-10 | [session-clear-marker-race](2026-05-10-session-clear-marker-race.md) | session-clear 마커 조기 소모 레이스 컨디션 | ? | ? | — | — |
 | 2026-05-10 | [session-clear-full-investigation](2026-05-10-session-clear-full-investigation.md) | session-clear 전 구현 실패 원인 + 최종 성공 분석 | ? | ? | — | — |
 | 2026-05-10 | [session-clear-buffer-polling-bug](2026-05-10-session-clear-buffer-polling-bug.md) | session-clear /clear 씹힘 — 입력 버퍼 + polling 조건 버그 | ? | ? | — | — |
@@ -25,7 +40,7 @@ _마지막 생성: 2026-05-13 00:05 KST_
 | 2026-05-09 | [loop-run-wsl-abort-flutter-path](2026-05-09-loop-run-wsl-abort-flutter-path.md) | loop-run WSL 태스크 ABORT 무한 재시도 + flutter PATH 미설정 | medium (loop-run WSL/macmini device 태스크 전체 불능) | low (수정 완료) | — | — |
 | 2026-05-09 | [clear-queued-during-processing](2026-05-09-clear-queued-during-processing.md) | /clear 처리 중 큐 지연 — 슬래시 커맨드 큐잉 동작 | low (기능 동작은 정상, UX 혼선) | high (설계 동작, 항상 해당) | — | — |
 | 2026-05-08 | [mac-report-fake-result-notify](2026-05-08-mac-report-fake-result-notify.md) | mac-report.sh 래퍼가 자동으로 가짜 [결과] 알림 생성 | medium | low | — | — |
-| 2026-05-08 | [codex-session-relay-telegram-mirror](2026-05-08-codex-session-relay-telegram-mirror.md) | codex-session-relay가 Codex 응답을 본진 채팅에 중복 미러링 | medium | low | — | — |
+| 2026-05-08 | [codex-session-relay-telegram-mirror](2026-05-08-codex-session-relay-telegram-mirror.md) | codex-session-relay가 Codex 응답을 본진 채팅에 중복 미러링 | ~~medium~~ → **high** (재발로 격상) | ~~low~~ → **high** (자동화 작업 중 실수 재기동 패턴 확인) | 3회 | — |
 | 2026-05-08 | [codex-inject-websocket-silent-fail](2026-05-08-codex-inject-websocket-silent-fail.md) | Codex inject WebSocket 무음 실패 — directive ok 리턴했지만 미도달 | medium | medium | — | — |
 | 2026-05-08 | [clawd-openclaw-codex-pid-unreachable](2026-05-08-clawd-openclaw-codex-pid-unreachable.md) | Clawd on Desk — OpenClaw Codex 연동 실패 (openclaw-trajectory pidReachable=0) | low | medium | — | — |
 | 2026-05-06 | [hanjul-openai-org-member-removed](2026-05-06-hanjul-openai-org-member-removed.md) | 한줄일기 AI 응원 기능 중단 — OpenAI Organization 멤버 remove로 API 키 접근 차단 | high (유료 앱 핵심 기능 전체 중단) | medium | — | — |
@@ -58,7 +73,7 @@ _마지막 생성: 2026-05-13 00:05 KST_
 | 2026-04-21 | [memory-skill-duplication](2026-04-21-memory-skill-duplication.md) | 메모리에 스킬 파일로 유도 가능한 내용을 중복 저장 | low (메모리 오염, 토큰 낭비) | high (가드 없음) | — | — |
 | 2026-04-21 | [mac-wsl-todos-desync](2026-04-21-mac-wsl-todos-desync.md) | Mac 과 WSL 이 같은 심사레이더 작업을 병렬로 붙잡고 todos 정합성 파탄 | medium (잘못된 커밋 1건 + 사용자 혼란 + 양 기기 불일치, 다만 실제 파괴적 액션은 없음) | high (현재 구조상 기기 간 todo 상태 sync 가 인간 개입에만 의존) | — | — |
 | 2026-04-21 | [launchd-silent-job-dropout](2026-04-21-launchd-silent-job-dropout.md) | launchd 가 등록된 잡을 소리 없이 떨궈서 수 주 동안 자동 스케줄 유실 | medium (자동화 잡 2개가 몇 주간 침묵 실행 실패 가능성) | medium (launchd 수동 편집 시마다 동일 현상 가능) | 1회 | — |
-| 2026-04-20 | [terminal-only-reply-missed-telegram](2026-04-20-terminal-only-reply-missed-telegram.md) | Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락 | high (사용자 의사소통 차단) | high (같은 세션에서 여러 번 반복 확인됨) | 6회 | — |
+| 2026-04-20 | [terminal-only-reply-missed-telegram](2026-04-20-terminal-only-reply-missed-telegram.md) | Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락 | high (사용자 의사소통 차단) | high (같은 세션에서 여러 번 반복 확인됨) | 7회 | — |
 | 2026-04-20 | [telegram-typing-midsession-drop](2026-04-20-telegram-typing-midsession-drop.md) | 텔레그램 typing 표시가 채팅 중 "한번 쏘고" 완전 정지 | low (UX, 응답 중 상태 불투명) | medium | 12회 | — |
 | 2026-04-20 | [telegram-client-delivery-lag](2026-04-20-telegram-client-delivery-lag.md) | 텔레그램 답변이 "안 오는 것처럼" 보인 지연 현상 | medium | medium | — | — |
 | 2026-04-20 | [irun-locked-iphone](2026-04-20-irun-locked-iphone.md) | /irun 재배포 시 "Could not run Runner.app" 반복 — 실제 원인은 아이폰 잠금 | medium | high | — | — |

@@ -1,737 +1,472 @@
 {
   "entries": [
     {
-      "file": "2026-05-16-stale-recover-loss.md",
-      "date": "2026-05-16",
-      "slug": "stale-recover-loss",
-      "title": "fleet-state stale-recover 가 5분 cron cycle 마다 작업자 commit 까지 origin/main 으로 reset",
-      "severity": "high",
-      "recurrence": "high",
-      "scope": "fleet-state repo + 본진/Mac mini launchd 가 동작 중인 모든 작업자 워크플로우",
-      "occurred_at": "2026-05-16T11:48:00+09:00",
-      "resolved_at": "2026-05-16T11:55:00+09:00",
-      "updated": "2026-05-16T12:08:00+09:00"
+      "file": "2026-05-17-stop-hook-mac-mini-directive-not-detected.md",
+      "title": "2026-05-17 — Stop hook 의 reverse-reply 감지 list 에 mac-mini-directive.sh 누락",
+      "date": "2026-05-17",
+      "updated": "2026-05-17T14:43:24.271845+09:00"
     },
     {
-      "file": "2026-05-16-d07-install-launchd-smoke-self-load.md",
+      "file": "2026-05-17-lotto-calc-pr16-stale-base-mismatch.md",
+      "title": "2026-05-17 — lotto-calc PR #16 stale base mismatch (sweep step 0 git fetch+status 누락)",
+      "date": "2026-05-17",
+      "updated": "2026-05-17T14:43:24.269575+09:00"
+    },
+    {
+      "file": "2026-05-16-stale-recover-loss.md",
+      "title": "2026-05-16-stale-recover-loss",
       "date": "2026-05-16",
-      "slug": "d07-install-launchd-smoke-self-load",
-      "title": "D07 install-launchd.sh smoke self-load — guard 검증 의도가 실 install 까지 가버린 사고",
-      "severity": "medium",
-      "recurrence": "medium",
-      "scope": "Mac 본진 ~/Library/LaunchAgents/ (rollback 완료) / agent-fleet-state D07 게이트 청소 사이클 / D0N strict trigger 룰 위반 사례",
-      "occurred_at": "2026-05-16T16:55:00+09:00",
-      "resolved_at": "2026-05-16T17:00:00+09:00",
-      "updated": "2026-05-16T17:35:00+09:00"
+      "updated": "2026-05-16T21:09:34.102098+09:00"
     },
     {
       "file": "2026-05-16-ssh-alias-mismatch.md",
+      "title": "2026-05-16-ssh-alias-mismatch",
       "date": "2026-05-16",
-      "slug": "ssh-alias-mismatch",
-      "title": "본진 챗봇이 SSH alias 대신 hostname 그대로 사용 → 두 시간 timeout 추적",
-      "severity": "medium",
-      "recurrence": "medium",
-      "scope": "본진 → 다른 노드 직접 ssh / cross-device probe / 진단 사이클",
-      "occurred_at": "2026-05-15T14:28:00+09:00",
-      "resolved_at": "2026-05-16T00:58:00+09:00",
-      "updated": "2026-05-16T01:18:00+09:00"
+      "updated": "2026-05-16T01:20:43.064397+09:00"
+    },
+    {
+      "file": "2026-05-16-desktop3060ti-tmux-session-name-unify.md",
+      "title": "2026-05-16-desktop3060ti-tmux-session-name-unify",
+      "date": "2026-05-16",
+      "updated": "2026-05-17T14:43:24.267371+09:00"
+    },
+    {
+      "file": "2026-05-16-d07-install-launchd-smoke-self-load.md",
+      "title": "2026-05-16-d07-install-launchd-smoke-self-load",
+      "date": "2026-05-16",
+      "updated": "2026-05-16T17:36:03.817129+09:00"
     },
     {
       "file": "2026-05-15-notebook-hook-path-macos-node.md",
+      "title": "2026-05-15-notebook-hook-path-macos-node",
       "date": "2026-05-15",
-      "slug": "notebook-hook-path-macos-node",
-      "title": "노트북 Claude Code SessionStart hook /opt/homebrew/bin/node: not found 실패",
-      "severity": "low",
-      "recurrence": "medium",
-      "scope": "💻 노트북 Claude Code SessionStart hook + Auto-update",
-      "occurred_at": "2026-05-15T00:00:00+09:00",
-      "resolved_at": "2026-05-15T13:35:00+09:00",
-      "updated": "2026-05-15T22:32:16.165384+09:00"
+      "updated": "2026-05-15T23:27:29.832406+09:00"
     },
     {
       "file": "2026-05-15-macmini-reverse-asym.md",
+      "title": "2026-05-15-macmini-reverse-asym",
       "date": "2026-05-15",
-      "slug": "macmini-reverse-asym",
-      "title": "mac-mini 의 ~/.ssh/config 본진 향 alias 'mac' 누락 — mac-report.sh reverse channel 비대칭",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": "mac-report.sh / cross-device fleet directive 양방향 / mac mini 노드 결과 회수",
-      "occurred_at": "2026-05-15T20:42:00+09:00",
-      "resolved_at": "2026-05-15T20:55:00+09:00",
-      "updated": "2026-05-15T20:58:00+09:00"
+      "updated": "2026-05-15T20:57:20.343922+09:00"
     },
     {
       "file": "2026-05-15-codex-directive-routing-stale.md",
+      "title": "2026-05-15-codex-directive-routing-stale",
       "date": "2026-05-15",
-      "slug": "codex-directive-routing-stale",
-      "title": "codex-directive.sh routing stale — mac-mini Claude Code 노드 전환 후 옛 Codex inbox 경로 사용",
-      "severity": "medium",
-      "recurrence": "high",
-      "scope": "codex-directive.sh / agent-msg-notify.sh macmini / loop-fleet 매핑 (mac-mini 슬롯) / cross-device directive 송신",
-      "occurred_at": "2026-05-15T10:13:00+09:00",
-      "resolved_at": null,
-      "updated": "2026-05-15T14:24:00+09:00"
-    },
-    {
-      "file": "2026-05-14-macmini-launchd-claude-channels-flag-missing.md",
-      "date": "2026-05-14",
-      "slug": "macmini-launchd-claude-channels-flag-missing",
-      "title": "mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨)",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": "mac mini Claude Code 노드 (Codex→Claude Code 전환 후 신규), @ssamssae_claw_bot 봇 incoming 수신 경로",
-      "occurred_at": "2026-05-14T23:30:00+09:00",
-      "resolved_at": "2026-05-14T23:34:00+09:00",
-      "updated": "2026-05-14T23:48:30+09:00"
-    },
-    {
-      "file": "2026-05-14-macmini-self-identity-default-mac-bonjin.md",
-      "date": "2026-05-14",
-      "slug": "macmini-self-identity-default-mac-bonjin",
-      "title": "mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패)",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": "mac mini Claude Code 노드, @ssamssae_claw_bot 챗 응답 전반",
-      "occurred_at": "2026-05-14T23:36:00+09:00",
-      "resolved_at": "2026-05-14T23:41:00+09:00",
-      "updated": "2026-05-14T23:48:30+09:00"
-    },
-    {
-      "file": "2026-05-14-macmini-plugin-cache.md",
-      "date": "2026-05-14",
-      "slug": "macmini-plugin-cache",
-      "title": "mac mini Claude Code 텔레그램 plugin cache 손상",
-      "severity": "medium",
-      "recurrence": "medium",
-      "scope": "mac mini @MyClaude4 봇, Claude Code plugin:telegram MCP server spawn",
-      "occurred_at": "2026-05-14T09:04:00+09:00",
-      "resolved_at": "2026-05-14T11:26:00+09:00",
-      "updated": "2026-05-14T13:30:00+09:00"
+      "updated": "2026-05-15T14:22:38.917475+09:00"
     },
     {
       "file": "2026-05-14-rotate-token-channel-mode-dead.md",
+      "title": "2026-05-14-rotate-token-channel-mode-dead",
       "date": "2026-05-14",
-      "slug": "rotate-token-channel-mode-dead",
-      "title": "rotate-token.sh --channel mode OpenClaw decom 후 dead path",
-      "severity": "",
-      "recurrence": "",
-      "scope": "",
-      "occurred_at": "",
-      "resolved_at": "",
-      "updated": "2026-05-14T06:54:05.354923+09:00"
+      "updated": "2026-05-14T06:54:05.314757+09:00"
+    },
+    {
+      "file": "2026-05-14-macmini-self-identity-default-mac-bonjin.md",
+      "title": "2026-05-14-macmini-self-identity-default-mac-bonjin",
+      "date": "2026-05-14",
+      "updated": "2026-05-14T23:48:13.380748+09:00"
+    },
+    {
+      "file": "2026-05-14-macmini-plugin-cache.md",
+      "title": "2026-05-14-macmini-plugin-cache",
+      "date": "2026-05-14",
+      "updated": "2026-05-14T13:30:48.568819+09:00"
+    },
+    {
+      "file": "2026-05-14-macmini-launchd-claude-channels-flag-missing.md",
+      "title": "2026-05-14-macmini-launchd-claude-channels-flag-missing",
+      "date": "2026-05-14",
+      "updated": "2026-05-14T23:48:13.378526+09:00"
     },
     {
       "file": "2026-05-14-macmini-bot-token-grep-leak.md",
+      "title": "2026-05-14-macmini-bot-token-grep-leak",
       "date": "2026-05-14",
-      "slug": "macmini-bot-token-grep-leak",
-      "title": "TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출",
-      "severity": "",
-      "recurrence": "",
-      "scope": "",
-      "occurred_at": "",
-      "resolved_at": "",
-      "updated": "2026-05-14T06:52:52.461509+09:00"
-    },
-    {
-      "file": "2026-05-13-d09-fleet-sweep-family-4-rounds.md",
-      "date": "2026-05-13",
-      "slug": "d09-fleet-sweep-family-4-rounds",
-      "title": "D09 fleet-director 사이클 sweep family 4회 반복 — bats 와 primitive 의 push side-effect 누적",
-      "severity": "high",
-      "recurrence": "low-after-fix (FLEET_NO_PUSH 가드 + parity prompt 표준 + sequential verification 룰 박제 후)",
-      "scope": "~/agent-fleet-state origin/main (24 noise commit + 24 audit-trail revert), D09 implementer/reviewer subagent flow",
-      "occurred_at": "2026-05-13 08:36 KST",
-      "resolved_at": "2026-05-13 11:15 KST",
-      "updated": "2026-05-13T20:22:00+09:00"
-    },
-    {
-      "file": "2026-05-13-fleet-state-mac-mini-divergence.md",
-      "date": "2026-05-13",
-      "slug": "fleet-state-mac-mini-divergence",
-      "title": "fleet-state mac-mini local main divergence — reviewer parity bats 의 local-only commit 누적",
-      "severity": "low",
-      "recurrence": "low-after-fix (FLEET_NO_PUSH 가드 적용 후)",
-      "scope": "Mac mini ~/agent-fleet-state local main, reviewer parity bats 검증",
-      "occurred_at": "2026-05-13 KST",
-      "resolved_at": "2026-05-13 11:14 KST (git reset --hard origin/main)",
-      "updated": "2026-05-13T20:22:00+09:00"
-    },
-    {
-      "file": "2026-05-13-desktop3060ti-claude-automations-absent.md",
-      "date": "2026-05-13",
-      "slug": "desktop3060ti-claude-automations-absent",
-      "title": "desktop3060ti ~/.claude/automations/ repo 부재 — WSL 디렉티브 회수 시 surface",
-      "severity": "medium",
-      "recurrence": "medium (다른 기기에서도 같은 패턴 가능 — hermes, 향후 추가 노드)",
-      "scope": "desktop3060ti 챗봇 노드 자동화 호환성, WSL 디렉티브 회수 가정",
-      "occurred_at": "2026-05-13 11:02 KST",
-      "resolved_at": "미해결 (강대종 case A/B 결정 보류)",
-      "updated": "2026-05-13T20:22:00+09:00"
+      "updated": "2026-05-14T06:52:52.436844+09:00"
     },
     {
       "file": "2026-05-13-mac-report-reverse-reply-missed.md",
+      "title": "2026-05-13-mac-report-reverse-reply-missed",
       "date": "2026-05-13",
-      "slug": "mac-report-reverse-reply-missed",
-      "title": "mac-report 1차 회신 누락 — Mac→WSL reverse reply 빠뜨림",
-      "severity": "medium",
-      "recurrence": "medium-high (2026-04-20 telegram-only reply 와 동일 패턴, 채널 누락 일반화 함정)",
-      "scope": "Mac 본진 챗봇 / WSL→Mac mac-report 흐름 / 양방향 cross-device communication",
-      "occurred_at": "2026-05-12 23:56 KST",
-      "resolved_at": "2026-05-13 00:01 KST (지적 받고 즉시 wsl-directive.sh 송신)",
-      "updated": "2026-05-13T00:05:43.894952+09:00"
+      "updated": "2026-05-13T00:05:32.607324+09:00"
     },
     {
-      "file": "2026-05-12-codex-bidirectional-routing-failure.md",
-      "date": "2026-05-12",
-      "slug": "codex-bidirectional-routing-failure",
-      "title": "Codex(맥미니) ↔ 본진(Mac) 양방향 메시지 자동 회수 경로 부재",
-      "severity": "medium",
-      "category": "",
-      "updated": "2026-05-12T22:33:00+0900"
+      "file": "2026-05-13-fleet-state-mac-mini-divergence.md",
+      "title": "2026-05-13-fleet-state-mac-mini-divergence",
+      "date": "2026-05-13",
+      "updated": "2026-05-13T20:50:13.077440+09:00"
     },
     {
-      "file": "2026-05-12-dutchpay-gad-application-identifier-missing.md",
-      "date": "2026-05-12",
-      "slug": "dutchpay-gad-application-identifier-missing",
-      "title": "더치페이 release 빌드 iPhone 설치 후 앱 launch crash — Info.plist GADApplicationIdentifier 누락",
-      "severity": "high",
-      "category": "ios-build-launch",
-      "updated": "2026-05-12T22:33:00+0900"
+      "file": "2026-05-13-desktop3060ti-claude-automations-absent.md",
+      "title": "2026-05-13-desktop3060ti-claude-automations-absent",
+      "date": "2026-05-13",
+      "updated": "2026-05-13T20:50:13.074897+09:00"
+    },
+    {
+      "file": "2026-05-13-d09-fleet-sweep-family-4-rounds.md",
+      "title": "2026-05-13-d09-fleet-sweep-family-4-rounds",
+      "date": "2026-05-13",
+      "updated": "2026-05-13T20:50:13.072559+09:00"
     },
     {
       "file": "2026-05-12-fleet-state-tests-auto-push-leak.md",
+      "title": "2026-05-12-fleet-state-tests-auto-push-leak",
       "date": "2026-05-12",
-      "slug": "fleet-state-tests-auto-push-leak",
-      "title": "fleet-state test harness 의 git push 가 리뷰 미통과 commit 까지 origin 으로 끌고 올라감",
-      "severity": "medium",
-      "category": "",
-      "updated": "2026-05-12T22:33:00+0900"
+      "updated": "2026-05-12T22:20:30.850917+09:00"
+    },
+    {
+      "file": "2026-05-12-dutchpay-gad-application-identifier-missing.md",
+      "title": "2026-05-12-dutchpay-gad-application-identifier-missing",
+      "date": "2026-05-12",
+      "updated": "2026-05-12T22:20:30.848161+09:00"
+    },
+    {
+      "file": "2026-05-12-codex-bidirectional-routing-failure.md",
+      "title": "2026-05-12-codex-bidirectional-routing-failure",
+      "date": "2026-05-12",
+      "updated": "2026-05-12T22:20:30.845393+09:00"
     },
     {
       "file": "2026-05-11-routine-todos-collision-pat-leak.md",
+      "title": "2026-05-11-routine-todos-collision-pat-leak",
       "date": "2026-05-11",
-      "slug": "routine-todos-collision-pat-leak",
-      "title": "Anthropic Cloud routine 이 /todo 스킬 파일경로에 매일 commit + prompt 안 GitHub PAT 평문 노출",
-      "severity": "medium",
-      "recurrence": "medium",
-      "scope": "Anthropic Cloud routines, daejong-page/todos, /todo 스킬, GitHub OAuth 토큰",
-      "occurred_at": "2026-05-10T05:04+09:00",
-      "resolved_at": "2026-05-11T09:35+09:00",
-      "updated": "2026-05-11T13:42:26+0900"
+      "updated": "2026-05-12T17:49:53.614987+09:00"
     },
     {
       "file": "2026-05-11-launchd-clear-trigger-abort-loop.md",
+      "title": "2026-05-11-launchd-clear-trigger-abort-loop",
       "date": "2026-05-11",
-      "slug": "launchd-clear-trigger-abort-loop",
-      "title": "launchd 자동 /clear 트리거 abort 반복 — busy-loop 시 fire 마다 timeout",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": "Mac 본진 launchd com.daejongkang.session-clear-watcher / session-clear-trigger.sh (v2.2 → v2.6 영구 fix)",
-      "occurred_at": "2026-05-11T00:52+09:00",
-      "resolved_at": "2026-05-16T08:37+09:00",
-      "updated": "2026-05-16T09:01:46+0900"
-    },
-    {
-      "file": "2026-05-10-placeholder-paste-loss.md",
-      "date": "2026-05-10",
-      "slug": "placeholder-paste-loss",
-      "title": "Telegram paste 명령 안 placeholder 가 그대로 paste 되어 3060Ti .env 봇 토큰 덮어써짐",
-      "severity": "medium",
-      "recurrence": "medium",
-      "scope": "모든 cross-device paste 셋업 안내",
-      "occurred_at": "2026-05-10T20:46+09:00",
-      "resolved_at": "2026-05-10T21:01+09:00",
-      "updated": "2026-05-10T21:07:19+0900"
+      "updated": "2026-05-16T09:01:28.629437+09:00"
     },
     {
       "file": "2026-05-10-session-clear-marker-race.md",
+      "title": "2026-05-10-session-clear-marker-race",
       "date": "2026-05-10",
-      "slug": "session-clear-marker-race",
-      "title": "session-clear-marker-race",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-12T17:49:53.614751+09:00"
     },
     {
       "file": "2026-05-10-session-clear-full-investigation.md",
+      "title": "2026-05-10-session-clear-full-investigation",
       "date": "2026-05-10",
-      "slug": "session-clear-full-investigation",
-      "title": "session-clear-full-investigation",
-      "severity": "medium",
-      "recurrence": "10회 이상 (v0.7~v2.0 각 버전별 실패)",
-      "scope": ""
+      "updated": "2026-05-12T17:49:53.614636+09:00"
     },
     {
       "file": "2026-05-10-session-clear-buffer-polling-bug.md",
+      "title": "2026-05-10-session-clear-buffer-polling-bug",
       "date": "2026-05-10",
-      "slug": "session-clear-buffer-polling-bug",
-      "title": "session-clear-buffer-polling-bug",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-12T17:49:53.614452+09:00"
+    },
+    {
+      "file": "2026-05-10-placeholder-paste-loss.md",
+      "title": "2026-05-10-placeholder-paste-loss",
+      "date": "2026-05-10",
+      "updated": "2026-05-12T17:49:53.614332+09:00"
     },
     {
       "file": "2026-05-10-mini-agent-inbox-bot-bridge.md",
+      "title": "2026-05-10-mini-agent-inbox-bot-bridge",
       "date": "2026-05-10",
-      "slug": "mini-agent-inbox-bot-bridge",
-      "title": "mini-agent-inbox-bot-bridge",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-12T17:49:53.614153+09:00"
     },
     {
       "file": "2026-05-10-loop-run-92771-failure-analysis.md",
+      "title": "2026-05-10-loop-run-92771-failure-analysis",
       "date": "2026-05-10",
-      "slug": "loop-run-92771-failure-analysis",
-      "title": "loop-run-92771-failure-analysis",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-12T17:49:53.613975+09:00"
     },
     {
       "file": "2026-05-10-claude-code-terminal-stdin-lag.md",
+      "title": "2026-05-10-claude-code-terminal-stdin-lag",
       "date": "2026-05-10",
-      "slug": "claude-code-terminal-stdin-lag",
-      "title": "claude-code-terminal-stdin-lag",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-12T17:49:53.613857+09:00"
     },
     {
       "file": "2026-05-09-wsl-agent-msg-notify-bot-blocked.md",
+      "title": "2026-05-09-wsl-agent-msg-notify-bot-blocked",
       "date": "2026-05-09",
-      "slug": "wsl-agent-msg-notify-bot-blocked",
-      "title": "wsl-agent-msg-notify-bot-blocked",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-12T17:49:53.613740+09:00"
     },
     {
       "file": "2026-05-09-typing-indicator-stop-on-midtask-wait.md",
+      "title": "2026-05-09-typing-indicator-stop-on-midtask-wait",
       "date": "2026-05-09",
-      "slug": "typing-indicator-stop-on-midtask-wait",
-      "title": "typing-indicator-stop-on-midtask-wait",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-09T23:50:30.132471+09:00"
     },
     {
       "file": "2026-05-09-telegram-typing-zombie-after-clear.md",
+      "title": "2026-05-09-telegram-typing-zombie-after-clear",
       "date": "2026-05-09",
-      "slug": "telegram-typing-zombie-after-clear",
-      "title": "telegram-typing-zombie-after-clear",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-09T16:36:27.459145+09:00"
     },
     {
       "file": "2026-05-09-play-managed-publishing-on.md",
+      "title": "2026-05-09-play-managed-publishing-on",
       "date": "2026-05-09",
-      "slug": "play-managed-publishing-on",
-      "title": "play-managed-publishing-on",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-09T07:03:47.553819+09:00"
     },
     {
       "file": "2026-05-09-loop-run-wsl-abort-flutter-path.md",
+      "title": "2026-05-09-loop-run-wsl-abort-flutter-path",
       "date": "2026-05-09",
-      "slug": "loop-run-wsl-abort-flutter-path",
-      "title": "loop-run-wsl-abort-flutter-path",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-09T19:05:07.780031+09:00"
     },
     {
       "file": "2026-05-09-clear-queued-during-processing.md",
+      "title": "2026-05-09-clear-queued-during-processing",
       "date": "2026-05-09",
-      "slug": "clear-queued-during-processing",
-      "title": "clear-queued-during-processing",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-09T23:57:25.188145+09:00"
     },
     {
       "file": "2026-05-08-mac-report-fake-result-notify.md",
+      "title": "2026-05-08-mac-report-fake-result-notify",
       "date": "2026-05-08",
-      "slug": "mac-report-fake-result-notify",
-      "title": "mac-report-fake-result-notify",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-08T01:42:02.791404+09:00"
     },
     {
       "file": "2026-05-08-codex-session-relay-telegram-mirror.md",
+      "title": "2026-05-08-codex-session-relay-telegram-mirror",
       "date": "2026-05-08",
-      "slug": "codex-session-relay-telegram-mirror",
-      "title": "codex-session-relay-telegram-mirror",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-08T20:35:12.145025+09:00"
     },
     {
       "file": "2026-05-08-codex-inject-websocket-silent-fail.md",
+      "title": "2026-05-08-codex-inject-websocket-silent-fail",
       "date": "2026-05-08",
-      "slug": "codex-inject-websocket-silent-fail",
-      "title": "codex-inject-websocket-silent-fail",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-08T15:13:03.590654+09:00"
     },
     {
       "file": "2026-05-08-clawd-openclaw-codex-pid-unreachable.md",
+      "title": "2026-05-08-clawd-openclaw-codex-pid-unreachable",
       "date": "2026-05-08",
-      "slug": "clawd-openclaw-codex-pid-unreachable",
-      "title": "clawd-openclaw-codex-pid-unreachable",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-08T23:04:22.252177+09:00"
     },
     {
       "file": "2026-05-06-hanjul-openai-org-member-removed.md",
+      "title": "2026-05-06-hanjul-openai-org-member-removed",
       "date": "2026-05-06",
-      "slug": "hanjul-openai-org-member-removed",
-      "title": "hanjul-openai-org-member-removed",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-06T21:11:44.896609+09:00"
     },
     {
       "file": "2026-05-05-session-clear-triggered-goodnight.md",
+      "title": "2026-05-05-session-clear-triggered-goodnight",
       "date": "2026-05-05",
-      "slug": "session-clear-triggered-goodnight",
-      "title": "session-clear-triggered-goodnight",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-05T20:28:00.996823+09:00"
     },
     {
       "file": "2026-05-04-lottocalc-irun-white-screen.md",
+      "title": "2026-05-04-lottocalc-irun-white-screen",
       "date": "2026-05-04",
-      "slug": "lottocalc-irun-white-screen",
-      "title": "lottocalc-irun-white-screen",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-05T20:28:00.994477+09:00"
     },
     {
       "file": "2026-05-02-policy-race-mac-wsl.md",
+      "title": "2026-05-02-policy-race-mac-wsl",
       "date": "2026-05-02",
-      "slug": "policy-race-mac-wsl",
-      "title": "policy-race-mac-wsl",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-02T21:44:09.798415+09:00"
     },
     {
       "file": "2026-05-02-playwright-mcp-cwd-output-dir.md",
+      "title": "2026-05-02-playwright-mcp-cwd-output-dir",
       "date": "2026-05-02",
-      "slug": "playwright-mcp-cwd-output-dir",
-      "title": "playwright-mcp-cwd-output-dir",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-02T21:44:09.798092+09:00"
     },
     {
       "file": "2026-05-02-google-oauth-playwright-stealth-bypass.md",
+      "title": "2026-05-02-google-oauth-playwright-stealth-bypass",
       "date": "2026-05-02",
-      "slug": "google-oauth-playwright-stealth-bypass",
-      "title": "google-oauth-playwright-stealth-bypass",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-02T21:44:09.797895+09:00"
     },
     {
       "file": "2026-05-01-wsl-mac-race-skill-edit.md",
+      "title": "2026-05-01-wsl-mac-race-skill-edit",
       "date": "2026-05-01",
-      "slug": "wsl-mac-race-skill-edit",
-      "title": "wsl-mac-race-skill-edit",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.526613+09:00"
     },
     {
       "file": "2026-05-01-ep5-backfill-overwrite.md",
+      "title": "2026-05-01-ep5-backfill-overwrite",
       "date": "2026-05-01",
-      "slug": "ep5-backfill-overwrite",
-      "title": "ep5-backfill-overwrite",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T20:55:35.133773+09:00"
     },
     {
       "file": "2026-04-28-cf-colo-region-block.md",
+      "title": "2026-04-28-cf-colo-region-block",
       "date": "2026-04-28",
-      "slug": "cf-colo-region-block",
-      "title": "cf-colo-region-block",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-28T20:32:40.715622+09:00"
     },
     {
       "file": "2026-04-27-wsl-hanjul-push-classifier-block.md",
+      "title": "2026-04-27-wsl-hanjul-push-classifier-block",
       "date": "2026-04-27",
-      "slug": "wsl-hanjul-push-classifier-block",
-      "title": "wsl-hanjul-push-classifier-block",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.523453+09:00"
     },
     {
       "file": "2026-04-27-telegram-msg-id-leak.md",
+      "title": "2026-04-27-telegram-msg-id-leak",
       "date": "2026-04-27",
-      "slug": "telegram-msg-id-leak",
-      "title": "telegram-msg-id-leak",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-27T17:13:31.271462+09:00"
     },
     {
       "file": "2026-04-27-same-turn-commit-fp.md",
+      "title": "2026-04-27-same-turn-commit-fp",
       "date": "2026-04-27",
-      "slug": "same-turn-commit-fp",
-      "title": "same-turn-commit-fp",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.520426+09:00"
     },
     {
       "file": "2026-04-27-paste-block-mixed-r6.md",
+      "title": "2026-04-27-paste-block-mixed-r6",
       "date": "2026-04-27",
-      "slug": "paste-block-mixed-r6",
-      "title": "paste-block-mixed-r6",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.517090+09:00"
     },
     {
       "file": "2026-04-27-harness-default-branch-push-block.md",
+      "title": "2026-04-27-harness-default-branch-push-block",
       "date": "2026-04-27",
-      "slug": "harness-default-branch-push-block",
-      "title": "harness-default-branch-push-block",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.513926+09:00"
     },
     {
       "file": "2026-04-26-tahoe-ssh-cli-block.md",
+      "title": "2026-04-26-tahoe-ssh-cli-block",
       "date": "2026-04-26",
-      "slug": "tahoe-ssh-cli-block",
-      "title": "tahoe-ssh-cli-block",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-27T00:43:49.022558+09:00"
     },
     {
       "file": "2026-04-26-review-status-disabled-blind-spot.md",
+      "title": "2026-04-26-review-status-disabled-blind-spot",
       "date": "2026-04-26",
-      "slug": "review-status-disabled-blind-spot",
-      "title": "review-status-disabled-blind-spot",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-26T18:04:03.534125+09:00"
     },
     {
       "file": "2026-04-26-paste-block-label-leak.md",
+      "title": "2026-04-26-paste-block-label-leak",
       "date": "2026-04-26",
-      "slug": "paste-block-label-leak",
-      "title": "paste-block-label-leak",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-26T09:56:40.815683+09:00"
     },
     {
       "file": "2026-04-26-heartbeat-rule-soft-enforcement.md",
+      "title": "2026-04-26-heartbeat-rule-soft-enforcement",
       "date": "2026-04-26",
-      "slug": "heartbeat-rule-soft-enforcement",
-      "title": "heartbeat-rule-soft-enforcement",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-27T19:37:12.280219+09:00"
     },
     {
       "file": "2026-04-26-handoff-method-a-fallback-regression.md",
+      "title": "2026-04-26-handoff-method-a-fallback-regression",
       "date": "2026-04-26",
-      "slug": "handoff-method-a-fallback-regression",
-      "title": "handoff-method-a-fallback-regression",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-26T08:50:11.517942+09:00"
     },
     {
       "file": "2026-04-26-handoff-claude-main-empty-shell.md",
+      "title": "2026-04-26-handoff-claude-main-empty-shell",
       "date": "2026-04-26",
-      "slug": "handoff-claude-main-empty-shell",
-      "title": "handoff-claude-main-empty-shell",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.510810+09:00"
     },
     {
       "file": "2026-04-26-handoff-active-session-marker-mismatch.md",
+      "title": "2026-04-26-handoff-active-session-marker-mismatch",
       "date": "2026-04-26",
-      "slug": "handoff-active-session-marker-mismatch",
-      "title": "handoff 활성 Claude 세션 false-negative — auto mode 일 때 marker grep 안 잡힘",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.507741+09:00"
     },
     {
       "file": "2026-04-25-wsl-playwright-mcp-install-blocked.md",
+      "title": "2026-04-25-wsl-playwright-mcp-install-blocked",
       "date": "2026-04-25",
-      "slug": "wsl-playwright-mcp-install-blocked",
-      "title": "wsl-playwright-mcp-install-blocked",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.504775+09:00"
     },
     {
       "file": "2026-04-24-ios-ipad13-screenshot-mandatory.md",
+      "title": "2026-04-24-ios-ipad13-screenshot-mandatory",
       "date": "2026-04-24",
-      "slug": "ios-ipad13-screenshot-mandatory",
-      "title": "ios-ipad13-screenshot-mandatory",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.499268+09:00"
     },
     {
       "file": "2026-04-24-insta-autopost-mac-mirror-missing.md",
+      "title": "2026-04-24-insta-autopost-mac-mirror-missing",
       "date": "2026-04-24",
-      "slug": "insta-autopost-mac-mirror-missing",
-      "title": "insta-autopost-mac-mirror-missing",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.496341+09:00"
     },
     {
       "file": "2026-04-23-ios-gidclientid-missing.md",
+      "title": "2026-04-23-ios-gidclientid-missing",
       "date": "2026-04-23",
-      "slug": "ios-gidclientid-missing",
-      "title": "ios-gidclientid-missing",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-24T00:15:51.834117+09:00"
     },
     {
       "file": "2026-04-21-orphan-skill-file-after-interrupt.md",
+      "title": "2026-04-21-orphan-skill-file-after-interrupt",
       "date": "2026-04-21",
-      "slug": "orphan-skill-file-after-interrupt",
-      "title": "orphan-skill-file-after-interrupt",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.492879+09:00"
     },
     {
       "file": "2026-04-21-memoyo-signup-ghost-form.md",
+      "title": "2026-04-21-memoyo-signup-ghost-form",
       "date": "2026-04-21",
-      "slug": "memoyo-signup-ghost-form",
-      "title": "memoyo-signup-ghost-form",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-21T21:11:55.425749+09:00"
     },
     {
       "file": "2026-04-21-memory-skill-duplication.md",
+      "title": "2026-04-21-memory-skill-duplication",
       "date": "2026-04-21",
-      "slug": "memory-skill-duplication",
-      "title": "memory-skill-duplication",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-05-01T16:49:31.489591+09:00"
     },
     {
       "file": "2026-04-21-mac-wsl-todos-desync.md",
+      "title": "2026-04-21-mac-wsl-todos-desync",
       "date": "2026-04-21",
-      "slug": "mac-wsl-todos-desync",
-      "title": "mac-wsl-todos-desync",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-21T13:11:54.072456+09:00"
     },
     {
       "file": "2026-04-21-launchd-silent-job-dropout.md",
+      "title": "2026-04-21-launchd-silent-job-dropout",
       "date": "2026-04-21",
-      "slug": "launchd-silent-job-dropout",
-      "title": "launchd-silent-job-dropout",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-22T07:08:21.518759+09:00"
     },
     {
       "file": "2026-04-20-terminal-only-reply-missed-telegram.md",
+      "title": "2026-04-20-terminal-only-reply-missed-telegram",
       "date": "2026-04-20",
-      "slug": "terminal-only-reply-missed-telegram",
-      "title": "Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락",
-      "severity": "high",
-      "recurrence": "high",
-      "scope": "telegram-reply-check.sh Stop hook / 챗봇 노드 hook 의존성 (jq 등)",
-      "occurred_at": "2026-04-20T09:10:00+09:00",
-      "resolved_at": "2026-04-20T09:13:00+09:00",
-      "updated": "2026-05-16T00:08:00+09:00"
+      "updated": "2026-05-16T00:07:23.135552+09:00"
     },
     {
       "file": "2026-04-20-telegram-typing-midsession-drop.md",
+      "title": "2026-04-20-telegram-typing-midsession-drop",
       "date": "2026-04-20",
-      "slug": "telegram-typing-midsession-drop",
-      "title": "telegram-typing-midsession-drop",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-26T10:17:17.212384+09:00"
     },
     {
       "file": "2026-04-20-telegram-client-delivery-lag.md",
+      "title": "2026-04-20-telegram-client-delivery-lag",
       "date": "2026-04-20",
-      "slug": "telegram-client-delivery-lag",
-      "title": "telegram-client-delivery-lag",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-20T10:38:14.692791+09:00"
     },
     {
       "file": "2026-04-20-irun-locked-iphone.md",
+      "title": "2026-04-20-irun-locked-iphone",
       "date": "2026-04-20",
-      "slug": "irun-locked-iphone",
-      "title": "irun-locked-iphone",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-20T21:17:00.362250+09:00"
     },
     {
       "file": "2026-04-19-android-text-selection-twotone.md",
+      "title": "2026-04-19-android-text-selection-twotone",
       "date": "2026-04-19",
-      "slug": "android-text-selection-twotone",
-      "title": "android-text-selection-twotone",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-20T11:55:23.631029+09:00"
     },
     {
       "file": "2026-04-16-playwright-chrome-google-login-blocked.md",
+      "title": "2026-04-16-playwright-chrome-google-login-blocked",
       "date": "2026-04-16",
-      "slug": "playwright-chrome-google-login-blocked",
-      "title": "playwright-chrome-google-login-blocked",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-20T11:55:23.629714+09:00"
     },
     {
       "file": "2026-04-16-play-console-testers-google-group.md",
+      "title": "2026-04-16-play-console-testers-google-group",
       "date": "2026-04-16",
-      "slug": "play-console-testers-google-group",
-      "title": "play-console-testers-google-group",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-20T11:55:23.629257+09:00"
     },
     {
       "file": "2026-04-12-ios-relaunch-crash.md",
+      "title": "2026-04-12-ios-relaunch-crash",
       "date": "2026-04-12",
-      "slug": "ios-relaunch-crash",
-      "title": "ios-relaunch-crash",
-      "severity": "medium",
-      "recurrence": "low",
-      "scope": ""
+      "updated": "2026-04-20T11:55:23.627833+09:00"
     }
-  ],
-  "updated": "2026-05-10T19:25:35+09:00"
+  ]
 }
