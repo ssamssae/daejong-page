@@ -580,16 +580,16 @@
       <div class="proposal-item">
         <div class="proposal-num">2</div>
         <div class="proposal-text">
-          <h4>trio-vote로 결정, loop-run으로 실행</h4>
-          <p>"뭘 할지"는 trio-vote(PM·엔지니어·비판론자 3-way 토론)로 결정하고, "어떻게 할지"는 loop-run이 PLAN→EXECUTE→JUDGE 루프로 실행. 사람은 목표만 텔레그램으로 던진다.</p>
+          <h4>trio-vote로 결정, loop-fleet으로 실행</h4>
+          <p>"뭘 할지"는 trio-vote(PM·엔지니어·비판론자 3-way 토론)로 결정하고, "어떻게 할지"는 loop-fleet이 5노드 mesh에 task를 자동 분배 + 각 노드가 self-pace로 실행. 사람은 목표만 텔레그램으로 던진다.</p>
         </div>
       </div>
 
       <div class="proposal-item">
         <div class="proposal-num">3</div>
         <div class="proposal-text">
-          <h4>loop-run JUDGE 단계 — 빈 출력도 SUCCESS로</h4>
-          <p>loop-run 내 JUDGE 단계는 빈 출력(rm -rf 성공 등)을 FAIL로 판정하는 버그가 있다. "exit 0 + 기대 출력 없음"도 SUCCESS로 처리하도록 개선하면 루프 신뢰도가 크게 오른다.</p>
+          <h4>fleet-director 자율 task picking 안정화</h4>
+          <p>5노드 자율 작업 분배 + lock 관리 + 상태 보고 토대는 이미 구축. 다음 단계는 task picking 알고리즘 정교화 — 노드별 부하·특기·현재 컨텍스트 기반 자동 매칭. 사람이 매번 "이건 누구한테" 정하지 않아도 되도록.</p>
         </div>
       </div>
 
@@ -604,8 +604,8 @@
       <div class="proposal-item">
         <div class="proposal-num">5</div>
         <div class="proposal-text">
-          <h4>Mac mini 더 많이 활용</h4>
-          <p>Mac mini 는 24/7 가동 가능한 워커다. 현재는 야간 점검·실기기 빌드 정도만 맡기고 있지만, 코드 리뷰·PR 초안 작성·데이터 수집 같은 작업도 위임 가능하다.</p>
+          <h4>외부 노출 표면 자동 stale 감지</h4>
+          <p>회사 페이지·작업일지·뉴스레터·블로그 등 외부 노출 표면이 늘어나면서 정보 stale 위험도 따라 늘어남. 페이지별 freshness + 박제 후보를 에이전트가 주기적으로 점검하고 텔레그램으로 surface 하는 패턴을 강화. 사람이 직접 발견하기 전에 먼저 알린다.</p>
         </div>
       </div>
 
