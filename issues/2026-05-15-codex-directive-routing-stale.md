@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 Claude Code 노드 전환 후에도 본진이 옛 codex-directive.sh를 호출해 routing이 stale 상태로 남은 사고"
 ---
 
 # codex-directive.sh routing stale — mac-mini Claude Code 노드 전환 후 옛 Codex inbox 경로 사용

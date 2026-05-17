@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "/irun 재배포 실패 원인이 빌드/코드가 아니라 단순히 아이폰 화면이 잠겨 있었던 어이없는 사례"
 ---
 
 # /irun 재배포 시 "Could not run Runner.app" 반복 — 실제 원인은 아이폰 잠금

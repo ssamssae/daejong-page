@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Claude Code 터미널에 키 입력 시 3~4타에 한 글자씩 들어가는 지연, 세션 재시작으로 복구"
 ---
 
 # Claude Code 터미널 입력 지연 (3~4타에 1글자)

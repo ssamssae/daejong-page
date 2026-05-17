@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "텔레그램 답장에 Bot API 내부 msg ID를 그대로 인용 → 폰에 안 보이는 식별자라 형님 혼선"
 ---
 
 # 텔레그램 답장에 Bot API raw msg ID 인용해서 사용자 혼선

@@ -5,6 +5,8 @@ status: resolved
 affected: session-clear-trigger.sh (v2.1), session-clear-rescue.sh (v1.x)
 fixed_in: trigger v2.2 + rescue v2.0
 severity: medium
+summary: "session-clear 마커가 active turn 중 launchd rescue로 조기 소모되어 /clear 발화 못한 race condition"
+
 ---
 
 # session-clear 마커 조기 소모 레이스 컨디션

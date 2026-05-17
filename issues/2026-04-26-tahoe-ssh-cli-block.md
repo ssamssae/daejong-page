@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 macOS Tahoe에서 systemsetup -setremotelogin이 Full Disk Access 부족으로 차단된 사고"
 ---
 
 # macOS Tahoe 26.x: systemsetup -setremotelogin 이 Full Disk Access 부족으로 차단

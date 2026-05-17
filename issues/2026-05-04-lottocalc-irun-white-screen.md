@@ -2,6 +2,8 @@
 date: 2026-05-04
 slug: lottocalc-irun-white-screen
 status: open
+summary: "로또계산기 iOS 실기기에서 흰 화면만 떠 앱 진입 불가 → Dart VM attach/코드서명 둘 다 실패"
+
 ---
 
 # lottocalc irun 흰화면 버그

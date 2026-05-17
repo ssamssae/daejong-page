@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "세션 도중 중단되어 방금 만든 스킬 파일이 commit/push 없이 로컬에만 남은 고아 파일 사고"
 ---
 
 # 세션 중단 직후 방금 만든 스킬 파일이 커밋/푸시 없이 로컬에만 남음

@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "loop-run WSL 태스크가 ABORT 무한 재시도 + flutter PATH 미설정으로 JUDGE FAIL까지 간 사고"
 ---
 
 # loop-run WSL 태스크 ABORT 무한 재시도 + flutter PATH 미설정

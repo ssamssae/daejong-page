@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "메시지 연속 도착 시 launchd 자동 /clear 트리거가 fire 마다 abort 누적되어 한참 안 되던 busy-loop 사고"
 ---
 
 # launchd 자동 /clear 트리거 abort 반복 — busy-loop 시 fire 마다 timeout

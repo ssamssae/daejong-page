@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Play Console 테스터를 이메일 배열로 추가하려 했더니 API가 거절 → 구글 그룹 방식으로 우회"
 ---
 
 # Play Console testers API 가 개별 이메일을 받지 않음

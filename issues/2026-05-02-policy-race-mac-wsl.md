@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "「지휘관 1명 원칙」 폐기 사이클에서 본진/WSL이 같은 CLAUDE.md를 31분 윈도에 동시 수정한 정책 race"
 ---
 
 # 본진·WSL 가 globals/CLAUDE.md 를 stale-on-stale 로 동시 수정 — 「지휘관 1명 원칙」 폐기 사이클의 race

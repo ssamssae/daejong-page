@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "rotate-token.sh --channel 모드가 OpenClaw decom 후 dead path → BotFather rotate 후 토큰 누락으로 봇 끊김"
 ---
 
 # rotate-token.sh --channel mode OpenClaw decom 후 dead path

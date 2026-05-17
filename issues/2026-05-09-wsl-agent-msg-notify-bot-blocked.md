@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "WSL 봇이 보낸 메시지를 Mac Claude 봇이 수신 불가 — 봇끼리 텔레그램 차단된 구조적 한계 발견"
 ---
 
 # WSL agent-msg-notify.sh → Telegram 봇차단으로 Mac 수신 불가

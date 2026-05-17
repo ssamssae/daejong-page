@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "/clear 후 이전 세션의 typing daemon이 좀비로 살아남아 '입력 중' 표시가 계속 남은 사고"
 ---
 
 # /clear 후 이전 세션 typing daemon 좀비 잔류

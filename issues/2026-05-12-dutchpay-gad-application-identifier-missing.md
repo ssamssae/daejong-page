@@ -5,6 +5,8 @@ severity: high
 category: ios-build-launch
 discovered_by: 강대종 phone test
 resolved: yes
+summary: "더치페이 release iPhone 설치 후 launch crash — Info.plist GADApplicationIdentifier 누락 원인"
+
 ---
 
 # 더치페이 release 빌드 iPhone 설치 후 앱 launch crash — Info.plist GADApplicationIdentifier 누락

@@ -3,6 +3,8 @@ date: 2026-04-25
 host: DESKTOP-I4TR99I (WSL)
 status: blocked-by-harness
 related: feedback_respect_harness_denial, feedback_harness_secret_url_build
+summary: "WSL에 Playwright MCP 플러그인 설치 시도 → 하네스 자기수정 게이트로 settings.json 수정 거부"
+
 ---
 
 # WSL Playwright MCP 플러그인 설치 — 하네스 자기수정 게이트로 차단

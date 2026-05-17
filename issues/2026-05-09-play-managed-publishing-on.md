@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "메모요 Play 심사 통과했는데 관리 게시 ON 으로 발행 안 됨 — 한줄일기에 이어 동일 사고 2번째"
 ---
 
 # Play Console 관리 게시 ON — 심사 통과 후 미발행

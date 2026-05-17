@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "맥미니 Claude Code 텔레그램 plugin cache 손상으로 MCP server spawn 침묵 실패 → 봇 응답 끊김"
 ---
 
 # mac mini Claude Code 텔레그램 plugin cache 손상

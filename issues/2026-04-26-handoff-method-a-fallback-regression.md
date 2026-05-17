@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "무복붙 핸드오프 인프라 두고 옛 복붙 폴백 모드로 회귀 → 형님이 직접 'METHOD A 쓰라' 지적"
 ---
 
 # /handoff METHOD A 회귀 — 무복붙 인프라 두고 복붙 폴백으로 빠짐

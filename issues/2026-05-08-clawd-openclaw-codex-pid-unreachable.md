@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Clawd on Desk가 Codex 프로세스를 추적 못해 pidReachable=0으로 펫이 sleeping 고정된 사고"
 ---
 
 # Clawd on Desk — OpenClaw Codex 연동 실패 (openclaw-trajectory pidReachable=0)

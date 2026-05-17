@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "review-status-check 잡이 _disabled로 옮겨진 후 Apple 심사 이슈 메일 17시간 동안 발견 못한 사고"
 ---
 
 # review-status-check _disabled 이동 후 17h 동안 Apple issue 메일 누락

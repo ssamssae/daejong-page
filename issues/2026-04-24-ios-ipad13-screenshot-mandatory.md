@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "App Store 심사 제출 시 iPad 13인치 스크린샷 누락 한 줄로 '심사에 추가' 버튼이 막힌 사고"
 ---
 
 # App Store 심사 제출: iPad 13" 스크린샷 누락으로 "심사에 추가" 차단

@@ -1,3 +1,7 @@
+---
+summary: "WSL sweep 작업 중 lotto-calc만 step 0 git fetch/status 빼먹어 옛 base 위에 PR 올린 stale base 사고"
+---
+
 # 2026-05-17 — lotto-calc PR #16 stale base mismatch (sweep step 0 git fetch+status 누락)
 
 ## 발생

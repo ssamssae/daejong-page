@@ -231,10 +231,18 @@
     // Returns { title, meta:{occurred,resolved,severity,recurrence,scope},
     //   sections: {증상, 원인, 조치, 예방, 재발이력} }
     function parseIssueMd(md) {
-      // Strip YAML frontmatter if present
+      // Parse + strip YAML frontmatter if present (one-line key:value only)
+      const frontmatter = {};
       if (md.startsWith('---')) {
         const end = md.indexOf('\n---', 3);
-        if (end > 0) md = md.slice(end + 4).trimStart();
+        if (end > 0) {
+          const fmBlock = md.slice(3, end);
+          for (const fl of fmBlock.split('\n')) {
+            const m = fl.match(/^([A-Za-z_][A-Za-z0-9_]*)\s*:\s*"?(.*?)"?\s*$/);
+            if (m) frontmatter[m[1]] = m[2];
+          }
+          md = md.slice(end + 4).trimStart();
+        }
       }
       const lines = md.split('\n');
       let title = '';
@@ -287,7 +295,7 @@
         }
       }
       flushSection();
-      return { title, meta, sections };
+      return { title, meta, sections, frontmatter };
     }
 
     // Minimal inline-markdown rendering for section bodies:
@@ -485,7 +493,7 @@
           '</div>';
       }
 
-      const preview = (p.sections['증상'] || '').replace(/```[\s\S]*?```/g, '').replace(/\n+/g, ' ').trim();
+      const preview = (p.frontmatter && p.frontmatter.summary || p.sections['증상'] || '').replace(/```[\s\S]*?```/g, '').replace(/\n+/g, ' ').trim();
       if (preview) {
         html += '<div class="issue-preview">' + escapeHtml(preview) + '</div>';
       }

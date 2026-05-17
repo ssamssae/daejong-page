@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "Playwright 크롬으로 Play Console 로그인 차단 → stealth args 3종 추가로 우회 성공"
 ---
 
 # Playwright 로 띄운 Chrome 에서 Google OAuth 로그인 차단 — stealth args 3종 우회 성공

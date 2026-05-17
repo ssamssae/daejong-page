@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "본진 챗봇이 SSH alias 대신 hostname 그대로 사용 → 두 시간 timeout 추적하다가 WSL 노드 죽었다고 오진"
 ---
 
 # 본진 챗봇이 SSH alias 대신 hostname 그대로 사용 → 두 시간 timeout 추적

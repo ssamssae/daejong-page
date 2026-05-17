@@ -6,6 +6,8 @@ affected: session-clear skill (v0.7 ~ v2.0)
 fixed_in: v2.1 Stop hook (spinner false-positive 제거)
 severity: medium
 recurrence: 10회 이상 (v0.7~v2.0 각 버전별 실패)
+summary: "session-clear 스킬 v0.7~v2.0까지 10여회 실패 원인 + v2.1 최종 성공 분석 종합 정리"
+
 ---
 
 # session-clear 전 구현 실패 원인 + 최종 성공 분석

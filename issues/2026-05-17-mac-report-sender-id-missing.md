@@ -1,5 +1,6 @@
 ---
 prevention_deferred: null
+summary: "데스크탑3060Ti가 mac-report.sh로 보낸 본문에 sender 노드 신원 누락 → 본진이 '출처불명' 표기한 사고"
 ---
 
 # mac-report body 에 sender 노드 신원 누락 → 본진 챗봇 "출처불명" 식별 사고

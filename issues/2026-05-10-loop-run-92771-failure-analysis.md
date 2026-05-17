@@ -6,6 +6,8 @@ affected: loop-run.sh (run-92771)
 fixed_in: commit 직후 push (~/.claude/automations main)
 severity: medium
 tasks_failed: t2(wsl), t3(macmini)
+summary: "loop-run run-92771 3기기 병렬 루프 중 WSL/맥미니 태스크 FAIL 원인 분석 + 수정 commit"
+
 ---
 
 # loop-run run-92771 실패 원인 분석 + 수정
