@@ -113,4 +113,26 @@
 
 - [x] 🍎 🛠 Tuya 에어콘/선풍기 IR 디바이스 등록 — ✅ 완료 2026-05-17 09:53 KST. (1) Tuya cloud secret rotation 처리 (`dd13…8f1f` → `1273…8412`, mac-mini 터미널에서 tuya-rotate-secret.sh 로 stty -echo 입력 + .env 갱신 + auth 검증, .env 본진 scp 회수). (2) 디바이스 19개 enumerate 성공 — Air Conditioner ebae8a8fbccec3ead0m6al (infrared_ac, online=True), Fan eb71551ca79d77d38d2xtl (infrared_fan, online=True), IR controller Pro eb5456bc8db6fcb0bfhb6o. IR 전용 endpoint `/v2.0/infrareds/...` 는 "No permissions API not subscribed" 거부지만 일반 `/v1.0/iot-03/devices/{id}/commands` 로 PowerOn/PowerOff 통함. (3) tuya-control.py 에 IR_DEVICES dict + control_ir_device() 추가 (claude-skills commits 5239d3c + 5a180a1), tuya_devices.md 에 IR 섹션 신설. mac-mini pull 까지 동기화 OK. 사용 = `python3 ~/claude-skills/scripts/tuya-control.py 에어콘 on|off`. "30분 후 꺼" wrapper 는 강대종 판단으로 정식 폐기 — `(sleep 1800 && python3 ~/claude-skills/scripts/tuya-control.py 에어콘 off) &` 한 줄로 충분 (Mac 본진/맥미니 24/7 가동, detached sleep 안 끊김). 텔레그램 18667→18691 흐름.
 
-- [ ] 🌐 4 노드 settings.json 에 sync-automations 훅 등록 (필요시) — 2026-05-17 본진 Task #9 완료 시 본진 settings.json 만 등록. 다른 노드도 claude-automations push 트리거 시 자동 동기화 원하면 동일 hook 등록 필요. 대부분 본진이 writer 라 본진 hook 만으로 5노드 sync 충분 — 별 사이클 yes/no 결정. (추가: 2026-05-17 22:25 KST)
+## 마이크로 위생작업 (2026-05-17 신설, WSL 위임)
+
+> ROI 0~소, 보안/품질 마이크로 위생, 진짜 비빌 데 없을 때 손대는 일회성 점검·정리. parking-lot 보다 한 단계 deeper. 시급도 항상 low.
+
+### 보안 위생 라인 (우선순위 권장)
+
+- [ ] 🍎🏭🪟🖥💻 🛡️ claude-skills + claude-automations gitleaks/trufflehog secrets scan — 한 번 돌려서 옛 토큰 잔여 누설 점검. OpenClaw 시절 잔재 / .bak 디렉토리 흔적 hit 가능성 ~50%. 30분 일회성. hit 있으면 다음 액션 surface 멀티플라이어 효과. (추가: 2026-05-17 23:55, WSL 위임)
+
+- [ ] 🍎🏭🪟🖥💻 🛡️ GitHub SSH 키 분기 자동 회전 cron — 신규 ed25519 생성 → GitHub API (fine-grained PAT 1년 만료) 로 키 등록 → 구 키 삭제 흐름 cron 화. 5노드 동시 셋업 약 1시간. 2026-05-17 14:45 강대종 보류. (추가: 2026-05-17 23:55, WSL 위임)
+
+- [ ] 🍎🏭🪟🖥💻 🛡️ 5노드 git commit -S GPG signing 동기화 — commit fraud 방지 + GitHub verified 배지. 5노드 GPG key 동기 1~2시간 한 번이면 영구. (추가: 2026-05-17 23:55, WSL 위임)
+
+- [ ] 🏭 🛡️ insta-post 자동 발행 이미지 EXIF 제거 검증 — 위치/카메라 메타데이터 누설 가능. 15분 점검. (추가: 2026-05-17 23:55, WSL 위임)
+
+### 비-보안 위생 라인
+
+- [ ] 🍎🏭🪟🖥💻 🧹 /tmp 누적 보고 md 청소 — mac-report / std-label / mesh-mirror 류 누적 파일들. 보안 0, 디스크/검색 noise 위생. 5분. (추가: 2026-05-17 23:55, WSL 위임)
+
+- [ ] 🪟 🧹 WSL finished 작업 브랜치 cleanup — `wsl/parallel-cycle-sentinel-guard-2026-05-16`, `wsl/bak-gitignore-cleanup-2026-05-17` main merge 후 미정리. 10분. (추가: 2026-05-17 23:55, WSL 위임)
+
+- [ ] 🏭 🧹 Mac mini night-runner reports/ prune — 매일 1건씩 쌓여 100+개 추정. 90일 이상 자동 prune cron 추가. 30분. (추가: 2026-05-17 23:55, WSL 위임)
+
+- [ ] 🍎 🧹 Flutter 앱별 README freshness 점검 — 출시 후 README 가 stale 한지 grep. 약 30분. (추가: 2026-05-17 23:55, WSL 위임)
