@@ -162,7 +162,7 @@
       <a href="./">← 홈</a>
     </header>
     <div class="intro">
-      바이브코딩 한 사람 인프라. 본진 1대(24/7 오케스트라) + Mac mini 1대(24/7 하드워커) + laptop3060 1대(24/7 워커) + 낮 전용 2대(WSL / 데스크탑3060Ti) + 모바일 1대. ssh / tmux / Claude Code / 텔레그램 봇 / Google Remote Desktop 등 어디 깔려있는지 한눈에.
+      바이브코딩 한 사람 인프라. 24/7 상주 2대(🍎 본진 / 🏭 맥미니) + 낮 ON / 밤 OFF 1대(🪟 WSL) + 온디맨드 GPU 노드 2대(🖥 데스크탑3060Ti / 💻 노트북3060) + 모바일 1대(📱 iPhone). 5노드 전부 Claude Code 동등 first-class — Mac 본진이 hub 로 각 노드에 *-directive.sh 운반체로 paste, 노드는 mac-report.sh 로 회신.
     </div>
     <div class="stack-grid">
 
@@ -187,12 +187,12 @@
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-yes">✅ <span class="feat-meta">/Applications/Ghostty.app · 메인 터미널</span></span></div>
           <div class="feat-row"><span class="feat-key">OS</span><span class="feat-val feat-yes">✅ <span class="feat-meta">macOS 26.4.1 · Darwin arm64 (WSL/Ubuntu 아님)</span></span></div>
-          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">claude(group) + claude-3499/3892/3944(멤버 3) + claude-main + main = 6 세션</span></span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">claude(group) + 멤버 4 + main = 6 세션 · 세션 이름 'claude' 통일 (2026-05-16)</span></span></div>
           <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server + client (Termius/Mac mini inbound 수신 중)</span></span></div>
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Chrome Remote Desktop</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">ghostty 안 · 플러그인 4개 (telegram/superpowers/playwright/swift-lsp)</span></span></div>
           <div class="feat-row"><span class="feat-key">bun</span><span class="feat-val feat-yes">✅ <span class="feat-meta">v1.3.12 (telegram MCP 런타임)</span></span></div>
-          <div class="feat-row"><span class="feat-key">Codex CLI</span><span class="feat-val feat-yes">✅ <span class="feat-meta">codex-cli 0.121.0 (homebrew)</span></span></div>
+          <div class="feat-row"><span class="feat-key">Codex CLI</span><span class="feat-val feat-no">🟡 <span class="feat-meta">codex-cli 0.121.0 (homebrew) · dormant (mac mini Codex→Claude Code 전환 후 활성 사용 X)</span></span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@MyClaude_ssamssae_bot</span></span></div>
         </div>
       </div>
@@ -218,7 +218,7 @@
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-yes">✅ <span class="feat-meta">설치됨</span></span></div>
           <div class="feat-row"><span class="feat-key">OS</span><span class="feat-val feat-yes">✅ <span class="feat-meta">macOS / Darwin arm64 (WSL/Ubuntu 아님)</span></span></div>
-          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">설치 + main 세션 실행 중</span></span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">/opt/homebrew/bin/tmux · claude(group) + 멤버 다수 + main 세션 실행 중</span></span></div>
           <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">사용 가능 · 세션 확인됨</span></span></div>
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Chrome Remote Desktop Host 실행 중</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">설치됨</span></span></div>
@@ -247,12 +247,12 @@
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌ <span class="feat-meta">Windows native 부재</span></span></div>
           <div class="feat-row"><span class="feat-key">OS</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Ubuntu 24.04.4 LTS on WSL2</span></span></div>
-          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">claude-main + claude(그룹 멀티클라 3) + main = 6 세션</span></span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">claude(group) + 멤버 다수 + main · 세션 이름 'claude' 통일 (2026-05-16)</span></span></div>
           <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">server + client (`ssh w` alias)</span></span></div>
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Chrome Remote Desktop</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">WSL 내부 · 플러그인 3개 (telegram/superpowers/playwright)</span></span></div>
           <div class="feat-row"><span class="feat-key">bun</span><span class="feat-val feat-yes">✅ <span class="feat-meta">v1.3.12 (telegram MCP 런타임)</span></span></div>
-          <div class="feat-row"><span class="feat-key">Codex CLI</span><span class="feat-val feat-yes">✅ <span class="feat-meta">설치만 (크로스기기 라우팅용, 활성 사용 X)</span></span></div>
+          <div class="feat-row"><span class="feat-key">Codex CLI</span><span class="feat-val feat-no">🟡 <span class="feat-meta">dormant install (mac mini Codex→Claude Code 전환 후 활성 사용 X)</span></span></div>
           <div class="feat-row"><span class="feat-key">GPU (WSL)</span><span class="feat-val feat-no">🟡 <span class="feat-meta">nvidia-smi unavailable · /dev/dxg만 노출 (RTX 2070S)</span></span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@Myclaude2_ssamssae_bot</span></span></div>
         </div>
@@ -279,7 +279,7 @@
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌ <span class="feat-meta">미설치</span></span></div>
           <div class="feat-row"><span class="feat-key">OS</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Ubuntu 24.04.4 LTS WSL2 (kernel 6.6.87.2-microsoft-standard)</span></span></div>
-          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">claude-main + claude-main-17361 + claude-main-17750 = 3 세션 (group 멀티클라, attached 1)</span></span></div>
+          <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">claude(group) + 멤버 다수 + main · 세션 이름 'claude' 통일 (2026-05-16, 이전 claude-main)</span></span></div>
           <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Windows OpenSSH (user@DESKTOP-0VAB3QC) · WSL 진입은 wsl -- bash 2-홉 (WSL 내부 sshd inactive)</span></span></div>
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-no">🟡 <span class="feat-meta">확인 필요</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">v2.1.138 · cc shortcut (~/bin/cc) · claude --channels plugin:telegram · 플러그인 3개 (telegram/superpowers/playwright)</span></span></div>
@@ -294,8 +294,8 @@
 
       <div class="device-card">
         <div class="device-head">
-          <span class="device-icon" role="img" aria-label="laptop3060">💻</span>
-          <span class="device-name">laptop3060</span>
+          <span class="device-icon" role="img" aria-label="노트북3060">💻</span>
+          <span class="device-name">노트북3060</span>
           <span class="agent-badge agent-badge-cc" aria-label="Claude Code 운영">
             <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true">
               <g stroke="#C5613B" stroke-width="2.6" stroke-linecap="round">
@@ -308,8 +308,8 @@
             Claude Code
           </span>
         </div>
-        <div class="device-spec">DESKTOP-4MNJ1C0 · Lenovo Legion 5 · Ubuntu 24.04.4 LTS on WSL2 · RTX 3060 Laptop 6GB · 24/7 워커</div>
-        <div class="device-role">24/7 워커 · Claude Code 신규 셋업 (2026-05-15) · 외출 시 SSH 터미널 접속 코딩 가능</div>
+        <div class="device-spec">DESKTOP-4MNJ1C0 · Lenovo Legion 5 · Ubuntu 24.04.4 LTS on WSL2 · RTX 3060 Laptop 6GB</div>
+        <div class="device-role">Claude Code 5번째 노드 (2026-05-14 셋업) · 외출용 원격 SSH 헤드 · agent-mesh node (notebook3060-directive.sh receiver, mac-report.sh sender)</div>
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">🟡 <span class="feat-meta">Windows 호스트 측 확인 필요</span></span></div>
           <div class="feat-row"><span class="feat-key">WSL/Ubuntu</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Ubuntu 24.04.4 LTS WSL2</span></span></div>
@@ -328,7 +328,7 @@
           <span class="device-name">iPhone</span>
         </div>
         <div class="device-spec">iPhone 17 · 외출 시 휴대 · Termius (SSH 클라이언트)</div>
-        <div class="device-role">외출 SSH 트리거 · GRD 웹 접근으로 4대 PC 컨트롤 가능 (맥 본진 · 맥북 · WSL · 윈도우 노트북)</div>
+        <div class="device-role">외출 SSH 트리거 · GRD 웹 접근으로 5대 노드 컨트롤 가능 (🍎 본진 · 🏭 맥미니 · 🪟 WSL · 🖥 데스크탑 · 💻 노트북)</div>
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌</span></div>
           <div class="feat-row"><span class="feat-key">WSL/Ubuntu</span><span class="feat-val feat-no">❌</span></div>
@@ -345,28 +345,24 @@
     <!-- 토폴로지 다이어그램 -->
     <section class="topo-section">
       <h2 class="topo-title">기기 연결 토폴로지</h2>
-      <p class="topo-desc">5개 노드 메시 — SSH 핸드오프 운반체(실선) + claude-skills git pull 동기화(점선)</p>
+      <p class="topo-desc">5노드 hub-and-spoke 메시 — 🍎 본진이 hub, 각 노드에 *-directive.sh paste 운반(파란 실선) + mac-report.sh 회신(초록 실선). 노드 간 ssh 직결(회색 점선)도 가능.</p>
       <div class="topo-wrap">
         <svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="기기 토폴로지 다이어그램 (5노드)" class="topo-svg">
           <defs>
-            <!-- 파란 화살표: Mac→WSL (wsl-directive.sh) / Mac→Codex (codex-directive.sh) -->
+            <!-- 파란 화살표: Mac→노드 (*-directive.sh) -->
             <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
               <path d="M0,0 L0,6 L8,3 z" fill="#3182F6"/>
             </marker>
-            <!-- 초록 화살표: WSL→Mac (mac-report.sh) -->
+            <!-- 초록 화살표: 노드→Mac (mac-report.sh) -->
             <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
               <path d="M0,0 L0,6 L8,3 z" fill="#16A34A"/>
             </marker>
-            <!-- 회색 화살표: SSH 양방향 -->
+            <!-- 회색 화살표: 노드↔노드 ssh -->
             <marker id="arr-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
               <path d="M0,0 L0,6 L8,3 z" fill="#8B95A1"/>
             </marker>
             <marker id="arr-gray-start" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
               <path d="M0,0 L0,6 L8,3 z" fill="#8B95A1"/>
-            </marker>
-            <!-- 보라 화살표: claude-skills git pull only -->
-            <marker id="arr-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="#A855F7"/>
             </marker>
           </defs>
 
@@ -375,11 +371,11 @@
           <g class="topo-node" transform="translate(270, 20)">
             <rect x="0" y="0" width="180" height="70" rx="12" fill="#EBF3FF" stroke="#3182F6" stroke-width="1.5"/>
             <text x="90" y="22" text-anchor="middle" font-size="20">🍎</text>
-            <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">Mac 본진</text>
+            <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">Mac 본진 (hub)</text>
             <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">USERui-MacBookPro · @MyClaude_ssamssae_bot</text>
           </g>
 
-          <!-- Mac mini (좌측 중단) — 운반체 있음 -->
+          <!-- Mac mini (좌측 중단) -->
           <g class="topo-node" transform="translate(40, 170)">
             <rect x="0" y="0" width="180" height="70" rx="12" fill="#F3F0FF" stroke="#7C3AED" stroke-width="1.5"/>
             <text x="90" y="22" text-anchor="middle" font-size="20">🏭</text>
@@ -387,7 +383,7 @@
             <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">mac-mini · @ssamssae_claw_bot</text>
           </g>
 
-          <!-- WSL Ryzen (우측 중단) — 운반체 있음 -->
+          <!-- WSL Ryzen (우측 중단) -->
           <g class="topo-node" transform="translate(500, 170)">
             <rect x="0" y="0" width="180" height="70" rx="12" fill="#EDF9F6" stroke="#16A34A" stroke-width="1.5"/>
             <text x="90" y="22" text-anchor="middle" font-size="20">🪟</text>
@@ -395,80 +391,84 @@
             <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">DESKTOP-I4TR99I · @Myclaude2_ssamssae_bot</text>
           </g>
 
-          <!-- 데스크탑 3060Ti (좌측 하단) — git pull only -->
+          <!-- 데스크탑 3060Ti (좌측 하단) -->
           <g class="topo-node" transform="translate(40, 320)">
-            <rect x="0" y="0" width="180" height="70" rx="12" fill="#FAF5FF" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <rect x="0" y="0" width="180" height="70" rx="12" fill="#FAF5FF" stroke="#A855F7" stroke-width="1.5"/>
             <text x="90" y="22" text-anchor="middle" font-size="20">🖥️</text>
             <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">데스크탑 3060Ti</text>
             <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">DESKTOP-0VAB3QC · @jarvice_ssamssae_bot</text>
           </g>
 
-          <!-- laptop3060 (우측 하단) — git pull only -->
+          <!-- 노트북3060 (우측 하단) -->
           <g class="topo-node" transform="translate(500, 320)">
-            <rect x="0" y="0" width="180" height="70" rx="12" fill="#FAF5FF" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <rect x="0" y="0" width="180" height="70" rx="12" fill="#FAF5FF" stroke="#A855F7" stroke-width="1.5"/>
             <text x="90" y="22" text-anchor="middle" font-size="20">💻</text>
-            <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">laptop3060</text>
+            <text x="90" y="43" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">노트북3060</text>
             <text x="90" y="58" text-anchor="middle" font-size="10" fill="#4E5968">DESKTOP-4MNJ1C0 · @ssamssae_codex_bot</text>
           </g>
 
           <!-- ── 화살표 ── -->
-          <!-- Mac ↔ Mac mini: 회색 양방향 실선 (ssh + codex-directive.sh) -->
-          <line x1="268" y1="70" x2="182" y2="170" stroke="#8B95A1" stroke-width="1.5"
-                marker-start="url(#arr-gray-start)" marker-end="url(#arr-gray)"/>
-          <text x="192" y="125" text-anchor="middle" font-size="10" fill="#8B95A1" font-weight="600">ssh + codex-directive.sh</text>
+          <!-- Mac → Mac mini: 파란 실선 (mac-mini-directive.sh) -->
+          <line x1="268" y1="65" x2="182" y2="170" stroke="#3182F6" stroke-width="2"
+                marker-end="url(#arr-blue)"/>
+          <text x="180" y="115" text-anchor="middle" font-size="10" fill="#3182F6" font-weight="600">mac-mini-directive.sh</text>
+          <!-- Mac mini → Mac: 초록 실선 (mac-report.sh) -->
+          <line x1="220" y1="170" x2="270" y2="94" stroke="#16A34A" stroke-width="2"
+                marker-end="url(#arr-green)"/>
+          <text x="270" y="135" text-anchor="middle" font-size="10" fill="#16A34A" font-weight="600">mac-report.sh</text>
 
           <!-- Mac → WSL: 파란 실선 (wsl-directive.sh) -->
           <line x1="460" y1="65" x2="546" y2="170" stroke="#3182F6" stroke-width="2"
                 marker-end="url(#arr-blue)"/>
-          <text x="555" y="115" text-anchor="middle" font-size="10" fill="#3182F6" font-weight="600">wsl-directive.sh</text>
-
+          <text x="560" y="115" text-anchor="middle" font-size="10" fill="#3182F6" font-weight="600">wsl-directive.sh</text>
           <!-- WSL → Mac: 초록 실선 (mac-report.sh) -->
-          <line x1="500" y1="170" x2="452" y2="94" stroke="#16A34A" stroke-width="2"
+          <line x1="500" y1="170" x2="450" y2="94" stroke="#16A34A" stroke-width="2"
                 marker-end="url(#arr-green)"/>
-          <text x="430" y="135" text-anchor="middle" font-size="10" fill="#16A34A" font-weight="600">mac-report.sh</text>
+          <text x="450" y="135" text-anchor="middle" font-size="10" fill="#16A34A" font-weight="600">mac-report.sh</text>
 
-          <!-- WSL ↔ Mac mini: 회색 양방향 점선 (ssh) -->
+          <!-- Mac → 데스크탑 3060Ti: 파란 실선 (desktop3060ti-directive.sh) -->
+          <line x1="280" y1="92" x2="160" y2="320" stroke="#3182F6" stroke-width="2"
+                marker-end="url(#arr-blue)"/>
+          <text x="170" y="225" text-anchor="middle" font-size="10" fill="#3182F6" font-weight="600">desktop3060ti-directive.sh</text>
+          <!-- 데스크탑 → Mac: 초록 실선 (mac-report.sh) -->
+          <line x1="160" y1="320" x2="290" y2="94" stroke="#16A34A" stroke-width="2"
+                marker-end="url(#arr-green)"/>
+          <text x="260" y="265" text-anchor="middle" font-size="10" fill="#16A34A" font-weight="600">mac-report.sh</text>
+
+          <!-- Mac → 노트북3060: 파란 실선 (notebook3060-directive.sh) -->
+          <line x1="440" y1="92" x2="560" y2="320" stroke="#3182F6" stroke-width="2"
+                marker-end="url(#arr-blue)"/>
+          <text x="565" y="225" text-anchor="middle" font-size="10" fill="#3182F6" font-weight="600">notebook3060-directive.sh</text>
+          <!-- 노트북3060 → Mac: 초록 실선 (mac-report.sh) -->
+          <line x1="560" y1="320" x2="430" y2="94" stroke="#16A34A" stroke-width="2"
+                marker-end="url(#arr-green)"/>
+          <text x="460" y="265" text-anchor="middle" font-size="10" fill="#16A34A" font-weight="600">mac-report.sh</text>
+
+          <!-- 노드 간 ssh: 회색 양방향 점선 -->
           <line x1="500" y1="208" x2="220" y2="208" stroke="#8B95A1" stroke-width="1.5"
                 stroke-dasharray="6,4"
                 marker-start="url(#arr-gray-start)" marker-end="url(#arr-gray)"/>
-          <text x="360" y="200" text-anchor="middle" font-size="10" fill="#8B95A1" font-weight="600">ssh</text>
-
-          <!-- Mac → 데스크탑 3060Ti: 보라 점선 (git pull only) -->
-          <line x1="280" y1="92" x2="160" y2="320" stroke="#A855F7" stroke-width="1.5"
-                stroke-dasharray="6,4" marker-end="url(#arr-purple)"/>
-          <text x="200" y="245" text-anchor="middle" font-size="10" fill="#A855F7" font-weight="600">git pull only</text>
-
-          <!-- Mac → laptop3060: 보라 점선 (git pull only) -->
-          <line x1="440" y1="92" x2="560" y2="320" stroke="#A855F7" stroke-width="1.5"
-                stroke-dasharray="6,4" marker-end="url(#arr-purple)"/>
-          <text x="525" y="245" text-anchor="middle" font-size="10" fill="#A855F7" font-weight="600">git pull only</text>
+          <text x="360" y="200" text-anchor="middle" font-size="10" fill="#8B95A1" font-weight="600">ssh (WSL↔mini)</text>
 
           <!-- ── 범례 박스 ── -->
-          <!-- 1행: 운반체 -->
           <g transform="translate(40, 430)">
             <rect x="0" y="0" width="320" height="42" rx="8" fill="#FFFFFF" stroke="#E5E8EB" stroke-width="1"/>
             <line x1="10" y1="13" x2="34" y2="13" stroke="#3182F6" stroke-width="2"/>
             <polygon points="30,10 38,13 30,16" fill="#3182F6"/>
-            <text x="44" y="17" font-size="9" fill="#4E5968">Mac→WSL wsl-directive.sh</text>
+            <text x="44" y="17" font-size="9" fill="#4E5968">Mac→노드 *-directive.sh (paste 운반체)</text>
             <line x1="10" y1="31" x2="34" y2="31" stroke="#16A34A" stroke-width="2"/>
             <polygon points="30,28 38,31 30,34" fill="#16A34A"/>
-            <text x="44" y="35" font-size="9" fill="#4E5968">WSL→Mac mac-report.sh</text>
+            <text x="44" y="35" font-size="9" fill="#4E5968">노드→Mac mac-report.sh (회신)</text>
           </g>
           <g transform="translate(380, 430)">
             <rect x="0" y="0" width="300" height="42" rx="8" fill="#FFFFFF" stroke="#E5E8EB" stroke-width="1"/>
-            <line x1="10" y1="13" x2="34" y2="13" stroke="#8B95A1" stroke-width="1.5"/>
-            <polygon points="30,10 38,13 30,16" fill="#8B95A1"/>
-            <text x="44" y="17" font-size="9" fill="#4E5968">SSH 실선 (Mac↔mini)</text>
-            <line x1="10" y1="31" x2="34" y2="31" stroke="#8B95A1" stroke-width="1.5" stroke-dasharray="5,3"/>
-            <polygon points="30,28 38,31 30,34" fill="#8B95A1"/>
-            <text x="44" y="35" font-size="9" fill="#4E5968">SSH 점선 (WSL↔mini)</text>
+            <line x1="10" y1="22" x2="34" y2="22" stroke="#8B95A1" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <polygon points="30,19 38,22 30,25" fill="#8B95A1"/>
+            <text x="44" y="26" font-size="9" fill="#4E5968">노드↔노드 ssh 직결 (예: WSL↔mini)</text>
           </g>
-          <!-- 2행: git pull only -->
           <g transform="translate(40, 482)">
             <rect x="0" y="0" width="640" height="42" rx="8" fill="#FFFFFF" stroke="#E5E8EB" stroke-width="1"/>
-            <line x1="10" y1="22" x2="34" y2="22" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="5,3"/>
-            <polygon points="30,19 38,22 30,25" fill="#A855F7"/>
-            <text x="44" y="26" font-size="9" fill="#4E5968">git pull only — 데스크탑/노트북은 직접 챗봇 운반체 미등록. claude-skills repo pull 시 자동 반영.</text>
+            <text x="14" y="26" font-size="9" fill="#4E5968">5노드 모두 'claude' tmux 세션 이름 통일(2026-05-16). claude-skills repo 는 모든 노드 symlink 동기화.</text>
           </g>
         </svg>
       </div>
