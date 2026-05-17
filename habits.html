@@ -24,6 +24,15 @@
     header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
     header a { color: #4E5968; text-decoration: none; font-size: 14px; }
     header a:hover { color: #3182F6; }
+    .header-right { display: flex; align-items: center; gap: 14px; }
+    .sort-toggle {
+      background: #F2F4F6; border: 1px solid #E5E8EB;
+      color: #4E5968; font-size: 13px;
+      padding: 6px 12px; border-radius: 8px;
+      cursor: pointer; font-family: inherit;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .sort-toggle:hover { border-color: #3182F6; color: #3182F6; }
 
     .intro {
       font-size: 13px; color: #4E5968;
@@ -85,7 +94,10 @@
   <div class="wrap">
     <header>
       <h1>습관</h1>
-      <a href="./">← 홈으로</a>
+      <div class="header-right">
+        <button class="sort-toggle" id="sort-toggle" type="button">정렬: 01 → 07</button>
+        <a href="./">← 홈으로</a>
+      </div>
     </header>
 
     <div class="intro">
@@ -274,5 +286,32 @@
 
     <a class="back" href="./">← 홈으로</a>
   </div>
+  <script>
+    (function() {
+      var list = document.querySelector('.list');
+      var btn = document.getElementById('sort-toggle');
+      var KEY = 'habits-sort-desc';
+      function apply(desc) {
+        var cards = Array.from(list.children);
+        cards.sort(function(a, b) {
+          var na = parseInt(a.querySelector('.hb-num').textContent, 10);
+          var nb = parseInt(b.querySelector('.hb-num').textContent, 10);
+          return desc ? nb - na : na - nb;
+        });
+        cards.forEach(function(c) { list.appendChild(c); });
+        if (cards.length === 0) { btn.textContent = '정렬'; return; }
+        var first = cards[0].querySelector('.hb-num').textContent.trim();
+        var last = cards[cards.length - 1].querySelector('.hb-num').textContent.trim();
+        btn.textContent = '정렬: ' + first + ' → ' + last;
+      }
+      var desc = localStorage.getItem(KEY) === '1';
+      apply(desc);
+      btn.addEventListener('click', function() {
+        desc = !desc;
+        localStorage.setItem(KEY, desc ? '1' : '0');
+        apply(desc);
+      });
+    })();
+  </script>
 </body>
 </html>
