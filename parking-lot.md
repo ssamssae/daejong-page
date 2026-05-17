@@ -110,3 +110,5 @@
 - [ ] 🍎 🔍 automations 의 `scripts/newsletter-auto-publish.sh` 미커밋 surface 처리 — /goodnight (2026-05-16 01:55 KST) 3 repo audit 에서 untracked 발견. plist + script LIVE 2026-05-15 19:20 KST 의 잔여 자동 commit hold 분. 다음 사이클 강대종 검토 후 commit 또는 별도 PR 으로 굴리기. (추가: 2026-05-16 01:55, session-clear 후속안)
 
 - [ ] 🪟 🛡️ parallel-cycle/SKILL.md L138 의 WSL session-clear 분기에 sentinel 가드 모델 확장 검토 — PR #45 (v1.0 sentinel 가드 5-c/5-d) 후속 권고. 본 사이클은 본진 chatbot 의 자동 /clear 만 가드. WSL session-clear (parallel-cycle 다단계 sync 마지막) 도 같은 sentinel 패턴 박을지 별 PR 분석 + 결정. WSL 본인이 디렉티브 받아 분석부터. (추가: 2026-05-16 13:28 KST, session-clear 후속안, WSL PR #45 surface)
+
+- [ ] 🤝 💡 Tuya 키로 에어콘 / 선풍기 조작 — 집 IoT (에어콘 + 선풍기) Tuya 플랫폼 API/스마트키로 원격·자동화 조작. 옵션: (1) Tuya Cloud API + Python/Node 스크립트 → cron/launchd 로 시간대 자동화, (2) Home Assistant 통합 + 강대종 폰 자동화 (3) iOS Shortcuts + Tuya Smart 앱 직결. 사전 조사 = 우리집 에어콘/선풍기 Tuya 호환 여부 확인 (브랜드별 다름), Tuya IoT Platform 개발자 계정 신청 (무료). 첫 검증 1~2시간. (추가: 2026-05-17 09:26 KST, 텔레그램 18667)
