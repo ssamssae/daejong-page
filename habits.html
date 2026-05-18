@@ -95,7 +95,7 @@
     <header>
       <h1>습관</h1>
       <div class="header-right">
-        <button class="sort-toggle" id="sort-toggle" type="button">정렬: 01 → 07</button>
+        <button class="sort-toggle" id="sort-toggle" type="button">정렬: 17 → 01</button>
         <a href="./">← 홈으로</a>
       </div>
     </header>
@@ -315,7 +315,7 @@
         var last = cards[cards.length - 1].querySelector('.hb-num').textContent.trim();
         btn.textContent = '정렬: ' + first + ' → ' + last;
       }
-      var desc = localStorage.getItem(KEY) === '1';
+      var desc = localStorage.getItem(KEY) !== '0';
       apply(desc);
       btn.addEventListener('click', function() {
         desc = !desc;
