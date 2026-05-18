@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-18.md",
+      "date": "2026-05-18",
+      "summary": "메모요 1.0.5+23 production 출하 (iOS WAITING_FOR_REVIEW + Android 100% rollout, ITMS-90683 fix + NSPhotoLibraryUsageDescription) + 5노드 정합 (AskUserQuestion 금지 globals 승격 + memory/coord 정책 예외 + posttooluse hook 5노드 분기 + nightly-update 04:00 + 데스크탑/노트북 timer install + claude-skills 30분 자동 pull) + 4 PR 머지 (#56 #57 #58 #88 #90 #85 #9) + 5 이슈 박음 + /goodnight 2.7단계 + context-show 스킬 + todos/parking-lot/deep-work 자연어 마이그레이션 + choso phase 1 사양",
+      "count": 30,
+      "updated": "2026-05-18T11:32:00+09:00"
+    },
+    {
       "file": "2026-05-17.md",
       "date": "2026-05-17",
       "summary": "v1.0.0 (메모요 sync 자율루프 + kangdaejong.com 인프라) + v1.0.1 (work.kangdaejong.com cert provisioning 토글 + 페이지 정리 9건 + mac-report sender-id fix + CLAUDE.md §3 표준화 + todo 자연어 마이그레이션 3 파일 + insta-post-general 비용 0 패치 + 이슈 2 + 메모리 1 + 노하우 6 + trio-vote 5회 + PR 3 머지 + smart-home cherry)",
