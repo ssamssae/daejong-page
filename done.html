@@ -79,6 +79,8 @@
       border: 1px solid #F2F4F6;
       cursor: pointer;
       transition: transform 0.1s;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
     }
     .heatmap-cell:hover { transform: scale(1.2); border-color: #8B95A1; }
     .heatmap-cell.lv0 { background: #F9FAFB; }
@@ -87,6 +89,14 @@
     .heatmap-cell.lv3 { background: #3182F6; border-color: #3182F6; }
     .heatmap-cell.lv4 { background: #1B64DA; border-color: #1B64DA; }
     .heatmap-cell.today { box-shadow: 0 0 0 1.5px #F97316; }
+    .hm-label {
+      font-size: 9px; line-height: 1; letter-spacing: -0.3px;
+      font-weight: 500; white-space: nowrap;
+      pointer-events: none;
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .heatmap-cell.lv0 .hm-label { color: #B0B8C1; }
+    .heatmap-cell.lv1 .hm-label { color: #1B64DA; }
     .heatmap-legend {
       margin-top: 10px; font-size: 10px; color: #8B95A1;
       display: flex; align-items: center; gap: 6px; justify-content: flex-end;
@@ -685,11 +695,15 @@
       let html = '<div class="heatmap-wrap">';
       html += '<div class="heatmap-title"><strong>최근 ' + total + '일 기여 히트맵</strong><span>' + startDate + ' ~ ' + endDate + '</span></div>';
       html += '<div class="heatmap-grid">';
+      const DOW = ['일','월','화','수','목','금','토'];
       for (const c of cells) {
         const lv = level(c.count);
         const cls = 'heatmap-cell lv' + lv + (c.isToday ? ' today' : '');
         const title = c.date + ' · ' + c.count + '건';
-        html += '<div class="' + cls + '" title="' + title + '" data-date="' + c.date + '"></div>';
+        const parts = c.date.split('-').map(Number);
+        const dt = new Date(parts[0], parts[1] - 1, parts[2]);
+        const label = parts[1] + '/' + parts[2] + '(' + DOW[dt.getDay()] + ')';
+        html += '<div class="' + cls + '" title="' + title + '" data-date="' + c.date + '"><span class="hm-label">' + label + '</span></div>';
       }
       html += '</div>';
       html += '<div class="heatmap-legend"><span>Less</span><div class="heatmap-legend-cells">';
