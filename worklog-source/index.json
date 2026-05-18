@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-18_v1.0.0.md",
+      "date": "2026-05-18",
+      "version": "v1.0.0",
+      "summary": "메모요 1.0.5+23 iOS 빌드 freshness audit + ITMS-90683 회피 + manual export/import (#10) (자동 sync 영구 폐기) + choso phase 1 부팅(5aca401) + phase 3 spec/(a)(b)/(d)/(h) first step/(i) 외부 표면 = Tailscale serve (mesh-vote 5/5 + trio-vote 3-0 만장일치) + cross-node 검증 PASS (curl mac→mac-mini 200, 0.69s) + ~/.zshrc m/cc 무허가 통일 사고 박제 + AskUser globals gap globals 승격 + 이슈 9건 + 메모리 11건 + fleet-clear v2.4 watcher chain + next-cycle.md auto-inject 5노드 배포 + repo-enter.sh sweep step 0 헬퍼 + 자정 직후 노트북 stale sync 함정 (🖥 발견, in-flight).",
+      "updated": "2026-05-19T00:10:00+09:00"
+    },
+    {
       "file": "2026-05-17_v1.0.1.md",
       "date": "2026-05-17",
       "version": "v1.0.1",
