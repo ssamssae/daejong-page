@@ -136,3 +136,5 @@
 - [ ] 🏭 🧹 Mac mini night-runner reports/ prune (맥미니 야간 점검이 매일 남기는 보고 파일이 100개 넘게 쌓였는데 90일 지난 건 자동 삭제하게 설정) — 매일 1건씩 쌓여 100+개 추정. 90일 이상 자동 prune cron 추가. 30분. (추가: 2026-05-17 23:55, WSL 위임)
 
 - [ ] 🍎 🧹 Flutter 앱별 README freshness 점검 (앱 출시 후에도 옛 내용 그대로 남아있는 안내문서 있는지 한 번 훑기) — 출시 후 README 가 stale 한지 grep. 약 30분. (추가: 2026-05-17 23:55, WSL 위임)
+
+- [ ] 🪟 💡 Claude Desktop 아이콘 무변화 후속 시각화 (Windows 측 Claude Desktop GUI 아이콘은 WSL 챗봇 작업 상태에 무반응 — 별도 브리지로 트레이 토스트 또는 5노드 작업 dashboard 만들지) — PowerShell BurntToast + WSL turn hook webhook 옵션 / 5노드 일괄 dashboard 옵션. 본진 권장 = 안 만듦 (텔레그램 chat_action 으로 충분, 사용 빈도 낮음). 형님 결정 미수신 상태로 보류. (추가: 2026-05-18 09:58, 텔레그램 msg 7356 후속)
