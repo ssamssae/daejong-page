@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-18-mac-zshrc-mcc-broken.md",
+      "title": "2026-05-18 — 본진 ~/.zshrc 의 m/cc 분리 표준을 챗봇이 무허가 통일 → 형님 수동 복구",
+      "date": "2026-05-18",
+      "updated": "2026-05-18T20:42:42.841569+09:00"
+    },
+    {
       "file": "2026-05-18-askuser-globals-gap.md",
       "title": "2026-05-18 — AskUserQuestion 터미널 UI 띄움 — 본진 메모리 → globals 승격 누락 + 데스크탑 claude-skills stale 결합",
       "date": "2026-05-18",
