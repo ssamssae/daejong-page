@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인사이트 - 강대종</title>
+  <meta name="description" content="영상·책·팟캐스트·아티클·토크에서 뽑아낸 핵심 인사이트 — 출처·요약·핵심 한 줄·내 시각·적용 권고.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
+
+    .intro {
+      font-size: 13px; color: #4E5968;
+      margin-bottom: 20px; padding: 12px 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
+      line-height: 1.55;
+    }
+
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-card {
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
+      padding: 14px 14px;
+    }
+    .hero-card-label {
+      font-size: 10px; color: #4E5968; margin-bottom: 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .hero-card-value { font-size: 22px; color: #191F28; font-weight: 700; }
+    .hero-card-value .unit {
+      font-size: 13px; color: #4E5968; font-weight: 500; margin-left: 4px;
+    }
+    .hero-card-sub { font-size: 11px; color: #8B95A1; margin-top: 4px; }
+
+    .timeline { display: flex; flex-direction: column; gap: 26px; }
+
+    .date-group { display: flex; flex-direction: column; gap: 12px; }
+    .date-head {
+      display: flex; align-items: baseline; gap: 10px;
+      padding-bottom: 8px; border-bottom: 1px dashed #E5E8EB;
+    }
+    .date-label { font-size: 15px; color: #3182F6; font-weight: 700; }
+    .date-rel { font-size: 12px; color: #4E5968; }
+    .date-count { margin-left: auto; font-size: 11px; color: #8B95A1; }
+
+    .insight-card {
+      display: block;
+      background: #F9FAFB; border: 1px solid #E5E8EB;
+      border-radius: 12px; padding: 14px 16px;
+      color: inherit;
+    }
+    .insight-preview {
+      font-size: 13px; color: #4E5968; line-height: 1.6;
+      margin-top: 6px;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+      overflow: hidden; word-break: keep-all; overflow-wrap: break-word;
+    }
+
+    .insight-head {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 8px; flex-wrap: wrap;
+    }
+    .insight-title {
+      flex: 1 1 auto; min-width: 0;
+      font-size: 15px; color: #191F28; font-weight: 600;
+      line-height: 1.45;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .insight-title a { color: inherit; text-decoration: none; }
+    .insight-title a:hover { color: #3182F6; }
+    .badges {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px;
+    }
+    .badge {
+      font-size: 10px; padding: 2px 8px; border-radius: 6px;
+      font-weight: 600; letter-spacing: 0.3px;
+      border: 1px solid transparent;
+    }
+    .badge-src-video {
+      color: #F04452; background: rgba(240, 68, 82, 0.1);
+      border-color: rgba(240, 68, 82, 0.3);
+    }
+    .badge-src-book {
+      color: #3182F6; background: rgba(49, 130, 246, 0.1);
+      border-color: rgba(49, 130, 246, 0.3);
+    }
+    .badge-src-podcast {
+      color: #9333EA; background: rgba(147, 51, 234, 0.1);
+      border-color: rgba(147, 51, 234, 0.3);
+    }
+    .badge-src-article {
+      color: #22C55E; background: rgba(34, 197, 94, 0.1);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+    .badge-src-talk {
+      color: #F97316; background: rgba(249, 115, 22, 0.1);
+      border-color: rgba(249, 115, 22, 0.3);
+    }
+    .badge-src-paper {
+      color: #0EA5E9; background: rgba(14, 165, 233, 0.1);
+      border-color: rgba(14, 165, 233, 0.3);
+    }
+    .badge-tag {
+      color: #4E5968; background: rgba(139, 149, 161, 0.08);
+      border-color: rgba(139, 149, 161, 0.25);
+    }
+
+    .meta-line {
+      font-size: 11px; color: #8B95A1;
+      margin-bottom: 10px;
+    }
+    .meta-line .sep { color: #E5E8EB; margin: 0 6px; }
+    .meta-line a { color: #8B95A1; text-decoration: underline; }
+    .meta-line a:hover { color: #3182F6; }
+
+    .date-group.empty-day .date-label { color: #8B95A1; }
+    .date-group.empty-day .date-count { color: #B0B8C1; }
+    .empty-day-note {
+      font-size: 12px; color: #B0B8C1;
+      padding: 8px 14px;
+      background: #F9FAFB; border: 1px dashed #E5E8EB;
+      border-radius: 10px;
+    }
+
+    .empty {
+      color: #8B95A1; text-align: center; padding: 60px 20px; font-size: 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
+    }
+    .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
+    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error { color: #F04452; text-align: center; padding: 40px 0; font-size: 14px; }
+
+    .back {
+      display: inline-block; margin-top: 28px; color: #4E5968;
+      text-decoration: none; font-size: 14px;
+    }
+    .back:hover { color: #3182F6; }
+
+    @media (max-width: 520px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>인사이트</h1>
+      <a href="./">← 홈으로</a>
+    </header>
+
+    <div class="intro">
+      영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트. 출처와 요약, 핵심 한 줄, 내 시각, 적용 권고를 함께 남깁니다.
+    </div>
+
+    <div id="view">
+      <div class="loading">불러오는 중…</div>
+    </div>
+
+    <a class="back" href="./">← 홈으로</a>
+  </div>
+
+  <script>
+    const viewEl = document.getElementById('view');
+
+    function parseDate(s) {
+      const m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!m) return null;
+      return new Date(+m[1], +m[2] - 1, +m[3]);
+    }
+    function todayKST() {
+      const now = new Date();
+      const kst = new Date(now.getTime() + (now.getTimezoneOffset() + 540) * 60000);
+      kst.setHours(0, 0, 0, 0);
+      return kst;
+    }
+    function relativeDay(dateStr) {
+      const d = parseDate(dateStr);
+      if (!d) return '';
+      const diff = Math.round((todayKST() - d) / 86400000);
+      if (diff === 0) return '오늘';
+      if (diff === 1) return '어제';
+      if (diff < 7) return diff + '일 전';
+      if (diff < 30) return Math.floor(diff / 7) + '주 전';
+      if (diff < 365) return Math.floor(diff / 30) + '달 전';
+      return Math.floor(diff / 365) + '년 전';
+    }
+    function escapeHtml(s) {
+      return (s || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    // Parse insight markdown: YAML frontmatter (source_type/source_url/...) + # title + body.
+    function parseInsightMd(md) {
+      const frontmatter = {};
+      if (md.startsWith('---')) {
+        const end = md.indexOf('\n---', 3);
+        if (end > 0) {
+          const fmBlock = md.slice(3, end);
+          for (const fl of fmBlock.split('\n')) {
+            const m = fl.match(/^([A-Za-z_][A-Za-z0-9_]*)\s*:\s*(.*?)\s*$/);
+            if (m) {
+              let val = m[2];
+              if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
+              if (val.startsWith('[') && val.endsWith(']')) {
+                val = val.slice(1, -1).split(',').map(t => t.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
+              }
+              frontmatter[m[1]] = val;
+            }
+          }
+          md = md.slice(end + 4).trimStart();
+        }
+      }
+      const lines = md.split('\n');
+      let title = '';
+      const bodyBuf = [];
+      let titleSeen = false;
+      for (const raw of lines) {
+        const line = raw.replace(/\r$/, '');
+        if (!titleSeen && line.trim().startsWith('# ')) {
+          title = line.trim().slice(2).trim();
+          titleSeen = true;
+          continue;
+        }
+        bodyBuf.push(line);
+      }
+      return { title, frontmatter, body: bodyBuf.join('\n').trim() };
+    }
+
+    function srcBadgeClass(type) {
+      const map = {
+        video: 'badge-src-video', book: 'badge-src-book',
+        podcast: 'badge-src-podcast', article: 'badge-src-article',
+        talk: 'badge-src-talk', paper: 'badge-src-paper'
+      };
+      return map[type] || 'badge-tag';
+    }
+    function srcLabel(type) {
+      const map = {
+        video: '영상', book: '책', podcast: '팟캐스트',
+        article: '아티클', talk: '토크', paper: '논문'
+      };
+      return map[type] || type || '기타';
+    }
+
+    async function init() {
+      try {
+        const idxRes = await fetch('./insights/index.json?_=' + Date.now());
+        const idxData = await idxRes.json();
+        const entries = (idxData.entries || [])
+          .slice()
+          .sort((a, b) => {
+            if (a.date !== b.date) return (b.date || '').localeCompare(a.date || '');
+            return (a.slug || '').localeCompare(b.slug || '');
+          });
+
+        if (entries.length === 0) {
+          viewEl.innerHTML = renderEmpty();
+          return;
+        }
+
+        const loaded = await Promise.all(entries.map(async e => {
+          try {
+            const r = await fetch('./insights/' + e.file + '?_=' + Date.now());
+            const md = await r.text();
+            return { ...e, parsed: parseInsightMd(md) };
+          } catch (err) {
+            return { ...e, parsed: null };
+          }
+        }));
+
+        render(loaded);
+      } catch (e) {
+        viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
+      }
+    }
+
+    function renderEmpty() {
+      return '' +
+        '<div class="empty">' +
+        '<div class="empty-emoji">🧠</div>' +
+        '<div>기록된 인사이트가 없습니다.</div>' +
+        '<div style="font-size:12px;color:#B0B8C1;margin-top:6px;">영상·책에서 인상깊은 한 줄을 만나면 여기에 남깁니다.</div>' +
+        '</div>';
+    }
+
+    function render(items) {
+      const groups = {};
+      for (const it of items) {
+        const key = it.date || '날짜없음';
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(it);
+      }
+      const sortedDates = Object.keys(groups).sort((a, b) => b.localeCompare(a));
+
+      const total = items.length;
+      const typeCounts = {};
+      for (const it of items) {
+        const fm = (it.parsed && it.parsed.frontmatter) || {};
+        const t = fm.source_type || 'other';
+        typeCounts[t] = (typeCounts[t] || 0) + 1;
+      }
+      const topType = Object.entries(typeCounts).sort((a, b) => b[1] - a[1])[0];
+
+      const now = new Date(Date.now() + 9 * 3600 * 1000);
+      const yyyymm = now.toISOString().slice(0, 7);
+      const thisMonth = items.filter(it => (it.date || '').startsWith(yyyymm)).length;
+
+      let html = '';
+      html += '<div class="hero-stats">';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">누적 인사이트</div>' +
+        '<div class="hero-card-value">' + total + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">' + sortedDates.length + '일에 걸쳐</div>' +
+        '</div>';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">이번 달</div>' +
+        '<div class="hero-card-value">' + thisMonth + '<span class="unit">건</span></div>' +
+        '<div class="hero-card-sub">' + yyyymm + '</div>' +
+        '</div>';
+      html +=
+        '<div class="hero-card">' +
+        '<div class="hero-card-label">최다 출처</div>' +
+        '<div class="hero-card-value">' + (topType ? srcLabel(topType[0]) : '-') + '</div>' +
+        '<div class="hero-card-sub">' + (topType ? topType[1] + '건' : '없음') + '</div>' +
+        '</div>';
+      html += '</div>';
+
+      html += '<div class="timeline">';
+      for (const date of sortedDates) {
+        const group = groups[date] || [];
+        const dateLabel = (date === '날짜없음') ? '날짜 미상' : date;
+        const rel = (date === '날짜없음') ? '' : relativeDay(date);
+        html += '<div class="date-group">';
+        html +=
+          '<div class="date-head">' +
+          '<span class="date-label">' + escapeHtml(dateLabel) + '</span>' +
+          (rel ? '<span class="date-rel">' + escapeHtml(rel) + '</span>' : '') +
+          '<span class="date-count">' + group.length + '건</span>' +
+          '</div>';
+        for (const it of group) {
+          html += renderInsightCard(it);
+        }
+        html += '</div>';
+      }
+      html += '</div>';
+
+      viewEl.innerHTML = html;
+    }
+
+    function renderInsightCard(it) {
+      const p = it.parsed || { title: it.title, frontmatter: {}, body: '' };
+      const fm = p.frontmatter || {};
+      const title = p.title || it.title || fm.source_title || '(제목 없음)';
+      const srcType = fm.source_type || '';
+      const tags = Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []);
+      let html = '<div class="insight-card">';
+      html += '<div class="insight-head">';
+      html += '<div class="insight-title">' + escapeHtml(title) + '</div>';
+      html += '<div class="badges">';
+      if (srcType) html += '<span class="badge ' + srcBadgeClass(srcType) + '">' + escapeHtml(srcLabel(srcType)) + '</span>';
+      for (const t of tags.slice(0, 4)) {
+        html += '<span class="badge badge-tag">#' + escapeHtml(t) + '</span>';
+      }
+      html += '</div>';
+      html += '</div>';
+
+      const metaBits = [];
+      if (fm.source_author) metaBits.push(escapeHtml(fm.source_author));
+      if (fm.source_channel && fm.source_channel !== fm.source_author) metaBits.push(escapeHtml(fm.source_channel));
+      if (fm.source_duration) metaBits.push(escapeHtml(fm.source_duration));
+      if (fm.source_published) metaBits.push('발행 ' + escapeHtml(fm.source_published));
+      if (fm.consumed_at) metaBits.push('시청 ' + escapeHtml(fm.consumed_at));
+      if (fm.source_url) metaBits.push('<a href="' + escapeHtml(fm.source_url) + '" target="_blank" rel="noopener">원본 ↗</a>');
+      if (metaBits.length) {
+        html += '<div class="meta-line">' +
+          metaBits.join('<span class="sep">·</span>') +
+          '</div>';
+      }
+
+      const preview = (p.body || '').replace(/^#+\s.*$/gm, '').replace(/```[\s\S]*?```/g, '').replace(/[*_>`#]/g, '').replace(/\n+/g, ' ').trim();
+      if (preview) {
+        html += '<div class="insight-preview">' + escapeHtml(preview) + '</div>';
+      }
+
+      html += '</div>';
+      return html;
+    }
+
+    init();
+  </script>
+</body>
+</html>
