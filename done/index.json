@@ -3,9 +3,9 @@
     {
       "file": "2026-05-18.md",
       "date": "2026-05-18",
-      "summary": "메모요 1.0.5+23 production 출하 (iOS WAITING_FOR_REVIEW + Android 100% rollout, ITMS-90683 fix + NSPhotoLibraryUsageDescription) + 5노드 정합 (AskUserQuestion 금지 globals 승격 + memory/coord 정책 예외 + posttooluse hook 5노드 분기 + nightly-update 04:00 + 데스크탑/노트북 timer install + claude-skills 30분 자동 pull) + 4 PR 머지 (#56 #57 #58 #88 #90 #85 #9) + 5 이슈 박음 + /goodnight 2.7단계 + context-show 스킬 + todos/parking-lot/deep-work 자연어 마이그레이션 + choso phase 1 사양",
-      "count": 37,
-      "updated": "2026-05-18T18:47:38+09:00"
+      "summary": "메모요 1.0.5+23 production 출하 (iOS WAITING_FOR_REVIEW + Android 100% rollout, ITMS-90683 fix + NSPhotoLibraryUsageDescription) + 5노드 정합 + choso phase 1 부팅 + phase 3 spec/(a)(b)/(d)/(h)/(i) 외부 표면 = Tailscale serve (mesh-vote 5/5 + trio-vote 3-0 만장일치) + cross-node 검증 PASS (mac→mac-mini 200, 0.69s) + fleet-clear v2.4 watcher chain + next-cycle.md auto-inject 5노드 + repo-enter.sh 헬퍼 + zshrc m/cc 무허가 통일 사고 박제 + 맥미니 이모지 recurrence + 9 이슈 + 11 메모리 + 8 PR 머지 (#9 #10 #30 #56 #57 #58 #85 #88 #90 #93)",
+      "count": 55,
+      "updated": "2026-05-19T00:13:00+09:00"
     },
     {
       "file": "2026-05-17.md",
