@@ -7,7 +7,7 @@ prevention_deferred: null
 - **발생 일자:** 2026-05-14 (오늘 mac mini Codex→Claude Code 전환 후 첫 사용 turn, 강대종 surface 23:36 KST)
 - **해결 일자:** 2026-05-14 23:41 KST
 - **심각도:** medium
-- **재발 가능성:** low (`.env` 패치 후 차단, 다른 노드도 동일 forcing function 권장)
+- **재발 가능성:** medium (2026-05-18 재발 확인 — `.env` 박혔어도 LLM 가 능동 read 안 하면 priori 디폴트, SessionStart 훅 도입 전까지 잔존)
 - **영향 범위:** mac mini Claude Code 노드, @ssamssae_claw_bot 챗 응답 전반
 
 ## 증상
@@ -32,21 +32,23 @@ CLAUDE.md 식별 우선순위는 (1) `TELEGRAM_BOT_USERNAME` env → (2) 봇 토
 ## 예방 (Forcing function 우선)
 **(a) 5노드 전부 `.env` 에 `TELEGRAM_BOT_USERNAME` 명시** — Mac 본진/WSL/Mac mini/3060Ti/노트북 5개 .env 에 각자 봇 username 한 줄. PRIMARY 식별 채널 강제 활성. mac mini 본건은 이미 적용, 나머지 4 노드는 backfill 필요.
 
-**(b) SessionStart 훅에서 hostname + 봇 username 을 conversation 첫 turn 에 surface** — env 누락 케이스 안전망. shell 한 줄:
+**(b) [재발 후 격상, 작성 마감 2026-05-25] SessionStart 훅 5노드 전부 등록.** `~/.claude/settings.json` hooks.SessionStart 에 아래 한 줄 등록해서 conversation 첫 turn context 에 device 단서 강제 surface:
 
 ```bash
 echo "[device-id] hostname=$(hostname) bot_username=${TELEGRAM_BOT_USERNAME:-unset}"
 ```
 
-훅 출력이 SessionStart context 로 들어가도록 `settings.json` hooks 섹션에 등록. mac mini 본건은 hook 자체가 부재할 수도 있어 추가 검증 필요.
+5/14 에 권고만 하고 미적용 → 4일 만에 재발 (2026-05-18). .env 박혀있어도 LLM 가 env 를 능동적으로 read 하지 않으면 priori 로 🍎 디폴트. 훅으로 SessionStart context 에 강제 inject 가 유일한 forcing function. 더 이상 미루지 말 것.
 
 **(c) (보조) cc 래퍼에서 .env 변경 감지 시 `cc --new` 강제** — 운영자 실수 (env 추가 후 재기동 잊음) 방어. drift detection 한 줄.
 
 ## 재발 이력
+- 2026-05-18 20:04 KST: 맥미니 챗봇 세션 첫 turn 답신에서 또 🍎 prefix. `.env` 의 `TELEGRAM_BOT_USERNAME=ssamssae_claw_bot` 은 그대로 박혀 있는데 LLM 가 env 를 능동 read 하지 않고 학습된 priori (CLAUDE.md 매핑 표 첫 행 = Mac 본진) 으로 🍎 디폴트. 5/14 예방 (a) "env 명시" 는 통했지만 (b) "SessionStart 훅 surface" 는 미적용 — 그래서 재발. 강대종 surface 후 즉시 hostname/env 확인 셸 호출로 정정. 텔레그램 messages 4726~4737. 예방 (b) 를 2026-05-25 작성 마감으로 격상.
 
 ## 관련 링크
 - 메모리: [[project_macmini_codex_to_claude_code]]
 - 자매 이슈: `2026-05-14-macmini-launchd-claude-channels-flag-missing.md` (오늘 같이 박는 plist 이슈)
 - 같은 plist 다른 결함: `2026-05-14-macmini-plugin-cache.md` (PATH 누락)
 - 텔레그램 메시지: surface (screenshot) 16896 / 진단 16898 / ack 16899 / 패치 보고 16901
+- 재발 텔레그램: 4726 (하이) / 4728 (이모지 오류) / 4729 (재발 진단) / 4730 (가 선택) / 4737 (박자)
 - env backup: `~/.claude/channels/telegram/.env.bak-username-fix-20260514-234113`
