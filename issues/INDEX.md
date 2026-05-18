@@ -1,10 +1,24 @@
 # Issues Index
 
 _자동 생성됨. 이 파일은 수동 편집 금지 — `python3 ~/.claude/skills/issue/tools/regen_index.py` 로만 갱신._
-_마지막 생성: 2026-05-16 21:08 KST_
+_마지막 생성: 2026-05-18 21:22 KST_
 
 | 날짜 | slug | 제목 | 심각도 | 재발 가능성 | 재발 이력 | 예방 deferred |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-05-18 | [wsl-cc-nightly-update-zombie](2026-05-18-wsl-cc-nightly-update-zombie.md) | 2026-05-18 — WSL cc 좀비 사고 (nightly-update atomic swap 충돌) | ? | ? | — | — |
+| 2026-05-18 | [tmux-wheel-scroll](2026-05-18-tmux-wheel-scroll.md) | Linux tmux 노드 마우스 휠 스크롤 안 됨 (mouse off default) | low | medium (신규 Linux 노드 추가 시마다 재현) | — | — |
+| 2026-05-18 | [mac-zshrc-mcc-broken](2026-05-18-mac-zshrc-mcc-broken.md) | 본진 ~/.zshrc 의 m/cc 분리 표준을 챗봇이 무허가 통일 → 형님 수동 복구 | medium (본진 표준 깨짐, 형님 직접 복구. 데이터 손실/외부 영향 0) | high (alias / 자동 attach / 셸 진입 동선은 챗봇의 "통일/효율화" 충동 표적) | — | — |
+| 2026-05-18 | [find-bfs-inventory-false-alarm](2026-05-18-find-bfs-inventory-false-alarm.md) | `find` shell function (bfs wrapper) 로 인한 mac-mini credential inventory false alarm | medium | high | — | — |
+| 2026-05-18 | [fastlane-supply-aab-already-used-on-promote](2026-05-18-fastlane-supply-aab-already-used-on-promote.md) | 🐛 fastlane supply --rollout aab 재업로드 — Version code 23 has already been used | ? | ? | — | — |
+| 2026-05-18 | [cocoapods-utf8-encoding-bug](2026-05-18-cocoapods-utf8-encoding-bug.md) | 🐛 CocoaPods 1.16.2 + Ruby 4.0.3 UTF-8 인코딩 버그 — `pod install` 즉사 | ? | ? | — | — |
+| 2026-05-18 | [askuser-globals-gap](2026-05-18-askuser-globals-gap.md) | AskUserQuestion 터미널 UI 띄움 — 본진 메모리 → globals 승격 누락 + 데스크탑 claude-skills stale 결합 | medium | high | — | — |
+| 2026-05-18 | [asc-deliver-whatsnew-required](2026-05-18-asc-deliver-whatsnew-required.md) | 🐛 asc-deliver --submit whatsNew null → 409 STATE_ERROR | ? | ? | — | — |
+| 2026-05-18 | [android-applicationid-snake-case](2026-05-18-android-applicationid-snake-case.md) | 🐛 Android applicationId snake_case vs iOS Bundle camelCase 불일치 — Play API 패키지명 거부 | ? | ? | — | — |
+| 2026-05-17 | [tuya-memory-concurrent-write-conflict](2026-05-17-tuya-memory-concurrent-write-conflict.md) | 2026-05-17 — tuya_devices.md 동시 쓰기로 인한 autostash 충돌 (반복 발생) | ? | ? | — | — |
+| 2026-05-17 | [stop-hook-mac-mini-directive-not-detected](2026-05-17-stop-hook-mac-mini-directive-not-detected.md) | 2026-05-17 — Stop hook 의 reverse-reply 감지 list 에 mac-mini-directive.sh 누락 | ? | ? | — | — |
+| 2026-05-17 | [mac-report-sender-id-missing](2026-05-17-mac-report-sender-id-missing.md) | mac-report body 에 sender 노드 신원 누락 → 본진 챗봇 "출처불명" 식별 사고 | medium (식별 사고 자체는 cosmetic, 다만 reverse reply 발송 실패로 송신 노드 idle 위험) | low (스크립트 자동화 + idempotent guard 박힌 후) | — | — |
+| 2026-05-17 | [lotto-calc-pr16-stale-base-mismatch](2026-05-17-lotto-calc-pr16-stale-base-mismatch.md) | 2026-05-17 — lotto-calc PR #16 stale base mismatch (sweep step 0 git fetch+status 누락) | ? | ? | — | — |
+| 2026-05-17 | [gh-pages-cert-provisioning-stuck](2026-05-17-gh-pages-cert-provisioning-stuck.md) | GH Pages custom domain cert provisioning 멈춤 → 브라우저 빨간 경고 | medium | medium | — | — |
 | 2026-05-16 | [stale-recover-loss](2026-05-16-stale-recover-loss.md) | fleet-state stale-recover 가 5분 cron cycle 마다 작업자 commit 까지 origin/main 으로 reset | high (작업자 commit 분실 + 5분 주기 자동 재현 + 작업자 detection 없음) | high (root cause 미해결, 본진/Mac mini launchd 작업자 commit 위에 있는 동안 매 cycle 재현 가능) | — | — |
 | 2026-05-16 | [ssh-alias-mismatch](2026-05-16-ssh-alias-mismatch.md) | 본진 챗봇이 SSH alias 대신 hostname 그대로 사용 → 두 시간 timeout 추적 | medium (작업 두 시간 헛다리, 동시 진행 task 지연) | medium (CLAUDE.md hostname 컬럼과 ssh alias 가 매번 헷갈리는 패턴) | — | — |
 | 2026-05-16 | [desktop3060ti-tmux-session-name-unify](2026-05-16-desktop3060ti-tmux-session-name-unify.md) | desktop3060Ti tmux 세션 이름 'claude-main' 잔존 — cc / .bashrc SoT 미통일 | low (실 directive 운반 영향 0 — 운반체 타겟 'claude' 와 별 group 'claude-main' 격리) | low (SoT 양쪽 다 'claude' 로 박힘) | — | — |
@@ -13,7 +27,7 @@ _마지막 생성: 2026-05-16 21:08 KST_
 | 2026-05-15 | [macmini-reverse-asym](2026-05-15-macmini-reverse-asym.md) | mac-mini 의 ~/.ssh/config 본진 향 alias 'mac' 누락 — mac-report.sh reverse channel 비대칭 | medium (loop-fleet/mesh 운영에서 mac mini 결과 자동 회수 0, 강대종 paste 운반 필요) | low (config 한 줄 fix, 회귀 위험 낮음) | — | — |
 | 2026-05-15 | [codex-directive-routing-stale](2026-05-15-codex-directive-routing-stale.md) | codex-directive.sh routing stale — mac-mini Claude Code 노드 전환 후 옛 Codex inbox 경로 사용 | medium (mac-mini 노드 작업 분배 0, loop-fleet 매번 4/5 PASS 천장) | high (구조적 — 2026-05-15 loop-fleet 사이클 1+2 둘 다 재현, 코드 변경 없으면 매 사이클 재현) | — | — |
 | 2026-05-14 | [rotate-token-channel-mode-dead](2026-05-14-rotate-token-channel-mode-dead.md) | rotate-token.sh --channel mode OpenClaw decom 후 dead path | medium | low | — | — |
-| 2026-05-14 | [macmini-self-identity-default-mac-bonjin](2026-05-14-macmini-self-identity-default-mac-bonjin.md) | mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패) | medium | low (`.env` 패치 후 차단, 다른 노드도 동일 forcing function 권장) | — | — |
+| 2026-05-14 | [macmini-self-identity-default-mac-bonjin](2026-05-14-macmini-self-identity-default-mac-bonjin.md) | mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패) | medium | medium (2026-05-18 재발 확인 — `.env` 박혔어도 LLM 가 능동 read 안 하면 priori 디폴트, SessionStart 훅 도입 전까지 잔존) | 1회 | — |
 | 2026-05-14 | [macmini-plugin-cache](2026-05-14-macmini-plugin-cache.md) | mac mini Claude Code 텔레그램 plugin MCP server spawn 실패 (launchd PATH 누락) | medium | low (PATH 박힌 후) | — | — |
 | 2026-05-14 | [macmini-launchd-claude-channels-flag-missing](2026-05-14-macmini-launchd-claude-channels-flag-missing.md) | mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨) | medium | low (plist 패치 후 차단) | — | — |
 | 2026-05-14 | [macmini-bot-token-grep-leak](2026-05-14-macmini-bot-token-grep-leak.md) | TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출 | medium | medium | — | — |
