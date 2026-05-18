@@ -82,6 +82,308 @@
 
   <div class="list">
 
+    <!-- Entry: prefix / suffix -->
+    <div class="info-card">
+      <div class="info-card-tag">영어 / 자연어</div>
+      <div class="info-card-title">prefix / suffix — 앞·뒤에 붙는 것</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>용어</th>
+            <th>위치</th>
+            <th>예시</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>prefix</td>
+            <td>앞</td>
+            <td>텔레그램 답신 첫 줄의 🏭 이모지, "pre-" 접두사</td>
+          </tr>
+          <tr>
+            <td>suffix</td>
+            <td>뒤</td>
+            <td>파일명 <code>.md</code>, <code>.yaml</code> 같은 확장자, "-ing" 접미사</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> 챗봇 답신 첫 줄에 🏭 같은 기기 이모지를 박는 게 <strong>기기 prefix</strong>. CLAUDE.md 도 같은 단어 씀. 잘못 박힌 prefix 한 글자가 어느 기기에서 답하는지 잘못 알려주는 사고로 이어진다 (2026-05-14 / 2026-05-18 이슈).
+      </div>
+      <div class="date">2026-05-18</div>
+    </div>
+
+    <!-- Entry: priori -->
+    <div class="info-card">
+      <div class="info-card-tag">영어 / 의사결정</div>
+      <div class="info-card-title">priori — 미리 정해진 디폴트</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>상태</th>
+            <th>단서</th>
+            <th>LLM 행동</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>단서 있음</td>
+            <td>env / hostname / 봇 username</td>
+            <td>단서대로 정확히 식별</td>
+          </tr>
+          <tr>
+            <td>단서 없음</td>
+            <td>0개</td>
+            <td>학습된 priori 로 디폴트 (보통 가장 흔한 케이스)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> 챗봇이 자기 정체성도 priori 로 결정함. CLAUDE.md 매핑 표 첫 행이 🍎 Mac 본진이라 LLM 가 단서 없으면 자동으로 본진 행세. 그래서 forcing function 으로 단서를 첫 turn 에 강제 surface 해야 함. "선험적 / 사전적" 으로도 번역.
+      </div>
+      <div class="date">2026-05-18</div>
+    </div>
+
+    <!-- Entry: forcing function -->
+    <div class="info-card">
+      <div class="info-card-tag">자동화 / 안전</div>
+      <div class="info-card-title">forcing function — 강제로 작동하게 만드는 장치</div>
+      <p style="font-size: 13px; color: #4E5968; margin-bottom: 10px;">
+        사람 의지·기억에만 의존하면 잊거나 미루기 마련이라, 코드·훅·룰 레벨에서 자동으로 작동하게 박아두는 장치. 이슈 포스트모템 "예방" 섹션이 사실상 forcing function 모음.
+      </p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>종류</th>
+            <th>예시</th>
+            <th>강도</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>메모리</td>
+            <td>"다음부턴 X 하지 말기" 메모리</td>
+            <td>약함 — LLM 가 잊을 수 있음</td>
+          </tr>
+          <tr>
+            <td>룰 문서</td>
+            <td>CLAUDE.md "첫 줄에 이모지 prefix"</td>
+            <td>중간 — 본인 의지에 의존</td>
+          </tr>
+          <tr>
+            <td>훅</td>
+            <td>Stop hook 이 reply 0회면 차단</td>
+            <td>강함 — 시스템이 막음</td>
+          </tr>
+          <tr>
+            <td>자동화 cron</td>
+            <td>launchd 가 매일 03:00 자동 실행</td>
+            <td>가장 강함 — 사람 손 0</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> 이슈 재발은 거의 항상 forcing function 강도 부족이 원인. 2026-05-14 → 5-18 이모지 prefix 재발도 (a) env 명시만 박고 (b) SessionStart 훅이라는 더 센 forcing function 은 안 박았기 때문.
+      </div>
+      <div class="date">2026-05-18</div>
+    </div>
+
+    <!-- Entry: SoT vs mirror -->
+    <div class="info-card">
+      <div class="info-card-tag">데이터 / 동기화</div>
+      <div class="info-card-title">SoT vs mirror — Source of Truth 와 그 사본</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>항목</th>
+            <th>SoT</th>
+            <th>mirror</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>정의</td>
+            <td>원본, 단일 진실의 출처</td>
+            <td>SoT 를 복제한 사본</td>
+          </tr>
+          <tr>
+            <td>권위</td>
+            <td>충돌 시 이쪽 우선</td>
+            <td>충돌 시 양보</td>
+          </tr>
+          <tr>
+            <td>예시</td>
+            <td><code>~/claude-skills/issues/</code></td>
+            <td><code>~/daejong-page/issues/</code></td>
+          </tr>
+          <tr>
+            <td>수정 권한</td>
+            <td>직접 수정 OK</td>
+            <td>자동/스크립트 동기화로만</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> SoT 만 수정하고 mirror 는 동기화 스크립트로 자동 갱신해야 drift 0. mirror 를 사람이 손대면 양쪽 어긋남 (SoT vs mirror drift) → 다음 sync 때 어느 쪽이 맞는지 분기 필요. 마스킹(민감정보 가림) 같은 mirror 변형이 있으면 그 룰을 명시.
+      </div>
+      <div class="date">2026-05-18</div>
+    </div>
+
+    <!-- Entry: headless / interactive / SDK / API billing -->
+    <div class="info-card">
+      <div class="info-card-tag">Anthropic / 비용 모델</div>
+      <div class="info-card-title">headless / interactive / SDK / API billing — Claude 호출 4가지 방식</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>모드</th>
+            <th>호출 예시</th>
+            <th>billing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>interactive 챗봇</td>
+            <td>텔레그램·터미널 CLI 챗봇</td>
+            <td>정액 (Claude Pro/Max)</td>
+          </tr>
+          <tr>
+            <td>headless</td>
+            <td><code>claude -p "프롬프트"</code> 한 방</td>
+            <td>정액 (CLI 안에 묶임)</td>
+          </tr>
+          <tr>
+            <td>Agent SDK</td>
+            <td>코드에서 <code>sdk.Claude(...).run()</code></td>
+            <td>별도 종량 (API 토큰당 과금)</td>
+          </tr>
+          <tr>
+            <td>직접 API</td>
+            <td><code>curl api.anthropic.com/...</code></td>
+            <td>종량 (가장 비쌈)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> 인터랙티브 챗봇이 가장 싸고 안전. Python 으로 직접 API 부르면 우회되는 것 같지만 종량제 billing 으로 더 비싸짐. <strong>tmux paste 패턴</strong> = 챗봇이 받은 메시지를 다른 챗봇 tmux 세션에 paste 해서 5노드 fan-out 하는 것 → API 호출 0, 정액 안에서 처리.
+      </div>
+      <div class="date">2026-05-18</div>
+    </div>
+
+    <!-- Entry: stash / rebase / cherry-pick -->
+    <div class="info-card">
+      <div class="info-card-tag">git / 자주 헷갈리는 것</div>
+      <div class="info-card-title">stash / rebase / cherry-pick — git 3대 자주 헷갈리는 명령</div>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>명령</th>
+            <th>하는 일</th>
+            <th>언제 씀</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>git stash</code></td>
+            <td>현재 변경을 임시 보관소에 넣고 작업 디렉터리 비움</td>
+            <td>다른 브랜치 잠깐 갔다 와야 할 때</td>
+          </tr>
+          <tr>
+            <td><code>git rebase</code></td>
+            <td>내 커밋들을 다른 베이스 위로 옮겨 다시 쌓기</td>
+            <td>브랜치 시작점이 낡았을 때</td>
+          </tr>
+          <tr>
+            <td><code>git cherry-pick</code></td>
+            <td>다른 브랜치의 특정 커밋 하나만 가져와 붙이기</td>
+            <td>한 커밋만 골라 가져올 때</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> stash 는 "임시 주머니", rebase 는 "기차 차량을 다른 선로로 옮기기", cherry-pick 은 "체리 한 알만 따오기" 비유. rebase 는 commit hash 가 바뀌므로 이미 push 한 브랜치엔 위험 (force push 필요).
+      </div>
+      <div class="date">2026-05-18</div>
+    </div>
+
+    <!-- Entry: fan-out -->
+    <div class="info-card">
+      <div class="info-card-tag">분산 / 자동화</div>
+      <div class="info-card-title">fan-out — 한 명령을 여러 곳에 동시 발사</div>
+      <p style="font-size: 13px; color: #4E5968; margin-bottom: 10px;">
+        명령 1 개를 여러 워커(기기·프로세스·에이전트)에게 한 번에 뿌리는 패턴. 5노드 (🍎/🪟/🏭/🖥/💻) 에 같은 directive 를 동시 전달하는 게 대표 예.
+      </p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>패턴</th>
+            <th>동작</th>
+            <th>걸리는 시간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>순차 (serial)</td>
+            <td>1 → 2 → 3 → 4 → 5</td>
+            <td>5배</td>
+          </tr>
+          <tr>
+            <td>fan-out (병렬)</td>
+            <td>1 동시에 5곳 발사</td>
+            <td>1배</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> 본진이 directive 1 통 만들고 <code>mac-mini-directive.sh</code> / <code>wsl-directive.sh</code> / <code>desktop3060ti-directive.sh</code> 동시 호출하면 fan-out. 결과는 <code>mac-report.sh</code> 로 다시 본진 1 곳에 모아옴 — 이건 반대 방향이라 <strong>fan-in</strong>.
+      </div>
+      <div class="date">2026-05-18</div>
+    </div>
+
+    <!-- Entry: idempotent -->
+    <div class="info-card">
+      <div class="info-card-tag">시스템 / 안전 디자인</div>
+      <div class="info-card-title">idempotent — 여러 번 실행해도 결과 같은</div>
+      <p style="font-size: 13px; color: #4E5968; margin-bottom: 10px;">
+        같은 명령을 1번 실행하든 100번 실행하든 시스템 상태가 같은 성질. 자동화 스크립트가 idempotent 하지 않으면 cron 이 두 번 fire 됐을 때 사고로 이어짐.
+      </p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>동작</th>
+            <th>idempotent?</th>
+            <th>이유</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>mkdir -p ~/foo</code></td>
+            <td>O</td>
+            <td>디렉터리 이미 있어도 같음</td>
+          </tr>
+          <tr>
+            <td><code>echo X &gt;&gt; ~/log</code></td>
+            <td>X</td>
+            <td>실행 횟수만큼 누적됨</td>
+          </tr>
+          <tr>
+            <td><code>git pull --rebase</code></td>
+            <td>대체로 O</td>
+            <td>이미 최신이면 no-op</td>
+          </tr>
+          <tr>
+            <td><code>gh pr create</code></td>
+            <td>X</td>
+            <td>중복 생성 시도하면 에러</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> 자동화 스크립트는 가능한 idempotent 하게 짤 것. PR·배포·메일 발사 같이 본질적으로 non-idempotent 한 동작은 별도 "이미 했는지 확인" 한 줄 (preflight check) 을 앞에 박아두면 안전.
+      </div>
+      <div class="date">2026-05-18</div>
+    </div>
+
     <!-- Entry: GH Pages vs CF Pages SSL -->
     <div class="info-card">
       <div class="info-card-tag">GitHub Pages / Cloudflare Pages</div>
