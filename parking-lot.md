@@ -136,3 +136,7 @@
 - [ ] 🏭 🧹 Mac mini night-runner reports/ prune (맥미니 야간 점검이 매일 남기는 보고 파일이 100개 넘게 쌓였는데 90일 지난 건 자동 삭제하게 설정) — 매일 1건씩 쌓여 100+개 추정. 90일 이상 자동 prune cron 추가. 30분. (추가: 2026-05-17 23:55, WSL 위임)
 
 - [ ] 🍎 🧹 Flutter 앱별 README freshness 점검 (앱 출시 후에도 옛 내용 그대로 남아있는 안내문서 있는지 한 번 훑기) — 출시 후 README 가 stale 한지 grep. 약 30분. (추가: 2026-05-17 23:55, WSL 위임)
+
+- [ ] 🍎 🎨 multi-node task dashboard spec (5노드 작업 상태를 웹 페이지로 한눈에 보는 대시보드) — FEDA/AgentGround 영감, 본진 surface (2026-05-18 새벽 paste pending 의 Windows 트레이 브리지 대안). 5노드 (🍎/🪟/🏭/🖥/💻) 각자 현재 진행 작업 / idle / 실패 상태를 웹에 실시간 시각화. choso phase 1 (read-only 5타일) 의 확장 또는 별 프로젝트. brainstorm 부터 시작. 1-2주 호흡. (추가: 2026-05-18 11:32 KST, /session-clear 후속안)
+
+- [ ] 🍎 🎨 /loop dynamic 자동 clear+resume 패턴 (긴 자율 작업이 컨텍스트 꽉 차면 알아서 세션 클리어하고 checkpoint 부터 다시 시작하는 기능) — 2026-05-18 새벽 paste pending. 컨텍스트 90% 차면 (a) 현재 상태 checkpoint 저장 (b) /clear 발사 (c) checkpoint 읽고 작업 이어가기. 기술 가능. trade-off = 위험 작업 (rm -rf / force push / DB 마이그) 중 clear = 데이터 손실 위험. checkpoint 형식 일반화 어려움. 별 spec → plan 사이클로 신중. 본진 권고 = 현재는 컨텍스트 차면 종료 + 형님께 알리는 게 안전. (추가: 2026-05-18 11:32 KST, /session-clear 후속안)
