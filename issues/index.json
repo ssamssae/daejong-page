@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-19-sessionstart-pull-rebase-race.md",
+      "title": "2026-05-19 — SessionStart 훅 git pull --rebase race (Cannot rebase onto multiple branches)",
+      "date": "2026-05-19",
+      "updated": "2026-05-19T09:04:56.283554+09:00"
+    },
+    {
       "file": "2026-05-18-wsl-cc-nightly-update-zombie.md",
       "title": "2026-05-18 — WSL cc 좀비 사고 (nightly-update atomic swap 충돌)",
       "date": "2026-05-18",
