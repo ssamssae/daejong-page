@@ -65,7 +65,12 @@
       display: block;
       background: #F9FAFB; border: 1px solid #E5E8EB;
       border-radius: 12px; padding: 14px 16px;
-      color: inherit;
+      color: inherit; text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .insight-card:hover {
+      border-color: #3182F6;
+      background: #FFFFFF;
     }
     .insight-preview {
       font-size: 13px; color: #4E5968; line-height: 1.6;
@@ -375,7 +380,9 @@
       const title = p.title || it.title || fm.source_title || '(제목 없음)';
       const srcType = fm.source_type || '';
       const tags = Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []);
-      let html = '<div class="insight-card">';
+      const detailUrl = './insight.html?slug=' + encodeURIComponent(it.slug || '') +
+        (it.date ? '&date=' + encodeURIComponent(it.date) : '');
+      let html = '<a class="insight-card" href="' + detailUrl + '">';
       html += '<div class="insight-head">';
       html += '<div class="insight-title">' + escapeHtml(title) + '</div>';
       html += '<div class="badges">';
@@ -404,7 +411,7 @@
         html += '<div class="insight-preview">' + escapeHtml(preview) + '</div>';
       }
 
-      html += '</div>';
+      html += '</a>';
       return html;
     }
 
