@@ -1,6 +1,12 @@
 {
   "entries": [
     {
+      "file": "2026-05-19-share-plus-ios26-silent-fail.md",
+      "title": "2026-05-19 — share_plus 10.1.4 + iOS 26 sharePositionOrigin 필수화 → 호출부 silent PlatformException",
+      "date": "2026-05-19",
+      "updated": "2026-05-19T18:16:40.561481+09:00"
+    },
+    {
       "file": "2026-05-19-sessionstart-pull-rebase-race.md",
       "title": "2026-05-19 — SessionStart 훅 git pull --rebase race (Cannot rebase onto multiple branches)",
       "date": "2026-05-19",
