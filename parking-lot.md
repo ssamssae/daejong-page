@@ -150,3 +150,13 @@
 - [ ] 🍎🏭🪟🖥💻 🧹 claude-automations main 에 `*.bak` gitignore 가드 (PR #15+#31 close 후속) — wsl/bak-gitignore-2026-05-14 + wsl/bak-gitignore-cleanup-2026-05-17 두 PR diff 완전 일치한 중복으로 close. *.bak 가드 자체는 별 사이클 후보 — 본진 main 에 직접 작은 PR 한 줄. 5노드 sed -i .bak 부산물 잔재 commit 사고 방지용. (추가: 2026-05-19 01:23 KST, WSL 정리 사이클 후속)
 
 - [ ] 🍎 🛡 insight.html 마크다운 렌더 XSS sanitization 가드 (PR #96 머지 후속) — 본진 PR #96 review 의견 "본인 작성 md 만이라 risk 낮으나 별 사이클 후속 candidate". 외부 기고자 받는 정책 도입 시 trigger. 현재 inline().replace 만으로 escapeHtml + URL 자동링크 + **bold** + `code` 처리, 본격 sanitization (DOMPurify or 자체 whitelist) 도입 시점은 외부 기여 받기 직전. (추가: 2026-05-19 01:00 KST, 본진 머지 답신 후속)
+
+- [ ] 🍎 💡 context-show 스킬 자동 trigger 메커니즘 brainstorm — 현재 `/context` 발화 → 챗봇이 본진 tmux 에 3초 detached send-keys 박은 후 결과 운반은 챗봇의 다음 turn 에서 stdout capture 해야 가능. 챗봇 다음 turn 은 외부 트리거 (텔레그램 inbound) 의존이라 형님이 "왜 안 와" 박아야 깨어남 — 5노드 다 동일. tmux 백그라운드 poll daemon, ScheduleWakeup 자체 호출, watch-then-fire 메커니즘 후보. (추가: 2026-05-20 00:00 KST, /context 지연 패턴 5노드 확인 후)
+
+- [ ] 🏭 🛠 mac-mini play-upload 헬퍼 4건 통합 정정 — (a) play-upload.py 에 --timeout 인자 추가 (현재 default ~60s SSL read timeout, 큰 .aab 통과 위해 socket.setdefaulttimeout(600) wrap 필요), (b) fastlane release_notes 위치 디렉티브 템플릿 정정 (실제는 `fastlane/metadata/ko/release_notes.txt` 단일 파일, `metadata/android/ko-KR/changelogs/<code>.txt` 아님), (c) Play Console alpha 트랙 v20 (1.0.3) 잔재 cleanup, (d) playstore-testers API 헬퍼 통합 (등록·해지·리스트 query). 1.0.7+25 빌드 사이클에서 surface 4건 묶음. (추가: 2026-05-20 00:00 KST, 메모요 1.0.7 사이클 mac-mini 보고 후속)
+
+- [ ] 🤝 📝 메모요 1.0.7 (2)(4) SnackBar dismiss CS 위험 + 휴지통 30일 묶음 brainstorm — (2) 삭제 UNDO 와 (4) 휴지통 30일 분리 X, 한 묶음으로. SnackBar 4초 timeout / 어디 탭 dismiss = CS 위험 ("되돌리려 했는데 사라짐 → 데이터 손실"). 휴지통 30일 이 임시 undo 의 자연스러운 강화판. 형님 시나리오 "메모 가져오기 했는데 합쳐졌네 되돌리고 싶다" 도 휴지통 백업본으로 분리 가능. (1) Drive 백업 verify 매듭 후 진입. (추가: 2026-05-20 00:00 KST, 1.0.7 (1) verify 사이클 surface)
+
+- [ ] 🍎 🛠 메모요 iOS Launch image placeholder + UIScene lifecycle migration (1.0.7 (2) 또는 후보) — 1.0.7+25 빌드 로그에 "App Icon and Launch Image Assets Validation: Launch image is set to the default placeholder icon" + iOS UIScene lifecycle 마이그레이션 안내 출력. mac-mini 빌드는 SoT 영역이라 손 X, 본진 1.0.7 (2)+ 사이클 검토 후보. (추가: 2026-05-20 00:00 KST, 메모요 빌드 보고 후속)
+
+- [ ] 🌐 🛡 5노드 mac-report.sh 강제 forcing function — claude-skills/globals/CLAUDE.md 의 "WSL → Mac 운반체 mac-report.sh 3-channel" 섹션 강조 명문화 + 본진 외 4노드 (WSL/맥미니/데스크탑/노트북) 챗봇에 Stop hook 추가 (cross-device 결과 보고 시 mac-report.sh 또는 *-directive.sh 0회면 block). 5노드 통합 hook 위치 + settings.json 노드별 등록. 2026-05-19 23:4x KST WSL 텔레그램 reply 단독 송신 사고 (issues/2026-05-19-wsl-telegram-reply-only-sync-report-missed.md) 후속 forcing function. (추가: 2026-05-20 00:00 KST, WSL 사고 후속, 형님 ack 필요)
