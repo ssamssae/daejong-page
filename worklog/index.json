@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-19_v1.0.0.md",
+      "date": "2026-05-19",
+      "version": "v1.0.0",
+      "title": "production silent fail 한 건이 freeze 된 앱을 깨웠다",
+      "updated": "2026-05-19T18:30:10.059129+09:00"
+    },
+    {
       "file": "2026-05-18_v1.0.0.md",
       "date": "2026-05-18",
       "version": "v1.0.0",
