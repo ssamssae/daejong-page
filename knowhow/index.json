@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "file": "2026-05-20-clawd-on-desk-wsl-1to1-pet-connect.md",
+      "date": "2026-05-20",
+      "slug": "clawd-on-desk-wsl-1to1-pet-connect",
+      "title": "Clawd on Desk 펫을 WSL2 챗봇에 1:1 연결하기 (Windows 노드)",
+      "category": "멀티기기/자동화",
+      "tags": [
+        "clawd",
+        "wsl2",
+        "claude-code",
+        "hooks",
+        "windows",
+        "multi-device"
+      ],
+      "first_discovered": "2026-05-20",
+      "summary": "Windows 노드의 책상 펫앱 Clawd on Desk를 그 머신의 실제 일꾼(WSL2 Claude Code 챗봇)에 1:1 연결하는 표준 절차+함정. 핵심: WSL bash엔 bare powershell.exe가 없어 풀패스 필수, 설치경로/HOME 머신별 상이라 실측, 설치본은 SCP 복사. 네이티브 hook 제거 시 manageClaudeHooksAutomatically:false+앱 재시작 안 하면 즉시 재주입돼 원복. 추가는 auto-manage 켜진 채 OK, 제거는 꺼야 박힘."
+    },
+    {
       "file": "2026-05-17-gh-pages-cert-cname-toggle.md",
       "date": "2026-05-17",
       "slug": "gh-pages-cert-cname-toggle",
