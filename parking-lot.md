@@ -131,7 +131,7 @@
 
 - [ ] 🍎🏭🪟🖥💻 🧹 /tmp 누적 보고 md 청소 (기기마다 임시 폴더에 쌓인 옛날 보고 파일들 한 번 비우기) — mac-report / std-label / mesh-mirror 류 누적 파일들. 보안 0, 디스크/검색 noise 위생. 5분. (추가: 2026-05-17 23:55, WSL 위임)
 
-- [ ] 🪟 🧹 WSL finished 작업 브랜치 cleanup (WSL 가 끝낸 작업 가지 두 개가 본 코드 합쳐진 뒤에도 안 지워졌는데 청소하기) — `wsl/parallel-cycle-sentinel-guard-2026-05-16`, `wsl/bak-gitignore-cleanup-2026-05-17` main merge 후 미정리. 10분. (추가: 2026-05-17 23:55, WSL 위임)
+- [x] 🪟 🧹 WSL finished 작업 브랜치 cleanup — `wsl/parallel-cycle-sentinel-guard-2026-05-16`(PR#45 머지 + 5/17 9893fd5에서 parallel-cycle을 claude-skills-private repo로 분리, sentinel v1.0 작업물 private SKILL.md에 보존 확인), `wsl/bak-gitignore-cleanup-2026-05-17`(전 repo에 없음=이미 정리). 둘 다 손실 위험 0 확인 후 안전 삭제 가능. ✅ 2026-05-20 WSL 검증 완료 (설명의 "미정리"는 일부 부정확 — 실제론 gitignore private 분리였음). (추가: 2026-05-17 23:55, WSL 위임)
 
 - [ ] 🏭 🧹 Mac mini night-runner reports/ prune (맥미니 야간 점검이 매일 남기는 보고 파일이 100개 넘게 쌓였는데 90일 지난 건 자동 삭제하게 설정) — 매일 1건씩 쌓여 100+개 추정. 90일 이상 자동 prune cron 추가. 30분. (추가: 2026-05-17 23:55, WSL 위임)
 
