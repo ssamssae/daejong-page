@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-21-hook-matching-too-loose-2x.md",
+      "date": "2026-05-21",
+      "slug": "hook-matching-too-loose-2x",
+      "title": "훅 매칭 느슨 2건 연속 — telegram-stop-ping tail -1 + reverse-reply-check contains 자기참조",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "5노드 claude-automations 훅 2개 + 본진 진단 워크플로우",
+      "occurred_at": "2026-05-20",
+      "resolved_at": "2026-05-21",
+      "updated": "2026-05-21T00:08:38.959369+09:00"
+    },
+    {
       "file": "2026-05-20-memoyo-drive-oauth-dup-gcp-project.md",
       "date": "2026-05-20",
       "slug": "memoyo-drive-oauth-dup-gcp-project",
