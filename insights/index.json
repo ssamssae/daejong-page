@@ -1,10 +1,34 @@
 {
   "entries": [
     {
-      "file": "2026-05-19-claude-5-levels-nateherk.md",
+      "file": "2026-05-20-harness-over-model-maker-evan.md",
+      "slug": "harness-over-model-maker-evan",
+      "title": "모델보다 중요한건 하니스 입니다.",
+      "date": "2026-05-20",
+      "source_type": "video",
+      "updated": "2026-05-20T18:14:07+09:00"
+    },
+    {
+      "file": "2026-05-20-claude-code-solved-boris-cherny.md",
+      "slug": "claude-code-solved-boris-cherny",
+      "title": "클로드 코드 총괄 : \"코딩하지 마라",
+      "date": "2026-05-20",
+      "source_type": "video",
+      "updated": "2026-05-20T18:14:06+09:00"
+    },
+    {
+      "file": "2026-05-20-claude-code-fullcourse-sihyun.md",
+      "slug": "claude-code-fullcourse-sihyun",
+      "title": "[2시간 풀버전] 클로드코드 풀코스 - AI를 잘 쓰는 방법",
+      "date": "2026-05-20",
+      "source_type": "video",
+      "updated": "2026-05-20T18:18:07+09:00"
+    },
+    {
+      "file": "2026-05-18-claude-5-levels-nateherk.md",
       "slug": "claude-5-levels-nateherk",
       "title": "Every Level of Claude Explained in 21 Minutes",
-      "date": "2026-05-19",
+      "date": "2026-05-18",
       "source_type": "video",
       "updated": "2026-05-19T22:38:17+09:00"
     }
