@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 15,
+      "cacheFile": "ep15-cache.md",
+      "date": "2026-05-20",
+      "publishedAt": "2026-05-20T13:51:33+00:00",
+      "title": "컴퓨터 다섯 대를 비서 한 명처럼 부리기까지",
+      "subtitle": "바이브코딩 뉴스레터 Ep.15 — 기기마다 다른 도구를 쓰다 하나로 통일하고, 다섯 대가 한 팀이 되기까지",
+      "readingTime": "4분",
+      "substackUrl": "https://daejongkang.substack.com/p/8af",
+      "originFile": "ep15-2026-05-20.md"
+    },
+    {
       "number": 14,
       "cacheFile": "ep14-cache.md",
       "date": "2026-05-20",
