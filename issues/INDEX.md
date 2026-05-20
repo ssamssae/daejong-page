@@ -1,12 +1,24 @@
 # Issues Index
 
 _자동 생성됨. 이 파일은 수동 편집 금지 — `python3 ~/.claude/skills/issue/tools/regen_index.py` 로만 갱신._
-_마지막 생성: 2026-05-18 21:22 KST_
+_마지막 생성: 2026-05-20 12:16 KST_
 
 | 날짜 | slug | 제목 | 심각도 | 재발 가능성 | 재발 이력 | 예방 deferred |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-05-20 | [wsl-bot-bare-path-no-poll](2026-05-20-wsl-bot-bare-path-no-poll.md) | 2026-05-20 — WSL 텔레그램 봇 무응답: 비대화형 ssh 기동 → bare PATH(node 누락) → 플러그인 폴링 정지 | medium | high | — | — |
+| 2026-05-20 | [context-show-self-trigger-stuck](2026-05-20-context-show-self-trigger-stuck.md) | context-show 본진 자기 자신 trigger 시 손0 원칙 위반 | ? | ? | — | — |
+| 2026-05-20 | [cc-version-stale-always-on-node](2026-05-20-cc-version-stale-always-on-node.md) | 2026-05-20 — 본진/WSL Claude Code 구버전 고착 (always-on 노드 nightly-update 영구 skip) | ? | ? | — | — |
+| 2026-05-19 | [wsl-telegram-reply-only-sync-report-missed](2026-05-19-wsl-telegram-reply-only-sync-report-missed.md) | 2026-05-19 🪟 WSL cross-device sync 보고를 텔레그램 reply 단독 송신 → 본진 capture 0 | ? | ? | — | — |
+| 2026-05-19 | [stop-chain-fail-stop-analysis](2026-05-19-stop-chain-fail-stop-analysis.md) | Stop chain `\|\|` 단축 평가 fail-stop 위험 분석 | ? | ? | — | — |
+| 2026-05-19 | [share-plus-ios26-silent-fail](2026-05-19-share-plus-ios26-silent-fail.md) | share_plus 10.1.4 + iOS 26 sharePositionOrigin 필수화 → 호출부 silent PlatformException | medium | high | — | — |
+| 2026-05-19 | [sessionstart-pull-rebase-race](2026-05-19-sessionstart-pull-rebase-race.md) | SessionStart 훅 git pull --rebase race → Cannot rebase onto multiple branches | medium | low (패치 후) | — | — |
+| 2026-05-19 | [mac-report-telegram-reply-missed](2026-05-19-mac-report-telegram-reply-missed.md) | 2026-05-19 mac-report paste 받은 turn 에 형님 폰 텔레그램 reply 누락 | ? | ? | — | — |
+| 2026-05-19 | [fleet-clear-rescue-pane-mismatch](2026-05-19-fleet-clear-rescue-pane-mismatch.md) | fleet-clear rescue v0.8 pane-finding 로직이 grouped client 환경에서 본진 챗봇 pane 놓침 | medium (사이클 자체는 완료, 본진 자동 /clear 만 빗나감) | high (rescue 로직 fix 전까지 동일 환경에서 재발) | — | — |
+| 2026-05-19 | [desktop3060ti-icm-hook-trace](2026-05-19-desktop3060ti-icm-hook-trace.md) | 🖥 데스크탑3060Ti — icm hook 정체 trace (2026-05-19) | ? | ? | — | — |
+| 2026-05-19 | [desktop3060ti-fabrication-cross-routing](2026-05-19-desktop3060ti-fabrication-cross-routing.md) | 🖥 데스크탑3060Ti — cross-routing directive + fabrication 사고 (2026-05-19) | ? | ? | — | — |
 | 2026-05-18 | [wsl-cc-nightly-update-zombie](2026-05-18-wsl-cc-nightly-update-zombie.md) | 2026-05-18 — WSL cc 좀비 사고 (nightly-update atomic swap 충돌) | ? | ? | — | — |
 | 2026-05-18 | [tmux-wheel-scroll](2026-05-18-tmux-wheel-scroll.md) | Linux tmux 노드 마우스 휠 스크롤 안 됨 (mouse off default) | low | medium (신규 Linux 노드 추가 시마다 재현) | — | — |
+| 2026-05-18 | [notebook-stale-sync](2026-05-18-notebook-stale-sync.md) | 노트북3060 claude-skills repo 4 commit stale (issues/INDEX.md UU conflict 사일런트) — "가전" 트리거 룰 누락으로 "에어컨 켜" 발화 무반응 | medium | high | — | — |
 | 2026-05-18 | [mac-zshrc-mcc-broken](2026-05-18-mac-zshrc-mcc-broken.md) | 본진 ~/.zshrc 의 m/cc 분리 표준을 챗봇이 무허가 통일 → 형님 수동 복구 | medium (본진 표준 깨짐, 형님 직접 복구. 데이터 손실/외부 영향 0) | high (alias / 자동 attach / 셸 진입 동선은 챗봇의 "통일/효율화" 충동 표적) | — | — |
 | 2026-05-18 | [find-bfs-inventory-false-alarm](2026-05-18-find-bfs-inventory-false-alarm.md) | `find` shell function (bfs wrapper) 로 인한 mac-mini credential inventory false alarm | medium | high | — | — |
 | 2026-05-18 | [fastlane-supply-aab-already-used-on-promote](2026-05-18-fastlane-supply-aab-already-used-on-promote.md) | 🐛 fastlane supply --rollout aab 재업로드 — Version code 23 has already been used | ? | ? | — | — |
@@ -27,7 +39,7 @@ _마지막 생성: 2026-05-18 21:22 KST_
 | 2026-05-15 | [macmini-reverse-asym](2026-05-15-macmini-reverse-asym.md) | mac-mini 의 ~/.ssh/config 본진 향 alias 'mac' 누락 — mac-report.sh reverse channel 비대칭 | medium (loop-fleet/mesh 운영에서 mac mini 결과 자동 회수 0, 강대종 paste 운반 필요) | low (config 한 줄 fix, 회귀 위험 낮음) | — | — |
 | 2026-05-15 | [codex-directive-routing-stale](2026-05-15-codex-directive-routing-stale.md) | codex-directive.sh routing stale — mac-mini Claude Code 노드 전환 후 옛 Codex inbox 경로 사용 | medium (mac-mini 노드 작업 분배 0, loop-fleet 매번 4/5 PASS 천장) | high (구조적 — 2026-05-15 loop-fleet 사이클 1+2 둘 다 재현, 코드 변경 없으면 매 사이클 재현) | — | — |
 | 2026-05-14 | [rotate-token-channel-mode-dead](2026-05-14-rotate-token-channel-mode-dead.md) | rotate-token.sh --channel mode OpenClaw decom 후 dead path | medium | low | — | — |
-| 2026-05-14 | [macmini-self-identity-default-mac-bonjin](2026-05-14-macmini-self-identity-default-mac-bonjin.md) | mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패) | medium | medium (2026-05-18 재발 확인 — `.env` 박혔어도 LLM 가 능동 read 안 하면 priori 디폴트, SessionStart 훅 도입 전까지 잔존) | 1회 | — |
+| 2026-05-14 | [macmini-self-identity-default-mac-bonjin](2026-05-14-macmini-self-identity-default-mac-bonjin.md) | mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패) | medium | high (2026-05-20 2차 재발 — 5/18 격상된 SessionStart 훅 마감 5/25 전에 또 터짐. 추가 위반 2건 surface — 자기-SSH redispatch + cross-routing 룰 위반) | 2회 | — |
 | 2026-05-14 | [macmini-plugin-cache](2026-05-14-macmini-plugin-cache.md) | mac mini Claude Code 텔레그램 plugin MCP server spawn 실패 (launchd PATH 누락) | medium | low (PATH 박힌 후) | — | — |
 | 2026-05-14 | [macmini-launchd-claude-channels-flag-missing](2026-05-14-macmini-launchd-claude-channels-flag-missing.md) | mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨) | medium | low (plist 패치 후 차단) | — | — |
 | 2026-05-14 | [macmini-bot-token-grep-leak](2026-05-14-macmini-bot-token-grep-leak.md) | TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출 | medium | medium | — | — |
