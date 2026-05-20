@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-21-stuck-loop-session-side-effects.md",
+      "date": "2026-05-21",
+      "slug": "stuck-loop-session-side-effects",
+      "title": "안 닫힌 loop 세션이 Clawd stale 행 + 타이핑 데몬 죽임 (sibling 세션 부작용)",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "본진 자율 loop 세션, Clawd on Desk 표시, 텔레그램 입력중 인디케이터",
+      "occurred_at": "2026-05-20",
+      "resolved_at": "2026-05-21",
+      "updated": "2026-05-21T00:40:05.741934+09:00"
+    },
+    {
       "file": "2026-05-21-hook-matching-too-loose-2x.md",
       "date": "2026-05-21",
       "slug": "hook-matching-too-loose-2x",
