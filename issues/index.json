@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-20-memoyo-drive-oauth-dup-gcp-project.md",
+      "date": "2026-05-20",
+      "slug": "memoyo-drive-oauth-dup-gcp-project",
+      "title": "메모요 Drive 백업 — 동명 GCP 프로젝트 분산으로 앱이 보는 쪽에 Drive API 미활성",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "메모요 Drive 백업, 향후 OAuth 앱",
+      "occurred_at": "2026-05-17",
+      "resolved_at": "2026-05-19",
+      "updated": "2026-05-20T23:03:12.253590+09:00"
+    },
+    {
       "file": "2026-05-20-mac-report-binary-image-paste.md",
       "title": "2026-05-20 — 맥미니 mac-report 가 스크린샷 PNG 바이너리를 본문 텍스트로 paste → 본진 컨텍스트 폭증",
       "date": "2026-05-20",
