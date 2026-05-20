@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 13,
+      "cacheFile": "ep13-cache.md",
+      "date": "2026-05-20",
+      "publishedAt": "2026-05-20T13:45:34+00:00",
+      "title": "버튼 하나에 사흘, OAuth 삽질 실시간 중계",
+      "subtitle": "바이브코딩 뉴스레터 Ep.13 — 메모 앱에 구글 드라이브 백업 버튼 하나 붙이려다 만난 OAuth 함정 4개",
+      "readingTime": "5분",
+      "substackUrl": "https://daejongkang.substack.com/p/oauth",
+      "originFile": "ep13-2026-05-20.md"
+    },
+    {
       "number": 12,
       "cacheFile": "ep12-cache.md",
       "date": "2026-05-15",
