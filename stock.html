@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관심종목 - 강대종</title>
+  <meta name="description" content="강대종의 관심종목 워치리스트 — 가격 추적이 아니라 '왜 관심인지·목표가·빠질 조건'을 기록하는 투자 논거 보드. 개인 기록용.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px 16px 80px;
+      line-height: 1.7;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
+    }
+    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
+    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
+    header a:hover { color: #3182F6; }
+
+    .intro {
+      font-size: 13px; color: #4E5968;
+      margin-bottom: 16px; padding: 12px 14px;
+      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
+      line-height: 1.55;
+    }
+    .intro strong { color: #191F28; font-weight: 600; }
+    .disclaimer {
+      font-size: 11px; color: #8B95A1;
+      margin-bottom: 20px; padding: 0 2px;
+    }
+
+    /* 상태 필터 칩 */
+    .filters {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 22px;
+    }
+    .chip {
+      background: #F2F4F6; border: 1px solid #E5E8EB;
+      color: #4E5968; font-size: 13px; font-weight: 500;
+      padding: 6px 13px; border-radius: 999px;
+      cursor: pointer; font-family: inherit;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .chip:hover { border-color: #3182F6; color: #3182F6; }
+    .chip.active { background: #3182F6; border-color: #3182F6; color: #FFFFFF; }
+    .chip .cnt { opacity: 0.65; font-size: 12px; margin-left: 3px; }
+
+    .list { display: flex; flex-direction: column; gap: 14px; }
+    .empty { color: #8B95A1; font-size: 13px; text-align: center; padding: 32px 0; display: none; }
+
+    .stock-card {
+      background: #F9FAFB; border: 1px solid #E5E8EB;
+      border-radius: 12px; padding: 16px 18px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .stock-card:hover { border-color: #3182F6; background: #FFFFFF; }
+
+    .sc-head {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px; flex-wrap: wrap;
+    }
+    .sc-status {
+      flex: 0 0 auto;
+      font-size: 12px; padding: 3px 10px; border-radius: 6px;
+      font-weight: 700; letter-spacing: 0.2px;
+    }
+    .st-watch     { color: #3182F6; background: #EAF2FF; }   /* 관심 */
+    .st-candidate { color: #FFFFFF; background: #3182F6; }   /* 매수후보 */
+    .st-holding   { color: #16A34A; background: #E7F7EF; }   /* 보유 */
+    .st-idle      { color: #8B95A1; background: #F2F4F6; }   /* 관망 */
+
+    .sc-name {
+      flex: 1 1 auto; min-width: 0;
+      font-size: 16px; color: #191F28; font-weight: 600;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .sc-ticker { font-size: 12px; color: #8B95A1; font-weight: 500; margin-left: 4px; }
+
+    .sc-thesis {
+      font-size: 14px; color: #191F28; font-weight: 500;
+      line-height: 1.6; margin-bottom: 12px;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+
+    .sc-meta { display: flex; flex-direction: column; gap: 6px; }
+    .sc-row {
+      display: flex; gap: 10px; align-items: baseline;
+      font-size: 13px; color: #4E5968; line-height: 1.55;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .sc-label {
+      flex: 0 0 76px;
+      font-size: 12px; color: #8B95A1; font-weight: 600;
+    }
+    .sc-row.sc-exit .sc-label { color: #F04452; }
+    .sc-val strong { color: #191F28; font-weight: 600; }
+
+    .sc-source {
+      font-size: 11px; color: #8B95A1;
+      margin-top: 12px; padding-top: 10px;
+      border-top: 1px dashed #E5E8EB;
+    }
+
+    .back {
+      display: inline-block; margin-top: 28px; color: #4E5968;
+      text-decoration: none; font-size: 14px;
+    }
+    .back:hover { color: #3182F6; }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>관심종목</h1>
+      <a href="./">← 홈으로</a>
+    </header>
+
+    <div class="intro">
+      가격을 쫓는 워치리스트가 아니라 <strong>"왜 관심인지 · 목표가 · 빠질 조건"</strong>을 적어두는 투자 논거 보드. 충동 매매를 줄이고 생각을 정리하려고 만든 개인 dogfood 페이지. 종목 상태(관심 / 매수후보 / 보유 / 관망)로 필터링.
+    </div>
+    <div class="disclaimer">
+      ※ 개인 기록·회고용입니다. 투자 권유나 추천이 아니며, 어떤 종목의 매매도 권하지 않습니다. 손익 금액은 적지 않습니다. 아래 항목은 양식 예시 — 실제 관심종목으로 교체해 사용.
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="chip active" data-filter="전체" type="button">전체</button>
+      <button class="chip" data-filter="관심" type="button">관심</button>
+      <button class="chip" data-filter="매수후보" type="button">매수후보</button>
+      <button class="chip" data-filter="보유" type="button">보유</button>
+      <button class="chip" data-filter="관망" type="button">관망</button>
+    </div>
+
+    <div class="list" id="list">
+
+      <div class="stock-card" data-status="매수후보">
+        <div class="sc-head">
+          <span class="sc-status st-candidate">매수후보</span>
+          <div class="sc-name">SK하이닉스 <span class="sc-ticker">000660</span></div>
+        </div>
+        <div class="sc-thesis">AI 메모리(HBM) 수요가 구조적으로 늘면 수혜가 가장 직접적이다.</div>
+        <div class="sc-meta">
+          <div class="sc-row"><span class="sc-label">관심사유</span><span class="sc-val">HBM 점유율·증설 사이클, 데이터센터 capex 추세</span></div>
+          <div class="sc-row"><span class="sc-label">목표 진입가</span><span class="sc-val"><strong>조정 시 분할 매수</strong> (예: 직전 박스권 하단)</span></div>
+          <div class="sc-row"><span class="sc-label">목표가</span><span class="sc-val">사이클 정점 추정 구간 — 분할 매도</span></div>
+          <div class="sc-row sc-exit"><span class="sc-label">제외 트리거</span><span class="sc-val">HBM 수요 둔화·재고 급증 신호 뜨면 후보에서 제외</span></div>
+        </div>
+        <div class="sc-source">등록 2026-05-20 · 예시</div>
+      </div>
+
+      <div class="stock-card" data-status="관심">
+        <div class="sc-head">
+          <span class="sc-status st-watch">관심</span>
+          <div class="sc-name">삼성전자 <span class="sc-ticker">005930</span></div>
+        </div>
+        <div class="sc-thesis">반도체 업황 반등 + 파운드리 회복이 확인되면 들어간다. 아직은 지켜보는 단계.</div>
+        <div class="sc-meta">
+          <div class="sc-row"><span class="sc-label">관심사유</span><span class="sc-val">대형주 안정성, 업황 사이클 바닥 가늠</span></div>
+          <div class="sc-row"><span class="sc-label">목표 진입가</span><span class="sc-val">실적 반등 시그널 확인 후 결정</span></div>
+          <div class="sc-row"><span class="sc-label">목표가</span><span class="sc-val">미정 (진입 시 설정)</span></div>
+          <div class="sc-row sc-exit"><span class="sc-label">제외 트리거</span><span class="sc-val">업황 반등 근거가 6개월 내 안 나오면 관심 해제</span></div>
+        </div>
+        <div class="sc-source">등록 2026-05-20 · 예시</div>
+      </div>
+
+      <div class="stock-card" data-status="관망">
+        <div class="sc-head">
+          <span class="sc-status st-idle">관망</span>
+          <div class="sc-name">애플 <span class="sc-ticker">AAPL</span></div>
+        </div>
+        <div class="sc-thesis">서비스 매출은 탄탄하지만 밸류에이션이 부담. 비싸서 지금은 안 산다.</div>
+        <div class="sc-meta">
+          <div class="sc-row"><span class="sc-label">관심사유</span><span class="sc-val">생태계 락인, 서비스 매출 비중 상승</span></div>
+          <div class="sc-row"><span class="sc-label">목표 진입가</span><span class="sc-val">의미 있는 조정(밸류 부담 완화) 구간</span></div>
+          <div class="sc-row"><span class="sc-label">목표가</span><span class="sc-val">진입 시 설정</span></div>
+          <div class="sc-row sc-exit"><span class="sc-label">제외 트리거</span><span class="sc-val">FOMO로 고점 추격하려는 자신을 발견하면 즉시 관망 유지</span></div>
+        </div>
+        <div class="sc-source">등록 2026-05-20 · 예시</div>
+      </div>
+
+    </div>
+    <div class="empty" id="empty">해당 상태의 종목이 없습니다.</div>
+
+    <a class="back" href="./">← 홈으로</a>
+  </div>
+  <script>
+    (function() {
+      var filters = document.getElementById('filters');
+      var list = document.getElementById('list');
+      var empty = document.getElementById('empty');
+      var cards = Array.from(list.querySelectorAll('.stock-card'));
+
+      // 상태별 카운트를 칩에 표기
+      var counts = {};
+      cards.forEach(function(c) {
+        var s = c.getAttribute('data-status');
+        counts[s] = (counts[s] || 0) + 1;
+      });
+      Array.from(filters.querySelectorAll('.chip')).forEach(function(chip) {
+        var f = chip.getAttribute('data-filter');
+        var n = f === '전체' ? cards.length : (counts[f] || 0);
+        var cnt = document.createElement('span');
+        cnt.className = 'cnt';
+        cnt.textContent = n;
+        chip.appendChild(cnt);
+      });
+
+      function apply(filter) {
+        var shown = 0;
+        cards.forEach(function(c) {
+          var match = filter === '전체' || c.getAttribute('data-status') === filter;
+          c.style.display = match ? '' : 'none';
+          if (match) shown++;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+      }
+
+      filters.addEventListener('click', function(e) {
+        var chip = e.target.closest('.chip');
+        if (!chip) return;
+        Array.from(filters.querySelectorAll('.chip')).forEach(function(c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        apply(chip.getAttribute('data-filter'));
+      });
+    })();
+  </script>
+</body>
+</html>
