@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 16,
+      "cacheFile": "ep16-cache.md",
+      "date": "2026-05-20",
+      "publishedAt": "2026-05-20T13:53:39+00:00",
+      "title": "폴더 한 칸 차이로 안 되던 자동화 — 사소한데 중요한 것들",
+      "subtitle": "바이브코딩 뉴스레터 Ep.16 — 비전공자가 자꾸 걸려 넘어지는 건 거창한 기능이 아니라 경로·이름·링크다",
+      "readingTime": "3분",
+      "substackUrl": "https://daejongkang.substack.com/p/e92",
+      "originFile": "ep16-2026-05-20.md"
+    },
+    {
       "number": 15,
       "cacheFile": "ep15-cache.md",
       "date": "2026-05-20",
