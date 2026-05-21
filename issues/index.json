@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-21-typing-indicator-drops-during-bg-work.md",
+      "date": "2026-05-21",
+      "slug": "typing-indicator-drops-during-bg-work",
+      "title": "텔레그램 \"입력중…\" 인디케이터가 cross-turn 백그라운드 작업 중 끊김",
+      "severity": "low",
+      "recurrence": "high",
+      "scope": "텔레그램 세션에서 1분+ 백그라운드 작업(ffmpeg/빌드/배포) 진행 중 형님 체감",
+      "occurred_at": "2026-05-21",
+      "resolved_at": null,
+      "updated": "2026-05-21T21:53:55.374705+09:00"
+    },
+    {
       "file": "2026-05-21-stuck-loop-session-side-effects.md",
       "date": "2026-05-21",
       "slug": "stuck-loop-session-side-effects",
@@ -25,6 +37,24 @@
       "updated": "2026-05-21T00:08:38.959369+09:00"
     },
     {
+      "file": "2026-05-21-autopilot-idle-nodes-token-saving.md",
+      "date": "2026-05-21",
+      "slug": "autopilot-idle-nodes-token-saving",
+      "title": "autopilot 6시간 야간 운영 중 본진이 노드를 ~5시간 idle 방치 (임의 \"토큰절약\")",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "autopilot / 5노드 야간 자율 운영 throughput",
+      "occurred_at": "2026-05-21",
+      "resolved_at": null,
+      "updated": "2026-05-21T21:53:55.374705+09:00"
+    },
+    {
+      "file": "2026-05-20-wsl-bot-bare-path-no-poll.md",
+      "title": "2026-05-20 — WSL 텔레그램 봇 무응답: 비대화형 ssh 기동 → bare PATH(node 누락) → 플러그인 폴링 정지",
+      "date": "2026-05-20",
+      "updated": "2026-05-20T15:58:34.598371+09:00"
+    },
+    {
       "file": "2026-05-20-memoyo-drive-oauth-dup-gcp-project.md",
       "date": "2026-05-20",
       "slug": "memoyo-drive-oauth-dup-gcp-project",
@@ -43,22 +73,16 @@
       "updated": "2026-05-20T20:52:22.701352+09:00"
     },
     {
-      "file": "2026-05-20-choso-css-cache-stale-render.md",
-      "title": "2026-05-20 — 초소 PR #6 머지·배포 후에도 라이브가 옛 화면: CSS 캐시로 새 HTML 무스타일 렌더",
-      "date": "2026-05-20",
-      "updated": "2026-05-20T20:52:22.701352+09:00"
-    },
-    {
-      "file": "2026-05-20-wsl-bot-bare-path-no-poll.md",
-      "title": "2026-05-20 — WSL 텔레그램 봇 무응답: 비대화형 ssh 기동 → bare PATH(node 누락) → 플러그인 폴링 정지",
-      "date": "2026-05-20",
-      "updated": "2026-05-20T15:58:34.598371+09:00"
-    },
-    {
       "file": "2026-05-20-context-show-self-trigger-stuck.md",
       "title": "context-show 본진 자기 자신 trigger 시 손0 원칙 위반",
       "date": "2026-05-20",
       "updated": "2026-05-20T15:58:34.598371+09:00"
+    },
+    {
+      "file": "2026-05-20-choso-css-cache-stale-render.md",
+      "title": "2026-05-20 — 초소 PR #6 머지·배포 후에도 라이브가 옛 화면: CSS 캐시로 새 HTML 무스타일 렌더",
+      "date": "2026-05-20",
+      "updated": "2026-05-20T20:52:22.701352+09:00"
     },
     {
       "file": "2026-05-20-cc-version-stale-always-on-node.md",
@@ -275,6 +299,18 @@
       "title": "TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출",
       "date": "2026-05-14",
       "updated": "2026-05-20T15:58:34.598371+09:00"
+    },
+    {
+      "file": "2026-05-14-launchd-plist-path.md",
+      "date": "2026-05-14",
+      "slug": "launchd-plist-path",
+      "title": "tmux-claude.plist 의 PATH 누락으로 텔레그램 plugin 자동 재기동 시 spawn 실패",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "mac-mini Claude Code 의 텔레그램 봇 `@MyClaude4`. 잠재적으로 본진의 동일 plist 잡",
+      "occurred_at": "2026-05-14",
+      "resolved_at": "2026-05-14",
+      "updated": "2026-05-21T21:53:55.374705+09:00"
     },
     {
       "file": "2026-05-13-mac-report-reverse-reply-missed.md",
