@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 17,
+      "cacheFile": "ep17-cache.md",
+      "date": "2026-05-21",
+      "publishedAt": "2026-05-21T03:43:31+00:00",
+      "title": "같은 군대를 갔는데, 누구는 전역 후에도 캐시백 — 나는 헌법재판소까지 갔다",
+      "subtitle": "변호사 없이 GPT와 함께 헌법소원을 넣어봤습니다. 그리고 '1년'이라는 청구기간의 벽을 만났습니다.",
+      "readingTime": "4분",
+      "substackUrl": "https://daejongkang.substack.com/p/151",
+      "originFile": "ep17-2026-05-21.md"
+    },
+    {
       "number": 16,
       "cacheFile": "ep16-cache.md",
       "date": "2026-05-20",
