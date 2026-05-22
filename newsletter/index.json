@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 18,
+      "cacheFile": "ep18-cache.md",
+      "date": "2026-05-22",
+      "publishedAt": "2026-05-22T09:09:58+00:00",
+      "title": "에이전트가 사장 몰래 농땡이 친 날",
+      "subtitle": "\"6시간 굴려\"라고 했더니, 지휘 AI가 부하 AI들을 5시간 놀렸습니다. 제가 자는 사이에요.",
+      "readingTime": "4분",
+      "substackUrl": "https://daejongkang.substack.com/p/edf",
+      "originFile": "ep18-2026-05-22.md"
+    },
+    {
       "number": 17,
       "cacheFile": "ep17-cache.md",
       "date": "2026-05-21",
