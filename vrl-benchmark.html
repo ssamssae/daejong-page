@@ -9,18 +9,18 @@
   <style>
     /* ── Toss 톤 토큰 (daejong-page 기존 팔레트 유지) ── */
     :root {
-      --bg:        #FFFFFF;
-      --bg-soft:   #F9FAFB;
-      --bg-band:   #F2F4F6;
-      --line:      #E5E8EB;
-      --ink:       #191F28;
-      --ink-2:     #4E5968;
+      --bg:        #0F1115;
+      --bg-soft:   #16191F;
+      --bg-band:   #1A1D24;
+      --line:      #2A2E37;
+      --ink:       #F2F4F6;
+      --ink-2:     #C9CDD2;
       --ink-3:     #8B95A1;
-      --blue:      #3182F6;
-      --blue-deep: #1B64DA;
+      --blue:      #4D94FF;
+      --blue-deep: #3182F6;
       --radius:    20px;
-      --shadow:    0 2px 24px rgba(17,24,39,0.04);
-      --shadow-lg: 0 8px 40px rgba(17,24,39,0.08);
+      --shadow:    0 2px 24px rgba(0,0,0,0.30);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.45);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -37,7 +37,7 @@
     /* ── 이중 헤더 (vrl 패턴: 상단 브랜드 바 + 하단 섹션 내비) ── */
     .topbar {
       border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,0.85);
+      background: rgba(15,17,21,0.85);
       backdrop-filter: saturate(180%) blur(12px);
     }
     .topbar .wrap {
@@ -52,7 +52,7 @@
 
     .navbar {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(255,255,255,0.85);
+      background: rgba(15,17,21,0.85);
       backdrop-filter: saturate(180%) blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -79,7 +79,7 @@
     .hero .eyebrow {
       display: inline-block;
       font-size: 13px; font-weight: 700; color: var(--blue);
-      background: #EAF2FE; padding: 6px 14px; border-radius: 999px;
+      background: rgba(77,148,255,0.14); padding: 6px 14px; border-radius: 999px;
       margin-bottom: 24px; letter-spacing: -0.01em;
     }
     .hero h1 {
@@ -139,7 +139,7 @@
     .app-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
     .app-card .pill {
       display: inline-block; font-size: 12px; font-weight: 700;
-      color: var(--blue); background: #EAF2FE; padding: 4px 10px; border-radius: 999px;
+      color: var(--blue); background: rgba(77,148,255,0.14); padding: 4px 10px; border-radius: 999px;
       margin-bottom: 14px;
     }
     .app-card h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
@@ -164,11 +164,11 @@
     .milestone p { font-size: 14px; color: var(--ink-2); }
 
     /* ── CTA ── */
-    .cta-band { background: var(--ink); color: #fff; padding: 80px 0; text-align: center; }
+    .cta-band { background: #11254A; color: #fff; padding: 80px 0; text-align: center; }
     .cta-band h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; letter-spacing: -0.03em; }
     .cta-band p { color: #C9CDD2; margin: 14px 0 32px; font-size: 16px; }
     .cta-band .btn-primary { background: var(--blue); }
-    .cta-band .btn-light { background: #fff; color: var(--ink); }
+    .cta-band .btn-light { background: #fff; color: #0F1115; }
     .cta-band .btn-light:hover { background: #F2F4F6; }
 
     /* ── 푸터 ── */
@@ -177,13 +177,6 @@
     footer .copy { font-size: 13px; color: var(--ink-3); }
     footer .links { display: flex; gap: 20px; }
     footer .links a { font-size: 13px; color: var(--ink-2); font-weight: 500; }
-
-    /* ── draft 배너 (머지 전 식별용, 머지 시 제거) ── */
-    .draft-banner {
-      background: #FFF4E5; color: #9A6700; text-align: center;
-      font-size: 13px; font-weight: 600; padding: 8px 16px;
-      border-bottom: 1px solid #FFE6BF;
-    }
 
     @media (max-width: 860px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -198,8 +191,6 @@
   </style>
 </head>
 <body>
-  <div class="draft-banner">⚠️ vrl.co.kr 벤치마킹 드래프트 — 아침 리뷰용. 머지 시 이 배너는 제거됩니다.</div>
-
   <!-- 이중 헤더 -->
   <div class="topbar">
     <div class="wrap">
