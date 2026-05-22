@@ -1,6 +1,42 @@
 {
   "entries": [
     {
+      "file": "2026-05-22-loop-reschedules-without-clear.md",
+      "date": "2026-05-22",
+      "slug": "loop-reschedules-without-clear",
+      "title": "autopilot /loop 이 30% 넘어도 클리어 안 하고 재예약만 반복",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "autopilot 다이나믹 /loop — 모델 self-observation 의존 게이트가 발화 불능",
+      "occurred_at": "2026-05-22",
+      "resolved_at": null,
+      "updated": "2026-05-23T00:50:00.000000+09:00"
+    },
+    {
+      "file": "2026-05-22-autopilot-sessionclear-directive-race.md",
+      "date": "2026-05-22",
+      "slug": "autopilot-sessionclear-directive-race",
+      "title": "autopilot 야간 작업 증발 — session-clear 마커 ↔ directive 도착 race",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "autopilot 야간 — session-clear 마커와 directive 도착 타이밍 경합",
+      "occurred_at": "2026-05-22",
+      "resolved_at": null,
+      "updated": "2026-05-23T00:50:00.000000+09:00"
+    },
+    {
+      "file": "2026-05-22-autopilot-macmini-liveness-false-negative.md",
+      "date": "2026-05-22",
+      "slug": "autopilot-macmini-liveness-false-negative",
+      "title": "autopilot 노드 liveness false-negative — 맥미니가 멀쩡한데 \"꺼짐\"으로 야간 미가동",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "autopilot 노드 liveness 체크 — 맥미니 false-negative",
+      "occurred_at": "2026-05-22",
+      "resolved_at": "2026-05-22",
+      "updated": "2026-05-23T00:50:00.000000+09:00"
+    },
+    {
       "file": "2026-05-21-typing-indicator-drops-during-bg-work.md",
       "date": "2026-05-21",
       "slug": "typing-indicator-drops-during-bg-work",
