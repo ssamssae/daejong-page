@@ -63,6 +63,14 @@
       "date": "2026-05-22",
       "source_type": "video",
       "updated": "2026-05-22T22:05:15+09:00"
+    },
+    {
+      "file": "2026-05-23-harness-not-prompt-codex-vibelabs.md",
+      "slug": "harness-not-prompt-codex-vibelabs",
+      "title": "프롬프트 말고 하네스 — 안드레 카파시와 코덱스 워크플로우 6원칙",
+      "date": "2026-05-23",
+      "source_type": "video",
+      "updated": "2026-05-23T00:43:27+09:00"
     }
   ]
 }
