@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-22_v1.0.1.md",
+      "date": "2026-05-22",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 새벽 초소 이후 하루 전체 — autopilot work-stealing 완성(PR #42)+1회가동 8발 / 5앱 audit·ASO·경쟁사 스펙 15종 / Ep18 발행·시세판·벤치마크 라이브 / autopilot 백스톱 5종",
+      "updated": "2026-05-23T00:46:00.000000+09:00"
+    },
+    {
       "file": "2026-05-22_v1.0.0.md",
       "date": "2026-05-22",
       "version": "v1.0.0",
