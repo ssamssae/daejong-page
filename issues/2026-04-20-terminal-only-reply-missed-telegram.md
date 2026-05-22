@@ -44,8 +44,16 @@ prevention_deferred: null
 - **2026-05-15 23:30 KST 메타 재발 발견.** 노트북(💻) 클로드 세션에서 텔레그램 답변이 폰까지 안 가는 사고. 원인은 노트북에 `jq` 미설치라 본 forcing function (`telegram-reply-check.sh`) 자체가 silent fail — 13건 연속 `skip: no transcript ()`. 즉 옛 예방책이 인프라 의존성 부재로 무력화. system jq 설치로 복구. 데스크탑3060Ti(🖥)도 동일 상태였어서 동시 fix (강대종 콘솔 sudo apt 1회씩). WSL은 SSH 타임아웃이라 후속 점검 대기.
 - **2026-05-21 00:35~00:42 KST 본진 한 세션 2회 재발.** 🍎 본진에서 (a) 입력중 데몬 원인 설명, (b) 이슈 보고 두 답변을 reply 툴 없이 터미널 평문으로 먼저 작성 → Stop 훅이 둘 다 정상 block → 재전송. **forcing function 은 작동(전달 보장 OK)**, 다만 block→재전송 왕복 latency 로 강대종이 "여보세요?" / "답변이 안와" 2회 대기. 잔여 gap = correctness 아닌 **latency**. 길고 구조적인 답변일수록 마지막 reply 단계를 빼먹는 옛 "길이 트랩" 패턴 그대로. 강화책: 텔레그램 turn 에서는 **reply 툴 호출을 답변의 첫 substantive 출력으로** 두고, 터미널 평문은 보조로만(또는 생략). 메모리 `feedback_telegram_reply_tool_mandatory` 에 "reply-first" 규율 추가. + 같은 턴에 "죄송합니다"만 하고 재발방지(`feedback_apology_triggers_postmortem`) 자율 진행 안 한 2차 누락 동반 — 사과=즉시 postmortem 트리거 재확인.
 
+- **2026-05-22 ~21:42 KST 본진 4차 재발 + 새 증상(중복버블).** 🍎 본진에서 스튜디오 디스플레이 상담 답변을 reply 툴 없이 터미널 평문으로 먼저 작성 → `telegram-stop-ping.sh` 가 그 텍스트를 `💬 터미널 응답` 으로 포워딩(1번째 버블) + `telegram-reply-check.sh` BLOCK → 다음 turn 에 같은 내용 reply 재송(2번째 버블) = 강대종 화면에 **같은 답 2번**. 5/21 에 넣은 telegram-stop-ping in-turn dedup("이번 turn 에 reply 이미 호출했으면 skip")은 reply 가 같은 turn 이 아니라 BLOCK 후 다음 turn 에 나가서 미작동 — 두 turn 에 갈리면 못 막음. 5/21 강화책("reply-first")이 이번에도 안 지켜진 재발. 강대종 결정(msg 22234)=습관 교정으로 기록.
+
+## 예방 강화 (2026-05-22 4차 재발 후)
+- 행동 규율("reply-first")만으로 4회 재발 → 사람 의지 의존 FF 의 한계 재확인.
+- **더 센 코드레벨 FF (제안, GO 대기):** `telegram-stop-ping.sh` 에 "last_user 가 telegram-origin(`plugin:telegram:telegram` substring 포함)이면 터미널 포워딩 자체 skip" 가드 추가. 그러면 본진이 또 터미널 먼저 써도 중복버블 불가 — telegram-reply-check 가 reply 를 강제하므로 단일 전달만 남음. (substring grep 은 jq 따옴표 이스케이프 무관하게 매칭 → 5/21 의 `source=` 오진단 회피.)
+- 단 5노드 md5 공용훅 + 5/21 이 훅 고치다 1차 오진단 전력(`2026-05-21-hook-matching-too-loose-2x.md`) → 양방향 검증(positive: telegram turn skip / negative: /loop·터미널 turn 은 포워딩 유지) + 강대종 GO 후 출하. 현재 GO 대기(msg 22232 질문), 강대종은 이번 라운드 **습관교정** 선택.
+
 ## 관련 링크
-- 훅 파일: `~/.claude/hooks/telegram-reply-check.sh`
+- 훅 파일: `~/.claude/hooks/telegram-reply-check.sh`, `~/.claude/hooks/telegram-stop-ping.sh`
+- 관련 이슈: `2026-05-21-hook-matching-too-loose-2x.md` (in-turn dedup 도입)
 - 설정 변경: `~/.claude/settings.json` `hooks.Stop` 첫 번째 entry
 - 메모리: `feedback_telegram_reply_tool_mandatory.md`
 - 텔레그램 메시지 id: 931 (사용자 지적), 932 (재전송), 933 (원인 요청), 935 (자가분석), 942 (훅 설치 완료)

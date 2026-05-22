@@ -652,7 +652,8 @@
       "file": "2026-04-20-terminal-only-reply-missed-telegram.md",
       "title": "Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락",
       "date": "2026-04-20",
-      "updated": "2026-05-20T15:58:34.598371+09:00"
+      "updated": "2026-05-22T21:55:41.000871+09:00",
+      "recurrence": "high"
     },
     {
       "file": "2026-04-20-telegram-typing-midsession-drop.md",
