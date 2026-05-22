@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시세판 — 코인·환율 실시간 | 강대종</title>
+<meta name="description" content="인기 코인과 주요 환율을 한 화면에서 보는 개인용 대시보드. CoinGecko·유럽중앙은행(ECB) 무료 공개 데이터.">
+<link rel="icon" href="./homepage_icon.svg">
+<style>
+  :root {
+    --blue: #3182F6; --blue-strong: #1B64DA;
+    --up: #F04452;       /* 한국식 상승 = 빨강 */
+    --down: #3182F6;     /* 한국식 하락 = 파랑 */
+    --ink: #191F28; --gray: #4E5968; --gray2: #8B95A1;
+    --line: #E5E8EB; --bg: #F9FAFB; --bg2: #F2F4F6; --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+  .back { display: inline-flex; align-items: center; gap: 4px; color: var(--gray2); font-size: 13px; text-decoration: none; padding: 4px 0; }
+  .back:hover { color: var(--gray); }
+  header { padding: 8px 4px 20px; }
+  header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  header p { color: var(--gray2); font-size: 13px; margin-top: 4px; }
+
+  .panel { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 20px; margin-bottom: 16px; }
+  .panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .panel-head h2 { font-size: 16px; font-weight: 700; }
+  .panel-head .meta { font-size: 12px; color: var(--gray2); }
+
+  .search { display: flex; gap: 8px; margin-bottom: 14px; }
+  .search input {
+    flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+    font-size: 14px; font-family: inherit; background: var(--bg); color: var(--ink);
+  }
+  .search input::placeholder { color: var(--gray2); }
+  .search input:focus { outline: none; border-color: var(--blue); background: var(--white); }
+  .search button {
+    border: none; border-radius: 12px; padding: 0 18px; font-size: 14px; font-weight: 600;
+    background: var(--blue); color: var(--white); cursor: pointer; font-family: inherit;
+  }
+  .search button:active { background: var(--blue-strong); }
+
+  .results { display: none; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .results.show { display: flex; }
+  .result-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 12px; background: var(--bg); border-radius: 12px; cursor: pointer;
+  }
+  .result-row:hover { background: var(--bg2); }
+  .result-row .nm { font-size: 14px; font-weight: 600; }
+  .result-row .cd { font-size: 12px; color: var(--gray2); margin-left: 6px; font-weight: 400; }
+  .result-row .add { font-size: 12px; color: var(--blue); font-weight: 600; }
+
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 480px) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    position: relative; background: var(--bg); border: 1px solid var(--line);
+    border-radius: 14px; padding: 14px;
+  }
+  .card .nm { font-size: 14px; font-weight: 600; }
+  .card .cd { font-size: 11px; color: var(--gray2); margin-top: 1px; }
+  .card .price { font-size: 20px; font-weight: 700; margin-top: 10px; font-variant-numeric: tabular-nums; }
+  .card .chg { font-size: 13px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .card .chg.up { color: var(--up); }
+  .card .chg.down { color: var(--down); }
+  .card .chg.flat { color: var(--gray2); }
+  .card .rm {
+    position: absolute; top: 10px; right: 12px; width: 22px; height: 22px; border: none;
+    border-radius: 50%; background: var(--bg2); color: var(--gray2); cursor: pointer; font-size: 14px; line-height: 1;
+  }
+  .card .rm:hover { background: var(--line); color: var(--gray); }
+
+  .count { font-size: 12px; color: var(--gray2); }
+  .soon { color: var(--gray2); font-size: 13px; padding: 20px 0; text-align: center; }
+  .footnote { font-size: 11px; color: var(--gray2); text-align: center; margin-top: 20px; line-height: 1.6; }
+  .footnote a { color: var(--gray); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./index.html">← 강대종</a>
+  <header>
+    <h1>시세판</h1>
+    <p>인기 코인 · 환율을 한 화면에 — 개인용 대시보드 (무료 공개 데이터)</p>
+  </header>
+
+  <!-- 코인 패널 -->
+  <section class="panel">
+    <div class="panel-head"><h2>🪙 인기 코인</h2><span class="meta" id="coinMeta">실시간 · KRW</span></div>
+    <div class="search">
+      <input id="coinSearch" type="text" placeholder="코인 검색 (예: 비트코인, ETH)" autocomplete="off">
+      <button id="coinSearchBtn">검색</button>
+    </div>
+    <div class="results" id="coinResults"></div>
+    <div class="cards" id="coinCards"></div>
+    <div class="soon" id="coinLoading">불러오는 중…</div>
+  </section>
+
+  <!-- 환율 패널 -->
+  <section class="panel">
+    <div class="panel-head"><h2>💱 환율</h2><span class="meta" id="fxMeta">실시간</span></div>
+    <div class="cards" id="fxCards"></div>
+    <div class="soon" id="fxLoading">불러오는 중…</div>
+  </section>
+
+  <!-- 주식 패널 (준비중 — serviceKey 필요로 차후 합류) -->
+  <section class="panel">
+    <div class="panel-head"><h2>📈 관심 주식</h2><span class="meta">준비중</span></div>
+    <div class="soon">전일 종가 기반 관심종목 패널은 준비 중이에요.</div>
+  </section>
+
+  <div class="footnote">
+    코인 시세 <a href="https://www.coingecko.com" target="_blank" rel="noopener">Powered by CoinGecko</a> · 환율 <a href="https://frankfurter.dev" target="_blank" rel="noopener">Frankfurter</a>(유럽중앙은행 ECB)<br>
+    실시간 시세는 참고용이며 투자 권유가 아닙니다.
+  </div>
+</div>
+
+<script src="./sise/common.js"></script>
+<script src="./sise/coin.js"></script>
+<script src="./sise/fx.js"></script>
+</body>
+</html>
