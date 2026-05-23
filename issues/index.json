@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-23-anthropic-cyber-content-block.md",
+      "date": "2026-05-23",
+      "slug": "anthropic-cyber-content-block",
+      "title": "본진 Claude Code 응답 차단 (Anthropic Usage Policy cyber content 분류기 트리거)",
+      "severity": "high",
+      "recurrence": "medium",
+      "scope": "🍎 본진 Claude Code TUI 세션 단위. Anthropic API 차단이므로 로컬 우회 불가",
+      "occurred_at": "2026-05-23",
+      "resolved_at": "2026-05-23",
+      "updated": "2026-05-23T09:20:00.000000+09:00"
+    },
+    {
       "file": "2026-05-22-loop-reschedules-without-clear.md",
       "date": "2026-05-22",
       "slug": "loop-reschedules-without-clear",
