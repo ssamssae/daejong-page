@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-23-macos-system-settings-fullauto-pass.md",
+      "date": "2026-05-23",
+      "slug": "macos-system-settings-fullauto-pass",
+      "title": "macOS Sequoia 시스템 설정 풀자동 토글 PASS (본진 자립성 5단계 캘리브레이션)",
+      "severity": "low",
+      "recurrence": "low",
+      "scope": "macOS GUI 자동화 전반. macOS Sequoia(15+) 시스템 설정 풀자동화 채널 확보",
+      "occurred_at": "2026-05-23",
+      "resolved_at": "2026-05-23",
+      "updated": "2026-05-23T11:41:00.000000+09:00"
+    },
+    {
       "file": "2026-05-23-anthropic-cyber-content-block.md",
       "date": "2026-05-23",
       "slug": "anthropic-cyber-content-block",
