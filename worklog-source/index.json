@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-23_v1.0.0.md",
+      "date": "2026-05-23",
+      "version": "v1.0.0",
+      "summary": "5노드 챗봇 자가복구 두 게이트(Linux trust prompt ExecStartPost Enter + 라이젠 bun PATH 부재) 다 풀어 노트북/라이젠/데스크탑 진짜 Windows 재부팅 자가복구 PASS. ExitPlanMode 글로벌 룰 gap 사고로 룰 강화 + 이슈 2건 박힘.",
+      "updated": "2026-05-24T00:36:00+09:00"
+    },
+    {
       "file": "2026-05-22_v1.0.1.md",
       "date": "2026-05-22",
       "version": "v1.0.1",
