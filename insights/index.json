@@ -95,6 +95,14 @@
       "date": "2026-05-24",
       "source_type": "video",
       "updated": "2026-05-24T09:59:32+09:00"
+    },
+    {
+      "file": "2026-05-24-anthropic-jun15-billing-change-codersera.md",
+      "slug": "anthropic-jun15-billing-change-codersera",
+      "title": "Anthropic 6/15 빌링 변경 — 인터랙티브 ↔ 프로그램/에이전트 분리 + 사용자 대안 4가지",
+      "date": "2026-05-24",
+      "source_type": "article",
+      "updated": "2026-05-24T10:25:00+09:00"
     }
   ]
 }
