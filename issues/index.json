@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-24-notebook-autologin-wake-unlock.md",
+      "date": "2026-05-24",
+      "slug": "notebook-autologin-wake-unlock",
+      "title": "노트북 Windows 부팅 자동로그인 + 슬립 wake 잠금 해제 (Hello 정책 우회)",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "노트북(💻) 부팅/wake 워크플로우 — SSH 헤드 노드 무인 운영 가능 여부",
+      "occurred_at": "2026-05-24",
+      "resolved_at": "2026-05-24",
+      "updated": "2026-05-24T11:05:00.000000+09:00"
+    },
+    {
       "file": "2026-05-21-typing-indicator-drops-during-bg-work.md",
       "date": "2026-05-21",
       "slug": "typing-indicator-drops-during-bg-work",
