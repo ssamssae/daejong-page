@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-24_v1.0.1.md",
+      "date": "2026-05-24",
+      "version": "v1.0.1",
+      "summary": "v1.0.0 이후 본 사이클 마무리 — 데드락 메타 사이클(A→B narrow), 데스크탑 14개 stale 일괄 폐기 + 보존 2건 머지, AI 용어집 stats 자동 sync hook, install.sh 16 jobs bootstrapped, 메모요 1.0.7 sync cron tracker, IG cron 실패 surface",
+      "updated": "2026-05-25T00:04:16.133095+09:00"
+    },
+    {
       "file": "2026-05-24_v1.0.0.md",
       "date": "2026-05-24",
       "version": "v1.0.0",
