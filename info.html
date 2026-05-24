@@ -82,6 +82,40 @@
 
   <div class="list">
 
+    <!-- Entry: acpx -->
+    <div class="info-card">
+      <div class="info-card-tag">에이전트 / 신기술 catch-up</div>
+      <div class="info-card-title">acpx — 에이전트끼리 대화하는 표준 프로토콜의 CLI</div>
+      <p style="font-size: 13px; color: #4E5968; margin-bottom: 10px;">
+        Agent Client Protocol (ACP) 의 헤드리스 CLI 클라이언트. 한 AI 에이전트나 오케스트레이터가 다른 코딩 에이전트(Claude Code, Codex, Pi, Gemini 등) 와 <strong>PTY 스크래핑</strong> 대신 구조화된 프로토콜로 대화하게 해준다. <code>npm install -g acpx</code>, Node 22+. github.com/openclaw/acpx (alpha).
+      </p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>방식</th>
+            <th>통신</th>
+            <th>한계</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PTY 스크래핑</td>
+            <td>터미널 출력 글자 긁기</td>
+            <td>포맷 바뀌면 깨짐, 세션 상태 추적 어려움</td>
+          </tr>
+          <tr>
+            <td>ACP (acpx)</td>
+            <td>JSON 메시지 + 세션 ID</td>
+            <td>아직 alpha, 지원 에이전트 한정</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> "우회"라는 표현이 붙는 건 두 갈래 — (a) Cursor / Antigravity / Zed 같은 에디터에서 자기네 API 빌링 대신 Claude Pro · ChatGPT Plus 구독을 CLI(Claude Code / Codex) 경유로 끌어쓰는 트릭, (b) 멀티 에이전트 mesh 를 ACP 표준으로 묶는 용도. 본진 5노드 mesh + tmux METHOD A 운반체로 같은 일이 이미 돌고 있어서 형님 입장에선 catch-up 정도면 충분.
+      </div>
+      <div class="date">2026-05-24</div>
+    </div>
+
     <!-- Entry: prefix / suffix -->
     <div class="info-card">
       <div class="info-card-tag">영어 / 자연어</div>
