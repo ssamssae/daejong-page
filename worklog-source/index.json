@@ -1,6 +1,13 @@
 {
   "entries": [
     {
+      "file": "2026-05-24_v1.0.0.md",
+      "date": "2026-05-24",
+      "version": "v1.0.0",
+      "updated": "2026-05-24T19:44:38.711054+09:00",
+      "summary": "5노드 양방향 검증이 surface 한 두 표준화 사고 (맥미니 토큰 mismatch + 노트북 stop hook reply 함정) closure + (a) mac-report default auto-detect PR #44 머지 + AI 용어집 페이지 LIVE"
+    },
+    {
       "file": "2026-05-23_v1.0.0.md",
       "date": "2026-05-23",
       "version": "v1.0.0",
