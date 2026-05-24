@@ -1,0 +1,43 @@
+# 노드 prefix PR 자동 머지 워크플로우
+#
+# 설계 원칙 (2026-05-24 형님 ack):
+# - Claude API 호출 0 — anthropic action 사용 X, 순수 GitHub Actions 룰 기반.
+#   이유: 2026-06-15 Anthropic 빌링 분리에서 "Claude Code GitHub Action" 은
+#   별도 monthly credit pool 잡아먹지만, 본 워크플로우는 anthropic action
+#   호출 0 이라 그 카테고리에서 빠짐.
+# - 노드 prefix (wsl/macmini/desktop/notebook/mac) + not draft + no-auto-merge
+#   label 없을 때만 GitHub native auto-merge enable.
+# - GitHub native auto-merge = checks pass + mergeable 상태되면 자동 squash merge.
+# - 회수 = PR 에 `no-auto-merge` label 박거나 yml 파일 삭제하면 즉시 해제 (가역).
+
+name: Auto-merge node-prefix PRs
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, labeled, unlabeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.draft == false &&
+      (startsWith(github.event.pull_request.head.ref, 'wsl/') ||
+       startsWith(github.event.pull_request.head.ref, 'macmini/') ||
+       startsWith(github.event.pull_request.head.ref, 'desktop/') ||
+       startsWith(github.event.pull_request.head.ref, 'notebook/') ||
+       startsWith(github.event.pull_request.head.ref, 'mac/')) &&
+      !contains(github.event.pull_request.labels.*.name, 'no-auto-merge')
+    steps:
+      - name: Enable auto-merge (squash)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} \
+            --squash \
+            --delete-branch \
+            --auto \
+            --repo ${{ github.repository }}
