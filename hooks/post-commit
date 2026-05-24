@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Auto-regenerate ai-glossary.html when insights/*.md changes.
+# 직전 commit 에 insights/*.md 변경이 있으면 forward 호출 → 변경 시 별 commit.
+# Loop guard: ai-glossary.html 만 변경한 commit 은 trigger X (forward 호출 → 변경 0 → exit).
+
+set -uo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+# 마지막 commit 의 insights/ 변경 여부
+if ! git diff-tree --no-commit-id --name-only -r HEAD | grep -q '^insights/.*\.md$'; then
+  exit 0
+fi
+
+# forward 호출
+GENERATOR="$REPO_ROOT/scripts/regen-ai-glossary.py"
+if [[ ! -x "$GENERATOR" ]]; then
+  exit 0
+fi
+python3 "$GENERATOR" || exit 0
+
+# ai-glossary.html / index.html 변경 없으면 skip
+if git diff --quiet ai-glossary.html index.html; then
+  exit 0
+fi
+
+# 별 commit
+git add ai-glossary.html index.html
+GIT_COMMITTER_DATE="$(date -u +'%Y-%m-%dT%H:%M:%S+00:00')" \
+  git commit -m "auto: ai-glossary regenerate + index stats sync (post-commit hook)" --no-verify >/dev/null 2>&1 || true
