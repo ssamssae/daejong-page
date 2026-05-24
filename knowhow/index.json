@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "file": "2026-05-24-anthropic-billing-escape-4ways.md",
+      "date": "2026-05-24",
+      "slug": "anthropic-billing-escape-4ways",
+      "title": "앤트로픽 2026-06-15 빌링 분리 회피 4가지 — 회색지대 자동화를 보강재로",
+      "category": "비용/자동화",
+      "tags": [
+        "anthropic",
+        "billing",
+        "gray-zone",
+        "browser-mcp",
+        "playwright",
+        "deepseek",
+        "multi-agent"
+      ],
+      "first_discovered": "2026-05-24",
+      "summary": "2026-06-15 부터 Claude Code 빌링이 인터랙티브 ↔ 프로그램/에이전트로 쪼개지고 후자는 별도 monthly credit pool (Max5× $100 / Max20× $200) 로 빠진다. codersera 정리 회피 4가지(DeepSeek CLI 갈아타기 / 오픈소스 프레임워크+자체 API 키 / Cursor IDE 통합 / 혼합 전략) 와, 사실상 5번째 회피로 작동하는 회색지대 자동화(Playwright MCP persistent / BrowserMCP) 를 보강재로 얹는 설계. 본진 5노드는 인터랙티브 풀(텔레그램→챗봇→Playwright 클릭) vs 자율잡 풀(autopilot/night-runner) 두 갈래로만 갈라두면 머리 덜 아픔. 헤드리스 SDK·Computer Use 시각방식은 디폴트 금지."
+    },
+    {
       "file": "2026-05-20-clawd-on-desk-wsl-1to1-pet-connect.md",
       "date": "2026-05-20",
       "slug": "clawd-on-desk-wsl-1to1-pet-connect",
