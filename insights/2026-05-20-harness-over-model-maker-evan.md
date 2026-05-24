@@ -42,3 +42,8 @@ tags: [AI-automation, agents, claude, harness, coding-agent, skills, domain-driv
 ### 새 인사이트 / 적용 가치 (빈틈)
 1. **④ "빌드·테스트·린트 자동검사가 먼저 거르게" — 형님 시스템 최대 빈틈**: night-runner v1 은 read-only 점검(grep/test/lint 보고만)이고 **PR 머지 직전 게이트는 약함**. 2026-05-20 약먹자/더치페이 워킹트리에 SPM 빌드 찌꺼기가 낀 사고도, 머지 전 `flutter analyze` + 빌드가 자동으로 도는 게이트가 있었으면 사람 눈 안 거치고 걸렸을 일. **앱 repo 에 머지 전 analyze 게이트 = 가성비 1위 개선점.**
 2. **③ 도메인별 폴더 + 폴더 전용 규칙 md**: 형님 Flutter 앱들은 아직 파일 종류(screen/widget/util)로 묶임. 신규 기능부터 도메인(약 알림 / 결제 / 동기화)별로 묶고 폴더에 규칙 문서를 두면 AI 작업 범위가 그 폴더로 좁아져 컨텍스트가 깨끗해지고 도메인 일관성 유지. **메모요 1.0.7 작업에 시범 적용 가치.**
+
+## 용어
+- **Harness (하니스)** [하니스 · 패턴]: 모델 주위에 두르는 시스템 — 작업 명세·컨텍스트 선택·도구 접근·메모리·검증·권한 등 11 요소. Cursor 실험에서 같은 모델로 점수 46→80 (34점 차). "모델은 천장을 정하고 하니스는 그 천장에 얼마나 가까이 갈지를 정한다."
+- **Skill (스킬)** [하니스 · 패턴]: markdown 파일로 적은 작업 매뉴얼. name + description 만 자동 로드되고 본문은 필요할 때만 펼침 → 토큰 절약. "썸네일 만들어 줘" 같은 자연어로 자동 호출. 100+ 공개 (Anthropic 16+ + community).
+- **Verification loop** [하니스 · 패턴]: 모델이 자기 work 를 검증할 way 를 제공하는 루프 — Chrome extension 으로 UI 열어 테스트 + iterate. Boris: "이 레벨에서 가장 중요한 것." 품질 2~3x.

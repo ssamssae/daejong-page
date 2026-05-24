@@ -64,3 +64,9 @@ tags: [anthropic, claude-code, agent-sdk, billing, monetization, deepseek, curso
 - [Anthropic OAuth 토큰 정책 — 도구 재사용 금지 (2026-05-21)](../insights/) — 옵션 2 의 "자체 API 키" = Console API 키 별도 발급 의미.
 - [프롬프트 말고 하네스 — 안드레 카파시 코덱스 6원칙 (2026-05-23 바이브랩스)](2026-05-23-harness-not-prompt-codex-vibelabs.md) — "모델 자체 < 하니스 설계" 신호와 정합.
 - 본진 박제 메모리: `reference_anthropic_billing_2026_06_15.md` (5노드 자동 sync).
+
+## 용어
+- **Claude Pro / Max5× / Max20×** [모델 · 구독]: Anthropic 구독 티어. 각각 $20 / $100 / $200 / 월. 2026-06-15 부터 인터랙티브 사용과 자동화(에이전트) 사용이 분리되며 자동화는 별도 monthly credit pool 에서 차감.
+- **Monthly credit pool** [빌링 · 운영]: 2026-06-15 부터 Claude Code 자동화(에이전트) 사용분이 별도로 차감되는 월 단위 크레딧 풀. Pro $20 / Max5× $100 / Max20× $200, full API rate 종량제. 월말 expire — 평소 풍족 사용이 자동화 운영자에게 자연스러움.
+- **Interactive vs Programmatic usage** [빌링 · 운영]: 2026-06-15 빌링 분리의 핵심 — 사람이 직접 치는 1인 인터랙티브 워크로드와 24/7 에이전트 워크로드가 본질적으로 다른 자원 패턴이라는 Anthropic 의 정책 인정.
+- **DeepSeek 헤드리스 CLI** [빌링 · 운영]: Anthropic 한도 초과 시 대안 1 — DeepSeek 모델을 헤드리스 CLI 로 자체 호출.

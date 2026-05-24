@@ -31,3 +31,10 @@ Claude Code 창시자 Boris Cherny 가 "본인은 작년 10월부터 코드 한 
 - AI 시대 Hamilton Helmer 7 powers 재해석 — 스위칭 코스트·프로세스 파워는 약화(모델이 워크플로우/프로세스를 알아서 hill climb), 네트워크 효과·스케일 이코노미·코너드 리소스는 유지. 향후 10년 disruption 스타트업 수가 10x 증가할 거라 예측. 대기업은 프로세스/조직 재정렬 부담, 스타트업은 AI native 시작 가능.
 - Anthropic 내부 작업 방식: "We have no more manually written code anywhere at the company." 모든 SQL·코드를 모델이 작성, Boris 의 Claude 들이 슬랙으로 다른 사람의 Claude 와 직접 대화하며 unknown 을 해소. 외부와 모델 갭은 거의 없고(같은 Opus 4.7 dogfood), 진짜 갭은 조직 프로세스·구조에 있다.
 - 미래 팀은 디스시플린 횡단 제너럴리스트. 엔지니어 안에서의 generalist(iOS+web+server)가 아니라 디자인+코드, 데이터 사이언스+코드 같은 횡단. Clockwork Code 팀은 PM, EM, 디자이너, 데이터 사이언티스트, 파이낸스 담당, 사용자 리서처가 전원 코드를 짠다고 함.
+
+## 용어
+- **Routines (Cloud Routines)** [하니스 · 패턴]: Anthropic cloud 에서 돌아가는 saved Cloud Code config. 머신 꺼져있어도 동작. trigger = schedule / API call / GitHub event. 예: 매일 8am backlog triage.
+- **/loop** [하니스 · 패턴]: cron 으로 반복 작업을 거는 가장 단순한 자동화. Boris Cherny 가 PR 베이비시팅·CI 헬스·트위터 피드백 클러스터링에 수십 개 상시 가동. "루프가 미래다."
+- **Cross-disciplinary generalist** [워크플로우 · 문화]: 디자인 + 코드, 데이터 사이언스 + 코드 같이 디스시플린 횡단형 인재. Anthropic 의 Clockwork Code 팀은 PM·EM·디자이너·DS·재무·UR 전원 코딩.
+- **Printing press analogy (인쇄술 비유)** [워크플로우 · 문화]: 1400년대 인쇄술이 유럽 문해율 10%→70% 까지 끌어올렸듯, 소프트웨어 빌딩도 보편 스킬로 민주화될 것이라는 Boris Cherny 의 비유. 50년보다 훨씬 빠르게.
+- **7 powers (Hamilton Helmer)** [커리어 · 조직]: 사업 해자 프레임워크. AI 시대 = 스위칭 코스트·프로세스 파워 약화 / 네트워크 효과·스케일·코너드 리소스 유지. 향후 10년 disruption 스타트업 10x 예측.
