@@ -25,6 +25,7 @@ from collections import OrderedDict
 ROOT = Path(__file__).resolve().parent.parent
 INSIGHTS_DIR = ROOT / "insights"
 GLOSSARY_HTML = ROOT / "ai-glossary.html"
+INDEX_HTML = ROOT / "index.html"
 
 CATEGORIES_ORDER = [
     "모델 · 구독",
@@ -133,12 +134,33 @@ def forward():
     )
     new_block = BEGIN_MARK + "\n" + data_block + "\n    " + END_MARK
     new_html = pattern.sub(lambda _: new_block, html)
-    if new_html == html:
-        print("forward: no changes")
-        return 0
-    GLOSSARY_HTML.write_text(new_html, encoding="utf-8")
-    print(f"forward: {GLOSSARY_HTML.name} updated ({len(terms)} terms, {sum(1 for v in grouped.values() if v)} categories)")
+    if new_html != html:
+        GLOSSARY_HTML.write_text(new_html, encoding="utf-8")
+        print(f"forward: {GLOSSARY_HTML.name} updated ({len(terms)} terms, {sum(1 for v in grouped.values() if v)} categories)")
+    else:
+        print("forward: ai-glossary.html no changes")
+
+    sync_index_stats(insight_count=len(list(INSIGHTS_DIR.glob("*.md"))), term_count=len(terms))
     return 0
+
+
+def sync_index_stats(insight_count, term_count):
+    if not INDEX_HTML.exists():
+        return
+    html = INDEX_HTML.read_text(encoding="utf-8")
+    new_html = re.sub(
+        r"<!--AUTO-INSIGHTS-START-->\d+<!--AUTO-INSIGHTS-END-->",
+        f"<!--AUTO-INSIGHTS-START-->{insight_count}<!--AUTO-INSIGHTS-END-->",
+        html,
+    )
+    new_html = re.sub(
+        r"<!--AUTO-TERMS-START-->\d+<!--AUTO-TERMS-END-->",
+        f"<!--AUTO-TERMS-START-->{term_count}<!--AUTO-TERMS-END-->",
+        new_html,
+    )
+    if new_html != html:
+        INDEX_HTML.write_text(new_html, encoding="utf-8")
+        print(f"forward: {INDEX_HTML.name} stats updated ({insight_count} insights, {term_count} terms)")
 
 
 def parse_glossary_html():
