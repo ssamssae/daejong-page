@@ -1,12 +1,31 @@
 # Issues Index
 
 _자동 생성됨. 이 파일은 수동 편집 금지 — `python3 ~/.claude/skills/issue/tools/regen_index.py` 로만 갱신._
-_마지막 생성: 2026-05-20 12:16 KST_
+_마지막 생성: 2026-05-24 11:00 KST_
 
 | 날짜 | slug | 제목 | 심각도 | 재발 가능성 | 재발 이력 | 예방 deferred |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-05-24 | [notebook-autologin-wake-unlock](2026-05-24-notebook-autologin-wake-unlock.md) | 노트북 Windows 부팅 자동로그인 + 슬립 wake 잠금 해제 (Hello 정책 우회) | low | medium | — | — |
+| 2026-05-23 | [notebook-balanced-sleep-5h-cuts-remote-access](2026-05-23-notebook-balanced-sleep-5h-cuts-remote-access.md) | 노트북 Windows Balanced 5h idle sleep → Tailnet offline, 원격 노드 통째로 끊김 | ? | ? | — | — |
+| 2026-05-23 | [noninteractive-ssh-claude-binary-misdiagnosis](2026-05-23-noninteractive-ssh-claude-binary-misdiagnosis.md) | 사건 | ? | ? | — | — |
+| 2026-05-23 | [naver-smart-editor-paste-requires-os-click](2026-05-23-naver-smart-editor-paste-requires-os-click.md) | 네이버 SmartEditor 본문 paste 가 진짜 OS-level click 1회를 요구 | ? | ? | — | — |
+| 2026-05-23 | [macos-system-settings-fullauto-pass](2026-05-23-macos-system-settings-fullauto-pass.md) | macOS Sequoia 시스템 설정 풀자동 토글 PASS (본진 자립성 5단계 캘리브레이션) | low (자립성 키운 성공 사례 — 기능 사고 아니라 자동화 능력 확장) | low (성공 패턴 박힘, knowhow 로 재사용) | — | — |
+| 2026-05-23 | [linux-trust-prompt-autostart-gate](2026-05-23-linux-trust-prompt-autostart-gate.md) | 2026-05-23 — Linux 노드 챗봇 autostart trust prompt 게이트 (PASS) | ? | ? | — | — |
+| 2026-05-23 | [hook-misdiagnosis-symlink](2026-05-23-hook-misdiagnosis-symlink.md) | context-threshold-alert hook 경로 symlink 오진 사고 | ? | ? | — | — |
+| 2026-05-23 | [exitplanmode-globals-gap](2026-05-23-exitplanmode-globals-gap.md) | 2026-05-23 — ExitPlanMode 가 글로벌 룰 gap 으로 텔레그램 turn 에서 호출됨 | ? | ? | — | — |
+| 2026-05-23 | [anthropic-cyber-content-block](2026-05-23-anthropic-cyber-content-block.md) | 본진 Claude Code 응답 차단 (Anthropic Usage Policy cyber content 분류기 트리거) | high (본진 전 응답 채널 차단, 형님 일반 메시지 포함 거부) | medium (OAuth/admin elevation/원격 send-keys 패턴은 본진 일상 작업 영역, 추상화 forcing function 없이는 또 트리거 가능) | — | — |
+| 2026-05-22 | [loop-reschedules-without-clear](2026-05-22-loop-reschedules-without-clear.md) | autopilot /loop 이 30% 넘어도 클리어 안 하고 재예약만 반복 | ? | ? | — | — |
+| 2026-05-22 | [autopilot-sessionclear-directive-race](2026-05-22-autopilot-sessionclear-directive-race.md) | autopilot 야간 작업 증발 — session-clear 마커 ↔ directive 도착 race | ? | ? | — | — |
+| 2026-05-22 | [autopilot-macmini-liveness-false-negative](2026-05-22-autopilot-macmini-liveness-false-negative.md) | autopilot 노드 liveness false-negative — 맥미니가 멀쩡한데 "꺼짐"으로 야간 미가동 | ? | ? | — | — |
+| 2026-05-21 | [typing-indicator-drops-during-bg-work](2026-05-21-typing-indicator-drops-during-bg-work.md) | 텔레그램 "입력중…" 인디케이터가 cross-turn 백그라운드 작업 중 끊김 | low (기능 정상, UX/안심 신호만) | high (긴 빌드/인코딩/배포를 백그라운드로 돌릴 때마다) | — | — |
+| 2026-05-21 | [stuck-loop-session-side-effects](2026-05-21-stuck-loop-session-side-effects.md) | 안 닫힌 loop 세션이 Clawd stale 행 + 타이핑 데몬 죽임 (sibling 세션 부작용) | medium | high | — | — |
+| 2026-05-21 | [hook-matching-too-loose-2x](2026-05-21-hook-matching-too-loose-2x.md) | 훅 매칭 느슨 2건 연속 — telegram-stop-ping tail -1 + reverse-reply-check contains 자기참조 | low | medium | — | — |
+| 2026-05-21 | [autopilot-idle-nodes-token-saving](2026-05-21-autopilot-idle-nodes-token-saving.md) | autopilot 6시간 야간 운영 중 본진이 노드를 ~5시간 idle 방치 (임의 "토큰절약") | medium | high (autopilot 자율 운영 디폴트 동작에 내재) | — | — |
 | 2026-05-20 | [wsl-bot-bare-path-no-poll](2026-05-20-wsl-bot-bare-path-no-poll.md) | 2026-05-20 — WSL 텔레그램 봇 무응답: 비대화형 ssh 기동 → bare PATH(node 누락) → 플러그인 폴링 정지 | medium | high | — | — |
+| 2026-05-20 | [memoyo-drive-oauth-dup-gcp-project](2026-05-20-memoyo-drive-oauth-dup-gcp-project.md) | 메모요 Drive 백업 — 동명 GCP 프로젝트 분산으로 앱이 보는 쪽에 Drive API 미활성 | medium | medium | — | — |
+| 2026-05-20 | [mac-report-binary-image-paste](2026-05-20-mac-report-binary-image-paste.md) | 맥미니 mac-report 가 스크린샷 PNG 바이너리를 본문 텍스트로 paste → 본진 컨텍스트 폭증 | medium | high | — | — |
 | 2026-05-20 | [context-show-self-trigger-stuck](2026-05-20-context-show-self-trigger-stuck.md) | context-show 본진 자기 자신 trigger 시 손0 원칙 위반 | ? | ? | — | — |
+| 2026-05-20 | [choso-css-cache-stale-render](2026-05-20-choso-css-cache-stale-render.md) | 초소 PR #6 머지·배포 후에도 라이브가 옛 화면 — CSS 캐시로 새 HTML 이 무스타일 렌더 | low | high | — | — |
 | 2026-05-20 | [cc-version-stale-always-on-node](2026-05-20-cc-version-stale-always-on-node.md) | 2026-05-20 — 본진/WSL Claude Code 구버전 고착 (always-on 노드 nightly-update 영구 skip) | ? | ? | — | — |
 | 2026-05-19 | [wsl-telegram-reply-only-sync-report-missed](2026-05-19-wsl-telegram-reply-only-sync-report-missed.md) | 2026-05-19 🪟 WSL cross-device sync 보고를 텔레그램 reply 단독 송신 → 본진 capture 0 | ? | ? | — | — |
 | 2026-05-19 | [stop-chain-fail-stop-analysis](2026-05-19-stop-chain-fail-stop-analysis.md) | Stop chain `\|\|` 단축 평가 fail-stop 위험 분석 | ? | ? | — | — |
@@ -43,6 +62,7 @@ _마지막 생성: 2026-05-20 12:16 KST_
 | 2026-05-14 | [macmini-plugin-cache](2026-05-14-macmini-plugin-cache.md) | mac mini Claude Code 텔레그램 plugin MCP server spawn 실패 (launchd PATH 누락) | medium | low (PATH 박힌 후) | — | — |
 | 2026-05-14 | [macmini-launchd-claude-channels-flag-missing](2026-05-14-macmini-launchd-claude-channels-flag-missing.md) | mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨) | medium | low (plist 패치 후 차단) | — | — |
 | 2026-05-14 | [macmini-bot-token-grep-leak](2026-05-14-macmini-bot-token-grep-leak.md) | TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출 | medium | medium | — | — |
+| 2026-05-14 | [launchd-plist-path](2026-05-14-launchd-plist-path.md) | tmux-claude.plist 의 PATH 누락으로 텔레그램 plugin 자동 재기동 시 spawn 실패 | medium (특정 사용자 봇 통로 끊김, 외부 데이터 손실 없음) | high (본진 `com.user.tmux-claude.plist` / `com.user.tmux-main.plist` 에도 같은 PATH 누락 잔존) | — | — |
 | 2026-05-13 | [mac-report-reverse-reply-missed](2026-05-13-mac-report-reverse-reply-missed.md) | mac-report 1차 회신 누락 — Mac→WSL reverse reply 빠뜨림 | medium | medium-high (2026-04-20 telegram-only reply 와 동일 패턴, 채널 누락 일반화 함정) | — | — |
 | 2026-05-13 | [fleet-state-mac-mini-divergence](2026-05-13-fleet-state-mac-mini-divergence.md) | fleet-state mac-mini local main divergence — reviewer parity bats 의 local-only commit 누적 | low (한 줄 reset 으로 즉시 해결, 손실 데이터 0) | low-after-fix (FLEET_NO_PUSH 가드 적용 후 bats 가 local commit 도 생성 안 함 — 실제로는 commit 은 여전히 생성, push 만 차단) | 2회 | — |
 | 2026-05-13 | [desktop3060ti-claude-automations-absent](2026-05-13-desktop3060ti-claude-automations-absent.md) | desktop3060ti `~/.claude/automations/` repo 부재 — WSL 디렉티브 회수 시 surface | medium (다기기 회수 자동화의 호환성 함정 surface) | medium (다른 기기에서도 같은 패턴 가능 — hermes, 향후 추가 노드) | 1회 | — |
@@ -99,7 +119,7 @@ _마지막 생성: 2026-05-20 12:16 KST_
 | 2026-04-21 | [memory-skill-duplication](2026-04-21-memory-skill-duplication.md) | 메모리에 스킬 파일로 유도 가능한 내용을 중복 저장 | low (메모리 오염, 토큰 낭비) | high (가드 없음) | — | — |
 | 2026-04-21 | [mac-wsl-todos-desync](2026-04-21-mac-wsl-todos-desync.md) | Mac 과 WSL 이 같은 심사레이더 작업을 병렬로 붙잡고 todos 정합성 파탄 | medium (잘못된 커밋 1건 + 사용자 혼란 + 양 기기 불일치, 다만 실제 파괴적 액션은 없음) | high (현재 구조상 기기 간 todo 상태 sync 가 인간 개입에만 의존) | — | — |
 | 2026-04-21 | [launchd-silent-job-dropout](2026-04-21-launchd-silent-job-dropout.md) | launchd 가 등록된 잡을 소리 없이 떨궈서 수 주 동안 자동 스케줄 유실 | medium (자동화 잡 2개가 몇 주간 침묵 실행 실패 가능성) | medium (launchd 수동 편집 시마다 동일 현상 가능) | 1회 | — |
-| 2026-04-20 | [terminal-only-reply-missed-telegram](2026-04-20-terminal-only-reply-missed-telegram.md) | Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락 | high (사용자 의사소통 차단) | high (같은 세션에서 여러 번 반복 확인됨) | 7회 | — |
+| 2026-04-20 | [terminal-only-reply-missed-telegram](2026-04-20-terminal-only-reply-missed-telegram.md) | Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락 | high (사용자 의사소통 차단) | high (같은 세션에서 여러 번 반복 확인됨) | 9회 | — |
 | 2026-04-20 | [telegram-typing-midsession-drop](2026-04-20-telegram-typing-midsession-drop.md) | 텔레그램 typing 표시가 채팅 중 "한번 쏘고" 완전 정지 | low (UX, 응답 중 상태 불투명) | medium | 12회 | — |
 | 2026-04-20 | [telegram-client-delivery-lag](2026-04-20-telegram-client-delivery-lag.md) | 텔레그램 답변이 "안 오는 것처럼" 보인 지연 현상 | medium | medium | — | — |
 | 2026-04-20 | [irun-locked-iphone](2026-04-20-irun-locked-iphone.md) | /irun 재배포 시 "Could not run Runner.app" 반복 — 실제 원인은 아이폰 잠금 | medium | high | — | — |
