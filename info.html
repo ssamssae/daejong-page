@@ -82,6 +82,45 @@
 
   <div class="list">
 
+    <!-- Entry: BrowserMCP -->
+    <div class="info-card">
+      <div class="info-card-tag">에이전트 / 회색지대 자동화</div>
+      <div class="info-card-title">BrowserMCP — 본인 Chrome 에 붙어 회색지대 사이트 자동화</div>
+      <p style="font-size: 13px; color: #4E5968; margin-bottom: 10px;">
+        공식 API 가 막히거나 토큰·rate limit 으로 자주 끊기는 <strong>회색지대 사이트</strong>(네이버·인스타·당근·부동산 등) 를 사람처럼 클릭해 자동화하기 위한 MCP 서버. 본인이 평소 켜둔 Chrome 창에 붙어서 그 탭의 DOM 을 읽고 명령을 흘려넣는다. 본인 로그인 세션·쿠키·브라우저 핑거프린트를 그대로 들고 가서, 깨끗한 chromium 으로 띄우는 Playwright 보다 Cloudflare·네이버 봇 탐지를 훨씬 잘 통과한다.
+      </p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>방식</th>
+            <th>비용·속도</th>
+            <th>봇 탐지</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Computer Use (시각)</td>
+            <td>스크린샷 + LLM 1만 토큰/클릭, 5~15초</td>
+            <td>강함 (사람처럼 보임)</td>
+          </tr>
+          <tr>
+            <td>Playwright clean chromium</td>
+            <td>무료·빠름</td>
+            <td>약함 (Cloudflare 차단)</td>
+          </tr>
+          <tr>
+            <td>BrowserMCP / Playwright persistent</td>
+            <td>무료·빠름</td>
+            <td>강함 (본인 세션 그대로)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>실전 팁:</strong> 본진 맥은 이미 Playwright MCP + persistent context 로 같은 효과를 운영 중 — 네이버 블로그 자동 발행, 유튜브 스튜디오 업로드, Play Console "앱 만들기" 폼, ASC 심사 클릭이 전부 이 방식으로 돈다. BrowserMCP 의 차이는 attach 지점 — 평소 쓰는 Chrome 창에 직접 끼어드는 쪽이라 인터랙티브 디버깅("이 탭 한 번 봐봐") 에 살짝 편하고, Playwright persistent 는 별도 프로필 창이라 자동화 본진과 형님 평상시 브라우저가 깔끔하게 분리된다. 본질은 동일, 새로 깔 필요는 아직 X.
+      </div>
+      <div class="date">2026-05-24</div>
+    </div>
+
     <!-- Entry: acpx -->
     <div class="info-card">
       <div class="info-card-tag">에이전트 / 신기술 catch-up</div>
