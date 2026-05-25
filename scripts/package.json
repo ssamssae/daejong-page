@@ -4,9 +4,11 @@
   "private": true,
   "description": "daejong-page 보조 스크립트 (OG 이미지 빌더 등)",
   "scripts": {
-    "build:og": "node build-og-image.js"
+    "build:og": "node build-og-image.js",
+    "build:favicon": "node build-favicon.js"
   },
   "dependencies": {
-    "@resvg/resvg-js": "^2.6.0"
+    "@resvg/resvg-js": "^2.6.0",
+    "png-to-ico": "^3.0.1"
   }
 }
