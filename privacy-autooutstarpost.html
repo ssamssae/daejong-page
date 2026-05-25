@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>autooutstarpost 개인정보 처리방침</title>
+  <meta name="description" content="autooutstarpost(인스타그램 자동 발행 도구) 개인정보 처리방침 — 사용자 1명(본인) 전용, 본인 작업일지 텍스트만 처리, 외부 제3자 공유 없음.">
+  <meta property="og:title" content="autooutstarpost 개인정보 처리방침">
+  <meta property="og:description" content="autooutstarpost 개인정보 처리방침 — 본인 전용 1인 도구, 외부 제3자 공유 없음.">
+  <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://work.kangdaejong.com/privacy-autooutstarpost.html">
+  <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="autooutstarpost 개인정보 처리방침">
+  <meta name="twitter:description" content="autooutstarpost 개인정보 처리방침 — 본인 전용 1인 도구, 외부 제3자 공유 없음.">
+  <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
+  <link rel="canonical" href="https://work.kangdaejong.com/privacy-autooutstarpost.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://work.kangdaejong.com/#person",
+      "name": "강대종",
+      "jobTitle": "Solo founder / Vibe coder",
+      "url": "https://work.kangdaejong.com/",
+      "sameAs": ["https://github.com/ssamssae"],
+      "description": "1인 개발자 / Vibe coder / Solo founder"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://work.kangdaejong.com/#website",
+      "name": "강대종",
+      "url": "https://work.kangdaejong.com/",
+      "inLanguage": "ko",
+      "author": {"@id": "https://work.kangdaejong.com/#person"}
+    }
+  ]
+}
+</script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #FFFFFF;
+      color: #191F28;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', sans-serif;
+      line-height: 1.7;
+      padding: 32px 20px;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 28px; margin-bottom: 8px; color: #3182F6; }
+    .sub { color: #4E5968; margin-bottom: 32px; font-size: 14px; }
+    h2 { font-size: 18px; color: #3182F6; margin: 28px 0 10px; }
+    p { margin-bottom: 12px; color: #191F28; font-size: 15px; }
+    ul { margin: 0 0 12px 20px; color: #191F28; font-size: 15px; }
+    ul li { margin-bottom: 6px; }
+    a { color: #3182F6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #E5E8EB; font-size: 13px; color: #8B95A1; text-align: center; }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>autooutstarpost 개인정보 처리방침</h1>
+    <div class="sub">최종 업데이트: 2026년 5월 25일</div>
+
+    <h2>개요</h2>
+    <p>autooutstarpost 는 강대종 본인의 인스타그램(@ssamssae_log) 자동 발행을 위한 1인 전용 내부 도구입니다. 본인 계정 1개만 연결되어 있고, 외부 사용자에게 제공되거나 가입을 받지 않습니다. 본 도구의 사용자는 강대종 본인 1명뿐이며, 본인의 작업일지를 카드 이미지로 변환해 본인의 인스타그램에 게시하는 작업만 수행합니다.</p>
+
+    <h2>처리하는 정보</h2>
+    <p>autooutstarpost 는 다음 정보만 처리합니다.</p>
+    <ul>
+      <li><strong>본인 인스타그램 액세스 토큰</strong> — 강대종 본인의 인스타그램 비즈니스 계정에 게시하기 위한 Meta Graph API Page 토큰. 로컬 파일(<code>~/.claude/secrets/instagram.json</code>)에만 보관.</li>
+      <li><strong>본인 작업일지 텍스트</strong> — 강대종 본인이 작성한 일일 작업일지 마크다운 파일(<code>~/daejong-page/worklog/YYYY-MM-DD_*.md</code>). 일반 공개 페이지에 이미 게시 중인 본인 콘텐츠.</li>
+      <li><strong>Meta Graph API 호출 로그</strong> — 게시 성공·실패 여부, 게시 시각, 오류 메시지. 로컬 파일에만 저장.</li>
+    </ul>
+
+    <h2>처리 흐름</h2>
+    <p>autooutstarpost 의 동작은 다음 한 줄로 끝납니다.</p>
+    <ul>
+      <li>본인 작업일지 텍스트를 카드 이미지 5장(1080×1350 PNG)으로 렌더링한다.</li>
+      <li>렌더링된 이미지를 본인의 GitHub Pages(<code>work.kangdaejong.com</code>)에 호스팅한다.</li>
+      <li>Meta Graph API 를 호출해 본인의 인스타그램 비즈니스 계정에 캐러셀로 게시한다.</li>
+    </ul>
+    <p>처리되는 데이터는 모두 본인의 데이터이며, 본인 외 다른 사용자의 데이터는 입력되지도 처리되지도 않습니다.</p>
+
+    <h2>제3자 제공 및 공유</h2>
+    <p>autooutstarpost 는 본인의 데이터를 외부 제3자에게 제공하거나 판매하지 않습니다. 광고·분석 SDK·트래킹 도구를 포함하지 않으며, 본인 외 다른 사용자가 본 도구를 사용할 수 없습니다.</p>
+    <p>본 도구가 호출하는 외부 서비스는 다음과 같습니다.</p>
+    <ul>
+      <li><strong>Meta Graph API</strong> — 인스타그램 게시 자체에 필요한 호출. 게시할 카드 이미지 URL 과 캡션 텍스트만 전달.</li>
+      <li><strong>Anthropic API(선택적)</strong> — 작업일지 텍스트를 카드용 캡션으로 다듬는 LLM 호출. 본인의 작업일지 텍스트(이미 공개 페이지에 게시된 콘텐츠)만 입력.</li>
+    </ul>
+    <p>위 외부 서비스 호출은 모두 게시 1건을 만들기 위해 필요한 직접 호출이며, 본 도구가 별도 서버에 데이터를 보관하지 않습니다.</p>
+
+    <h2>데이터 보관·삭제</h2>
+    <p>본인의 인스타그램 액세스 토큰과 호출 로그는 본인 기기의 로컬 파일에만 저장됩니다. 본인이 토큰을 삭제하면 본 도구는 즉시 동작을 중단합니다. 작업일지 텍스트의 원본은 본인 GitHub 저장소가 SoT 이며, 본 도구는 사본을 별도 보관하지 않습니다.</p>
+
+    <h2>어린이 개인정보 보호</h2>
+    <p>autooutstarpost 는 본인 1인 전용 도구로, 외부 사용자(만 13세 미만 포함)의 개인정보를 수집하지 않습니다.</p>
+
+    <h2>정책 변경</h2>
+    <p>본 개인정보 처리방침은 도구의 기능 변경에 따라 업데이트될 수 있습니다. 변경 사항이 있을 경우 이 페이지에 반영되며, 최종 업데이트 날짜가 갱신됩니다.</p>
+
+    <h2>연락처</h2>
+    <p>개인정보 처리방침에 관한 문의는 아래 이메일로 연락해 주시기 바랍니다.</p>
+    <p>이메일: <a href="mailto:ssamssae@me.com">ssamssae@me.com</a></p>
+    <p>개인 홈페이지: <a href="https://work.kangdaejong.com">https://work.kangdaejong.com</a></p>
+
+    <footer>
+      © 2026 강대종 · autooutstarpost (1인 전용 도구)
+    </footer>
+  </div>
+</body>
+</html>
