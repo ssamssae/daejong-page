@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-25-mac-report-nomatch-skips-mirror.md",
+      "date": "2026-05-25",
+      "slug": "mac-report-nomatch-skips-mirror",
+      "title": "mac-report.sh ssh chain 의 zsh NOMATCH 가 mirror chain 통째로 skip",
+      "severity": "high",
+      "recurrence": "low",
+      "scope": "mac-report.sh (4 노드 → 본진 보고 전 경로), 본진 봇 chat + Agent Mesh Mirror 그룹 양쪽 mirror",
+      "occurred_at": "2026-05-25",
+      "resolved_at": "2026-05-25",
+      "updated": "2026-05-25T19:36:33.240217+09:00"
+    },
+    {
       "file": "2026-05-24-notebook-autologin-wake-unlock.md",
       "date": "2026-05-24",
       "slug": "notebook-autologin-wake-unlock",
