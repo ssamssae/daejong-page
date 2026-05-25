@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-25-claude-cyber-verification-block.md",
+      "date": "2026-05-25",
+      "slug": "claude-cyber-verification-block",
+      "title": "본진 audit directive 어휘 cyber 분류 → 노트북 Claude Code 세션 prompt 차단",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "본진 → 4 노드 directive 본문 어휘. Claude API Usage Policy 분류기.",
+      "occurred_at": "2026-05-25",
+      "resolved_at": "2026-05-25",
+      "updated": "2026-05-25T19:44:13.023298+09:00"
+    },
+    {
       "file": "2026-05-25-mac-report-nomatch-skips-mirror.md",
       "date": "2026-05-25",
       "slug": "mac-report-nomatch-skips-mirror",
