@@ -1,0 +1,12 @@
+{
+  "name": "daejong-page-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "daejong-page 보조 스크립트 (OG 이미지 빌더 등)",
+  "scripts": {
+    "build:og": "node build-og-image.js"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.0"
+  }
+}
