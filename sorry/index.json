@@ -1,0 +1,136 @@
+{
+  "entries": [
+    {
+      "ts": "2026-05-25T07:30:05.000Z",
+      "date": "2026-05-25",
+      "node": "🍎 본진",
+      "slug": "auto-20260525073005000-🍎",
+      "uuid": "test-verify-uuid-001",
+      "title": "[auto] 테스트 응답 본문입니다. 형님 죄송합니다 — 이건 hook verify 용 가짜 사과입니다. dedup 검증...",
+      "summary": "테스트 응답 본문입니다. 형님 죄송합니다 — 이건 hook verify 용 가짜 사과입니다. dedup 검증도 같이. ",
+      "full_text": "테스트 응답 본문입니다. 형님 죄송합니다 — 이건 hook verify 용 가짜 사과입니다. dedup 검증도 같이.",
+      "auto_detected": true
+    },
+    {
+      "ts": "2026-05-25T15:14:00+09:00",
+      "date": "2026-05-25",
+      "node": "🍎 본진",
+      "slug": "2026-05-25-master-ack-surface-rule-violation-x2",
+      "title": "본진 ack 요청 옵션 surface 룰 위반 × 2회 (같은 사이클)",
+      "summary": "결과의 적용 단계도 자율 결정해야 하는데 본진이 같은 사이클 안에서 형님께 옵션 surface 후 ack 대기를 2회 반복. feedback_node_report_autonomous_judgment / feedback_no_ask_for_delegation / feedback_result_report_next_step_chain 3개 룰이 다 박혀있었는데도 행동 안 따름.",
+      "fix": "박은 룰: \"결과의 적용 단계 sub-decision 도 자율, 트리거 시점만 ack 분리\" 메타 forcing function 한 줄을 CLAUDE.md 5룰 마지막에 신설.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-25-master-ack-surface-rule-violation-x2.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-05-25T15:28:00+09:00",
+      "date": "2026-05-25",
+      "node": "🍎 본진",
+      "slug": "2026-05-25-typing-daemon-paused-on-idle-mismatch",
+      "title": "본진 typing daemon — pause-flag fix 후 idle 시 silent vs 형님 기대 mismatch",
+      "summary": "turn hook SIGTERM/kill 폐기하고 pause-flag stat-check 로 전환한 게 의도된 동작은 맞는데, 형님 기대(본진 alive 시그널은 항상 typing) 와 mismatch 발생. 형님이 \"보이다 갑자기 안 됨\" 호소 2회.",
+      "fix": "박은 룰: 이슈 박힘, 추가 fix 옵션(Stop hook flag touch 제거 / deferred touch) 은 형님 명시 ack 시 진입.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-25-typing-daemon-paused-on-idle-mismatch.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-05-25T14:00:00+09:00",
+      "date": "2026-05-25",
+      "node": "💻 노트북",
+      "slug": "2026-05-25-notebook-sdxl-oom-cascade-x2",
+      "title": "노트북 SDXL OOM cascade × 2회 (claude chatbot 동반사살)",
+      "summary": "SDXL inference 가 anon-rss 9.27GB 까지 부풀어 OOM killer 발동. claude chatbot 이 같은 tmux-spawn cgroup scope 공유라 동반사망. 형님이 매번 구글 원격으로 수동 재기동.",
+      "fix": "박은 룰: 5노드 챗봇/장기 background 격리·자가복구 표준 (CLAUDE.md hard rule). systemd --user unit + Restart=always + OOMScoreAdjust≤-500, ML 워크로드는 별 cgroup scope 격리(systemd-run --user --scope -p MemoryMax). mesh-vote 5/5 합의.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-25-notebook-sdxl-oom-cascade-x2.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-05-24T20:25:00+09:00",
+      "date": "2026-05-24",
+      "node": "🍎 본진",
+      "slug": "2026-05-24-wsl-ack-missing-after-cross-routing",
+      "title": "본진→WSL reverse ack 운반체 누락 — 형님 WSL 채팅 침묵",
+      "summary": "형님이 WSL 채팅에서 본진에 directive 보냈는데 본진이 본진 채팅에만 결과 보고, WSL 채팅으로 reverse ack 안 보냄. 텔레그램 봇별 채팅이 완전 분리돼서 본진 봇 reply 가 WSL 봇 채팅에 mirror 안 됨을 잠시 잊음.",
+      "fix": "박은 룰: feedback_two_channel_ack_after_cross_routing — cross-routing 받으면 본진 채팅 reply + 원 노드 *-directive.sh -f 둘 다 필수.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-24-wsl-ack-missing-after-cross-routing.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-05-23T03:30:00+09:00",
+      "date": "2026-05-23",
+      "node": "🍎 본진",
+      "slug": "2026-05-23-hook-misdiagnosis-symlink",
+      "title": "context-threshold-alert hook 경로 symlink 오진 — 멀쩡한 hook 을 \"silent fail 중\" 단정",
+      "summary": "settings.json 등록 경로와 실제 파일 디렉토리가 달라 보여서 \"경로 오타로 매 turn silent fail\" 단정. 형님이 \"그 메시지는 이미 오고 있었어\" 스샷 첨부해 정정. inode 보니 두 경로가 같은 inode = symlink 통과해 동일 파일이었음.",
+      "fix": "박은 룰: feedback_inode_check_before_silent_fail_claim — 외관만 보고 silent fail 단정 X, stat -f \"%i\" / readlink / test -L 거쳐 진단.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-23-hook-misdiagnosis-symlink.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-05-23T11:00:00+09:00",
+      "date": "2026-05-23",
+      "node": "🍎 본진",
+      "slug": "2026-05-23-noninteractive-ssh-claude-binary-misdiagnosis",
+      "title": "비대화형 SSH 에서 claude binary 부재로 오진 — 형님 \"노드 표준화로 다 깔았잖아\"",
+      "summary": "WSL 챗봇 응답 0 진단하며 ssh wsl 'which claude' 0건 보고 \"CLI 미설치\" 단정. 메모리에 \"비대화형 ssh 는 .bashrc 안 읽음 → bash -ic 로 확인\" 룰이 박혀있었는데 적용 안 함. 형님 정정 후 재진단 = nvm 경로에 정상 설치돼있었음.",
+      "fix": "박은 룰: feedback_correct_user_when_info_conflicts — 형님 발화가 사실/기록과 충돌하면 부드럽게 수용 X, 명확히 지적. 이번 사고는 본진이 형님에 의해 정정당한 케이스.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-23-noninteractive-ssh-claude-binary-misdiagnosis.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-05-21T07:30:00+09:00",
+      "date": "2026-05-21",
+      "node": "🍎 본진",
+      "slug": "2026-05-21-autopilot-idle-nodes-token-saving",
+      "title": "autopilot 6시간 야간 운영 중 본진이 노드를 ~5시간 idle 방치 (임의 \"토큰절약\")",
+      "summary": "형님이 \"6시간 굴려\" 자율 운영 지시. 본진이 1차 dispatch 후 4노드 다 끝나자 2차 배정 안 하고 폴링 간격 늘려 ~5시간 idle. 형님 기상 후 \"25분마다 일 준다며 안줬는데?\" 지적. 요청받지 않은 \"토큰 절약\" 을 임의로 끼워넣은 게 원인.",
+      "fix": "박은 룰: feedback_autopilot_keep_nodes_loaded — 노드 끝나는 대로 backlog 다음 덩어리 즉시 재배정, 임의 throttle 금지. autopilot SKILL.md 안전벨트에 forcing 룰 추가.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-21-autopilot-idle-nodes-token-saving.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-05-19T22:15:00+09:00",
+      "date": "2026-05-19",
+      "node": "🪟 WSL",
+      "slug": "2026-05-19-wsl-telegram-reply-only-sync-report-missed",
+      "title": "WSL cross-device sync 보고를 텔레그램 reply 단독 송신 → 본진 capture 0",
+      "summary": "본진이 5노드 git pull sync directive fan-out. 4노드는 mac-report.sh 경유로 본진 tmux 에 보고 paste, WSL 만 자기 봇 채팅에 텔레그램 reply 단독 송신. 본진 챗봇은 자기 봇 채팅만 봐서 WSL 보고 capture 0, ~1.5시간 idle.",
+      "fix": "박은 룰: feedback_telegram_reply_with_mac_report — cross-device 보고는 mac-report.sh 3-channel 의무, 텔레그램 reply 단독 X. 본 사고 직후 feedback_apology_triggers_postmortem 5단계 룰 신설(2026-05-19).",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-19-wsl-telegram-reply-only-sync-report-missed.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-05-14T23:36:00+09:00",
+      "date": "2026-05-14",
+      "node": "🏭 맥미니",
+      "slug": "2026-05-14-macmini-self-identity-default-mac-bonjin",
+      "title": "맥미니 Claude Code 가 자기 정체성을 \"Mac 본진\" 으로 오인",
+      "summary": "맥미니가 형님 채팅에 일관되게 🍎 prefix + \"Mac 본진에서 답하고 있다\" 식 답변. TELEGRAM_BOT_USERNAME env 미설정 + 봇토큰/hostname inference 안 함 → LLM 가 학습된 priori (CLAUDE.md 첫 매핑 = Mac 본진) 으로 기본값 잡음.",
+      "fix": "박은 룰: SessionStart hook 으로 봇 username 자동 inject + CLAUDE.md prefix 룰에 봇 username 우선 식별 명시. 2026-05-20 2차 재발 후 추가 보강.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-14-macmini-self-identity-default-mac-bonjin.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-04-27T17:09:00+09:00",
+      "date": "2026-04-27",
+      "node": "🍎 본진",
+      "slug": "2026-04-27-telegram-msg-id-leak",
+      "title": "텔레그램 답장에 Bot API raw msg ID 인용 — \"7930 못 받으셨어요?\"",
+      "summary": "메시지 도달 디버깅 중에 Bot API 가 sent 후 돌려준 raw msg ID 를 답장 본문에 그대로 인용. 형님 폰 텔레그램 UI 에는 이 ID 가 안 보이는데도 챗봇은 자기 디버깅 컨텍스트에 살아있다보니 새어 들어감. 형님: \"7930이 누군데\".",
+      "fix": "박은 룰: feedback_no_raw_telegram_msg_ids + PreToolUse hook telegram-reply-no-raw-id.sh 신설 — reply 본문에 raw msg id 정규식 매치 시 block.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-04-27-telegram-msg-id-leak.md",
+      "auto_detected": false
+    },
+    {
+      "ts": "2026-04-20T09:10:00+09:00",
+      "date": "2026-04-20",
+      "node": "🪟 WSL",
+      "slug": "2026-04-20-terminal-only-reply-missed-telegram",
+      "title": "Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락",
+      "summary": "형님이 텔레그램으로 스킬 설계 질문 보냄. WSL 챗봇이 설계안을 터미널에 길게 출력하고 reply 툴 호출 없이 응답 종료. 형님 폰엔 아무것도 안 떠 \"또 텔레그램 답변이 안오는데?\" 인지. 긴 답변일수록 마지막 단계에서 reply 빠뜨리는 패턴.",
+      "fix": "박은 룰: feedback_telegram_reply_tool_mandatory + Stop hook telegram-reply-check.sh 신설 — telegram-origin 인데 reply 0회면 block. 모든 텔레그램 답변 forcing function 의 시초.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-04-20-terminal-only-reply-missed-telegram.md",
+      "auto_detected": false
+    }
+  ]
+}
