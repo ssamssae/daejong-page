@@ -4,6 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>작업일지 뉴스레터 - 강대종</title>
+  <meta name="description" content="강대종의 작업일지 뉴스레터 상세 페이지. 하루 동안의 앱 개발, 자동화, 출시 준비, 문제 해결 과정을 원문 형태로 읽습니다.">
+  <link rel="canonical" href="https://work.kangdaejong.com/worklog/view.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://work.kangdaejong.com/worklog/view.html">
+  <meta property="og:title" content="작업일지 뉴스레터 - 강대종">
+  <meta property="og:description" content="강대종의 작업일지 뉴스레터 상세 페이지. 하루 동안의 앱 개발, 자동화, 출시 준비, 문제 해결 과정을 원문 형태로 읽습니다.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="강대종">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="작업일지 뉴스레터 - 강대종">
+  <meta name="twitter:description" content="강대종의 작업일지 뉴스레터 상세 페이지. 하루 동안의 앱 개발, 자동화, 출시 준비, 문제 해결 과정을 원문 형태로 읽습니다.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "강대종",
+        "url": "https://work.kangdaejong.com/",
+        "inLanguage": "ko"
+      },
+      {
+        "@type": "CollectionPage",
+        "name": "작업일지 뉴스레터",
+        "description": "앱 개발, 자동화, 스킬 구축, 출시 준비 과정을 기록한 작업일지 상세 페이지의 정적 폴백입니다.",
+        "url": "https://work.kangdaejong.com/worklog/view.html",
+        "inLanguage": "ko",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "강대종",
+          "url": "https://work.kangdaejong.com/"
+        }
+      }
+    ]
+  }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -170,6 +206,30 @@
       return v;
     }
 
+    function injectBlogPostingJsonLd(parsed, title) {
+      var data = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: title || (parsed.date + (parsed.version ? ' · ' + parsed.version : '') + ' 작업일지'),
+        datePublished: parsed.date,
+        author: {
+          '@type': 'Person',
+          name: '강대종'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: '강대종',
+          url: 'https://work.kangdaejong.com'
+        },
+        mainEntityOfPage: window.location.href,
+        inLanguage: 'ko'
+      };
+      var script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(data);
+      document.head.appendChild(script);
+    }
+
     async function loadVersionNav(date, currentFile) {
       try {
         var res = await fetch('./index.json?_=' + Date.now());
@@ -230,6 +290,7 @@
         }
         toolbarEl.style.display = 'flex';
         githubLink.href = 'https://github.com/ssamssae/daejong-page/blob/main/worklog/' + file;
+        injectBlogPostingJsonLd(parsed, firstLine.replace(/^#+\s*/, ''));
 
         copyBtn.onclick = function() {
           navigator.clipboard.writeText(text).then(function() {

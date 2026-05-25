@@ -4,7 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>인사이트 상세 - 강대종</title>
-  <meta name="description" content="영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트의 풀 노트.">
+  <meta name="description" content="영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트 상세 노트. 출처, 핵심 요약, 내 시각, 적용 권고를 함께 정리합니다.">
+  <link rel="canonical" href="https://work.kangdaejong.com/insight.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://work.kangdaejong.com/insight.html">
+  <meta property="og:title" content="인사이트 상세 - 강대종">
+  <meta property="og:description" content="영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트 상세 노트. 출처, 핵심 요약, 내 시각, 적용 권고를 함께 정리합니다.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="강대종">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="인사이트 상세 - 강대종">
+  <meta name="twitter:description" content="영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트 상세 노트. 출처, 핵심 요약, 내 시각, 적용 권고를 함께 정리합니다.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "강대종",
+        "url": "https://work.kangdaejong.com/",
+        "inLanguage": "ko"
+      },
+      {
+        "@type": "CollectionPage",
+        "name": "강대종 인사이트 컬렉션",
+        "description": "영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트 상세 노트의 정적 폴백 페이지입니다.",
+        "url": "https://work.kangdaejong.com/insight.html",
+        "inLanguage": "ko",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "강대종",
+          "url": "https://work.kangdaejong.com/"
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -232,6 +267,30 @@
       return map[type] || type || '기타';
     }
 
+    function injectArticleJsonLd(entry) {
+      const data = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: entry.title,
+        datePublished: entry.date,
+        author: {
+          '@type': 'Person',
+          name: '강대종'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: '강대종',
+          url: 'https://work.kangdaejong.com'
+        },
+        mainEntityOfPage: window.location.href,
+        inLanguage: 'ko'
+      };
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(data);
+      document.head.appendChild(script);
+    }
+
     function renderBody(text) {
       if (!text) return '';
       const lines = text.split('\n');
@@ -360,6 +419,7 @@
         const md = await r.text();
         const parsed = parseInsightMd(md);
         render(entry, parsed);
+        injectArticleJsonLd(entry);
         document.title = (parsed.title || entry.title || '인사이트 상세') + ' - 강대종';
       } catch (e) {
         viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
