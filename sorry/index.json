@@ -1,17 +1,6 @@
 {
   "entries": [
     {
-      "ts": "2026-05-25T07:30:05.000Z",
-      "date": "2026-05-25",
-      "node": "🍎 본진",
-      "slug": "auto-20260525073005000-🍎",
-      "uuid": "test-verify-uuid-001",
-      "title": "[auto] 테스트 응답 본문입니다. 형님 죄송합니다 — 이건 hook verify 용 가짜 사과입니다. dedup 검증...",
-      "summary": "테스트 응답 본문입니다. 형님 죄송합니다 — 이건 hook verify 용 가짜 사과입니다. dedup 검증도 같이. ",
-      "full_text": "테스트 응답 본문입니다. 형님 죄송합니다 — 이건 hook verify 용 가짜 사과입니다. dedup 검증도 같이.",
-      "auto_detected": true
-    },
-    {
       "ts": "2026-05-25T15:14:00+09:00",
       "date": "2026-05-25",
       "node": "🍎 본진",
