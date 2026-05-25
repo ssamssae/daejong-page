@@ -3,3 +3,8 @@
 
 # macOS
 .DS_Store
+
+# scripts/build-og-image.js build artifacts (2026-05-25)
+scripts/.fonts/
+scripts/node_modules/
+scripts/package-lock.json
