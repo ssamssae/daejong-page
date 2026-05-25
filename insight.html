@@ -16,6 +16,32 @@
   <meta name="twitter:description" content="영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트의 풀 노트.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/homepage_icon.svg">
   <meta name="description" content="영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트의 풀 노트.">
+  <link rel="canonical" href="https://work.kangdaejong.com/insight.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://work.kangdaejong.com/#website",
+        "name": "강대종",
+        "url": "https://work.kangdaejong.com/",
+        "inLanguage": "ko"
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://work.kangdaejong.com/insight.html#collection",
+        "name": "강대종 인사이트 컬렉션",
+        "description": "영상·책·팟캐스트·아티클·토크에서 뽑아낸 인사이트 상세 페이지.",
+        "url": "https://work.kangdaejong.com/insight.html",
+        "inLanguage": "ko",
+        "isPartOf": {
+          "@id": "https://work.kangdaejong.com/#website"
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -243,6 +269,29 @@
       return map[type] || type || '기타';
     }
 
+    function injectArticleJsonLd(entry) {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: entry.title,
+        datePublished: entry.date,
+        author: {
+          '@type': 'Person',
+          name: '강대종'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: '강대종',
+          url: 'https://work.kangdaejong.com'
+        },
+        mainEntityOfPage: window.location.href,
+        inLanguage: 'ko'
+      });
+      document.head.appendChild(script);
+    }
+
     function renderBody(text) {
       if (!text) return '';
       const lines = text.split('\n');
@@ -371,6 +420,7 @@
         const md = await r.text();
         const parsed = parseInsightMd(md);
         render(entry, parsed);
+        injectArticleJsonLd(entry);
         document.title = (parsed.title || entry.title || '인사이트 상세') + ' - 강대종';
       } catch (e) {
         viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';

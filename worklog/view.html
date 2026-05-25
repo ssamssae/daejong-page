@@ -4,6 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>작업일지 뉴스레터 - 강대종</title>
+  <link rel="canonical" href="https://work.kangdaejong.com/worklog/view.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://work.kangdaejong.com/#website",
+        "name": "강대종",
+        "url": "https://work.kangdaejong.com/",
+        "inLanguage": "ko"
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://work.kangdaejong.com/worklog/view.html#collection",
+        "name": "작업일지 뉴스레터",
+        "description": "하루치 작업을 뉴스레터 톤으로 풀어 쓴 작업일지 상세 페이지.",
+        "url": "https://work.kangdaejong.com/worklog/view.html",
+        "inLanguage": "ko",
+        "isPartOf": {
+          "@id": "https://work.kangdaejong.com/#website"
+        }
+      }
+    ]
+  }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -170,6 +196,30 @@
       return v;
     }
 
+    function injectBlogPostingJsonLd(parsed) {
+      var headline = parsed.date + (parsed.version ? ' · ' + parsed.version : '') + ' 작업일지';
+      var script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: headline,
+        datePublished: parsed.date,
+        author: {
+          '@type': 'Person',
+          name: '강대종'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: '강대종',
+          url: 'https://work.kangdaejong.com'
+        },
+        mainEntityOfPage: window.location.href,
+        inLanguage: 'ko'
+      });
+      document.head.appendChild(script);
+    }
+
     async function loadVersionNav(date, currentFile) {
       try {
         var res = await fetch('./index.json?_=' + Date.now());
@@ -242,6 +292,7 @@
         };
 
         loadVersionNav(parsed.date, file);
+        injectBlogPostingJsonLd(parsed);
       } catch (e) {
         bodyEl.innerHTML = '<div class="error">본문을 불러올 수 없어요: ' + file + '</div>';
       }
