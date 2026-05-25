@@ -1,6 +1,78 @@
 {
   "entries": [
     {
+      "file": "2026-05-25-codex-mirror-helper-evolution-v1-v4.md",
+      "date": "2026-05-25",
+      "slug": "codex-mirror-helper-evolution-v1-v4",
+      "title": "codex-mirror-forward.sh v1→v4 진화 — background race + over-capture 두 사고",
+      "severity": "medium",
+      "recurrence": "low",
+      "scope": "5노드 codex-directive 의 mirror helper, Codex Mesh Mirror 그룹 forward",
+      "occurred_at": "2026-05-25",
+      "resolved_at": "2026-05-25",
+      "updated": "2026-05-25T22:00:20.000000+09:00"
+    },
+    {
+      "file": "2026-05-25-toml-config-root-vs-subkey-trap.md",
+      "date": "2026-05-25",
+      "slug": "toml-config-root-vs-subkey-trap",
+      "title": "TOML config sed/Edit 시 file 끝 append = 직전 [table] subkey 로 잡힘 (3회 반복)",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "5노드 codex config.toml YOLO 마이그레이션, TOML/INI/YAML 등 section-based 설정 파일 일반",
+      "occurred_at": "2026-05-25",
+      "resolved_at": "2026-05-25",
+      "updated": "2026-05-25T22:00:20.000000+09:00"
+    },
+    {
+      "file": "2026-05-25-typing-daemon-paused-on-idle-mismatch.md",
+      "date": "2026-05-25",
+      "slug": "typing-daemon-paused-on-idle-mismatch",
+      "title": "본진 typing daemon — pause-flag fix 후 idle 시 silent vs 형님 기대 mismatch",
+      "severity": "medium",
+      "recurrence": "low",
+      "scope": "본진 typing daemon, mesh-vote 1779689180 (A) flag-pattern 적용 후 첫 idle 사이클",
+      "occurred_at": "2026-05-25",
+      "resolved_at": "2026-05-25",
+      "updated": "2026-05-25T22:00:20.000000+09:00"
+    },
+    {
+      "file": "2026-05-25-notebook-sdxl-oom-cascade-x2.md",
+      "date": "2026-05-25",
+      "slug": "notebook-sdxl-oom-cascade-x2",
+      "title": "노트북 SDXL OOM cascade × 2회 (claude chatbot 동반사살)",
+      "severity": "high",
+      "recurrence": "medium",
+      "scope": "노트북 (RTX 3060 / WSL2 / RAM 10Gi), SDXL + claude chatbot 같은 cgroup scope",
+      "occurred_at": "2026-05-25",
+      "resolved_at": "2026-05-25",
+      "updated": "2026-05-25T22:00:20.000000+09:00"
+    },
+    {
+      "file": "2026-05-25-master-silence-on-next-cycle-handoff-causes-suspicion.md",
+      "date": "2026-05-25",
+      "slug": "master-silence-on-next-cycle-handoff-causes-suspicion",
+      "title": "본진 next-cycle 핸드오프 진입 시 침묵 → 형님 의심 사고",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "본진 → 텔레그램, next-cycle 핸드오프 진입 시점 신호 누락",
+      "occurred_at": "2026-05-25",
+      "resolved_at": "2026-05-25",
+      "updated": "2026-05-25T22:00:20.000000+09:00"
+    },
+    {
+      "file": "2026-05-25-master-ack-surface-rule-violation-x2.md",
+      "date": "2026-05-25",
+      "slug": "master-ack-surface-rule-violation-x2",
+      "title": "본진 ack 요청 옵션 surface 룰 위반 × 2회 (같은 사이클)",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "본진 → 텔레그램, 노드 보고 후 next step 자율 판정 룰",
+      "occurred_at": "2026-05-25",
+      "resolved_at": "2026-05-25",
+      "updated": "2026-05-25T22:00:20.000000+09:00"
+    },
+    {
       "file": "2026-05-25-claude-cyber-verification-block.md",
       "date": "2026-05-25",
       "slug": "claude-cyber-verification-block",
