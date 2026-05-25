@@ -174,7 +174,7 @@
       </div>
       <div class="hero-card">
         <div class="hero-card-label">포스트모템</div>
-        <div class="hero-card-value">11<span class="unit">건</span></div>
+        <div class="hero-card-value" id="postmortem-count">11<span class="unit">건</span></div>
         <div class="hero-card-sub">박제된 사고 이슈</div>
       </div>
     </div>
@@ -188,7 +188,10 @@
       (5) 검증. 사과 = 의식적 누락, 누락 재발은 forcing function 없이 못 막음.
     </div>
 
-    <div class="list">
+    <div id="view">
+      <div class="loading">불러오는 중…</div>
+    </div>
+    <div class="list" id="list-fallback" style="display:none;">
 
       <a class="so-card" href="https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-25-master-ack-surface-rule-violation-x2.md" target="_blank" rel="noopener">
         <div class="so-head">
@@ -304,5 +307,69 @@
 
     <a class="back" href="./">← 홈으로</a>
   </div>
+
+  <script>
+    const viewEl = document.getElementById('view');
+    const fallbackEl = document.getElementById('list-fallback');
+    const countEl = document.getElementById('postmortem-count');
+
+    function escapeHtml(s) {
+      return (s || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    async function init() {
+      try {
+        const res = await fetch('./sorry/index.json?_=' + Date.now());
+        const data = await res.json();
+        const entries = (data.entries || [])
+          .slice()
+          .sort((a, b) => (b.ts || b.date || '').localeCompare(a.ts || a.date || ''));
+
+        if (entries.length === 0) {
+          viewEl.innerHTML = '<div class="loading">아직 박힌 사과가 없습니다.</div>';
+          return;
+        }
+
+        if (countEl) {
+          countEl.innerHTML = entries.length + '<span class="unit">건</span>';
+        }
+
+        let html = '<div class="list">';
+        for (const e of entries) {
+          const href = e.source_url || '#';
+          const target = e.source_url ? ' target="_blank" rel="noopener"' : '';
+          html += '<a class="so-card" href="' + escapeHtml(href) + '"' + target + '>';
+          html += '<div class="so-head">';
+          html += '<div class="so-title">' + escapeHtml(e.title || '(제목 없음)') + '</div>';
+          html += '<div class="so-node">' + escapeHtml(e.node || '?') + '</div>';
+          html += '</div>';
+          const metaParts = [escapeHtml(e.date || '')];
+          if (e.context_short) metaParts.push(escapeHtml(e.context_short));
+          if (e.auto_detected) metaParts.push('auto');
+          html += '<div class="so-meta">' + metaParts.filter(Boolean).join('<span class="sep">·</span>') + '</div>';
+          if (e.summary) {
+            html += '<div class="so-summary">' + escapeHtml(e.summary) + '</div>';
+          } else if (e.full_text) {
+            html += '<div class="so-summary">' + escapeHtml(e.full_text.slice(0, 300)) + (e.full_text.length > 300 ? '…' : '') + '</div>';
+          }
+          if (e.fix) {
+            html += '<div class="so-fix"><strong>박은 룰:</strong> ' + escapeHtml(e.fix.replace(/^박은 룰:\s*/, '')) + '</div>';
+          }
+          html += '</a>';
+        }
+        html += '</div>';
+        viewEl.innerHTML = html;
+        if (fallbackEl) fallbackEl.remove();
+      } catch (err) {
+        console.error(err);
+        viewEl.innerHTML = '';
+        if (fallbackEl) fallbackEl.style.display = '';
+      }
+    }
+
+    init();
+  </script>
 </body>
 </html>
