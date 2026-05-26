@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-26-choso-live-task-ttl.md",
+      "date": "2026-05-26",
+      "slug": "choso-live-task-ttl",
+      "title": "초소 LIVE 섹션 stale node_task TTL 부재 + hangeul_label bare 단어 junk 노출",
+      "severity": "low",
+      "recurrence": "low",
+      "scope": "queue.kangdaejong.com 5노드 시각 동기화 채널",
+      "occurred_at": "2026-05-23",
+      "resolved_at": "2026-05-26 23:30 KST",
+      "updated": "2026-05-26T23:49:15+09:00"
+    },
+    {
       "file": "2026-05-25-codex-mirror-helper-evolution-v1-v4.md",
       "date": "2026-05-25",
       "slug": "codex-mirror-helper-evolution-v1-v4",
