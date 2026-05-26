@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 20,
+      "cacheFile": "ep20-cache.md",
+      "date": "2026-05-26",
+      "publishedAt": "2026-05-26T14:00:17+00:00",
+      "title": "코드는 해자가 아니다 — 1인 개발자가 갖는 진짜 모트",
+      "subtitle": "Tiff In Tech 의 11분 영상이 던진 thesis: 앱 레이어는 복제 비용 0, 진짜 해자는 그 아래. 그래서 저는 무엇을 owning 하고 있는가.",
+      "readingTime": "8분",
+      "substackUrl": "https://daejongkang.substack.com/p/1",
+      "originFile": "ep20-2026-05-26.md"
+    },
+    {
       "number": 19,
       "cacheFile": "ep19-cache.md",
       "date": "2026-05-26",
