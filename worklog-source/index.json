@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "file": "2026-05-26_v1.0.0.md",
+      "date": "2026-05-26",
+      "version": "1.0.0",
+      "title": "본진은 grunt 를 안 한다",
+      "summary": "초소 3-bug fix 위임(데스크탑 PR #33) + handoff-check.sh archive cleanup 5노드 fan-out + 이슈 2건",
+      "updated": "2026-05-26T23:59:20+09:00"
+    },
+    {
       "file": "2026-05-25_v1.0.0.md",
       "date": "2026-05-25",
       "version": "v1.0.0",
