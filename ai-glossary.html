@@ -286,6 +286,12 @@
       <span class="src">영상: 2026-05-23-harness-not-prompt-codex-vibelabs.md</span>
     </div>
 
+    <div class="term">
+      <h3>Compounding Infrastructure</h3>
+      <p>요구사항이 늘어도 기존 결정을 다시 짜지 않고 위에 쌓을 수 있는 인프라 패턴. MongoDB Atlas 가 document → search → vector → embedding 을 같은 클러스터에 점진 추가해온 게 예시.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -336,12 +342,18 @@
       <span class="src">영상: 2026-05-21-prompt-caching-session-limit-nateherk.md</span>
     </div>
 
+    <div class="term">
+      <h3>로컬 추론 (Local Inference)</h3>
+      <p>모델 실행을 클라우드 GPU 가 아닌 사용자 기기(RTX GPU, M 시리즈, 모바일 칩 등) 에서 직접 돌리는 방식. 추론 비용을 0 에 수렴시켜 앱 레이어 복제를 사실상 무료로 만든 트리거.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
+    </div>
+
     <h2>도구 통신 (MCP · CLI · API)</h2>
 
     <div class="term">
       <h3>MCP (Model Context Protocol)</h3>
       <p>에이전트에게 사용 가능한 tool 목록을 표준화해 주는 protocol. "메뉴 씌운 API". 초기엔 모든 tool 을 컨텍스트에 로드해 토큰 폭주, 지금은 deferred(필요할 때만) 로 개선.</p>
-      <span class="src">영상: 2026-05-18-claude-5-levels-nateherk.md, 2026-05-22-7-clis-claude-code-moritz.md</span>
+      <span class="src">영상: 2026-05-18-claude-5-levels-nateherk.md, 2026-05-22-7-clis-claude-code-moritz.md, 2026-05-26-tech-moat-not-code-tiffintech.md</span>
     </div>
 
     <div class="term">
@@ -360,6 +372,24 @@
       <h3>Connectors</h3>
       <p>Slack / GDrive / Gmail / GitHub / Notion / Calendar 등 50+ 외부 서비스를 OAuth 한 번으로 채팅에 연결.</p>
       <span class="src">영상: 2026-05-18-claude-5-levels-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>벡터 검색 (Vector Search)</h3>
+      <p>임베딩 벡터 간 거리(유사도) 로 의미 기반 검색을 수행. RAG/추천 엔진의 코어 컴포넌트. Atlas Vector Search 가 같은 클러스터에서 처리 가능한 게 차별점.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
+    </div>
+
+    <div class="term">
+      <h3>ASIC (Application-Specific Integrated Circuit)</h3>
+      <p>특정 워크로드(AI 추론 등) 전용으로 설계된 칩. Apple Silicon, Amazon Tranium, Google TPU 가 대표. 범용 Nvidia GPU 의 margin 구조를 우회하려는 하이퍼스케일러 자체 칩 트렌드의 핵심.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
+    </div>
+
+    <div class="term">
+      <h3>CUDA</h3>
+      <p>Nvidia GPU 용 병렬 컴퓨팅 플랫폼/툴체인. Nvidia 의 진짜 해자가 silicon 자체보다 십 년 누적된 SDK·라이브러리·옵티마이제이션이라는 주장.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
     </div>
 
     <h2>지식 · 컨텍스트 자산</h2>
@@ -392,6 +422,18 @@
       <h3>Tacit knowledge (암묵지)</h3>
       <p>ERP 같은 메인 프로세스 밖에 흩어진 회사 고유 노하우·엑셀 템플릿·구전 메모. AI 자동화의 진짜 병목. 자산화하려면 탑다운으로 조직 꼭짓점 사람의 도구를 AI 로 강제 전환해야 함.</p>
       <span class="src">영상: 2026-05-23-enterprise-ax-tacit-knowledge-kkachil-ai.md</span>
+    </div>
+
+    <div class="term">
+      <h3>임베딩 (Embeddings)</h3>
+      <p>텍스트/이미지 등 데이터를 고차원 벡터로 변환한 표현. Voyage AI 모델이 MTEB 벤치마크에서 Gemini, Cohere 보다 우수한 성능으로 MongoDB Atlas 에 통합됨.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
+    </div>
+
+    <div class="term">
+      <h3>MTEB (Massive Text Embedding Benchmark)</h3>
+      <p>임베딩 모델의 검색·분류·클러스터링 성능을 표준화해 비교하는 벤치마크. Voyage AI 가 여기서 Gemini/Cohere 능가한다고 언급.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
     </div>
 
     <h2>워크플로우 · 문화</h2>
@@ -488,6 +530,18 @@
       <h3>DeepSeek 헤드리스 CLI</h3>
       <p>Anthropic 한도 초과 시 대안 1 — DeepSeek 모델을 헤드리스 CLI 로 자체 호출.</p>
       <span class="src">영상: 2026-05-24-anthropic-jun15-billing-change-codersera.md</span>
+    </div>
+
+    <div class="term">
+      <h3>SMR (Small Modular Reactor)</h3>
+      <p>소형 모듈식 원자로. Google 이 차세대 데이터센터 전력 확보를 위해 PPA(전력구매계약) 체결. LLM 추론 전력 수요가 웹 검색 10~100배라 전력이 핵심 자원이 됨.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
+    </div>
+
+    <div class="term">
+      <h3>PPA (Power Purchase Agreement)</h3>
+      <p>발전 사업자와 장기 전력 구매 계약. Microsoft Three Mile Island 20년 계약, Google SMR 계약 등이 빅테크 "물리 레이어 잠그기" 의 형식.</p>
+      <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
     </div>
 
     <!-- END_GLOSSARY_DATA -->
