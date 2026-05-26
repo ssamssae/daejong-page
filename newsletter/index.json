@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 19,
+      "cacheFile": "ep19-cache.md",
+      "date": "2026-05-26",
+      "publishedAt": "2026-05-26T08:54:48+00:00",
+      "title": "한 새벽에 5가지 방법으로 멈춘 5대",
+      "subtitle": "\"잘 건데 워크스틸 ON\" 한 마디로 5 노드 동시 발사. 아침에 보니 5 대가 5 가지 다른 방법으로 멈춰있었다.",
+      "readingTime": "8분",
+      "substackUrl": "https://daejongkang.substack.com/p/5-5",
+      "originFile": "ep19-2026-05-26.md"
+    },
+    {
       "number": 18,
       "cacheFile": "ep18-cache.md",
       "date": "2026-05-22",
