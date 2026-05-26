@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-26-five-node-cascade-failure.md",
+      "date": "2026-05-26",
+      "slug": "five-node-cascade-failure",
+      "title": "2026-05-26 — 5 노드 cascade failure (어휘 분류기 + stale + singleton)",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "5노드",
+      "occurred_at": "2026-05-26",
+      "resolved_at": "2026-05-26",
+      "updated": "2026-05-26T23:59:59+09:00"
+    },
+    {
       "file": "2026-05-26-hook-archive-refs-gap.md",
       "date": "2026-05-26",
       "slug": "hook-archive-refs-gap",
@@ -121,18 +133,6 @@
       "updated": "2026-05-25T19:36:33.240217+09:00"
     },
     {
-      "file": "2026-05-24-notebook-autologin-wake-unlock.md",
-      "date": "2026-05-24",
-      "slug": "notebook-autologin-wake-unlock",
-      "title": "노트북 Windows 부팅 자동로그인 + 슬립 wake 잠금 해제 (Hello 정책 우회)",
-      "severity": "low",
-      "recurrence": "medium",
-      "scope": "노트북(💻) 부팅/wake 워크플로우 — SSH 헤드 노드 무인 운영 가능 여부",
-      "occurred_at": "2026-05-24",
-      "resolved_at": "2026-05-24",
-      "updated": "2026-05-24T11:05:00.000000+09:00"
-    },
-    {
       "file": "2026-05-24-context-percent-mis-estimation.md",
       "title": "컨텍스트 % 체감 추정으로 핸드오프+클리어 강행",
       "date": "2026-05-24",
@@ -163,28 +163,16 @@
       "updated": "2026-05-24T21:24:27.174347+09:00"
     },
     {
-      "file": "2026-05-23-macos-system-settings-fullauto-pass.md",
-      "date": "2026-05-23",
-      "slug": "macos-system-settings-fullauto-pass",
-      "title": "macOS Sequoia 시스템 설정 풀자동 토글 PASS (본진 자립성 5단계 캘리브레이션)",
+      "file": "2026-05-24-notebook-autologin-wake-unlock.md",
+      "date": "2026-05-24",
+      "slug": "notebook-autologin-wake-unlock",
+      "title": "노트북 Windows 부팅 자동로그인 + 슬립 wake 잠금 해제 (Hello 정책 우회)",
       "severity": "low",
-      "recurrence": "low",
-      "scope": "macOS GUI 자동화 전반. macOS Sequoia(15+) 시스템 설정 풀자동화 채널 확보",
-      "occurred_at": "2026-05-23",
-      "resolved_at": "2026-05-23",
-      "updated": "2026-05-23T11:41:00.000000+09:00"
-    },
-    {
-      "file": "2026-05-23-anthropic-cyber-content-block.md",
-      "date": "2026-05-23",
-      "slug": "anthropic-cyber-content-block",
-      "title": "본진 Claude Code 응답 차단 (Anthropic Usage Policy cyber content 분류기 트리거)",
-      "severity": "high",
       "recurrence": "medium",
-      "scope": "🍎 본진 Claude Code TUI 세션 단위. Anthropic API 차단이므로 로컬 우회 불가",
-      "occurred_at": "2026-05-23",
-      "resolved_at": "2026-05-23",
-      "updated": "2026-05-23T09:20:00.000000+09:00"
+      "scope": "노트북(💻) 부팅/wake 워크플로우 — SSH 헤드 노드 무인 운영 가능 여부",
+      "occurred_at": "2026-05-24",
+      "resolved_at": "2026-05-24",
+      "updated": "2026-05-24T11:05:00.000000+09:00"
     },
     {
       "file": "2026-05-23-exitplanmode-globals-gap.md",
@@ -221,6 +209,30 @@
       "title": "노트북 Windows Balanced 5h idle sleep → Tailnet offline, 원격 노드 통째로 끊김",
       "date": "2026-05-23",
       "updated": "2026-05-24T21:24:27.174347+09:00"
+    },
+    {
+      "file": "2026-05-23-macos-system-settings-fullauto-pass.md",
+      "date": "2026-05-23",
+      "slug": "macos-system-settings-fullauto-pass",
+      "title": "macOS Sequoia 시스템 설정 풀자동 토글 PASS (본진 자립성 5단계 캘리브레이션)",
+      "severity": "low",
+      "recurrence": "low",
+      "scope": "macOS GUI 자동화 전반. macOS Sequoia(15+) 시스템 설정 풀자동화 채널 확보",
+      "occurred_at": "2026-05-23",
+      "resolved_at": "2026-05-23",
+      "updated": "2026-05-23T11:41:00.000000+09:00"
+    },
+    {
+      "file": "2026-05-23-anthropic-cyber-content-block.md",
+      "date": "2026-05-23",
+      "slug": "anthropic-cyber-content-block",
+      "title": "본진 Claude Code 응답 차단 (Anthropic Usage Policy cyber content 분류기 트리거)",
+      "severity": "high",
+      "recurrence": "medium",
+      "scope": "🍎 본진 Claude Code TUI 세션 단위. Anthropic API 차단이므로 로컬 우회 불가",
+      "occurred_at": "2026-05-23",
+      "resolved_at": "2026-05-23",
+      "updated": "2026-05-23T09:20:00.000000+09:00"
     },
     {
       "file": "2026-05-22-loop-reschedules-without-clear.md",
@@ -271,6 +283,18 @@
       "updated": "2026-05-21T21:53:55.374705+09:00"
     },
     {
+      "file": "2026-05-21-autopilot-idle-nodes-token-saving.md",
+      "date": "2026-05-21",
+      "slug": "autopilot-idle-nodes-token-saving",
+      "title": "autopilot 6시간 야간 운영 중 본진이 노드를 ~5시간 idle 방치 (임의 \"토큰절약\")",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "autopilot / 5노드 야간 자율 운영 throughput",
+      "occurred_at": "2026-05-21",
+      "resolved_at": null,
+      "updated": "2026-05-21T21:53:55.374705+09:00"
+    },
+    {
       "file": "2026-05-21-stuck-loop-session-side-effects.md",
       "date": "2026-05-21",
       "slug": "stuck-loop-session-side-effects",
@@ -295,24 +319,6 @@
       "updated": "2026-05-21T00:08:38.959369+09:00"
     },
     {
-      "file": "2026-05-21-autopilot-idle-nodes-token-saving.md",
-      "date": "2026-05-21",
-      "slug": "autopilot-idle-nodes-token-saving",
-      "title": "autopilot 6시간 야간 운영 중 본진이 노드를 ~5시간 idle 방치 (임의 \"토큰절약\")",
-      "severity": "medium",
-      "recurrence": "high",
-      "scope": "autopilot / 5노드 야간 자율 운영 throughput",
-      "occurred_at": "2026-05-21",
-      "resolved_at": null,
-      "updated": "2026-05-21T21:53:55.374705+09:00"
-    },
-    {
-      "file": "2026-05-20-wsl-bot-bare-path-no-poll.md",
-      "title": "2026-05-20 — WSL 텔레그램 봇 무응답: 비대화형 ssh 기동 → bare PATH(node 누락) → 플러그인 폴링 정지",
-      "date": "2026-05-20",
-      "updated": "2026-05-20T15:58:34.598371+09:00"
-    },
-    {
       "file": "2026-05-20-memoyo-drive-oauth-dup-gcp-project.md",
       "date": "2026-05-20",
       "slug": "memoyo-drive-oauth-dup-gcp-project",
@@ -331,16 +337,22 @@
       "updated": "2026-05-20T20:52:22.701352+09:00"
     },
     {
-      "file": "2026-05-20-context-show-self-trigger-stuck.md",
-      "title": "context-show 본진 자기 자신 trigger 시 손0 원칙 위반",
-      "date": "2026-05-20",
-      "updated": "2026-05-20T15:58:34.598371+09:00"
-    },
-    {
       "file": "2026-05-20-choso-css-cache-stale-render.md",
       "title": "2026-05-20 — 초소 PR #6 머지·배포 후에도 라이브가 옛 화면: CSS 캐시로 새 HTML 무스타일 렌더",
       "date": "2026-05-20",
       "updated": "2026-05-20T20:52:22.701352+09:00"
+    },
+    {
+      "file": "2026-05-20-wsl-bot-bare-path-no-poll.md",
+      "title": "2026-05-20 — WSL 텔레그램 봇 무응답: 비대화형 ssh 기동 → bare PATH(node 누락) → 플러그인 폴링 정지",
+      "date": "2026-05-20",
+      "updated": "2026-05-20T15:58:34.598371+09:00"
+    },
+    {
+      "file": "2026-05-20-context-show-self-trigger-stuck.md",
+      "title": "context-show 본진 자기 자신 trigger 시 손0 원칙 위반",
+      "date": "2026-05-20",
+      "updated": "2026-05-20T15:58:34.598371+09:00"
     },
     {
       "file": "2026-05-20-cc-version-stale-always-on-node.md",
@@ -529,6 +541,18 @@
       "updated": "2026-05-20T15:58:34.598371+09:00"
     },
     {
+      "file": "2026-05-14-launchd-plist-path.md",
+      "date": "2026-05-14",
+      "slug": "launchd-plist-path",
+      "title": "tmux-claude.plist 의 PATH 누락으로 텔레그램 plugin 자동 재기동 시 spawn 실패",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "mac-mini Claude Code 의 텔레그램 봇 `@MyClaude4`. 잠재적으로 본진의 동일 plist 잡",
+      "occurred_at": "2026-05-14",
+      "resolved_at": "2026-05-14",
+      "updated": "2026-05-21T21:53:55.374705+09:00"
+    },
+    {
       "file": "2026-05-14-rotate-token-channel-mode-dead.md",
       "title": "rotate-token.sh --channel mode OpenClaw decom 후 dead path",
       "date": "2026-05-14",
@@ -557,18 +581,6 @@
       "title": "TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출",
       "date": "2026-05-14",
       "updated": "2026-05-20T15:58:34.598371+09:00"
-    },
-    {
-      "file": "2026-05-14-launchd-plist-path.md",
-      "date": "2026-05-14",
-      "slug": "launchd-plist-path",
-      "title": "tmux-claude.plist 의 PATH 누락으로 텔레그램 plugin 자동 재기동 시 spawn 실패",
-      "severity": "medium",
-      "recurrence": "high",
-      "scope": "mac-mini Claude Code 의 텔레그램 봇 `@MyClaude4`. 잠재적으로 본진의 동일 plist 잡",
-      "occurred_at": "2026-05-14",
-      "resolved_at": "2026-05-14",
-      "updated": "2026-05-21T21:53:55.374705+09:00"
     },
     {
       "file": "2026-05-13-mac-report-reverse-reply-missed.md",
