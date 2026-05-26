@@ -271,7 +271,7 @@
     <div class="term">
       <h3>/loop</h3>
       <p>cron 으로 반복 작업을 거는 가장 단순한 자동화. Boris Cherny 가 PR 베이비시팅·CI 헬스·트위터 피드백 클러스터링에 수십 개 상시 가동. "루프가 미래다."</p>
-      <span class="src">영상: 2026-05-20-boris-cherny-stop-coding-bzcf.md, 2026-05-20-claude-code-solved-boris-cherny.md</span>
+      <span class="src">영상: 2026-05-20-boris-cherny-stop-coding-bzcf.md, 2026-05-20-claude-code-solved-boris-cherny.md, 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
     </div>
 
     <div class="term">
@@ -290,6 +290,24 @@
       <h3>Compounding Infrastructure</h3>
       <p>요구사항이 늘어도 기존 결정을 다시 짜지 않고 위에 쌓을 수 있는 인프라 패턴. MongoDB Atlas 가 document → search → vector → embedding 을 같은 클러스터에 점진 추가해온 게 예시.</p>
       <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Auto-delegating sub-agents</h3>
+      <p>agent 가 명시 요청 없이 자동으로 planner / explorer / code-reviewer 등 specialist 서브에이전트 spawn 하는 동작. Claude Code default 동작, Codex 는 docs 가 explicit 요청 필요 명시.</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Hook events</h3>
+      <p>agent session 의 특정 시점 (prompt submit / tool run / session start 등) 에 자동 trigger 박는 메커니즘. Claude Code 30개 / Codex 6개 (5x 차이).</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Open Claw / Hermes</h3>
+      <p>third-party agent harness — proactive 동작 (native cron / heartbeat / skill 지원) 때문에 인기. ChatGPT sub 로그인 OK (Sam Altman endorse), Claude.ai 로그인은 third-party 금지.</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
     </div>
 
     <h2>컨텍스트 · 캐시</h2>
@@ -392,6 +410,24 @@
       <span class="src">영상: 2026-05-26-tech-moat-not-code-tiffintech.md</span>
     </div>
 
+    <div class="term">
+      <h3>Git work trees</h3>
+      <p>한 repo 안 여러 working copy 로 parallel task 가 main branch 충돌 없이 진행. Codex desktop app 의 native 통합 강점.</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Claude agent SDK</h3>
+      <p>Claude Code 의 engine 을 Python / TypeScript SDK 로 노출 — 본인 product 에 agent embed 가능. Bedrock / Vertex AI / Microsoft Foundry enterprise auth 도 함께 지원.</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Computer use (Codex QA)</h3>
+      <p>agent 가 GUI 직접 조작 + QA 수행. Codex 의 polished flow = severity rating · expected vs actual · steps to reproduce · triage summary 자동 log.</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
+    </div>
+
     <h2>지식 · 컨텍스트 자산</h2>
 
     <div class="term">
@@ -484,6 +520,24 @@
       <h3>Orchestration (오케스트레이션)</h3>
       <p>"AI 보조" 가 아니라 사람이 여러 에이전트를 조율·검증·머지하는 역할로 옮겨가는 패턴. OpenAI 내부도 매일 이렇게 굴림.</p>
       <span class="src">영상: 2026-05-23-harness-not-prompt-codex-vibelabs.md</span>
+    </div>
+
+    <div class="term">
+      <h3>/ultra-plan</h3>
+      <p>Claude Code 의 cloud planning session — 브라우저에서 plan inline comment 검토 후 터미널 execution 으로 다시 보냄. Pro/Max 3 free runs 후 run-billed.</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>/ultra-review</h3>
+      <p>Claude Code 의 multi-agent code review cloud session. multiple reviewer agent 가 reproduced findings 박힌 deep review 회신.</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>/goal</h3>
+      <p>verifiable stopping condition 박은 long-running task — 단일 prompt 보다 큰 / open-ended backlog 보다 작은 영역. Codex native + Claude Code 도 영상 녹화 직후 출시.</p>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md</span>
     </div>
 
     <h2>커리어 · 조직</h2>
