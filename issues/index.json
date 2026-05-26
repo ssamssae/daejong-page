@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-26-hook-archive-refs-gap.md",
+      "date": "2026-05-26",
+      "slug": "hook-archive-refs-gap",
+      "title": "hook archive 표준화 후 5노드 settings.json refs cleanup 누락 (handoff-check.sh 잔재)",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "5노드 settings.json Stop hook 체인 일관성",
+      "occurred_at": "2026-05-25 09:15 KST",
+      "resolved_at": "2026-05-26 23:55 KST",
+      "updated": "2026-05-26T23:55:55+09:00"
+    },
+    {
       "file": "2026-05-26-choso-live-task-ttl.md",
       "date": "2026-05-26",
       "slug": "choso-live-task-ttl",
