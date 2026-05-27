@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "file": "2026-05-27_v1.0.0.md",
+      "date": "2026-05-27",
+      "version": "1.0.0",
+      "title": "어제의 내가 끈 게, 오늘의 나를 거짓 SoT 위에 앉혔다",
+      "summary": "핸드오프 stale + scrape launchd 부주의 비활성화 + statusline v3 hard floor 회귀 fix → 4단계 (scrape 부활 + 5노드 broadcast launchd + statusline v4 + codex ctx_pct) + loop-fleet 자율 해석 사고 정정",
+      "updated": "2026-05-27T23:43:16+09:00"
+    },
+    {
       "file": "2026-05-26_v1.0.0.md",
       "date": "2026-05-26",
       "version": "1.0.0",
