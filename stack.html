@@ -7,7 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <title>STACK - 강대종</title>
-  <meta name="description" content="강대종 1인 개발자가 실제 운영하는 개발 스택 페이지로 Mac 본진, WSL, 맥미니, GPU 노드, iPhone을 Claude Code 중심 워크플로우와 역할별 토폴로지, 24시간 상주 노드와 온디맨드 장비 구조로 정리합니다.">
+  <meta name="description" content="강대종 1인 개발자가 실제 운영하는 개발 스택 페이지로 Mac 본진, WSL, 맥미니, GPU 노드, iPhone을 Claude Code와 Codex 백엔드 중심 워크플로우, 역할별 토폴로지, 5노드 24/7 가동 구조로 정리합니다.">
   <!-- OG / Twitter Card (2026-05-25) -->
   <meta property="og:title" content="STACK - 강대종">
   <meta property="og:description" content="강대종이 1인 개발에서 실제로 쓰는 기술 스택 — Flutter, Claude Code, Substack, Notion, KST 워크플로우.">
@@ -159,6 +159,34 @@
     .feat-no  { color: #C0C7D1; }
     .feat-meta { color: #4E5968; font-size: 12px; }
 
+    .codex-section {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid #E5E8EB;
+    }
+    .codex-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .codex-item {
+      background: #FFFFFF;
+      border: 1px solid #E5E8EB;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #4E5968;
+      line-height: 1.55;
+    }
+    .codex-item strong {
+      display: block;
+      color: #191F28;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 700px) {
+      .codex-grid { grid-template-columns: 1fr; }
+    }
+
     /* 토폴로지 */
     .topo-section {
       margin-top: 40px;
@@ -202,7 +230,7 @@
       <a href="./">← 홈</a>
     </header>
     <div class="intro">
-      바이브코딩 한 사람 인프라. 24/7 상주 2대(🍎 본진 / 🏭 맥미니) + 낮 ON / 밤 OFF 1대(🪟 WSL) + 온디맨드 GPU 노드 2대(🖥 데스크탑3060Ti / 💻 노트북3060) + 모바일 1대(📱 iPhone). 5노드 전부 Claude Code 동등 first-class — Mac 본진이 hub 로 각 노드에 *-directive.sh 운반체로 paste, 노드는 mac-report.sh 로 회신.
+      바이브코딩 한 사람 인프라. 24/7 상주 5대 (🍎 본진 / 🏭 맥미니 / 🪟 WSL / 🖥 데스크탑 / 💻 노트북) — 2026-05-27 형님 ack 로 5노드 전부 24/7 가동 + 모바일 1대(📱 iPhone). 5노드 전부 Claude Code 동등 first-class — Mac 본진이 hub 로 각 노드에 *-directive.sh 운반체로 paste, 노드는 mac-report.sh 로 회신.
     </div>
     <div class="stack-grid">
 
@@ -232,7 +260,7 @@
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Chrome Remote Desktop</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">ghostty 안 · 플러그인 4개 (telegram/superpowers/playwright/swift-lsp)</span></span></div>
           <div class="feat-row"><span class="feat-key">bun</span><span class="feat-val feat-yes">✅ <span class="feat-meta">v1.3.12 (telegram MCP 런타임)</span></span></div>
-          <div class="feat-row"><span class="feat-key">Codex CLI</span><span class="feat-val feat-no">🟡 <span class="feat-meta">codex-cli 0.121.0 (homebrew) · dormant (mac mini Codex→Claude Code 전환 후 활성 사용 X)</span></span></div>
+          <div class="feat-row"><span class="feat-key">Codex 백엔드</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Codex CLI 2.1.150 · REPL 활성 · gpt-5.5 xhigh fast 표준 · ~/.codex/config.toml</span></span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@MyClaude_ssamssae_bot</span></span></div>
         </div>
       </div>
@@ -254,7 +282,7 @@
           </span>
         </div>
         <div class="device-spec">M1 arm64 · macOS(Darwin) · 24/7 하드워커 · Telegram 직접 세션</div>
-        <div class="device-role">24/7 하드워커 · iOS/Android 빌드·배포 전담 · launchd 야간 워커(night-builder/night-runner) · SSH · Chrome Remote Desktop · 실기기 debug 담당</div>
+        <div class="device-role">24/7 하드워커 · iOS/Android 빌드·배포 전담 · launchd 워커(night-builder v2 + night-runner v1) · SSH · Chrome Remote Desktop · 실기기 debug 담당</div>
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-yes">✅ <span class="feat-meta">설치됨</span></span></div>
           <div class="feat-row"><span class="feat-key">OS</span><span class="feat-val feat-yes">✅ <span class="feat-meta">macOS / Darwin arm64 (WSL/Ubuntu 아님)</span></span></div>
@@ -262,6 +290,7 @@
           <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">사용 가능 · 세션 확인됨</span></span></div>
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Chrome Remote Desktop Host 실행 중</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">설치됨</span></span></div>
+          <div class="feat-row"><span class="feat-key">Codex 백엔드</span><span class="feat-val feat-no">❌ <span class="feat-meta">셋업 X · launchd 워커 전담(night-builder v2 + night-runner v1)</span></span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@ssamssae_claw_bot (재활용)</span></span></div>
         </div>
       </div>
@@ -282,8 +311,8 @@
             Claude Code
           </span>
         </div>
-        <div class="device-spec">DESKTOP-I4TR99I · Ryzen 3900X + RTX 2070S · 낮 ON / 밤 OFF</div>
-        <div class="device-role">낮 전용 워커 · wsl/* 브랜치 코드 수정·commit·push (main 직접 push 금지) · 빌드/배포 X · agent-mesh node (mac-report.sh sender)</div>
+        <div class="device-spec">DESKTOP-I4TR99I · Ryzen 3900X + RTX 2070S · 24/7 WSL2</div>
+        <div class="device-role">24/7 코드 수정·분석·Windows 게이트 (빌드/배포 X) · wsl/* 브랜치 commit·push (main 직접 push 금지) · agent-mesh node (mac-report.sh sender)</div>
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌ <span class="feat-meta">Windows native 부재</span></span></div>
           <div class="feat-row"><span class="feat-key">OS</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Ubuntu 24.04.4 LTS on WSL2</span></span></div>
@@ -292,7 +321,7 @@
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Chrome Remote Desktop</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">WSL 내부 · 플러그인 3개 (telegram/superpowers/playwright)</span></span></div>
           <div class="feat-row"><span class="feat-key">bun</span><span class="feat-val feat-yes">✅ <span class="feat-meta">v1.3.12 (telegram MCP 런타임)</span></span></div>
-          <div class="feat-row"><span class="feat-key">Codex CLI</span><span class="feat-val feat-no">🟡 <span class="feat-meta">dormant install (mac mini Codex→Claude Code 전환 후 활성 사용 X)</span></span></div>
+          <div class="feat-row"><span class="feat-key">Codex 백엔드</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Codex CLI 2.1.150 · REPL 활성 · YOLO mode · ~/.codex/config.toml</span></span></div>
           <div class="feat-row"><span class="feat-key">GPU (WSL)</span><span class="feat-val feat-no">🟡 <span class="feat-meta">nvidia-smi unavailable · /dev/dxg만 노출 (RTX 2070S)</span></span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@Myclaude2_ssamssae_bot</span></span></div>
         </div>
@@ -315,16 +344,16 @@
           </span>
         </div>
         <div class="device-spec">DESKTOP-0VAB3QC · RTX 3060Ti 8GB · Ubuntu 24.04.4 LTS on WSL2 · x86_64</div>
-        <div class="device-role">낮 전용 워커 — Claude Code + plugin:telegram 단독 폴링 · 시청용 (유튜브/넷플릭스) 겸용</div>
+        <div class="device-role">24/7 LLM/SD/Whisper 실험 + 챗봇 노드 — Claude Code + Codex 백엔드 듀얼 · plugin:telegram 단독 폴링 · 시청용 (유튜브/넷플릭스) 겸용</div>
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">❌ <span class="feat-meta">미설치</span></span></div>
           <div class="feat-row"><span class="feat-key">OS</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Ubuntu 24.04.4 LTS WSL2 (kernel 6.6.87.2-microsoft-standard)</span></span></div>
           <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-yes">✅ <span class="feat-meta">claude(group) + 멤버 다수 + main · 세션 이름 'claude' 통일 (2026-05-16, 이전 claude-main)</span></span></div>
           <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Windows OpenSSH (user@DESKTOP-0VAB3QC) · WSL 진입은 wsl -- bash 2-홉 (WSL 내부 sshd inactive)</span></span></div>
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-no">🟡 <span class="feat-meta">확인 필요</span></span></div>
-          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">v2.1.138 · cc shortcut (~/bin/cc) · claude --channels plugin:telegram · 플러그인 3개 (telegram/superpowers/playwright)</span></span></div>
+          <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">v2.1.138 · Codex 백엔드와 듀얼 · cc shortcut (~/bin/cc) · claude --channels plugin:telegram · 플러그인 3개</span></span></div>
           <div class="feat-row"><span class="feat-key">bun</span><span class="feat-val feat-yes">✅ <span class="feat-meta">v1.3.13 (telegram MCP 런타임)</span></span></div>
-          <div class="feat-row"><span class="feat-key">Codex CLI</span><span class="feat-val feat-no">❌ <span class="feat-meta">미설치</span></span></div>
+          <div class="feat-row"><span class="feat-key">Codex 백엔드</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Codex CLI 2.1.150 · REPL 활성 · gpt-5.5 xhigh fast 표준 · ~/.codex/config.toml</span></span></div>
           <div class="feat-row"><span class="feat-key">GPU</span><span class="feat-val feat-yes">✅ <span class="feat-meta">RTX 3060Ti 8GB · CUDA 12.8 · driver 572.70 (nvidia-smi 정상)</span></span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@jarvice_ssamssae_bot · MyClaude3 (desktop)</span></span></div>
           <div class="feat-row"><span class="feat-key">YouTube</span><span class="feat-val feat-yes">✅</span></div>
@@ -349,7 +378,7 @@
           </span>
         </div>
         <div class="device-spec">DESKTOP-4MNJ1C0 · Lenovo Legion 5 · Ubuntu 24.04.4 LTS on WSL2 · RTX 3060 Laptop 6GB</div>
-        <div class="device-role">Claude Code 5번째 노드 (2026-05-14 셋업) · 외출용 원격 SSH 헤드 · agent-mesh node (notebook3060-directive.sh receiver, mac-report.sh sender)</div>
+        <div class="device-role">24/7 + mobile/오프라인 캡처 sync 헤드 (외출 시 SSH alias 보존) · Claude Code 5번째 노드 · agent-mesh node (notebook3060-directive.sh receiver, mac-report.sh sender)</div>
         <div class="device-features">
           <div class="feat-row"><span class="feat-key">ghostty</span><span class="feat-val feat-no">🟡 <span class="feat-meta">Windows 호스트 측 확인 필요</span></span></div>
           <div class="feat-row"><span class="feat-key">WSL/Ubuntu</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Ubuntu 24.04.4 LTS WSL2</span></span></div>
@@ -357,6 +386,7 @@
           <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">client (sshd 상태 확인 필요)</span></span></div>
           <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-no">🟡 <span class="feat-meta">확인 필요</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-yes">✅ <span class="feat-meta">WSL 내부</span></span></div>
+          <div class="feat-row"><span class="feat-key">Codex 백엔드</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Codex CLI 2.1.150 · REPL 활성 · gpt-5.5 xhigh fast 표준 · ~/.codex/config.toml</span></span></div>
           <div class="feat-row"><span class="feat-key">GPU (WSL)</span><span class="feat-val feat-no">🟡 <span class="feat-meta">nvidia-smi unavailable · /dev/dxg만 노출</span></span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-yes">✅ <span class="feat-meta">@ssamssae_codex_bot (재활용)</span></span></div>
         </div>
@@ -374,13 +404,24 @@
           <div class="feat-row"><span class="feat-key">WSL/Ubuntu</span><span class="feat-val feat-no">❌</span></div>
           <div class="feat-row"><span class="feat-key">tmux</span><span class="feat-val feat-no">❌</span></div>
           <div class="feat-row"><span class="feat-key">SSH</span><span class="feat-val feat-yes">✅ <span class="feat-meta">Termius client</span></span></div>
-          <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">웹 접근으로 4대 컨트롤</span></span></div>
+          <div class="feat-row"><span class="feat-key">Google RD</span><span class="feat-val feat-yes">✅ <span class="feat-meta">웹 접근으로 5대 노드 컨트롤</span></span></div>
           <div class="feat-row"><span class="feat-key">Claude Code</span><span class="feat-val feat-no">❌</span></div>
           <div class="feat-row"><span class="feat-key">텔레그램 봇</span><span class="feat-val feat-no">— <span class="feat-meta">트리거 없음</span></span></div>
         </div>
       </div>
 
     </div>
+
+    <section class="codex-section">
+      <h2 class="topo-title">Codex 백엔드 운영 표준</h2>
+      <p class="topo-desc">4노드(🍎 본진 / 🪟 WSL / 🖥 데스크탑 / 💻 노트북)는 Codex REPL 활성, 🏭 맥미니는 Codex 셋업 없이 launchd 워커 전담.</p>
+      <div class="codex-grid">
+        <div class="codex-item"><strong>모델·CLI</strong>Codex CLI 2.1.150 · gpt-5.5 xhigh fast 통일. 현재 본진 5h limit hit 시 gpt-5.3-codex-spark 임시 사용.</div>
+        <div class="codex-item"><strong>YOLO mode</strong><code>approval_policy="never"</code> + <code>sandbox_mode="danger-full-access"</code>를 4 Codex 노드 공통값으로 운용.</div>
+        <div class="codex-item"><strong>설정·훅</strong><code>~/.codex/config.toml</code> 위치 통일(맥미니 제외) · <code>features.hooks</code> 마이그레이션 진행.</div>
+        <div class="codex-item"><strong>메시·스킬</strong><code>codex-mesh-vote</code> / <code>codex-loop-fleet</code> 스킬 + Codex Mesh Mirror 그룹(chat_id -5069144185, 5봇 가입).</div>
+      </div>
+    </section>
 
     <!-- 토폴로지 다이어그램 -->
     <section class="topo-section">
