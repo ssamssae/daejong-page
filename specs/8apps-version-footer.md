@@ -1,4 +1,4 @@
-# 8앱 version footer 통일 spec (v1.2.2)
+# 8앱 version footer 통일 spec (v1.3)
 
 T-260529-03 (side-project). v1 = 사이클 #2 산출 (44d1e5a 머지). v1.1 = 사이클 #4 보완 (c992106 머지) — 사이클 #3 약먹자 dogfood (PR ssamssae/yakmukja#14 머지) 가 surface 한 4 마찰점 (F1 컬러 토큰 / F2 ads 위치 / F3 노드 빌드 게이트 / F4 hot-restart) 반영. v1.2 = 사이클 #6 보완 — 사이클 #5 한컵 dogfood (PR ssamssae/hankeup#1 머지) 가 surface 한 generality check 2건 (GC1 fan-out 가정 / GC2 audit grep) 반영. 데스크탑(🖥) 노드 작성.
 
@@ -49,10 +49,11 @@ v1 의 "textTertiary 고정" 룰은 dogfood 결과 약먹자에 textTertiary 가
 | 로또 | ❌ (AppColors 자체 X) | ❌ | ❌ | ❌ | **`Theme.of(context).hintColor` fallback** | dogfood (사이클 #8 PR ssamssae/lotto-calc#20, minimal Material 3 앱 — spec v1.2 fallback 룰 첫 검증) |
 | 한줄일기 | ✅ | ❌ | ❌ | ✅ | **textTertiary** (예측) | baseline audit (사이클 #9 데스크탑 git grep main) — 본진 migration plan 별 spec [hanjul-footer-migration-plan.md](./hanjul-footer-migration-plan.md) 따라 진행 |
 | 단어요 | ✅ | ❌ | ❌ | ✅ | **textTertiary** (예측) | baseline audit (사이클 #9), lib/theme.dart 단일 — 한컵/포모도로 동일 패턴 |
-| 메모요 | ❌ (AppColors 자체 X) | ❌ | ❌ | ❌ | **`Theme.of(context).hintColor` fallback** (예측) | baseline audit (사이클 #9), lib/theme.dart 자체 X — 로또와 동일 minimal Material 3 케이스 |
-| 더치페이 | ❌ (AppColors 자체 X) | ❌ | ❌ | ❌ | **`Theme.of(context).hintColor` fallback** (예측) | baseline audit (사이클 #9), lib/theme.dart X + main.dart 1 파일 632 lines monolith + ads inline body — **B' sub-pattern 케이스** (↓ § 위치 패턴 분기) |
+| 메모요 | ❓ | ❓ | ❓ | ❓ | **재verify 필요** (#148 stale 가능성) | baseline audit (사이클 #9) prediction "AppColors X / hintColor fallback" — 사이클 #10 더치페이 재verify 사고 후 메모요도 의심. 본진 fan-out 첫 단계로 `git pull --ff-only origin main` 후 audit re-run 권장 |
+| 더치페이 | ❌ | ✅ `0xFF9CA3AF` | ❌ | ❌ | **textFaint** | dogfood (사이클 #10 PR ssamssae/dutch_pay_calculator#10) — lib/theme/app_theme.dart 디렉토리 (약먹자와 동일 구조, 주석 명시), B' sub-pattern B'-1 픽 (↓ § 위치 패턴 분기) |
 
 **fan-out 시 각 노드 절차**:
+0. **main FF 의무 (v1.3 추가, GC7)** — `cd <repo> && git fetch origin && git pull --ff-only origin main` 으로 stale local main 제거. **stale 시 audit prediction 부정확** (사이클 #9/#10 baseline #148 더치페이 사고 — fetch 만 하고 pull 안 해 lib/theme/ 디렉토리 missed). 또는 `git grep origin/main` 으로 워킹 트리 비건드림.
 1. `grep -rE "textTertiary\|textFaint\|textMuted\|textSecondary" <repo>/lib/` (recursive — 한컵처럼 `lib/theme.dart` 단일 파일 케이스 + 약먹자처럼 `lib/theme/app_theme.dart` 디렉토리 케이스 둘 다 캐치) 으로 자기 앱 토큰 픽.
 2. 위 우선 순위대로 첫 매치 사용. 둘 다 없으면 `Theme.of(context).hintColor`.
 3. dogfood 표에 자기 앱 row 갱신 (별 PR 또는 fan-out PR 본문 'spec table update' 섹션).
@@ -95,14 +96,18 @@ Scaffold(
 )
 ```
 
-**패턴 B' (sub-pattern, v1.2.2 신규): ads 가 Scaffold body 안 inline 박힌 앱** — bottomNavigationBar 슬롯이 비어있고 광고 배너가 body Column 마지막 child 로 박혀있는 케이스
+**패턴 B' (sub-pattern, v1.2.2 신규, v1.3 정의 broader)**: ads 가 Scaffold body 안 어디든 inline 박힌 앱 — bottomNavigationBar 슬롯이 비어있고 광고 배너가 body 트리 안에 박혀있는 케이스 (body Column 마지막 child 뿐 아니라 mid-body / SafeArea 안 / Stack 안 등 모든 위치 포함).
 
 ads_service 자체는 google_mobile_ads + AdaptiveBanner 클래스 가지고 있어도 사용 위치가 body 안 inline 이면 패턴 B 의 bottomNavigationBar Column wrap 이 직접 안 박힘. 두 옵션 (fan-out 시 노드가 시각 verify 후 픽):
 
-- **옵션 B'-1 (권장, 가장 surgical)**: bottomNavigationBar 슬롯에 `const VersionFooter()` 직접 박기 (A 패턴 그대로). body 내부 AdaptiveBanner 위치는 그대로 보존. 시각상 footer 가 화면 최하단 system inset 위, 광고는 body 안 다른 위치 — layout 분리.
-- **옵션 B'-2**: body 안 AdaptiveBanner 자리를 `Column` 으로 감싸 `[VersionFooter, AdaptiveBanner]` 박기. 패턴 B 와 동일한 layout (광고 위에 footer). body 변경 1 줄이라 여전히 surgical.
+- **옵션 B'-1 (강력 권장, layout-agnostic + 가장 surgical)**: bottomNavigationBar 슬롯에 `const VersionFooter()` 직접 박기 (A 패턴 그대로). body 내부 AdaptiveBanner 위치는 그대로 보존. 시각상 footer 가 화면 최하단 system inset 위, 광고는 body 안 그대로 — **layout 자연 분리**. body 안 ads 위치가 마지막 child 든 mid-body 든 무관하게 항상 작동.
+- **옵션 B'-2**: body 안 AdaptiveBanner 자리를 `Column` 으로 감싸 `[VersionFooter, AdaptiveBanner]` 박기. 패턴 B 와 동일한 layout (광고 위에 footer). **단점**: ads 가 mid-body 인 경우 footer 가 body 중간으로 가는 어색한 위치 (더치페이가 정확히 이 케이스 — 광고 ↔ 키패드 사이에 footer 끼임).
 
-후보: 더치페이 (사이클 #9 baseline audit 발견 — lib/main.dart line 464 inline `const AdaptiveBanner()`, lib/theme.dart 자체 X → hintColor fallback 추가).
+**선택 기준**:
+- ads 가 body 마지막 child = B'-1 또는 B'-2 둘 다 가능 (시각 verify 후 픽).
+- ads 가 mid-body (다른 child 들 사이) = **B'-1 만 권장** (B'-2 는 layout 깨짐).
+
+**검증된 케이스**: 더치페이 (사이클 #10 PR ssamssae/dutch_pay_calculator#10) — ads 가 body Column 중간 (lib/main.dart line 464, 입력 영역 → AdaptiveBanner → 키패드+계산버튼 화면 하단 55%). B'-1 픽으로 광고+키패드+footer 세 layout 자연 분리. textFaint `0xFF9CA3AF` (약먹자와 완전 동일 hex — app_theme.dart 주석 "약먹자와 같은 구조, 포인트 컬러만 다름(인디고)" 명시).
 
 **패턴 C: migration 케이스 (한줄일기 한정)** — 기존 인라인 version 표시가 있는 앱
 
@@ -181,6 +186,7 @@ class VersionFooter extends StatelessWidget {
 
 각 노드가 자기 앱에 prefix 브랜치 `<node>/version-footer-2026-05-29` 분기 후:
 
+0. **main FF 의무 (v1.3 GC7)** — `git fetch origin && git pull --ff-only origin main` 으로 stale local main 제거 후 분기. stale 기반 분기 시 audit/박기 둘 다 부정확 위험 (사이클 #9/#10 사고).
 1. `lib/widgets/version_footer.dart` 새 파일 (위 코드 + 자기 앱 컬러 토큰 픽).
 2. 메인 화면에 `const VersionFooter()` 1 줄 박기 — 패턴 A/B/C 중 자기 앱 골라서 (↑ § 위치 패턴 분기). `Karpathy 룰3 surgical` — 인접 코드 손대지 말 것.
 3. `pubspec.yaml` 변경 X (v1 dart-define 안).
@@ -230,36 +236,64 @@ class VersionFooter extends StatelessWidget {
   - GC3 (import path flat lib) / GC4 (패턴 A 직접 bottomNavigationBar) — spec v1.1 그대로 OK, fix 불요.
 - analyze: 1 info-level pre-existing (water_background.dart unnecessary_underscores, 내 변경 무관 — --no-fatal-infos 통과). test: 2/2 PASS (기존 widget_test + 신규 version_footer).
 
-## 사이클 #9 4 앱 baseline audit (v1.2.2)
+## 사이클 #10 더치페이 B' dogfood 결과 (v1.3 정정 forcing)
+
+- **컬러**: textFaint `0xFF9CA3AF` 픽 (사이클 #9 baseline #148 prediction "hintColor fallback" 정정 — stale local main 으로 missed).
+- **위치**: 패턴 B'-1 — bottomNavigationBar 슬롯 직접 + body 안 line 464 광고 mid-body 위치 보존. 광고+키패드+footer 세 layout 자연 분리.
+- **theme 구조**: lib/theme/app_theme.dart 디렉토리 (약먹자와 동일 구조, 주석 명시).
+- **약먹자 ≈ 더치페이 형제 디자인 시스템** 발견 — 사이클 #9 cluster 분류 표 갱신 forcing.
+- **generality check** (사이클 #10 surface):
+  - GC7: baseline audit 시 main FF 의무 (fetch + pull 둘 다). 사이클 #9 fetch 만으로 stale local main 기반 audit 사고.
+  - GC8: B' 정의 broader 화 — "body Column 마지막 child" → "body 안 어디든 inline (bottomNavigationBar 슬롯 비어있음)". 더치페이 광고가 mid-body 였음.
+- analyze: No issues found. test: 9/9 PASS (기존 8 MainScreen + 신규 version_footer 매트릭스).
+
+## 디자인 시스템 클러스터 (v1.3 신설)
+
+8 앱 audit + 5 dogfood 결과로 디자인 시스템 친족 그루핑:
+
+| 클러스터 | 앱 | 공통점 | 차이점 |
+|----------|-----|--------|--------|
+| **A: app_theme.dart 디렉토리 + textFaint** | 약먹자, **더치페이** | lib/theme/app_theme.dart 동일 구조 + `AppColors.textFaint = 0xFF9CA3AF` 완전 동일 hex + ads (google_mobile_ads + AdaptiveBanner) | 포인트 컬러 (더치 = 인디고 `0xFF4F6DF5`). app_theme.dart 주석 "약먹자와 같은 구조, 포인트 컬러만 다름" 명시 |
+| **B: theme.dart 단일 + textTertiary (Toss)** | 한컵, 포모도로, (예측) 단어요 | lib/theme.dart 단일 + `AppColors.textTertiary = 0xFF8B95A1` (Toss 스타일) | 앱별 도메인 (물 추적 / 타이머 / 단어 학습) |
+| **C: theme.dart 단일 + textTertiary** | (예측) 한줄일기 | lib/theme.dart 단일 + textTertiary 매치 + brand/brandDeep 추가 | A + C migration 듀얼 — root_shell.dart kAppVersion 인라인 |
+| **D: AppColors 자체 X (minimal Material 3)** | 로또 | ColorScheme.fromSeed 만 사용, AppColors 클래스 X | hintColor fallback |
+| **E: re-verify 필요** | 메모요 | 사이클 #9 baseline #148 prediction "AppColors X / hintColor fallback" — 더치페이 사고 후 메모요도 의심 | 본진 fan-out 첫 단계 시 main FF 후 audit re-run |
+
+fan-out 시 같은 클러스터 앱은 토큰 픽 + 위치 패턴 재현성 높음. 약먹자 → 더치페이 머지 가 클러스터 A 친족 fan-out 첫 케이스.
+
+## 사이클 #9 4 앱 baseline audit (v1.2.2, v1.3 사후 정정 표)
 
 데스크탑이 fan-out 직전 남은 4 앱 (한줄/메모요/단어요/더치페이) main 베이스 audit 미리 — fan-out 시작 노드가 audit 부담 줄이고 직접 박기 + verify 만 하면 되는 베이스라인. `git grep main` 으로 워킹 트리 안 건드림.
+
+⚠️ **v1.3 사후 정정 (사이클 #10 더치페이 dogfood)**: 사이클 #9 베이스라인 audit 시 `git fetch` 만 하고 `git pull --ff-only` 안 한 stale local main 기반이라 더치페이 row 부정확. 메모요 row 도 의심 (동시 audit, 같은 stale 위험). 본진 fan-out 첫 단계로 main FF 후 재verify 필수.
 
 | 앱 | ads | AppColors 토큰 | theme 구조 | 예상 패턴 | 예상 컬러 픽 | 비고 |
 |----|-----|----------------|------------|-----------|--------------|------|
 | 한줄일기 | ❌ 0건 | ✅ textTertiary + textPrimary + brand + brandDeep | lib/theme.dart 단일 | **A + C migration** | textTertiary (1순위) | root_shell.dart 의 kAppVersion 인라인 Text 제거 후 VersionFooter 박기 — 본진 plan PR #145 흡수 |
-| 메모요 | ❌ 0건 | ❌ 0건 (AppColors X) | lib/theme.dart 자체 X | **A** | hintColor fallback | 로또와 동일 minimal Material 3 케이스, lib/widgets/ 디렉토리 이미 있음 (paste_button.dart) |
+| 메모요 | ❓ stale 가능 | ❓ stale 가능 | ❓ stale 가능 | ❓ TBD | **재verify 필요** | 사이클 #9 prediction "AppColors X / hintColor fallback / lib/theme.dart X / lib/widgets/paste_button.dart 있음" — 사이클 #10 더치페이 사고 후 stale 의심. 본진 fan-out 첫 단계로 main FF + audit re-run |
 | 단어요 | ❌ 0건 | ✅ textTertiary + textSecondary + textPrimary + warning + AppTextStyles | lib/theme.dart 단일 | **A** | textTertiary (1순위) | 한컵/포모도로 동일 디자인 시스템 (Toss 스타일 추정), AppTextStyles 도 있음 |
-| 더치페이 | ✅ google_mobile_ads ^5.3.0 + lib/services/ads_service.dart (AdaptiveBanner) | ❌ 0건 (AppColors X) | lib/theme.dart 자체 X | **B' sub-pattern (신규)** | hintColor fallback | main.dart 632 lines monolith (Scaffold 2 인스턴스 line 87/210), AdaptiveBanner 가 line 464 body 안 inline — B' 옵션 B'-1 권장 |
+| 더치페이 | ✅ google_mobile_ads ^5.3.0 + lib/services/ads_service.dart (AdaptiveBanner) | ✅ **textFaint `0xFF9CA3AF`** (사이클 #10 정정) | **lib/theme/app_theme.dart 디렉토리** (사이클 #10 정정) | **B' sub-pattern** (v1.3 정의 broader) | **textFaint** (약먹자 동일 hex) | main.dart 632 lines monolith (Scaffold 2 인스턴스 line 87/210), AdaptiveBanner line 464 body 안 mid-body inline (광고 ↔ 키패드 사이). B'-1 픽 검증 끝 — PR ssamssae/dutch_pay_calculator#10 |
 
-**주요 발견 (사이클 #9 surface)**:
-- 4 앱 중 3 앱 (한줄/메모요/단어요) 패턴 A 확정. ads 0건.
-- 더치페이만 **새 B' sub-pattern** — ads 가 bottomNavigationBar 슬롯이 아닌 body 안 inline 박힌 케이스. spec v1.2.2 패턴 B' 도입 forcing function.
-- 컬러 토큰 패턴: textTertiary 픽 (한줄/단어, 토스 스타일 동일) + hintColor fallback (메모요/더치페이, AppColors X).
+**v1.3 정정 후 주요 발견**:
+- 4 앱 중 2 앱 확정 (한줄 + 단어). 메모요 stale 의심 (재verify). 더치페이 정정 완료 + 약먹자 형제 발견.
+- B' sub-pattern 정의 broader 화 — body 안 어디든 inline.
+- baseline audit 절차 step 0 신설 (main FF 의무, GC7).
 - 한줄일기 = A + C 듀얼 (패턴 A 위치 + C migration 작업) → 본진 plan PR #145 그대로 진행 OK.
 
-fan-out 시작 노드는 위 prediction verify 만 하면 됨 — audit 1단계 데스크탑이 미리 처리.
+fan-out 시작 노드 = main FF + audit verify (메모요 만 full re-run) + 직접 박기.
 
-## 4 dogfood 검증 완료 표 (v1.2.1)
+## 5 dogfood 검증 완료 표 (v1.3 — 3 컬러 × 3 위치 매트릭스 완전 cover)
 
 | 패턴 | 컬러 케이스 | 검증 앱 | PR | 컬러 토큰 / fallback | 빌드 게이트 | 검증 사이클 |
 |------|-------------|---------|-----|----------------------|-------------|-------------|
 | **A** (ads 없음, bottomNavigationBar 직접) | textTertiary (Toss) | 한컵 | [ssamssae/hankeup#1](https://github.com/ssamssae/hankeup/pull/1) | `0xFF8B95A1` | test --dart-define matrix PASS | #5 |
 | **A** | textTertiary (Toss) | 포모도로 | [ssamssae/pomodoro#2](https://github.com/ssamssae/pomodoro/pull/2) | `0xFF8B95A1` | test --dart-define matrix PASS | #7 |
 | **A** | hintColor fallback | 로또 (randompick) | [ssamssae/lotto-calc#20](https://github.com/ssamssae/lotto-calc/pull/20) | `Theme.of(context).hintColor` (AppColors 자체 X) | test --dart-define matrix PASS | #8 |
-| **B** (ads-supported, Column wrap) | textFaint | 약먹자 | [ssamssae/yakmukja#14](https://github.com/ssamssae/yakmukja/pull/14) | `0xFF9CA3AF` | test --dart-define matrix PASS | #3 |
-| **C** (migration 한줄일기) | TBD | 한줄일기 | TBD 본진 | TBD | TBD | 본진 migration plan PR #145 흡수 |
+| **B** (ads-supported, bottomNavigationBar Column wrap) | textFaint | 약먹자 | [ssamssae/yakmukja#14](https://github.com/ssamssae/yakmukja/pull/14) | `0xFF9CA3AF` | test --dart-define matrix PASS | #3 |
+| **B'** (ads body inline, bottomNavigationBar 직접 + body ads 보존) | textFaint | 더치페이 | [ssamssae/dutch_pay_calculator#10](https://github.com/ssamssae/dutch_pay_calculator/pull/10) | `0xFF9CA3AF` (약먹자 동일 hex, 형제 클러스터 A) | test --dart-define matrix PASS | #10 |
+| **C** (migration 한줄일기) | TBD | 한줄일기 | TBD 본진 | TBD (예측 textTertiary, lib/theme.dart 단일) | TBD | 본진 migration plan PR #145 |
 
-**3 컬러 케이스 × 2 위치 패턴 매트릭스 완성** — spec v1.2 의 전 분기 경로 dogfood 검증. 남은 4 노드 fan-out (메모요/단어요/더치페이 + 한줄 migration) 진짜 안전.
+**3 컬러 케이스 × 3 위치 패턴 매트릭스 완전 cover** — spec v1.3 의 전 분기 경로 (A / B / B' + textFaint / textTertiary / hintColor) dogfood 검증. 남은 3 fan-out (메모요/단어요 + 한줄 migration) 진짜 안전.
 
 ## fan-out 진행 권장 순서 (v1.1)
 
@@ -282,3 +316,4 @@ v1.1: 2026-05-29 02:01 KST · 🖥 데스크탑 · 야간 오토파일럿 사이
 v1.2: 2026-05-29 02:10 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #6 (사이클 #5 한컵 dogfood generality check 2건 반영, 5a7c53d 머지).
 v1.2.1: 2026-05-29 02:20 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #8 (사이클 #7 포모도로 + #8 로또 dogfood 매핑 표·분배 표·검증 표 갱신 — 4 dogfood 누적 완료, fan-out baseline 확정).
 v1.2.2: 2026-05-29 02:30 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #9 (남은 4 앱 한줄/메모요/단어요/더치페이 baseline audit prediction 박음, 더치페이에서 새 B' sub-pattern 발견 — ads 가 body 안 inline 박힌 케이스. fan-out 노드별 audit 부담 감소).
+v1.3: 2026-05-29 02:46 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #11 (사이클 #10 더치페이 B' dogfood 정정 4건 묶음 — GC7 baseline main FF 의무 / GC8 B' 정의 broader / 더치페이 row 정정 textFaint + lib/theme/ 디렉토리 / 메모요 row stale 의심 본진 re-verify 권장 / 디자인 시스템 클러스터 표 + 약먹자≈더치페이 형제 / 5 dogfood 검증 표 3×3 매트릭스 완전 cover).
