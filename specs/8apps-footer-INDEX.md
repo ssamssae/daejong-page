@@ -28,9 +28,13 @@
 | #16 | v2.1 e LicensePage spec | daejong-page#152 ✅ | +247 | A 단독 / C 묶음 옵션 |
 | #17 | v2.2 c brand mark sprint spec | daejong-page#153 ✅ | +245 | 옵션 5 (텍스트 강 + brand 컬러) 권장, 강대종 본인 디자인 결정 의존 |
 | #18 | v2.3 a monorepo spec | daejong-page#154 ✅ | +199 | LOW 시기 미정, 1.x.x 안정화 후 |
-| **#19** | **본 closure INDEX SoT** | **daejong-page#TBD** | **이 파일** | **8 앱 footer 트랙 닫힘** |
+| #19 | closure INDEX SoT v1 | daejong-page#155 ✅ | +155 | 8 앱 footer 트랙 1차 닫힘 선언 + ack 큐 11 항목 |
+| #20 | 8 clone cleanup + 3 PR 머지 confirm | (no PR, local) | — | 14 작업 브랜치 -D + 8 remote prune + 799MB 보존 + 19 PR 100% 머지 confirm |
+| #21 | 본인 메모 정리 round 2 (메타 lesson 2) | claude-memory#3 ✅ | +79 +2 | feedback_merge_not_ack_for_option_specs + feedback_one_domain_deep_dive_autonomy |
+| #22 | v2.4 g i18n 짧은 spec | daejong-page#156 ✅ | +145 | 옵션 3 hard-code 영어 fallback 추천, 해외 출시 결정 의존 |
+| **#23** | **v2.5 f hidden dev mode + 본 INDEX 갱신 (v2.x closure)** | **daejong-page#157 + #TBD** | **+166 + INDEX update** | **v2.x 트랙 6 spec 완전 closure (a/b/c/d/e/f/g 모두 spec)** |
 
-**총: 11 daejong-page PR (1 머지 대기) + 5 dogfood PR + 2 claude 메모리 PR (머지 대기) = 18 PR**.
+**총: 14 daejong-page PR (1 머지 대기 INDEX update) + 5 dogfood PR + 3 claude 메모리/skills PR = 22 PR**.
 
 ---
 
@@ -52,11 +56,10 @@
 | [`8apps-footer-v21-license.md`](./8apps-footer-v21-license.md) | MED | ✅ 머지 (247 lines) — 형님 픽 대기 | #16 |
 | [`8apps-footer-v22-brand-mark.md`](./8apps-footer-v22-brand-mark.md) | MED | ✅ 머지 (245 lines) — 형님 픽 + 강대종 디자인 대기 | #17 |
 | [`8apps-footer-v23-monorepo.md`](./8apps-footer-v23-monorepo.md) | LOW | ✅ 머지 (199 lines) — 1.x.x 안정화 후 | #18 |
+| [`8apps-footer-v24-i18n.md`](./8apps-footer-v24-i18n.md) | LOW TBD | ✅ 머지 (145 lines) — 해외 출시 결정 후 | #22 |
+| [`8apps-footer-v25-hidden-dev-mode.md`](./8apps-footer-v25-hidden-dev-mode.md) | LOW | ✅ 머지 (166 lines) — 강대종 본인 디버그 채널 결정 후 | #23 |
 
-### v2.4 / v2.5 (TBD LOW)
-
-- **v2.4 g i18n** — 영어/일본어 출시 결정 시 별 spec draft.
-- **v2.5 f hidden dev mode** — 강대종 본인 디버그 채널 강화 시 별 spec draft.
+**v2.x 트랙 6 spec 완전 closure** — brainstorm + v2.0 + v2.1 + v2.2 + v2.3 + v2.4 + v2.5 모두 작성 완료. v2 brainstorm 7 후보 (a/b/c/d/e/f/g) 100% spec coverage.
 
 ---
 
@@ -87,25 +90,29 @@
 2. **🍎 본진 메모요** — **main FF + audit re-run 필수** (사이클 #9 stale row 위험, v1.3 명시). 클러스터 E (re-verify).
 3. **🏭 맥미니 단어요** — textTertiary 추정. 클러스터 B 친족 (한컵/포모 동일 Toss).
 
-### v2.x 형님 픽 결정 큐
+### v2.x 형님 픽 결정 큐 (6 spec 완전 closure 후)
 
 4. **v2.0 b+d 트리거 ack** — `specs/8apps-footer-v20-package-info-about.md` 검토 후 진입 결정.
 5. **v2.1 옵션 픽** — A 단독 (v2.0 후 별 사이클) vs C 묶음 (v2.0 PR 본문 1줄 추가).
 6. **v2.2 brand mark 옵션 픽** — 권장 옵션 5 (텍스트 강 + brand 컬러). **+ 강대종 본인 디자인 결정** (Container 모양 / 폰트 / 컬러).
 7. **v2.3 monorepo 진입 결정** — 1.x.x 안정화 6개월~1년 후 별 사이클.
+8. **v2.4 i18n 진입 결정** — 강대종 본인 해외 출시 결정 시 (옵션 3 영어 fallback 추천).
+9. **v2.5 hidden dev mode 진입 결정** — 강대종 본인 디버그 채널 필요 명확화 시 (옵션 2 long press 추천, v2.0 d 옵션 D-1 채택 시).
 
 ### 빌드 자동화 별 PR (HIGH, 맥미니 영역)
 
-8. **dart-define APP_VERSION 빌드 자동화** — mac-mini night-builder + submit-app 스킬 갱신. v1 spec 마지막 step 4 / v2.0 옵션 B-clean 동시.
+10. **dart-define APP_VERSION 빌드 자동화** — mac-mini night-builder + submit-app 스킬 갱신. v1 spec 마지막 step 4 / v2.0 옵션 B-clean 동시.
 
-### 메모리 / 카탈로그 PR 머지 큐
+### 메모리 / 카탈로그 PR 머지 완료
 
-9. **PR ssamssae/claude-memory#2** — feedback 2 entry (baseline_audit_main_ff + dogfood_iterative_spec_refinement).
-10. **PR ssamssae/claude-skills#87** — issue 카탈로그 1 (cycle9 stale main prediction).
+- ✅ PR ssamssae/claude-memory#2 (사이클 #15 round 1) 머지됨.
+- ✅ PR ssamssae/claude-memory#3 (사이클 #21 round 2) 머지됨.
+- ✅ PR ssamssae/claude-skills#87 (사이클 #15 사고 카탈로그) 머지됨.
 
-### 본 PR (사이클 #19 closure)
+### 본 PR 머지 큐
 
-11. **PR ssamssae/daejong-page#TBD** (본 PR) — closure INDEX SoT.
+11. **PR ssamssae/daejong-page#157** — v2.5 hidden dev mode spec (사이클 #23).
+12. **PR ssamssae/daejong-page#TBD** (본 PR) — closure INDEX 갱신 v2 (#23 closure).
 
 ---
 
@@ -126,29 +133,31 @@
 
 ---
 
-## 17 사이클 누적 통계 (참고)
+## 23 사이클 누적 통계 (#23 갱신)
 
-- **spec 본문 lines (8 apps footer 만)**: 1527 (v1 319 + brainstorm 160 + v2.0 357 + v2.1 247 + v2.2 245 + v2.3 199).
-- **claude-memory + claude-skills 추가** (사이클 #15): +49 + 57 = 106.
-- **총 lines**: 1633.
-- **agent-inbox 보고**: 18 JSON (사이클 #1~#18).
-- **mac-report**: 18 통 (자동 본진 paste + mirror chain).
+- **spec 본문 lines (8 apps footer 만)**: 2138 (v1 319 + brainstorm 160 + v2.0 357 + v2.1 247 + v2.2 245 + v2.3 199 + INDEX v1+v2 갱신 ~165 + v2.4 145 + v2.5 166 + closure handoff 135).
+- **claude-memory** (사이클 #15 round 1 + #21 round 2): 49 + 79 = 128.
+- **claude-skills issue** (사이클 #15): 57.
+- **총 lines**: 2323.
+- **agent-inbox 보고**: 23 JSON (사이클 #1~#23).
+- **mac-report**: 23 통 (자동 본진 paste + mirror chain).
 - **외부영향**: 0 (모두 docs / 코드 + test, 스토어 업로드 X / 외부 API 호출 X / 비가역 X).
-- **머지 PR**: 11 daejong-page + 5 dogfood = 16 머지. 잔여 3 PR (#TBD closure / claude-memory#2 / claude-skills#87) + 머지 큐 대기.
+- **머지 PR**: 14 daejong-page + 5 dogfood + 3 메모리/카탈로그 = 22 머지. 잔여 1 PR (본 INDEX 갱신 #23 closure).
 
 ---
 
-## 후속 트랙 reservation (사이클 #20+ 후보)
+## 후속 트랙 reservation (사이클 #24+ 후보, #23 갱신)
 
-8 앱 footer 트랙 닫힘 후 데스크탑 자율 픽 후보:
+8 앱 footer 트랙 v2.x 완전 closure 후 데스크탑 자율 픽 후보:
 
-- **candidate_C**: 다른 사이드 앱 1.0.9 후보 spec brainstorm (메모요 외 다른 앱 후속).
-- **candidate_D**: 데스크탑 본인 .claude/ 자율 정리 추가 라운드 (사이클 #15 와 비슷).
-- **candidate_E**: 사이클 #15-#18 작업 브랜치 cleanup (5 작업 브랜치 -D + remote prune).
-- **candidate_F**: idle 진입 — §8 룰 위반, 자율 후보 1~2개 픽 후 진입 권장.
-- **candidate_G**: v2.4 i18n 또는 v2.5 hidden dev mode 짧은 draft (필요 시).
+- ✅ **candidate_E** (사이클 #20): cleanup 완료 — 14 작업 브랜치 -D + 8 remote prune + 799MB 보존 + 19 PR 100% 머지 confirm.
+- ✅ **candidate_D** (사이클 #21): round 2 메모 정리 완료 — 메타 lesson 2 (옵션 spec 머지 ≠ ack + deep dive brake = closure INDEX).
+- ✅ **candidate_G** (사이클 #22 + #23): v2.4 i18n + v2.5 hidden dev mode 완료 — v2.x 6 spec 완전 closure.
+- **candidate_C** (TBD): 다른 사이드 앱 1.0.9 후보 spec brainstorm (메모요 외 다른 앱 후속).
+- **cleanup round 3** (TBD): 사이클 #21-#23 작업 브랜치 3 -D.
+- **standby until morning-report** (TBD): 본진 04:11 KST wake-up 후 morning-report 작성 (~30분).
 
-→ 디폴트 = candidate_E (cleanup, 가역 + 외부영향 0) → candidate_C (브레인스토밍) → idle 진입.
+→ 사이클 #24 디폴트 권장 = **cleanup round 3** (가역 + 외부영향 0, 3 작업 브랜치 -D) → standby until morning-report.
 
 ---
 
