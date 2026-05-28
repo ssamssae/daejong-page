@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 23,
+      "cacheFile": "ep23-cache.md",
+      "date": "2026-05-28",
+      "publishedAt": "2026-05-28T12:54:02+00:00",
+      "title": "Codex 도 이제 결재받고 일한다",
+      "subtitle": "코덱스가 바로 움직이지 않고, 먼저 본진에게 계획서를 올리게 만든 날의 기록.",
+      "readingTime": "7분",
+      "substackUrl": "https://daejongkang.substack.com/p/codex",
+      "originFile": "ep23-2026-05-28.md"
+    },
+    {
       "number": 22,
       "cacheFile": "ep22-cache.md",
       "date": "2026-05-28",
