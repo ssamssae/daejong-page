@@ -1,6 +1,17 @@
 {
   "entries": [
     {
+      "ts": "2026-05-29T00:14:00+09:00",
+      "date": "2026-05-29",
+      "node": "🍎 본진",
+      "slug": "2026-05-29-master-alive-ping-miss-and-delegate-intent-misread",
+      "title": "본진 실수 2건 — alive ping 누락 + \"맥북본진 디렉티브 보내줘\" 의 위임 의도 오해",
+      "summary": "같은 사이클에서 (1) 옵션 1(직접 처리) 라우팅 답 후 처리 진입 시 alive ping 1통을 누락해 형님이 4분 침묵 동안 헛도는 줄 의심. (2) 형님 \"맥북본진 디렉티브 보내줘\" 의 진짜 의도는 데스크탑(🖥) 위임이었는데 본진이 직접 처리로 라우팅해 의도와 어긋남. 데스크탑 mac-report 가 본진 디렉티브 명시 요청까지 박았는데 publish 가 그 사이 끝나 이중 처리는 가까스로 회피.",
+      "fix": "둘 다 이미 박혀있는 룰(alive_ping_on_long_diagnostics, 위임 디폴트) 미실행 사고 — 신규 룰 X. \"디렉티브 보내줘\" 단어는 위임 트리거 디폴트 해석, 본진 직접 처리로 라우팅하려면 \"본진 직접/노드 X 위임?\" 한 줄 확인을 디폴트로.",
+      "source_url": "https://github.com/ssamssae/claude-skills/blob/main/issues/2026-05-29-master-alive-ping-miss-and-delegate-intent-misread.md",
+      "auto_detected": false
+    },
+    {
       "ts": "2026-05-26T23:51:35.879Z",
       "date": "2026-05-26",
       "node": "🍎 본진",
