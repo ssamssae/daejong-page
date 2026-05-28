@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 22,
+      "cacheFile": "ep22-cache.md",
+      "date": "2026-05-28",
+      "publishedAt": "2026-05-28T12:46:53+00:00",
+      "title": "룰도 인프라다: next-cycle.md를 결국 죽인 날",
+      "subtitle": "오늘 본진이 또 룰을 고쳤다. 이번엔 룰을 더한 게 아니라, 룰이 기대던 파일 자체를 없애는 쪽으로 갔다.",
+      "readingTime": "11분",
+      "substackUrl": "https://daejongkang.substack.com/p/next-cyclemd",
+      "originFile": "ep22-2026-05-28.md"
+    },
+    {
       "number": 20,
       "cacheFile": "ep20-cache.md",
       "date": "2026-05-26",
