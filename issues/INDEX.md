@@ -1,11 +1,29 @@
 # Issues Index
 
 _자동 생성됨. 이 파일은 수동 편집 금지 — `python3 ~/.claude/skills/issue/tools/regen_index.py` 로만 갱신._
-_마지막 생성: 2026-05-24 11:00 KST_
+_마지막 생성: 2026-05-27 00:39 KST_
 
 | 날짜 | slug | 제목 | 심각도 | 재발 가능성 | 재발 이력 | 예방 deferred |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-05-27 | [codex-directive-enter-fix-v2-fails-on-linux-tmux](2026-05-27-codex-directive-enter-fix-v2-fails-on-linux-tmux.md) | codex-directive v2 Enter 두 번 fix 가 Linux tmux 3.4 + 1KB+ 본문에서 submit 실패 | medium (자동화 단방향 silent fail — 형님이 "엔터 두번 누른거 맞냐" 의심으로 surface) | high (codex-directive 1KB+ 본문 발사 자체가 트리거 — mesh-vote / brainstorm / 긴 directive 전체 영향) | — | — |
+| 2026-05-26 | [hook-archive-refs-gap](2026-05-26-hook-archive-refs-gap.md) | hook archive 표준화 후 5노드 settings.json refs cleanup 누락 (handoff-check.sh 잔재) | low (시각 노이즈, 동작 영향 0) | medium (다른 hook archive 사이클에 같은 함정 가능) | — | — |
+| 2026-05-26 | [five-node-cascade-failure](2026-05-26-five-node-cascade-failure.md) | 2026-05-26 — 5 노드 cascade failure (어휘 분류기 + stale + singleton) | ? | ? | — | — |
+| 2026-05-26 | [choso-live-task-ttl](2026-05-26-choso-live-task-ttl.md) | 초소 LIVE 섹션 stale node_task TTL 부재 + hangeul_label bare 단어 junk 노출 | low (시각 표시 버그, 데이터/외부영향 0) | low (코드 forcing function + 테스트 박힘) | — | — |
+| 2026-05-25 | [typing-daemon-paused-on-idle-mismatch](2026-05-25-typing-daemon-paused-on-idle-mismatch.md) | 🍎 본진 typing daemon — pause-flag fix 후 idle 시 silent vs 형님 기대 mismatch | ? | ? | — | — |
+| 2026-05-25 | [toml-config-root-vs-subkey-trap](2026-05-25-toml-config-root-vs-subkey-trap.md) | 사고 요약 | ? | ? | — | — |
+| 2026-05-25 | [notebook-sdxl-oom-cascade-x2](2026-05-25-notebook-sdxl-oom-cascade-x2.md) | 💻 노트북 SDXL OOM cascade × 2회 (claude chatbot 동반사살) | ? | ? | — | — |
+| 2026-05-25 | [master-silence-on-next-cycle-handoff-causes-suspicion](2026-05-25-master-silence-on-next-cycle-handoff-causes-suspicion.md) | 본진 next-cycle 박힘 후 텔레그램 침묵 28분 → 형님 의심 증폭 사고 | ? | ? | — | — |
+| 2026-05-25 | [master-ack-surface-rule-violation-x2](2026-05-25-master-ack-surface-rule-violation-x2.md) | 🍎 본진 ack 요청 옵션 surface 룰 위반 × 2회 (같은 사이클) | ? | ? | — | — |
+| 2026-05-25 | [mac-report-nomatch-skips-mirror](2026-05-25-mac-report-nomatch-skips-mirror.md) | mac-report.sh ssh chain 의 zsh NOMATCH 가 mirror chain 통째로 skip | high | low (1줄 fix + 4 노드 동시 audit verify PASS) | — | — |
+| 2026-05-25 | [codex-mirror-helper-evolution-v1-v4](2026-05-25-codex-mirror-helper-evolution-v1-v4.md) | 사고 요약 | ? | ? | — | — |
+| 2026-05-25 | [claude-cyber-verification-block](2026-05-25-claude-cyber-verification-block.md) | 본진 audit directive 어휘 cyber 분류 → 노트북 Claude Code 세션 prompt 차단 | medium (단일 prompt 차단, 세션 자체 살아있음) | medium (시스템 orchestration 작업마다 cyber 어휘 노출 위험) | — | — |
+| 2026-05-24 | [wsl-ack-missing-after-cross-routing](2026-05-24-wsl-ack-missing-after-cross-routing.md) | 2026-05-24 본진→WSL ack 운반체 누락 — 형님 WSL 채팅 침묵 사고 | ? | ? | — | — |
+| 2026-05-24 | [notebook-to-mac-ssh-kex-mismatch](2026-05-24-notebook-to-mac-ssh-kex-mismatch.md) | 2026-05-24 노트북→본진 SSH KEX/HostKey mismatch 30초 silent hang | ? | ? | — | — |
+| 2026-05-24 | [notebook-stop-hook-reply-tool-skip](2026-05-24-notebook-stop-hook-reply-tool-skip.md) | 2026-05-24 노트북 stop hook 헤더 누락 — reply tool 호출로 이중송신 가드 trigger | ? | ? | — | — |
 | 2026-05-24 | [notebook-autologin-wake-unlock](2026-05-24-notebook-autologin-wake-unlock.md) | 노트북 Windows 부팅 자동로그인 + 슬립 wake 잠금 해제 (Hello 정책 우회) | low | medium | — | — |
+| 2026-05-24 | [master-node-idle-deadlock](2026-05-24-master-node-idle-deadlock.md) | 2026-05-24 본진↔노드 양쪽 idle 데드락 — picks 분기 답이 잘못된 채널로 발사 | ? | ? | — | — |
+| 2026-05-24 | [mac-mini-group-mirror-token-mismatch](2026-05-24-mac-mini-group-mirror-token-mismatch.md) | 2026-05-24 맥미니 Agent Mesh Mirror 그룹 발사 무응답 — TOKEN_MACMINI stale (401) | ? | ? | — | — |
+| 2026-05-24 | [context-percent-mis-estimation](2026-05-24-context-percent-mis-estimation.md) | 컨텍스트 % 체감 추정으로 핸드오프+클리어 강행 | ? | ? | 4회 | — |
 | 2026-05-23 | [notebook-balanced-sleep-5h-cuts-remote-access](2026-05-23-notebook-balanced-sleep-5h-cuts-remote-access.md) | 노트북 Windows Balanced 5h idle sleep → Tailnet offline, 원격 노드 통째로 끊김 | ? | ? | — | — |
 | 2026-05-23 | [noninteractive-ssh-claude-binary-misdiagnosis](2026-05-23-noninteractive-ssh-claude-binary-misdiagnosis.md) | 사건 | ? | ? | — | — |
 | 2026-05-23 | [naver-smart-editor-paste-requires-os-click](2026-05-23-naver-smart-editor-paste-requires-os-click.md) | 네이버 SmartEditor 본문 paste 가 진짜 OS-level click 1회를 요구 | ? | ? | — | — |
