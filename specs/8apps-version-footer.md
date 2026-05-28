@@ -45,12 +45,12 @@ v1 의 "textTertiary 고정" 룰은 dogfood 결과 약먹자에 textTertiary 가
 |----|--------------|-----------|-----------|---------------|---------|------|
 | 약먹자 | ❌ | ✅ `0xFF9CA3AF` | ❌ | ❌ | **textFaint** | dogfood (사이클 #3 PR ssamssae/yakmukja#14 머지) |
 | 한컵 | ✅ `0xFF8B95A1` | ❌ | ❌ | ✅ `0xFF4E5968` | **textTertiary** | dogfood (사이클 #5 PR ssamssae/hankeup#1 머지) |
+| 포모도로 | ✅ `0xFF8B95A1` | ❌ | ❌ | ✅ `0xFF4E5968` | **textTertiary** | dogfood (사이클 #7 PR ssamssae/pomodoro#2 머지) |
+| 로또 | ❌ (AppColors 자체 X) | ❌ | ❌ | ❌ | **`Theme.of(context).hintColor` fallback** | dogfood (사이클 #8 PR ssamssae/lotto-calc#20, minimal Material 3 앱 — spec v1.2 fallback 룰 첫 검증) |
 | 한줄일기 | ❓ | ❓ | ❓ | ❓ | TBD by 본진 migration | 한줄일기 reference (kAppVersion 인라인) — 본진 migration plan 별 spec [hanjul-footer-migration-plan.md](./hanjul-footer-migration-plan.md) |
 | 단어요 | ❓ | ❓ | ❓ | ❓ | TBD by 맥미니 | fan-out 시 grep |
 | 메모요 | ❓ | ❓ | ❓ | ❓ | TBD by 본진 | fan-out 시 grep |
 | 더치페이 | ❓ | ❓ | ❓ | ❓ | TBD by WSL | fan-out 시 grep |
-| 포모도로 | ❓ | ❓ | ❓ | ❓ | TBD by 노트북 | fan-out 시 grep |
-| 로또 | ❓ | ❓ | ❓ | ❓ | TBD by 맥미니 | fan-out 시 grep |
 
 **fan-out 시 각 노드 절차**:
 1. `grep -rE "textTertiary\|textFaint\|textMuted\|textSecondary" <repo>/lib/` (recursive — 한컵처럼 `lib/theme.dart` 단일 파일 케이스 + 약먹자처럼 `lib/theme/app_theme.dart` 디렉토리 케이스 둘 다 캐치) 으로 자기 앱 토큰 픽.
@@ -163,10 +163,10 @@ class VersionFooter extends StatelessWidget {
 | 노드 | 담당 앱 | 근거 |
 |------|---------|------|
 | 🍎 본진 (mac) | 메모요, 한줄일기 | 본진 자율 — 마침 메모요 1.0.7 사이클 중 + 한줄일기 footer reference 정리 본진이 정합 좋음 |
-| 🏭 맥미니 | 단어요, 로또번호 계산기 | 빌드/배포 엔진. 둘 다 정적 LUT 앱이라 위험도 낮음 |
-| 🪟 WSL | 더치페이 | wsl 즉응 코드 수정. 한컵은 사이클 #5 데스크탑 dogfood 로 검증 완료 (A 패턴, PR ssamssae/hankeup#1 머지) — 분배에서 제외 |
-| 🖥 데스크탑 (이 노드) | 약먹자 (사이클 #3 dogfood), 한컵 (사이클 #5 dogfood) | spec 짠 노드 + 한컵 A 패턴 검증 — 두 dogfood 완료 |
-| 💻 노트북 | 포모도로 | 노트북 노드 onboard |
+| 🏭 맥미니 | 단어요 | 빌드/배포 엔진. 정적 LUT 앱이라 위험도 낮음. 로또는 사이클 #8 데스크탑 dogfood 완료 (A 패턴 + hintColor fallback, PR ssamssae/lotto-calc#20) — 분배 제외 |
+| 🪟 WSL | 더치페이 | wsl 즉응 코드 수정. 한컵은 사이클 #5 데스크탑 dogfood 완료 (A 패턴, PR ssamssae/hankeup#1 머지) — 분배 제외 |
+| 🖥 데스크탑 (이 노드) | 약먹자 (#3) / 한컵 (#5) / 포모도로 (#7) / 로또 (#8) | spec 짠 노드 + 4 dogfood 완료 (3 컬러 케이스 × 2 위치 패턴 매트릭스) |
+| 💻 노트북 | (분배 0) | 포모도로 사이클 #7 데스크탑 dogfood 완료 — 분배 제외. 다음 onboard 후보로 reserve |
 
 위임 escape: 노드 세션 없거나 5분 안 끝낼 일이면 본진 fallback. 8 앱 각각 footer 추가 = `lib/widgets/version_footer.dart` 1 파일 + 메인 화면 1 줄 import + 1 자리 widget tree 추가 = 평균 3 분 X 8 = 24 분, 5 노드 병렬 시 5 분 안 끝남.
 
@@ -223,15 +223,17 @@ class VersionFooter extends StatelessWidget {
   - GC3 (import path flat lib) / GC4 (패턴 A 직접 bottomNavigationBar) — spec v1.1 그대로 OK, fix 불요.
 - analyze: 1 info-level pre-existing (water_background.dart unnecessary_underscores, 내 변경 무관 — --no-fatal-infos 통과). test: 2/2 PASS (기존 widget_test + 신규 version_footer).
 
-## 2 패턴 검증 완료 표 (v1.2)
+## 4 dogfood 검증 완료 표 (v1.2.1)
 
-| 패턴 | 검증 앱 | PR | 컬러 토큰 | 빌드 게이트 | 검증 사이클 |
-|------|---------|-----|-----------|-------------|-------------|
-| **A** (ads 없음, bottomNavigationBar 직접) | 한컵 | [ssamssae/hankeup#1](https://github.com/ssamssae/hankeup/pull/1) | textTertiary | flutter test --dart-define matrix PASS | #5 |
-| **B** (ads-supported, Column wrap) | 약먹자 | [ssamssae/yakmukja#14](https://github.com/ssamssae/yakmukja/pull/14) | textFaint | flutter test --dart-define matrix PASS | #3 |
-| **C** (migration 한줄일기) | 한줄일기 | TBD 본진 | TBD | TBD | 본진 migration plan PR #145 흡수 |
+| 패턴 | 컬러 케이스 | 검증 앱 | PR | 컬러 토큰 / fallback | 빌드 게이트 | 검증 사이클 |
+|------|-------------|---------|-----|----------------------|-------------|-------------|
+| **A** (ads 없음, bottomNavigationBar 직접) | textTertiary (Toss) | 한컵 | [ssamssae/hankeup#1](https://github.com/ssamssae/hankeup/pull/1) | `0xFF8B95A1` | test --dart-define matrix PASS | #5 |
+| **A** | textTertiary (Toss) | 포모도로 | [ssamssae/pomodoro#2](https://github.com/ssamssae/pomodoro/pull/2) | `0xFF8B95A1` | test --dart-define matrix PASS | #7 |
+| **A** | hintColor fallback | 로또 (randompick) | [ssamssae/lotto-calc#20](https://github.com/ssamssae/lotto-calc/pull/20) | `Theme.of(context).hintColor` (AppColors 자체 X) | test --dart-define matrix PASS | #8 |
+| **B** (ads-supported, Column wrap) | textFaint | 약먹자 | [ssamssae/yakmukja#14](https://github.com/ssamssae/yakmukja/pull/14) | `0xFF9CA3AF` | test --dart-define matrix PASS | #3 |
+| **C** (migration 한줄일기) | TBD | 한줄일기 | TBD 본진 | TBD | TBD | 본진 migration plan PR #145 흡수 |
 
-v1.2 fan-out 준비 완료 — 가정 placeholder 명확화 + audit grep robust + 2 패턴 검증 케이스 ready. 사이클 #6 머지 후 형님 ack 시 7 노드 fan-out 안전.
+**3 컬러 케이스 × 2 위치 패턴 매트릭스 완성** — spec v1.2 의 전 분기 경로 dogfood 검증. 남은 4 노드 fan-out (메모요/단어요/더치페이 + 한줄 migration) 진짜 안전.
 
 ## fan-out 진행 권장 순서 (v1.1)
 
@@ -240,9 +242,9 @@ v1.2 fan-out 준비 완료 — 가정 placeholder 명확화 + audit grep robust 
 | 0 | spec v1.1 머지 | 본진/맥미니 | 본 PR 자율 머지 |
 | 1 | 한줄일기 migration (패턴 C) | 🍎 본진 직접 | 형님 fan-out ack 후 본진 직처리 |
 | 2 | 메모요 footer (패턴 A) | 🍎 본진 | 한줄 migration 끝나면 본진 자율 |
-| 3 | 단어요 footer (audit 후 A or B) / 로또 footer (audit 후 A or B) | 🏭 맥미니 | 본진 directive 후 병렬 |
-| 3 | 더치페이 footer (audit 후 A or B) | 🪟 WSL | 본진 directive 후 병렬. 한컵은 사이클 #5 dogfood 로 검증 완료 (A 패턴, PR #1 머지) — 분배에서 제외 |
-| 3 | 포모도로 footer (audit 후 A or B) | 💻 노트북 | 본진 directive 후 병렬 |
+| 3 | 단어요 footer (audit 후 A or B) | 🏭 맥미니 | 본진 directive 후 병렬. 로또 = 데스크탑 사이클 #8 dogfood 완료 (A 패턴 + hintColor fallback, PR #20) — 분배 제외 |
+| 3 | 더치페이 footer (audit 후 A or B) | 🪟 WSL | 본진 directive 후 병렬. 한컵 = 데스크탑 사이클 #5 dogfood 완료 — 분배 제외 |
+| 3 | (분배 0) | 💻 노트북 | 포모도로 = 데스크탑 사이클 #7 dogfood 완료 — 분배 제외. 다음 사이드 프로젝트 onboard reserve |
 | 4 | 빌드 자동화 dart-define 주입 | 🏭 맥미니 | 8 앱 PR 머지 후 night-builder 갱신 별 PR |
 
 비고 — 단계 3 의 6 앱 (메모요 제외) 은 컬러 토큰 grep + ads 분기 audit 후 패턴 픽. 모든 노드 동일 spec 따라 평행 진행 가능. 약먹자 = dogfood 완료라 재작업 없음.
@@ -251,4 +253,5 @@ v1.2 fan-out 준비 완료 — 가정 placeholder 명확화 + audit grep robust 
 
 v1: 2026-05-29 01:46 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #2 (44d1e5a 머지).
 v1.1: 2026-05-29 02:01 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #4 (사이클 #3 약먹자 dogfood 반영, c992106 머지).
-v1.2: 2026-05-29 02:10 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #6 (사이클 #5 한컵 dogfood generality check 2건 반영).
+v1.2: 2026-05-29 02:10 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #6 (사이클 #5 한컵 dogfood generality check 2건 반영, 5a7c53d 머지).
+v1.2.1: 2026-05-29 02:20 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #8 (사이클 #7 포모도로 + #8 로또 dogfood 매핑 표·분배 표·검증 표 갱신 — 4 dogfood 누적 완료, fan-out baseline 확정).
