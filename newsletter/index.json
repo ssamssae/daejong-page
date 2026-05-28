@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 24,
+      "cacheFile": "ep24-cache.md",
+      "date": "2026-05-28",
+      "publishedAt": "2026-05-28T12:57:39+00:00",
+      "title": "SSH 가 끊기면 AI 가 죽는 줄 알았는데, 사실 TTY 가 죽은 거였다",
+      "subtitle": "SSH 세션이 끊긴 날, 죽은 것은 AI가 아니라 내가 붙어 있던 자리였다.",
+      "readingTime": "9분",
+      "substackUrl": "https://daejongkang.substack.com/p/ssh-ai-tty",
+      "originFile": "ep24-2026-05-28.md"
+    },
+    {
       "number": 23,
       "cacheFile": "ep23-cache.md",
       "date": "2026-05-28",
