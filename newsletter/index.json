@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 25,
+      "cacheFile": "ep25-cache.md",
+      "date": "2026-05-28",
+      "publishedAt": "2026-05-28T13:01:12+00:00",
+      "title": "자면서 PR 을 만드는 레일을 한 칸씩 조립한 밤",
+      "subtitle": "어젯밤 노트북 codex 는 앱을 만든 게 아니라, 앞으로 앱을 만들 레일을 PR 일곱 개로 조립했다.",
+      "readingTime": "13분",
+      "substackUrl": "https://daejongkang.substack.com/p/pr",
+      "originFile": "ep25-2026-05-28.md"
+    },
+    {
       "number": 24,
       "cacheFile": "ep24-cache.md",
       "date": "2026-05-28",
