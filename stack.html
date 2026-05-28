@@ -413,8 +413,8 @@
     </div>
 
     <section class="codex-section">
-      <h2 class="topo-title">Codex 백엔드 운영 표준</h2>
-      <p class="topo-desc">4노드(🍎 본진 / 🪟 WSL / 🖥 데스크탑 / 💻 노트북)는 Codex REPL 활성, 🏭 맥미니는 Codex 셋업 없이 launchd 워커 전담.</p>
+      <h2 class="topo-title">Codex 백엔드 운영 표준 <span style="color:#EA580C;font-size:0.7em;font-weight:600;">⚠️ 2026-06-06 EOL</span></h2>
+      <p class="topo-desc">4노드(🍎 본진 / 🪟 WSL / 🖥 데스크탑 / 💻 노트북)는 Codex REPL 활성, 🏭 맥미니는 Codex 셋업 없이 launchd 워커 전담. <strong>6/6 까지 정상 가동, 6/7 sunset 후 대안 lane = Anthropic Claude 백엔드 메인 + Claude 토큰 소진 시 OpenRouter API fallback.</strong></p>
       <div class="codex-grid">
         <div class="codex-item"><strong>모델·CLI</strong>Codex CLI 2.1.150 · gpt-5.5 xhigh fast 통일. 현재 본진 5h limit hit 시 gpt-5.3-codex-spark 임시 사용.</div>
         <div class="codex-item"><strong>YOLO mode</strong><code>approval_policy="never"</code> + <code>sandbox_mode="danger-full-access"</code>를 4 Codex 노드 공통값으로 운용.</div>
