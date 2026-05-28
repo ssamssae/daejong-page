@@ -1,6 +1,6 @@
-# 8앱 version footer 통일 spec (v1.1)
+# 8앱 version footer 통일 spec (v1.2)
 
-T-260529-03 (side-project). v1 = 사이클 #2 산출 (44d1e5a 머지). v1.1 = 사이클 #4 보완 — 사이클 #3 약먹자 dogfood (PR #14 머지) 가 surface 한 4 마찰점 (F1 컬러 토큰 / F2 ads 위치 / F3 노드 빌드 게이트 / F4 hot-restart) 반영. 데스크탑(🖥) 노드 작성.
+T-260529-03 (side-project). v1 = 사이클 #2 산출 (44d1e5a 머지). v1.1 = 사이클 #4 보완 (c992106 머지) — 사이클 #3 약먹자 dogfood (PR ssamssae/yakmukja#14 머지) 가 surface 한 4 마찰점 (F1 컬러 토큰 / F2 ads 위치 / F3 노드 빌드 게이트 / F4 hot-restart) 반영. v1.2 = 사이클 #6 보완 — 사이클 #5 한컵 dogfood (PR ssamssae/hankeup#1 머지) 가 surface 한 generality check 2건 (GC1 fan-out 가정 / GC2 audit grep) 반영. 데스크탑(🖥) 노드 작성.
 
 ## 목적
 
@@ -43,17 +43,17 @@ v1 의 "textTertiary 고정" 룰은 dogfood 결과 약먹자에 textTertiary 가
 
 | 앱 | textTertiary | textFaint | textMuted | textSecondary | v1.1 픽 | 출처 |
 |----|--------------|-----------|-----------|---------------|---------|------|
-| 약먹자 | ❌ | ✅ `0xFF9CA3AF` | ❌ | ❌ | **textFaint** | dogfood (사이클 #3 PR #14 머지) |
-| 한줄일기 | ❓ | ❓ | ❓ | ❓ | TBD by 본진 migration | 한줄일기 reference (kAppVersion 인라인) |
+| 약먹자 | ❌ | ✅ `0xFF9CA3AF` | ❌ | ❌ | **textFaint** | dogfood (사이클 #3 PR ssamssae/yakmukja#14 머지) |
+| 한컵 | ✅ `0xFF8B95A1` | ❌ | ❌ | ✅ `0xFF4E5968` | **textTertiary** | dogfood (사이클 #5 PR ssamssae/hankeup#1 머지) |
+| 한줄일기 | ❓ | ❓ | ❓ | ❓ | TBD by 본진 migration | 한줄일기 reference (kAppVersion 인라인) — 본진 migration plan 별 spec [hanjul-footer-migration-plan.md](./hanjul-footer-migration-plan.md) |
 | 단어요 | ❓ | ❓ | ❓ | ❓ | TBD by 맥미니 | fan-out 시 grep |
 | 메모요 | ❓ | ❓ | ❓ | ❓ | TBD by 본진 | fan-out 시 grep |
 | 더치페이 | ❓ | ❓ | ❓ | ❓ | TBD by WSL | fan-out 시 grep |
 | 포모도로 | ❓ | ❓ | ❓ | ❓ | TBD by 노트북 | fan-out 시 grep |
-| 한컵 | ❓ | ❓ | ❓ | ❓ | TBD by WSL | fan-out 시 grep |
 | 로또 | ❓ | ❓ | ❓ | ❓ | TBD by 맥미니 | fan-out 시 grep |
 
 **fan-out 시 각 노드 절차**:
-1. `grep -E "textTertiary\|textFaint\|textMuted\|textSecondary" <repo>/lib/theme/` 으로 자기 앱 토큰 픽.
+1. `grep -rE "textTertiary\|textFaint\|textMuted\|textSecondary" <repo>/lib/` (recursive — 한컵처럼 `lib/theme.dart` 단일 파일 케이스 + 약먹자처럼 `lib/theme/app_theme.dart` 디렉토리 케이스 둘 다 캐치) 으로 자기 앱 토큰 픽.
 2. 위 우선 순위대로 첫 매치 사용. 둘 다 없으면 `Theme.of(context).hintColor`.
 3. dogfood 표에 자기 앱 row 갱신 (별 PR 또는 fan-out PR 본문 'spec table update' 섹션).
 
@@ -78,7 +78,11 @@ Scaffold(
 
 bottomNavigationBar 슬롯을 `Column` 으로 감싸 [VersionFooter, 광고 배너] 박는다. 약먹자 dogfood 검증 패턴.
 
-후보: 약먹자 (검증 끝), 한컵, 포모도로, 로또 (fan-out 시 ads import grep 으로 확정).
+검증된 케이스: 약먹자 (사이클 #3 PR ssamssae/yakmukja#14 머지).
+
+audit 후 A or B 확정 케이스 (가정 X, fan-out 시 노드가 `grep -rE "google_mobile_ads|AdaptiveBanner|BannerAd|admob" lib/` 으로 ads import 확인 후 픽): 포모도로, 로또.
+
+검증 결과 A 케이스로 확정된 앱 (사이클 #5 dogfood, B 가정 깨짐): 한컵 — ads grep 0건 → A 패턴 직접 박기로 진행, PR ssamssae/hankeup#1 머지.
 
 ```dart
 Scaffold(
@@ -148,7 +152,7 @@ class VersionFooter extends StatelessWidget {
 ```
 
 앱별 픽 procedure:
-1. `grep -E "textTertiary|textFaint|textMuted|textSecondary" lib/theme/` 자기 앱 토큰 확인 (↑ § 컬러 토큰 매핑 표).
+1. `grep -rE "textTertiary|textFaint|textMuted|textSecondary" lib/` (recursive) 자기 앱 토큰 확인 — `lib/theme.dart` 단일 파일 (한컵) + `lib/theme/app_theme.dart` 디렉토리 (약먹자) 둘 다 캐치. (↑ § 컬러 토큰 매핑 표)
 2. 위 우선순위 첫 매치로 `color:` 교체. 토큰 없으면 `color: Theme.of(context).hintColor` 으로 (이 경우 위젯 build 가 const 못 박음 — `const` 키워드 떼기).
 3. 위치는 패턴 A/B/C 중 자기 앱 골라서 (↑ § 위치 패턴 분기).
 
@@ -160,8 +164,8 @@ class VersionFooter extends StatelessWidget {
 |------|---------|------|
 | 🍎 본진 (mac) | 메모요, 한줄일기 | 본진 자율 — 마침 메모요 1.0.7 사이클 중 + 한줄일기 footer reference 정리 본진이 정합 좋음 |
 | 🏭 맥미니 | 단어요, 로또번호 계산기 | 빌드/배포 엔진. 둘 다 정적 LUT 앱이라 위험도 낮음 |
-| 🪟 WSL | 더치페이, 한컵 | wsl 즉응 코드 수정 |
-| 🖥 데스크탑 (이 노드) | 약먹자 | 사이클 #2 spec 짠 노드라 dogfood 1 앱 |
+| 🪟 WSL | 더치페이 | wsl 즉응 코드 수정. 한컵은 사이클 #5 데스크탑 dogfood 로 검증 완료 (A 패턴, PR ssamssae/hankeup#1 머지) — 분배에서 제외 |
+| 🖥 데스크탑 (이 노드) | 약먹자 (사이클 #3 dogfood), 한컵 (사이클 #5 dogfood) | spec 짠 노드 + 한컵 A 패턴 검증 — 두 dogfood 완료 |
 | 💻 노트북 | 포모도로 | 노트북 노드 onboard |
 
 위임 escape: 노드 세션 없거나 5분 안 끝낼 일이면 본진 fallback. 8 앱 각각 footer 추가 = `lib/widgets/version_footer.dart` 1 파일 + 메인 화면 1 줄 import + 1 자리 widget tree 추가 = 평균 3 분 X 8 = 24 분, 5 노드 병렬 시 5 분 안 끝남.
@@ -208,6 +212,27 @@ class VersionFooter extends StatelessWidget {
 - **hot-restart**: dart-define full rebuild 필요 → F4 빌드 가이드 1줄 추가.
 - analyze: No issues found. test: 2/2 PASS (placeholder + version_footer 신규).
 
+## 사이클 #5 dogfood 결과 (한컵 PR ssamssae/hankeup#1, 본진 squash merge)
+
+- **컬러**: textTertiary 픽 (Toss 스타일 `0xFF8B95A1`, 우선순위 1 매치) → F1 broader pattern 룰 정상 작동.
+- **위치**: 패턴 A (`bottomNavigationBar: const VersionFooter()` 직접) — ads grep 0건, 단일 화면 물 추적 앱 → F2 패턴 A 검증 PASS.
+- **빌드 게이트**: WSL desktop SDK 부재 그대로 → F3 `flutter test --dart-define` 매트릭스 (with/without) 양쪽 PASS.
+- **generality check** (사이클 #5 surface):
+  - GC1: 한컵 = 가정상 B 후보였으나 실제 ads X → A 확정. v1.2 fan-out 표 가정 X placeholder 로 변경.
+  - GC2: 한컵 `lib/theme.dart` 단일 파일 vs 약먹자 `lib/theme/app_theme.dart` 디렉토리 → v1.2 audit grep `lib/theme/` → `lib/ -r` recursive 로 robust 화.
+  - GC3 (import path flat lib) / GC4 (패턴 A 직접 bottomNavigationBar) — spec v1.1 그대로 OK, fix 불요.
+- analyze: 1 info-level pre-existing (water_background.dart unnecessary_underscores, 내 변경 무관 — --no-fatal-infos 통과). test: 2/2 PASS (기존 widget_test + 신규 version_footer).
+
+## 2 패턴 검증 완료 표 (v1.2)
+
+| 패턴 | 검증 앱 | PR | 컬러 토큰 | 빌드 게이트 | 검증 사이클 |
+|------|---------|-----|-----------|-------------|-------------|
+| **A** (ads 없음, bottomNavigationBar 직접) | 한컵 | [ssamssae/hankeup#1](https://github.com/ssamssae/hankeup/pull/1) | textTertiary | flutter test --dart-define matrix PASS | #5 |
+| **B** (ads-supported, Column wrap) | 약먹자 | [ssamssae/yakmukja#14](https://github.com/ssamssae/yakmukja/pull/14) | textFaint | flutter test --dart-define matrix PASS | #3 |
+| **C** (migration 한줄일기) | 한줄일기 | TBD 본진 | TBD | TBD | 본진 migration plan PR #145 흡수 |
+
+v1.2 fan-out 준비 완료 — 가정 placeholder 명확화 + audit grep robust + 2 패턴 검증 케이스 ready. 사이클 #6 머지 후 형님 ack 시 7 노드 fan-out 안전.
+
 ## fan-out 진행 권장 순서 (v1.1)
 
 | 단계 | 작업 | 책임 노드 | 트리거 |
@@ -215,9 +240,9 @@ class VersionFooter extends StatelessWidget {
 | 0 | spec v1.1 머지 | 본진/맥미니 | 본 PR 자율 머지 |
 | 1 | 한줄일기 migration (패턴 C) | 🍎 본진 직접 | 형님 fan-out ack 후 본진 직처리 |
 | 2 | 메모요 footer (패턴 A) | 🍎 본진 | 한줄 migration 끝나면 본진 자율 |
-| 3 | 단어요 / 로또 footer (패턴 A) | 🏭 맥미니 | 본진 directive 후 병렬 |
-| 3 | 더치페이 / 한컵 footer (A or B audit 후) | 🪟 WSL | 본진 directive 후 병렬 |
-| 3 | 포모도로 footer (A or B audit 후) | 💻 노트북 | 본진 directive 후 병렬 |
+| 3 | 단어요 footer (audit 후 A or B) / 로또 footer (audit 후 A or B) | 🏭 맥미니 | 본진 directive 후 병렬 |
+| 3 | 더치페이 footer (audit 후 A or B) | 🪟 WSL | 본진 directive 후 병렬. 한컵은 사이클 #5 dogfood 로 검증 완료 (A 패턴, PR #1 머지) — 분배에서 제외 |
+| 3 | 포모도로 footer (audit 후 A or B) | 💻 노트북 | 본진 directive 후 병렬 |
 | 4 | 빌드 자동화 dart-define 주입 | 🏭 맥미니 | 8 앱 PR 머지 후 night-builder 갱신 별 PR |
 
 비고 — 단계 3 의 6 앱 (메모요 제외) 은 컬러 토큰 grep + ads 분기 audit 후 패턴 픽. 모든 노드 동일 spec 따라 평행 진행 가능. 약먹자 = dogfood 완료라 재작업 없음.
@@ -225,4 +250,5 @@ class VersionFooter extends StatelessWidget {
 ---
 
 v1: 2026-05-29 01:46 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #2 (44d1e5a 머지).
-v1.1: 2026-05-29 02:01 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #4 (사이클 #3 약먹자 dogfood 반영).
+v1.1: 2026-05-29 02:01 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #4 (사이클 #3 약먹자 dogfood 반영, c992106 머지).
+v1.2: 2026-05-29 02:10 KST · 🖥 데스크탑 · 야간 오토파일럿 사이클 #6 (사이클 #5 한컵 dogfood generality check 2건 반영).
