@@ -6,6 +6,11 @@
       "title": "본진 텔레그램 MCP plugin ENOENT — plist PATH 에 ~/.bun/bin 누락으로 reply 툴 미로드 1시간"
     },
     {
+      "file": "2026-05-27-stale-handoff-scrape-disable-statusline-regression.md",
+      "date": "2026-05-27",
+      "title": "2026-05-27 stale handoff: claude.ai scrape 인프라 부주의 비활성화 + statusline v3 회귀"
+    },
+    {
       "file": "2026-05-27-codex-directive-enter-fix-v2-fails-on-linux-tmux.md",
       "date": "2026-05-27",
       "title": "codex-directive v2 Enter 두 번 fix 가 Linux tmux 3.4 + 1KB+ 본문에서 submit 실패"
