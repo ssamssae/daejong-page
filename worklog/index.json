@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "file": "2026-05-28_v1.0.0.md",
+      "date": "2026-05-28",
+      "version": "1.0.0",
+      "title": "게이지바 하나에서 작전보드까지",
+      "summary": "초소 게이지바 fix 한 건이 작전보드 단일 박스 재설계로 확장, codex mesh-vote 3회 (Ultra 재투표 5/5 Claude mesh 반전 + 작전보드 안 3/5 + self-pattern globals 승격 5/5), ~/todo tasks.md 단일 SoT 마이그, 듀얼 오케스트레이터 룰, 뉴스레터 Ep22~25 발행",
+      "updated": "2026-05-28T23:55:19+09:00"
+    },
+    {
       "file": "2026-05-27_v1.0.0.md",
       "date": "2026-05-27",
       "version": "1.0.0",
