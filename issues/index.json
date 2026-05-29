@@ -1,6 +1,11 @@
 {
   "entries": [
     {
+      "file": "2026-05-29-mac-claude-update-stale-staging-enotempty-loop.md",
+      "date": "2026-05-29",
+      "title": "본진+맥미니 Claude Code 업데이트 ENOTEMPTY (실패한 auto-update staging 잔재) → cc 무응답"
+    },
+    {
       "file": "2026-05-28-mac-telegram-plugin-enoent.md",
       "date": "2026-05-28",
       "title": "본진 텔레그램 MCP plugin ENOENT — plist PATH 에 ~/.bun/bin 누락으로 reply 툴 미로드 1시간"
