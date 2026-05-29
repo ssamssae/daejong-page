@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "file": "2026-05-29_v1.0.0.md",
+      "date": "2026-05-29",
+      "version": "1.0.0",
+      "title": "codex가 main을 비우던 밤",
+      "summary": "codex가 tmux main을 직접 점유하던 비대칭을 5노드 전부 codex 전용 세션으로 분리(cx 대칭화). 그 과정에서 mirror dedup 함정·노드 보고 표준 빈틈을 잡아 글로벌 룰로 박음. 그 외 choso.db 22GB retention fix, 작전보드 v2, 메모요 1.0.7 GA QA + 1.0.8 spec, 세션 자동 /clear 무한루프 정리, codex_hooks→hooks 5노드 정리.",
+      "updated": "2026-05-30T00:43:49+09:00"
+    },
+    {
       "file": "2026-05-28_v1.0.0.md",
       "date": "2026-05-28",
       "version": "1.0.0",
