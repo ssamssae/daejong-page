@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# pre-push — 공개 콘텐츠 PII 가드 (forcing function, 2026-05-30).
+# push 범위의 변경 파일을 scripts/pii-guard.sh 로 스캔. PII 발견 시 push 차단.
+# 우회: PII_GUARD_OVERRIDE=1 git push ...  (의도된 공개 게시).
+#
+# daejong-page 는 core.hooksPath=hooks (repo-tracked) 모델이라 이 훅이 모든 노드에
+# 자동 배포된다 (post-commit 과 동일). scripts/install-pii-guard-hook.sh 로 활성화.
+set -uo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+GUARD="$ROOT/scripts/pii-guard.sh"
+[ -x "$GUARD" ] || exit 0   # 가드 미설치 시 통과 (안전: push 막지 않음)
+
+zero="0000000000000000000000000000000000000000"
+rc=0
+
+# pre-push stdin: <local_ref> <local_oid> <remote_ref> <remote_oid> per line
+while read -r local_ref local_oid remote_ref remote_oid; do
+  [ "$local_oid" = "$zero" ] && continue   # 브랜치 삭제 push → skip
+  if [ "$remote_oid" = "$zero" ]; then
+    # 신규 브랜치: 원격에 아직 없는 커밋 범위
+    newc="$(git rev-list "$local_oid" --not --remotes 2>/dev/null || true)"
+    if [ -n "$newc" ]; then
+      oldest="$(printf '%s\n' "$newc" | tail -1)"
+      range="${oldest}^..${local_oid}"
+    else
+      range="$local_oid"
+    fi
+  else
+    range="${remote_oid}..${local_oid}"
+  fi
+  "$GUARD" --diff "$range" || rc=1
+done
+
+exit $rc
