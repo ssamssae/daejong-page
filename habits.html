@@ -75,10 +75,18 @@
 
     .intro {
       font-size: 13px; color: #4E5968;
-      margin-bottom: 24px; padding: 12px 14px;
+      margin-bottom: 16px; padding: 12px 14px;
       background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
       line-height: 1.55;
     }
+
+    .recent-change {
+      font-size: 12px; color: #8B95A1; line-height: 1.5;
+      margin-bottom: 24px; padding: 2px 0 2px 11px;
+      border-left: 3px solid #3182F6;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .recent-change b { color: #4E5968; font-weight: 600; }
 
     .list { display: flex; flex-direction: column; gap: 14px; }
 
@@ -142,6 +150,9 @@
     <div class="intro">
       강대종과 Claude 협업의 운영 습관. CLAUDE.md / AGENT.md 의 hard rule 중 매일 적용되는 핵심을 노출합니다. 새 사고가 박힐 때마다 갱신.
     </div>
+
+    <!-- 최근 변경: 규칙이 바뀌면 이 줄만 갱신 (누적 X, 최신 1건만, 정식 버전번호 X) -->
+    <div class="recent-change"><b>최근 변경</b> · 2026-05-30 · 브랜치 prefix 카드 최신화 (WSL→라이덴 라벨, main push 본진+맥미니 듀얼 오케스트레이터)</div>
 
     <div class="list">
 
