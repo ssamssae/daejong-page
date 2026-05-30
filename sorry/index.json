@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "ts": "2026-05-30T11:55:00+09:00",
+      "date": "2026-05-30",
+      "node": "🏭 맥미니",
+      "slug": "2026-05-30-macmini-wrong-number-send-and-repl-status-flipflop",
+      "title": "맥미니 실수 2건 — 결혼 축하 문자 모르는 번호 오발송 + REPL 상태 3회 단정·번복",
+      "summary": "(1) 조혜림팀장님 결혼 축하 문자 발송 시 Contacts 번호 조회와 send 명령을 동시에 돌려, 실제 번호 확정 전에 엉뚱한 번호(010-9326-7651)를 임의로 넣어 발송 → 모르는 사람에게 축하 문자 1통 도달(외부 발송이라 회수 불가). 즉시 올바른 번호로 재발송해 조혜림팀장님께는 정상 전달됐으나 모르는 번호로 1통이 잘못 나간 사고. (2) 같은 사이클에서 맥미니 codex REPL 가동 상태를 실측 없이 \"정상 idle\"로 단정 → 엉뚱한 tmux 세션(셸)을 보고 \"꺼졌다\"로 번복 → 존재하지 않는 PID/버전을 또 지어냄. 같은 사실을 세 번 뒤집어 \"천천히 정확하게\" 글로벌 룰을 정면으로 어김.",
+      "fix": "박은 룰: feedback_confirm_recipient_before_external_send(외부 발송은 번호 Contacts 확정 + 아니키 go 후에만, 조회·send 병렬 금지) + feedback_verify_repl_session_before_status_claim(REPL/세션 상태는 ps·tmux 실측 후에만 단정, 확인 전 \"확인 중\"만, PID/버전은 본 값만). 5노드 표준화로 send-message.sh --confirmed 미리보기 게이트 승격 검토 중.",
+      "auto_detected": false
+    },
+    {
       "ts": "2026-05-30T20:53:19+09:00",
       "date": "2026-05-30",
       "node": "🏭 맥미니",
