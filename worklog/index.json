@@ -1,6 +1,14 @@
 {
   "entries": [
     {
+      "file": "2026-05-30_v1.0.0.md",
+      "date": "2026-05-30",
+      "version": "1.0.0",
+      "title": "시스템이 스스로 청소를 시작한 날",
+      "summary": "웹툰 큐레이션 스프린트 6편(Ep7·8·13·14·17·18)을 손0 auto-resume로 연속 완주, choso 코덱스 세션 대칭화(main→codex)를 5노드에서 마무리하며 codex-ping 기본 세션 잠재버그 fix, 작전보드 백로그 137개를 codex-mesh-vote로 keep/kill 정리(137→124), 공개 페이지 위생(pii-guard pre-push 가드·sorry PII 정리·habits/knowhow 백필·노드 liveness 표준화)까지 한 번에 정리한 날.",
+      "updated": "2026-05-30T23:56:36+09:00"
+    },
+    {
       "file": "2026-05-29_v1.0.0.md",
       "date": "2026-05-29",
       "version": "1.0.0",
