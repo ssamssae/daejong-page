@@ -21,6 +21,11 @@ set -uo pipefail
 #  - KR 휴대폰 / 국제(+82) / 이메일 / 주민번호류
 RE='01[016789][- ]?[0-9]{3,4}[- ]?[0-9]{4}|\+82[- ]?1[0-9][- ]?[0-9]{3,4}[- ]?[0-9]{4}|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}|[0-9]{6}[- ][0-9]{7}'
 
+# 아니키 본인 연락처 화이트리스트 (T-260531-21). 본인 공개 게시 의도(포트폴리오 연락처·
+# 언론 제보 회신처 등)라 3rd-party PII 와 구분해 위반에서 제외. 정확히 일치하는 매치만 통과 —
+# 전화번호/주민번호/타인 이메일은 그대로 차단. 공개룰 "본명 강대종 = 아니키 본인 한정" 와 동일 정신.
+WHITELIST_PII='ssamssae@naver.com gayoremix@gmail.com'
+
 # === 스캔 대상 파일 수집 ===
 files=()
 if [ "${1:-}" = "--diff" ]; then
@@ -62,6 +67,20 @@ for f in "${files[@]}"; do
   is_public "$f" || continue
   [ -f "$f" ] || continue   # 삭제/미존재 파일 skip
   hits=$(grep -noHE "$RE" "$f" 2>/dev/null || true)
+  # 화이트리스트 매치 제거 — file:line:matched 의 matched 가 본인 연락처면 drop.
+  if [ -n "$hits" ] && [ -n "$WHITELIST_PII" ]; then
+    filtered=""
+    while IFS= read -r line; do
+      [ -n "$line" ] || continue
+      matched="${line#*:}"; matched="${matched#*:}"   # file: 와 line: 제거 → 매치값
+      skip=0
+      for w in $WHITELIST_PII; do
+        [ "$matched" = "$w" ] && { skip=1; break; }
+      done
+      [ "$skip" = "0" ] && filtered+="$line"$'\n'
+    done <<< "$hits"
+    hits="${filtered%$'\n'}"
+  fi
   if [ -n "$hits" ]; then
     out+="$hits"$'\n'
     violations=$((violations + 1))
