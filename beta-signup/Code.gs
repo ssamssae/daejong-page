@@ -13,7 +13,7 @@ const CONFIG = {
   SHEET_NAME: 'Testers',
   ADMIN_EMAIL: 'ssamssae@naver.com',
   OPT_IN_URL: 'https://play.google.com/apps/testing/com.daejongkang.simple_memo_app',
-  TELEGRAM_BOT_TOKEN: '8312381862:AAHD9jAGeY9Z-ELOA23wyn71Ngymfn9hrcE',
+  TELEGRAM_BOT_TOKEN: '[REDACTED]',
   TELEGRAM_CHAT_ID: '538806975',
   PACKAGE_NAME: 'com.daejongkang.simple_memo_app',
   PLAY_CONSOLE_TESTERS_URL: 'https://play.google.com/console/u/0/developers/6983298419309965737/app/4974914968969003912/closed-testing/tracks/4702694961281498549/testers',

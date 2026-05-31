@@ -18,7 +18,7 @@ const SCRIPT_ID = 'AKfycbzAdwQvLm5c3veXrm-OnZ3hAwYqxq0gBnhxgk9TFmFRtrjPmKTd56SCa
 const APPS_SCRIPT_URL = `https://script.google.com/macros/s/${SCRIPT_ID}/exec`;
 const ADMIN_SECRET = 'memoyo2026';
 
-const TELEGRAM_BOT_TOKEN = '8312381862:AAHD9jAGeY9Z-ELOA23wyn71Ngymfn9hrcE';
+const TELEGRAM_BOT_TOKEN = '[REDACTED]';
 const TELEGRAM_CHAT_ID = '538806975';
 
 const GROUP_URL = 'https://groups.google.com/g/memoyo-beta-testers/members';
