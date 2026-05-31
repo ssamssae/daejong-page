@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "file": "2026-05-31_v1.0.1.md",
+   "date": "2026-05-31",
+   "version": "1.0.1",
+   "title": "돈 버는 줄과 안 무너지는 줄을 같이 깔았다",
+   "summary": "첫 유료 서비스 '첫이름(cheotireum) AI 사주 작명'을 띄우면서(수익형 마이크로SaaS 라인 첫 산출물, pages.dev+커스텀도메인+SERVICE 타일), 같은 날 시스템을 대량 경화 — 인프라 가드 보호 마커 hard rule+guard-comment-protect hook, 죽은 토큰 보안 위생 3repo, 룰 표준화 2레일, gemini-vote 이질적 한 표(codex-mesh-vote v0.2 통합), next-cycle.md 완전 폐기(session-clear v2.8, 모순 정리). 버그 3건(이중송신·env 오탐·SessionStart race) fix+이슈박제. 새벽엔 Fire-Lease·IG 백필·결혼식 캐러셀·insta-photos·USER-QUERY 라우팅·DGX Spark 결정(v1.0.0).",
+   "updated": "2026-05-31T23:49:12+09:00"
+  },
+  {
    "file": "2026-05-31_v1.0.0.md",
    "date": "2026-05-31",
    "version": "1.0.0",
