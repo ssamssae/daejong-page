@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-05-31-bonjin-report-main-chat-miss.md",
+      "date": "2026-05-31",
+      "slug": "bonjin-report-main-chat-miss",
+      "title": "본진→아니키 메인 챗 누락 — 텔레그램 origin 아닌 turn 의 본진 보고가 그룹 전용 forward 로만 발사돼 메인 DM 안 뜸",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "🍎 본진 — 비-텔레그램-origin turn 의 본진→아니키 보고",
+      "occurred_at": "2026-05-31 16:00 KST",
+      "resolved_at": "2026-05-31 16:13 KST",
+      "updated": "2026-05-31T16:14:00+09:00"
+    },
+    {
       "file": "2026-05-29-mac-claude-update-stale-staging-enotempty-loop.md",
       "date": "2026-05-29",
       "title": "본진+맥미니 Claude Code 업데이트 ENOTEMPTY (실패한 auto-update staging 잔재) → cc 무응답"
