@@ -207,6 +207,14 @@
       "date": "2026-05-31",
       "source_type": "video",
       "updated": "2026-05-31T13:44:11+09:00"
+    },
+    {
+      "file": "2026-05-31-graphic-asset-pitfall-webhack.md",
+      "slug": "graphic-asset-pitfall-webhack",
+      "title": "1인 개발자가 꼭 알아야 할 그래픽 에셋의 함정",
+      "date": "2026-05-31",
+      "source_type": "video",
+      "updated": "2026-05-31T16:06:46+09:00"
     }
   ]
 }
