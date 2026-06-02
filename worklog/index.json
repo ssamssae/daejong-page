@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "file": "2026-06-02_v1.0.1.md",
+   "date": "2026-06-02",
+   "version": "1.0.1",
+   "title": "하루 만에 껍데기에서 진짜 서비스로 — 첫이름 풀빌드 (저녁 증분판)",
+   "summary": "v1.0.0(굿나잇)에 저녁 증분 추가 — 첫이름을 mock에서 실엔진+OTP+토스결제+PDF메일까지 풀빌드해 테스트모드 production 라이브(PR #2~#5 머지, 버그 3건 fix, Resend 도메인 stale 403→실측 verified). 밤늦게 아니키 3건: ①vrl-benchmark 다크톤 대안시안(기존 green-cream/PR#7 보존, 별브랜치 프리뷰) codex-fire 발사 ②favicon Flutter 기본V 교체 묶음 ③초소 작전보드 큐 mesh-vote는 맥미니 codex REPL 첫이름 점유 충돌로 옵션 surface. 실키 cutover는 아니키 게이트.",
+   "updated": "2026-06-02T23:31:00+09:00"
+  },
+  {
    "file": "2026-06-02_v1.0.0.md",
    "date": "2026-06-02",
    "version": "1.0.0",
