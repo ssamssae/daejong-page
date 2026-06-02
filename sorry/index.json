@@ -1,6 +1,17 @@
 {
   "entries": [
     {
+      "ts": "2026-06-02T06:17:41.206Z",
+      "date": "2026-06-02",
+      "node": "🍎 본진",
+      "slug": "auto-20260602061741206-🍎",
+      "uuid": "0b6877aa-9f1e-452e-9238-67bf6c682e98",
+      "title": "[auto] 보낸 **test 진단 메일**이에요(발신 onboarding@resend.dev = test 발신주소). ...",
+      "summary": "보낸 **test 진단 메일**이에요(발신 onboarding@resend.dev = test 발신주소). 미리 알림 못 드려서 놀라셨을 텐데 죄송합니다 — 무시하셔도 되는 검증 메일입니다. ",
+      "full_text": "사진은 맥미니가 QA 중에 OTP/Resend 작동을 확인하려고 보낸 **test 진단 메일**이에요(발신 onboarding@resend.dev = test 발신주소). 미리 알림 못 드려서 놀라셨을 텐데 죄송합니다 — 무시하셔도 되는 검증 메일입니다.\n\n이게 잘 도착했다는 건, (나) 빠른 길로 가도 OTP 기능 자체는 정상 작동한다는 뜻이고요.",
+      "auto_detected": true
+    },
+    {
       "ts": "2026-05-31T09:38:04.436Z",
       "date": "2026-05-31",
       "node": "🍎 본진",
