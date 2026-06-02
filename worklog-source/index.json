@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "file": "2026-06-02_v1.0.0.md",
+   "date": "2026-06-02",
+   "version": "1.0.0",
+   "title": "하루 만에 껍데기에서 진짜 서비스로 — 첫이름 풀빌드",
+   "summary": "첫이름(cheotireum)을 mock 껍데기에서 실엔진+이메일OTP+토스결제+결과PDF메일까지 풀빌드해 테스트모드 production 라이브(사이트 200, OTP=테스트 발신주소, Toss sandbox). 맥미니 codex-fire가 fan-out·리뷰·머지 자율 오케스트레이션, 본진은 라이브 실측 검증+게이트. PR #2~#5 머지(#6 진행), 버그 3건(amount문자열/processing오판/resend멱등성) fix, CF권한 10023 보강, Resend 도메인 stale 403→실측 verified. 실키 cutover는 아니키 게이트 보류. 곁다리 autopilot PR(약먹자/로또/더치페이/메모요) 머지 게이트 대기. 클로드 2.1.160 업뎃.",
+   "updated": "2026-06-02T23:13:00+09:00"
+  },
+  {
    "file": "2026-06-01_v1.0.0.md",
    "date": "2026-06-01",
    "version": "1.0.0",
