@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "file": "2026-06-03_v1.0.0.md",
+   "date": "2026-06-03",
+   "version": "1.0.0",
+   "title": "집의 전등을 직접 켜다 — 클라우드를 끊고 로컬로 (그리고 물바다를 막은 한 줄)",
+   "summary": "tuya 스마트홈 로컬(tinytuya) 직접제어 전환 — 조명 4종 로컬화(opt-in+클라우드 폴백), Zigbee 로컬맵 확장, 정수기 물토출 로컬 자동실행 차단 가드(WATER_COMMANDS, DO NOT REMOVE 마커)로 물바다 사고 차단. IR 기기(에어컨/선풍기)는 로컬화 미지원 클라우드 유지. 그 밖: 메모요 SDK skew 4번째 재발 revert+이슈기록·앱 평가버튼, Android 빌드환경 동결 hard rule(한줄일기 안드로이드만 심사중 동결/나머지 OK), nightly-update success-only+롤백 가드, gemini-ask.sh 래퍼. 세션 MCP 529 진단(서버 과부하, 버그 아님).",
+   "updated": "2026-06-03T22:48:00+09:00"
+  },
+  {
    "file": "2026-06-02_v1.0.1.md",
    "date": "2026-06-02",
    "version": "1.0.1",

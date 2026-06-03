@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "file": "2026-06-03_v1.0.0.md",
+   "date": "2026-06-03",
+   "version": "1.0.0",
+   "title": "작업일지 2026-06-03 — tuya 로컬 전환 / 메모요 SDK skew / Android 동결 룰",
+   "summary": "tuya 로컬(tinytuya) 직접제어 전환(조명 4종+클라우드 폴백, Zigbee 맵 확장, 정수기 물토출 차단 가드 v3.4), 메모요 onReorder revert+평가버튼+ASO(SDK skew 4th), Android 빌드환경 동결 hard rule(한줄일기 안드로이드만 심사중 동결), automations nightly-update 롤백가드+gemini-ask.sh, start-wrapped-session.sh, 세션 MCP 529 진단.",
+   "updated": "2026-06-03T22:48:00+09:00"
+  },
+  {
    "file": "2026-06-02_v1.0.1.md",
    "date": "2026-06-02",
    "version": "1.0.1",
