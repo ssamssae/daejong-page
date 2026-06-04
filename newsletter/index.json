@@ -3,6 +3,17 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 26,
+      "cacheFile": "ep26-cache.md",
+      "date": "2026-06-04",
+      "publishedAt": "2026-06-04T02:39:23+00:00",
+      "title": "맥에는 flock 이 없었다 — 만든 날부터 한 번도 돌지 않은 자동 동기화",
+      "subtitle": "PR 하나가 다섯 대 중 한 대에만 도착한 날, 진짜 범인은 스크립트의 두 번째 줄에 있었다.",
+      "readingTime": "7분",
+      "substackUrl": "https://daejongkang.substack.com/p/flock",
+      "originFile": "ep26-2026-06-04.md"
+    },
+    {
       "number": 25,
       "cacheFile": "ep25-cache.md",
       "date": "2026-05-28",
