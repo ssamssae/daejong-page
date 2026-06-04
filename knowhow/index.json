@@ -1,6 +1,42 @@
 {
   "entries": [
     {
+      "file": "2026-06-04-flutter-analyze-vs-runtime-assertion.md",
+      "date": "2026-06-04",
+      "slug": "flutter-analyze-vs-runtime-assertion",
+      "title": "Flutter analyze 는 런타임 assertion 을 못 잡는다 — 머지 전 네이티브 test 가 권위",
+      "category": "Flutter",
+      "tags": [
+        "flutter",
+        "analyze",
+        "flutter-test",
+        "material-ancestor",
+        "listtile",
+        "runtime-assertion",
+        "merge-gate",
+        "ci"
+      ],
+      "summary": "flutter analyze 는 정적 분석만 봐서 위젯 조립 런타임 assertion(예: ListTile/CheckboxListTile 의 Material ancestor 누락)을 못 잡는다. 노드 Flutter PR 은 머지 전 본진 네이티브 flutter test 가 권위 — analyze-only 게이트는 반쪽. 복구는 Material(type: transparency) 로 감싸기."
+    },
+    {
+      "file": "2026-06-04-semantic-staleness-gate-before-dispatch.md",
+      "date": "2026-06-04",
+      "slug": "semantic-staleness-gate-before-dispatch",
+      "title": "작업 분배 전 의미기반 staleness 게이트 — 끝난 결정이 죽인 형제 task 도 닫아라",
+      "category": "자동화",
+      "tags": [
+        "work-stealing",
+        "autopilot",
+        "staleness",
+        "dispatch",
+        "reconcile",
+        "orphan-task",
+        "supersede",
+        "llm-gate"
+      ],
+      "summary": "자동 분배에서 가장 비싼 사고는 끝난 결정이 무효화한 task 재발사. 결정 시 완료 task 만 닫지 말고 형제 task 도 닫고, dispatch 전 LLM 이 열린 후보를 최근 결정·완료와 의미 대조(수동 supersedes 링크 비의존)해 orphan/전제-stale 이면 발사 X + 닫기."
+    },
+    {
       "file": "2026-06-04-portable-command-guard-flock.md",
       "date": "2026-06-04",
       "slug": "portable-command-guard-flock",
