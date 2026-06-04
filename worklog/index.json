@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "file": "2026-06-04_v1.0.0.md",
+   "date": "2026-06-04",
+   "version": "1.0.0",
+   "title": "맥에는 flock 이 없었다, 그리고 메모요는 하루 만에 자랐다",
+   "summary": "5노드 fleet 풀가동 하루. 아침 인프라 누수 2건 봉합(40% 하드클리어 forcing function이 말만 하고 idle 고착→백스톱 / macOS에 flock 부재로 sync hook 4개 silent fail→command -v 가드, 5노드 sha 실측 회복). 오후 메모요 1.0.7 ①②③④(soft-delete·휴지통30일·Drive 1버튼화) 라이덴 구현+맥미니 네이티브 test 게이트로 하루 만에 완성→1.0.7+28 릴리스·스토어 제출. 첫이름 작명 서비스 동명이인 근사·입력UX·worker graceful400·결정론 도메인 리서치·다크 시안까지 4노드 병렬→prod 배포. analyze PASS인데 네이티브 test가 ListTile assertion 4건 잡음. 'always 정석대로' 글로벌룰(메모요 스샷 Android 재캡처). ep26 3채널 발행. 밤=쿠팡이츠 자율주문 구상+카나리아 회고.",
+   "updated": "2026-06-04T23:25:00+09:00"
+  },
+  {
    "file": "2026-06-03_v1.0.1.md",
    "date": "2026-06-03",
    "version": "1.0.1",
