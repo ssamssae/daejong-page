@@ -1,6 +1,25 @@
 {
   "entries": [
     {
+      "file": "2026-06-04-portable-command-guard-flock.md",
+      "date": "2026-06-04",
+      "slug": "portable-command-guard-flock",
+      "title": "Linux 전용 명령(flock 등)은 command -v 가드로 — macOS 에서 silent fail 방지",
+      "category": "환경 설정",
+      "tags": [
+        "flock",
+        "command-v",
+        "portability",
+        "macos",
+        "linux",
+        "silent-fail",
+        "hook",
+        "lock",
+        "coreutils"
+      ],
+      "summary": "flock 같은 util-linux 전용 명령을 macOS 에서 쓰면 command not found(127), || exit 0 과 합쳐지면 명령 부재까지 삼켜 hook 이 silent fail. command -v 가드로 있을 때만 사용. 본진 sync hook 4개가 만든 날부터 무동작이던 사고."
+    },
+    {
       "file": "2026-05-30-toml-config-root-vs-subkey.md",
       "date": "2026-05-30",
       "slug": "toml-config-root-vs-subkey",
