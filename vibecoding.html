@@ -593,6 +593,24 @@
         <div class="wf-note">⟳ JUDGE FAIL 시 최대 2회 재시도 → 합의 불가 시 강대종 에스컬레이션</div>
       </div>
 
+      <div class="wf-block">
+        <div class="wf-subtitle">🤖 함대 오케스트레이션 — 자동/수동 2레인 (2026-06 역할반전)</div>
+        <div class="routing-grid">
+          <div class="routing-col">
+            <div class="routing-label">자동 레인 (오토)</div>
+            <div class="routing-node mini">🏭 Mac mini = 제1 자동 오케스트레이터<br><small>야간 codex 30분 사이클로 5노드 fan-out</small></div>
+            <div class="routing-node wsl">자율워커 4엔진<br><small>본진·맥미니 × 클로드·코덱스 · 머신당 단일엔진 mutex · 자연어/초소버튼 토글</small></div>
+          </div>
+          <div class="routing-mid">+</div>
+          <div class="routing-col">
+            <div class="routing-label">수동 레인</div>
+            <div class="routing-node trigger">매뉴얼 큐 "큐 &lt;할일&gt;"<br><small>idle 노드가 하나씩 claim · 처리 · 보고</small></div>
+            <div class="routing-node result">FIFO + 원자적 claim + lease/reap<br><small>노드 죽으면 자동 재큐</small></div>
+          </div>
+        </div>
+        <div class="wf-note">🍎 Mac 본진은 수동 거버넌스 게이트키퍼(정책 · main 머지 · 최종 승인), 🏭 Mac mini는 자동 사이클 지휘 — 두 레인 모두 머신당 단일엔진 규칙으로 충돌 차단</div>
+      </div>
+
     </div>
 
     <!-- Current skills -->
