@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-06-05-memory-index-topic-drift.md",
+      "date": "2026-06-05",
+      "slug": "memory-index-topic-drift",
+      "title": "MEMORY.md 인덱스 줄이 정본 토픽파일과 드리프트 → 매 세션 stale 신호 반복",
+      "severity": "high",
+      "recurrence": "high",
+      "scope": "전 세션(본진) 메모리 recall 기반 판단",
+      "occurred_at": "2026-06-05",
+      "resolved_at": "2026-06-05 12:30 KST",
+      "updated": "2026-06-05T12:34:00+09:00"
+    },
+    {
       "file": "2026-05-31-bonjin-report-main-chat-miss.md",
       "date": "2026-05-31",
       "slug": "bonjin-report-main-chat-miss",
