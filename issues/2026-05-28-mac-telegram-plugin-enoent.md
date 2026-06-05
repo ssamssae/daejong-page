@@ -70,6 +70,12 @@ WSL 측 기여: 같은 root cause 진단을 SSH 경유 병렬 도달 + 형님께
 
 5. **재발 시 본 이슈 참조 + 즉시 v3 패턴 재발사** — 동일 ENOENT 패턴 잡히면 진단 단계 skip, plist PATH 검증 + v3 restart 발사 1동작.
 
+6. **✅ bun 을 `/opt/homebrew/bin` 에 심링크 — 근본 차단 (2026-06-05 박음, 본 계열 3회차 재발 후)** — `ln -s ~/.bun/bin/bun /opt/homebrew/bin/bun`. telegram MCP 의 spawn 명령(`bun run ...`)이 PATH 에서 bun 을 찾는데, bun 이 `~/.bun/bin` 에만 있던 게 본 이슈 계열(2026-05-14·05-28·06-05) 3회 재발의 단일 root cause. claude prefix 가 homebrew(`/opt/homebrew`)라 `/opt/homebrew/bin` 은 정규(plist)·비정규(바이너리 이전/수동 임시 재시작) 어떤 재기동 경로에서도 PATH 에 거의 항상 존재 → 심링크 1개로 bun 탐지 보장. 검증: `env -i PATH=/opt/homebrew/bin:/usr/bin:/bin bash -c 'command -v bun'` → `/opt/homebrew/bin/bun` PASS. 기존 #2(plist PATH 검증)는 정규 경로만 커버했으나 본 심링크는 경로 무관 차단. 가역(심링크라 `rm /opt/homebrew/bin/bun` 으로 복원). 재발 시 이 심링크부터 `ls -la /opt/homebrew/bin/bun` 확인.
+
+## 재발 이력
+
+- 2026-06-05 09:34 KST: claude 바이너리를 `~/.npm-global` → `/opt/homebrew` prefix 로 이전(자동업뎃 정상화)한 뒤 세션을 비정규 경로로 임시 재기동하는 과정에서 동일 telegram MCP "Failed to connect" 재발. **이번엔 plist PATH 에 이미 `~/.bun/bin` 포함**(2026-05-28 예방 #2 적용 상태)이었으나, 바이너리 이전 중 임시 재기동 환경이 plist 정규 PATH 를 안 거쳐 bun 미탐지. 형님이 `/mcp` → reconnect 수동 복구(09:36~39 KST). 교훈: 기존 plist PATH 예방은 launchd **정규 기동 경로만** 보장 — claude 바이너리 prefix 이전/수동 임시 재시작 경로는 커버 못함. → 근본 차단으로 재발방지 #6(bun `/opt/homebrew/bin` 심링크) 박음.
+
 ## 사이드 노트
 
 - 본진 자체 16:49 KST 진단 → 17:14 KST fix 까지 약 25분 소요. 형님 폰 침묵 = 16:10 ~ 17:14 KST 약 1시간 (재기동 후 backlog 처리 포함).
