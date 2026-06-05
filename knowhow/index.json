@@ -1,6 +1,25 @@
 {
   "entries": [
     {
+      "file": "2026-06-05-telegram-mcp-bun-symlink.md",
+      "date": "2026-06-05",
+      "slug": "telegram-mcp-bun-symlink",
+      "title": "telegram MCP 가 bun 을 못 찾아 끊길 때 — bun 을 /opt/homebrew/bin 에 심링크로 근본 차단",
+      "category": "텔레그램",
+      "tags": [
+        "telegram",
+        "mcp",
+        "bun",
+        "path",
+        "symlink",
+        "homebrew",
+        "plugin",
+        "reconnect",
+        "launchd"
+      ],
+      "summary": "telegram plugin 은 bun 으로 spawn 되는데 bun 이 ~/.bun/bin 에만 있어 PATH 못 찾으면 끊긴다(3회 재발). plist PATH fix 는 정규 기동 경로만 막아 새는 경로가 계속 생김. 근본 차단 = bun 을 /opt/homebrew/bin 에 심링크 — homebrew prefix 라 어떤 재기동 경로든 PATH 에 있어 경로 무관 차단. 재발 시 ls -la /opt/homebrew/bin/bun 부터 확인."
+    },
+    {
       "file": "2026-06-04-flutter-analyze-vs-runtime-assertion.md",
       "date": "2026-06-04",
       "slug": "flutter-analyze-vs-runtime-assertion",
