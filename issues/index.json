@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-06-06-cc-autoupdate-disable-noop-enotempty.md",
+      "date": "2026-06-06",
+      "slug": "cc-autoupdate-disable-noop-enotempty",
+      "title": "claude 자동업뎃 착각 — DISABLE_AUTOUPDATER가 launchd claude엔 무효, 본진만 멈춘 진짜 범인은 모듈폴더 수동 npm 잔재(ENOTEMPTY)",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "macOS 2대(본진/맥미니), launchd claude in-process 자동업뎃",
+      "occurred_at": "2026-06-05 23:17 KST",
+      "resolved_at": "2026-06-06 09:25 KST",
+      "updated": "2026-06-06T09:48:00+09:00"
+    },
+    {
       "file": "2026-06-05-memory-index-topic-drift.md",
       "date": "2026-06-05",
       "slug": "memory-index-topic-drift",
