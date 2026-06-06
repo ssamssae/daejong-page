@@ -226,6 +226,55 @@
       return /^https?:\/\//i.test(s) ? s : '#';
     }
 
+    // Markdown render output sanitizer.
+    // renderBody() is intentionally tiny, but this keeps future markdown syntax
+    // changes from accidentally reintroducing raw HTML/event-handler XSS.
+    function sanitizeRenderedHtml(html) {
+      const template = document.createElement('template');
+      template.innerHTML = html || '';
+      const allowedTags = new Set([
+        'a', 'blockquote', 'code', 'h2', 'h3', 'h4',
+        'hr', 'li', 'ol', 'p', 'pre', 'strong', 'ul'
+      ]);
+
+      const cleanNode = (node) => {
+        for (const child of Array.from(node.childNodes)) {
+          if (child.nodeType === Node.COMMENT_NODE) {
+            child.remove();
+            continue;
+          }
+          if (child.nodeType !== Node.ELEMENT_NODE) {
+            if (child.nodeType !== Node.TEXT_NODE) child.remove();
+            continue;
+          }
+
+          const tag = child.tagName.toLowerCase();
+          if (!allowedTags.has(tag)) {
+            child.replaceWith(document.createTextNode(child.textContent || ''));
+            continue;
+          }
+
+          for (const attr of Array.from(child.attributes)) {
+            const name = attr.name.toLowerCase();
+            const allowedAttr =
+              tag === 'a' && (name === 'href' || name === 'target' || name === 'rel');
+            if (!allowedAttr) child.removeAttribute(attr.name);
+          }
+
+          if (tag === 'a') {
+            child.setAttribute('href', safeUrl(child.getAttribute('href')));
+            child.setAttribute('target', '_blank');
+            child.setAttribute('rel', 'noreferrer noopener');
+          }
+
+          cleanNode(child);
+        }
+      };
+
+      cleanNode(template.content);
+      return template.innerHTML;
+    }
+
     function parseInsightMd(md) {
       const frontmatter = {};
       if (md.startsWith('---')) {
@@ -338,8 +387,10 @@
 
       const inline = (s) => {
         let x = escapeHtml(s);
-        x = x.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
-        x = x.replace(/(^|[^"'>])((?:https?):\/\/[^\s<]+)/g, '$1<a href="$2" target="_blank" rel="noreferrer">$2</a>');
+        x = x.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (_, label, url) =>
+          '<a href="' + escapeHtml(safeUrl(url)) + '" target="_blank" rel="noreferrer noopener">' + label + '</a>');
+        x = x.replace(/(^|[^"'>])((?:https?):\/\/[^\s<]+)/g, (_, prefix, url) =>
+          prefix + '<a href="' + escapeHtml(safeUrl(url)) + '" target="_blank" rel="noreferrer noopener">' + url + '</a>');
         x = x.replace(/`([^`]+)`/g, '<code>$1</code>');
         x = x.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
         return x;
@@ -469,7 +520,7 @@
         html += '</dl>';
       }
 
-      html += '<div class="body">' + renderBody(parsed.body || '') + '</div>';
+      html += '<div class="body">' + sanitizeRenderedHtml(renderBody(parsed.body || '')) + '</div>';
 
       viewEl.innerHTML = html;
     }
