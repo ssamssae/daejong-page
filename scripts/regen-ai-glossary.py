@@ -41,6 +41,8 @@ CATEGORIES_ORDER = [
 
 BEGIN_MARK = "<!-- BEGIN_GLOSSARY_DATA -->"
 END_MARK = "<!-- END_GLOSSARY_DATA -->"
+HERO_TERMS_MARK_RE = re.compile(r"<!--AUTO-HERO-TERMS-START-->\d+<!--AUTO-HERO-TERMS-END-->")
+HERO_CATEGORIES_MARK_RE = re.compile(r"<!--AUTO-HERO-CATEGORIES-START-->\d+<!--AUTO-HERO-CATEGORIES-END-->")
 
 # `- **용어** [카테고리]: 설명`
 TERM_LINE_RE = re.compile(r"^\s*-\s*\*\*(?P<name>[^*]+)\*\*\s*\[(?P<cat>[^\]]+)\]\s*:\s*(?P<desc>.+)\s*$")
@@ -126,6 +128,7 @@ def forward():
         grouped[cat].append((name, t["desc"], t["srcs"]))
 
     data_block = render_data_block(grouped)
+    category_count = sum(1 for v in grouped.values() if v)
 
     html = GLOSSARY_HTML.read_text(encoding="utf-8")
     pattern = re.compile(
@@ -134,14 +137,28 @@ def forward():
     )
     new_block = BEGIN_MARK + "\n" + data_block + "\n    " + END_MARK
     new_html = pattern.sub(lambda _: new_block, html)
+    new_html = sync_glossary_hero_stats(new_html, term_count=len(terms), category_count=category_count)
     if new_html != html:
         GLOSSARY_HTML.write_text(new_html, encoding="utf-8")
-        print(f"forward: {GLOSSARY_HTML.name} updated ({len(terms)} terms, {sum(1 for v in grouped.values() if v)} categories)")
+        print(f"forward: {GLOSSARY_HTML.name} updated ({len(terms)} terms, {category_count} categories)")
     else:
         print("forward: ai-glossary.html no changes")
 
     sync_index_stats(insight_count=len(list(INSIGHTS_DIR.glob("*.md"))), term_count=len(terms))
     return 0
+
+
+def sync_glossary_hero_stats(html, term_count, category_count):
+    """Keep ai-glossary hero-stat cards in sync with generated glossary data."""
+    new_html = HERO_TERMS_MARK_RE.sub(
+        f"<!--AUTO-HERO-TERMS-START-->{term_count}<!--AUTO-HERO-TERMS-END-->",
+        html,
+    )
+    new_html = HERO_CATEGORIES_MARK_RE.sub(
+        f"<!--AUTO-HERO-CATEGORIES-START-->{category_count}<!--AUTO-HERO-CATEGORIES-END-->",
+        new_html,
+    )
+    return new_html
 
 
 def sync_index_stats(insight_count, term_count):
