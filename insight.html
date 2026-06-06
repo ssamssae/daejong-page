@@ -220,6 +220,12 @@
       }[c]));
     }
 
+    // href 스킴 allowlist — http(s) 절대 URL 만 통과, javascript:/data: 등 위험 스킴은 '#' 로 무력화 (XSS 가드, #96 후속)
+    function safeUrl(u) {
+      const s = (u || '').trim();
+      return /^https?:\/\//i.test(s) ? s : '#';
+    }
+
     function parseInsightMd(md) {
       const frontmatter = {};
       if (md.startsWith('---')) {
@@ -454,7 +460,7 @@
       if (fm.source_duration) rows.push(['길이', escapeHtml(fm.source_duration)]);
       if (fm.source_published) rows.push(['발행', escapeHtml(fm.source_published)]);
       if (fm.consumed_at) rows.push(['시청/소비', escapeHtml(fm.consumed_at)]);
-      if (fm.source_url) rows.push(['원본', '<a href="' + escapeHtml(fm.source_url) + '" target="_blank" rel="noopener">' + escapeHtml(fm.source_url) + ' ↗</a>']);
+      if (fm.source_url) rows.push(['원본', '<a href="' + escapeHtml(safeUrl(fm.source_url)) + '" target="_blank" rel="noopener">' + escapeHtml(fm.source_url) + ' ↗</a>']);
       if (rows.length) {
         html += '<dl class="meta-grid">';
         for (const [k, v] of rows) {

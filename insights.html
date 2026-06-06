@@ -254,6 +254,12 @@
       }[c]));
     }
 
+    // href 스킴 allowlist — http(s) 절대 URL 만 통과, javascript:/data: 등 위험 스킴은 '#' 로 무력화 (XSS 가드, #96 후속)
+    function safeUrl(u) {
+      const s = (u || '').trim();
+      return /^https?:\/\//i.test(s) ? s : '#';
+    }
+
     // Parse insight markdown: YAML frontmatter (source_type/source_url/...) + # title + body.
     function parseInsightMd(md) {
       const frontmatter = {};
@@ -439,7 +445,7 @@
       if (fm.source_duration) metaBits.push(escapeHtml(fm.source_duration));
       if (fm.source_published) metaBits.push('발행 ' + escapeHtml(fm.source_published));
       if (fm.consumed_at) metaBits.push('시청 ' + escapeHtml(fm.consumed_at));
-      if (fm.source_url) metaBits.push('<a href="' + escapeHtml(fm.source_url) + '" target="_blank" rel="noopener">원본 ↗</a>');
+      if (fm.source_url) metaBits.push('<a href="' + escapeHtml(safeUrl(fm.source_url)) + '" target="_blank" rel="noopener">원본 ↗</a>');
       if (metaBits.length) {
         html += '<div class="meta-line">' +
           metaBits.join('<span class="sep">·</span>') +
