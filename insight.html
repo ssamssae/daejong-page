@@ -207,75 +207,13 @@
     <a class="back" href="./insights.html">← 인사이트 목록</a>
   </div>
 
-  <script>
+  <script type="module">
+    import { buildInsightHtml, escapeHtml, parseInsightMd } from './insight-render.js';
+
     const viewEl = document.getElementById('view');
 
     function getQueryParam(name) {
       return new URLSearchParams(window.location.search).get(name);
-    }
-
-    function escapeHtml(s) {
-      return (s || '').replace(/[&<>"']/g, c => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[c]));
-    }
-
-    // href 스킴 allowlist — http(s) 절대 URL 만 통과, javascript:/data: 등 위험 스킴은 '#' 로 무력화 (XSS 가드, #96 후속)
-    function safeUrl(u) {
-      const s = (u || '').trim();
-      return /^https?:\/\//i.test(s) ? s : '#';
-    }
-
-    function parseInsightMd(md) {
-      const frontmatter = {};
-      if (md.startsWith('---')) {
-        const end = md.indexOf('\n---', 3);
-        if (end > 0) {
-          const fmBlock = md.slice(3, end);
-          for (const fl of fmBlock.split('\n')) {
-            const m = fl.match(/^([A-Za-z_][A-Za-z0-9_]*)\s*:\s*(.*?)\s*$/);
-            if (m) {
-              let val = m[2];
-              if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
-              if (val.startsWith('[') && val.endsWith(']')) {
-                val = val.slice(1, -1).split(',').map(t => t.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
-              }
-              frontmatter[m[1]] = val;
-            }
-          }
-          md = md.slice(end + 4).trimStart();
-        }
-      }
-      const lines = md.split('\n');
-      let title = '';
-      const bodyBuf = [];
-      let titleSeen = false;
-      for (const raw of lines) {
-        const line = raw.replace(/\r$/, '');
-        if (!titleSeen && line.trim().startsWith('# ') && !line.trim().startsWith('## ')) {
-          title = line.trim().slice(2).trim();
-          titleSeen = true;
-          continue;
-        }
-        bodyBuf.push(line);
-      }
-      return { title, frontmatter, body: bodyBuf.join('\n').trim() };
-    }
-
-    function srcBadgeClass(type) {
-      const map = {
-        video: 'badge-src-video', book: 'badge-src-book',
-        podcast: 'badge-src-podcast', article: 'badge-src-article',
-        talk: 'badge-src-talk', paper: 'badge-src-paper'
-      };
-      return map[type] || 'badge-tag';
-    }
-    function srcLabel(type) {
-      const map = {
-        video: '영상', book: '책', podcast: '팟캐스트',
-        article: '아티클', talk: '토크', paper: '논문'
-      };
-      return map[type] || type || '기타';
     }
 
     function injectArticleJsonLd(entry) {
@@ -438,40 +376,7 @@
     }
 
     function render(entry, parsed) {
-      const fm = parsed.frontmatter || {};
-      const title = parsed.title || entry.title || fm.source_title || '(제목 없음)';
-      const srcType = fm.source_type || entry.source_type || '';
-      const tags = Array.isArray(fm.tags) ? fm.tags : (fm.tags ? [fm.tags] : []);
-      const date = entry.date || fm.consumed_at || '';
-
-      let html = '';
-      html += '<div class="detail-head">';
-      if (date) html += '<div class="detail-date">' + escapeHtml(date) + '</div>';
-      html += '<div class="detail-title">' + escapeHtml(title) + '</div>';
-      html += '<div class="badges">';
-      if (srcType) html += '<span class="badge ' + srcBadgeClass(srcType) + '">' + escapeHtml(srcLabel(srcType)) + '</span>';
-      for (const t of tags) html += '<span class="badge badge-tag">#' + escapeHtml(t) + '</span>';
-      html += '</div>';
-      html += '</div>';
-
-      const rows = [];
-      if (fm.source_author) rows.push(['저자', escapeHtml(fm.source_author)]);
-      if (fm.source_channel && fm.source_channel !== fm.source_author) rows.push(['채널', escapeHtml(fm.source_channel)]);
-      if (fm.source_duration) rows.push(['길이', escapeHtml(fm.source_duration)]);
-      if (fm.source_published) rows.push(['발행', escapeHtml(fm.source_published)]);
-      if (fm.consumed_at) rows.push(['시청/소비', escapeHtml(fm.consumed_at)]);
-      if (fm.source_url) rows.push(['원본', '<a href="' + escapeHtml(safeUrl(fm.source_url)) + '" target="_blank" rel="noopener">' + escapeHtml(fm.source_url) + ' ↗</a>']);
-      if (rows.length) {
-        html += '<dl class="meta-grid">';
-        for (const [k, v] of rows) {
-          html += '<dt>' + escapeHtml(k) + '</dt><dd>' + v + '</dd>';
-        }
-        html += '</dl>';
-      }
-
-      html += '<div class="body">' + renderBody(parsed.body || '') + '</div>';
-
-      viewEl.innerHTML = html;
+      viewEl.innerHTML = buildInsightHtml(entry, parsed);
     }
 
     init();
