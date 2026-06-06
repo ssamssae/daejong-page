@@ -1,6 +1,14 @@
 {
  "entries": [
   {
+   "file": "2026-06-06_v1.0.0.md",
+   "date": "2026-06-06",
+   "version": "1.0.0",
+   "title": "누가 보고를 받는가",
+   "summary": "함대 자동화 인프라 정비의 날 — 본진=거버넌스/노드=실행 분업이 실전에서 처음 매끄럽게 돌았다. '자동 코덱스가 왜 본진에 보고하냐'는 질문에서 출발해 라우팅 갭 의심→cosmetic 라벨 split 버그 판명(delivery는 맥미니로 정상, 헤더 라벨만 🍎 fallback). 라벨을 배송주소(MAC_HOST)에서 단일 파생해 split 회귀 원천 차단(aca46b3). 본진 codex 자동 Enter 멈춤(bracketed-paste race)=paste-buffer -p+Enter 5회 안전벨트로 해결, 라이브 검증. 양보 가드 10→2분. 노드 이벤트 체이닝 끊김 진단(fire-lease 1회성 lease 고갈, 헤더가 게이트보다 나중이라 SKIP이 흔적없이 종료)→맥미니 fix 진행. 더치페이 카톡공유·약먹자 cold-start·한줄일기 1.2·첫이름 prod 라이브·PR 큐 4건 검증 동시 진행.",
+   "updated": "2026-06-06T23:24:05+09:00"
+  },
+  {
    "file": "2026-06-05_v1.0.1.md",
    "date": "2026-06-05",
    "version": "1.0.1",
