@@ -1,773 +1,785 @@
 {
- "entries": [
-  {
-   "file": "2026-05-30-macmini-tmux-liveness-false-negative.md",
-   "date": "2026-05-30",
-   "slug": "macmini-tmux-liveness-false-negative",
-   "title": "맥미니 tmux liveness false-negative — 비대화형 ssh PATH 미로딩으로 healthy 노드를 '세션 부재' 오판 (3회 재발 → 코드 forcing function)",
-   "severity": "medium",
-   "recurrence": "high",
-   "scope": "본진→노드 tmux liveness 체크, macOS 노드 한정 (homebrew PATH)",
-   "occurred_at": "2026-05-30 09:30 KST",
-   "resolved_at": "2026-06-07 11:10 KST",
-   "updated": "2026-06-07T11:10:00+09:00"
-  },
-  {
-   "file": "2026-06-06-cc-autoupdate-disable-noop-enotempty.md",
-   "date": "2026-06-06",
-   "slug": "cc-autoupdate-disable-noop-enotempty",
-   "title": "claude 자동업뎃 착각 — DISABLE_AUTOUPDATER가 launchd claude엔 무효, 본진만 멈춘 진짜 범인은 모듈폴더 수동 npm 잔재(ENOTEMPTY)",
-   "severity": "medium",
-   "recurrence": "medium",
-   "scope": "macOS 2대(본진/맥미니), launchd claude in-process 자동업뎃",
-   "occurred_at": "2026-06-05 23:17 KST",
-   "resolved_at": "2026-06-06 09:25 KST",
-   "updated": "2026-06-06T09:48:00+09:00"
-  },
-  {
-   "file": "2026-06-05-memory-index-topic-drift.md",
-   "date": "2026-06-05",
-   "slug": "memory-index-topic-drift",
-   "title": "MEMORY.md 인덱스 줄이 정본 토픽파일과 드리프트 → 매 세션 stale 신호 반복",
-   "severity": "high",
-   "recurrence": "high",
-   "scope": "전 세션(본진) 메모리 recall 기반 판단",
-   "occurred_at": "2026-06-05",
-   "resolved_at": "2026-06-05 12:30 KST",
-   "updated": "2026-06-05T12:34:00+09:00"
-  },
-  {
-   "file": "2026-05-31-bonjin-report-main-chat-miss.md",
-   "date": "2026-05-31",
-   "slug": "bonjin-report-main-chat-miss",
-   "title": "본진→아니키 메인 챗 누락 — 텔레그램 origin 아닌 turn 의 본진 보고가 그룹 전용 forward 로만 발사돼 메인 DM 안 뜸",
-   "severity": "medium",
-   "recurrence": "high",
-   "scope": "🍎 본진 — 비-텔레그램-origin turn 의 본진→아니키 보고",
-   "occurred_at": "2026-05-31 16:00 KST",
-   "resolved_at": "2026-05-31 16:13 KST",
-   "updated": "2026-05-31T16:14:00+09:00"
-  },
-  {
-   "file": "2026-05-29-mac-claude-update-stale-staging-enotempty-loop.md",
-   "date": "2026-05-29",
-   "title": "본진+맥미니 Claude Code 업데이트 ENOTEMPTY (실패한 auto-update staging 잔재) → cc 무응답"
-  },
-  {
-   "file": "2026-05-28-mac-telegram-plugin-enoent.md",
-   "date": "2026-05-28",
-   "title": "본진 텔레그램 MCP plugin ENOENT — plist PATH 에 ~/.bun/bin 누락으로 reply 툴 미로드 1시간",
-   "updated": "2026-06-05T09:56:00+09:00"
-  },
-  {
-   "file": "2026-05-27-stale-handoff-scrape-disable-statusline-regression.md",
-   "date": "2026-05-27",
-   "title": "2026-05-27 stale handoff: claude.ai scrape 인프라 부주의 비활성화 + statusline v3 회귀"
-  },
-  {
-   "file": "2026-05-27-codex-directive-enter-fix-v2-fails-on-linux-tmux.md",
-   "date": "2026-05-27",
-   "title": "codex-directive v2 Enter 두 번 fix 가 Linux tmux 3.4 + 1KB+ 본문에서 submit 실패"
-  },
-  {
-   "file": "2026-05-27-claude-automations-no-github-to-local-sync.md",
-   "date": "2026-05-27",
-   "title": "claude-automations GitHub PR 머지 → 5노드 ~/claude-automations 자동 pull 메커니즘 부재"
-  },
-  {
-   "file": "2026-05-26-hook-archive-refs-gap.md",
-   "date": "2026-05-26",
-   "title": "hook archive 표준화 후 5노드 settings.json refs cleanup 누락 (handoff-check.sh 잔재)"
-  },
-  {
-   "file": "2026-05-26-five-node-cascade-failure.md",
-   "date": "2026-05-26",
-   "title": "2026-05-26 — 5 노드 cascade failure (어휘 분류기 + stale + singleton)"
-  },
-  {
-   "file": "2026-05-26-choso-live-task-ttl.md",
-   "date": "2026-05-26",
-   "title": "초소 LIVE 섹션 stale node_task TTL 부재 + hangeul_label bare 단어 junk 노출"
-  },
-  {
-   "file": "2026-05-25-typing-daemon-paused-on-idle-mismatch.md",
-   "date": "2026-05-25",
-   "title": "🍎 본진 typing daemon — pause-flag fix 후 idle 시 silent vs 형님 기대 mismatch"
-  },
-  {
-   "file": "2026-05-25-toml-config-root-vs-subkey-trap.md",
-   "date": "2026-05-25",
-   "title": "사고 요약"
-  },
-  {
-   "file": "2026-05-25-notebook-sdxl-oom-cascade-x2.md",
-   "date": "2026-05-25",
-   "title": "💻 노트북 SDXL OOM cascade × 2회 (claude chatbot 동반사살)"
-  },
-  {
-   "file": "2026-05-25-master-silence-on-next-cycle-handoff-causes-suspicion.md",
-   "date": "2026-05-25",
-   "title": "본진 next-cycle 박힘 후 텔레그램 침묵 28분 → 형님 의심 증폭 사고"
-  },
-  {
-   "file": "2026-05-25-master-ack-surface-rule-violation-x2.md",
-   "date": "2026-05-25",
-   "title": "🍎 본진 ack 요청 옵션 surface 룰 위반 × 2회 (같은 사이클)"
-  },
-  {
-   "file": "2026-05-25-mac-report-nomatch-skips-mirror.md",
-   "date": "2026-05-25",
-   "title": "mac-report.sh ssh chain 의 zsh NOMATCH 가 mirror chain 통째로 skip"
-  },
-  {
-   "file": "2026-05-25-codex-mirror-helper-evolution-v1-v4.md",
-   "date": "2026-05-25",
-   "title": "사고 요약"
-  },
-  {
-   "file": "2026-05-25-claude-cyber-verification-block.md",
-   "date": "2026-05-25",
-   "title": "본진 audit directive 어휘 cyber 분류 → 노트북 Claude Code 세션 prompt 차단"
-  },
-  {
-   "file": "2026-05-24-wsl-ack-missing-after-cross-routing.md",
-   "date": "2026-05-24",
-   "title": "2026-05-24 본진→WSL ack 운반체 누락 — 형님 WSL 채팅 침묵 사고"
-  },
-  {
-   "file": "2026-05-24-notebook-to-mac-ssh-kex-mismatch.md",
-   "date": "2026-05-24",
-   "title": "2026-05-24 노트북→본진 SSH KEX/HostKey mismatch 30초 silent hang"
-  },
-  {
-   "file": "2026-05-24-notebook-stop-hook-reply-tool-skip.md",
-   "date": "2026-05-24",
-   "title": "2026-05-24 노트북 stop hook 헤더 누락 — reply tool 호출로 이중송신 가드 trigger"
-  },
-  {
-   "file": "2026-05-24-notebook-autologin-wake-unlock.md",
-   "date": "2026-05-24",
-   "title": "노트북 Windows 부팅 자동로그인 + 슬립 wake 잠금 해제 (Hello 정책 우회)"
-  },
-  {
-   "file": "2026-05-24-master-node-idle-deadlock.md",
-   "date": "2026-05-24",
-   "title": "2026-05-24 본진↔노드 양쪽 idle 데드락 — picks 분기 답이 잘못된 채널로 발사"
-  },
-  {
-   "file": "2026-05-24-mac-mini-group-mirror-token-mismatch.md",
-   "date": "2026-05-24",
-   "title": "2026-05-24 맥미니 Agent Mesh Mirror 그룹 발사 무응답 — TOKEN_MACMINI stale (401)"
-  },
-  {
-   "file": "2026-05-24-context-percent-mis-estimation.md",
-   "date": "2026-05-24",
-   "title": "컨텍스트 % 체감 추정으로 핸드오프+클리어 강행"
-  },
-  {
-   "file": "2026-05-23-notebook-balanced-sleep-5h-cuts-remote-access.md",
-   "date": "2026-05-23",
-   "title": "노트북 Windows Balanced 5h idle sleep → Tailnet offline, 원격 노드 통째로 끊김"
-  },
-  {
-   "file": "2026-05-23-noninteractive-ssh-claude-binary-misdiagnosis.md",
-   "date": "2026-05-23",
-   "title": "사건"
-  },
-  {
-   "file": "2026-05-23-naver-smart-editor-paste-requires-os-click.md",
-   "date": "2026-05-23",
-   "title": "네이버 SmartEditor 본문 paste 가 진짜 OS-level click 1회를 요구"
-  },
-  {
-   "file": "2026-05-23-macos-system-settings-fullauto-pass.md",
-   "date": "2026-05-23",
-   "title": "macOS Sequoia 시스템 설정 풀자동 토글 PASS (본진 자립성 5단계 캘리브레이션)"
-  },
-  {
-   "file": "2026-05-23-linux-trust-prompt-autostart-gate.md",
-   "date": "2026-05-23",
-   "title": "2026-05-23 — Linux 노드 챗봇 autostart trust prompt 게이트 (PASS)"
-  },
-  {
-   "file": "2026-05-23-hook-misdiagnosis-symlink.md",
-   "date": "2026-05-23",
-   "title": "context-threshold-alert hook 경로 symlink 오진 사고"
-  },
-  {
-   "file": "2026-05-23-exitplanmode-globals-gap.md",
-   "date": "2026-05-23",
-   "title": "2026-05-23 — ExitPlanMode 가 글로벌 룰 gap 으로 텔레그램 turn 에서 호출됨"
-  },
-  {
-   "file": "2026-05-23-anthropic-cyber-content-block.md",
-   "date": "2026-05-23",
-   "title": "본진 Claude Code 응답 차단 (Anthropic Usage Policy cyber content 분류기 트리거)"
-  },
-  {
-   "file": "2026-05-22-loop-reschedules-without-clear.md",
-   "date": "2026-05-22",
-   "title": "autopilot /loop 이 30% 넘어도 클리어 안 하고 재예약만 반복"
-  },
-  {
-   "file": "2026-05-22-autopilot-sessionclear-directive-race.md",
-   "date": "2026-05-22",
-   "title": "autopilot 야간 작업 증발 — session-clear 마커 ↔ directive 도착 race"
-  },
-  {
-   "file": "2026-05-22-autopilot-macmini-liveness-false-negative.md",
-   "date": "2026-05-22",
-   "title": "autopilot 노드 liveness false-negative — 맥미니가 멀쩡한데 \"꺼짐\"으로 야간 미가동"
-  },
-  {
-   "file": "2026-05-21-typing-indicator-drops-during-bg-work.md",
-   "date": "2026-05-21",
-   "title": "텔레그램 \"입력중…\" 인디케이터가 cross-turn 백그라운드 작업 중 끊김"
-  },
-  {
-   "file": "2026-05-21-stuck-loop-session-side-effects.md",
-   "date": "2026-05-21",
-   "title": "안 닫힌 loop 세션이 Clawd stale 행 + 타이핑 데몬 죽임 (sibling 세션 부작용)"
-  },
-  {
-   "file": "2026-05-21-hook-matching-too-loose-2x.md",
-   "date": "2026-05-21",
-   "title": "훅 매칭 느슨 2건 연속 — telegram-stop-ping tail -1 + reverse-reply-check contains 자기참조"
-  },
-  {
-   "file": "2026-05-21-autopilot-idle-nodes-token-saving.md",
-   "date": "2026-05-21",
-   "title": "autopilot 6시간 야간 운영 중 본진이 노드를 ~5시간 idle 방치 (임의 \"토큰절약\")"
-  },
-  {
-   "file": "2026-05-20-wsl-bot-bare-path-no-poll.md",
-   "date": "2026-05-20",
-   "title": "2026-05-20 — WSL 텔레그램 봇 무응답: 비대화형 ssh 기동 → bare PATH(node 누락) → 플러그인 폴링 정지"
-  },
-  {
-   "file": "2026-05-20-memoyo-drive-oauth-dup-gcp-project.md",
-   "date": "2026-05-20",
-   "title": "메모요 Drive 백업 — 동명 GCP 프로젝트 분산으로 앱이 보는 쪽에 Drive API 미활성"
-  },
-  {
-   "file": "2026-05-20-mac-report-binary-image-paste.md",
-   "date": "2026-05-20",
-   "title": "맥미니 mac-report 가 스크린샷 PNG 바이너리를 본문 텍스트로 paste → 본진 컨텍스트 폭증"
-  },
-  {
-   "file": "2026-05-20-context-show-self-trigger-stuck.md",
-   "date": "2026-05-20",
-   "title": "context-show 본진 자기 자신 trigger 시 손0 원칙 위반"
-  },
-  {
-   "file": "2026-05-20-choso-css-cache-stale-render.md",
-   "date": "2026-05-20",
-   "title": "초소 PR #6 머지·배포 후에도 라이브가 옛 화면 — CSS 캐시로 새 HTML 이 무스타일 렌더"
-  },
-  {
-   "file": "2026-05-20-cc-version-stale-always-on-node.md",
-   "date": "2026-05-20",
-   "title": "2026-05-20 — 본진/WSL Claude Code 구버전 고착 (always-on 노드 nightly-update 영구 skip)"
-  },
-  {
-   "file": "2026-05-19-wsl-telegram-reply-only-sync-report-missed.md",
-   "date": "2026-05-19",
-   "title": "2026-05-19 🪟 WSL cross-device sync 보고를 텔레그램 reply 단독 송신 → 본진 capture 0"
-  },
-  {
-   "file": "2026-05-19-stop-chain-fail-stop-analysis.md",
-   "date": "2026-05-19",
-   "title": "Stop chain `||` 단축 평가 fail-stop 위험 분석"
-  },
-  {
-   "file": "2026-05-19-share-plus-ios26-silent-fail.md",
-   "date": "2026-05-19",
-   "title": "share_plus 10.1.4 + iOS 26 sharePositionOrigin 필수화 → 호출부 silent PlatformException"
-  },
-  {
-   "file": "2026-05-19-sessionstart-pull-rebase-race.md",
-   "date": "2026-05-19",
-   "title": "SessionStart 훅 git pull --rebase race → Cannot rebase onto multiple branches"
-  },
-  {
-   "file": "2026-05-19-mac-report-telegram-reply-missed.md",
-   "date": "2026-05-19",
-   "title": "2026-05-19 mac-report paste 받은 turn 에 형님 폰 텔레그램 reply 누락"
-  },
-  {
-   "file": "2026-05-19-fleet-clear-rescue-pane-mismatch.md",
-   "date": "2026-05-19",
-   "title": "fleet-clear rescue v0.8 pane-finding 로직이 grouped client 환경에서 본진 챗봇 pane 놓침"
-  },
-  {
-   "file": "2026-05-19-desktop3060ti-icm-hook-trace.md",
-   "date": "2026-05-19",
-   "title": "🖥 데스크탑3060Ti — icm hook 정체 trace (2026-05-19)"
-  },
-  {
-   "file": "2026-05-19-desktop3060ti-fabrication-cross-routing.md",
-   "date": "2026-05-19",
-   "title": "🖥 데스크탑3060Ti — cross-routing directive + fabrication 사고 (2026-05-19)"
-  },
-  {
-   "file": "2026-05-18-wsl-cc-nightly-update-zombie.md",
-   "date": "2026-05-18",
-   "title": "2026-05-18 — WSL cc 좀비 사고 (nightly-update atomic swap 충돌)"
-  },
-  {
-   "file": "2026-05-18-tmux-wheel-scroll.md",
-   "date": "2026-05-18",
-   "title": "Linux tmux 노드 마우스 휠 스크롤 안 됨 (mouse off default)"
-  },
-  {
-   "file": "2026-05-18-notebook-stale-sync.md",
-   "date": "2026-05-18",
-   "title": "노트북3060 claude-skills repo 4 commit stale (issues/INDEX.md UU conflict 사일런트) — \"가전\" 트리거 룰 누락으로 \"에어컨 켜\" 발화 무반응"
-  },
-  {
-   "file": "2026-05-18-mac-zshrc-mcc-broken.md",
-   "date": "2026-05-18",
-   "title": "본진 ~/.zshrc 의 m/cc 분리 표준을 챗봇이 무허가 통일 → 형님 수동 복구"
-  },
-  {
-   "file": "2026-05-18-find-bfs-inventory-false-alarm.md",
-   "date": "2026-05-18",
-   "title": "`find` shell function (bfs wrapper) 로 인한 mac-mini credential inventory false alarm"
-  },
-  {
-   "file": "2026-05-18-fastlane-supply-aab-already-used-on-promote.md",
-   "date": "2026-05-18",
-   "title": "🐛 fastlane supply --rollout aab 재업로드 — Version code 23 has already been used"
-  },
-  {
-   "file": "2026-05-18-cocoapods-utf8-encoding-bug.md",
-   "date": "2026-05-18",
-   "title": "🐛 CocoaPods 1.16.2 + Ruby 4.0.3 UTF-8 인코딩 버그 — `pod install` 즉사"
-  },
-  {
-   "file": "2026-05-18-askuser-globals-gap.md",
-   "date": "2026-05-18",
-   "title": "AskUserQuestion 터미널 UI 띄움 — 본진 메모리 → globals 승격 누락 + 데스크탑 claude-skills stale 결합"
-  },
-  {
-   "file": "2026-05-18-asc-deliver-whatsnew-required.md",
-   "date": "2026-05-18",
-   "title": "🐛 asc-deliver --submit whatsNew null → 409 STATE_ERROR"
-  },
-  {
-   "file": "2026-05-18-android-applicationid-snake-case.md",
-   "date": "2026-05-18",
-   "title": "🐛 Android applicationId snake_case vs iOS Bundle camelCase 불일치 — Play API 패키지명 거부"
-  },
-  {
-   "file": "2026-05-17-tuya-memory-concurrent-write-conflict.md",
-   "date": "2026-05-17",
-   "title": "2026-05-17 — tuya_devices.md 동시 쓰기로 인한 autostash 충돌 (반복 발생)"
-  },
-  {
-   "file": "2026-05-17-stop-hook-mac-mini-directive-not-detected.md",
-   "date": "2026-05-17",
-   "title": "2026-05-17 — Stop hook 의 reverse-reply 감지 list 에 mac-mini-directive.sh 누락"
-  },
-  {
-   "file": "2026-05-17-mac-report-sender-id-missing.md",
-   "date": "2026-05-17",
-   "title": "mac-report body 에 sender 노드 신원 누락 → 본진 챗봇 \"출처불명\" 식별 사고"
-  },
-  {
-   "file": "2026-05-17-lotto-calc-pr16-stale-base-mismatch.md",
-   "date": "2026-05-17",
-   "title": "2026-05-17 — lotto-calc PR #16 stale base mismatch (sweep step 0 git fetch+status 누락)"
-  },
-  {
-   "file": "2026-05-17-gh-pages-cert-provisioning-stuck.md",
-   "date": "2026-05-17",
-   "title": "GH Pages custom domain cert provisioning 멈춤 → 브라우저 빨간 경고"
-  },
-  {
-   "file": "2026-05-16-stale-recover-loss.md",
-   "date": "2026-05-16",
-   "title": "fleet-state stale-recover 가 5분 cron cycle 마다 작업자 commit 까지 origin/main 으로 reset"
-  },
-  {
-   "file": "2026-05-16-ssh-alias-mismatch.md",
-   "date": "2026-05-16",
-   "title": "본진 챗봇이 SSH alias 대신 hostname 그대로 사용 → 두 시간 timeout 추적"
-  },
-  {
-   "file": "2026-05-16-desktop3060ti-tmux-session-name-unify.md",
-   "date": "2026-05-16",
-   "title": "desktop3060Ti tmux 세션 이름 'claude-main' 잔존 — cc / .bashrc SoT 미통일"
-  },
-  {
-   "file": "2026-05-16-d07-install-launchd-smoke-self-load.md",
-   "date": "2026-05-16",
-   "title": "D07 install-launchd.sh smoke self-load — guard 검증 의도가 실 install 까지 가버린 사고"
-  },
-  {
-   "file": "2026-05-15-notebook-hook-path-macos-node.md",
-   "date": "2026-05-15",
-   "title": "노트북 Claude Code SessionStart hook `/opt/homebrew/bin/node: not found` 실패"
-  },
-  {
-   "file": "2026-05-15-macmini-reverse-asym.md",
-   "date": "2026-05-15",
-   "title": "mac-mini 의 ~/.ssh/config 본진 향 alias 'mac' 누락 — mac-report.sh reverse channel 비대칭"
-  },
-  {
-   "file": "2026-05-15-codex-directive-routing-stale.md",
-   "date": "2026-05-15",
-   "title": "codex-directive.sh routing stale — mac-mini Claude Code 노드 전환 후 옛 Codex inbox 경로 사용"
-  },
-  {
-   "file": "2026-05-14-rotate-token-channel-mode-dead.md",
-   "date": "2026-05-14",
-   "title": "rotate-token.sh --channel mode OpenClaw decom 후 dead path"
-  },
-  {
-   "file": "2026-05-14-macmini-self-identity-default-mac-bonjin.md",
-   "date": "2026-05-14",
-   "title": "mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패)"
-  },
-  {
-   "file": "2026-05-14-macmini-plugin-cache.md",
-   "date": "2026-05-14",
-   "title": "mac mini Claude Code 텔레그램 plugin cache 손상"
-  },
-  {
-   "file": "2026-05-14-macmini-launchd-claude-channels-flag-missing.md",
-   "date": "2026-05-14",
-   "title": "mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨)"
-  },
-  {
-   "file": "2026-05-14-macmini-bot-token-grep-leak.md",
-   "date": "2026-05-14",
-   "title": "TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출"
-  },
-  {
-   "file": "2026-05-14-launchd-plist-path.md",
-   "date": "2026-05-14",
-   "title": "tmux-claude.plist 의 PATH 누락으로 텔레그램 plugin 자동 재기동 시 spawn 실패"
-  },
-  {
-   "file": "2026-05-13-mac-report-reverse-reply-missed.md",
-   "date": "2026-05-13",
-   "title": "mac-report 1차 회신 누락 — Mac→WSL reverse reply 빠뜨림"
-  },
-  {
-   "file": "2026-05-13-fleet-state-mac-mini-divergence.md",
-   "date": "2026-05-13",
-   "title": "fleet-state mac-mini local main divergence — reviewer parity bats 의 local-only commit 누적"
-  },
-  {
-   "file": "2026-05-13-desktop3060ti-claude-automations-absent.md",
-   "date": "2026-05-13",
-   "title": "desktop3060ti `~/.claude/automations/` repo 부재 — WSL 디렉티브 회수 시 surface"
-  },
-  {
-   "file": "2026-05-13-d09-fleet-sweep-family-4-rounds.md",
-   "date": "2026-05-13",
-   "title": "D09 fleet-director 사이클 sweep family 4회 반복 — bats 와 primitive 의 push side-effect 누적"
-  },
-  {
-   "file": "2026-05-12-fleet-state-tests-auto-push-leak.md",
-   "date": "2026-05-12",
-   "title": "fleet-state test harness 의 git push 가 리뷰 미통과 commit 까지 origin 으로 끌고 올라감"
-  },
-  {
-   "file": "2026-05-12-dutchpay-gad-application-identifier-missing.md",
-   "date": "2026-05-12",
-   "title": "더치페이 release 빌드 iPhone 설치 후 앱 launch crash — Info.plist GADApplicationIdentifier 누락"
-  },
-  {
-   "file": "2026-05-12-codex-bidirectional-routing-failure.md",
-   "date": "2026-05-12",
-   "title": "Codex(맥미니) ↔ 본진(Mac) 양방향 메시지 자동 회수 경로 부재"
-  },
-  {
-   "file": "2026-05-11-routine-todos-collision-pat-leak.md",
-   "date": "2026-05-11",
-   "title": "Anthropic Cloud routine 이 /todo 스킬 파일경로에 매일 commit + prompt 안 GitHub PAT 평문 노출"
-  },
-  {
-   "file": "2026-05-11-launchd-clear-trigger-abort-loop.md",
-   "date": "2026-05-11",
-   "title": "launchd 자동 /clear 트리거 abort 반복 — busy-loop 시 fire 마다 timeout"
-  },
-  {
-   "file": "2026-05-10-session-clear-marker-race.md",
-   "date": "2026-05-10",
-   "title": "session-clear 마커 조기 소모 레이스 컨디션"
-  },
-  {
-   "file": "2026-05-10-session-clear-full-investigation.md",
-   "date": "2026-05-10",
-   "title": "session-clear 전 구현 실패 원인 + 최종 성공 분석"
-  },
-  {
-   "file": "2026-05-10-session-clear-buffer-polling-bug.md",
-   "date": "2026-05-10",
-   "title": "session-clear /clear 씹힘 — 입력 버퍼 + polling 조건 버그"
-  },
-  {
-   "file": "2026-05-10-placeholder-paste-loss.md",
-   "date": "2026-05-10",
-   "title": "Telegram paste 명령 안 `<...>` placeholder 가 그대로 paste 되어 3060Ti .env 봇 토큰 덮어써짐"
-  },
-  {
-   "file": "2026-05-10-mini-agent-inbox-bot-bridge.md",
-   "date": "2026-05-10",
-   "title": "Mac mini agent-inbox watcher — wsl/ 무시 + tmux 부재로 inject 양방향 죽음"
-  },
-  {
-   "file": "2026-05-10-loop-run-92771-failure-analysis.md",
-   "date": "2026-05-10",
-   "title": "loop-run run-92771 실패 원인 분석 + 수정"
-  },
-  {
-   "file": "2026-05-10-claude-code-terminal-stdin-lag.md",
-   "date": "2026-05-10",
-   "title": "Claude Code 터미널 입력 지연 (3~4타에 1글자)"
-  },
-  {
-   "file": "2026-05-09-wsl-agent-msg-notify-bot-blocked.md",
-   "date": "2026-05-09",
-   "title": "WSL agent-msg-notify.sh → Telegram 봇차단으로 Mac 수신 불가"
-  },
-  {
-   "file": "2026-05-09-typing-indicator-stop-on-midtask-wait.md",
-   "date": "2026-05-09",
-   "title": "작업 중간 확인 대기 시 입력 중 표시 꺼짐"
-  },
-  {
-   "file": "2026-05-09-telegram-typing-zombie-after-clear.md",
-   "date": "2026-05-09",
-   "title": "/clear 후 이전 세션 typing daemon 좀비 잔류"
-  },
-  {
-   "file": "2026-05-09-play-managed-publishing-on.md",
-   "date": "2026-05-09",
-   "title": "Play Console 관리 게시 ON — 심사 통과 후 미발행"
-  },
-  {
-   "file": "2026-05-09-loop-run-wsl-abort-flutter-path.md",
-   "date": "2026-05-09",
-   "title": "loop-run WSL 태스크 ABORT 무한 재시도 + flutter PATH 미설정"
-  },
-  {
-   "file": "2026-05-09-clear-queued-during-processing.md",
-   "date": "2026-05-09",
-   "title": "/clear 처리 중 큐 지연 — 슬래시 커맨드 큐잉 동작"
-  },
-  {
-   "file": "2026-05-08-mac-report-fake-result-notify.md",
-   "date": "2026-05-08",
-   "title": "mac-report.sh 래퍼가 자동으로 가짜 [결과] 알림 생성"
-  },
-  {
-   "file": "2026-05-08-codex-session-relay-telegram-mirror.md",
-   "date": "2026-05-08",
-   "title": "codex-session-relay가 Codex 응답을 본진 채팅에 중복 미러링"
-  },
-  {
-   "file": "2026-05-08-codex-inject-websocket-silent-fail.md",
-   "date": "2026-05-08",
-   "title": "Codex inject WebSocket 무음 실패 — directive ok 리턴했지만 미도달"
-  },
-  {
-   "file": "2026-05-08-clawd-openclaw-codex-pid-unreachable.md",
-   "date": "2026-05-08",
-   "title": "Clawd on Desk — OpenClaw Codex 연동 실패 (openclaw-trajectory pidReachable=0)"
-  },
-  {
-   "file": "2026-05-06-hanjul-openai-org-member-removed.md",
-   "date": "2026-05-06",
-   "title": "한줄일기 AI 응원 기능 중단 — OpenAI Organization 멤버 remove로 API 키 접근 차단"
-  },
-  {
-   "file": "2026-05-05-session-clear-triggered-goodnight.md",
-   "date": "2026-05-05",
-   "title": "\"세션클리어하자\" → /goodnight 잘못 발화 사고"
-  },
-  {
-   "file": "2026-05-04-lottocalc-irun-white-screen.md",
-   "date": "2026-05-04",
-   "title": "lottocalc irun 흰화면 버그"
-  },
-  {
-   "file": "2026-05-02-policy-race-mac-wsl.md",
-   "date": "2026-05-02",
-   "title": "본진·WSL 가 globals/CLAUDE.md 를 stale-on-stale 로 동시 수정 — 「지휘관 1명 원칙」 폐기 사이클의 race"
-  },
-  {
-   "file": "2026-05-02-playwright-mcp-cwd-output-dir.md",
-   "date": "2026-05-02",
-   "title": "Playwright MCP server cwd 가 `/` 일 때 `/.playwright-mcp` mkdir ENOENT"
-  },
-  {
-   "file": "2026-05-02-google-oauth-playwright-stealth-bypass.md",
-   "date": "2026-05-02",
-   "title": "Playwright 로 띄운 Chrome 에서 Google OAuth 로그인 차단 — stealth args 3종 우회 성공"
-  },
-  {
-   "file": "2026-05-01-wsl-mac-race-skill-edit.md",
-   "date": "2026-05-01",
-   "title": "Mac 본진 push 직후 WSL 가 stale base 로 같은 repo 작업 시작 — race 자동 merge"
-  },
-  {
-   "file": "2026-05-01-ep5-backfill-overwrite.md",
-   "date": "2026-05-01",
-   "title": "Substack backfill 이 Ep5 원본 prose 를 덮어씀 — 컨벤션 두 갈래 공존"
-  },
-  {
-   "file": "2026-04-28-cf-colo-region-block.md",
-   "date": "2026-04-28",
-   "title": "CF colo region-block 으로 친구 wifi 에서만 OpenAI 호출 거부"
-  },
-  {
-   "file": "2026-04-27-wsl-hanjul-push-classifier-block.md",
-   "date": "2026-04-27",
-   "title": "WSL 측 hanjul main push 가 auto-mode classifier 에 막힘 + Mac SSH 우회도 동일 룰로 막힘"
-  },
-  {
-   "file": "2026-04-27-telegram-msg-id-leak.md",
-   "date": "2026-04-27",
-   "title": "텔레그램 답장에 Bot API raw msg ID 인용해서 사용자 혼선"
-  },
-  {
-   "file": "2026-04-27-same-turn-commit-fp.md",
-   "date": "2026-04-27",
-   "title": "같은 turn 내 Write→commit 묶음, harness sandbox false positive 거부"
-  },
-  {
-   "file": "2026-04-27-paste-block-mixed-r6.md",
-   "date": "2026-04-27",
-   "title": "복붙 블록 별도 메시지 룰 6번째 재발 (오늘만 4번)"
-  },
-  {
-   "file": "2026-04-27-harness-default-branch-push-block.md",
-   "date": "2026-04-27",
-   "title": "`git push origin main` 하네스 차단 — default branch 직접 push"
-  },
-  {
-   "file": "2026-04-26-tahoe-ssh-cli-block.md",
-   "date": "2026-04-26",
-   "title": "macOS Tahoe 26.x: systemsetup -setremotelogin 이 Full Disk Access 부족으로 차단"
-  },
-  {
-   "file": "2026-04-26-review-status-disabled-blind-spot.md",
-   "date": "2026-04-26",
-   "title": "review-status-check _disabled 이동 후 17h 동안 Apple issue 메일 누락"
-  },
-  {
-   "file": "2026-04-26-paste-block-label-leak.md",
-   "date": "2026-04-26",
-   "title": "복붙 메시지에 라벨/안내 텍스트 섞어 보냄 → PowerShell 명령 깨짐"
-  },
-  {
-   "file": "2026-04-26-heartbeat-rule-soft-enforcement.md",
-   "date": "2026-04-26",
-   "title": "작업 중 5분 하트비트 룰 강제력 부재로 12분간 침묵"
-  },
-  {
-   "file": "2026-04-26-handoff-method-a-fallback-regression.md",
-   "date": "2026-04-26",
-   "title": "/handoff METHOD A 회귀 — 무복붙 인프라 두고 복붙 폴백으로 빠짐"
-  },
-  {
-   "file": "2026-04-26-handoff-claude-main-empty-shell.md",
-   "date": "2026-04-26",
-   "title": "/handoff Primary 첫 실전 — claude-main 세션은 살아있는데 안에서 Claude Code 가 안 돌고 있었음"
-  },
-  {
-   "file": "2026-04-26-handoff-active-session-marker-mismatch.md",
-   "date": "2026-04-26",
-   "title": "발생"
-  },
-  {
-   "file": "2026-04-25-wsl-playwright-mcp-install-blocked.md",
-   "date": "2026-04-25",
-   "title": "WSL Playwright MCP 플러그인 설치 — 하네스 자기수정 게이트로 차단"
-  },
-  {
-   "file": "2026-04-24-ios-ipad13-screenshot-mandatory.md",
-   "date": "2026-04-24",
-   "title": "App Store 심사 제출: iPad 13\" 스크린샷 누락으로 \"심사에 추가\" 차단"
-  },
-  {
-   "file": "2026-04-24-insta-autopost-mac-mirror-missing.md",
-   "date": "2026-04-24",
-   "title": "4/24 인스타 자동 포스팅 누락 — Mac 호출 시 시크릿/인프라 부재"
-  },
-  {
-   "file": "2026-04-23-ios-gidclientid-missing.md",
-   "date": "2026-04-23",
-   "title": "iOS GoogleSignIn GIDClientID 누락 크래시 (심사레이더)"
-  },
-  {
-   "file": "2026-04-21-orphan-skill-file-after-interrupt.md",
-   "date": "2026-04-21",
-   "title": "세션 중단 직후 방금 만든 스킬 파일이 커밋/푸시 없이 로컬에만 남음"
-  },
-  {
-   "file": "2026-04-21-memoyo-signup-ghost-form.md",
-   "date": "2026-04-21",
-   "title": "메모요 스토어 드롭 후 2주 동안 홈페이지 사전예약 폼이 살아있어서 이메일 계속 수집"
-  },
-  {
-   "file": "2026-04-21-memory-skill-duplication.md",
-   "date": "2026-04-21",
-   "title": "메모리에 스킬 파일로 유도 가능한 내용을 중복 저장"
-  },
-  {
-   "file": "2026-04-21-mac-wsl-todos-desync.md",
-   "date": "2026-04-21",
-   "title": "Mac 과 WSL 이 같은 심사레이더 작업을 병렬로 붙잡고 todos 정합성 파탄"
-  },
-  {
-   "file": "2026-04-21-launchd-silent-job-dropout.md",
-   "date": "2026-04-21",
-   "title": "launchd 가 등록된 잡을 소리 없이 떨궈서 수 주 동안 자동 스케줄 유실"
-  },
-  {
-   "file": "2026-04-20-terminal-only-reply-missed-telegram.md",
-   "date": "2026-04-20",
-   "title": "Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락"
-  },
-  {
-   "file": "2026-04-20-telegram-typing-midsession-drop.md",
-   "date": "2026-04-20",
-   "title": "텔레그램 typing 표시가 채팅 중 \"한번 쏘고\" 완전 정지"
-  },
-  {
-   "file": "2026-04-20-telegram-client-delivery-lag.md",
-   "date": "2026-04-20",
-   "title": "텔레그램 답변이 \"안 오는 것처럼\" 보인 지연 현상"
-  },
-  {
-   "file": "2026-04-20-irun-locked-iphone.md",
-   "date": "2026-04-20",
-   "title": "/irun 재배포 시 \"Could not run Runner.app\" 반복 — 실제 원인은 아이폰 잠금"
-  },
-  {
-   "file": "2026-04-19-android-text-selection-twotone.md",
-   "date": "2026-04-19",
-   "title": "Android 텍스트 선택 블록이 2가지 톤으로 표시됨"
-  },
-  {
-   "file": "2026-04-16-playwright-chrome-google-login-blocked.md",
-   "date": "2026-04-16",
-   "title": "Playwright Chromium 으로 Google 로그인 시 \"안전하지 않은 브라우저\" 차단"
-  },
-  {
-   "file": "2026-04-16-play-console-testers-google-group.md",
-   "date": "2026-04-16",
-   "title": "Play Console testers API 가 개별 이메일을 받지 않음"
-  },
-  {
-   "file": "2026-04-12-ios-relaunch-crash.md",
-   "date": "2026-04-12",
-   "title": "iOS 재실행 시 SharedPreferencesPlugin 크래시"
-  }
- ]
+  "entries": [
+    {
+      "file": "2026-06-07-premature-credential-not-found.md",
+      "date": "2026-06-07",
+      "slug": "premature-credential-not-found",
+      "title": "자격증명 '인프라에 없음' 성급한 negative 단정 — 한 노드만 보고 본진 미확인 (secret-find.sh 예방)",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "5노드 자격증명·시크릿 조회 / 보고 단정",
+      "occurred_at": "2026-06-07 19:08 KST",
+      "resolved_at": "2026-06-07 19:26 KST",
+      "updated": "2026-06-07T19:46:00+09:00"
+    },
+    {
+      "file": "2026-05-30-macmini-tmux-liveness-false-negative.md",
+      "date": "2026-05-30",
+      "slug": "macmini-tmux-liveness-false-negative",
+      "title": "맥미니 tmux liveness false-negative — 비대화형 ssh PATH 미로딩으로 healthy 노드를 '세션 부재' 오판 (3회 재발 → 코드 forcing function)",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "본진→노드 tmux liveness 체크, macOS 노드 한정 (homebrew PATH)",
+      "occurred_at": "2026-05-30 09:30 KST",
+      "resolved_at": "2026-06-07 11:10 KST",
+      "updated": "2026-06-07T11:10:00+09:00"
+    },
+    {
+      "file": "2026-06-06-cc-autoupdate-disable-noop-enotempty.md",
+      "date": "2026-06-06",
+      "slug": "cc-autoupdate-disable-noop-enotempty",
+      "title": "claude 자동업뎃 착각 — DISABLE_AUTOUPDATER가 launchd claude엔 무효, 본진만 멈춘 진짜 범인은 모듈폴더 수동 npm 잔재(ENOTEMPTY)",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "macOS 2대(본진/맥미니), launchd claude in-process 자동업뎃",
+      "occurred_at": "2026-06-05 23:17 KST",
+      "resolved_at": "2026-06-06 09:25 KST",
+      "updated": "2026-06-06T09:48:00+09:00"
+    },
+    {
+      "file": "2026-06-05-memory-index-topic-drift.md",
+      "date": "2026-06-05",
+      "slug": "memory-index-topic-drift",
+      "title": "MEMORY.md 인덱스 줄이 정본 토픽파일과 드리프트 → 매 세션 stale 신호 반복",
+      "severity": "high",
+      "recurrence": "high",
+      "scope": "전 세션(본진) 메모리 recall 기반 판단",
+      "occurred_at": "2026-06-05",
+      "resolved_at": "2026-06-05 12:30 KST",
+      "updated": "2026-06-05T12:34:00+09:00"
+    },
+    {
+      "file": "2026-05-31-bonjin-report-main-chat-miss.md",
+      "date": "2026-05-31",
+      "slug": "bonjin-report-main-chat-miss",
+      "title": "본진→아니키 메인 챗 누락 — 텔레그램 origin 아닌 turn 의 본진 보고가 그룹 전용 forward 로만 발사돼 메인 DM 안 뜸",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "🍎 본진 — 비-텔레그램-origin turn 의 본진→아니키 보고",
+      "occurred_at": "2026-05-31 16:00 KST",
+      "resolved_at": "2026-05-31 16:13 KST",
+      "updated": "2026-05-31T16:14:00+09:00"
+    },
+    {
+      "file": "2026-05-29-mac-claude-update-stale-staging-enotempty-loop.md",
+      "date": "2026-05-29",
+      "title": "본진+맥미니 Claude Code 업데이트 ENOTEMPTY (실패한 auto-update staging 잔재) → cc 무응답"
+    },
+    {
+      "file": "2026-05-28-mac-telegram-plugin-enoent.md",
+      "date": "2026-05-28",
+      "title": "본진 텔레그램 MCP plugin ENOENT — plist PATH 에 ~/.bun/bin 누락으로 reply 툴 미로드 1시간",
+      "updated": "2026-06-05T09:56:00+09:00"
+    },
+    {
+      "file": "2026-05-27-stale-handoff-scrape-disable-statusline-regression.md",
+      "date": "2026-05-27",
+      "title": "2026-05-27 stale handoff: claude.ai scrape 인프라 부주의 비활성화 + statusline v3 회귀"
+    },
+    {
+      "file": "2026-05-27-codex-directive-enter-fix-v2-fails-on-linux-tmux.md",
+      "date": "2026-05-27",
+      "title": "codex-directive v2 Enter 두 번 fix 가 Linux tmux 3.4 + 1KB+ 본문에서 submit 실패"
+    },
+    {
+      "file": "2026-05-27-claude-automations-no-github-to-local-sync.md",
+      "date": "2026-05-27",
+      "title": "claude-automations GitHub PR 머지 → 5노드 ~/claude-automations 자동 pull 메커니즘 부재"
+    },
+    {
+      "file": "2026-05-26-hook-archive-refs-gap.md",
+      "date": "2026-05-26",
+      "title": "hook archive 표준화 후 5노드 settings.json refs cleanup 누락 (handoff-check.sh 잔재)"
+    },
+    {
+      "file": "2026-05-26-five-node-cascade-failure.md",
+      "date": "2026-05-26",
+      "title": "2026-05-26 — 5 노드 cascade failure (어휘 분류기 + stale + singleton)"
+    },
+    {
+      "file": "2026-05-26-choso-live-task-ttl.md",
+      "date": "2026-05-26",
+      "title": "초소 LIVE 섹션 stale node_task TTL 부재 + hangeul_label bare 단어 junk 노출"
+    },
+    {
+      "file": "2026-05-25-typing-daemon-paused-on-idle-mismatch.md",
+      "date": "2026-05-25",
+      "title": "🍎 본진 typing daemon — pause-flag fix 후 idle 시 silent vs 형님 기대 mismatch"
+    },
+    {
+      "file": "2026-05-25-toml-config-root-vs-subkey-trap.md",
+      "date": "2026-05-25",
+      "title": "사고 요약"
+    },
+    {
+      "file": "2026-05-25-notebook-sdxl-oom-cascade-x2.md",
+      "date": "2026-05-25",
+      "title": "💻 노트북 SDXL OOM cascade × 2회 (claude chatbot 동반사살)"
+    },
+    {
+      "file": "2026-05-25-master-silence-on-next-cycle-handoff-causes-suspicion.md",
+      "date": "2026-05-25",
+      "title": "본진 next-cycle 박힘 후 텔레그램 침묵 28분 → 형님 의심 증폭 사고"
+    },
+    {
+      "file": "2026-05-25-master-ack-surface-rule-violation-x2.md",
+      "date": "2026-05-25",
+      "title": "🍎 본진 ack 요청 옵션 surface 룰 위반 × 2회 (같은 사이클)"
+    },
+    {
+      "file": "2026-05-25-mac-report-nomatch-skips-mirror.md",
+      "date": "2026-05-25",
+      "title": "mac-report.sh ssh chain 의 zsh NOMATCH 가 mirror chain 통째로 skip"
+    },
+    {
+      "file": "2026-05-25-codex-mirror-helper-evolution-v1-v4.md",
+      "date": "2026-05-25",
+      "title": "사고 요약"
+    },
+    {
+      "file": "2026-05-25-claude-cyber-verification-block.md",
+      "date": "2026-05-25",
+      "title": "본진 audit directive 어휘 cyber 분류 → 노트북 Claude Code 세션 prompt 차단"
+    },
+    {
+      "file": "2026-05-24-wsl-ack-missing-after-cross-routing.md",
+      "date": "2026-05-24",
+      "title": "2026-05-24 본진→WSL ack 운반체 누락 — 형님 WSL 채팅 침묵 사고"
+    },
+    {
+      "file": "2026-05-24-notebook-to-mac-ssh-kex-mismatch.md",
+      "date": "2026-05-24",
+      "title": "2026-05-24 노트북→본진 SSH KEX/HostKey mismatch 30초 silent hang"
+    },
+    {
+      "file": "2026-05-24-notebook-stop-hook-reply-tool-skip.md",
+      "date": "2026-05-24",
+      "title": "2026-05-24 노트북 stop hook 헤더 누락 — reply tool 호출로 이중송신 가드 trigger"
+    },
+    {
+      "file": "2026-05-24-notebook-autologin-wake-unlock.md",
+      "date": "2026-05-24",
+      "title": "노트북 Windows 부팅 자동로그인 + 슬립 wake 잠금 해제 (Hello 정책 우회)"
+    },
+    {
+      "file": "2026-05-24-master-node-idle-deadlock.md",
+      "date": "2026-05-24",
+      "title": "2026-05-24 본진↔노드 양쪽 idle 데드락 — picks 분기 답이 잘못된 채널로 발사"
+    },
+    {
+      "file": "2026-05-24-mac-mini-group-mirror-token-mismatch.md",
+      "date": "2026-05-24",
+      "title": "2026-05-24 맥미니 Agent Mesh Mirror 그룹 발사 무응답 — TOKEN_MACMINI stale (401)"
+    },
+    {
+      "file": "2026-05-24-context-percent-mis-estimation.md",
+      "date": "2026-05-24",
+      "title": "컨텍스트 % 체감 추정으로 핸드오프+클리어 강행"
+    },
+    {
+      "file": "2026-05-23-notebook-balanced-sleep-5h-cuts-remote-access.md",
+      "date": "2026-05-23",
+      "title": "노트북 Windows Balanced 5h idle sleep → Tailnet offline, 원격 노드 통째로 끊김"
+    },
+    {
+      "file": "2026-05-23-noninteractive-ssh-claude-binary-misdiagnosis.md",
+      "date": "2026-05-23",
+      "title": "사건"
+    },
+    {
+      "file": "2026-05-23-naver-smart-editor-paste-requires-os-click.md",
+      "date": "2026-05-23",
+      "title": "네이버 SmartEditor 본문 paste 가 진짜 OS-level click 1회를 요구"
+    },
+    {
+      "file": "2026-05-23-macos-system-settings-fullauto-pass.md",
+      "date": "2026-05-23",
+      "title": "macOS Sequoia 시스템 설정 풀자동 토글 PASS (본진 자립성 5단계 캘리브레이션)"
+    },
+    {
+      "file": "2026-05-23-linux-trust-prompt-autostart-gate.md",
+      "date": "2026-05-23",
+      "title": "2026-05-23 — Linux 노드 챗봇 autostart trust prompt 게이트 (PASS)"
+    },
+    {
+      "file": "2026-05-23-hook-misdiagnosis-symlink.md",
+      "date": "2026-05-23",
+      "title": "context-threshold-alert hook 경로 symlink 오진 사고"
+    },
+    {
+      "file": "2026-05-23-exitplanmode-globals-gap.md",
+      "date": "2026-05-23",
+      "title": "2026-05-23 — ExitPlanMode 가 글로벌 룰 gap 으로 텔레그램 turn 에서 호출됨"
+    },
+    {
+      "file": "2026-05-23-anthropic-cyber-content-block.md",
+      "date": "2026-05-23",
+      "title": "본진 Claude Code 응답 차단 (Anthropic Usage Policy cyber content 분류기 트리거)"
+    },
+    {
+      "file": "2026-05-22-loop-reschedules-without-clear.md",
+      "date": "2026-05-22",
+      "title": "autopilot /loop 이 30% 넘어도 클리어 안 하고 재예약만 반복"
+    },
+    {
+      "file": "2026-05-22-autopilot-sessionclear-directive-race.md",
+      "date": "2026-05-22",
+      "title": "autopilot 야간 작업 증발 — session-clear 마커 ↔ directive 도착 race"
+    },
+    {
+      "file": "2026-05-22-autopilot-macmini-liveness-false-negative.md",
+      "date": "2026-05-22",
+      "title": "autopilot 노드 liveness false-negative — 맥미니가 멀쩡한데 \"꺼짐\"으로 야간 미가동"
+    },
+    {
+      "file": "2026-05-21-typing-indicator-drops-during-bg-work.md",
+      "date": "2026-05-21",
+      "title": "텔레그램 \"입력중…\" 인디케이터가 cross-turn 백그라운드 작업 중 끊김"
+    },
+    {
+      "file": "2026-05-21-stuck-loop-session-side-effects.md",
+      "date": "2026-05-21",
+      "title": "안 닫힌 loop 세션이 Clawd stale 행 + 타이핑 데몬 죽임 (sibling 세션 부작용)"
+    },
+    {
+      "file": "2026-05-21-hook-matching-too-loose-2x.md",
+      "date": "2026-05-21",
+      "title": "훅 매칭 느슨 2건 연속 — telegram-stop-ping tail -1 + reverse-reply-check contains 자기참조"
+    },
+    {
+      "file": "2026-05-21-autopilot-idle-nodes-token-saving.md",
+      "date": "2026-05-21",
+      "title": "autopilot 6시간 야간 운영 중 본진이 노드를 ~5시간 idle 방치 (임의 \"토큰절약\")"
+    },
+    {
+      "file": "2026-05-20-wsl-bot-bare-path-no-poll.md",
+      "date": "2026-05-20",
+      "title": "2026-05-20 — WSL 텔레그램 봇 무응답: 비대화형 ssh 기동 → bare PATH(node 누락) → 플러그인 폴링 정지"
+    },
+    {
+      "file": "2026-05-20-memoyo-drive-oauth-dup-gcp-project.md",
+      "date": "2026-05-20",
+      "title": "메모요 Drive 백업 — 동명 GCP 프로젝트 분산으로 앱이 보는 쪽에 Drive API 미활성"
+    },
+    {
+      "file": "2026-05-20-mac-report-binary-image-paste.md",
+      "date": "2026-05-20",
+      "title": "맥미니 mac-report 가 스크린샷 PNG 바이너리를 본문 텍스트로 paste → 본진 컨텍스트 폭증"
+    },
+    {
+      "file": "2026-05-20-context-show-self-trigger-stuck.md",
+      "date": "2026-05-20",
+      "title": "context-show 본진 자기 자신 trigger 시 손0 원칙 위반"
+    },
+    {
+      "file": "2026-05-20-choso-css-cache-stale-render.md",
+      "date": "2026-05-20",
+      "title": "초소 PR #6 머지·배포 후에도 라이브가 옛 화면 — CSS 캐시로 새 HTML 이 무스타일 렌더"
+    },
+    {
+      "file": "2026-05-20-cc-version-stale-always-on-node.md",
+      "date": "2026-05-20",
+      "title": "2026-05-20 — 본진/WSL Claude Code 구버전 고착 (always-on 노드 nightly-update 영구 skip)"
+    },
+    {
+      "file": "2026-05-19-wsl-telegram-reply-only-sync-report-missed.md",
+      "date": "2026-05-19",
+      "title": "2026-05-19 🪟 WSL cross-device sync 보고를 텔레그램 reply 단독 송신 → 본진 capture 0"
+    },
+    {
+      "file": "2026-05-19-stop-chain-fail-stop-analysis.md",
+      "date": "2026-05-19",
+      "title": "Stop chain `||` 단축 평가 fail-stop 위험 분석"
+    },
+    {
+      "file": "2026-05-19-share-plus-ios26-silent-fail.md",
+      "date": "2026-05-19",
+      "title": "share_plus 10.1.4 + iOS 26 sharePositionOrigin 필수화 → 호출부 silent PlatformException"
+    },
+    {
+      "file": "2026-05-19-sessionstart-pull-rebase-race.md",
+      "date": "2026-05-19",
+      "title": "SessionStart 훅 git pull --rebase race → Cannot rebase onto multiple branches"
+    },
+    {
+      "file": "2026-05-19-mac-report-telegram-reply-missed.md",
+      "date": "2026-05-19",
+      "title": "2026-05-19 mac-report paste 받은 turn 에 형님 폰 텔레그램 reply 누락"
+    },
+    {
+      "file": "2026-05-19-fleet-clear-rescue-pane-mismatch.md",
+      "date": "2026-05-19",
+      "title": "fleet-clear rescue v0.8 pane-finding 로직이 grouped client 환경에서 본진 챗봇 pane 놓침"
+    },
+    {
+      "file": "2026-05-19-desktop3060ti-icm-hook-trace.md",
+      "date": "2026-05-19",
+      "title": "🖥 데스크탑3060Ti — icm hook 정체 trace (2026-05-19)"
+    },
+    {
+      "file": "2026-05-19-desktop3060ti-fabrication-cross-routing.md",
+      "date": "2026-05-19",
+      "title": "🖥 데스크탑3060Ti — cross-routing directive + fabrication 사고 (2026-05-19)"
+    },
+    {
+      "file": "2026-05-18-wsl-cc-nightly-update-zombie.md",
+      "date": "2026-05-18",
+      "title": "2026-05-18 — WSL cc 좀비 사고 (nightly-update atomic swap 충돌)"
+    },
+    {
+      "file": "2026-05-18-tmux-wheel-scroll.md",
+      "date": "2026-05-18",
+      "title": "Linux tmux 노드 마우스 휠 스크롤 안 됨 (mouse off default)"
+    },
+    {
+      "file": "2026-05-18-notebook-stale-sync.md",
+      "date": "2026-05-18",
+      "title": "노트북3060 claude-skills repo 4 commit stale (issues/INDEX.md UU conflict 사일런트) — \"가전\" 트리거 룰 누락으로 \"에어컨 켜\" 발화 무반응"
+    },
+    {
+      "file": "2026-05-18-mac-zshrc-mcc-broken.md",
+      "date": "2026-05-18",
+      "title": "본진 ~/.zshrc 의 m/cc 분리 표준을 챗봇이 무허가 통일 → 형님 수동 복구"
+    },
+    {
+      "file": "2026-05-18-find-bfs-inventory-false-alarm.md",
+      "date": "2026-05-18",
+      "title": "`find` shell function (bfs wrapper) 로 인한 mac-mini credential inventory false alarm"
+    },
+    {
+      "file": "2026-05-18-fastlane-supply-aab-already-used-on-promote.md",
+      "date": "2026-05-18",
+      "title": "🐛 fastlane supply --rollout aab 재업로드 — Version code 23 has already been used"
+    },
+    {
+      "file": "2026-05-18-cocoapods-utf8-encoding-bug.md",
+      "date": "2026-05-18",
+      "title": "🐛 CocoaPods 1.16.2 + Ruby 4.0.3 UTF-8 인코딩 버그 — `pod install` 즉사"
+    },
+    {
+      "file": "2026-05-18-askuser-globals-gap.md",
+      "date": "2026-05-18",
+      "title": "AskUserQuestion 터미널 UI 띄움 — 본진 메모리 → globals 승격 누락 + 데스크탑 claude-skills stale 결합"
+    },
+    {
+      "file": "2026-05-18-asc-deliver-whatsnew-required.md",
+      "date": "2026-05-18",
+      "title": "🐛 asc-deliver --submit whatsNew null → 409 STATE_ERROR"
+    },
+    {
+      "file": "2026-05-18-android-applicationid-snake-case.md",
+      "date": "2026-05-18",
+      "title": "🐛 Android applicationId snake_case vs iOS Bundle camelCase 불일치 — Play API 패키지명 거부"
+    },
+    {
+      "file": "2026-05-17-tuya-memory-concurrent-write-conflict.md",
+      "date": "2026-05-17",
+      "title": "2026-05-17 — tuya_devices.md 동시 쓰기로 인한 autostash 충돌 (반복 발생)"
+    },
+    {
+      "file": "2026-05-17-stop-hook-mac-mini-directive-not-detected.md",
+      "date": "2026-05-17",
+      "title": "2026-05-17 — Stop hook 의 reverse-reply 감지 list 에 mac-mini-directive.sh 누락"
+    },
+    {
+      "file": "2026-05-17-mac-report-sender-id-missing.md",
+      "date": "2026-05-17",
+      "title": "mac-report body 에 sender 노드 신원 누락 → 본진 챗봇 \"출처불명\" 식별 사고"
+    },
+    {
+      "file": "2026-05-17-lotto-calc-pr16-stale-base-mismatch.md",
+      "date": "2026-05-17",
+      "title": "2026-05-17 — lotto-calc PR #16 stale base mismatch (sweep step 0 git fetch+status 누락)"
+    },
+    {
+      "file": "2026-05-17-gh-pages-cert-provisioning-stuck.md",
+      "date": "2026-05-17",
+      "title": "GH Pages custom domain cert provisioning 멈춤 → 브라우저 빨간 경고"
+    },
+    {
+      "file": "2026-05-16-stale-recover-loss.md",
+      "date": "2026-05-16",
+      "title": "fleet-state stale-recover 가 5분 cron cycle 마다 작업자 commit 까지 origin/main 으로 reset"
+    },
+    {
+      "file": "2026-05-16-ssh-alias-mismatch.md",
+      "date": "2026-05-16",
+      "title": "본진 챗봇이 SSH alias 대신 hostname 그대로 사용 → 두 시간 timeout 추적"
+    },
+    {
+      "file": "2026-05-16-desktop3060ti-tmux-session-name-unify.md",
+      "date": "2026-05-16",
+      "title": "desktop3060Ti tmux 세션 이름 'claude-main' 잔존 — cc / .bashrc SoT 미통일"
+    },
+    {
+      "file": "2026-05-16-d07-install-launchd-smoke-self-load.md",
+      "date": "2026-05-16",
+      "title": "D07 install-launchd.sh smoke self-load — guard 검증 의도가 실 install 까지 가버린 사고"
+    },
+    {
+      "file": "2026-05-15-notebook-hook-path-macos-node.md",
+      "date": "2026-05-15",
+      "title": "노트북 Claude Code SessionStart hook `/opt/homebrew/bin/node: not found` 실패"
+    },
+    {
+      "file": "2026-05-15-macmini-reverse-asym.md",
+      "date": "2026-05-15",
+      "title": "mac-mini 의 ~/.ssh/config 본진 향 alias 'mac' 누락 — mac-report.sh reverse channel 비대칭"
+    },
+    {
+      "file": "2026-05-15-codex-directive-routing-stale.md",
+      "date": "2026-05-15",
+      "title": "codex-directive.sh routing stale — mac-mini Claude Code 노드 전환 후 옛 Codex inbox 경로 사용"
+    },
+    {
+      "file": "2026-05-14-rotate-token-channel-mode-dead.md",
+      "date": "2026-05-14",
+      "title": "rotate-token.sh --channel mode OpenClaw decom 후 dead path"
+    },
+    {
+      "file": "2026-05-14-macmini-self-identity-default-mac-bonjin.md",
+      "date": "2026-05-14",
+      "title": "mac mini Claude Code 자기 정체성을 Mac 본진 으로 오인 (TELEGRAM_BOT_USERNAME 미설정 + 추론 실패)"
+    },
+    {
+      "file": "2026-05-14-macmini-plugin-cache.md",
+      "date": "2026-05-14",
+      "title": "mac mini Claude Code 텔레그램 plugin cache 손상"
+    },
+    {
+      "file": "2026-05-14-macmini-launchd-claude-channels-flag-missing.md",
+      "date": "2026-05-14",
+      "title": "mac mini launchd tmux-claude plist `--channels` 플래그 누락 (cc 첫 진입 시 텔레그램 incoming listen 안 됨)"
+    },
+    {
+      "file": "2026-05-14-macmini-bot-token-grep-leak.md",
+      "date": "2026-05-14",
+      "title": "TELEGRAM_BOT_TOKEN_MACMINI 풀텍스트 conversation 노출"
+    },
+    {
+      "file": "2026-05-14-launchd-plist-path.md",
+      "date": "2026-05-14",
+      "title": "tmux-claude.plist 의 PATH 누락으로 텔레그램 plugin 자동 재기동 시 spawn 실패"
+    },
+    {
+      "file": "2026-05-13-mac-report-reverse-reply-missed.md",
+      "date": "2026-05-13",
+      "title": "mac-report 1차 회신 누락 — Mac→WSL reverse reply 빠뜨림"
+    },
+    {
+      "file": "2026-05-13-fleet-state-mac-mini-divergence.md",
+      "date": "2026-05-13",
+      "title": "fleet-state mac-mini local main divergence — reviewer parity bats 의 local-only commit 누적"
+    },
+    {
+      "file": "2026-05-13-desktop3060ti-claude-automations-absent.md",
+      "date": "2026-05-13",
+      "title": "desktop3060ti `~/.claude/automations/` repo 부재 — WSL 디렉티브 회수 시 surface"
+    },
+    {
+      "file": "2026-05-13-d09-fleet-sweep-family-4-rounds.md",
+      "date": "2026-05-13",
+      "title": "D09 fleet-director 사이클 sweep family 4회 반복 — bats 와 primitive 의 push side-effect 누적"
+    },
+    {
+      "file": "2026-05-12-fleet-state-tests-auto-push-leak.md",
+      "date": "2026-05-12",
+      "title": "fleet-state test harness 의 git push 가 리뷰 미통과 commit 까지 origin 으로 끌고 올라감"
+    },
+    {
+      "file": "2026-05-12-dutchpay-gad-application-identifier-missing.md",
+      "date": "2026-05-12",
+      "title": "더치페이 release 빌드 iPhone 설치 후 앱 launch crash — Info.plist GADApplicationIdentifier 누락"
+    },
+    {
+      "file": "2026-05-12-codex-bidirectional-routing-failure.md",
+      "date": "2026-05-12",
+      "title": "Codex(맥미니) ↔ 본진(Mac) 양방향 메시지 자동 회수 경로 부재"
+    },
+    {
+      "file": "2026-05-11-routine-todos-collision-pat-leak.md",
+      "date": "2026-05-11",
+      "title": "Anthropic Cloud routine 이 /todo 스킬 파일경로에 매일 commit + prompt 안 GitHub PAT 평문 노출"
+    },
+    {
+      "file": "2026-05-11-launchd-clear-trigger-abort-loop.md",
+      "date": "2026-05-11",
+      "title": "launchd 자동 /clear 트리거 abort 반복 — busy-loop 시 fire 마다 timeout"
+    },
+    {
+      "file": "2026-05-10-session-clear-marker-race.md",
+      "date": "2026-05-10",
+      "title": "session-clear 마커 조기 소모 레이스 컨디션"
+    },
+    {
+      "file": "2026-05-10-session-clear-full-investigation.md",
+      "date": "2026-05-10",
+      "title": "session-clear 전 구현 실패 원인 + 최종 성공 분석"
+    },
+    {
+      "file": "2026-05-10-session-clear-buffer-polling-bug.md",
+      "date": "2026-05-10",
+      "title": "session-clear /clear 씹힘 — 입력 버퍼 + polling 조건 버그"
+    },
+    {
+      "file": "2026-05-10-placeholder-paste-loss.md",
+      "date": "2026-05-10",
+      "title": "Telegram paste 명령 안 `<...>` placeholder 가 그대로 paste 되어 3060Ti .env 봇 토큰 덮어써짐"
+    },
+    {
+      "file": "2026-05-10-mini-agent-inbox-bot-bridge.md",
+      "date": "2026-05-10",
+      "title": "Mac mini agent-inbox watcher — wsl/ 무시 + tmux 부재로 inject 양방향 죽음"
+    },
+    {
+      "file": "2026-05-10-loop-run-92771-failure-analysis.md",
+      "date": "2026-05-10",
+      "title": "loop-run run-92771 실패 원인 분석 + 수정"
+    },
+    {
+      "file": "2026-05-10-claude-code-terminal-stdin-lag.md",
+      "date": "2026-05-10",
+      "title": "Claude Code 터미널 입력 지연 (3~4타에 1글자)"
+    },
+    {
+      "file": "2026-05-09-wsl-agent-msg-notify-bot-blocked.md",
+      "date": "2026-05-09",
+      "title": "WSL agent-msg-notify.sh → Telegram 봇차단으로 Mac 수신 불가"
+    },
+    {
+      "file": "2026-05-09-typing-indicator-stop-on-midtask-wait.md",
+      "date": "2026-05-09",
+      "title": "작업 중간 확인 대기 시 입력 중 표시 꺼짐"
+    },
+    {
+      "file": "2026-05-09-telegram-typing-zombie-after-clear.md",
+      "date": "2026-05-09",
+      "title": "/clear 후 이전 세션 typing daemon 좀비 잔류"
+    },
+    {
+      "file": "2026-05-09-play-managed-publishing-on.md",
+      "date": "2026-05-09",
+      "title": "Play Console 관리 게시 ON — 심사 통과 후 미발행"
+    },
+    {
+      "file": "2026-05-09-loop-run-wsl-abort-flutter-path.md",
+      "date": "2026-05-09",
+      "title": "loop-run WSL 태스크 ABORT 무한 재시도 + flutter PATH 미설정"
+    },
+    {
+      "file": "2026-05-09-clear-queued-during-processing.md",
+      "date": "2026-05-09",
+      "title": "/clear 처리 중 큐 지연 — 슬래시 커맨드 큐잉 동작"
+    },
+    {
+      "file": "2026-05-08-mac-report-fake-result-notify.md",
+      "date": "2026-05-08",
+      "title": "mac-report.sh 래퍼가 자동으로 가짜 [결과] 알림 생성"
+    },
+    {
+      "file": "2026-05-08-codex-session-relay-telegram-mirror.md",
+      "date": "2026-05-08",
+      "title": "codex-session-relay가 Codex 응답을 본진 채팅에 중복 미러링"
+    },
+    {
+      "file": "2026-05-08-codex-inject-websocket-silent-fail.md",
+      "date": "2026-05-08",
+      "title": "Codex inject WebSocket 무음 실패 — directive ok 리턴했지만 미도달"
+    },
+    {
+      "file": "2026-05-08-clawd-openclaw-codex-pid-unreachable.md",
+      "date": "2026-05-08",
+      "title": "Clawd on Desk — OpenClaw Codex 연동 실패 (openclaw-trajectory pidReachable=0)"
+    },
+    {
+      "file": "2026-05-06-hanjul-openai-org-member-removed.md",
+      "date": "2026-05-06",
+      "title": "한줄일기 AI 응원 기능 중단 — OpenAI Organization 멤버 remove로 API 키 접근 차단"
+    },
+    {
+      "file": "2026-05-05-session-clear-triggered-goodnight.md",
+      "date": "2026-05-05",
+      "title": "\"세션클리어하자\" → /goodnight 잘못 발화 사고"
+    },
+    {
+      "file": "2026-05-04-lottocalc-irun-white-screen.md",
+      "date": "2026-05-04",
+      "title": "lottocalc irun 흰화면 버그"
+    },
+    {
+      "file": "2026-05-02-policy-race-mac-wsl.md",
+      "date": "2026-05-02",
+      "title": "본진·WSL 가 globals/CLAUDE.md 를 stale-on-stale 로 동시 수정 — 「지휘관 1명 원칙」 폐기 사이클의 race"
+    },
+    {
+      "file": "2026-05-02-playwright-mcp-cwd-output-dir.md",
+      "date": "2026-05-02",
+      "title": "Playwright MCP server cwd 가 `/` 일 때 `/.playwright-mcp` mkdir ENOENT"
+    },
+    {
+      "file": "2026-05-02-google-oauth-playwright-stealth-bypass.md",
+      "date": "2026-05-02",
+      "title": "Playwright 로 띄운 Chrome 에서 Google OAuth 로그인 차단 — stealth args 3종 우회 성공"
+    },
+    {
+      "file": "2026-05-01-wsl-mac-race-skill-edit.md",
+      "date": "2026-05-01",
+      "title": "Mac 본진 push 직후 WSL 가 stale base 로 같은 repo 작업 시작 — race 자동 merge"
+    },
+    {
+      "file": "2026-05-01-ep5-backfill-overwrite.md",
+      "date": "2026-05-01",
+      "title": "Substack backfill 이 Ep5 원본 prose 를 덮어씀 — 컨벤션 두 갈래 공존"
+    },
+    {
+      "file": "2026-04-28-cf-colo-region-block.md",
+      "date": "2026-04-28",
+      "title": "CF colo region-block 으로 친구 wifi 에서만 OpenAI 호출 거부"
+    },
+    {
+      "file": "2026-04-27-wsl-hanjul-push-classifier-block.md",
+      "date": "2026-04-27",
+      "title": "WSL 측 hanjul main push 가 auto-mode classifier 에 막힘 + Mac SSH 우회도 동일 룰로 막힘"
+    },
+    {
+      "file": "2026-04-27-telegram-msg-id-leak.md",
+      "date": "2026-04-27",
+      "title": "텔레그램 답장에 Bot API raw msg ID 인용해서 사용자 혼선"
+    },
+    {
+      "file": "2026-04-27-same-turn-commit-fp.md",
+      "date": "2026-04-27",
+      "title": "같은 turn 내 Write→commit 묶음, harness sandbox false positive 거부"
+    },
+    {
+      "file": "2026-04-27-paste-block-mixed-r6.md",
+      "date": "2026-04-27",
+      "title": "복붙 블록 별도 메시지 룰 6번째 재발 (오늘만 4번)"
+    },
+    {
+      "file": "2026-04-27-harness-default-branch-push-block.md",
+      "date": "2026-04-27",
+      "title": "`git push origin main` 하네스 차단 — default branch 직접 push"
+    },
+    {
+      "file": "2026-04-26-tahoe-ssh-cli-block.md",
+      "date": "2026-04-26",
+      "title": "macOS Tahoe 26.x: systemsetup -setremotelogin 이 Full Disk Access 부족으로 차단"
+    },
+    {
+      "file": "2026-04-26-review-status-disabled-blind-spot.md",
+      "date": "2026-04-26",
+      "title": "review-status-check _disabled 이동 후 17h 동안 Apple issue 메일 누락"
+    },
+    {
+      "file": "2026-04-26-paste-block-label-leak.md",
+      "date": "2026-04-26",
+      "title": "복붙 메시지에 라벨/안내 텍스트 섞어 보냄 → PowerShell 명령 깨짐"
+    },
+    {
+      "file": "2026-04-26-heartbeat-rule-soft-enforcement.md",
+      "date": "2026-04-26",
+      "title": "작업 중 5분 하트비트 룰 강제력 부재로 12분간 침묵"
+    },
+    {
+      "file": "2026-04-26-handoff-method-a-fallback-regression.md",
+      "date": "2026-04-26",
+      "title": "/handoff METHOD A 회귀 — 무복붙 인프라 두고 복붙 폴백으로 빠짐"
+    },
+    {
+      "file": "2026-04-26-handoff-claude-main-empty-shell.md",
+      "date": "2026-04-26",
+      "title": "/handoff Primary 첫 실전 — claude-main 세션은 살아있는데 안에서 Claude Code 가 안 돌고 있었음"
+    },
+    {
+      "file": "2026-04-26-handoff-active-session-marker-mismatch.md",
+      "date": "2026-04-26",
+      "title": "발생"
+    },
+    {
+      "file": "2026-04-25-wsl-playwright-mcp-install-blocked.md",
+      "date": "2026-04-25",
+      "title": "WSL Playwright MCP 플러그인 설치 — 하네스 자기수정 게이트로 차단"
+    },
+    {
+      "file": "2026-04-24-ios-ipad13-screenshot-mandatory.md",
+      "date": "2026-04-24",
+      "title": "App Store 심사 제출: iPad 13\" 스크린샷 누락으로 \"심사에 추가\" 차단"
+    },
+    {
+      "file": "2026-04-24-insta-autopost-mac-mirror-missing.md",
+      "date": "2026-04-24",
+      "title": "4/24 인스타 자동 포스팅 누락 — Mac 호출 시 시크릿/인프라 부재"
+    },
+    {
+      "file": "2026-04-23-ios-gidclientid-missing.md",
+      "date": "2026-04-23",
+      "title": "iOS GoogleSignIn GIDClientID 누락 크래시 (심사레이더)"
+    },
+    {
+      "file": "2026-04-21-orphan-skill-file-after-interrupt.md",
+      "date": "2026-04-21",
+      "title": "세션 중단 직후 방금 만든 스킬 파일이 커밋/푸시 없이 로컬에만 남음"
+    },
+    {
+      "file": "2026-04-21-memoyo-signup-ghost-form.md",
+      "date": "2026-04-21",
+      "title": "메모요 스토어 드롭 후 2주 동안 홈페이지 사전예약 폼이 살아있어서 이메일 계속 수집"
+    },
+    {
+      "file": "2026-04-21-memory-skill-duplication.md",
+      "date": "2026-04-21",
+      "title": "메모리에 스킬 파일로 유도 가능한 내용을 중복 저장"
+    },
+    {
+      "file": "2026-04-21-mac-wsl-todos-desync.md",
+      "date": "2026-04-21",
+      "title": "Mac 과 WSL 이 같은 심사레이더 작업을 병렬로 붙잡고 todos 정합성 파탄"
+    },
+    {
+      "file": "2026-04-21-launchd-silent-job-dropout.md",
+      "date": "2026-04-21",
+      "title": "launchd 가 등록된 잡을 소리 없이 떨궈서 수 주 동안 자동 스케줄 유실"
+    },
+    {
+      "file": "2026-04-20-terminal-only-reply-missed-telegram.md",
+      "date": "2026-04-20",
+      "title": "Telegram-origin 질문에 터미널로만 답하고 reply 툴 호출 누락"
+    },
+    {
+      "file": "2026-04-20-telegram-typing-midsession-drop.md",
+      "date": "2026-04-20",
+      "title": "텔레그램 typing 표시가 채팅 중 \"한번 쏘고\" 완전 정지"
+    },
+    {
+      "file": "2026-04-20-telegram-client-delivery-lag.md",
+      "date": "2026-04-20",
+      "title": "텔레그램 답변이 \"안 오는 것처럼\" 보인 지연 현상"
+    },
+    {
+      "file": "2026-04-20-irun-locked-iphone.md",
+      "date": "2026-04-20",
+      "title": "/irun 재배포 시 \"Could not run Runner.app\" 반복 — 실제 원인은 아이폰 잠금"
+    },
+    {
+      "file": "2026-04-19-android-text-selection-twotone.md",
+      "date": "2026-04-19",
+      "title": "Android 텍스트 선택 블록이 2가지 톤으로 표시됨"
+    },
+    {
+      "file": "2026-04-16-playwright-chrome-google-login-blocked.md",
+      "date": "2026-04-16",
+      "title": "Playwright Chromium 으로 Google 로그인 시 \"안전하지 않은 브라우저\" 차단"
+    },
+    {
+      "file": "2026-04-16-play-console-testers-google-group.md",
+      "date": "2026-04-16",
+      "title": "Play Console testers API 가 개별 이메일을 받지 않음"
+    },
+    {
+      "file": "2026-04-12-ios-relaunch-crash.md",
+      "date": "2026-04-12",
+      "title": "iOS 재실행 시 SharedPreferencesPlugin 크래시"
+    }
+  ]
 }
