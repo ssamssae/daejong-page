@@ -1,6 +1,24 @@
 {
  "entries": [
   {
+   "file": "2026-06-07-node-session-liveness-3state-check.md",
+   "date": "2026-06-07",
+   "slug": "node-session-liveness-3state-check",
+   "title": "노드 세션 생존확인은 RUNNING/ABSENT/UNREACHABLE 3-상태로 — '못 찾음'을 '꺼짐'으로 단정하지 말 것",
+   "category": "인프라",
+   "tags": [
+    "ssh",
+    "tmux",
+    "liveness",
+    "false-negative",
+    "path",
+    "multi-node",
+    "homebrew",
+    "fleet"
+   ],
+   "summary": "ssh <node> 'tmux has-session' 같은 bare 명령으로 노드 생존을 확인하면 비대화형 ssh PATH 에 바이너리(/opt/homebrew/bin)가 없어 command-not-found → 세션이 살아있어도 '꺼짐'으로 false-negative. 정답은 RUNNING/ABSENT/UNREACHABLE 3-상태로 갈라 '바이너리 못 찾음/ssh 실패'를 ABSENT 아닌 UNREACHABLE 로 분리하고, PATH 를 명령 앞에 강제 prepend 해 not-found 자체를 차단. 룰(풀패스 기억)로 3번 깨진 뒤 코드 forcing function 으로 박음."
+  },
+  {
    "file": "2026-06-05-wsl-mirrored-windows-openssh-port22-conflict.md",
    "date": "2026-06-05",
    "slug": "wsl-mirrored-windows-openssh-port22-conflict",
