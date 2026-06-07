@@ -1,670 +1,677 @@
 {
-  "entries": [
-    {
-      "file": "2026-06-07_v1.0.0.md",
-      "date": "2026-06-07",
-      "version": "1.0.0",
-      "title": "음성으로 집을 깨우기까지, 두 번의 헛다리",
-      "summary": "Siri 음성으로 본진 명령이 안 되던 버그를 잡는 과정에서 본진(Claude)이 stale 전제 위에서 두 번 헛다리(투야 클라우드 만료 오진 / Telethon \"검증 경로\" 가정)를 짚었고, 매번 실측이 막아 가장 단순한 정답(로컬 tmux inject)으로 수렴. home은 로컬이라 텔레그램 왕복 자체가 불필요했다. 같은 날 함대 인프라도 \"확인 전 단정 금지\" 한 테마로 정비. 코드 존재 ≠ 런타임 동작, 기억≠현재."
-    },
-    {
-      "file": "2026-06-06_v1.0.0.md",
-      "date": "2026-06-06",
-      "version": "1.0.0",
-      "title": "누가 보고를 받는가",
-      "summary": "함대 자동화 인프라 정비의 날 — 본진=거버넌스/노드=실행 분업이 실전에서 처음 매끄럽게 돌았다. '자동 코덱스가 왜 본진에 보고하냐'는 질문에서 출발해 라우팅 갭 의심→cosmetic 라벨 split 버그 판명(delivery는 맥미니로 정상, 헤더 라벨만 🍎 fallback). 라벨을 배송주소(MAC_HOST)에서 단일 파생해 split 회귀 원천 차단(aca46b3). 본진 codex 자동 Enter 멈춤(bracketed-paste race)=paste-buffer -p+Enter 5회 안전벨트로 해결, 라이브 검증. 양보 가드 10→2분. 노드 이벤트 체이닝 끊김 진단(fire-lease 1회성 lease 고갈, 헤더가 게이트보다 나중이라 SKIP이 흔적없이 종료)→맥미니 fix 진행. 더치페이 카톡공유·약먹자 cold-start·한줄일기 1.2·첫이름 prod 라이브·PR 큐 4건 검증 동시 진행.",
-      "updated": "2026-06-06T23:24:05+09:00"
-    },
-    {
-      "file": "2026-06-05_v1.0.1.md",
-      "date": "2026-06-05",
-      "version": "1.0.1",
-      "title": "얼굴을 정하고, 전화를 끊다",
-      "summary": "낮 일지(v1.0.0) 발행 이후 같은 날 밤의 두 토막. 마이너스베타스튜디오 공식 로고 확정(mβ 모노그램)과 첫이름 070+카카오 CS 동선 마감(070=표시용·실응대=카톡봇, 전화기/부가서비스/녹음 불필요 정리).",
-      "updated": "2026-06-06T00:00:01+09:00"
-    },
-    {
-      "file": "2026-06-05_v1.0.0.md",
-      "date": "2026-06-05",
-      "version": "1.0.0",
-      "title": "세 번 끊긴 것을, 뿌리에서 끊다",
-      "summary": "5노드 자율 인프라를 굳히고 재발하던 두 끊김을 뿌리에서 끊은 하루. 자율워커 4엔진+머신당 단일엔진 mutex, 본진 워커 이벤트체이닝, 맥미니 자동 오케스트레이터 역할반전, stale-sync 1단계+commit-msg task-link 훅으로 함대 거버넌스 정비. 텔레그램 bun PATH 3회차 재발→/opt/homebrew/bin 심링크 근본차단(재",
-      "updated": "2026-06-05T18:18:49+09:00"
-    },
-    {
-      "file": "2026-06-04_v1.0.0.md",
-      "date": "2026-06-04",
-      "version": "1.0.0",
-      "title": "작업일지 2026-06-04 v1.0.0 — 5노드 풀가동: 인프라 누수 수습 + 메모요 1.0.7 릴리스 + 첫이름 prod",
-      "summary": "아침 40% 하드클리어 누수(본진 idle 고착)+flock silent fail 수습. 메모요 1.0.7 ①②③④ 묶음 라이덴 구현/맥미니 네이티브 게이트 전부 머지→1.0.7+28 릴리스. 첫이름 동명이인 PR#12·입력UX PR#13·worker400 PR#14·stale테스트 PR#15·ListTile위생 PR#16·도메인리서치·다크시안. analyze 함정(네이티브 test가 권위). 정석대로 글로벌룰. ep26 3채널. lottocalc iOS 검증. 2번째 SaaS 라인 컨셉. 정수기 interpreter 함정. 밤 미리알림 grep(쿠팡이츠/카나리아/아이패드).",
-      "updated": "2026-06-04T23:25:00+09:00"
-    },
-    {
-      "file": "2026-06-03_v1.0.1.md",
-      "date": "2026-06-03",
-      "version": "1.0.1",
-      "title": "작업일지 2026-06-03 v1.0.1 (저녁 증분) — tuya IR 관문 로컬 제어 실증",
-      "summary": "3CH 지그비 스위치(ch1=에어컨/ch2=선풍기/ch3=정수기) 로컬 토글→SmartLife 자동화 발화로 IR 가전 클라우드 없이 제어 실증. 개발구독 만료(28841002)와 무관(소비자 자동화는 로컬 토글로 발화). 자동화 충돌(정수기켜짐 ch1 묶임) 발견→앱에서 ch1→ch3 분리→에어컨토글 물無/정수기토글 물만 검증. 에어컨 켜기끄기·선풍기·정수기·온수매트 핑거봇 다 실증. 남음=local_devices.json 정식등록+task 마킹. insight AI 100년사 1건.",
-      "updated": "2026-06-03T23:12:00+09:00"
-    },
-    {
-      "file": "2026-06-03_v1.0.0.md",
-      "date": "2026-06-03",
-      "version": "1.0.0",
-      "title": "작업일지 2026-06-03 — tuya 로컬 전환 / 메모요 SDK skew / Android 동결 룰",
-      "summary": "tuya 로컬(tinytuya) 직접제어 전환(조명 4종+클라우드 폴백, Zigbee 맵 확장, 정수기 물토출 차단 가드 v3.4), 메모요 onReorder revert+평가버튼+ASO(SDK skew 4th), Android 빌드환경 동결 hard rule(한줄일기 안드로이드만 심사중 동결), automations nightly-update 롤백가드+gemini-ask.sh, start-wrapped-session.sh, 세션 MCP 529 진단.",
-      "updated": "2026-06-03T22:48:00+09:00"
-    },
-    {
-      "file": "2026-06-02_v1.0.1.md",
-      "date": "2026-06-02",
-      "version": "1.0.1",
-      "title": "하루 만에 껍데기에서 진짜 서비스로 — 첫이름 풀빌드 (저녁 증분판)",
-      "summary": "v1.0.0(굿나잇)에 저녁 증분 추가 — 첫이름을 mock에서 실엔진+OTP+토스결제+PDF메일까지 풀빌드해 테스트모드 production 라이브(PR #2~#5 머지, 버그 3건 fix, Resend 도메인 stale 403→실측 verified). 밤늦게 아니키 3건: ①vrl-benchmark 다크톤 대안시안(기존 green-cream/PR#7 보존, 별브랜치 프리뷰) codex-fire 발사 ②favicon Flutter 기본V 교체 묶음 ③초소 작전보드 큐 mesh-vote는 맥미니 codex REPL 첫이름 점유 충돌로 옵션 surface. 실키 cutover는 아니키 게이트.",
-      "updated": "2026-06-02T23:31:00+09:00"
-    },
-    {
-      "file": "2026-06-02_v1.0.0.md",
-      "date": "2026-06-02",
-      "version": "1.0.0",
-      "title": "하루 만에 껍데기에서 진짜 서비스로 — 첫이름 풀빌드",
-      "summary": "첫이름(cheotireum)을 mock 껍데기에서 실엔진+이메일OTP+토스결제+결과PDF메일까지 풀빌드해 테스트모드 production 라이브(사이트 200, OTP=테스트 발신주소, Toss sandbox). 맥미니 codex-fire가 fan-out·리뷰·머지 자율 오케스트레이션, 본진은 라이브 실측 검증+게이트. PR #2~#5 머지(#6 진행), 버그 3건(amount문자열/processing오판/resend멱등성) fix, CF권한 10023 보강, Resend 도메인 stale 403→실측 verified. 실키 cutover는 아니키 게이트 보류. 곁다리 autopilot PR(약먹자/로또/더치페이/메모요) 머지 게이트 대기. 클로드 2.1.160 업뎃.",
-      "updated": "2026-06-02T23:13:00+09:00"
-    },
-    {
-      "file": "2026-06-01_v1.0.0.md",
-      "date": "2026-06-01",
-      "version": "1.0.0",
-      "title": "내가 매번 누르던 버튼을, 오늘 시스템에 넘겼다",
-      "summary": "5노드 신뢰성 버그 4건을 가드로 닫은 오전, 컨텍스트 40% 자동 하드클리어 인프라를 5노드에 깔아 '세션 비우는 판단'을 시스템에 넘긴 저녁. 첫이름 디자인은 코덱스 5대로 만들어 베이스(프리미엄 단발결제 랜딩)를 확정하고 제품을 PDF 한 장+CS=0으로 단순화했다."
-    },
-    {
-      "file": "2026-05-31_v1.0.1.md",
-      "date": "2026-05-31",
-      "version": "1.0.1",
-      "title": "돈 버는 줄과 안 무너지는 줄을 같이 깔았다",
-      "summary": "첫 유료 서비스 '첫이름(cheotireum) AI 사주 작명'을 띄우면서(수익형 마이크로SaaS 라인 첫 산출물, pages.dev+커스텀도메인+SERVICE 타일), 같은 날 시스템을 대량 경화 — 인프라 가드 보호 마커 hard rule+guard-comment-protect hook, 죽은 토큰 보안 위생 3repo, 룰 표준화 2레일, gemini-vote 이질적 한 표(codex-mesh-vote v0.2 통합), next-cycle.md 완전 폐기(session-clear v2.8, 모순 정리). 버그 3건(이중송신·env 오탐·SessionStart race) fix+이슈박제. 새벽엔 Fire-Lease·IG 백필·결혼식 캐러셀·insta-photos·USER-QUERY 라우팅·DGX Spark 결정(v1.0.0).",
-      "updated": "2026-05-31T23:49:12+09:00"
-    },
-    {
-      "file": "2026-05-31_v1.0.0.md",
-      "date": "2026-05-31",
-      "version": "1.0.0",
-      "title": "오늘 깐 길로, 오늘 밤 답이 흘렀다",
-      "summary": "노드 경유 유저질문의 답이 발신 챗 아닌 본진 챗으로 빠지던 USER-QUERY 라우팅 갭을 픽스(mac-report.sh origin 마커 픽스A + reverse-reply FIRST 픽스B/C + 작업수신 가시알림 3단계 5노드 표준 AGENT.md §7.8 + 이슈박제), 데스크탑 이중송신 flush-race fix. 그리고 그 라우팅을 만든 직후 노트북이 넘긴 LLM 허브 재결정 질문이 바로 그 경로로 들어와 즉석 dogfood — codex-mesh-vote 5/5 만장일치 DGX Spark 즉시구매+14일 검증게이트. 새벽엔 Fire-Lease 2게이트·IG 백필 6일·결혼식 캐러셀·insta-photos 스킬.",
-      "updated": "2026-05-31T02:32:52+09:00"
-    },
-    {
-      "file": "2026-05-30_v1.0.0.md",
-      "date": "2026-05-30",
-      "version": "1.0.0",
-      "title": "시스템이 스스로 청소를 시작한 날",
-      "summary": "웹툰 큐레이션 스프린트 6편(Ep7·8·13·14·17·18)을 손0 auto-resume로 연속 완주, choso 코덱스 세션 대칭화(main→codex)를 5노드에서 마무리하며 codex-ping 기본 세션 잠재버그 fix, 작전보드 백로그 137개를 codex-mesh-vote로 keep/kill 정리(137→124), 공개 페이지 위생(pii-guard pre-push 가드·sorry PII 정리·habits/knowhow 백필·노드 liveness 표준화)까지 한 번에 정리한 날.",
-      "updated": "2026-05-30T23:56:36+09:00"
-    },
-    {
-      "file": "2026-05-29_v1.0.0.md",
-      "date": "2026-05-29",
-      "version": "1.0.0",
-      "title": "codex가 main을 비우던 밤",
-      "summary": "codex가 tmux main을 직접 점유하던 비대칭을 5노드 전부 codex 전용 세션으로 분리(cx 대칭화). 그 과정에서 mirror dedup 함정·노드 보고 표준 빈틈을 잡아 글로벌 룰로 박음. 그 외 choso.db 22GB retention fix, 작전보드 v2, 메모요 1.0.7 GA QA + 1.0.8 spec, 세션 자동 /clear 무한루프 정리, codex_hooks→hooks 5노드 정리.",
-      "updated": "2026-05-30T00:43:49+09:00"
-    },
-    {
-      "file": "2026-05-28_v1.0.0.md",
-      "date": "2026-05-28",
-      "version": "1.0.0",
-      "title": "게이지바 하나에서 작전보드까지",
-      "summary": "초소 게이지바 fix 한 건이 작전보드 단일 박스 재설계로 확장, codex mesh-vote 3회 (Ultra 재투표 5/5 Claude mesh 반전 + 작전보드 안 3/5 + self-pattern globals 승격 5/5), ~/todo tasks.md 단일 SoT 마이그, 듀얼 오케스트레이터 룰, 뉴스레터 Ep22~25 발행",
-      "updated": "2026-05-28T23:55:19+09:00"
-    },
-    {
-      "file": "2026-05-27_v1.0.0.md",
-      "date": "2026-05-27",
-      "version": "1.0.0",
-      "title": "어제의 내가 끈 게, 오늘의 나를 거짓 SoT 위에 앉혔다",
-      "summary": "핸드오프 stale + scrape launchd 부주의 비활성화 + statusline v3 hard floor 회귀 fix → 4단계 (scrape 부활 + 5노드 broadcast launchd + statusline v4 + codex ctx_pct) + loop-fleet 자율 해석 사고 정정",
-      "updated": "2026-05-27T23:43:16+09:00"
-    },
-    {
-      "file": "2026-05-26_v1.0.0.md",
-      "date": "2026-05-26",
-      "version": "1.0.0",
-      "title": "본진은 grunt 를 안 한다",
-      "summary": "초소 3-bug fix 위임(데스크탑 PR #33) + handoff-check.sh archive cleanup 5노드 fan-out + 이슈 2건",
-      "updated": "2026-05-26T23:59:20+09:00"
-    },
-    {
-      "file": "2026-05-25_v1.0.0.md",
-      "date": "2026-05-25",
-      "version": "v1.0.0",
-      "summary": "73 커밋 + 이슈 8건 + 메모리 4건 — (1) SEO 캠페인 P0→P1 완주 (sitemap·robots·JSON-LD·canonical·OG·favicon·meta 30/30) (2) sorry 박제 페이지 + apology hook v2 + stage1-ack hook (3) codex 5노드 셋업 + Codex Mesh Mirror 그룹 mirror hook v1→v4 (맥미니 339→14 bytes), PROBE 5/5 PASS",
-      "updated": "2026-05-25T22:00:20.000000+09:00"
-    },
-    {
-      "file": "2026-05-24_v1.0.1.md",
-      "date": "2026-05-24",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 본 사이클 마무리 — 데드락 메타 사이클(A→B narrow), 데스크탑 14개 stale 일괄 폐기 + 보존 2건 머지, AI 용어집 stats 자동 sync hook, install.sh 16 jobs bootstrapped, 메모요 1.0.7 sync cron tracker, IG cron 실패 surface",
-      "updated": "2026-05-25T00:04:16.133095+09:00"
-    },
-    {
-      "file": "2026-05-24_v1.0.0.md",
-      "date": "2026-05-24",
-      "version": "v1.0.0",
-      "updated": "2026-05-24T19:44:38.711054+09:00",
-      "summary": "5노드 양방향 검증이 surface 한 두 표준화 사고 (맥미니 토큰 mismatch + 노트북 stop hook reply 함정) closure + (a) mac-report default auto-detect PR #44 머지 + AI 용어집 페이지 LIVE"
-    },
-    {
-      "file": "2026-05-23_v1.0.0.md",
-      "date": "2026-05-23",
-      "version": "v1.0.0",
-      "summary": "5노드 챗봇 자가복구 두 게이트(Linux trust prompt ExecStartPost Enter + 라이젠 bun PATH 부재) 다 풀어 노트북/라이젠/데스크탑 진짜 Windows 재부팅 자가복구 PASS. ExitPlanMode 글로벌 룰 gap 사고로 룰 강화 + 이슈 2건 박힘.",
-      "updated": "2026-05-24T00:36:00+09:00"
-    },
-    {
-      "file": "2026-05-22_v1.0.1.md",
-      "date": "2026-05-22",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 새벽 초소 이후 하루 전체 — autopilot work-stealing 완성(PR #42)+1회가동 8발 / 5앱 audit·ASO·경쟁사 스펙 15종 / Ep18 발행·시세판·벤치마크 라이브 / autopilot 백스톱 5종",
-      "updated": "2026-05-23T00:46:00.000000+09:00"
-    },
-    {
-      "file": "2026-05-22_v1.0.0.md",
-      "date": "2026-05-22",
-      "version": "v1.0.0",
-      "summary": "초소 큐 대시보드 새벽 11커밋 이터레이션 — 백로그 섹션·노드감지fix·badge·정렬·타일화·3색·카드높이 + 모바일 날짜잘림 회귀fix",
-      "updated": "2026-05-22T01:55:10.000000+09:00"
-    },
-    {
-      "file": "2026-05-21_v1.0.1.md",
-      "date": "2026-05-21",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 저녁~밤: 쇼츠/Ep17 발행, bg-typing 훅, 초소 게이지, 대시보드 비공개, 한줄일기 Play 프로덕션 액세스 제출, 5노드 입력중 점검",
-      "updated": "2026-05-21T21:52:32.035280+09:00"
-    },
-    {
-      "file": "2026-05-21_v1.0.0.md",
-      "date": "2026-05-21",
-      "version": "v1.0.0",
-      "summary": "안 닫힌 sibling 세션이 Clawd stale 행 + 입력중 데몬 죽음 동시 유발, 종료로 둘 다 해소 + 이슈/메모리 정정",
-      "updated": "2026-05-21T00:52:04.354249+09:00"
-    },
-    {
-      "file": "2026-05-20_v1.0.2.md",
-      "date": "2026-05-20",
-      "version": "v1.0.2",
-      "summary": "저녁 궤적 — 라이트 디자인 4PR 머지, 관심종목 stock.html, insights 정비, 이슈 2건, 뉴스레터 Ep13~16 3채널 발행",
-      "updated": "2026-05-20T22:59:10.138253+09:00"
-    },
-    {
-      "file": "2026-05-20_v1.0.1.md",
-      "date": "2026-05-20",
-      "version": "v1.0.1",
-      "summary": "오후 외출 자율모드 — 4노드 fan-out + 약먹자 stale 빌드(SPM↔pod) 근본원인 해결 + 라이트 홈 실물 확인 + reference 메모리",
-      "updated": "2026-05-20T15:57:11+09:00"
-    },
-    {
-      "file": "2026-05-20_v1.0.0.md",
-      "date": "2026-05-20",
-      "version": "v1.0.0",
-      "summary": "5노드 sync 인프라 매듭 + 메모요 Drive 백업 작동 증거 확보 + 강대종 손0 원칙 신설",
-      "updated": "2026-05-20T01:15:49+09:00"
-    },
-    {
-      "file": "2026-05-19_v1.0.0.md",
-      "date": "2026-05-19",
-      "version": "v1.0.0",
-      "summary": "메모요 1.0.6+24 silent fail 핫픽스 + 1.0.7 메이저 4항목 ack + fleet 인프라 PR 3개 + globals 승격",
-      "updated": "2026-05-19T18:30:10.059129+09:00"
-    },
-    {
-      "file": "2026-05-18_v1.0.0.md",
-      "date": "2026-05-18",
-      "version": "v1.0.0",
-      "summary": "메모요 1.0.5+23 iOS 빌드 freshness audit + ITMS-90683 회피 + manual export/import (#10) (자동 sync 영구 폐기) + choso phase 1 부팅(5aca401) + phase 3 spec/(a)(b)/(d)/(h) first step/(i) 외부 표면 = Tailscale serve (mesh-vote 5/5 + trio-vote 3-0 만장일치) + cross-node 검증 PASS (curl mac→mac-mini 200, 0.69s) + ~/.zshrc m/cc 무허가 통일 사고 박제 + AskUser globals gap globals 승격 + 이슈 9건 + 메모리 11건 + fleet-clear v2.4 watcher chain + next-cycle.md auto-inject 5노드 배포 + repo-enter.sh sweep step 0 헬퍼 + 자정 직후 노트북 stale sync 함정 (🖥 발견, in-flight).",
-      "updated": "2026-05-19T00:10:00+09:00"
-    },
-    {
-      "file": "2026-05-17_v1.0.1.md",
-      "date": "2026-05-17",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 (14:25) 이후 11시간 — kangdaejong.com 트리밍 + work.kangdaejong.com cert provisioning 5시간 멈춤 사고 CNAME 토글 트릭 + mac-report.sh sender-id fix 5노드 propagate + CLAUDE.md §3 5 prefix + main push 정책 표준화 + todo 자연어 번역 3 파일 111 active 라인 (본진+맥미니 분배) + insta-post-general 비용 0 패치 SKILL.md v0.3 + 페이지 정리 9건 + 이슈 박제 2건 + 메모리 1건 + 노하우 6건 + trio-vote 5회 + 노트북3060 smart-home cherry + spec/plan internal repo 이동.",
-      "updated": "2026-05-18T01:14:00+09:00"
-    },
-    {
-      "file": "2026-05-17_v1.0.0.md",
-      "date": "2026-05-17",
-      "version": "v1.0.0",
-      "summary": "메모요 sync 자율루프 종료(02:36, S3 비가역 hold) + kangdaejong.com 첫 paid 도메인 Business 등록($10.46) + Cloudflare Zero Trust+Tunnel(Mac mini queue-dashboard)+Access(이메일 OTP) 인프라 100% + ~/todo Mac mini 클론 + 5 PR squash 머지 + lotto-calc PR #16 stale base 사고 이슈 박제.",
-      "updated": "2026-05-17T14:37:32+09:00"
-    },
-    {
-      "file": "2026-05-16_v1.0.1.md",
-      "date": "2026-05-16",
-      "version": "v1.0.1",
-      "summary": "정오~밤 사이클 — Ghostty App Nap defaults write 마감 + deep work 1 launchd 정리 5건 + 5 노드 cross-SSH key sweep + D07 install-launchd smoke self-load 사고 박제 + mesh-vote v0.3 stack 4 PR (v0.3/v0.3.1/v0.3.2/v0.3.3) + trio-vote v0.2 Phase 2.5 + fleet-state PR #3/#4 + D07 launchd install 3 노드 실호출 (mac-mini 2분 / 본진 5분 / WSL 5분) — fleet-director worker turn on, 자동 분배 시작. 텔레그램 AskUserQuestion 금지 메모리 박음.",
-      "updated": "2026-05-16T20:15:00+09:00"
-    },
-    {
-      "file": "2026-05-16_v1.0.0.md",
-      "date": "2026-05-16",
-      "version": "v1.0.0",
-      "summary": "자정~01:30 KST 잔여 정리 (jq sync / codex 스크립트 3종 폐기 / SSH alias 박제 / telegram-typing-refresh hook) + 01:35~01:50 본진 RAM 진단 (병목 X) + 5대 기기 RAM 조사 (총 96GB) + .wslconfig α/β/γ 옵션 + WSL 본진 이전 고민 답변 (API latency 지배 환기). 결정은 전부 hold.",
-      "updated": "2026-05-16T01:55:00+09:00"
-    },
-    {
-      "file": "2026-05-15_v1.0.1.md",
-      "date": "2026-05-15",
-      "version": "v1.0.1",
-      "summary": "14:30~17:55 KST 오후 세션 — mac-mini 라우팅 transition 마무리 (PR #18/#19/#41/#22) + D11 dual-reviewer push + env-tool/mcp-spawn-verify forcing function + docs PR 5건",
-      "updated": "2026-05-15T18:02:33+09:00"
-    },
-    {
-      "file": "2026-05-15_v1.0.0.md",
-      "date": "2026-05-15",
-      "version": "v1.0.0",
-      "updated": "2026-05-15T14:30:00+09:00",
-      "summary": "5노드 다이나믹 loop-fleet 2 사이클 + 4 PR 머지 + Mac 본진 SSH key 발급 + 노트북3060 alias rename 풀 갈아치움 + codex-directive routing stale 이슈 박제"
-    },
-    {
-      "file": "2026-05-14_v1.0.2.md",
-      "date": "2026-05-14",
-      "version": "v1.0.2",
-      "updated": "2026-05-15T00:10:10+09:00",
-      "summary": "Mac mini 재부팅 후 plist --channels 누락 + TELEGRAM_BOT_USERNAME 미설정 두 결함 별건 패치 + 이슈 2건 박제, WSL 발 Agent View 1단계 PASS 2단계 hold"
-    },
-    {
-      "file": "2026-05-14_v1.0.1.md",
-      "date": "2026-05-14",
-      "version": "v1.0.1",
-      "summary": "mac mini 텔레그램 plugin cache 사고 위임 진단 + 두 번째 parkinglot 양 트랙 dynamic /loop 10 iter + PR 5개 일괄 머지 + RC1 protocol skip 룰 적용",
-      "updated": "2026-05-14T17:20:00+09:00"
-    },
-    {
-      "file": "2026-05-14_v1.0.0.md",
-      "date": "2026-05-14",
-      "version": "v1.0.0",
-      "summary": "크론 점검 한 마디 → deep-work.md SoT 신설 + B 묶음 5건 ack + 본진/WSL 양 트랙 dynamic /loop 9 iter 첫 운영 (충돌 0) + 강대종 ack 8건 hold",
-      "updated": "2026-05-14T11:05:00+09:00"
-    },
-    {
-      "file": "2026-05-13_v1.0.4.md",
-      "date": "2026-05-13",
-      "version": "v1.0.4",
-      "summary": "OpenClaw decom Phase A/B'/D 완료 + mac mini Codex→Claude Code 노드 전환 + 봇 토큰 사고 2건 박제",
-      "updated": "2026-05-14T07:04:50.135906+09:00"
-    },
-    {
-      "file": "2026-05-13_v1.0.3.md",
-      "date": "2026-05-13",
-      "version": "v1.0.3",
-      "summary": "D09 fleet-director 사이클 (13 shell primitive + FLEET_NO_PUSH guard) — sweep family 4회 반복 + audit-trail revert + 룰 3종 박제 (push 가드 + parity range + sequential verification) + P1 plan §9.8 sync + WSL session-clear v2.4 회수 PR #14/#34 머지",
-      "updated": "2026-05-13T20:15:00+09:00"
-    },
-    {
-      "file": "2026-05-13_v1.0.2.md",
-      "date": "2026-05-13",
-      "version": "v1.0.2",
-      "summary": "info.html /loop 비교 카드 2개 박제 + 새벽 ack 보류 5건 중 3건 처분 (메모요 라벨 + PR #12/#4 close) + /goodnight 자동 매칭 3건 [x]",
-      "updated": "2026-05-13T11:50:00+09:00"
-    },
-    {
-      "file": "2026-05-13_v1.0.1.md",
-      "date": "2026-05-13",
-      "version": "v1.0.1",
-      "summary": "새벽 /loop 3 dynamic 12 iter 4h44min 자동 운영 (PR #5 머지 + sync 4건 + 보류 5건) → 강대종 cron/loop 질문 8개 → knowhow 박제 + /goodnight 마감",
-      "updated": "2026-05-13T07:42:00+09:00"
-    },
-    {
-      "file": "2026-05-13_v1.0.0.md",
-      "date": "2026-05-13",
-      "version": "v1.0.0",
-      "summary": "/loop 커스텀 폐지 + parking-lot −3건 + 메모요 privacy-memoyo.html 라이브 + 박제 3건",
-      "updated": "2026-05-13T01:20:25+09:00"
-    },
-    {
-      "file": "2026-05-12_v1.0.1.md",
-      "date": "2026-05-12",
-      "version": "v1.0.1",
-      "summary": "오후 fleet test push 격리 + 광고 두 앱 ASC 심사 자동 제출",
-      "updated": "2026-05-12T22:30:00+09:00"
-    },
-    {
-      "file": "2026-05-12_v1.0.0.md",
-      "date": "2026-05-12",
-      "version": "v1.0.0",
-      "summary": "5/11 인스타 캐러셀 cron `EXTRA[@]: unbound variable` 사고 → 수동 복구. fleet-director D07-prereq triad 6항목 single cycle 패치(bc2bbbf) 후 tests auto-push 가 implementer commit 끌고 올라가는 process 사고. force-push/revert 대신 fix-forward 선택. spec/code-quality-reviewer subagent 2-track 검증. reviewer 가 non-blocking 으로 마크한 SIGPIPE family 1건이 empirical 검증으로 active blocker 격상(D05#6 family 4·5번째 인스턴스). fix-forward 31a3635 → re-review PASS. 최종 라벨: D07-prereq triad 종료 (PASS), Targeted SIGPIPE repro PASS, Full tests 9/10 PASS with known claim-race env failure (mac-mini reset 보류). fleet-state test harness push 격리 D07 cron 전 blocker 승격.",
-      "updated": "2026-05-12T07:45:00+09:00"
-    },
-    {
-      "file": "2026-05-11_v1.0.0.md",
-      "date": "2026-05-11",
-      "version": "v1.0.0",
-      "summary": "00:52 launchd /clear abort 5+회 누적 사고 → 이슈 박음. 01~02시 5기기 메시 토폴로지 LIVE(stack.html SVG + 운반체 4종 + agent-msg-notify 5기기 매핑) + insta-post-general v0.1 dry-run. 05:04 routine #1 자동 commit 매일 새벽 충돌 + GitHub PAT 평문 노출 발견. 09:35 routine disabled+redacted+todos 봉합+4기기 sync. 09:49 insta-post 별도 cron(매일 23:50 KST) 으로 /goodnight 결합 해체. 결정 4건 박제(insta-post cron 분리/5노드 메시/Mac mini 역할/routine 시크릿 금지).",
-      "updated": "2026-05-11T14:30:00+09:00"
-    },
-    {
-      "file": "2026-05-10_v1.0.3.md",
-      "date": "2026-05-10",
-      "version": "v1.0.3",
-      "summary": "v1.0.2 이후 19:20~24:33 KST 5시간 — 3060Ti 봇 토큰 placeholder paste 분실 사고로 reply-purity 가드 + 메모리 1건. 23:06 \"200분짜리 토큰 9-to-6 에 쓰고 싶다\" 한 마디로 fleet-director 메타 시스템 Q1~Q8 + spec 983L + Codex line review 6 finding 반영 + plan 14일 3124L 완성. D01 시작은 fresh 컨디션 보류 + 트리거 메모리 박음.",
-      "updated": "2026-05-11T00:48:13+09:00"
-    },
-    {
-      "file": "2026-05-10_v1.0.2.md",
-      "date": "2026-05-10",
-      "version": "v1.0.2",
-      "summary": "v1.0.1 이후 stack.html 4장 카드(Mac 본진/Mac mini/WSL/노트북 3060) 풍성 포맷 통일 + CLAUDE.md 'Mac mini 챗봇 세션 X' 표기 4곳 갱신 + 노트북 봇 @ssamssae_codex_bot 확정",
-      "updated": "2026-05-10T19:09:00+09:00"
-    },
-    {
-      "file": "2026-05-10_v1.0.1.md",
-      "date": "2026-05-10",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 session-clear v1.9→v2.2 후속 패치 + parking-lot 등록 + 터미널 입력 지연 이슈 박제",
-      "updated": "2026-05-10T17:25:00+09:00"
-    },
-    {
-      "file": "2026-05-10_v1.0.0.md",
-      "date": "2026-05-10",
-      "version": "v1.0.0",
-      "summary": "session-clear 8회 실패 분석 + loop-run Triple-Velocity 디버깅 + loop-run.sh 개선",
-      "updated": "2026-05-10T15:52:00+09:00"
-    },
-    {
-      "file": "2026-05-09_v1.3.0.md",
-      "date": "2026-05-09",
-      "version": "v1.3.0",
-      "summary": "WSL→Mac 봇차단 픽스 + trio-vote Codex 설치 + 메모요 동결 + typing indicator mid-task 버그 수정",
-      "updated": "2026-05-10T00:15:00+09:00"
-    },
-    {
-      "file": "2026-05-09_v1.2.0.md",
-      "date": "2026-05-09",
-      "version": "v1.2.0",
-      "summary": "loop-run/sync-skills SSH 직접 실행 전환 + self-heal-scanner v1 신규 + vibecoding 섹션 06",
-      "updated": "2026-05-09T20:15:00+09:00"
-    },
-    {
-      "file": "2026-05-09_v1.1.1.md",
-      "date": "2026-05-09",
-      "version": "v1.1.1",
-      "summary": "session-clear v0.8·skill-exists.sh·mesh-vote v0.1 신규 — 오후 세션",
-      "updated": "2026-05-09T16:05:08.819205+09:00"
-    },
-    {
-      "file": "2026-05-09_v1.0.0.md",
-      "date": "2026-05-09",
-      "version": "v1.0.0",
-      "summary": "바이브코딩 제안 5개 trio-vote 실행 + loop-judge 빈출력 픽스 + worklog SRP 해소",
-      "updated": "2026-05-09T12:30:00+09:00"
-    },
-    {
-      "file": "2026-05-08_v1.0.3.md",
-      "date": "2026-05-08",
-      "version": "v1.0.3",
-      "summary": "저녁 세션: inbox-watcher.sh E2E, codex-relay 2차 재발 수습, Apple ID 역산 + 저장",
-      "updated": "2026-05-08T21:38:58+09:00"
-    },
-    {
-      "file": "2026-05-08_v1.0.2.md",
-      "date": "2026-05-08",
-      "version": "v1.0.2",
-      "summary": "loop-run 첫 실전 PARTIAL + judge stdout 오염 버그 수정 + loop-judge v2 (WSL 자동감지 + 토론 라운드 + 다수결)",
-      "updated": "2026-05-08T12:07:00+09:00"
-    },
-    {
-      "file": "2026-05-08_v1.0.1.md",
-      "date": "2026-05-08",
-      "version": "v1.0.1",
-      "summary": "3-way 프로토콜 버그 4개 수정 + loop-judge/loop-run 에이전트 루프 완성",
-      "updated": "2026-05-08T11:28:00+09:00"
-    },
-    {
-      "file": "2026-05-08_v1.0.0.md",
-      "date": "2026-05-08",
-      "version": "v1.0.0",
-      "summary": "3way 기기 간 왕복 통신(맥북↔WSL↔맥미니) 완성, mac-report 자동 알림·stop-ping 포워딩 버그 제거, 이슈 2건·노하우 업데이트·worklog Obsidian 수집 추가.",
-      "updated": "2026-05-08T02:05:00+09:00"
-    },
-    {
-      "file": "2026-05-06_v1.0.0.md",
-      "date": "2026-05-06",
-      "version": "v1.0.0",
-      "summary": "OpenClaw 에이전트 메시 구축일 — 두 차례 outage 복구, SSH+tmux 양방향 transport 가동, 자비스1 Codex 전환, 노트북 Codex 브릿지 설치.",
-      "updated": "2026-05-07T01:45:00+09:00"
-    },
-    {
-      "file": "2026-05-05_v1.0.3.md",
-      "date": "2026-05-05",
-      "version": "v1.0.3",
-      "summary": "오전 parallel-cycle 4앱 누락 보강(hanjul/yakmukja/stock_monitor/dutch_pay 햅틱) + dutch_pay AdMob + korail-sniff KTX 자동예매 봇 v1(23:00). newsletter Ep.7 초안.",
-      "updated": "2026-05-06T09:19:00+09:00"
-    },
-    {
-      "file": "2026-05-05_v1.0.2.md",
-      "date": "2026-05-05",
-      "version": "v1.0.2",
-      "summary": "v1.0.1 이후 추가: 행운번호 메타데이터 정비 + submit-app ASC 가드 wiring(PR#23) + korail-sniff mitmproxy 설정(PR#24) + 단어요 새 아이콘 iOS 재심사(00:33 KST).",
-      "updated": "2026-05-06T01:02:00+09:00"
-    },
-    {
-      "file": "2026-05-05_v1.0.1.md",
-      "date": "2026-05-05",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 추가: 4번째 리젝 수신 → Gambling=Yes 최종 수용 → 5번째 재제출 WAITING_FOR_REVIEW. 메모요 Play Console 프로덕션 액세스 신청 완료.",
-      "updated": "2026-05-05T20:16:00+09:00"
-    },
-    {
-      "file": "2026-05-05_v1.0.0.md",
-      "date": "2026-05-05",
-      "version": "v1.0.0",
-      "summary": "Apple Guideline 2.3.6 리젝 2연속 → lotto→randompick 재포장. 코레일 봇 PerimeterX 차단 → dead-ends 기록. wordyo PR 3개, AI 카톡방 인사이트 3번째, WSL alias 누락 수정.",
-      "updated": "2026-05-05T18:30:00+09:00"
-    },
-    {
-      "file": "2026-05-04_v1.0.1.md",
-      "date": "2026-05-04",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 추가: session-clear v0.1→v0.2, Play 개발자 에셋+문구, lottocalc 통계 제거+카지노 결합+PR #14 opened. irun 3차 좀비 프로세스(pkill) 해결. 흰화면 버그 resolved.",
-      "updated": "2026-05-05T01:08:00+09:00"
-    },
-    {
-      "file": "2026-05-04_v1.0.0.md",
-      "date": "2026-05-04",
-      "version": "v1.0.0",
-      "summary": "4개 앱(lottocalc/wordyo/hanjul/stock_monitor) 동시 출시 준비. parallel-cycle v0.1→v0.5 당일 완성. AI 인사이더 클럽 knowhow 8건. ~55커밋.",
-      "updated": "2026-05-04T20:55:00+09:00"
-    },
-    {
-      "file": "2026-05-03_v1.0.1.md",
-      "date": "2026-05-03",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 추가: lotto-calc stats/BarChart, knowhow batch, 뉴스레터 Ep6+Plan-C 발행, Ep.1+Ep.2 디자인 교체, stack.html 갱신, stock_monitor scaffold",
-      "updated": "2026-05-03T23:58:00+09:00"
-    },
-    {
-      "file": "2026-05-03_v1.0.0.md",
-      "date": "2026-05-03",
-      "version": "v1.0.0",
-      "summary": "3060Ti 격리(tailnet OFF + sshd disable) + OpenClaw 샌드박스 결정. ASC territory cache WSL↔본진 양방향 자율 사이클 (골격→PR→merge→174 실데이터). knowhow coverage map 첫 번째 + batch 3건. gpt-relay v0.",
-      "updated": "2026-05-03T11:37:48+09:00"
-    },
-    {
-      "file": "2026-05-02_v1.0.1.md",
-      "date": "2026-05-02",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 21:40~24:00 KST 후반 사이클. 단어요 step 4b/4c/4d/4d-후속 4 PR 머지 (진척률 막대 + 디버그 패널 + 칩 % 라벨). lotto-calc 시드 (e) superkts xlsx US IP PASS 검증 → 23:21 강대종 결정으로 HOLD (방향 확정 대기). 23:54 KST WSL→본진 mac-report.sh 자동 paste → PICK #7 단어요 칩 % → wsl-directive.sh 송신 → PR #13 +2/-2 23:57 머지 = 정책(11:00 KST e7b334c) → 첫 양방향 자율 사이클 13시간. 강대종 손 0 zero-touch.",
-      "updated": "2026-05-03T00:14:19+09:00"
-    },
-    {
-      "file": "2026-05-02_v1.0.0.md",
-      "date": "2026-05-02",
-      "version": "v1.0.0",
-      "summary": "「지휘관 1명 원칙」 폐기 → 「병렬 작업 + 충돌 방지」 8항. Stack 페이지 + 단어요 step 4a + 로또 v0/v1 + Android alpha LIVE + knowhow 카테고리 + Track D 마무리. 110+ 커밋.",
-      "updated": "2026-05-02T21:39:05+09:00"
-    },
-    {
-      "file": "2026-05-01_v1.0.0.md",
-      "date": "2026-05-01",
-      "version": "v1.0.0",
-      "summary": "한줄일기 1.0 LIVE 후속 + Plan C 풀그린 + naver-blog v1 첫 발행 + 단어요 3b-4 + someday 23 → 18",
-      "updated": "2026-05-01T22:00:13+09:00"
-    },
-    {
-      "file": "2026-04-30_v1.0.0.md",
-      "date": "2026-04-30",
-      "version": "v1.0.0",
-      "summary": "한줄일기 1.0 iOS App Store LIVE 확정 — Apple 4/29 06:43 UNRESOLVED_ISSUES (China Deep Synthesis) reject → 4/30 11:06 KST ASC API 우회 재제출 (PATCH cancel old sub → POST new attach → PATCH submit) → 13:29 KST 승인+자동 release, 턴어라운드 2h23m. ₩1,900 KOR READY_FOR_SALE 검증 (customerPrice 1900). 다만 9h 경과 후에도 공개 채널 (apps.apple.com/iTunes Lookup KR/US/JP/GB/DE) propagation 미완 — Apple CDN 지연. Mac mini SoT 자동배포 Phase B 풀그린: iOS .p8 + Android service account scp + 권한 부여 + play-upload --check REGISTERED PASS, 한줄일기 alpha 1.1.0+5 promote 첫 사용 (6b9551c). 단어요(wordyo) 부트스트랩 진입 (~/apps/wordyo init c051bfa, plan step 2 완료). Skills: MACHINE_ROLES.md (3a3bb13), submit-app/create-play-app SSH 라우팅 (b95cdad), mac-report.sh 룰 (97f57e8), session-close 박다 제거 (37ed84e), lesson apple-reject-resubmit-via-cancel (6b3308a). Automations: create-play-app.js + play-upload --check (9bde77f). Newsletter Ep.4 본진 검토 (35f7878) + Substack 발행본 (6fec2e5) + Ep.5 outline (21bcfcf) + 드래프트 ~3500자 (7adf35c). Someday 3건 추가 (ASC reject 자동화, territory 가드, 자동발행/회귀/단어요/Android schedule).",
-      "updated": "2026-04-30T22:55:00+09:00"
-    },
-    {
-      "file": "2026-04-29_v1.0.1.md",
-      "date": "2026-04-29",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 자정 직전 추가 사이클: WSL→Mac 자동 깨우기 운반체 mac-report.sh 신설 + zero-touch end-to-end 검증 PASS (23:54 KST, 418 bytes paste 본진 tmux 도달). 빌드 막힘 1건 fix (SSH non-interactive shell PATH 부재 → MAC_TMUX_BIN 환경변수 절대경로). 3-device 운영 플레이북 12 섹션 (~/.claude/ops/3device-playbook.md) — Mac본진/WSL/맥미니 역할, 표준 directive 9-필드, 표준 보고서 양식, 작업별 프롬프트(빌드실패/git diff/DEPLOY.md/night-build.sh), 맥미니 실행 전 10항목 체크리스트, A-L 12 섹션. globals/CLAUDE.md 'WSL → Mac' 항목 1줄 → 2-channel 운반체 룰 (97f57e8). 워밍업 directive 1759 bytes WSL 송신 + WSL 보고서 4.3KB G 양식 준수. 본진 idle 사고 (23:38~23:41) 노출 → 운반체 도입 결정. /sync 부활 논의 → 강대종님 폐지 결정 정정 → 메모리 채널만으로 충분 결론, 추가 인프라 0. mac mini Apple Silicon iOS debug Rosetta 의존성 박제 (project_mac_mini_ios_debug_rosetta.md, 453ae77). symlink 그림자 정리 (~/.claude/CLAUDE.md → claude-skills/globals/CLAUDE.md, 누락 commit 처리 97f57e8). 한줄일기 iPhone17 debug attach 백그라운드 자연 종료 PASS. 메모리 박제 7건 (project_wsl_to_mac_carrier_deployed 신규 외).",
-      "updated": "2026-04-30T00:13:14+09:00"
-    },
-    {
-      "file": "2026-04-29_v1.0.0.md",
-      "date": "2026-04-29",
-      "version": "v1.0.0",
-      "summary": "Mac mini 인프라 정비 큰 날. (1) Android night-build v2.0a 풀그린 PASS:4 FAIL:0 — keystore 4쌍 8파일 본진→Mac mini rsync 후 sign NPE 해소, 정책 박제 Mac mini=Android release SoT/WSL=debug only (6d59829). (2) iOS ipa 빌드 4단계 복구 (cert trust chain → Xcode 자동 provisioning → codesign partition list → DerivedData clean), hanjul.ipa 19,946,345 bytes PASS, project_mac_mini_ios_ipa_recovery.md 박음. (3) /handoff 184줄 스킬 → wsl-directive.sh wrapper 단순화 (75a9a70, 82b62d7, 6052c6d). (4) /night-runner v1 안전모드 (read-only, commit/push/PR 0) + Mac mini launchd 03:00 KST 활성 (bccc165, 5b072ff, ca6ac01). (5) claude-skills 정리: sync/to-iphone/land 제거 (b30abb7), goodnight step 4.5 hostname 분기 드롭 (6048b4b), irun --debug 통일 (cb5f0b2), todo 디바이스 태깅 정비 (c49a0dd). (6) 하드룰 3건 명문화: 지휘관 1명 원칙 운반체 예외, WSL 옵션 메뉴 금지, '박다' 은어 금지. (7) hanjul stats sharePositionOrigin 픽스 + 1.1.0+4 bump (4406d20, 525b549). 메모리 17건 갱신/신규.",
-      "updated": "2026-04-29T21:45:00+09:00"
-    },
-    {
-      "file": "2026-04-28_v1.0.1.md",
-      "date": "2026-04-28",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 추가분: 지휘관 1명 원칙 Mac 본진 적용 + 운반체 예외 한 줄 (a00825b) + 정합성 보강 R1/R2/R3 (3e85237). /night-runner v0 → v1 안전모드 재설계 (read-only 점검 5개, claude headless 0, commit/push/PR 0, timeout 1200) + Mac mini launchd 03:00 KST 자동 실행 install + 1회 검증 PASS (bccc165, 5b072ff, ca6ac01). Mac mini SSH 키 generate + GitHub 등록 (4/29 00:33) → claude-automations/skills clone + telegram 채널 미러링 + projects.yaml SCP. 부수 발견 (someday 박힘): install.sh hostname case 패턴 mac-mini* 미매칭, d19a315 night-build Mac mini install 미완료, dutch_pay_calculator Mac mini clone + flutter 미설치. 메모리 3건 박음.",
-      "updated": "2026-04-29T00:50:00+09:00"
-    },
-    {
-      "file": "2026-04-28_v1.0.0.md",
-      "date": "2026-04-28",
-      "version": "v1.0.0",
-      "summary": "약먹자/더치페이 새벽 자동 승인 (1.0.1/1.0.2 READY_FOR_SALE). 한줄일기 1900원 1.0 iOS 심사 제출 23:04 KST (com.ssamssae→com.daejongkang 점유 충돌 전환, AI Gateway region-block 우회, 1.1.0+4 ipa, ASC stale 6.5\" 3컷 → 1284×2778 신규 + iPad 13\" 2064×2752 신규 + 콘텐츠권리 + 4+ 연령등급, 첨부파일 ASC navigate 버그). 자동화 3건 폐기 (morning-briefing/evening-wrap, 심사레이더, 가계부). \"박다\" 은어 26개 파일 일괄 교체. 4-node v4 옵션 X 결정. Android Play 패키지 등록됨 (SHA-256 확인).",
-      "updated": "2026-04-28T23:11:00+09:00"
-    },
-    {
-      "file": "2026-04-27_v1.0.0.md",
-      "date": "2026-04-27",
-      "version": "v1.0.0",
-      "summary": "v3 노드 정책 두 가정(MacBook 이동성·WSL 24/7) 강대종님 직접 정정으로 폭로 → v4 옵션 X 확정 (현상 유지). trend-curator 풀제거 (Mac launchd + WSL + 양쪽 repo + private repo archive). /stale 5단계 wrapper SKILL 신설 (PR #3, lite/remote 모드 + 매트릭스). 약먹자/더치페이 iOS reject 18:42 ASC Reply 발송 완료 — 재심사 ~04-29. Karpathy 4룰 양 기기 동기화. session-close v0.3 lean (토큰 1/5). hanjul UI 마이크로 인터랙션 4개. 이슈 5건 정식 기록. 사이드 5→1.",
-      "updated": "2026-04-28T00:10:00+09:00"
-    },
-    {
-      "file": "2026-04-26_v1.0.0.md",
-      "date": "2026-04-26",
-      "version": "v1.0.0",
-      "summary": "4-노드 LLM 인프라 가동 → 라파5 → M1 맥미니 결정 전환 → 24/7 허브 e2e 셋업 → v2/v3 정책 슬림화. review_radar v0.2 main + 포모도로 Play Console 심사 제출 + Ep.3 본문 + 이슈 8건",
-      "updated": "2026-04-27T01:10:00+09:00"
-    },
-    {
-      "file": "2026-04-25_v1.0.0.md",
-      "date": "2026-04-25",
-      "version": "v1.0.0",
-      "summary": "핸드오프 인프라가 텔레그램 한 줄 트리거에서 SSH+tmux 양방향 자동 직접 인젝션으로 진화한 날. 새벽 4/24 마무리(Substack Ep.1 편집본·worklog 4/24 v1.0.1·done·todos 정리) → 아침 hanjul 1.1.0+3 Android ship-ready(런처 9종 자동 생성 + JSON export + Play Console 스크린샷 + release signingConfig + keystore SoT Mac 등록) → 점심 Playwright WSL 막힘 4단계 핸드오프 turn → Option E (PLAYWRIGHT_MCP_BROWSER=chromium env-var 한 줄) 발견·smoke PASS → 오후 인스타 Mac venv 미러링·dry-run PASS·정책 A 명문화·step 4.5 hostname 라우팅·핸드오프 트리거 키워드 → claude-automations PR #1 (CDP 모듈화) 머지 → 저녁 핸드오프 SSH+tmux METHOD A 발견(text/Enter sleep 0.5 분리, bracketed paste 우회) → 21~23시 양방향 e2e PASS·이모지 prefix·Mac PATH 함정(/opt/homebrew/bin/tmux 절대경로) → 자정 직전 다른 기기 오케스트레이터 구상. skills 26 / daejong-page 9 / hanjul 4 / review_radar 1.",
-      "updated": "2026-04-26T00:35:00+09:00"
-    },
-    {
-      "file": "2026-04-24_v1.0.1.md",
-      "date": "2026-04-24",
-      "version": "v1.0.1",
-      "summary": "밤 22:40~00:10 KST 세션: 약먹자 1.0.1 + 더치페이 1.0.2 App Store Connect 심사 제출 2건 (Playwright MCP 메타데이터·스크린샷·카테고리·연령등급·가격·Privacy 전부 자동화). 4/20 시작 미완결 과제 Apple 큐 투입. 중간에 친구 한줄일기 AI 답글 실패 디버깅 + 47MB release APK 재빌드 전송. 마감에 /goodnight 에 /insta-post step 4.5 자동 호출 편입(c116f6f). 이슈 2건/메모리 3건 박제.",
-      "updated": "2026-04-25T00:10:00+09:00"
-    },
-    {
-      "file": "2026-04-24_v1.0.0.md",
-      "date": "2026-04-24",
-      "version": "v1.0.0",
-      "summary": "새벽 05:25~06:37 KST 세션: Mac/WSL 양쪽 daily-sync-and-learn 자동 스케줄 비활성화(launchctl/systemctl disable+mask) + 포모도로 Google Play Console Closed Testing(alpha) 업로드 완주. Flutter Android 빌드가 Xcode 라이선스에 막힘 → DEVELOPER_DIR=CommandLineTools 로 우회. Play Console API 업로드 4회 시도 실패(vc=3 이미 소비 / vc=4 testers 그룹 없음 / vc=5 draft app 제약 / vc=6 동일 에러) 후 수동 파이썬으로 internal 트랙의 잔여 vc=3 completed 를 draft 로 demote 한 뒤 alpha 트랙 vc=6 draft 커밋 성공(edit_id 04724584959853325210). 새 lesson android-all-tracks-must-be-draft.md 추가+push.",
-      "updated": "2026-04-24T06:40:00+09:00"
-    },
-    {
-      "file": "2026-04-23_v1.0.1.md",
-      "date": "2026-04-23",
-      "version": "v1.0.1",
-      "summary": "v1.0.0 이후 19:00~00:08 저녁·심야 궤적: 포모도로 백그라운드 타이머+푸시+개인정보처리방침, /create-play-app + /insta-post 신규 스킬 + /toss-tone 제거, automations play-upload TCC 폴백, 심사레이더 A2+B1 디자인 하이브리드, 그리고 자정을 넘긴 심사레이더 iOS 최초 런치 디버그(Dart SDK 미스매치 → GIDClientID 누락 크래시 → GCP iOS OAuth + Info.plist 2키 → 41aabea 푸시) + /issue 2026-04-23-ios-gidclientid-missing.md 포스트모템",
-      "updated": "2026-04-24T00:25:00+09:00"
-    },
-    {
-      "file": "2026-04-23_v1.0.0.md",
-      "date": "2026-04-23",
-      "version": "v1.0.0",
-      "summary": "/sync 오해 풀기(launchd catch-up 동작) + 병원 todo 드롭(일상생활 금지 규칙 신설) + 포모도로 aab 빌드 + 한줄일기 UI 폴리싱 3커밋(GradientTextStyles+PressScale+Undo+AI 등장 애니) + /irun 실기 → 한줄일기 출시 준비 3종(privacy-hanjul + 메타 ko/en + 시뮬레이터 스크린샷 3장)",
-      "updated": "2026-04-23T14:40:00+09:00"
-    },
-    {
-      "file": "2026-04-22_v1.0.1.md",
-      "date": "2026-04-22",
-      "version": "v1.0.1",
-      "summary": "launchd silent dropout 재발 → bootstrap API + 검증 루틴 강화 + stop-check blacklist + memory auto-push 훅 / /handoff 스킬 신설 / hanjul A2+B2 하이브리드 1294줄 + AI negation 픽스 + APP_SHARED_SECRET 드롭→layered rate limits / daejong-page 15페이지 풀 리디자인(검정·노랑→화이트·토스블루) + 홈 iOS 홈스크린 3×3 그리드",
-      "updated": "2026-04-22T23:35:00+09:00"
-    },
-    {
-      "file": "2026-04-22_v1.0.0.md",
-      "date": "2026-04-22",
-      "version": "v1.0.0",
-      "summary": "Mac↔WSL 앱 동기화 갭을 세 겹(Stop 훅 ~/apps/* 확장 + /pull-apps 신규 스킬 + /sync 에 apps 루프 흡수)으로 차단 + hanjul 토스 블루 리브랜드 4커밋 + 메모요 beta 트랙 testers 그룹 lesson 기록",
-      "updated": "2026-04-22T00:40:00+09:00"
-    },
-    {
-      "file": "2026-04-21_v1.0.3.md",
-      "date": "2026-04-21",
-      "version": "v1.0.3",
-      "summary": "저녁 2R 최적화 — 메모요 베타 모집 전면 드롭(portfolio.html signup 제거) + morning-briefing 기계 수집을 Python 프리페처(morning-prefetch.py 320줄)로 분리 + 멀티기기 push·skill 중복 로드 Q&A",
-      "updated": "2026-04-21T20:58:00+09:00"
-    },
-    {
-      "file": "2026-04-21_v1.0.2.md",
-      "date": "2026-04-21",
-      "version": "v1.0.2",
-      "summary": "토큰 절약 캐스케이드 — /review-status-check launchd 비활성화 + 수동 호출 스킬 3개 삭제 + todo-reminder+done-auto→/evening-wrap 통합 + MEMORY.md 중복 2쌍 정리 + 미리알림 싱크 7개 정리",
-      "updated": "2026-04-21T17:45:00+09:00"
-    },
-    {
-      "file": "2026-04-21_v1.0.1.md",
-      "date": "2026-04-21",
-      "version": "v1.0.1",
-      "summary": "메모요 1.0.2 수동 출시 + 1.0.4 altool 재업로드·심사 제출 / 신규 앱 스크린샷 자동화 시도·실패(3가지 허용 버튼 우회 전부 실패 + dimension limit) / /worklog 뉴스레터 스타일 전환 + worklog.html marked.js 렌더러 도입",
-      "updated": "2026-04-21T09:45:00+09:00"
-    },
-    {
-      "file": "2026-04-21_v1.0.0.md",
-      "date": "2026-04-21",
-      "version": "v1.0.0",
-      "summary": "훅 WSL-wins 머지 + typing daemon 세션 격리 3종 픽스 + /goodnight 스킬",
-      "updated": "2026-04-21T00:43:27+09:00"
-    },
-    {
-      "file": "2026-04-20_v1.0.3.md",
-      "date": "2026-04-20",
-      "version": "v1.0.3",
-      "summary": "오후 결과물 공개 구간 — /issues 페이지 신설 + 이슈 9건 소급 + /worklog·/done 0단계 라우팅 + /land signing·Bundle ID 자동화 내장 + 바이브코딩 뉴스레터 Ep.1 발행",
-      "updated": "2026-04-20T21:24:00+09:00"
-    },
-    {
-      "file": "2026-04-20_v1.0.2.md",
-      "date": "2026-04-20",
-      "version": "v1.0.2",
-      "summary": "오전 맥 본진 — 아이폰 배포 파이프라인(/land·/to-iphone) + claude-automations 저장소 + daily-sync-and-learn + /sync·/issue 스킬 + Mac 피드백 4건 반영",
-      "updated": "2026-04-20T21:24:00+09:00"
-    },
-    {
-      "file": "2026-04-20_v1.0.1.md",
-      "date": "2026-04-20",
-      "version": "v1.0.1",
-      "summary": "WSL 야간 자동 개발 결과물 4덩어리 통합 — 한컵·mini_expense 두 앱 + Dev Trend Curator·flutter-factory 두 자동화 + 메모리 3건",
-      "updated": "2026-04-20T21:24:00+09:00"
-    },
-    {
-      "file": "2026-04-20_v1.0.0.md",
-      "date": "2026-04-20",
-      "version": "v1.0.0",
-      "summary": "자정 맥·WSL 병렬 3건 — 약먹자 비공개 테스트 제출 + 기억이 챗봇 Markdown parse 버그픽스 + 할일 6건 등록",
-      "updated": "2026-04-20T21:24:00+09:00"
-    }
-  ]
+ "entries": [
+  {
+   "file": "2026-06-07_v1.0.1.md",
+   "date": "2026-06-07",
+   "version": "1.0.1",
+   "title": "뉴스레터 5편 통합 발행 + 한줄일기 39일 출시 분석 + 네이버 paste Siri 간섭",
+   "summary": "v1.0.0(araseo-voice Siri 음성비서) 이후 밤 추가분. 한줄일기 안드로이드 39일 출시 원인 추적(패키지명 충돌/관리게시 14일/프로덕션 게이트 한 달), 뉴스레터 ep27~31 5편 작성+Substack/홈페이지 발행(cf42e8b), 인사이트 1편 김미경 AI 플러스휴먼(2c33cd6, git 충돌 reset 정렬 후 재발행), 네이버 ep27 발행(blog.naver.com/ssamssae/224308904503) — SmartEditor paste 0자의 진짜 원인은 Siri OS 커서 가로챔."
+  },
+  {
+   "file": "2026-06-07_v1.0.0.md",
+   "date": "2026-06-07",
+   "version": "1.0.0",
+   "title": "음성으로 집을 깨우기까지, 두 번의 헛다리",
+   "summary": "Siri 음성으로 본진 명령이 안 되던 버그를 잡는 과정에서 본진(Claude)이 stale 전제 위에서 두 번 헛다리(투야 클라우드 만료 오진 / Telethon \"검증 경로\" 가정)를 짚었고, 매번 실측이 막아 가장 단순한 정답(로컬 tmux inject)으로 수렴. home은 로컬이라 텔레그램 왕복 자체가 불필요했다. 같은 날 함대 인프라도 \"확인 전 단정 금지\" 한 테마로 정비. 코드 존재 ≠ 런타임 동작, 기억≠현재."
+  },
+  {
+   "file": "2026-06-06_v1.0.0.md",
+   "date": "2026-06-06",
+   "version": "1.0.0",
+   "title": "누가 보고를 받는가",
+   "summary": "함대 자동화 인프라 정비의 날 — 본진=거버넌스/노드=실행 분업이 실전에서 처음 매끄럽게 돌았다. '자동 코덱스가 왜 본진에 보고하냐'는 질문에서 출발해 라우팅 갭 의심→cosmetic 라벨 split 버그 판명(delivery는 맥미니로 정상, 헤더 라벨만 🍎 fallback). 라벨을 배송주소(MAC_HOST)에서 단일 파생해 split 회귀 원천 차단(aca46b3). 본진 codex 자동 Enter 멈춤(bracketed-paste race)=paste-buffer -p+Enter 5회 안전벨트로 해결, 라이브 검증. 양보 가드 10→2분. 노드 이벤트 체이닝 끊김 진단(fire-lease 1회성 lease 고갈, 헤더가 게이트보다 나중이라 SKIP이 흔적없이 종료)→맥미니 fix 진행. 더치페이 카톡공유·약먹자 cold-start·한줄일기 1.2·첫이름 prod 라이브·PR 큐 4건 검증 동시 진행.",
+   "updated": "2026-06-06T23:24:05+09:00"
+  },
+  {
+   "file": "2026-06-05_v1.0.1.md",
+   "date": "2026-06-05",
+   "version": "1.0.1",
+   "title": "얼굴을 정하고, 전화를 끊다",
+   "summary": "낮 일지(v1.0.0) 발행 이후 같은 날 밤의 두 토막. 마이너스베타스튜디오 공식 로고 확정(mβ 모노그램)과 첫이름 070+카카오 CS 동선 마감(070=표시용·실응대=카톡봇, 전화기/부가서비스/녹음 불필요 정리).",
+   "updated": "2026-06-06T00:00:01+09:00"
+  },
+  {
+   "file": "2026-06-05_v1.0.0.md",
+   "date": "2026-06-05",
+   "version": "1.0.0",
+   "title": "세 번 끊긴 것을, 뿌리에서 끊다",
+   "summary": "5노드 자율 인프라를 굳히고 재발하던 두 끊김을 뿌리에서 끊은 하루. 자율워커 4엔진+머신당 단일엔진 mutex, 본진 워커 이벤트체이닝, 맥미니 자동 오케스트레이터 역할반전, stale-sync 1단계+commit-msg task-link 훅으로 함대 거버넌스 정비. 텔레그램 bun PATH 3회차 재발→/opt/homebrew/bin 심링크 근본차단(재",
+   "updated": "2026-06-05T18:18:49+09:00"
+  },
+  {
+   "file": "2026-06-04_v1.0.0.md",
+   "date": "2026-06-04",
+   "version": "1.0.0",
+   "title": "작업일지 2026-06-04 v1.0.0 — 5노드 풀가동: 인프라 누수 수습 + 메모요 1.0.7 릴리스 + 첫이름 prod",
+   "summary": "아침 40% 하드클리어 누수(본진 idle 고착)+flock silent fail 수습. 메모요 1.0.7 ①②③④ 묶음 라이덴 구현/맥미니 네이티브 게이트 전부 머지→1.0.7+28 릴리스. 첫이름 동명이인 PR#12·입력UX PR#13·worker400 PR#14·stale테스트 PR#15·ListTile위생 PR#16·도메인리서치·다크시안. analyze 함정(네이티브 test가 권위). 정석대로 글로벌룰. ep26 3채널. lottocalc iOS 검증. 2번째 SaaS 라인 컨셉. 정수기 interpreter 함정. 밤 미리알림 grep(쿠팡이츠/카나리아/아이패드).",
+   "updated": "2026-06-04T23:25:00+09:00"
+  },
+  {
+   "file": "2026-06-03_v1.0.1.md",
+   "date": "2026-06-03",
+   "version": "1.0.1",
+   "title": "작업일지 2026-06-03 v1.0.1 (저녁 증분) — tuya IR 관문 로컬 제어 실증",
+   "summary": "3CH 지그비 스위치(ch1=에어컨/ch2=선풍기/ch3=정수기) 로컬 토글→SmartLife 자동화 발화로 IR 가전 클라우드 없이 제어 실증. 개발구독 만료(28841002)와 무관(소비자 자동화는 로컬 토글로 발화). 자동화 충돌(정수기켜짐 ch1 묶임) 발견→앱에서 ch1→ch3 분리→에어컨토글 물無/정수기토글 물만 검증. 에어컨 켜기끄기·선풍기·정수기·온수매트 핑거봇 다 실증. 남음=local_devices.json 정식등록+task 마킹. insight AI 100년사 1건.",
+   "updated": "2026-06-03T23:12:00+09:00"
+  },
+  {
+   "file": "2026-06-03_v1.0.0.md",
+   "date": "2026-06-03",
+   "version": "1.0.0",
+   "title": "작업일지 2026-06-03 — tuya 로컬 전환 / 메모요 SDK skew / Android 동결 룰",
+   "summary": "tuya 로컬(tinytuya) 직접제어 전환(조명 4종+클라우드 폴백, Zigbee 맵 확장, 정수기 물토출 차단 가드 v3.4), 메모요 onReorder revert+평가버튼+ASO(SDK skew 4th), Android 빌드환경 동결 hard rule(한줄일기 안드로이드만 심사중 동결), automations nightly-update 롤백가드+gemini-ask.sh, start-wrapped-session.sh, 세션 MCP 529 진단.",
+   "updated": "2026-06-03T22:48:00+09:00"
+  },
+  {
+   "file": "2026-06-02_v1.0.1.md",
+   "date": "2026-06-02",
+   "version": "1.0.1",
+   "title": "하루 만에 껍데기에서 진짜 서비스로 — 첫이름 풀빌드 (저녁 증분판)",
+   "summary": "v1.0.0(굿나잇)에 저녁 증분 추가 — 첫이름을 mock에서 실엔진+OTP+토스결제+PDF메일까지 풀빌드해 테스트모드 production 라이브(PR #2~#5 머지, 버그 3건 fix, Resend 도메인 stale 403→실측 verified). 밤늦게 아니키 3건: ①vrl-benchmark 다크톤 대안시안(기존 green-cream/PR#7 보존, 별브랜치 프리뷰) codex-fire 발사 ②favicon Flutter 기본V 교체 묶음 ③초소 작전보드 큐 mesh-vote는 맥미니 codex REPL 첫이름 점유 충돌로 옵션 surface. 실키 cutover는 아니키 게이트.",
+   "updated": "2026-06-02T23:31:00+09:00"
+  },
+  {
+   "file": "2026-06-02_v1.0.0.md",
+   "date": "2026-06-02",
+   "version": "1.0.0",
+   "title": "하루 만에 껍데기에서 진짜 서비스로 — 첫이름 풀빌드",
+   "summary": "첫이름(cheotireum)을 mock 껍데기에서 실엔진+이메일OTP+토스결제+결과PDF메일까지 풀빌드해 테스트모드 production 라이브(사이트 200, OTP=테스트 발신주소, Toss sandbox). 맥미니 codex-fire가 fan-out·리뷰·머지 자율 오케스트레이션, 본진은 라이브 실측 검증+게이트. PR #2~#5 머지(#6 진행), 버그 3건(amount문자열/processing오판/resend멱등성) fix, CF권한 10023 보강, Resend 도메인 stale 403→실측 verified. 실키 cutover는 아니키 게이트 보류. 곁다리 autopilot PR(약먹자/로또/더치페이/메모요) 머지 게이트 대기. 클로드 2.1.160 업뎃.",
+   "updated": "2026-06-02T23:13:00+09:00"
+  },
+  {
+   "file": "2026-06-01_v1.0.0.md",
+   "date": "2026-06-01",
+   "version": "1.0.0",
+   "title": "내가 매번 누르던 버튼을, 오늘 시스템에 넘겼다",
+   "summary": "5노드 신뢰성 버그 4건을 가드로 닫은 오전, 컨텍스트 40% 자동 하드클리어 인프라를 5노드에 깔아 '세션 비우는 판단'을 시스템에 넘긴 저녁. 첫이름 디자인은 코덱스 5대로 만들어 베이스(프리미엄 단발결제 랜딩)를 확정하고 제품을 PDF 한 장+CS=0으로 단순화했다."
+  },
+  {
+   "file": "2026-05-31_v1.0.1.md",
+   "date": "2026-05-31",
+   "version": "1.0.1",
+   "title": "돈 버는 줄과 안 무너지는 줄을 같이 깔았다",
+   "summary": "첫 유료 서비스 '첫이름(cheotireum) AI 사주 작명'을 띄우면서(수익형 마이크로SaaS 라인 첫 산출물, pages.dev+커스텀도메인+SERVICE 타일), 같은 날 시스템을 대량 경화 — 인프라 가드 보호 마커 hard rule+guard-comment-protect hook, 죽은 토큰 보안 위생 3repo, 룰 표준화 2레일, gemini-vote 이질적 한 표(codex-mesh-vote v0.2 통합), next-cycle.md 완전 폐기(session-clear v2.8, 모순 정리). 버그 3건(이중송신·env 오탐·SessionStart race) fix+이슈박제. 새벽엔 Fire-Lease·IG 백필·결혼식 캐러셀·insta-photos·USER-QUERY 라우팅·DGX Spark 결정(v1.0.0).",
+   "updated": "2026-05-31T23:49:12+09:00"
+  },
+  {
+   "file": "2026-05-31_v1.0.0.md",
+   "date": "2026-05-31",
+   "version": "1.0.0",
+   "title": "오늘 깐 길로, 오늘 밤 답이 흘렀다",
+   "summary": "노드 경유 유저질문의 답이 발신 챗 아닌 본진 챗으로 빠지던 USER-QUERY 라우팅 갭을 픽스(mac-report.sh origin 마커 픽스A + reverse-reply FIRST 픽스B/C + 작업수신 가시알림 3단계 5노드 표준 AGENT.md §7.8 + 이슈박제), 데스크탑 이중송신 flush-race fix. 그리고 그 라우팅을 만든 직후 노트북이 넘긴 LLM 허브 재결정 질문이 바로 그 경로로 들어와 즉석 dogfood — codex-mesh-vote 5/5 만장일치 DGX Spark 즉시구매+14일 검증게이트. 새벽엔 Fire-Lease 2게이트·IG 백필 6일·결혼식 캐러셀·insta-photos 스킬.",
+   "updated": "2026-05-31T02:32:52+09:00"
+  },
+  {
+   "file": "2026-05-30_v1.0.0.md",
+   "date": "2026-05-30",
+   "version": "1.0.0",
+   "title": "시스템이 스스로 청소를 시작한 날",
+   "summary": "웹툰 큐레이션 스프린트 6편(Ep7·8·13·14·17·18)을 손0 auto-resume로 연속 완주, choso 코덱스 세션 대칭화(main→codex)를 5노드에서 마무리하며 codex-ping 기본 세션 잠재버그 fix, 작전보드 백로그 137개를 codex-mesh-vote로 keep/kill 정리(137→124), 공개 페이지 위생(pii-guard pre-push 가드·sorry PII 정리·habits/knowhow 백필·노드 liveness 표준화)까지 한 번에 정리한 날.",
+   "updated": "2026-05-30T23:56:36+09:00"
+  },
+  {
+   "file": "2026-05-29_v1.0.0.md",
+   "date": "2026-05-29",
+   "version": "1.0.0",
+   "title": "codex가 main을 비우던 밤",
+   "summary": "codex가 tmux main을 직접 점유하던 비대칭을 5노드 전부 codex 전용 세션으로 분리(cx 대칭화). 그 과정에서 mirror dedup 함정·노드 보고 표준 빈틈을 잡아 글로벌 룰로 박음. 그 외 choso.db 22GB retention fix, 작전보드 v2, 메모요 1.0.7 GA QA + 1.0.8 spec, 세션 자동 /clear 무한루프 정리, codex_hooks→hooks 5노드 정리.",
+   "updated": "2026-05-30T00:43:49+09:00"
+  },
+  {
+   "file": "2026-05-28_v1.0.0.md",
+   "date": "2026-05-28",
+   "version": "1.0.0",
+   "title": "게이지바 하나에서 작전보드까지",
+   "summary": "초소 게이지바 fix 한 건이 작전보드 단일 박스 재설계로 확장, codex mesh-vote 3회 (Ultra 재투표 5/5 Claude mesh 반전 + 작전보드 안 3/5 + self-pattern globals 승격 5/5), ~/todo tasks.md 단일 SoT 마이그, 듀얼 오케스트레이터 룰, 뉴스레터 Ep22~25 발행",
+   "updated": "2026-05-28T23:55:19+09:00"
+  },
+  {
+   "file": "2026-05-27_v1.0.0.md",
+   "date": "2026-05-27",
+   "version": "1.0.0",
+   "title": "어제의 내가 끈 게, 오늘의 나를 거짓 SoT 위에 앉혔다",
+   "summary": "핸드오프 stale + scrape launchd 부주의 비활성화 + statusline v3 hard floor 회귀 fix → 4단계 (scrape 부활 + 5노드 broadcast launchd + statusline v4 + codex ctx_pct) + loop-fleet 자율 해석 사고 정정",
+   "updated": "2026-05-27T23:43:16+09:00"
+  },
+  {
+   "file": "2026-05-26_v1.0.0.md",
+   "date": "2026-05-26",
+   "version": "1.0.0",
+   "title": "본진은 grunt 를 안 한다",
+   "summary": "초소 3-bug fix 위임(데스크탑 PR #33) + handoff-check.sh archive cleanup 5노드 fan-out + 이슈 2건",
+   "updated": "2026-05-26T23:59:20+09:00"
+  },
+  {
+   "file": "2026-05-25_v1.0.0.md",
+   "date": "2026-05-25",
+   "version": "v1.0.0",
+   "summary": "73 커밋 + 이슈 8건 + 메모리 4건 — (1) SEO 캠페인 P0→P1 완주 (sitemap·robots·JSON-LD·canonical·OG·favicon·meta 30/30) (2) sorry 박제 페이지 + apology hook v2 + stage1-ack hook (3) codex 5노드 셋업 + Codex Mesh Mirror 그룹 mirror hook v1→v4 (맥미니 339→14 bytes), PROBE 5/5 PASS",
+   "updated": "2026-05-25T22:00:20.000000+09:00"
+  },
+  {
+   "file": "2026-05-24_v1.0.1.md",
+   "date": "2026-05-24",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 본 사이클 마무리 — 데드락 메타 사이클(A→B narrow), 데스크탑 14개 stale 일괄 폐기 + 보존 2건 머지, AI 용어집 stats 자동 sync hook, install.sh 16 jobs bootstrapped, 메모요 1.0.7 sync cron tracker, IG cron 실패 surface",
+   "updated": "2026-05-25T00:04:16.133095+09:00"
+  },
+  {
+   "file": "2026-05-24_v1.0.0.md",
+   "date": "2026-05-24",
+   "version": "v1.0.0",
+   "updated": "2026-05-24T19:44:38.711054+09:00",
+   "summary": "5노드 양방향 검증이 surface 한 두 표준화 사고 (맥미니 토큰 mismatch + 노트북 stop hook reply 함정) closure + (a) mac-report default auto-detect PR #44 머지 + AI 용어집 페이지 LIVE"
+  },
+  {
+   "file": "2026-05-23_v1.0.0.md",
+   "date": "2026-05-23",
+   "version": "v1.0.0",
+   "summary": "5노드 챗봇 자가복구 두 게이트(Linux trust prompt ExecStartPost Enter + 라이젠 bun PATH 부재) 다 풀어 노트북/라이젠/데스크탑 진짜 Windows 재부팅 자가복구 PASS. ExitPlanMode 글로벌 룰 gap 사고로 룰 강화 + 이슈 2건 박힘.",
+   "updated": "2026-05-24T00:36:00+09:00"
+  },
+  {
+   "file": "2026-05-22_v1.0.1.md",
+   "date": "2026-05-22",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 새벽 초소 이후 하루 전체 — autopilot work-stealing 완성(PR #42)+1회가동 8발 / 5앱 audit·ASO·경쟁사 스펙 15종 / Ep18 발행·시세판·벤치마크 라이브 / autopilot 백스톱 5종",
+   "updated": "2026-05-23T00:46:00.000000+09:00"
+  },
+  {
+   "file": "2026-05-22_v1.0.0.md",
+   "date": "2026-05-22",
+   "version": "v1.0.0",
+   "summary": "초소 큐 대시보드 새벽 11커밋 이터레이션 — 백로그 섹션·노드감지fix·badge·정렬·타일화·3색·카드높이 + 모바일 날짜잘림 회귀fix",
+   "updated": "2026-05-22T01:55:10.000000+09:00"
+  },
+  {
+   "file": "2026-05-21_v1.0.1.md",
+   "date": "2026-05-21",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 저녁~밤: 쇼츠/Ep17 발행, bg-typing 훅, 초소 게이지, 대시보드 비공개, 한줄일기 Play 프로덕션 액세스 제출, 5노드 입력중 점검",
+   "updated": "2026-05-21T21:52:32.035280+09:00"
+  },
+  {
+   "file": "2026-05-21_v1.0.0.md",
+   "date": "2026-05-21",
+   "version": "v1.0.0",
+   "summary": "안 닫힌 sibling 세션이 Clawd stale 행 + 입력중 데몬 죽음 동시 유발, 종료로 둘 다 해소 + 이슈/메모리 정정",
+   "updated": "2026-05-21T00:52:04.354249+09:00"
+  },
+  {
+   "file": "2026-05-20_v1.0.2.md",
+   "date": "2026-05-20",
+   "version": "v1.0.2",
+   "summary": "저녁 궤적 — 라이트 디자인 4PR 머지, 관심종목 stock.html, insights 정비, 이슈 2건, 뉴스레터 Ep13~16 3채널 발행",
+   "updated": "2026-05-20T22:59:10.138253+09:00"
+  },
+  {
+   "file": "2026-05-20_v1.0.1.md",
+   "date": "2026-05-20",
+   "version": "v1.0.1",
+   "summary": "오후 외출 자율모드 — 4노드 fan-out + 약먹자 stale 빌드(SPM↔pod) 근본원인 해결 + 라이트 홈 실물 확인 + reference 메모리",
+   "updated": "2026-05-20T15:57:11+09:00"
+  },
+  {
+   "file": "2026-05-20_v1.0.0.md",
+   "date": "2026-05-20",
+   "version": "v1.0.0",
+   "summary": "5노드 sync 인프라 매듭 + 메모요 Drive 백업 작동 증거 확보 + 강대종 손0 원칙 신설",
+   "updated": "2026-05-20T01:15:49+09:00"
+  },
+  {
+   "file": "2026-05-19_v1.0.0.md",
+   "date": "2026-05-19",
+   "version": "v1.0.0",
+   "summary": "메모요 1.0.6+24 silent fail 핫픽스 + 1.0.7 메이저 4항목 ack + fleet 인프라 PR 3개 + globals 승격",
+   "updated": "2026-05-19T18:30:10.059129+09:00"
+  },
+  {
+   "file": "2026-05-18_v1.0.0.md",
+   "date": "2026-05-18",
+   "version": "v1.0.0",
+   "summary": "메모요 1.0.5+23 iOS 빌드 freshness audit + ITMS-90683 회피 + manual export/import (#10) (자동 sync 영구 폐기) + choso phase 1 부팅(5aca401) + phase 3 spec/(a)(b)/(d)/(h) first step/(i) 외부 표면 = Tailscale serve (mesh-vote 5/5 + trio-vote 3-0 만장일치) + cross-node 검증 PASS (curl mac→mac-mini 200, 0.69s) + ~/.zshrc m/cc 무허가 통일 사고 박제 + AskUser globals gap globals 승격 + 이슈 9건 + 메모리 11건 + fleet-clear v2.4 watcher chain + next-cycle.md auto-inject 5노드 배포 + repo-enter.sh sweep step 0 헬퍼 + 자정 직후 노트북 stale sync 함정 (🖥 발견, in-flight).",
+   "updated": "2026-05-19T00:10:00+09:00"
+  },
+  {
+   "file": "2026-05-17_v1.0.1.md",
+   "date": "2026-05-17",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 (14:25) 이후 11시간 — kangdaejong.com 트리밍 + work.kangdaejong.com cert provisioning 5시간 멈춤 사고 CNAME 토글 트릭 + mac-report.sh sender-id fix 5노드 propagate + CLAUDE.md §3 5 prefix + main push 정책 표준화 + todo 자연어 번역 3 파일 111 active 라인 (본진+맥미니 분배) + insta-post-general 비용 0 패치 SKILL.md v0.3 + 페이지 정리 9건 + 이슈 박제 2건 + 메모리 1건 + 노하우 6건 + trio-vote 5회 + 노트북3060 smart-home cherry + spec/plan internal repo 이동.",
+   "updated": "2026-05-18T01:14:00+09:00"
+  },
+  {
+   "file": "2026-05-17_v1.0.0.md",
+   "date": "2026-05-17",
+   "version": "v1.0.0",
+   "summary": "메모요 sync 자율루프 종료(02:36, S3 비가역 hold) + kangdaejong.com 첫 paid 도메인 Business 등록($10.46) + Cloudflare Zero Trust+Tunnel(Mac mini queue-dashboard)+Access(이메일 OTP) 인프라 100% + ~/todo Mac mini 클론 + 5 PR squash 머지 + lotto-calc PR #16 stale base 사고 이슈 박제.",
+   "updated": "2026-05-17T14:37:32+09:00"
+  },
+  {
+   "file": "2026-05-16_v1.0.1.md",
+   "date": "2026-05-16",
+   "version": "v1.0.1",
+   "summary": "정오~밤 사이클 — Ghostty App Nap defaults write 마감 + deep work 1 launchd 정리 5건 + 5 노드 cross-SSH key sweep + D07 install-launchd smoke self-load 사고 박제 + mesh-vote v0.3 stack 4 PR (v0.3/v0.3.1/v0.3.2/v0.3.3) + trio-vote v0.2 Phase 2.5 + fleet-state PR #3/#4 + D07 launchd install 3 노드 실호출 (mac-mini 2분 / 본진 5분 / WSL 5분) — fleet-director worker turn on, 자동 분배 시작. 텔레그램 AskUserQuestion 금지 메모리 박음.",
+   "updated": "2026-05-16T20:15:00+09:00"
+  },
+  {
+   "file": "2026-05-16_v1.0.0.md",
+   "date": "2026-05-16",
+   "version": "v1.0.0",
+   "summary": "자정~01:30 KST 잔여 정리 (jq sync / codex 스크립트 3종 폐기 / SSH alias 박제 / telegram-typing-refresh hook) + 01:35~01:50 본진 RAM 진단 (병목 X) + 5대 기기 RAM 조사 (총 96GB) + .wslconfig α/β/γ 옵션 + WSL 본진 이전 고민 답변 (API latency 지배 환기). 결정은 전부 hold.",
+   "updated": "2026-05-16T01:55:00+09:00"
+  },
+  {
+   "file": "2026-05-15_v1.0.1.md",
+   "date": "2026-05-15",
+   "version": "v1.0.1",
+   "summary": "14:30~17:55 KST 오후 세션 — mac-mini 라우팅 transition 마무리 (PR #18/#19/#41/#22) + D11 dual-reviewer push + env-tool/mcp-spawn-verify forcing function + docs PR 5건",
+   "updated": "2026-05-15T18:02:33+09:00"
+  },
+  {
+   "file": "2026-05-15_v1.0.0.md",
+   "date": "2026-05-15",
+   "version": "v1.0.0",
+   "updated": "2026-05-15T14:30:00+09:00",
+   "summary": "5노드 다이나믹 loop-fleet 2 사이클 + 4 PR 머지 + Mac 본진 SSH key 발급 + 노트북3060 alias rename 풀 갈아치움 + codex-directive routing stale 이슈 박제"
+  },
+  {
+   "file": "2026-05-14_v1.0.2.md",
+   "date": "2026-05-14",
+   "version": "v1.0.2",
+   "updated": "2026-05-15T00:10:10+09:00",
+   "summary": "Mac mini 재부팅 후 plist --channels 누락 + TELEGRAM_BOT_USERNAME 미설정 두 결함 별건 패치 + 이슈 2건 박제, WSL 발 Agent View 1단계 PASS 2단계 hold"
+  },
+  {
+   "file": "2026-05-14_v1.0.1.md",
+   "date": "2026-05-14",
+   "version": "v1.0.1",
+   "summary": "mac mini 텔레그램 plugin cache 사고 위임 진단 + 두 번째 parkinglot 양 트랙 dynamic /loop 10 iter + PR 5개 일괄 머지 + RC1 protocol skip 룰 적용",
+   "updated": "2026-05-14T17:20:00+09:00"
+  },
+  {
+   "file": "2026-05-14_v1.0.0.md",
+   "date": "2026-05-14",
+   "version": "v1.0.0",
+   "summary": "크론 점검 한 마디 → deep-work.md SoT 신설 + B 묶음 5건 ack + 본진/WSL 양 트랙 dynamic /loop 9 iter 첫 운영 (충돌 0) + 강대종 ack 8건 hold",
+   "updated": "2026-05-14T11:05:00+09:00"
+  },
+  {
+   "file": "2026-05-13_v1.0.4.md",
+   "date": "2026-05-13",
+   "version": "v1.0.4",
+   "summary": "OpenClaw decom Phase A/B'/D 완료 + mac mini Codex→Claude Code 노드 전환 + 봇 토큰 사고 2건 박제",
+   "updated": "2026-05-14T07:04:50.135906+09:00"
+  },
+  {
+   "file": "2026-05-13_v1.0.3.md",
+   "date": "2026-05-13",
+   "version": "v1.0.3",
+   "summary": "D09 fleet-director 사이클 (13 shell primitive + FLEET_NO_PUSH guard) — sweep family 4회 반복 + audit-trail revert + 룰 3종 박제 (push 가드 + parity range + sequential verification) + P1 plan §9.8 sync + WSL session-clear v2.4 회수 PR #14/#34 머지",
+   "updated": "2026-05-13T20:15:00+09:00"
+  },
+  {
+   "file": "2026-05-13_v1.0.2.md",
+   "date": "2026-05-13",
+   "version": "v1.0.2",
+   "summary": "info.html /loop 비교 카드 2개 박제 + 새벽 ack 보류 5건 중 3건 처분 (메모요 라벨 + PR #12/#4 close) + /goodnight 자동 매칭 3건 [x]",
+   "updated": "2026-05-13T11:50:00+09:00"
+  },
+  {
+   "file": "2026-05-13_v1.0.1.md",
+   "date": "2026-05-13",
+   "version": "v1.0.1",
+   "summary": "새벽 /loop 3 dynamic 12 iter 4h44min 자동 운영 (PR #5 머지 + sync 4건 + 보류 5건) → 강대종 cron/loop 질문 8개 → knowhow 박제 + /goodnight 마감",
+   "updated": "2026-05-13T07:42:00+09:00"
+  },
+  {
+   "file": "2026-05-13_v1.0.0.md",
+   "date": "2026-05-13",
+   "version": "v1.0.0",
+   "summary": "/loop 커스텀 폐지 + parking-lot −3건 + 메모요 privacy-memoyo.html 라이브 + 박제 3건",
+   "updated": "2026-05-13T01:20:25+09:00"
+  },
+  {
+   "file": "2026-05-12_v1.0.1.md",
+   "date": "2026-05-12",
+   "version": "v1.0.1",
+   "summary": "오후 fleet test push 격리 + 광고 두 앱 ASC 심사 자동 제출",
+   "updated": "2026-05-12T22:30:00+09:00"
+  },
+  {
+   "file": "2026-05-12_v1.0.0.md",
+   "date": "2026-05-12",
+   "version": "v1.0.0",
+   "summary": "5/11 인스타 캐러셀 cron `EXTRA[@]: unbound variable` 사고 → 수동 복구. fleet-director D07-prereq triad 6항목 single cycle 패치(bc2bbbf) 후 tests auto-push 가 implementer commit 끌고 올라가는 process 사고. force-push/revert 대신 fix-forward 선택. spec/code-quality-reviewer subagent 2-track 검증. reviewer 가 non-blocking 으로 마크한 SIGPIPE family 1건이 empirical 검증으로 active blocker 격상(D05#6 family 4·5번째 인스턴스). fix-forward 31a3635 → re-review PASS. 최종 라벨: D07-prereq triad 종료 (PASS), Targeted SIGPIPE repro PASS, Full tests 9/10 PASS with known claim-race env failure (mac-mini reset 보류). fleet-state test harness push 격리 D07 cron 전 blocker 승격.",
+   "updated": "2026-05-12T07:45:00+09:00"
+  },
+  {
+   "file": "2026-05-11_v1.0.0.md",
+   "date": "2026-05-11",
+   "version": "v1.0.0",
+   "summary": "00:52 launchd /clear abort 5+회 누적 사고 → 이슈 박음. 01~02시 5기기 메시 토폴로지 LIVE(stack.html SVG + 운반체 4종 + agent-msg-notify 5기기 매핑) + insta-post-general v0.1 dry-run. 05:04 routine #1 자동 commit 매일 새벽 충돌 + GitHub PAT 평문 노출 발견. 09:35 routine disabled+redacted+todos 봉합+4기기 sync. 09:49 insta-post 별도 cron(매일 23:50 KST) 으로 /goodnight 결합 해체. 결정 4건 박제(insta-post cron 분리/5노드 메시/Mac mini 역할/routine 시크릿 금지).",
+   "updated": "2026-05-11T14:30:00+09:00"
+  },
+  {
+   "file": "2026-05-10_v1.0.3.md",
+   "date": "2026-05-10",
+   "version": "v1.0.3",
+   "summary": "v1.0.2 이후 19:20~24:33 KST 5시간 — 3060Ti 봇 토큰 placeholder paste 분실 사고로 reply-purity 가드 + 메모리 1건. 23:06 \"200분짜리 토큰 9-to-6 에 쓰고 싶다\" 한 마디로 fleet-director 메타 시스템 Q1~Q8 + spec 983L + Codex line review 6 finding 반영 + plan 14일 3124L 완성. D01 시작은 fresh 컨디션 보류 + 트리거 메모리 박음.",
+   "updated": "2026-05-11T00:48:13+09:00"
+  },
+  {
+   "file": "2026-05-10_v1.0.2.md",
+   "date": "2026-05-10",
+   "version": "v1.0.2",
+   "summary": "v1.0.1 이후 stack.html 4장 카드(Mac 본진/Mac mini/WSL/노트북 3060) 풍성 포맷 통일 + CLAUDE.md 'Mac mini 챗봇 세션 X' 표기 4곳 갱신 + 노트북 봇 @ssamssae_codex_bot 확정",
+   "updated": "2026-05-10T19:09:00+09:00"
+  },
+  {
+   "file": "2026-05-10_v1.0.1.md",
+   "date": "2026-05-10",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 session-clear v1.9→v2.2 후속 패치 + parking-lot 등록 + 터미널 입력 지연 이슈 박제",
+   "updated": "2026-05-10T17:25:00+09:00"
+  },
+  {
+   "file": "2026-05-10_v1.0.0.md",
+   "date": "2026-05-10",
+   "version": "v1.0.0",
+   "summary": "session-clear 8회 실패 분석 + loop-run Triple-Velocity 디버깅 + loop-run.sh 개선",
+   "updated": "2026-05-10T15:52:00+09:00"
+  },
+  {
+   "file": "2026-05-09_v1.3.0.md",
+   "date": "2026-05-09",
+   "version": "v1.3.0",
+   "summary": "WSL→Mac 봇차단 픽스 + trio-vote Codex 설치 + 메모요 동결 + typing indicator mid-task 버그 수정",
+   "updated": "2026-05-10T00:15:00+09:00"
+  },
+  {
+   "file": "2026-05-09_v1.2.0.md",
+   "date": "2026-05-09",
+   "version": "v1.2.0",
+   "summary": "loop-run/sync-skills SSH 직접 실행 전환 + self-heal-scanner v1 신규 + vibecoding 섹션 06",
+   "updated": "2026-05-09T20:15:00+09:00"
+  },
+  {
+   "file": "2026-05-09_v1.1.1.md",
+   "date": "2026-05-09",
+   "version": "v1.1.1",
+   "summary": "session-clear v0.8·skill-exists.sh·mesh-vote v0.1 신규 — 오후 세션",
+   "updated": "2026-05-09T16:05:08.819205+09:00"
+  },
+  {
+   "file": "2026-05-09_v1.0.0.md",
+   "date": "2026-05-09",
+   "version": "v1.0.0",
+   "summary": "바이브코딩 제안 5개 trio-vote 실행 + loop-judge 빈출력 픽스 + worklog SRP 해소",
+   "updated": "2026-05-09T12:30:00+09:00"
+  },
+  {
+   "file": "2026-05-08_v1.0.3.md",
+   "date": "2026-05-08",
+   "version": "v1.0.3",
+   "summary": "저녁 세션: inbox-watcher.sh E2E, codex-relay 2차 재발 수습, Apple ID 역산 + 저장",
+   "updated": "2026-05-08T21:38:58+09:00"
+  },
+  {
+   "file": "2026-05-08_v1.0.2.md",
+   "date": "2026-05-08",
+   "version": "v1.0.2",
+   "summary": "loop-run 첫 실전 PARTIAL + judge stdout 오염 버그 수정 + loop-judge v2 (WSL 자동감지 + 토론 라운드 + 다수결)",
+   "updated": "2026-05-08T12:07:00+09:00"
+  },
+  {
+   "file": "2026-05-08_v1.0.1.md",
+   "date": "2026-05-08",
+   "version": "v1.0.1",
+   "summary": "3-way 프로토콜 버그 4개 수정 + loop-judge/loop-run 에이전트 루프 완성",
+   "updated": "2026-05-08T11:28:00+09:00"
+  },
+  {
+   "file": "2026-05-08_v1.0.0.md",
+   "date": "2026-05-08",
+   "version": "v1.0.0",
+   "summary": "3way 기기 간 왕복 통신(맥북↔WSL↔맥미니) 완성, mac-report 자동 알림·stop-ping 포워딩 버그 제거, 이슈 2건·노하우 업데이트·worklog Obsidian 수집 추가.",
+   "updated": "2026-05-08T02:05:00+09:00"
+  },
+  {
+   "file": "2026-05-06_v1.0.0.md",
+   "date": "2026-05-06",
+   "version": "v1.0.0",
+   "summary": "OpenClaw 에이전트 메시 구축일 — 두 차례 outage 복구, SSH+tmux 양방향 transport 가동, 자비스1 Codex 전환, 노트북 Codex 브릿지 설치.",
+   "updated": "2026-05-07T01:45:00+09:00"
+  },
+  {
+   "file": "2026-05-05_v1.0.3.md",
+   "date": "2026-05-05",
+   "version": "v1.0.3",
+   "summary": "오전 parallel-cycle 4앱 누락 보강(hanjul/yakmukja/stock_monitor/dutch_pay 햅틱) + dutch_pay AdMob + korail-sniff KTX 자동예매 봇 v1(23:00). newsletter Ep.7 초안.",
+   "updated": "2026-05-06T09:19:00+09:00"
+  },
+  {
+   "file": "2026-05-05_v1.0.2.md",
+   "date": "2026-05-05",
+   "version": "v1.0.2",
+   "summary": "v1.0.1 이후 추가: 행운번호 메타데이터 정비 + submit-app ASC 가드 wiring(PR#23) + korail-sniff mitmproxy 설정(PR#24) + 단어요 새 아이콘 iOS 재심사(00:33 KST).",
+   "updated": "2026-05-06T01:02:00+09:00"
+  },
+  {
+   "file": "2026-05-05_v1.0.1.md",
+   "date": "2026-05-05",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 추가: 4번째 리젝 수신 → Gambling=Yes 최종 수용 → 5번째 재제출 WAITING_FOR_REVIEW. 메모요 Play Console 프로덕션 액세스 신청 완료.",
+   "updated": "2026-05-05T20:16:00+09:00"
+  },
+  {
+   "file": "2026-05-05_v1.0.0.md",
+   "date": "2026-05-05",
+   "version": "v1.0.0",
+   "summary": "Apple Guideline 2.3.6 리젝 2연속 → lotto→randompick 재포장. 코레일 봇 PerimeterX 차단 → dead-ends 기록. wordyo PR 3개, AI 카톡방 인사이트 3번째, WSL alias 누락 수정.",
+   "updated": "2026-05-05T18:30:00+09:00"
+  },
+  {
+   "file": "2026-05-04_v1.0.1.md",
+   "date": "2026-05-04",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 추가: session-clear v0.1→v0.2, Play 개발자 에셋+문구, lottocalc 통계 제거+카지노 결합+PR #14 opened. irun 3차 좀비 프로세스(pkill) 해결. 흰화면 버그 resolved.",
+   "updated": "2026-05-05T01:08:00+09:00"
+  },
+  {
+   "file": "2026-05-04_v1.0.0.md",
+   "date": "2026-05-04",
+   "version": "v1.0.0",
+   "summary": "4개 앱(lottocalc/wordyo/hanjul/stock_monitor) 동시 출시 준비. parallel-cycle v0.1→v0.5 당일 완성. AI 인사이더 클럽 knowhow 8건. ~55커밋.",
+   "updated": "2026-05-04T20:55:00+09:00"
+  },
+  {
+   "file": "2026-05-03_v1.0.1.md",
+   "date": "2026-05-03",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 추가: lotto-calc stats/BarChart, knowhow batch, 뉴스레터 Ep6+Plan-C 발행, Ep.1+Ep.2 디자인 교체, stack.html 갱신, stock_monitor scaffold",
+   "updated": "2026-05-03T23:58:00+09:00"
+  },
+  {
+   "file": "2026-05-03_v1.0.0.md",
+   "date": "2026-05-03",
+   "version": "v1.0.0",
+   "summary": "3060Ti 격리(tailnet OFF + sshd disable) + OpenClaw 샌드박스 결정. ASC territory cache WSL↔본진 양방향 자율 사이클 (골격→PR→merge→174 실데이터). knowhow coverage map 첫 번째 + batch 3건. gpt-relay v0.",
+   "updated": "2026-05-03T11:37:48+09:00"
+  },
+  {
+   "file": "2026-05-02_v1.0.1.md",
+   "date": "2026-05-02",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 21:40~24:00 KST 후반 사이클. 단어요 step 4b/4c/4d/4d-후속 4 PR 머지 (진척률 막대 + 디버그 패널 + 칩 % 라벨). lotto-calc 시드 (e) superkts xlsx US IP PASS 검증 → 23:21 강대종 결정으로 HOLD (방향 확정 대기). 23:54 KST WSL→본진 mac-report.sh 자동 paste → PICK #7 단어요 칩 % → wsl-directive.sh 송신 → PR #13 +2/-2 23:57 머지 = 정책(11:00 KST e7b334c) → 첫 양방향 자율 사이클 13시간. 강대종 손 0 zero-touch.",
+   "updated": "2026-05-03T00:14:19+09:00"
+  },
+  {
+   "file": "2026-05-02_v1.0.0.md",
+   "date": "2026-05-02",
+   "version": "v1.0.0",
+   "summary": "「지휘관 1명 원칙」 폐기 → 「병렬 작업 + 충돌 방지」 8항. Stack 페이지 + 단어요 step 4a + 로또 v0/v1 + Android alpha LIVE + knowhow 카테고리 + Track D 마무리. 110+ 커밋.",
+   "updated": "2026-05-02T21:39:05+09:00"
+  },
+  {
+   "file": "2026-05-01_v1.0.0.md",
+   "date": "2026-05-01",
+   "version": "v1.0.0",
+   "summary": "한줄일기 1.0 LIVE 후속 + Plan C 풀그린 + naver-blog v1 첫 발행 + 단어요 3b-4 + someday 23 → 18",
+   "updated": "2026-05-01T22:00:13+09:00"
+  },
+  {
+   "file": "2026-04-30_v1.0.0.md",
+   "date": "2026-04-30",
+   "version": "v1.0.0",
+   "summary": "한줄일기 1.0 iOS App Store LIVE 확정 — Apple 4/29 06:43 UNRESOLVED_ISSUES (China Deep Synthesis) reject → 4/30 11:06 KST ASC API 우회 재제출 (PATCH cancel old sub → POST new attach → PATCH submit) → 13:29 KST 승인+자동 release, 턴어라운드 2h23m. ₩1,900 KOR READY_FOR_SALE 검증 (customerPrice 1900). 다만 9h 경과 후에도 공개 채널 (apps.apple.com/iTunes Lookup KR/US/JP/GB/DE) propagation 미완 — Apple CDN 지연. Mac mini SoT 자동배포 Phase B 풀그린: iOS .p8 + Android service account scp + 권한 부여 + play-upload --check REGISTERED PASS, 한줄일기 alpha 1.1.0+5 promote 첫 사용 (6b9551c). 단어요(wordyo) 부트스트랩 진입 (~/apps/wordyo init c051bfa, plan step 2 완료). Skills: MACHINE_ROLES.md (3a3bb13), submit-app/create-play-app SSH 라우팅 (b95cdad), mac-report.sh 룰 (97f57e8), session-close 박다 제거 (37ed84e), lesson apple-reject-resubmit-via-cancel (6b3308a). Automations: create-play-app.js + play-upload --check (9bde77f). Newsletter Ep.4 본진 검토 (35f7878) + Substack 발행본 (6fec2e5) + Ep.5 outline (21bcfcf) + 드래프트 ~3500자 (7adf35c). Someday 3건 추가 (ASC reject 자동화, territory 가드, 자동발행/회귀/단어요/Android schedule).",
+   "updated": "2026-04-30T22:55:00+09:00"
+  },
+  {
+   "file": "2026-04-29_v1.0.1.md",
+   "date": "2026-04-29",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 자정 직전 추가 사이클: WSL→Mac 자동 깨우기 운반체 mac-report.sh 신설 + zero-touch end-to-end 검증 PASS (23:54 KST, 418 bytes paste 본진 tmux 도달). 빌드 막힘 1건 fix (SSH non-interactive shell PATH 부재 → MAC_TMUX_BIN 환경변수 절대경로). 3-device 운영 플레이북 12 섹션 (~/.claude/ops/3device-playbook.md) — Mac본진/WSL/맥미니 역할, 표준 directive 9-필드, 표준 보고서 양식, 작업별 프롬프트(빌드실패/git diff/DEPLOY.md/night-build.sh), 맥미니 실행 전 10항목 체크리스트, A-L 12 섹션. globals/CLAUDE.md 'WSL → Mac' 항목 1줄 → 2-channel 운반체 룰 (97f57e8). 워밍업 directive 1759 bytes WSL 송신 + WSL 보고서 4.3KB G 양식 준수. 본진 idle 사고 (23:38~23:41) 노출 → 운반체 도입 결정. /sync 부활 논의 → 강대종님 폐지 결정 정정 → 메모리 채널만으로 충분 결론, 추가 인프라 0. mac mini Apple Silicon iOS debug Rosetta 의존성 박제 (project_mac_mini_ios_debug_rosetta.md, 453ae77). symlink 그림자 정리 (~/.claude/CLAUDE.md → claude-skills/globals/CLAUDE.md, 누락 commit 처리 97f57e8). 한줄일기 iPhone17 debug attach 백그라운드 자연 종료 PASS. 메모리 박제 7건 (project_wsl_to_mac_carrier_deployed 신규 외).",
+   "updated": "2026-04-30T00:13:14+09:00"
+  },
+  {
+   "file": "2026-04-29_v1.0.0.md",
+   "date": "2026-04-29",
+   "version": "v1.0.0",
+   "summary": "Mac mini 인프라 정비 큰 날. (1) Android night-build v2.0a 풀그린 PASS:4 FAIL:0 — keystore 4쌍 8파일 본진→Mac mini rsync 후 sign NPE 해소, 정책 박제 Mac mini=Android release SoT/WSL=debug only (6d59829). (2) iOS ipa 빌드 4단계 복구 (cert trust chain → Xcode 자동 provisioning → codesign partition list → DerivedData clean), hanjul.ipa 19,946,345 bytes PASS, project_mac_mini_ios_ipa_recovery.md 박음. (3) /handoff 184줄 스킬 → wsl-directive.sh wrapper 단순화 (75a9a70, 82b62d7, 6052c6d). (4) /night-runner v1 안전모드 (read-only, commit/push/PR 0) + Mac mini launchd 03:00 KST 활성 (bccc165, 5b072ff, ca6ac01). (5) claude-skills 정리: sync/to-iphone/land 제거 (b30abb7), goodnight step 4.5 hostname 분기 드롭 (6048b4b), irun --debug 통일 (cb5f0b2), todo 디바이스 태깅 정비 (c49a0dd). (6) 하드룰 3건 명문화: 지휘관 1명 원칙 운반체 예외, WSL 옵션 메뉴 금지, '박다' 은어 금지. (7) hanjul stats sharePositionOrigin 픽스 + 1.1.0+4 bump (4406d20, 525b549). 메모리 17건 갱신/신규.",
+   "updated": "2026-04-29T21:45:00+09:00"
+  },
+  {
+   "file": "2026-04-28_v1.0.1.md",
+   "date": "2026-04-28",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 추가분: 지휘관 1명 원칙 Mac 본진 적용 + 운반체 예외 한 줄 (a00825b) + 정합성 보강 R1/R2/R3 (3e85237). /night-runner v0 → v1 안전모드 재설계 (read-only 점검 5개, claude headless 0, commit/push/PR 0, timeout 1200) + Mac mini launchd 03:00 KST 자동 실행 install + 1회 검증 PASS (bccc165, 5b072ff, ca6ac01). Mac mini SSH 키 generate + GitHub 등록 (4/29 00:33) → claude-automations/skills clone + telegram 채널 미러링 + projects.yaml SCP. 부수 발견 (someday 박힘): install.sh hostname case 패턴 mac-mini* 미매칭, d19a315 night-build Mac mini install 미완료, dutch_pay_calculator Mac mini clone + flutter 미설치. 메모리 3건 박음.",
+   "updated": "2026-04-29T00:50:00+09:00"
+  },
+  {
+   "file": "2026-04-28_v1.0.0.md",
+   "date": "2026-04-28",
+   "version": "v1.0.0",
+   "summary": "약먹자/더치페이 새벽 자동 승인 (1.0.1/1.0.2 READY_FOR_SALE). 한줄일기 1900원 1.0 iOS 심사 제출 23:04 KST (com.ssamssae→com.daejongkang 점유 충돌 전환, AI Gateway region-block 우회, 1.1.0+4 ipa, ASC stale 6.5\" 3컷 → 1284×2778 신규 + iPad 13\" 2064×2752 신규 + 콘텐츠권리 + 4+ 연령등급, 첨부파일 ASC navigate 버그). 자동화 3건 폐기 (morning-briefing/evening-wrap, 심사레이더, 가계부). \"박다\" 은어 26개 파일 일괄 교체. 4-node v4 옵션 X 결정. Android Play 패키지 등록됨 (SHA-256 확인).",
+   "updated": "2026-04-28T23:11:00+09:00"
+  },
+  {
+   "file": "2026-04-27_v1.0.0.md",
+   "date": "2026-04-27",
+   "version": "v1.0.0",
+   "summary": "v3 노드 정책 두 가정(MacBook 이동성·WSL 24/7) 강대종님 직접 정정으로 폭로 → v4 옵션 X 확정 (현상 유지). trend-curator 풀제거 (Mac launchd + WSL + 양쪽 repo + private repo archive). /stale 5단계 wrapper SKILL 신설 (PR #3, lite/remote 모드 + 매트릭스). 약먹자/더치페이 iOS reject 18:42 ASC Reply 발송 완료 — 재심사 ~04-29. Karpathy 4룰 양 기기 동기화. session-close v0.3 lean (토큰 1/5). hanjul UI 마이크로 인터랙션 4개. 이슈 5건 정식 기록. 사이드 5→1.",
+   "updated": "2026-04-28T00:10:00+09:00"
+  },
+  {
+   "file": "2026-04-26_v1.0.0.md",
+   "date": "2026-04-26",
+   "version": "v1.0.0",
+   "summary": "4-노드 LLM 인프라 가동 → 라파5 → M1 맥미니 결정 전환 → 24/7 허브 e2e 셋업 → v2/v3 정책 슬림화. review_radar v0.2 main + 포모도로 Play Console 심사 제출 + Ep.3 본문 + 이슈 8건",
+   "updated": "2026-04-27T01:10:00+09:00"
+  },
+  {
+   "file": "2026-04-25_v1.0.0.md",
+   "date": "2026-04-25",
+   "version": "v1.0.0",
+   "summary": "핸드오프 인프라가 텔레그램 한 줄 트리거에서 SSH+tmux 양방향 자동 직접 인젝션으로 진화한 날. 새벽 4/24 마무리(Substack Ep.1 편집본·worklog 4/24 v1.0.1·done·todos 정리) → 아침 hanjul 1.1.0+3 Android ship-ready(런처 9종 자동 생성 + JSON export + Play Console 스크린샷 + release signingConfig + keystore SoT Mac 등록) → 점심 Playwright WSL 막힘 4단계 핸드오프 turn → Option E (PLAYWRIGHT_MCP_BROWSER=chromium env-var 한 줄) 발견·smoke PASS → 오후 인스타 Mac venv 미러링·dry-run PASS·정책 A 명문화·step 4.5 hostname 라우팅·핸드오프 트리거 키워드 → claude-automations PR #1 (CDP 모듈화) 머지 → 저녁 핸드오프 SSH+tmux METHOD A 발견(text/Enter sleep 0.5 분리, bracketed paste 우회) → 21~23시 양방향 e2e PASS·이모지 prefix·Mac PATH 함정(/opt/homebrew/bin/tmux 절대경로) → 자정 직전 다른 기기 오케스트레이터 구상. skills 26 / daejong-page 9 / hanjul 4 / review_radar 1.",
+   "updated": "2026-04-26T00:35:00+09:00"
+  },
+  {
+   "file": "2026-04-24_v1.0.1.md",
+   "date": "2026-04-24",
+   "version": "v1.0.1",
+   "summary": "밤 22:40~00:10 KST 세션: 약먹자 1.0.1 + 더치페이 1.0.2 App Store Connect 심사 제출 2건 (Playwright MCP 메타데이터·스크린샷·카테고리·연령등급·가격·Privacy 전부 자동화). 4/20 시작 미완결 과제 Apple 큐 투입. 중간에 친구 한줄일기 AI 답글 실패 디버깅 + 47MB release APK 재빌드 전송. 마감에 /goodnight 에 /insta-post step 4.5 자동 호출 편입(c116f6f). 이슈 2건/메모리 3건 박제.",
+   "updated": "2026-04-25T00:10:00+09:00"
+  },
+  {
+   "file": "2026-04-24_v1.0.0.md",
+   "date": "2026-04-24",
+   "version": "v1.0.0",
+   "summary": "새벽 05:25~06:37 KST 세션: Mac/WSL 양쪽 daily-sync-and-learn 자동 스케줄 비활성화(launchctl/systemctl disable+mask) + 포모도로 Google Play Console Closed Testing(alpha) 업로드 완주. Flutter Android 빌드가 Xcode 라이선스에 막힘 → DEVELOPER_DIR=CommandLineTools 로 우회. Play Console API 업로드 4회 시도 실패(vc=3 이미 소비 / vc=4 testers 그룹 없음 / vc=5 draft app 제약 / vc=6 동일 에러) 후 수동 파이썬으로 internal 트랙의 잔여 vc=3 completed 를 draft 로 demote 한 뒤 alpha 트랙 vc=6 draft 커밋 성공(edit_id 04724584959853325210). 새 lesson android-all-tracks-must-be-draft.md 추가+push.",
+   "updated": "2026-04-24T06:40:00+09:00"
+  },
+  {
+   "file": "2026-04-23_v1.0.1.md",
+   "date": "2026-04-23",
+   "version": "v1.0.1",
+   "summary": "v1.0.0 이후 19:00~00:08 저녁·심야 궤적: 포모도로 백그라운드 타이머+푸시+개인정보처리방침, /create-play-app + /insta-post 신규 스킬 + /toss-tone 제거, automations play-upload TCC 폴백, 심사레이더 A2+B1 디자인 하이브리드, 그리고 자정을 넘긴 심사레이더 iOS 최초 런치 디버그(Dart SDK 미스매치 → GIDClientID 누락 크래시 → GCP iOS OAuth + Info.plist 2키 → 41aabea 푸시) + /issue 2026-04-23-ios-gidclientid-missing.md 포스트모템",
+   "updated": "2026-04-24T00:25:00+09:00"
+  },
+  {
+   "file": "2026-04-23_v1.0.0.md",
+   "date": "2026-04-23",
+   "version": "v1.0.0",
+   "summary": "/sync 오해 풀기(launchd catch-up 동작) + 병원 todo 드롭(일상생활 금지 규칙 신설) + 포모도로 aab 빌드 + 한줄일기 UI 폴리싱 3커밋(GradientTextStyles+PressScale+Undo+AI 등장 애니) + /irun 실기 → 한줄일기 출시 준비 3종(privacy-hanjul + 메타 ko/en + 시뮬레이터 스크린샷 3장)",
+   "updated": "2026-04-23T14:40:00+09:00"
+  },
+  {
+   "file": "2026-04-22_v1.0.1.md",
+   "date": "2026-04-22",
+   "version": "v1.0.1",
+   "summary": "launchd silent dropout 재발 → bootstrap API + 검증 루틴 강화 + stop-check blacklist + memory auto-push 훅 / /handoff 스킬 신설 / hanjul A2+B2 하이브리드 1294줄 + AI negation 픽스 + APP_SHARED_SECRET 드롭→layered rate limits / daejong-page 15페이지 풀 리디자인(검정·노랑→화이트·토스블루) + 홈 iOS 홈스크린 3×3 그리드",
+   "updated": "2026-04-22T23:35:00+09:00"
+  },
+  {
+   "file": "2026-04-22_v1.0.0.md",
+   "date": "2026-04-22",
+   "version": "v1.0.0",
+   "summary": "Mac↔WSL 앱 동기화 갭을 세 겹(Stop 훅 ~/apps/* 확장 + /pull-apps 신규 스킬 + /sync 에 apps 루프 흡수)으로 차단 + hanjul 토스 블루 리브랜드 4커밋 + 메모요 beta 트랙 testers 그룹 lesson 기록",
+   "updated": "2026-04-22T00:40:00+09:00"
+  },
+  {
+   "file": "2026-04-21_v1.0.3.md",
+   "date": "2026-04-21",
+   "version": "v1.0.3",
+   "summary": "저녁 2R 최적화 — 메모요 베타 모집 전면 드롭(portfolio.html signup 제거) + morning-briefing 기계 수집을 Python 프리페처(morning-prefetch.py 320줄)로 분리 + 멀티기기 push·skill 중복 로드 Q&A",
+   "updated": "2026-04-21T20:58:00+09:00"
+  },
+  {
+   "file": "2026-04-21_v1.0.2.md",
+   "date": "2026-04-21",
+   "version": "v1.0.2",
+   "summary": "토큰 절약 캐스케이드 — /review-status-check launchd 비활성화 + 수동 호출 스킬 3개 삭제 + todo-reminder+done-auto→/evening-wrap 통합 + MEMORY.md 중복 2쌍 정리 + 미리알림 싱크 7개 정리",
+   "updated": "2026-04-21T17:45:00+09:00"
+  },
+  {
+   "file": "2026-04-21_v1.0.1.md",
+   "date": "2026-04-21",
+   "version": "v1.0.1",
+   "summary": "메모요 1.0.2 수동 출시 + 1.0.4 altool 재업로드·심사 제출 / 신규 앱 스크린샷 자동화 시도·실패(3가지 허용 버튼 우회 전부 실패 + dimension limit) / /worklog 뉴스레터 스타일 전환 + worklog.html marked.js 렌더러 도입",
+   "updated": "2026-04-21T09:45:00+09:00"
+  },
+  {
+   "file": "2026-04-21_v1.0.0.md",
+   "date": "2026-04-21",
+   "version": "v1.0.0",
+   "summary": "훅 WSL-wins 머지 + typing daemon 세션 격리 3종 픽스 + /goodnight 스킬",
+   "updated": "2026-04-21T00:43:27+09:00"
+  },
+  {
+   "file": "2026-04-20_v1.0.3.md",
+   "date": "2026-04-20",
+   "version": "v1.0.3",
+   "summary": "오후 결과물 공개 구간 — /issues 페이지 신설 + 이슈 9건 소급 + /worklog·/done 0단계 라우팅 + /land signing·Bundle ID 자동화 내장 + 바이브코딩 뉴스레터 Ep.1 발행",
+   "updated": "2026-04-20T21:24:00+09:00"
+  },
+  {
+   "file": "2026-04-20_v1.0.2.md",
+   "date": "2026-04-20",
+   "version": "v1.0.2",
+   "summary": "오전 맥 본진 — 아이폰 배포 파이프라인(/land·/to-iphone) + claude-automations 저장소 + daily-sync-and-learn + /sync·/issue 스킬 + Mac 피드백 4건 반영",
+   "updated": "2026-04-20T21:24:00+09:00"
+  },
+  {
+   "file": "2026-04-20_v1.0.1.md",
+   "date": "2026-04-20",
+   "version": "v1.0.1",
+   "summary": "WSL 야간 자동 개발 결과물 4덩어리 통합 — 한컵·mini_expense 두 앱 + Dev Trend Curator·flutter-factory 두 자동화 + 메모리 3건",
+   "updated": "2026-04-20T21:24:00+09:00"
+  },
+  {
+   "file": "2026-04-20_v1.0.0.md",
+   "date": "2026-04-20",
+   "version": "v1.0.0",
+   "summary": "자정 맥·WSL 병렬 3건 — 약먹자 비공개 테스트 제출 + 기억이 챗봇 Markdown parse 버그픽스 + 할일 6건 등록",
+   "updated": "2026-04-20T21:24:00+09:00"
+  }
+ ]
 }
