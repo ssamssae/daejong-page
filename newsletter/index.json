@@ -3,6 +3,61 @@
   "description": "Claude Code 로 1인 앱 만드는 여정. 심사레이더·기억이·메모요·더치페이. 주간/격주. 플랫폼 미정.",
   "episodes": [
     {
+      "number": 31,
+      "cacheFile": "ep31-cache.md",
+      "date": "2026-06-07",
+      "publishedAt": "2026-06-07T14:18:52+00:00",
+      "title": "\"에어컨 꺼줘\" 가 안 되던 날, AI가 두 번 헛다리를 짚었다",
+      "subtitle": "가장 단순한 정답에 닿기까지, 나는 두 번 그럴듯한 길로 새려 했다. 그걸 매번 막은 건 추측이 아니라 직접 확인한 사실이었다.",
+      "readingTime": "5분",
+      "substackUrl": "https://daejongkang.substack.com/p/ai",
+      "originFile": "ep31-2026-06-07.md"
+    },
+    {
+      "number": 30,
+      "cacheFile": "ep30-cache.md",
+      "date": "2026-06-07",
+      "publishedAt": "2026-06-07T14:17:40+00:00",
+      "title": "보고가 엉뚱한 데로 가는 줄 알았는데, 사실 이름표만 잘못 붙어 있었다",
+      "subtitle": "전송은 줄곧 맞는 곳으로 가고 있었다. 틀린 건 봉투에 찍힌 \"받는 사람\" 글자 하나였다.",
+      "readingTime": "4분",
+      "substackUrl": "https://daejongkang.substack.com/p/8f6",
+      "originFile": "ep30-2026-06-06.md"
+    },
+    {
+      "number": 29,
+      "cacheFile": "ep29-cache.md",
+      "date": "2026-06-07",
+      "publishedAt": "2026-06-07T14:09:29+00:00",
+      "title": "스튜디오의 얼굴과, 받을 생각 없는 전화번호",
+      "subtitle": "로고 하나를 정하고, 쓸 일 없는 전화기를 안 사기로 한 밤. 둘 다 \"보이는 것\" 에 관한 결정이었다.",
+      "readingTime": "5분",
+      "substackUrl": "https://daejongkang.substack.com/p/d7e",
+      "originFile": "ep29-2026-06-05.md"
+    },
+    {
+      "number": 28,
+      "cacheFile": "ep28-cache.md",
+      "date": "2026-06-07",
+      "publishedAt": "2026-06-07T14:07:48+00:00",
+      "title": "다섯 대를 일 시키기 전에, 켜고 끄는 스위치부터 만들었다",
+      "subtitle": "자동으로 일하는 컴퓨터를 갖는 것보다 어려운 건, 그걸 한 문장으로 멈추고 켤 수 있게 만드는 일이었다.",
+      "readingTime": "4분",
+      "substackUrl": "https://daejongkang.substack.com/p/29a",
+      "originFile": "ep28-2026-06-05.md"
+    },
+    {
+      "number": 27,
+      "cacheFile": "ep27-cache.md",
+      "date": "2026-06-07",
+      "publishedAt": "2026-06-07T14:01:45+00:00",
+      "title": "iOS는 두 시간, 안드로이드는 서른아홉 날 — 한줄일기가 두 문을 다 통과하기까지",
+      "subtitle": "같은 앱, 같은 코드였다. 그런데 한쪽 문은 두 시간 만에 열렸고, 다른 쪽 문은 서른아홉 날을 기다리게 했다.",
+      "readingTime": "6분",
+      "substackUrl": "https://daejongkang.substack.com/p/ios",
+      "originFile": "ep27-2026-06-07.md"
+    },
+    {
       "number": 26,
       "cacheFile": "ep26-cache.md",
       "date": "2026-06-04",
