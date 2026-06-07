@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-06-07-mac-codex-dup-install-infinite-update.md",
+      "date": "2026-06-07",
+      "slug": "mac-codex-dup-install-infinite-update",
+      "title": "맥북 본진 codex CLI 무한 업데이트 알림 — npm-global/homebrew 중복설치 + PATH 우선순위 mismatch",
+      "severity": "low",
+      "recurrence": "medium",
+      "scope": "🍎 본진 Mac codex CLI",
+      "occurred_at": "2026-06-07 21:49 KST",
+      "resolved_at": "2026-06-07 22:00 KST",
+      "updated": "2026-06-07T23:06:33+09:00"
+    },
+    {
       "file": "2026-06-07-premature-credential-not-found.md",
       "date": "2026-06-07",
       "slug": "premature-credential-not-found",
