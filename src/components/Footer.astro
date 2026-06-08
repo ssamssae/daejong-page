@@ -1,0 +1,28 @@
+---
+const company = {
+  name: "마이너스베타스튜디오",
+  representative: "강대종",
+  bizNumber: "878-21-02478",
+  mailOrderNumber: "제 2026-서울마포-1177 호",
+  address: "서울특별시 마포구 만리재로10길 4 (공덕동)",
+  category: "정보통신업 / 응용 소프트웨어 개발 및 공급업",
+  email: "minusbetastudio@gmail.com",
+};
+---
+<footer>
+  <div class="foot-links"><a href="/lab">Lab</a> · <a href={`mailto:${company.email}`}>{company.email}</a></div>
+  <div class="biz">
+    <span>{company.name} · 대표 {company.representative}</span>
+    <span>사업자등록번호 {company.bizNumber}</span>
+    <span>통신판매업신고번호 {company.mailOrderNumber}</span>
+    <span>{company.address}</span>
+    <span>{company.category}</span>
+  </div>
+  <div class="copy">© 2026 {company.name}. All rights reserved.</div>
+  <style>
+    footer { border-top: 1px solid var(--border); max-width: 760px; margin: 64px auto 0; padding: 32px 24px 64px; font-family: var(--mono); font-size: 12px; color: var(--fg-dim); }
+    .foot-links { margin-bottom: 16px; }
+    .biz { display: flex; flex-direction: column; gap: 4px; }
+    .copy { margin-top: 16px; }
+  </style>
+</footer>

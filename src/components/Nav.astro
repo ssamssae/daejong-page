@@ -1,0 +1,27 @@
+---
+const links = [
+  { href: '/', label: '홈' },
+  { href: '/apps', label: 'apps' },
+  { href: '/worklog', label: 'worklog' },
+  { href: '/newsletter', label: 'newsletter' },
+  { href: '/insights', label: 'insights' },
+  { href: '/system', label: 'system' },
+  { href: '/lab', label: 'lab' },
+];
+---
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="/">mβ</a>
+    <div class="nav-links">
+      {links.map(l => <a href={l.href}>{l.label}</a>)}
+    </div>
+  </div>
+  <style>
+    nav { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+    .nav-inner { max-width: 760px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .brand { font-family: var(--mono); font-weight: 600; font-size: 18px; color: var(--cyan); }
+    .nav-links { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
+    .nav-links a { color: var(--fg-dim); }
+    .nav-links a:hover { color: var(--magenta); }
+  </style>
+</nav>
