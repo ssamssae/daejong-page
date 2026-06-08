@@ -8,3 +8,7 @@
 scripts/.fonts/
 scripts/node_modules/
 scripts/package-lock.json
+
+node_modules/
+dist/
+.astro/
