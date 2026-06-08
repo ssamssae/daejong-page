@@ -1,6 +1,13 @@
 {
  "entries": [
   {
+   "file": "2026-06-08_v1.0.0.md",
+   "date": "2026-06-08",
+   "version": "1.0.0",
+   "title": "codex demote → claude 기본 + 단어요 안드 검토제출 + 약먹자 던스 발급 + work.kangdaejong.com Astro Phase1",
+   "summary": "codex demote(자동/다이나믹 기본 엔진 claude 전환, codex-night-cycle/macmini-codex launchd _disabled) + pull-worker work-stealing v1 + manual-queue race-harden + mac-report self-route guard(T-260608-65) + KST hook. 단어요 안드 비공개 테스트 태블릿 스샷(정석 에뮬 캡처→폰스샷 재사용)+검토 제출(이미 vc6 출시 활성, 메타 변경). 약먹자 복약알림=의료기능 거부→조직계정 전환→D-U-N-S 이름충돌→D&B 직접요청 Case #34583401. work.kangdaejong.com Astro Phase1 머지(abdec05/#181, no-auto-merge 라벨 게이트). kangdaejong-com 랜딩 옵트인/배너/디자인. GPG signing/tuya/naver paste 가드."
+  },
+  {
    "file": "2026-06-07_v1.0.1.md",
    "date": "2026-06-07",
    "version": "1.0.1",
