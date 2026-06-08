@@ -1,0 +1,13 @@
+:root {
+  --bg: #0a0a0a;
+  --bg-elev: #131313;
+  --border: #1f1f1f;
+  --fg: #f5f5f5;
+  --fg-dim: #a0a0a0;
+  --cyan: #00e5ff;
+  --magenta: #ff00aa;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+}
+.accent-cyan { color: var(--cyan); }
+.accent-magenta { color: var(--magenta); }
