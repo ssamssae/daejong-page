@@ -139,7 +139,7 @@
     <div class="hero-stats">
       <div class="hero-card">
         <div class="hero-card-label">누적 용어</div>
-        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->202<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
+        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->210<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
         <div class="hero-card-sub">영상 인사이트에서 추출</div>
       </div>
       <div class="hero-card">
@@ -586,6 +586,30 @@
       <span class="src">영상: 2026-06-05-silicon-valley-layoffs-alex.md</span>
     </div>
 
+    <div class="term">
+      <h3>서브에이전트 (subagent)</h3>
+      <p>메인 세션이 일을 위임하는 독립 컨텍스트의 하위 에이전트. 마크다운 1개로 정의되며 메인하고만 1:1로 통신한다.</p>
+      <span class="src">영상: 2026-06-09-claude-subagents-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>YAML front matter</h3>
+      <p>스킬/서브에이전트 md 상단의 설정 블록(name·description·tools·model·color·memory). 따옴표를 안 닫으면 파싱이 깨진다.</p>
+      <span class="src">영상: 2026-06-09-claude-subagents-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>dynamic workflows</h3>
+      <p>Opus 4.8에서 도입된, 메인이 대량 서브에이전트(수십~수백 개)를 병렬 위임하는 기능. 트리거 워드 "ultra code"(구 "workflow"), 세션 한도를 빠르게 소진한다.</p>
+      <span class="src">영상: 2026-06-09-claude-subagents-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>agent team</h3>
+      <p>서브에이전트와 달리 에이전트끼리 대화하고 태스크리스트를 공유하는 오케스트레이션. 비대화·1:1인 서브에이전트보다 비싸다.</p>
+      <span class="src">영상: 2026-06-09-claude-subagents-nateherk.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -676,6 +700,12 @@
       <h3>checkpoint</h3>
       <p>진행 중인 Q&amp;A·결정을 중간중간 doc에 기록해 컨텍스트 소실로 인한 망각을 막는 동작.</p>
       <span class="src">영상: 2026-06-05-grill-me-skill-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>progressive disclosure</h3>
+      <p>Claude가 front matter(name+description)만 먼저 읽고 적용 여부를 판단 → 안 쓰면 본문 토큰을 소비하지 않는 지연 로딩 방식.</p>
+      <span class="src">영상: 2026-06-09-claude-subagents-nateherk.md</span>
     </div>
 
     <h2>도구 통신 (MCP · CLI · API)</h2>
@@ -774,6 +804,12 @@
       <h3>slash command</h3>
       <p><code>/grill-me</code>처럼 스킬을 호출하는 명령.</p>
       <span class="src">영상: 2026-06-05-grill-me-skill-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>disallowed tools / permission layer</h3>
+      <p>서브에이전트가 쓸 도구·MCP를 명시 제한(read-only 등)하는 권한 계층. 프롬프트로 "하지 마"라고 하는 것보다 강한 강제.</p>
+      <span class="src">영상: 2026-06-09-claude-subagents-nateherk.md</span>
     </div>
 
     <h2>지식 · 컨텍스트 자산</h2>
@@ -1122,6 +1158,12 @@
       <span class="src">영상: 2026-06-07-claude-mythos-coming-nateherk.md</span>
     </div>
 
+    <div class="term">
+      <h3>misfire</h3>
+      <p>서브에이전트가 원할 때 발동하지 않거나 원치 않을 때 발동하는 현상. description 정밀화로 줄인다.</p>
+      <span class="src">영상: 2026-06-09-claude-subagents-nateherk.md</span>
+    </div>
+
     <h2>커리어 · 조직</h2>
 
     <div class="term">
@@ -1268,6 +1310,12 @@
       <h3>input/output token pricing</h3>
       <p>API 비용을 입력·출력 토큰 100만 개당 달러로 매기는 방식 (Mythos 프리뷰 $25/$125 per M).</p>
       <span class="src">영상: 2026-06-07-claude-mythos-coming-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>max turns</h3>
+      <p>서브에이전트가 리서치·검토 루프에 빠지지 않게 거는 최대 턴 제한 레버.</p>
+      <span class="src">영상: 2026-06-09-claude-subagents-nateherk.md</span>
     </div>
 
     <h2>기타</h2>
