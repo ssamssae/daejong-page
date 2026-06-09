@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import '../../styles/prose.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('insights');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<Layout title={`${post.data.title} — 인사이트`} description={post.data.summary ?? post.data.title}>
+  <a class="back" href="/insights">← 인사이트</a>
+  <article>
+    <header>
+      <p class="meta">{post.data.date}</p>
+      <h1>{post.data.title}</h1>
+    </header>
+    <div class="prose"><Content /></div>
+  </article>
+  <style>
+    .back { font-family: var(--mono); font-size: 13px; color: var(--fg-dim); }
+    article { margin-top: 24px; }
+    .meta { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); margin-bottom: 8px; }
+    article h1 { font-size: 28px; margin-bottom: 32px; line-height: 1.35; }
+  </style>
+</Layout>

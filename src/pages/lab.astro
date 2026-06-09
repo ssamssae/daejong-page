@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 잡학·실험 모음. 기존 정적 페이지 링크(점진 마이그레이션).
+const items = [
+  { href: '/ai-glossary.html', title: 'AI 용어집', desc: '직접 정리한 AI 용어 사전.' },
+  { href: '/vibecoding.html', title: '바이브코딩', desc: 'AI 협업 코딩 방법론 정리.' },
+  { href: '/vrl-benchmark.html', title: 'VRL 벤치마크', desc: '모델·도구 비교 실험.' },
+  { href: '/timeline.html', title: '개발 타임라인', desc: '주간 히트맵·마일스톤 타임라인.' },
+  { href: '/dead-ends.html', title: 'Dead Ends', desc: '실패하고 접은 시도들의 기록.' },
+  { href: '/habits.html', title: '습관', desc: '루틴·습관 트래킹 실험.' },
+  { href: '/stock.html', title: '주식', desc: '투자 관련 메모.' },
+  { href: '/sise.html', title: '시세', desc: '시세 관련 실험.' },
+];
+---
+<Layout title="lab — 마이너스베타스튜디오" description="잡학·실험·접은 시도들의 기록.">
+  <h1 class="accent-magenta">lab</h1>
+  <p class="lead">잡학 · 실험 · 접은 시도들</p>
+  <div class="grid">
+    {items.map((it) => (
+      <a class="card" href={it.href}>
+        <span class="card-title">{it.title}</span>
+        <span class="card-desc">{it.desc}</span>
+      </a>
+    ))}
+  </div>
+  <style>
+    h1 { font-size: 32px; }
+    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin: 8px 0 32px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .card { border: 1px solid var(--border); border-radius: 10px; padding: 18px; background: var(--bg-elev); color: var(--fg); }
+    .card:hover { border-color: var(--magenta); }
+    .card-title { display: block; font-family: var(--mono); font-weight: 600; color: var(--magenta); }
+    .card-desc { display: block; font-size: 13px; color: var(--fg-dim); margin-top: 4px; }
+    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</Layout>
