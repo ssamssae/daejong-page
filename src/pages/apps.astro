@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 출시 앱 + 첫이름 SaaS. 스토어 링크는 portfolio.html 의 정본 데이터.
+const apps = [
+  {
+    name: '한줄일기 + AI 응원', status: 'iOS LIVE · Android LIVE · ₩1,900',
+    desc: '하루 한 줄 일기를 쓰면 AI가 공감+응원 한 줄 답글을 남겨줍니다. 53주 감정 히트맵, 로컬 저장, 계정·광고 0.',
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6764308678' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.hanjul' },
+    ],
+  },
+  {
+    name: '메모요', status: 'iOS · Android 출시',
+    desc: '심플한 다크 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구.',
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762068073' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app' },
+    ],
+  },
+  {
+    name: '더치페이 계산기', status: 'iOS 출시 v1.0.2',
+    desc: '여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미. 금액·인원수 입력만으로 바로 정산.',
+    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762072499' }],
+  },
+  {
+    name: '약먹자', status: 'iOS 출시 v1.0.1',
+    desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 챙겨줍니다.',
+    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762100639' }],
+  },
+  {
+    name: '한컵', status: 'iOS 출시 v1.0',
+    desc: '하루 물 섭취량 트래커. 1컵 단위 카운트와 일일 목표량으로 수분 섭취를 챙겨주는 미니 앱.',
+    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536616' }],
+  },
+  {
+    name: '포모도로', status: 'iOS 출시 v1.0',
+    desc: '25분 집중 + 5분 휴식 사이클 타이머. 집중 보조 미니 앱.',
+    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536777' }],
+  },
+  {
+    name: '첫이름 — AI 사주 작명', status: '웹 SaaS · ₩19,900',
+    desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스.',
+    links: [{ label: '바로가기 ↗', url: 'https://cheotireum.kangdaejong.com' }],
+  },
+];
+---
+<Layout title="apps — 마이너스베타스튜디오" description="강대종이 만든 출시 앱과 웹 서비스 모음.">
+  <h1 class="accent-cyan">apps</h1>
+  <p class="lead">출시한 모바일 앱과 웹 서비스 · 총 {apps.length}개</p>
+  <div class="grid">
+    {apps.map((a) => (
+      <div class="card">
+        <div class="card-name">{a.name}</div>
+        <div class="card-status">{a.status}</div>
+        <p class="card-desc">{a.desc}</p>
+        <div class="card-links">
+          {a.links.map((l) => <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+        </div>
+      </div>
+    ))}
+  </div>
+  <style>
+    h1 { font-size: 32px; }
+    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin: 8px 0 32px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .card { border: 1px solid var(--border); border-radius: 10px; padding: 20px; background: var(--bg-elev); }
+    .card-name { font-weight: 700; font-size: 17px; }
+    .card-status { font-family: var(--mono); font-size: 11px; color: var(--cyan); margin-top: 4px; }
+    .card-desc { color: var(--fg-dim); font-size: 13px; line-height: 1.6; margin: 12px 0; }
+    .card-links { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
+    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</Layout>

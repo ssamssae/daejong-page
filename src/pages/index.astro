@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionCard from '../components/SectionCard.astro';
+import PostList from '../components/PostList.astro';
+import { getCollection } from 'astro:content';
+
+const recentWorklog = (await getCollection('worklog'))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date) || (b.data.version ?? '').localeCompare(a.data.version ?? ''))
+  .slice(0, 5);
+const recentNewsletter = (await getCollection('newsletter'))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .slice(0, 3);
+
+const sections = [
+  { href: '/apps', title: 'apps', desc: '출시한 모바일 앱과 첫이름 작명 SaaS.', accent: 'cyan' },
+  { href: '/worklog', title: 'worklog', desc: '매일의 빌드로그. AI와 함께 만드는 과정 기록.', accent: 'magenta' },
+  { href: '/newsletter', title: 'newsletter', desc: '바이브코딩 — 1인 앱 제작 여정 격주 발행.', accent: 'cyan' },
+  { href: '/insights', title: 'insights', desc: '영상·아티클에서 뽑은 학습 노트.', accent: 'magenta' },
+  { href: '/system', title: 'system', desc: '5노드 메시·자동화·기술 스택.', accent: 'cyan' },
+];
+---
+<Layout title="마이너스베타스튜디오 — 강대종" description="AI와 함께 1인 앱을 만드는 마이너스베타스튜디오. 작업일지·뉴스레터·인사이트·앱·자동화 허브.">
+  <section class="hero">
+    <div class="logo">mβ</div>
+    <h1>마이너스베타스튜디오</h1>
+    <p class="tagline">강대종 · AI와 함께 1인 앱을 만듭니다</p>
+    <p class="intro">
+      Claude Code 와 5노드 자동화 메시로 모바일 앱과 웹 서비스를 빌드하고,
+      그 과정을 매일 작업일지·뉴스레터·인사이트로 기록합니다.
+    </p>
+  </section>
+
+  <section class="sections">
+    {sections.map((s) => <SectionCard href={s.href} title={s.title} desc={s.desc} accent={s.accent} />)}
+  </section>
+
+  <section class="recent">
+    <div class="recent-head">
+      <h2 class="accent-magenta">최근 작업일지</h2>
+      <a href="/worklog">전체 →</a>
+    </div>
+    <PostList posts={recentWorklog} base="/worklog" />
+  </section>
+
+  <section class="recent">
+    <div class="recent-head">
+      <h2 class="accent-cyan">최근 뉴스레터</h2>
+      <a href="/newsletter">전체 →</a>
+    </div>
+    <PostList posts={recentNewsletter} base="/newsletter" />
+  </section>
+
+  <style>
+    .hero { text-align: center; padding: 24px 0 48px; }
+    .logo { font-family: var(--mono); font-size: 56px; font-weight: 600; color: var(--cyan); }
+    .hero h1 { font-size: 30px; margin-top: 12px; }
+    .tagline { font-family: var(--mono); font-size: 14px; color: var(--magenta); margin-top: 8px; }
+    .intro { color: var(--fg-dim); max-width: 540px; margin: 20px auto 0; font-size: 15px; }
+    .sections { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 16px 0 56px; }
+    .recent { margin-bottom: 48px; }
+    .recent-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+    .recent-head h2 { font-size: 18px; }
+    .recent-head a { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); }
+    @media (max-width: 520px) { .sections { grid-template-columns: 1fr; } }
+  </style>
+</Layout>

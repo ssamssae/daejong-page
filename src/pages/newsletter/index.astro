@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostList from '../../components/PostList.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('newsletter')).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date)
+);
+---
+<Layout title="뉴스레터 — 바이브코딩" description="Claude Code 로 1인 앱 만드는 여정. 격주 발행.">
+  <h1 class="accent-magenta">뉴스레터</h1>
+  <p class="lead">바이브코딩 · Claude Code 로 1인 앱 만드는 여정 · 총 {posts.length}편 · <a href="https://daejongkang.substack.com" target="_blank" rel="noopener">Substack 구독 ↗</a></p>
+  <PostList posts={posts} base="/newsletter" />
+  <style>
+    h1 { font-size: 32px; margin-bottom: 8px; }
+    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin-bottom: 32px; }
+  </style>
+</Layout>

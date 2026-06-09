@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostList from '../../components/PostList.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('worklog')).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date) || (b.data.version ?? '').localeCompare(a.data.version ?? '')
+);
+---
+<Layout title="작업일지 — 마이너스베타스튜디오" description="매일의 빌드로그. AI와 함께 1인 앱을 만드는 과정 기록.">
+  <h1 class="accent-magenta">작업일지</h1>
+  <p class="lead">매일의 빌드로그 · 총 {posts.length}편</p>
+  <PostList posts={posts} base="/worklog" />
+  <style>
+    h1 { font-size: 32px; margin-bottom: 8px; }
+    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin-bottom: 32px; }
+  </style>
+</Layout>

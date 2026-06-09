@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 자동화·기술 콘텐츠는 기존 정적 페이지로 링크(점진 마이그레이션, P4 에서 통합/이전).
+const items = [
+  { href: '/automations.html', title: '자동화', desc: 'launchd·cron·텔레그램 봇으로 굴리는 자동화 파이프라인.' },
+  { href: '/stack.html', title: '기술 스택', desc: 'Flutter·Astro·Cloudflare·Claude Code 등 사용 기술.' },
+  { href: '/skills.html', title: 'Claude 스킬', desc: '직접 만든 Claude Code 스킬 시스템.' },
+  { href: '/smart-home.html', title: '스마트홈', desc: 'Tuya·자연어 가전 제어 자동화.' },
+  { href: '/knowhow.html', title: '노하우', desc: '1인 개발·AI 협업에서 쌓은 노하우.' },
+];
+---
+<Layout title="system — 마이너스베타스튜디오" description="5노드 자동화 메시·기술 스택·Claude 스킬 시스템.">
+  <h1 class="accent-cyan">system</h1>
+  <p class="lead">자동화 · 기술 스택 · 5노드 메시</p>
+  <div class="list">
+    {items.map((it) => (
+      <a class="row" href={it.href}>
+        <span class="row-title">{it.title}</span>
+        <span class="row-desc">{it.desc}</span>
+        <span class="row-arrow">→</span>
+      </a>
+    ))}
+  </div>
+  <style>
+    h1 { font-size: 32px; }
+    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin: 8px 0 32px; }
+    .list { display: flex; flex-direction: column; gap: 10px; }
+    .row { position: relative; border: 1px solid var(--border); border-radius: 10px; padding: 18px 44px 18px 20px; background: var(--bg-elev); color: var(--fg); }
+    .row:hover { border-color: var(--cyan); }
+    .row-title { display: block; font-family: var(--mono); font-weight: 600; color: var(--cyan); }
+    .row-desc { display: block; font-size: 13px; color: var(--fg-dim); margin-top: 4px; }
+    .row-arrow { position: absolute; top: 18px; right: 18px; font-family: var(--mono); color: var(--cyan); }
+  </style>
+</Layout>
