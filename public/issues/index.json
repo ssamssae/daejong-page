@@ -9,8 +9,8 @@
       "recurrence": "high",
       "scope": "tasks.md 마킹 라이프사이클 / 수동큐→노드 디스패치 / stale-reconcile.py",
       "occurred_at": "2026-06-09 10:43 KST",
-      "resolved_at": "2026-06-09 21:57 KST",
-      "updated": "2026-06-09T22:23:00+09:00"
+      "resolved_at": "2026-06-09 23:12 KST",
+      "updated": "2026-06-09T23:13:00+09:00"
     },
     {
       "file": "2026-06-09-ep32-dup-naver-publish.md",
