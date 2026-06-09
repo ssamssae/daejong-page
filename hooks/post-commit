@@ -8,8 +8,8 @@ set -uo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
-# 마지막 commit 의 insights/ 변경 여부
-if ! git diff-tree --no-commit-id --name-only -r HEAD | grep -q '^insights/.*\.md$'; then
+# 마지막 commit 의 insights/ 변경 여부 (P4 Astro 전환: src/content/insights/ 신경로 + 옛 insights/ 둘 다 감지)
+if ! git diff-tree --no-commit-id --name-only -r HEAD | grep -qE '^(insights/|src/content/insights/).*\.md$'; then
   exit 0
 fi
 
@@ -20,12 +20,12 @@ if [[ ! -x "$GENERATOR" ]]; then
 fi
 python3 "$GENERATOR" || exit 0
 
-# ai-glossary.html / index.html 변경 없으면 skip
-if git diff --quiet ai-glossary.html index.html; then
+# public/ai-glossary.html 변경 없으면 skip (P4: root ai-glossary.html/index.html 드롭, 용어집은 public/ 로 이전)
+if git diff --quiet public/ai-glossary.html; then
   exit 0
 fi
 
 # 별 commit
-git add ai-glossary.html index.html
+git add public/ai-glossary.html
 GIT_COMMITTER_DATE="$(date -u +'%Y-%m-%dT%H:%M:%S+00:00')" \
-  git commit -m "auto: ai-glossary regenerate + index stats sync (post-commit hook)" --no-verify >/dev/null 2>&1 || true
+  git commit -m "auto: ai-glossary regenerate (post-commit hook)" --no-verify >/dev/null 2>&1 || true

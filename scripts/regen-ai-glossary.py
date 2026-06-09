@@ -23,8 +23,12 @@ from pathlib import Path
 from collections import OrderedDict
 
 ROOT = Path(__file__).resolve().parent.parent
-INSIGHTS_DIR = ROOT / "insights"
-GLOSSARY_HTML = ROOT / "ai-glossary.html"
+# P4 Astro 전환: insight 신규 발행은 src/content/insights/ 로만 들어옴 (옛 insights/ 는 frozen).
+# 매처(hooks/post-commit)와 짝 — 신경로를 SoT 로 읽어야 새 인사이트의 ## 용어 가 용어집에 반영됨.
+INSIGHTS_DIR = ROOT / "src" / "content" / "insights"
+# P4 Astro 전환(commit 288766b): ai-glossary.html 은 root → public/ 로 이전(여전히 /ai-glossary.html 로 서빙),
+# root index.html 은 드롭(Astro 홈 대체). INDEX_HTML 통계 주입은 파일 부재 시 sync_index_stats 가 self-skip.
+GLOSSARY_HTML = ROOT / "public" / "ai-glossary.html"
 INDEX_HTML = ROOT / "index.html"
 
 CATEGORIES_ORDER = [
