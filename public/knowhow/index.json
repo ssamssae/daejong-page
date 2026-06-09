@@ -1,6 +1,22 @@
 {
   "entries": [
     {
+      "file": "2026-06-09-verify-before-execute.md",
+      "date": "2026-06-09",
+      "slug": "verify-before-execute",
+      "title": "실행하기 전에 확인한다 (verify-before-execute) — AI에게 일을 시킬 때 짐작이 비싼 이유",
+      "category": "AI 협업/방법론",
+      "tags": [
+        "verify-before-execute",
+        "ai-orchestration",
+        "code-over-memory",
+        "irreversible",
+        "secrets-masking",
+        "discipline"
+      ],
+      "summary": "AI에게 일을 맡길 때 사고를 막는 건 똑똑함이 아니라 실행 전 한 번 더 확인하는 규율이다. 비가역 작업은 짐작으로 지르지 않고 대상을 확정하고, 메모리보다 코드를 실측하고, 가짜처럼 생긴 진짜 앞에선 멈추되 권위 있는 정정엔 즉시 수용한다. 하룻밤 세 사고에서 뽑은 실행 전 체크리스트."
+    },
+    {
       "file": "2026-06-07-self-orchestration-home-local-inject.md",
       "date": "2026-06-07",
       "slug": "self-orchestration-home-local-inject",
