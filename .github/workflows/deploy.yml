@@ -1,11 +1,13 @@
 # Astro → GitHub Pages 배포 (P4)
-# ⚠️ DORMANT — on: workflow_dispatch 만 (push 트리거 X). codex-mesh-vote 승자 C(플립 보류) 준수:
-#   라이브 소스 전환은 (1) 아키 A/B 스코프 픽 + public/ 자산 이전 완료 (2) Pages build_type=workflow 전환
-#   둘 다 끝난 뒤에만. 그 전엔 수동 dispatch 해도 Pages source 가 legacy 라 무효(이중 안전).
+# 2026-06-09 P4 라이브 전환 완료(build_type=workflow, work.kangdaejong.com=Astro 라이브) →
+#   on: push(main) 활성: 콘텐츠(worklog/insight/knowhow 등) main 푸시 시 자동 빌드·배포.
+#   (옛 DORMANT workflow_dispatch-only 는 codex-mesh-vote 승자 C 플립 보류 단계용이었고, P4 flip 으로 해제.)
 # Node 22.12+ 필수 (Astro 6 가 Node 20 거부).
 name: Deploy Astro to GitHub Pages
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

@@ -1316,6 +1316,26 @@
         "agent-msg-notify"
       ],
       "summary": "Protocol 헤더와 Telegram 전송 목적지는 완전히 다른 레이어. 로컬/피어 휴리스틱 추론 금지. 포맷 위반/중복/상태머신/Layer 분리 4개 버그 패턴과 수정 코드."
+    },
+    {
+      "file": "2026-06-09-graphify-ast-tier-shared-globals-pollution.md",
+      "date": "2026-06-09",
+      "slug": "graphify-ast-tier-shared-globals-pollution",
+      "title": "graphify AST tier 도입과 공유 globals 오염 사고에서 배운 것 — 정책보다 차단 훅이 막는다",
+      "category": "인프라",
+      "tags": [
+        "graphify",
+        "ast",
+        "multi-node",
+        "shared-globals",
+        "symlink",
+        "forcing-function",
+        "pretooluse-hook",
+        "install",
+        "sanitize",
+        "false-positive"
+      ],
+      "summary": "코드베이스를 AST 그래프로 인덱싱해 AI 가 원본을 안 읽고 질의→토큰 대폭 절감(무료 AST tier). 그런데 설치 서브커맨드가 ~/.claude(=claude-skills 심링크, 5노드 공유) 의 globals 글로벌룰을 오염시켜 어제·오늘 2회 재발. 교훈 — (1) 안1 결정 후에도 다른 노드서 재발했듯 정책만으론 안 막힌다, 차단 훅(forcing function) 필요 (2) 공유 심링크 SoT 를 install 이 건드리는 구조는 도입 전 1회 점검 (3) auto-use 같은 좋은 설계도 노드 세션 home cwd 제약에 막혀 수동 운용으로 후퇴 (4) 차단 훅은 명령 실행뿐 아니라 텍스트 인용까지 over-match 하니 전달 텍스트 sanitize 필요."
     }
   ]
 }
