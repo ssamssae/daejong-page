@@ -14,8 +14,11 @@ const items = [
 ];
 ---
 <Layout title="lab — 마이너스베타스튜디오" description="잡학·실험·접은 시도들의 기록.">
-  <h1 class="accent-magenta">lab</h1>
-  <p class="lead">잡학 · 실험 · 접은 시도들</p>
+  <section class="hero">
+    <h1 class="logo">lab</h1>
+    <p class="tagline">잡학 · 실험 · 접은 시도들</p>
+    <p class="intro">정리한 노트, 돌려본 실험, 그리고 제품이 되지 못해 접은 시도들의 기록.</p>
+  </section>
   <div class="grid">
     {items.map((it) => (
       <a class="card" href={it.href}>
@@ -25,8 +28,10 @@ const items = [
     ))}
   </div>
   <style>
-    h1 { font-size: 32px; }
-    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin: 8px 0 32px; }
+    .hero { text-align: center; padding: 8px 0 40px; }
+    .hero .logo { font-family: var(--mono); font-size: 52px; font-weight: 600; color: var(--magenta); line-height: 1; }
+    .hero .tagline { font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px; }
+    .hero .intro { color: var(--fg-dim); max-width: 520px; margin: 18px auto 0; font-size: 15px; }
     .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .card { border: 1px solid var(--border); border-radius: 10px; padding: 18px; background: var(--bg-elev); color: var(--fg); }
     .card:hover { border-color: var(--magenta); }
