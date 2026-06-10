@@ -1,0 +1,43 @@
+/* page-dark.css — daejong-page 정적 페이지 공통 다크 네온 톤 (2026-06-10)
+ * SoT: src/styles/tokens.css 미러. 향후 톤 변경은 이 :root 1곳에서.
+ * 각 public 정적 페이지가 link 하고, 페이지 인라인 스타일의 색상값은
+ * 아래 토큰을 var() 참조한다 → 색상 단일 관리. */
+
+:root {
+  /* 배경 계층 */
+  --bg:        #0a0a0a;  /* 페이지 배경 (구 #FFFFFF) */
+  --bg-elev:   #131313;  /* 카드/박스 (구 #F9FAFB) */
+  --bg-elev2:  #191919;  /* 한 단계 더 (구 #F2F4F6 / #F8F9FA) */
+
+  /* 경계선 */
+  --border:    #232323;  /* 일반 보더 (구 #E5E8EB) */
+  --border-soft:#1a1a1a;
+
+  /* 텍스트 */
+  --fg:        #f5f5f5;  /* 본문 (구 #191F28) — privacy 고대비 본문 */
+  --fg-dim:    #b9c0c9;  /* 보조 (구 #4E5968) — 가독성 위해 다크에서 밝게 */
+  --fg-mute:   #8b95a1;  /* 약한 (구 #8B95A1) */
+
+  /* 액센트 — 네온 (헤더/링크/포인트만) */
+  --accent:    #00e5ff;  /* 시안 (구 #3182F6 / #1B64DA / #2272EB) */
+  --accent-2:  #ff00aa;  /* 마젠타 */
+  --accent-dim:#00b8d4;
+
+  /* 상태색 — 다크 대비 위해 약간 밝게 */
+  --danger:    #ff5a6a;  /* (구 #F04452 / #DC2626) */
+  --success:   #34d399;  /* (구 #16A34A / #22C55E / #00C73C) */
+  --warn:      #fb923c;  /* (구 #EA580C / #F97316 / #FF8A3D) */
+
+  /* 연한 상태 배경 */
+  --danger-bg: #2a1518;  /* (구 #FFF5F5 / #FFD6D6) */
+  --accent-bg: #0e2730;  /* (구 #EFF6FF / #EBF2FE / #C9DCF7) */
+}
+
+/* 안전망 base — 인라인이 못 덮는 기본값 + 네이티브 UI 다크 */
+html { color-scheme: dark; }
+body { background-color: var(--bg); color: var(--fg); }
+::selection { background: var(--accent); color: #0a0a0a; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #383838; }

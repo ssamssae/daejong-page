@@ -47,8 +47,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #FFFFFF;
-      color: #191F28;
+      background-color:#ffffff;
+      color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
@@ -60,44 +60,44 @@
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
-    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #3182F6; }
+    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
+    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    header a:hover { color: var(--accent); }
     .header-right { display: flex; align-items: center; gap: 14px; }
     .sort-toggle {
-      background: #F2F4F6; border: 1px solid #E5E8EB;
-      color: #4E5968; font-size: 13px;
+      background: var(--bg-elev2); border: 1px solid #E5E8EB;
+      color: var(--fg-dim); font-size: 13px;
       padding: 6px 12px; border-radius: 8px;
       cursor: pointer; font-family: inherit;
       transition: border-color 0.15s, color 0.15s;
     }
-    .sort-toggle:hover { border-color: #3182F6; color: #3182F6; }
+    .sort-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
     .intro {
-      font-size: 13px; color: #4E5968;
+      font-size: 13px; color: var(--fg-dim);
       margin-bottom: 16px; padding: 12px 14px;
-      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
+      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 10px;
       line-height: 1.55;
     }
 
     .recent-change {
-      font-size: 12px; color: #8B95A1; line-height: 1.5;
+      font-size: 12px; color: var(--fg-mute); line-height: 1.5;
       margin-bottom: 24px; padding: 2px 0 2px 11px;
       border-left: 3px solid #3182F6;
       word-break: keep-all; overflow-wrap: break-word;
     }
-    .recent-change b { color: #4E5968; font-weight: 600; }
+    .recent-change b { color: var(--fg-dim); font-weight: 600; }
 
     .list { display: flex; flex-direction: column; gap: 14px; }
 
     .habit-card {
-      background: #F9FAFB; border: 1px solid #E5E8EB;
+      background: var(--bg-elev); border: 1px solid #E5E8EB;
       border-radius: 12px; padding: 16px 18px;
       transition: border-color 0.15s, background 0.15s;
     }
     .habit-card:hover {
-      border-color: #3182F6;
-      background: #FFFFFF;
+      border-color: var(--accent);
+      background: var(--bg);
     }
 
     .hb-head {
@@ -108,34 +108,35 @@
       flex: 0 0 auto;
       font-size: 12px; padding: 3px 9px; border-radius: 6px;
       font-weight: 700; letter-spacing: 0.3px;
-      color: #FFFFFF; background: #3182F6;
+      color:#ffffff; background: var(--accent);
     }
     .hb-title {
       flex: 1 1 auto; min-width: 0;
-      font-size: 16px; color: #191F28; font-weight: 600;
+      font-size: 16px; color: var(--fg); font-weight: 600;
       line-height: 1.45;
       word-break: keep-all; overflow-wrap: break-word;
     }
 
     .hb-body {
-      font-size: 13px; color: #4E5968; line-height: 1.7;
+      font-size: 13px; color: var(--fg-dim); line-height: 1.7;
       word-break: keep-all; overflow-wrap: break-word;
     }
-    .hb-body strong { color: #191F28; font-weight: 600; }
+    .hb-body strong { color: var(--fg); font-weight: 600; }
 
     .hb-source {
-      font-size: 11px; color: #8B95A1;
+      font-size: 11px; color: var(--fg-mute);
       margin-top: 10px; padding-top: 10px;
       border-top: 1px dashed #E5E8EB;
     }
 
     .back {
-      display: inline-block; margin-top: 28px; color: #4E5968;
+      display: inline-block; margin-top: 28px; color: var(--fg-dim);
       text-decoration: none; font-size: 14px;
     }
-    .back:hover { color: #3182F6; }
+    .back:hover { color: var(--accent); }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
   <div class="wrap">

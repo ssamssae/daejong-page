@@ -47,8 +47,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #FFFFFF;
-      color: #191F28;
+      background-color:#ffffff;
+      color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
@@ -60,19 +60,19 @@
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
-    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #3182F6; }
+    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
+    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    header a:hover { color: var(--accent); }
 
     .detail-head {
       margin-bottom: 18px;
     }
     .detail-date {
-      font-size: 13px; color: #3182F6; font-weight: 700;
+      font-size: 13px; color: var(--accent); font-weight: 700;
       letter-spacing: 0.3px; margin-bottom: 8px;
     }
     .detail-title {
-      font-size: 22px; color: #191F28; font-weight: 700;
+      font-size: 22px; color: var(--fg); font-weight: 700;
       line-height: 1.4; margin-bottom: 10px;
       word-break: keep-all; overflow-wrap: break-word;
     }
@@ -86,37 +86,37 @@
       border: 1px solid transparent;
     }
     .badge-sev-high {
-      color: #F04452; background: rgba(240, 68, 82, 0.1);
+      color: var(--danger); background: rgba(240, 68, 82, 0.1);
       border-color: rgba(240, 68, 82, 0.3);
     }
     .badge-sev-medium {
-      color: #F97316; background: rgba(249, 115, 22, 0.1);
+      color: var(--warn); background: rgba(249, 115, 22, 0.1);
       border-color: rgba(249, 115, 22, 0.3);
     }
     .badge-sev-low {
-      color: #22C55E; background: rgba(34, 197, 94, 0.1);
+      color: var(--success); background: rgba(34, 197, 94, 0.1);
       border-color: rgba(34, 197, 94, 0.3);
     }
     .badge-rec {
-      color: #4E5968; background: rgba(139, 149, 161, 0.08);
+      color: var(--fg-dim); background: rgba(139, 149, 161, 0.08);
       border-color: rgba(139, 149, 161, 0.25);
     }
 
     .meta-grid {
       display: grid; grid-template-columns: auto 1fr; gap: 6px 14px;
-      padding: 12px 14px; background: #F9FAFB;
+      padding: 12px 14px; background: var(--bg-elev);
       border: 1px solid #E5E8EB; border-radius: 10px;
       margin-bottom: 22px;
       font-size: 12px;
     }
-    .meta-grid dt { color: #8B95A1; font-weight: 600; }
-    .meta-grid dd { color: #191F28; }
+    .meta-grid dt { color: var(--fg-mute); font-weight: 600; }
+    .meta-grid dd { color: var(--fg); }
 
     .issue-sections {
       display: flex; flex-direction: column; gap: 14px;
     }
     .issue-section {
-      background: #F9FAFB;
+      background: var(--bg-elev);
       border: 1px solid #F2F4F6;
       border-radius: 10px;
       padding: 14px 16px;
@@ -127,47 +127,48 @@
     }
     .section-label {
       display: inline-block; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.5px; color: #3182F6;
+      letter-spacing: 0.5px; color: var(--accent);
       margin-bottom: 8px; text-transform: uppercase;
     }
     .section-body {
-      font-size: 14px; color: #191F28; line-height: 1.7;
+      font-size: 14px; color: var(--fg); line-height: 1.7;
       word-break: keep-all; overflow-wrap: break-word;
     }
     .section-body ul { padding-left: 20px; margin: 6px 0; }
     .section-body li { margin-bottom: 6px; }
     .section-body code {
-      background: #F2F4F6; padding: 1px 6px; border-radius: 4px;
-      font-size: 13px; color: #3182F6;
+      background: var(--bg-elev2); padding: 1px 6px; border-radius: 4px;
+      font-size: 13px; color: var(--accent);
     }
     .section-body pre {
-      background: #191F28; color: #E5E8EB;
+      background: var(--fg); color: var(--border);
       padding: 12px 14px; border-radius: 8px;
       overflow-x: auto; font-size: 12px; line-height: 1.5;
       margin: 8px 0;
     }
     .section-body pre code {
-      background: transparent; color: #E5E8EB; padding: 0;
+      background: transparent; color: var(--border); padding: 0;
     }
     .section-body p { margin: 6px 0; }
-    .section-body a { color: #3182F6; text-decoration: none; word-break: break-all; }
+    .section-body a { color: var(--accent); text-decoration: none; word-break: break-all; }
     .section-body a:hover { text-decoration: underline; }
 
     .back {
-      display: inline-block; margin-top: 28px; color: #4E5968;
+      display: inline-block; margin-top: 28px; color: var(--fg-dim);
       text-decoration: none; font-size: 14px;
     }
-    .back:hover { color: #3182F6; }
+    .back:hover { color: var(--accent); }
 
-    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .loading { color: var(--fg-mute); text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
     .error {
-      color: #F04452; text-align: center; padding: 40px 0; font-size: 14px;
+      color: var(--danger); text-align: center; padding: 40px 0; font-size: 14px;
       background: rgba(240, 68, 82, 0.05);
       border: 1px solid rgba(240, 68, 82, 0.2);
       border-radius: 10px;
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
   <div class="wrap">
