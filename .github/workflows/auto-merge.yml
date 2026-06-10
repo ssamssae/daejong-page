@@ -32,7 +32,31 @@ jobs:
        startsWith(github.event.pull_request.head.ref, 'mac/')) &&
       !contains(github.event.pull_request.labels.*.name, 'no-auto-merge')
     steps:
+      # ⚠️ 제거 금지 (DO NOT REMOVE) — 디자인/스타일 PR 시각검증 게이트 (T-260610-14)
+      # daejong-page 디자인/CSS/SVG PR 은 시각검증(폰 세로뷰포트) 전 auto-merge 금지.
+      # 근거: 2026-06-10 PR #188(page-dark.css 톤통일)이 본진 시각검증 게이트보다
+      #   CI auto-merge 가 먼저 머지한 거버넌스 갭. 컨벤션(draft 로 올리자)은 까먹으면
+      #   무력 → CI 게이트로 강제(형님 지시 "훅으로 강제"). 일반 콘텐츠(.md 등)는 기존 auto-merge 유지.
+      - name: Detect design/style files
+        id: design
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          files=$(gh pr diff ${{ github.event.pull_request.number }} --name-only --repo ${{ github.repository }})
+          if echo "$files" | grep -qiE '\.(css|svg|scss)$'; then
+            echo "design=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "design=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Flag design PR for visual review (skip auto-merge)
+        if: steps.design.outputs.design == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} \
+            --body "🎨 디자인/스타일 파일(.css/.svg/.scss) 변경 감지 — auto-merge 보류. 폰 세로뷰포트(390px) 시각검증 통과 후 수동 머지(\`gh pr merge --squash\`). 게이트=T-260610-14."
       - name: Enable auto-merge (squash)
+        if: steps.design.outputs.design != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -41,3 +65,4 @@ jobs:
             --delete-branch \
             --auto \
             --repo ${{ github.repository }}
+      # ⚠️ 제거 금지 끝
