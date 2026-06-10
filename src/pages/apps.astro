@@ -42,7 +42,7 @@ const apps = [
   {
     name: '첫이름 — AI 사주 작명', status: '웹 SaaS · ₩19,900',
     desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스.',
-    links: [{ label: '바로가기 ↗', url: 'https://cheotireum.kangdaejong.com' }],
+    links: [{ label: '출시 준비중', disabled: true }],
   },
 ];
 ---
@@ -56,7 +56,9 @@ const apps = [
         <div class="card-status">{a.status}</div>
         <p class="card-desc">{a.desc}</p>
         <div class="card-links">
-          {a.links.map((l) => <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+          {a.links.map((l) => l.disabled
+            ? <span style="color:var(--fg-mute);cursor:default">{l.label}</span>
+            : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
         </div>
       </div>
     ))}
