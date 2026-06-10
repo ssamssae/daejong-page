@@ -309,7 +309,7 @@
         <h2>한 달 만에 일어난 일들</h2>
         <p>첫 코드부터 App Store 심사 제출까지, 압축된 개발 여정.</p>
       </div>
-      <div class="journey" id="journey"></div>
+      <div class="journey" id="journeyList"></div>
     </div>
   </section>
 
@@ -381,7 +381,7 @@
       { date: '2026.04.15', title: 'Apple App Store 심사 제출', desc: '패키지명·메타데이터·아이콘·IPA 빌드를 하루에 끝내고 제출.' },
       { date: '2026.04.16', title: 'Google Play 비공개 테스트', desc: '앱 설정 11/11 완료, 비공개 테스트 버전을 검토 제출.' }
     ];
-    var jr = document.getElementById('journey');
+    var jr = document.getElementById('journeyList');
     if (jr) {
       jr.innerHTML = milestones.map(function (m) {
         return '<div class="milestone">' +
