@@ -44,13 +44,15 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/page-dark.css">
 <style>
+  /* ── 다크 네온 톤 토큰 (page-dark.css SoT 미러). 등락색은 도메인 의미라 보존 ── */
   :root {
-    --blue: #3182F6; --blue-strong: #1B64DA;
-    --up: #F04452;       /* 한국식 상승 = 빨강 */
-    --down: #3182F6;     /* 한국식 하락 = 파랑 */
-    --ink: #191F28; --gray: #4E5968; --gray2: #8B95A1;
-    --line: #E5E8EB; --bg: #F9FAFB; --bg2: #F2F4F6; --white: #FFFFFF;
+    --blue: #00e5ff; --blue-strong: #00b8d4;
+    --up: #ff5a6a;       /* 한국식 상승 = 빨강 (다크 대비) */
+    --down: #4d94ff;     /* 한국식 하락 = 파랑 (다크 대비, 시안 액센트와 구분) */
+    --ink: #f5f5f5; --gray: #b9c0c9; --gray2: #8b95a1;
+    --line: #232323; --bg: #131313; --bg2: #191919; --white: #0a0a0a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {

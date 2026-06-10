@@ -45,18 +45,19 @@
 </script>
   <meta name="description" content="Claude Code와 페어로 앱을 만드는 1인 개발자 강대종의 개발 여정 페이지. 출시한 앱, 개발 지표, 첫 코드부터 App Store 심사 제출까지의 압축된 과정, 작게 만들고 빨리 고치는 방식, 베타테스터 안내를 담았습니다.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="/page-dark.css">
   <style>
-    /* ── Toss 톤 토큰 (daejong-page 기존 팔레트 유지) ── */
+    /* ── 다크 네온 톤 토큰 (page-dark.css SoT 미러) ── */
     :root {
-      --bg:        #0F1115;
-      --bg-soft:   #16191F;
-      --bg-band:   #1A1D24;
-      --line:      #2A2E37;
-      --ink:       #F2F4F6;
-      --ink-2:     #C9CDD2;
-      --ink-3:     #8B95A1;
-      --blue:      #4D94FF;
-      --blue-deep: #3182F6;
+      --bg:        #0a0a0a;
+      --bg-soft:   #131313;
+      --bg-band:   #191919;
+      --line:      #232323;
+      --ink:       #f5f5f5;
+      --ink-2:     #b9c0c9;
+      --ink-3:     #8b95a1;
+      --blue:      #00e5ff;
+      --blue-deep: #00b8d4;
       --radius:    20px;
       --shadow:    0 2px 24px rgba(0,0,0,0.30);
       --shadow-lg: 0 8px 40px rgba(0,0,0,0.45);
@@ -202,11 +203,11 @@
     .milestone p { font-size: 14px; color: var(--ink-2); }
 
     /* ── CTA ── */
-    .cta-band { background: #11254A; color: #fff; padding: 80px 0; text-align: center; }
+    .cta-band { background: var(--accent-bg); color: #fff; padding: 80px 0; text-align: center; }
     .cta-band h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; letter-spacing: -0.03em; }
-    .cta-band p { color: #C9CDD2; margin: 14px 0 32px; font-size: 16px; }
+    .cta-band p { color: var(--ink-2); margin: 14px 0 32px; font-size: 16px; }
     .cta-band .btn-primary { background: var(--blue); }
-    .cta-band .btn-light { background: #fff; color: #0F1115; }
+    .cta-band .btn-light { background: #fff; color: var(--bg); }
     .cta-band .btn-light:hover { background: #F2F4F6; }
 
     /* ── 푸터 ── */
