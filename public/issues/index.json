@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-06-10-notebook-chatbot-busyloop-poll-drop.md",
+      "date": "2026-06-10",
+      "slug": "notebook-chatbot-busyloop-poll-drop",
+      "title": "노트북 텔레그램 챗봇 busy-loop spin 으로 폴링 끊김 — 본진 SSH restart 로 복구",
+      "severity": "medium",
+      "recurrence": "medium-high",
+      "scope": "노트북 텔레그램 챗봇 / tmux-hosted polling / systemd health 사각",
+      "occurred_at": "2026-06-10 10:22 KST",
+      "resolved_at": "2026-06-10 10:46 KST",
+      "updated": "2026-06-10T13:55:00+09:00"
+    },
+    {
       "file": "2026-06-09-task-mark-no-taskid.md",
       "date": "2026-06-09",
       "slug": "task-mark-no-taskid",
