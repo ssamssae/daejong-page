@@ -8,6 +8,15 @@ set -uo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
+# ⚠️ 제거 금지 (DO NOT REMOVE) — rebase-guard (T-260609-11)
+# rebase replay 중에는 매 replay 커밋마다 post-commit 이 발동해 ai-glossary 재생성 커밋이
+# working tree 를 더럽혀 다음 rebase step 이 "local changes would be overwritten" 으로 stuck.
+# rebase 진행 중이면 skip — rebase 종료 후 정상 커밋 때 어차피 재생성된다.
+GIT_DIR="$(git rev-parse --git-dir)"
+if [[ -d "$GIT_DIR/rebase-merge" || -d "$GIT_DIR/rebase-apply" ]]; then
+  exit 0
+fi
+
 # 마지막 commit 의 insights/ 변경 여부 (P4 Astro 전환: src/content/insights/ 신경로 + 옛 insights/ 둘 다 감지)
 if ! git diff-tree --no-commit-id --name-only -r HEAD | grep -qE '^(insights/|src/content/insights/).*\.md$'; then
   exit 0
