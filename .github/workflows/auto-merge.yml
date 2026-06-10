@@ -43,7 +43,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           files=$(gh pr diff ${{ github.event.pull_request.number }} --name-only --repo ${{ github.repository }})
-          if echo "$files" | grep -qiE '\.(css|svg|scss)$'; then
+          if echo "$files" | grep -qiE '\.(css|svg|scss)$|^public/.*\.html$'; then
             echo "design=true" >> "$GITHUB_OUTPUT"
           else
             echo "design=false" >> "$GITHUB_OUTPUT"
