@@ -8,6 +8,12 @@ set -uo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
+# Rebase guard: rebase replay 중에는 각 commit replay 마다 ai-glossary 재생성 + 별 commit 이
+# 터져 replay 충돌/혼란을 유발한다. rebase 진행 중이면 skip (rebase 종료 후 정상 commit 에서 재생성).
+if [[ -d "$(git rev-parse --git-path rebase-merge)" || -d "$(git rev-parse --git-path rebase-apply)" ]]; then
+  exit 0
+fi
+
 # 마지막 commit 의 insights/ 변경 여부 (P4 Astro 전환: src/content/insights/ 신경로 + 옛 insights/ 둘 다 감지)
 if ! git diff-tree --no-commit-id --name-only -r HEAD | grep -qE '^(insights/|src/content/insights/).*\.md$'; then
   exit 0
