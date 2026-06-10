@@ -47,8 +47,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #FFFFFF;
-      color: #191F28;
+      background-color:#ffffff;
+      color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
@@ -60,14 +60,14 @@
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
-    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #3182F6; }
+    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
+    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    header a:hover { color: var(--accent); }
 
     .intro {
-      font-size: 13px; color: #4E5968;
+      font-size: 13px; color: var(--fg-dim);
       margin-bottom: 20px; padding: 12px 14px;
-      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
+      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 10px;
       line-height: 1.55;
     }
 
@@ -76,18 +76,18 @@
       margin-bottom: 24px;
     }
     .hero-card {
-      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
+      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 12px;
       padding: 14px 14px;
     }
     .hero-card-label {
-      font-size: 10px; color: #4E5968; margin-bottom: 6px;
+      font-size: 10px; color: var(--fg-dim); margin-bottom: 6px;
       text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .hero-card-value { font-size: 22px; color: #191F28; font-weight: 700; }
+    .hero-card-value { font-size: 22px; color: var(--fg); font-weight: 700; }
     .hero-card-value .unit {
-      font-size: 13px; color: #4E5968; font-weight: 500; margin-left: 4px;
+      font-size: 13px; color: var(--fg-dim); font-weight: 500; margin-left: 4px;
     }
-    .hero-card-sub { font-size: 11px; color: #8B95A1; margin-top: 4px; }
+    .hero-card-sub { font-size: 11px; color: var(--fg-mute); margin-top: 4px; }
 
     .timeline { display: flex; flex-direction: column; gap: 26px; }
 
@@ -96,18 +96,18 @@
       display: flex; align-items: baseline; gap: 10px;
       padding-bottom: 8px; border-bottom: 1px dashed #E5E8EB;
     }
-    .date-label { font-size: 15px; color: #3182F6; font-weight: 700; }
-    .date-rel { font-size: 12px; color: #4E5968; }
-    .date-count { margin-left: auto; font-size: 11px; color: #8B95A1; }
+    .date-label { font-size: 15px; color: var(--accent); font-weight: 700; }
+    .date-rel { font-size: 12px; color: var(--fg-dim); }
+    .date-count { margin-left: auto; font-size: 11px; color: var(--fg-mute); }
 
     .issue-card {
       display: block;
-      background: #F9FAFB; border: 1px solid #E5E8EB;
+      background: var(--bg-elev); border: 1px solid #E5E8EB;
       border-radius: 12px; padding: 14px 16px;
       color: inherit;
     }
     .issue-preview {
-      font-size: 13px; color: #4E5968; line-height: 1.6;
+      font-size: 13px; color: var(--fg-dim); line-height: 1.6;
       margin-top: 6px;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
       overflow: hidden; word-break: keep-all; overflow-wrap: break-word;
@@ -119,7 +119,7 @@
     }
     .issue-title {
       flex: 1 1 auto; min-width: 0;
-      font-size: 15px; color: #191F28; font-weight: 600;
+      font-size: 15px; color: var(--fg); font-weight: 600;
       line-height: 1.45;
       word-break: keep-all; overflow-wrap: break-word;
     }
@@ -132,90 +132,91 @@
       border: 1px solid transparent;
     }
     .badge-sev-high {
-      color: #F04452; background: rgba(240, 68, 82, 0.1);
+      color: var(--danger); background: rgba(240, 68, 82, 0.1);
       border-color: rgba(240, 68, 82, 0.3);
     }
     .badge-sev-medium {
-      color: #F97316; background: rgba(249, 115, 22, 0.1);
+      color: var(--warn); background: rgba(249, 115, 22, 0.1);
       border-color: rgba(249, 115, 22, 0.3);
     }
     .badge-sev-low {
-      color: #22C55E; background: rgba(34, 197, 94, 0.1);
+      color: var(--success); background: rgba(34, 197, 94, 0.1);
       border-color: rgba(34, 197, 94, 0.3);
     }
     .badge-rec {
-      color: #4E5968; background: rgba(139, 149, 161, 0.08);
+      color: var(--fg-dim); background: rgba(139, 149, 161, 0.08);
       border-color: rgba(139, 149, 161, 0.25);
     }
 
     .meta-line {
-      font-size: 11px; color: #8B95A1;
+      font-size: 11px; color: var(--fg-mute);
       margin-bottom: 10px;
     }
-    .meta-line .sep { color: #E5E8EB; margin: 0 6px; }
+    .meta-line .sep { color: var(--border); margin: 0 6px; }
 
     .issue-sections {
       display: flex; flex-direction: column; gap: 10px;
       margin-top: 4px;
     }
     .issue-section {
-      background: #F9FAFB;
+      background: var(--bg-elev);
       border: 1px solid #F2F4F6;
       border-radius: 8px;
       padding: 10px 12px;
     }
     .section-label {
       display: inline-block; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.5px; color: #3182F6;
+      letter-spacing: 0.5px; color: var(--accent);
       margin-bottom: 6px; text-transform: uppercase;
     }
     .section-body {
-      font-size: 13px; color: #191F28; line-height: 1.65;
+      font-size: 13px; color: var(--fg); line-height: 1.65;
       white-space: pre-wrap;
       word-break: keep-all; overflow-wrap: break-word;
     }
     .section-body ul { padding-left: 18px; margin: 4px 0; }
     .section-body li { margin-bottom: 4px; }
     .section-body code {
-      background: #F9FAFB; padding: 1px 5px; border-radius: 4px;
-      font-size: 12px; color: #3182F6;
+      background: var(--bg-elev); padding: 1px 5px; border-radius: 4px;
+      font-size: 12px; color: var(--accent);
     }
 
     .recur {
       margin-top: 10px; padding: 8px 12px;
       background: rgba(240, 68, 82, 0.08);
       border: 1px solid rgba(240, 68, 82, 0.2);
-      border-radius: 8px; font-size: 12px; color: #F97316;
+      border-radius: 8px; font-size: 12px; color: var(--warn);
     }
 
-    .date-group.empty-day .date-label { color: #8B95A1; }
-    .date-group.empty-day .date-count { color: #B0B8C1; }
+    .date-group.empty-day .date-label { color: var(--fg-mute); }
+    .date-group.empty-day .date-count { color: var(--fg-mute); }
     .empty-day-note {
-      font-size: 12px; color: #B0B8C1;
+      font-size: 12px; color: var(--fg-mute);
       padding: 8px 14px;
-      background: #F9FAFB; border: 1px dashed #E5E8EB;
+      background: var(--bg-elev); border: 1px dashed #E5E8EB;
       border-radius: 10px;
     }
 
     .empty {
-      color: #8B95A1; text-align: center; padding: 60px 20px; font-size: 14px;
-      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 12px;
+      color: var(--fg-mute); text-align: center; padding: 60px 20px; font-size: 14px;
+      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 12px;
     }
     .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
-    .loading { color: #8B95A1; text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
-    .error { color: #F04452; text-align: center; padding: 40px 0; font-size: 14px; }
+    .loading { color: var(--fg-mute); text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .error { color: var(--danger); text-align: center; padding: 40px 0; font-size: 14px; }
 
     .back {
-      display: inline-block; margin-top: 28px; color: #4E5968;
+      display: inline-block; margin-top: 28px; color: var(--fg-dim);
       text-decoration: none; font-size: 14px;
     }
-    .back:hover { color: #3182F6; }
+    .back:hover { color: var(--accent); }
 
     @media (max-width: 520px) {
       .hero-stats { grid-template-columns: 1fr 1fr; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
   <div class="wrap">
@@ -416,7 +417,7 @@
         '<div class="empty">' +
         '<div class="empty-emoji">🧯</div>' +
         '<div>기록된 이슈가 없습니다.</div>' +
-        '<div style="font-size:12px;color:#B0B8C1;margin-top:6px;">문제가 생기면 /issue 로 남겨둡시다.</div>' +
+        '<div style="font-size:12px;color: var(--fg-mute);margin-top:6px;">문제가 생기면 /issue 로 남겨둡시다.</div>' +
         '</div>';
     }
 

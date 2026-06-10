@@ -47,8 +47,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #FFFFFF;
-      color: #191F28;
+      background-color:#ffffff;
+      color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
@@ -59,37 +59,37 @@
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 20px; color: #3182F6; font-weight: 700; }
-    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #3182F6; }
+    header h1 { font-size: 20px; color: var(--accent); font-weight: 700; }
+    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    header a:hover { color: var(--accent); }
     .intro {
-      color: #4E5968; font-size: 14px; margin-bottom: 32px; padding: 16px 20px;
-      background: #F9FAFB; border-radius: 12px; border-left: 3px solid #3182F6;
+      color: var(--fg-dim); font-size: 14px; margin-bottom: 32px; padding: 16px 20px;
+      background: var(--bg-elev); border-radius: 12px; border-left: 3px solid #3182F6;
     }
     .stats {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
       margin-bottom: 28px;
     }
     .stat {
-      background: #FFFFFF; border-radius: 12px; padding: 16px 12px; text-align: center;
+      background: var(--bg); border-radius: 12px; padding: 16px 12px; text-align: center;
       border: 1px solid #E5E8EB;
     }
-    .stat-num { font-size: 26px; font-weight: 700; color: #3182F6; line-height: 1; }
-    .stat-label { font-size: 11px; color: #8B95A1; margin-top: 6px; letter-spacing: 0.3px; }
+    .stat-num { font-size: 26px; font-weight: 700; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 11px; color: var(--fg-mute); margin-top: 6px; letter-spacing: 0.3px; }
     @media (max-width: 560px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* Heatmap */
     .heatmap-card {
-      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 14px;
+      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 14px;
       padding: 20px 20px 18px; margin-bottom: 28px; overflow-x: auto;
     }
     .heatmap-title {
-      font-size: 13px; color: #4E5968; margin-bottom: 14px;
+      font-size: 13px; color: var(--fg-dim); margin-bottom: 14px;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .heatmap-title strong { color: #191F28; font-size: 14px; }
+    .heatmap-title strong { color: var(--fg); font-size: 14px; }
     .heatmap {
       display: grid; grid-template-columns: 24px 1fr; gap: 4px;
       min-width: 520px;
@@ -99,13 +99,13 @@
       padding-top: 18px;
     }
     .heatmap-day-label {
-      font-size: 9px; color: #8B95A1; line-height: 12px; text-align: right; padding-right: 4px;
+      font-size: 9px; color: var(--fg-mute); line-height: 12px; text-align: right; padding-right: 4px;
     }
     .heatmap-grid-wrap {
       display: flex; flex-direction: column;
     }
     .heatmap-months {
-      display: flex; font-size: 9px; color: #8B95A1; height: 14px;
+      display: flex; font-size: 9px; color: var(--fg-mute); height: 14px;
       padding-bottom: 4px;
     }
     .heatmap-grid {
@@ -113,17 +113,17 @@
       gap: 3px;
     }
     .hm-cell {
-      width: 12px; height: 12px; border-radius: 3px; background: #FFFFFF;
+      width: 12px; height: 12px; border-radius: 3px; background: var(--bg);
       border: 1px solid #F2F4F6; cursor: default;
       transition: transform 0.1s;
     }
-    .hm-cell:hover { transform: scale(1.3); border-color: #3182F6; }
-    .hm-cell.lv1 { background: #C9DCF7; border-color: #A8C7F0; }
-    .hm-cell.lv2 { background: #3182F6; border-color: #1B64DA; }
-    .hm-cell.lv3 { background: #1B64DA; border-color: #1B64DA; }
-    .hm-cell.lv4 { background: #3182F6; border-color: #5B9BF8; box-shadow: 0 0 6px rgba(49, 130, 246, 0.4); }
+    .hm-cell:hover { transform: scale(1.3); border-color: var(--accent); }
+    .hm-cell.lv1 { background: var(--accent-bg); border-color: #A8C7F0; }
+    .hm-cell.lv2 { background: var(--accent); border-color: var(--accent-dim); }
+    .hm-cell.lv3 { background: var(--accent-dim); border-color: var(--accent-dim); }
+    .hm-cell.lv4 { background: var(--accent); border-color: #5B9BF8; box-shadow: 0 0 6px rgba(49, 130, 246, 0.4); }
     .heatmap-legend {
-      display: flex; align-items: center; gap: 6px; font-size: 10px; color: #8B95A1;
+      display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--fg-mute);
       margin-top: 12px; justify-content: flex-end;
     }
     .heatmap-legend .hm-cell { cursor: default; }
@@ -141,47 +141,48 @@
     }
     .ms-num {
       position: absolute; top: 10px; right: 12px;
-      font-size: 28px; font-weight: 800; color: #3182F6; opacity: 0.25; line-height: 1;
+      font-size: 28px; font-weight: 800; color: var(--accent); opacity: 0.25; line-height: 1;
     }
-    .ms-date { font-size: 11px; color: #3182F6; font-weight: 600; margin-bottom: 4px; }
-    .ms-title { font-size: 14px; color: #191F28; font-weight: 700; line-height: 1.4; }
+    .ms-date { font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+    .ms-title { font-size: 14px; color: var(--fg); font-weight: 700; line-height: 1.4; }
 
     /* Event list */
     .section-title {
-      font-size: 14px; color: #191F28; font-weight: 600; margin-bottom: 14px;
+      font-size: 14px; color: var(--fg); font-weight: 600; margin-bottom: 14px;
       margin-top: 8px;
     }
     .events { display: flex; flex-direction: column; gap: 4px; }
     .event-row {
       display: grid; grid-template-columns: 90px 1fr auto;
       gap: 12px; align-items: center; padding: 10px 14px;
-      background: #F9FAFB; border: 1px solid transparent; border-radius: 10px;
+      background: var(--bg-elev); border: 1px solid transparent; border-radius: 10px;
       transition: border-color 0.15s, background 0.15s;
     }
-    .event-row:hover { border-color: #E5E8EB; background: #FFFFFF; }
+    .event-row:hover { border-color: var(--border); background: var(--bg); }
     .event-row.major { border-left: 3px solid #3182F6; }
-    .er-date { font-size: 11px; color: #4E5968; font-weight: 600; }
-    .er-title { font-size: 13px; color: #191F28; line-height: 1.5; }
-    .er-title strong { color: #191F28; font-weight: 600; display: block; margin-bottom: 2px; }
-    .er-title span { color: #8B95A1; font-size: 12px; }
+    .er-date { font-size: 11px; color: var(--fg-dim); font-weight: 600; }
+    .er-title { font-size: 13px; color: var(--fg); line-height: 1.5; }
+    .er-title strong { color: var(--fg); font-weight: 600; display: block; margin-bottom: 2px; }
+    .er-title span { color: var(--fg-mute); font-size: 12px; }
     .er-tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
     .tag {
       font-size: 10px; padding: 2px 7px; border-radius: 8px;
-      background: #E5E8EB; color: #4E5968; border: 1px solid #E5E8EB;
+      background: var(--border); color: var(--fg-dim); border: 1px solid #E5E8EB;
     }
-    .tag.flutter { border-color: #3182F6; color: #3182F6; }
-    .tag.ai { border-color: #3182F6; color: #3182F6; }
-    .tag.web { border-color: #22C55E; color: #22C55E; }
+    .tag.flutter { border-color: var(--accent); color: var(--accent); }
+    .tag.ai { border-color: var(--accent); color: var(--accent); }
+    .tag.web { border-color: var(--success); color: var(--success); }
     .tag.infra { border-color: #A855F7; color: #A855F7; }
     @media (max-width: 640px) {
       .event-row { grid-template-columns: 70px 1fr; }
       .er-tags { grid-column: 2; justify-content: flex-start; margin-top: 4px; }
     }
 
-    .back { display: inline-block; margin-top: 24px; color: #4E5968; text-decoration: none; font-size: 14px; }
-    .back:hover { color: #3182F6; }
+    .back { display: inline-block; margin-top: 24px; color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    .back:hover { color: var(--accent); }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
   <div class="wrap">

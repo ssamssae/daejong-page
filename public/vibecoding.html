@@ -47,8 +47,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #F8F9FA;
-      color: #191F28;
+      background: var(--bg-elev2);
+      color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
@@ -64,9 +64,9 @@
       padding-bottom: 16px;
       border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
-    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #3182F6; }
+    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
+    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    header a:hover { color: var(--accent); }
 
     .hero {
       background: linear-gradient(135deg, #EBF2FE 0%, #F0FDF4 100%);
@@ -78,7 +78,7 @@
     .hero-label {
       font-size: 12px;
       font-weight: 700;
-      color: #3182F6;
+      color: var(--accent);
       letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 12px;
@@ -86,13 +86,13 @@
     .hero h2 {
       font-size: 28px;
       font-weight: 800;
-      color: #191F28;
+      color: var(--fg);
       margin-bottom: 16px;
       line-height: 1.3;
     }
     .hero p {
       font-size: 15px;
-      color: #4E5968;
+      color: var(--fg-dim);
       line-height: 1.7;
       max-width: 600px;
     }
@@ -108,25 +108,25 @@
     .stat-num {
       font-size: 32px;
       font-weight: 800;
-      color: #3182F6;
+      color: var(--accent);
       line-height: 1;
     }
     .stat-label {
       font-size: 12px;
-      color: #8B95A1;
+      color: var(--fg-mute);
       margin-top: 4px;
     }
 
     h2.section-title {
       font-size: 20px;
       font-weight: 700;
-      color: #191F28;
+      color: var(--fg);
       margin-bottom: 24px;
       padding-bottom: 10px;
       border-bottom: 2px solid #E5E8EB;
     }
     h2.section-title span {
-      color: #3182F6;
+      color: var(--accent);
     }
 
     /* Timeline */
@@ -138,7 +138,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: #E5E8EB;
+      background: var(--border);
     }
     .tl-item {
       position: relative;
@@ -152,31 +152,31 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: #3182F6;
+      background: var(--accent);
       border: 3px solid #F8F9FA;
       box-shadow: 0 0 0 2px #3182F6;
     }
-    .tl-dot.epoch1 { background: #8B95A1; box-shadow: 0 0 0 2px #8B95A1; }
-    .tl-dot.epoch2 { background: #3182F6; box-shadow: 0 0 0 2px #3182F6; }
-    .tl-dot.epoch3 { background: #16A34A; box-shadow: 0 0 0 2px #16A34A; }
-    .tl-dot.epoch4 { background: #EA580C; box-shadow: 0 0 0 2px #EA580C; }
+    .tl-dot.epoch1 { background: var(--fg-mute); box-shadow: 0 0 0 2px #8B95A1; }
+    .tl-dot.epoch2 { background: var(--accent); box-shadow: 0 0 0 2px #3182F6; }
+    .tl-dot.epoch3 { background: var(--success); box-shadow: 0 0 0 2px #16A34A; }
+    .tl-dot.epoch4 { background: var(--warn); box-shadow: 0 0 0 2px #EA580C; }
     .tl-dot.epoch5 { background: #6D28D9; box-shadow: 0 0 0 2px #6D28D9; }
     .tl-dot.epoch6 { background: #0F766E; box-shadow: 0 0 0 2px #0F766E; }
 
     .tl-date {
       font-size: 12px;
       font-weight: 700;
-      color: #8B95A1;
+      color: var(--fg-mute);
       margin-bottom: 6px;
       letter-spacing: 0.5px;
     }
     .tl-card {
-      background: #FFFFFF;
+      background: var(--bg);
       border-radius: 12px;
       padding: 20px 22px;
       border: 1px solid #E5E8EB;
     }
-    .tl-card:hover { border-color: #3182F6; }
+    .tl-card:hover { border-color: var(--accent); }
     .tl-epoch {
       display: inline-block;
       font-size: 11px;
@@ -185,22 +185,22 @@
       border-radius: 8px;
       margin-bottom: 10px;
     }
-    .epoch1 .tl-epoch { background: #F2F4F6; color: #4E5968; }
-    .epoch2 .tl-epoch { background: rgba(49,130,246,0.10); color: #3182F6; }
-    .epoch3 .tl-epoch { background: rgba(22,163,74,0.10); color: #16A34A; }
-    .epoch4 .tl-epoch { background: rgba(234,88,12,0.10); color: #EA580C; }
+    .epoch1 .tl-epoch { background: var(--bg-elev2); color: var(--fg-dim); }
+    .epoch2 .tl-epoch { background: rgba(49,130,246,0.10); color: var(--accent); }
+    .epoch3 .tl-epoch { background: rgba(22,163,74,0.10); color: var(--success); }
+    .epoch4 .tl-epoch { background: rgba(234,88,12,0.10); color: var(--warn); }
     .epoch5 .tl-epoch { background: rgba(109,40,217,0.10); color: #6D28D9; }
     .epoch6 .tl-epoch { background: rgba(15,118,110,0.10); color: #0F766E; }
 
     .tl-title {
       font-size: 17px;
       font-weight: 700;
-      color: #191F28;
+      color: var(--fg);
       margin-bottom: 8px;
     }
     .tl-desc {
       font-size: 14px;
-      color: #4E5968;
+      color: var(--fg-dim);
       line-height: 1.6;
     }
     .tl-skills {
@@ -212,14 +212,14 @@
     .skill-badge {
       font-size: 11px;
       font-family: 'SF Mono', Menlo, Consolas, monospace;
-      background: #F2F4F6;
-      color: #4E5968;
+      background: var(--bg-elev2);
+      color: var(--fg-dim);
       padding: 2px 8px;
       border-radius: 6px;
       font-weight: 600;
     }
-    .skill-badge.new { background: rgba(22,163,74,0.10); color: #16A34A; }
-    .skill-badge.del { background: rgba(239,68,68,0.10); color: #DC2626; text-decoration: line-through; }
+    .skill-badge.new { background: rgba(22,163,74,0.10); color: var(--success); }
+    .skill-badge.del { background: rgba(239,68,68,0.10); color: var(--danger); text-decoration: line-through; }
 
     /* Architecture */
     .arch-grid {
@@ -230,25 +230,25 @@
     }
     @media (max-width: 600px) { .arch-grid { grid-template-columns: 1fr; } }
     .arch-card {
-      background: #FFFFFF;
+      background: var(--bg);
       border-radius: 12px;
       padding: 20px;
       border: 1px solid #E5E8EB;
       text-align: center;
     }
     .arch-icon { font-size: 32px; margin-bottom: 10px; }
-    .arch-name { font-size: 14px; font-weight: 700; color: #191F28; margin-bottom: 6px; }
-    .arch-role { font-size: 12px; color: #8B95A1; line-height: 1.5; }
+    .arch-name { font-size: 14px; font-weight: 700; color: var(--fg); margin-bottom: 6px; }
+    .arch-role { font-size: 12px; color: var(--fg-mute); line-height: 1.5; }
 
     /* Skills count */
     .skills-summary {
-      background: #FFFFFF;
+      background: var(--bg);
       border-radius: 12px;
       padding: 24px;
       border: 1px solid #E5E8EB;
       margin-bottom: 56px;
     }
-    .skills-summary p { font-size: 14px; color: #4E5968; margin-bottom: 16px; line-height: 1.6; }
+    .skills-summary p { font-size: 14px; color: var(--fg-dim); margin-bottom: 16px; line-height: 1.6; }
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
@@ -257,28 +257,28 @@
 
     /* Workflow */
     .workflow-wrap { margin-bottom: 56px; display: flex; flex-direction: column; gap: 20px; }
-    .wf-block { background: #FFFFFF; border-radius: 12px; padding: 24px; border: 1px solid #E5E8EB; }
-    .wf-subtitle { font-size: 12px; font-weight: 700; color: #8B95A1; margin-bottom: 18px; letter-spacing: 0.8px; text-transform: uppercase; }
+    .wf-block { background: var(--bg); border-radius: 12px; padding: 24px; border: 1px solid #E5E8EB; }
+    .wf-subtitle { font-size: 12px; font-weight: 700; color: var(--fg-mute); margin-bottom: 18px; letter-spacing: 0.8px; text-transform: uppercase; }
     .routing-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: start; }
     .routing-col { display: flex; flex-direction: column; gap: 8px; }
-    .routing-label { font-size: 11px; font-weight: 700; color: #8B95A1; margin-bottom: 2px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .routing-label { font-size: 11px; font-weight: 700; color: var(--fg-mute); margin-bottom: 2px; letter-spacing: 0.5px; text-transform: uppercase; }
     .routing-node { border-radius: 10px; padding: 10px 14px; font-size: 13px; font-weight: 600; line-height: 1.5; }
-    .routing-node small { display: block; font-size: 11px; font-weight: 400; color: #8B95A1; margin-top: 2px; }
-    .routing-node.trigger { background: rgba(49,130,246,0.10); color: #3182F6; }
-    .routing-node.mac { background: rgba(234,88,12,0.10); color: #EA580C; }
-    .routing-node.wsl { background: rgba(49,130,246,0.07); color: #3182F6; }
-    .routing-node.mini { background: rgba(22,163,74,0.07); color: #16A34A; }
+    .routing-node small { display: block; font-size: 11px; font-weight: 400; color: var(--fg-mute); margin-top: 2px; }
+    .routing-node.trigger { background: rgba(49,130,246,0.10); color: var(--accent); }
+    .routing-node.mac { background: rgba(234,88,12,0.10); color: var(--warn); }
+    .routing-node.wsl { background: rgba(49,130,246,0.07); color: var(--accent); }
+    .routing-node.mini { background: rgba(22,163,74,0.07); color: var(--success); }
     .routing-node.result { background: rgba(124,58,237,0.07); color: #7C3AED; }
     .routing-mid { display: flex; align-items: center; justify-content: center; font-size: 22px; color: #C3CAD9; padding-top: 28px; }
     .wf-pipeline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
     .wf-step { border-radius: 10px; padding: 12px 14px; text-align: center; font-size: 13px; font-weight: 700; min-width: 88px; flex: 1; }
-    .wf-step small { display: block; font-size: 11px; font-weight: 400; color: #8B95A1; margin-top: 3px; line-height: 1.4; }
-    .wf-step.plan { background: rgba(49,130,246,0.10); color: #3182F6; }
-    .wf-step.execute { background: rgba(22,163,74,0.10); color: #16A34A; }
-    .wf-step.judge { background: rgba(234,88,12,0.10); color: #EA580C; }
+    .wf-step small { display: block; font-size: 11px; font-weight: 400; color: var(--fg-mute); margin-top: 3px; line-height: 1.4; }
+    .wf-step.plan { background: rgba(49,130,246,0.10); color: var(--accent); }
+    .wf-step.execute { background: rgba(22,163,74,0.10); color: var(--success); }
+    .wf-step.judge { background: rgba(234,88,12,0.10); color: var(--warn); }
     .wf-step.report { background: rgba(124,58,237,0.10); color: #7C3AED; }
     .wf-arr { font-size: 16px; color: #C3CAD9; flex-shrink: 0; }
-    .wf-note { margin-top: 12px; font-size: 12px; color: #8B95A1; }
+    .wf-note { margin-top: 12px; font-size: 12px; color: var(--fg-mute); }
     @media (max-width: 600px) {
       .routing-grid { grid-template-columns: 1fr; }
       .routing-mid { padding-top: 0; transform: rotate(90deg); width: fit-content; }
@@ -288,7 +288,7 @@
 
     /* Proposal section */
     .proposal {
-      background: #FFFFFF;
+      background: var(--bg);
       border-radius: 16px;
       padding: 32px;
       border: 2px solid #3182F6;
@@ -297,7 +297,7 @@
     .proposal h3 {
       font-size: 18px;
       font-weight: 700;
-      color: #3182F6;
+      color: var(--accent);
       margin-bottom: 20px;
     }
     .proposal-item {
@@ -311,28 +311,29 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: #3182F6;
-      color: #FFFFFF;
+      background: var(--accent);
+      color:#ffffff;
       font-size: 13px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .proposal-text h4 { font-size: 15px; font-weight: 700; color: #191F28; margin-bottom: 4px; }
-    .proposal-text p { font-size: 13px; color: #4E5968; line-height: 1.6; }
+    .proposal-text h4 { font-size: 15px; font-weight: 700; color: var(--fg); margin-bottom: 4px; }
+    .proposal-text p { font-size: 13px; color: var(--fg-dim); line-height: 1.6; }
 
     footer {
       margin-top: 48px;
       padding-top: 20px;
       border-top: 1px solid #E5E8EB;
-      color: #8B95A1;
+      color: var(--fg-mute);
       font-size: 12px;
       text-align: center;
     }
-    footer a { color: #4E5968; text-decoration: none; }
-    footer a:hover { color: #3182F6; }
+    footer a { color: var(--fg-dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
   </style>
+  <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
   <div class="wrap">
@@ -700,7 +701,7 @@
     <h2 class="section-title"><span>06</span> 바이브코딩에서 에이전틱 엔지니어링으로</h2>
 
     <div class="proposal" style="background:#F0FDF4; border-color:#BBF7D0;">
-      <h3 style="color:#15803D;">🤖 에이전틱 엔지니어링이란?</h3>
+      <h3 style="color: var(--success);">🤖 에이전틱 엔지니어링이란?</h3>
       <p style="margin-top:12px; color:#374151; font-size:15px; line-height:1.8;">
         바이브코딩이 <strong>"내가 원하는 걸 말하면 AI가 코드 초안을 써주고, 내가 감으로 고친다"</strong>라면,<br>
         에이전틱 엔지니어링은 <strong>"AI 에이전트가 목표를 이해하고, 탐색·계획·구현·테스트·검증까지 스스로 한다"</strong>는 개념이다.<br><br>
@@ -718,7 +719,7 @@
         </div>
         <div style="background:#DCFCE7; border-radius:12px; padding:20px; border:1px solid #BBF7D0;">
           <div style="font-weight:700; color:#166534; margin-bottom:8px;">에이전틱 엔지니어링</div>
-          <ul style="color:#15803D; font-size:14px; line-height:1.8; padding-left:16px;">
+          <ul style="color: var(--success); font-size:14px; line-height:1.8; padding-left:16px;">
             <li>사람이 목표만 설정</li>
             <li>에이전트가 계획·실행·검증·보고</li>
             <li>복수 에이전트 병렬 처리</li>
@@ -726,13 +727,13 @@
           </ul>
         </div>
       </div>
-      <p style="margin-top:16px; color:#4E5968; font-size:13px; line-height:1.7;">
+      <p style="margin-top:16px; color: var(--fg-dim); font-size:13px; line-height:1.7;">
         물론 실전에선 두 방식이 한 작업 안에 섞여 있다 — binary 가 아니라 스펙트럼이다.
       </p>
     </div>
 
-    <div class="proposal" style="margin-top:24px; background:#EFF6FF; border-color:#BFDBFE;">
-      <h3 style="color:#1D4ED8;">📍 사실 이미 시작했다</h3>
+    <div class="proposal" style="margin-top:24px; background: var(--accent-bg); border-color:#BFDBFE;">
+      <h3 style="color: var(--accent-dim);">📍 사실 이미 시작했다</h3>
       <p style="margin-top:12px; color:#374151; font-size:15px; line-height:1.8;">
         "에이전틱 엔지니어링 갈 수 있을까, 어디서부터 시작해야 할까"를 물었는데 — 답은 이미 시작했다는 것이다.
         평범한 하루의 사이클을 들여다보면 이런 흐름이 자주 나온다.
@@ -751,7 +752,7 @@
           <strong>동시에</strong> — 5노드 mesh 중 다른 노드가 자기 상태 자진 보고 → 본진이 디렉티브 전송 → 노드가 자율 실행
         </div>
       </div>
-      <p style="margin-top:16px; color:#4E5968; font-size:14px; line-height:1.7;">
+      <p style="margin-top:16px; color: var(--fg-dim); font-size:14px; line-height:1.7;">
         사람이 한 건 "텔레그램에서 OK 두어 번". 나머지는 에이전트들이 탐색·진단·수정·검증·보고를 스스로 한다.<br>
         에이전트가 자율로 처리하는 영역이 늘어날수록 사람이 손대지 않는 비율도 함께 올라간다 — 이게 우리가 가는 방향이다.
       </p>
@@ -765,21 +766,21 @@
       <div style="margin-top:16px; display:flex; flex-direction:column; gap:12px;">
         <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
           <div style="font-weight:700; color:#6D28D9; margin-bottom:6px;">1. 목표 명세를 더 정밀하게</div>
-          <p style="font-size:14px; color:#4E5968; line-height:1.7;">
+          <p style="font-size:14px; color: var(--fg-dim); line-height:1.7;">
             "되게 만들어줘" 대신 "X 테스트 PASS / Y 화면 렌더링 / Z 커밋 push" 식으로 검증 가능한 목표를 주면 에이전트 자율도가 올라간다.
             목표가 흐릿할수록 사람이 더 많이 개입해야 한다.
           </p>
         </div>
         <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
           <div style="font-weight:700; color:#6D28D9; margin-bottom:6px;">2. 에이전트 간 핸드오프를 자동화</div>
-          <p style="font-size:14px; color:#4E5968; line-height:1.7;">
+          <p style="font-size:14px; color: var(--fg-dim); line-height:1.7;">
             본진 ↔ 각 노드 사이에 자동 paste 운반 채널 + 결과 자동 회신 채널을 두면, 에이전트끼리 결과를 주고받을 때 사람이 중간에 끼지 않아도 된다.
             5노드 모두 동일 메커니즘으로 묶여있어 새 노드 추가도 어렵지 않다.
           </p>
         </div>
         <div style="background:white; border-radius:10px; padding:16px 18px; border:1px solid #DDD6FE;">
           <div style="font-weight:700; color:#6D28D9; margin-bottom:6px;">3. 이슈 → 예방 → 자동화 사이클</div>
-          <p style="font-size:14px; color:#4E5968; line-height:1.7;">
+          <p style="font-size:14px; color: var(--fg-dim); line-height:1.7;">
             문제가 생기면 이슈 등록 → 재발 방지 코드 → 훅·스킬 자동화. 이슈/피드백을 자동 메모리로 박아두면 다음 세션이 같은 함정을 다시 밟지 않아, 사이클을 빨리 돌릴수록 에이전트 신뢰도가 올라가고 사람 개입이 줄어든다.
           </p>
         </div>

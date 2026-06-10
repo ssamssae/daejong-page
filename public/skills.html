@@ -47,8 +47,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #F8F9FA;
-      color: #191F28;
+      background: var(--bg-elev2);
+      color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
@@ -65,9 +65,9 @@
       padding-bottom: 16px;
       border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
-    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #3182F6; }
+    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
+    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    header a:hover { color: var(--accent); }
 
     /* Top bar */
     .topbar {
@@ -83,21 +83,21 @@
       font-size: 13px;
       padding: 6px 14px;
       border-radius: 18px;
-      background: #FFFFFF;
+      background: var(--bg);
       border: 1px solid #E5E8EB;
-      color: #4E5968;
+      color: var(--fg-dim);
       cursor: pointer;
       font-weight: 500;
       transition: all 0.15s ease;
     }
-    .filter-pill:hover { border-color: #3182F6; color: #3182F6; }
-    .filter-pill.active { background: #3182F6; border-color: #3182F6; color: #FFFFFF; font-weight: 700; }
+    .filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-pill.active { background: var(--accent); border-color: var(--accent); color:#ffffff; font-weight: 700; }
 
     .topbar-right { display: flex; align-items: center; gap: 10px; }
     .count-badge {
       font-size: 12px;
-      color: #8B95A1;
-      background: #FFFFFF;
+      color: var(--fg-mute);
+      background: var(--bg);
       border: 1px solid #E5E8EB;
       padding: 4px 10px;
       border-radius: 12px;
@@ -106,9 +106,9 @@
       font-size: 13px;
       padding: 6px 14px;
       border-radius: 8px;
-      background: #FFFFFF;
+      background: var(--bg);
       border: 1px solid #E5E8EB;
-      color: #4E5968;
+      color: var(--fg-dim);
       cursor: pointer;
       font-weight: 500;
       transition: all 0.15s ease;
@@ -116,26 +116,26 @@
       align-items: center;
       gap: 6px;
     }
-    .btn-changelog:hover { border-color: #3182F6; color: #3182F6; }
-    .btn-changelog.open { background: #3182F6; border-color: #3182F6; color: #FFFFFF; }
+    .btn-changelog:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-changelog.open { background: var(--accent); border-color: var(--accent); color:#ffffff; }
 
     /* Changelog panel */
     .changelog-panel {
       display: none;
-      background: #FFFFFF;
+      background: var(--bg);
       border: 1px solid #E5E8EB;
       border-radius: 12px;
       padding: 24px;
       margin-bottom: 24px;
     }
     .changelog-panel.open { display: block; }
-    .changelog-panel h2 { font-size: 16px; font-weight: 700; margin-bottom: 20px; color: #191F28; }
+    .changelog-panel h2 { font-size: 16px; font-weight: 700; margin-bottom: 20px; color: var(--fg); }
 
     .cl-group { margin-bottom: 24px; }
     .cl-date {
       font-size: 12px;
       font-weight: 700;
-      color: #8B95A1;
+      color: var(--fg-mute);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       margin-bottom: 10px;
@@ -158,11 +158,11 @@
       white-space: nowrap;
       margin-top: 1px;
     }
-    .cl-badge.new { background: rgba(34,197,94,0.12); color: #16A34A; }
-    .cl-badge.edit { background: rgba(49,130,246,0.12); color: #3182F6; }
-    .cl-badge.del { background: rgba(239,68,68,0.12); color: #DC2626; }
-    .cl-name { font-size: 14px; font-weight: 700; font-family: monospace; color: #191F28; min-width: 130px; }
-    .cl-reason { font-size: 13px; color: #4E5968; }
+    .cl-badge.new { background: rgba(34,197,94,0.12); color: var(--success); }
+    .cl-badge.edit { background: rgba(49,130,246,0.12); color: var(--accent); }
+    .cl-badge.del { background: rgba(239,68,68,0.12); color: var(--danger); }
+    .cl-name { font-size: 14px; font-weight: 700; font-family: monospace; color: var(--fg); min-width: 130px; }
+    .cl-reason { font-size: 13px; color: var(--fg-dim); }
 
     /* Skill grid */
     .grid {
@@ -171,7 +171,7 @@
       gap: 14px;
     }
     .card {
-      background: #FFFFFF;
+      background: var(--bg);
       border-radius: 12px;
       padding: 18px 20px;
       border: 1px solid #E5E8EB;
@@ -180,7 +180,7 @@
       flex-direction: column;
       gap: 8px;
     }
-    .card:hover { border-color: #3182F6; transform: translateY(-2px); }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
     .card.hidden { display: none; }
 
     .card-header {
@@ -192,7 +192,7 @@
     .card-name {
       font-size: 15px;
       font-weight: 700;
-      color: #3182F6;
+      color: var(--accent);
       font-family: 'SF Mono', Menlo, Consolas, monospace;
     }
     .card-devices { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
@@ -203,20 +203,20 @@
       white-space: nowrap;
       font-weight: 600;
     }
-    .dev-mac { background: rgba(34,197,94,0.12); color: #16A34A; }
-    .dev-wsl { background: rgba(49,130,246,0.12); color: #3182F6; }
-    .dev-codex { background: rgba(251,146,60,0.12); color: #EA580C; }
+    .dev-mac { background: rgba(34,197,94,0.12); color: var(--success); }
+    .dev-wsl { background: rgba(49,130,246,0.12); color: var(--accent); }
+    .dev-codex { background: rgba(251,146,60,0.12); color: var(--warn); }
 
     .card-tag {
       font-size: 11px;
-      color: #8B95A1;
-      background: #F2F4F6;
+      color: var(--fg-mute);
+      background: var(--bg-elev2);
       padding: 2px 8px;
       border-radius: 10px;
     }
     .card-desc {
       font-size: 13px;
-      color: #4E5968;
+      color: var(--fg-dim);
       line-height: 1.5;
     }
     .card-footer {
@@ -226,14 +226,14 @@
     }
     .card-footer a {
       font-size: 12px;
-      color: #8B95A1;
+      color: var(--fg-mute);
       text-decoration: none;
       padding: 3px 10px;
-      background: #F2F4F6;
+      background: var(--bg-elev2);
       border-radius: 6px;
       transition: all 0.15s;
     }
-    .card-footer a:hover { color: #3182F6; background: #EBF2FE; }
+    .card-footer a:hover { color: var(--accent); background: var(--accent-bg); }
 
     .card-new-badge {
       font-size: 10px;
@@ -241,20 +241,21 @@
       padding: 2px 6px;
       border-radius: 6px;
       background: rgba(34,197,94,0.12);
-      color: #16A34A;
+      color: var(--success);
     }
 
     footer {
       margin-top: 48px;
       padding-top: 20px;
       border-top: 1px solid #E5E8EB;
-      color: #8B95A1;
+      color: var(--fg-mute);
       font-size: 12px;
       text-align: center;
     }
-    footer a { color: #4E5968; text-decoration: none; }
-    footer a:hover { color: #3182F6; }
+    footer a { color: var(--fg-dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
   </style>
+  <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
   <div class="wrap">

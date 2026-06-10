@@ -48,8 +48,8 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { overflow-y: scroll; scrollbar-gutter: stable; }
     body {
-      background-color: #FFFFFF;
-      color: #191F28;
+      background-color:#ffffff;
+      color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
@@ -64,15 +64,15 @@
       padding-bottom: 16px;
       border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
-    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #3182F6; }
+    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
+    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    header a:hover { color: var(--accent); }
     .intro {
-      color: #4E5968;
+      color: var(--fg-dim);
       font-size: 14px;
       margin-bottom: 24px;
       padding: 16px 20px;
-      background: #F9FAFB;
+      background: var(--bg-elev);
       border-radius: 12px;
       border-left: 3px solid #3182F6;
     }
@@ -85,7 +85,7 @@
       .stack-grid { grid-template-columns: 1fr; }
     }
     .device-card {
-      background: #FFFFFF;
+      background: var(--bg);
       border: 1px solid #E5E8EB;
       border-radius: 14px;
       padding: 20px 22px;
@@ -121,17 +121,17 @@
     .device-name {
       font-size: 18px;
       font-weight: 700;
-      color: #191F28;
+      color: var(--fg);
       letter-spacing: -0.2px;
     }
     .device-spec {
       font-size: 12.5px;
-      color: #8B95A1;
+      color: var(--fg-mute);
       margin-bottom: 4px;
     }
     .device-role {
       font-size: 13px;
-      color: #4E5968;
+      color: var(--fg-dim);
       margin-bottom: 14px;
       padding-bottom: 12px;
       border-bottom: 1px dashed #E5E8EB;
@@ -149,15 +149,15 @@
       font-size: 12.5px;
     }
     .feat-key {
-      color: #8B95A1;
+      color: var(--fg-mute);
       font-weight: 500;
     }
     .feat-val {
-      color: #191F28;
+      color: var(--fg);
     }
-    .feat-yes { color: #16A34A; font-weight: 600; }
+    .feat-yes { color: var(--success); font-weight: 600; }
     .feat-no  { color: #C0C7D1; }
-    .feat-meta { color: #4E5968; font-size: 12px; }
+    .feat-meta { color: var(--fg-dim); font-size: 12px; }
 
     .codex-section {
       margin-top: 40px;
@@ -170,17 +170,17 @@
       gap: 12px;
     }
     .codex-item {
-      background: #FFFFFF;
+      background: var(--bg);
       border: 1px solid #E5E8EB;
       border-radius: 12px;
       padding: 14px 16px;
       font-size: 13px;
-      color: #4E5968;
+      color: var(--fg-dim);
       line-height: 1.55;
     }
     .codex-item strong {
       display: block;
-      color: #191F28;
+      color: var(--fg);
       margin-bottom: 4px;
     }
     @media (max-width: 700px) {
@@ -196,16 +196,16 @@
     .topo-title {
       font-size: 18px;
       font-weight: 700;
-      color: #191F28;
+      color: var(--fg);
       margin-bottom: 6px;
     }
     .topo-desc {
       font-size: 13px;
-      color: #4E5968;
+      color: var(--fg-dim);
       margin-bottom: 20px;
     }
     .topo-wrap {
-      background: #F9FAFB;
+      background: var(--bg-elev);
       border: 1px solid #E5E8EB;
       border-radius: 16px;
       padding: 12px;
@@ -222,6 +222,7 @@
       .topo-svg { min-width: 480px; }
     }
   </style>
+  <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
   <div class="wrap">
@@ -413,7 +414,7 @@
     </div>
 
     <section class="codex-section">
-      <h2 class="topo-title">Codex 백엔드 운영 표준 <span style="color:#EA580C;font-size:0.7em;font-weight:600;">⚠️ 2026-06-06 EOL</span></h2>
+      <h2 class="topo-title">Codex 백엔드 운영 표준 <span style="color: var(--warn);font-size:0.7em;font-weight:600;">⚠️ 2026-06-06 EOL</span></h2>
       <p class="topo-desc">4노드(🍎 본진 / 🪟 WSL / 🖥 데스크탑 / 💻 노트북)는 Codex REPL 활성, 🏭 맥미니는 Codex 셋업 없이 launchd 워커 전담. <strong>6/6 까지 정상 가동, 6/7 sunset 후 대안 lane = Anthropic Claude 백엔드 메인 + Claude 토큰 소진 시 OpenRouter API fallback.</strong></p>
       <div class="codex-grid">
         <div class="codex-item"><strong>모델·CLI</strong>Codex CLI 2.1.150 · gpt-5.5 xhigh fast 통일. 현재 본진 5h limit hit 시 gpt-5.3-codex-spark 임시 사용.</div>

@@ -47,8 +47,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #FFFFFF;
-      color: #191F28;
+      background-color:#ffffff;
+      color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
       padding: 32px 16px 80px;
@@ -59,34 +59,34 @@
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
     }
-    header h1 { font-size: 22px; color: #3182F6; font-weight: 700; }
-    header a { color: #4E5968; text-decoration: none; font-size: 14px; }
-    header a:hover { color: #3182F6; }
+    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
+    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+    header a:hover { color: var(--accent); }
     .intro {
-      font-size: 13px; color: #4E5968;
+      font-size: 13px; color: var(--fg-dim);
       margin-bottom: 24px; padding: 12px 14px;
-      background: #F9FAFB; border: 1px solid #E5E8EB; border-radius: 10px;
+      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 10px;
     }
     .floorplan {
       width: 100%;
       max-width: 480px;
       margin: 0 auto 16px;
       display: block;
-      background: #FFFFFF;
+      background: var(--bg);
     }
     .room-box {
-      fill: #FFFFFF;
-      stroke: #E5E8EB;
+      fill: var(--bg);
+      stroke: var(--border);
       stroke-width: 1;
       transition: fill 0.15s ease;
     }
-    .room-box:hover { fill: #F9FAFB; }
+    .room-box:hover { fill: var(--bg-elev); }
     .room-label {
       font: 600 12px 'Pretendard', sans-serif;
-      fill: #4E5968;
+      fill: var(--fg-dim);
     }
     .marker-dot {
-      stroke: #FFFFFF;
+      stroke: var(--bg);
       stroke-width: 1.5;
       transition: r 0.15s ease, filter 0.15s ease;
       cursor: pointer;
@@ -100,25 +100,25 @@
       r: 8;
       filter: drop-shadow(0 0 4px currentColor);
     }
-    .marker-tuya { fill: #3182F6; color: #3182F6; }
-    .marker-ir { fill: #FF8A3D; color: #FF8A3D; }
-    .marker-scene { fill: #00C73C; color: #00C73C; }
+    .marker-tuya { fill: var(--accent); color: var(--accent); }
+    .marker-ir { fill: var(--warn); color: var(--warn); }
+    .marker-scene { fill: var(--success); color: var(--success); }
 
     .legend {
       display: flex; justify-content: center; gap: 18px;
-      font-size: 12px; color: #4E5968;
+      font-size: 12px; color: var(--fg-dim);
       margin-bottom: 24px;
     }
     .legend-item { display: inline-flex; align-items: center; gap: 6px; }
     .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-    .legend-dot.tuya { background: #3182F6; }
-    .legend-dot.ir { background: #FF8A3D; }
-    .legend-dot.scene { background: #00C73C; }
+    .legend-dot.tuya { background: var(--accent); }
+    .legend-dot.ir { background: var(--warn); }
+    .legend-dot.scene { background: var(--success); }
 
     #tooltip {
       position: fixed;
       pointer-events: none;
-      background: #191F28; color: #FFFFFF;
+      background: var(--fg); color:#ffffff;
       padding: 8px 12px;
       border-radius: 8px;
       font-size: 12px;
@@ -148,6 +148,7 @@
       .marker-dot { stroke-width: 2; }
     }
   </style>
+  <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
 <div class="wrap">
