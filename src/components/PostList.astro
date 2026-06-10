@@ -7,14 +7,19 @@ interface Post {
 const { posts, base } = Astro.props as { posts: Post[]; base: string };
 ---
 <ul class="post-list">
-  {posts.map((p) => (
-    <li>
-      <a href={`${base}/${p.id}/`}>
-        <span class="date">{p.data.date}</span>
-        <span class="title">{p.data.title}</span>
-      </a>
-    </li>
-  ))}
+  {posts.map((p) => {
+    // 뉴스레터는 version 이 "ep6" 형태 — "Ep.6" 배지로 노출. worklog(v1.0.1)·insights(없음)는 미표시.
+    const epMatch = p.data.version?.match(/^ep(\d+)$/i);
+    return (
+      <li>
+        <a href={`${base}/${p.id}/`}>
+          <span class="date">{p.data.date}</span>
+          {epMatch && <span class="ep">Ep.{epMatch[1]}</span>}
+          <span class="title">{p.data.title}</span>
+        </a>
+      </li>
+    );
+  })}
 </ul>
 <style>
   .post-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
@@ -25,8 +30,10 @@ const { posts, base } = Astro.props as { posts: Post[]; base: string };
   }
   .post-list a:hover { color: var(--cyan); background: var(--bg-elev); }
   .date { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); flex-shrink: 0; min-width: 88px; }
+  .ep { font-family: var(--mono); font-size: 12px; color: var(--magenta); flex-shrink: 0; min-width: 44px; }
   .title { font-size: 15px; }
   @media (max-width: 520px) {
     .post-list a { flex-direction: column; gap: 4px; }
+    .ep { min-width: 0; }
   }
 </style>
