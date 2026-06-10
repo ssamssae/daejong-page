@@ -7,7 +7,7 @@
     },
     {
       "id": "telegram-poll-watchdog",
-      "current": "5노드 텔레그램 폴러 생존을 플러그인 프로세스(claude-plugins-official/telegram) pgrep 으로 결정론 감지 → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림. 본진은 alert-only.",
+      "current": "5노드 텔레그램 폴러 생존을 플러그인 프로세스(claude-plugins-official/telegram) pgrep 으로 결정론 감지 → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림(본진 alert-only). 추가로 \"프로세스 살아있는데 poll-loop hung\"(spin)을 플러그인 PID의 telegram :443 ESTAB 연결 부재로 감지 → 전노드 ALERT-ONLY observe(자동재시작 X, 2틱 디바운스, false-positive 0 검증 후 Phase2 승격).",
       "changed": "2026-06-10"
     },
     {
