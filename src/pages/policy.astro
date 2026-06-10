@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import policyData from '../data/fleet-policy.json';
+
+// 살아있는 정책 거울 — SoT 는 정책을 구현한 코드의 @POLICY 헤더.
+// 이 JSON 은 claude-automations/scripts/gen-policy-registry.py 가 떨군 공개용 슬림본
+// (정책명·현재동작·변경일만, 내부 경로·task-id 제거).
+const policies = policyData.policies;
+const lastUpdated = policies.reduce((m, p) => (p.changed > m ? p.changed : m), '');
+---
+<Layout title="fleet 정책 — 마이너스베타스튜디오" description="9노드 함대가 지금 어떤 규칙으로 굴러가는지 — 코드가 SoT인 살아있는 정책 거울.">
+  <h1 class="accent-cyan">fleet 정책</h1>
+  <p class="lead">지금 함대가 굴러가는 규칙 · 코드가 SoT인 살아있는 거울 · 최종 {lastUpdated}</p>
+
+  <table class="ptable">
+    <thead><tr><th>정책</th><th>최근변경</th><th>현재 동작</th></tr></thead>
+    <tbody>
+      {policies.map((p) => (
+        <tr>
+          <td class="pid"><a href={`#${p.id}`}>{p.id}</a></td>
+          <td class="pdate">{p.changed}</td>
+          <td class="pcur">{p.current}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <div class="cards">
+    {policies.map((p) => (
+      <div class="card" id={p.id}>
+        <div class="card-id">{p.id}</div>
+        <div class="card-cur">{p.current}</div>
+        <div class="card-date">최근 변경 {p.changed}</div>
+      </div>
+    ))}
+  </div>
+
+  <style>
+    h1 { font-size: 32px; }
+    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin: 8px 0 28px; }
+
+    .ptable { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 36px; }
+    .ptable th { text-align: left; font-family: var(--mono); color: var(--fg-dim); font-weight: 600; border-bottom: 1px solid var(--border); padding: 8px 10px; }
+    .ptable td { border-bottom: 1px solid var(--border); padding: 10px; vertical-align: top; color: var(--fg-dim); }
+    .pid a { font-family: var(--mono); color: var(--cyan); white-space: nowrap; }
+    .pdate { font-family: var(--mono); white-space: nowrap; }
+    .pcur { color: var(--fg); }
+    @media (max-width: 640px) { .ptable { display: none; } }
+
+    .cards { display: flex; flex-direction: column; gap: 10px; }
+    .card { border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; background: var(--bg-elev); scroll-margin-top: 20px; }
+    .card:target { border-color: var(--cyan); }
+    .card-id { font-family: var(--mono); font-weight: 600; color: var(--cyan); }
+    .card-cur { font-size: 14px; color: var(--fg); margin-top: 6px; line-height: 1.5; }
+    .card-date { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); margin-top: 8px; }
+  </style>
+</Layout>

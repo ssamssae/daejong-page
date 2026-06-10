@@ -1,0 +1,29 @@
+{
+  "policies": [
+    {
+      "id": "typing-indicator",
+      "current": "노드 busy-state 기준 — telegram-source 턴 OR fleet bot-token 존재 시 typing daemon ON(4s sendChatAction). Stop 후 60s grace→PAUSE. 자율턴(auto-resume·워커)도 표시.",
+      "changed": "2026-06-10"
+    },
+    {
+      "id": "auto-resume",
+      "current": "세션 클리어(source==clear) 후 ~/.claude/state/resume-task 포인터 1건 읽어 tasks.md [~] 항목 자동 \"이어서 진행\" 주입(손0). 1회 소비. 디폴트 ON.",
+      "changed": "2026-06-09"
+    },
+    {
+      "id": "worker-dispatch",
+      "current": "머신당 단일엔진 mutex(켜면 형제 자동 OFF). 엔진 4종 bonjin/macmini × claude/codex. 다이나믹·야간 기본=claude, codex=mesh-vote 전용.",
+      "changed": "2026-06-08"
+    },
+    {
+      "id": "priority-queue-dispatch",
+      "current": "우선큐(매뉴얼)=픽업 모델 — 매뉴얼토글 머신서 launchd 2~3분 tick, idle 워커노드(라이덴/데스크탑/노트북)가 atomic claim 후 처리, lease 만료시 재큐. 백로그(tasks.md)와 별개.",
+      "changed": "2026-06-05"
+    },
+    {
+      "id": "context-auto-clear",
+      "current": "컨텍스트 ≥40%(400k) Stop훅 셀프클리어 강제(자동컴팩트 ~55% 전에). 컴팩트 2회 백스톱. 클리어는 session-clear 스킬 경유(마킹+resume 포인터).",
+      "changed": "2026-06-01"
+    }
+  ]
+}
