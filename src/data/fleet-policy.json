@@ -6,6 +6,11 @@
       "changed": "2026-06-10"
     },
     {
+      "id": "telegram-poll-watchdog",
+      "current": "5노드 텔레그램 폴러 생존을 플러그인 프로세스(claude-plugins-official/telegram) pgrep 으로 결정론 감지 → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림. 본진은 alert-only.",
+      "changed": "2026-06-10"
+    },
+    {
       "id": "auto-resume",
       "current": "세션 클리어(source==clear) 후 ~/.claude/state/resume-task 포인터 1건 읽어 tasks.md [~] 항목 자동 \"이어서 진행\" 주입(손0). 1회 소비. 디폴트 ON.",
       "changed": "2026-06-09"
