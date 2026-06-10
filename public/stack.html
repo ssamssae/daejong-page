@@ -48,7 +48,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { overflow-y: scroll; scrollbar-gutter: stable; }
     body {
-      background-color:#ffffff;
+      background-color: var(--bg);
       color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       min-height: 100vh;
@@ -110,9 +110,9 @@
     }
     .agent-badge svg { display: block; flex-shrink: 0; }
     .agent-badge-cc {
-      background: #FFF3ED;
+      background: rgba(197,97,59,0.14);
       color: #C5613B;
-      border: 1px solid #F3D5C2;
+      border: 1px solid rgba(197,97,59,0.35);
     }
     .device-icon {
       font-size: 28px;
@@ -471,7 +471,7 @@
 
           <!-- 데스크탑 3060Ti (bottom-left) -->
           <g class="topo-node" transform="translate(30, 390)">
-            <rect x="0" y="0" width="160" height="65" rx="12" fill="#FAF5FF" stroke="#A855F7" stroke-width="1.5"/>
+            <rect x="0" y="0" width="160" height="65" rx="12" fill="var(--bg-elev)" stroke="#A855F7" stroke-width="1.5"/>
             <text x="80" y="22" text-anchor="middle" font-size="20">🖥️</text>
             <text x="80" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">데스크탑 3060Ti</text>
             <text x="80" y="57" text-anchor="middle" font-size="9" fill="#4E5968">DESKTOP-0VAB3QC · @jarvice_ssamssae_bot</text>
@@ -479,7 +479,7 @@
 
           <!-- 노트북3060 (bottom-right) -->
           <g class="topo-node" transform="translate(550, 390)">
-            <rect x="0" y="0" width="160" height="65" rx="12" fill="#FAF5FF" stroke="#A855F7" stroke-width="1.5"/>
+            <rect x="0" y="0" width="160" height="65" rx="12" fill="var(--bg-elev)" stroke="#A855F7" stroke-width="1.5"/>
             <text x="80" y="22" text-anchor="middle" font-size="20">💻</text>
             <text x="80" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#191F28">노트북3060</text>
             <text x="80" y="57" text-anchor="middle" font-size="9" fill="#4E5968">DESKTOP-4MNJ1C0 · @ssamssae_codex_bot</text>
@@ -506,7 +506,7 @@
 
           <!-- ── 범례 + 캡션 ── -->
           <g transform="translate(30, 490)">
-            <rect x="0" y="0" width="680" height="78" rx="10" fill="#FFFFFF" stroke="#E5E8EB" stroke-width="1"/>
+            <rect x="0" y="0" width="680" height="78" rx="10" fill="var(--bg-elev)" stroke="#2a2f38" stroke-width="1"/>
             <!-- 1행: 파란 화살표 범례 -->
             <line x1="14" y1="20" x2="44" y2="20" stroke="#3182F6" stroke-width="2"/>
             <polygon points="38,16 48,20 38,24" fill="#3182F6"/>
