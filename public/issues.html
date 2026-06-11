@@ -219,6 +219,30 @@
   <link rel="stylesheet" href="/page-dark.css">
 </head>
 <body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">mβ</a>
+      <div class="nav-links">
+        <a href="/">홈</a>
+        <a href="/apps">apps</a>
+        <a href="/worklog">worklog</a>
+        <a href="/newsletter">newsletter</a>
+        <a href="/insights">insights</a>
+        <a href="/system">system</a>
+        <a href="/issues.html" aria-current="page">이슈</a>
+        <a href="/lab">lab</a>
+      </div>
+    </div>
+  </nav>
+  <style>
+    .site-nav { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+    .site-nav .nav-inner { max-width: 760px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .site-nav .brand { font-family: ui-monospace, 'JetBrains Mono', monospace; font-weight: 600; font-size: 18px; color: var(--accent); text-decoration: none; }
+    .site-nav .nav-links { display: flex; gap: 18px; flex-wrap: wrap; font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 13px; }
+    .site-nav .nav-links a { color: var(--fg-dim); text-decoration: none; }
+    .site-nav .nav-links a:hover { color: var(--accent-2); }
+    .site-nav .nav-links a[aria-current="page"] { color: var(--accent); }
+  </style>
   <div class="wrap">
     <header>
       <h1>이슈</h1>
