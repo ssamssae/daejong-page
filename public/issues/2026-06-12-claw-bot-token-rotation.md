@@ -21,16 +21,18 @@ prevention_deferred: 2026-06-19
 2. 전용 헬퍼 스크립트(숨김입력, **메신저 채널 비경유** — 토큰이 채널 안 거치게)로 설정의 봇토큰 필드 갱신 + 백업.
 3. 본진 인수 = 노드 세션 **클린 재시작**: 기존 plugin/세션 proc 먼저 정리(pgrep 0 확인) 후 launchd job 단일 fresh 재생성. ⚠️ kickstart 단독은 stale 세션 존재 시 duplicate 실패 → 옛 세션 정리 선행 필수(과거 좀비 lock 사고 회피).
 4. 검증: 새 토큰 `getMe` ok + `getUpdates` 409(단일폴러 정상 = 봇 부활) / 옛 토큰 `getMe` 401 Unauthorized(완전 사망).
+5. **다중 노드 .env 사본 동기화** (⚠️ 최초 누락 → 후속 알림 사고 유발) — 각 노드가 전 노드 봇토큰 사본을 보유하는 구조(헬스체크용)라, 한 노드만 갱신하면 타 노드 사본이 stale → 헬스체크가 옛 토큰으로 getMe 401 → 폰 30분 간격 오진 알림(본체는 정상). 새 토큰을 전 노드 .env 사본에 stdin 경유(채팅·로그 비노출) 배포 + 각 노드 백업 + getMe ok 검증.
 
 ## 예방 (Forcing function 우선)
 
 - **막을 코드/훅:** `none` (deferred — 작성 마감 2026-06-19)
   - 진짜 forcing = 스킬 repo pre-commit 훅으로 봇 토큰 패턴 커밋 차단(git-secrets 류). 다중 노드 훅 배포는 별 작업이라 다음 정비 사이클로 deferred.
 - 봇토큰은 런타임 설정(.env, gitignore)에만. 코드/문서/커밋 하드코딩 금지.
+- **토큰 회전 시 전 노드 .env 사본 전부 동기화 필수** — rotate 헬퍼가 현재 한 노드 .env 만 갱신해 타 노드 사본 stale 갭 발생(이번 헬스체크 401 오진 알림 근인). 헬퍼가 전 노드 배포까지 자동화하게 개선 예정. 헬스체크 문구도 401(토큰무효) vs 네트워크 fail 분기 권장.
 - redaction(현재 파일 마스킹)만으로는 git history 에 토큰이 남음 — 노출 발견 시 **즉시 rotate** 가 정석(history rewrite 보다 우선). history rewrite(force-push)는 토큰 죽으면 노출가치 0이라 optional.
 
 ## 재발 이력
-<처음 생성>
+- 2026-06-12 20:2x: 위 rotate 직후 다중 노드 .env 사본 미동기화 갭으로 헬스체크가 옛 토큰 401 수신 → 폰 30분 간격 오진 알림. 전 노드 동기화로 해소(조치 5번). 같은 rotate 작업의 누락 발견.
 
 ## 관련 링크
 - 선행 issue: `2026-05-24-mac-mini-group-mirror-token-mismatch.md`
