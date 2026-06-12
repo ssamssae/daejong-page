@@ -140,7 +140,7 @@
     <div class="hero-stats">
       <div class="hero-card">
         <div class="hero-card-label">누적 용어</div>
-        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->239<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
+        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->248<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
         <div class="hero-card-sub">영상 인사이트에서 추출</div>
       </div>
       <div class="hero-card">
@@ -319,6 +319,18 @@
       <h3>Claude Mythos</h3>
       <p>Anthropic이 수개월 티저해 온 고성능 모델. 일반 출시 X, cyber/infra 파트너 한정으로 풀렸던 모델.</p>
       <span class="src">영상: 2026-06-10-claude-fable-second-brain-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Mythos 클래스</h3>
+      <p>Opus 위에 새로 생긴 Anthropic 최상위 모델 티어. Fable 5 가 일반 유료 플랜에 공개된 첫 Mythos급.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>long-horizon (장기 호라이즌)</h3>
+      <p>수백만 토큰·수 시간짜리 작업에서 목표를 잃지 않고 집중을 유지하는 능력 축.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
     </div>
 
     <h2>하니스 · 패턴</h2>
@@ -672,6 +684,18 @@
     </div>
 
     <div class="term">
+      <h3>dynamic workflow</h3>
+      <p>서브에이전트들을 fan-out 해 스크린샷 캡처·검증 같은 단계를 오케스트레이션하는 실행 방식.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Hyperframes</h3>
+      <p>모션그래픽을 HTML 코드로 만들어 렌더하는 발화자의 자체 스킬 세트 — 결과 재현의 숨은 전제.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
+    </div>
+
+    <div class="term">
       <h3>reassurance reply</h3>
       <p>LLM 이 "이 방법뿐입니다" 식으로 과도한 확신을 주는 답변 패턴 — 대안 탐색을 차단하므로 전략 결정에서 경계 대상.</p>
       <span class="src">영상: 2026-06-13-zero-to-head-of-ai-nateherk.md</span>
@@ -779,6 +803,12 @@
       <h3>Context Rot</h3>
       <p>한 세션에 너무 많은 작업을 섞어 맥락이 뭉개지는 현상. 단계별 특화 세션(/clear 후 출력 체이닝)으로 회피.</p>
       <span class="src">영상: 2026-06-10-claude-fable-second-brain-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>파일 기반 메모리</h3>
+      <p>모델에게 노트를 적을 파일만 쥐여 주고 장기 작업 상태를 스스로 기록·회수하게 하는 패턴.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
     </div>
 
     <h2>도구 통신 (MCP · CLI · API)</h2>
@@ -889,6 +919,12 @@
       <h3>Scoped API Key</h3>
       <p>읽기 전용 등 권한을 좁힌 API 키 — 에이전트가 삭제·수정·발송 못 하게 막는 수단.</p>
       <span class="src">영상: 2026-06-10-claude-fable-second-brain-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>HeyGen Avatar 5</h3>
+      <p>HeyGen 의 최신 아바타 모션 엔진. 한동안 API 미노출이라 Playwright 로 브라우저를 직접 몰았으나 신 API 로 직통.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
     </div>
 
     <div class="term">
@@ -1019,6 +1055,12 @@
       <span class="src">영상: 2026-06-10-claude-fable-second-brain-nateherk.md</span>
     </div>
 
+    <div class="term">
+      <h3>voice playbook</h3>
+      <p>본인 영상 transcript 에서 추출한 말투·표현 가이드. AI 가 "내 목소리로" 글을 쓰게 하는 자산.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
+    </div>
+
     <h2>워크플로우 · 문화</h2>
 
     <div class="term">
@@ -1096,7 +1138,7 @@
     <div class="term">
       <h3>/goal</h3>
       <p>verifiable stopping condition 박은 long-running task — 단일 prompt 보다 큰 / open-ended backlog 보다 작은 영역. Codex native + Claude Code 도 영상 녹화 직후 출시.</p>
-      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md, 2026-05-29-opus-4-8-how-to-use-nateherk.md, 2026-05-31-claude-dynamic-workflows-nateherk.md, 2026-06-04-claude-code-12-best-features-nateherk.md</span>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md, 2026-05-29-opus-4-8-how-to-use-nateherk.md, 2026-05-31-claude-dynamic-workflows-nateherk.md, 2026-06-04-claude-code-12-best-features-nateherk.md, 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
     </div>
 
     <div class="term">
@@ -1601,6 +1643,18 @@
       <h3>prediction(betting) market</h3>
       <p>사건의 발생 시점·여부에 돈을 거는 예측시장으로, 모델 출시 시기 확률 추정 근거로 인용됨.</p>
       <span class="src">영상: 2026-06-07-claude-mythos-coming-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>보이스 드리프트</h3>
+      <p>TTS 생성이 길어질수록 클론 목소리가 원본에서 점점 벗어나는 현상. 1분 미만 청크 분할이 우회책.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>GSAP</h3>
+      <p>웹 애니메이션 JS 라이브러리. 모션그래픽을 영상 클립이 아닌 코드로 만들어 단어 타이밍에 맞춰 재생.</p>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
     </div>
 
     <!-- END_GLOSSARY_DATA -->
