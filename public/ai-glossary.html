@@ -140,7 +140,7 @@
     <div class="hero-stats">
       <div class="hero-card">
         <div class="hero-card-label">누적 용어</div>
-        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->264<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
+        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->272<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
         <div class="hero-card-sub">영상 인사이트에서 추출</div>
       </div>
       <div class="hero-card">
@@ -737,6 +737,30 @@
       <span class="src">영상: 2026-06-14-gumloop-ai-automation-max.md</span>
     </div>
 
+    <div class="term">
+      <h3>원샷 빌드 (one-shot build)</h3>
+      <p>수정 없이 프롬프트 한 번으로 완성 결과물을 뽑는 평가 방식. 모델 품질 비교 시 기준선으로 사용됨.</p>
+      <span class="src">영상: 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Dynamic Workflows</h3>
+      <p>Anthropic이 제공하는 기능으로 하나의 큰 작업을 Claude가 30개 이상의 병렬 에이전트 스웜으로 자동 분할해 처리하는 방식. 스피커는 이전 영상에서 결과에 실망했다고 밝힘.</p>
+      <span class="src">영상: 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
+    </div>
+
+    <div class="term">
+      <h3>병렬 에이전트 자체 스폰 (self-spawning parallel agents)</h3>
+      <p>모델이 외부 오케스트레이터 없이 스스로 서브 에이전트를 생성하고 완료 시 재호출을 예약하는 동작. Fable 5가 3D 뮤지엄 빌드에서 보여준 행동.</p>
+      <span class="src">영상: 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Neon DB</h3>
+      <p>브라우저 기반 서버리스 Postgres. 3D 뮤지엄 빌드에서 Wikipedia API에서 추출한 수백 명 아티스트·767점 그림 데이터를 저장하는 백엔드로 사용됨.</p>
+      <span class="src">영상: 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -967,6 +991,12 @@
       <h3>n8n</h3>
       <p>노드 기반 워크플로우 자동화 도구. Zapier/Make 보다 자유도가 높고 커뮤니티가 강해 비개발자 자동화 입문의 종착지로 언급.</p>
       <span class="src">영상: 2026-06-13-zero-to-head-of-ai-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>GPT Image 2</h3>
+      <p>OpenAI의 이미지 생성 모델. Fable 5가 이커머스 빌드에서 캔들 이미지 30장을 생성할 때 내부적으로 사용했으며, 스피커는 결과 품질에 별도로 감탄함.</p>
+      <span class="src">영상: 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
     </div>
 
     <h2>지식 · 컨텍스트 자산</h2>
@@ -1607,6 +1637,24 @@
       <span class="src">영상: 2026-06-10-claude-fable-second-brain-nateherk.md</span>
     </div>
 
+    <div class="term">
+      <h3>usage-based pricing</h3>
+      <p>정액 구독이 아닌 실제 토큰 소비량 기준으로 과금하는 방식. Anthropic이 Max 구독 플랜에 도입 예정이라고 스피커가 언급.</p>
+      <span class="src">영상: 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Max 20× 구독 플랜</h3>
+      <p>Anthropic의 고용량 구독 티어. 스피커 기준 30분 양 모델 대형 빌드에서 usage 40%가 소진될 만큼 토큰 소비가 큰 작업에 적합.</p>
+      <span class="src">영상: 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
+    </div>
+
+    <div class="term">
+      <h3>token efficiency (토큰 효율)</h3>
+      <p>동일 작업 대비 소비 출력 토큰 수. 스피커는 Fable 5가 Opus 4.8보다 출력 토큰이 적으면서도 품질이 높아 실효 비용이 낮다고 분석함.</p>
+      <span class="src">영상: 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
+    </div>
+
     <h2>기타</h2>
 
     <div class="term">
@@ -1726,7 +1774,7 @@
     <div class="term">
       <h3>GSAP</h3>
       <p>웹 애니메이션 JS 라이브러리. 모션그래픽을 영상 클립이 아닌 코드로 만들어 단어 타이밍에 맞춰 재생.</p>
-      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md, 2026-06-13-fable5-web-design-codex-community.md</span>
+      <span class="src">영상: 2026-06-13-claude-fable-5-self-video-nateherk.md, 2026-06-13-fable5-web-design-codex-community.md, 2026-06-14-opus48-fable5-same-app-patsimmons.md</span>
     </div>
 
     <div class="term">
