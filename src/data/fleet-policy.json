@@ -1,19 +1,19 @@
 {
   "policies": [
     {
-      "id": "typing-indicator",
-      "current": "노드 busy-state 기준 — telegram-source 턴 OR fleet bot-token 존재 시 typing daemon ON(4s sendChatAction). Stop 후 60s grace→PAUSE. 자율턴(auto-resume·워커)도 표시.",
-      "changed": "2026-06-10"
+      "id": "auto-resume",
+      "current": "세션 클리어(source==clear) 후 ~/.claude/state/resume-task 포인터 1건 읽어 tasks.md [~] 항목 자동 \"이어서 진행\" 주입(손0). 1회 소비. 디폴트 ON. 비본진 노드는 claude-coord/tasks.md 미러(ff-only pull 후) read — 로컬 사본 stale 오발동 방지.",
+      "changed": "2026-06-12"
     },
     {
       "id": "telegram-poll-watchdog",
-      "current": "5노드 텔레그램 폴러 생존을 플러그인 프로세스(claude-plugins-official/telegram) pgrep 으로 결정론 감지 → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림(본진 alert-only). 추가로 \"프로세스 살아있는데 poll-loop hung\"(spin)을 플러그인 PID의 telegram :443 ESTAB 연결 부재로 감지 → 전노드 ALERT-ONLY observe(자동재시작 X, 2틱 디바운스, false-positive 0 검증 후 Phase2 승격).",
+      "current": "5노드 텔레그램 폴러 생존을 프로세스 2형태 OR(@형 plugin:telegram@claude-plugins-official | slash형 claude-plugins-official/telegram) pgrep 으로 결정론 감지(전 노드 실측). dead 판정 시 넓은 패턴(claude-plugins-official) 재확인 fail-safe 게이트 — 넓은건 alive 면 PROC_PAT 미스로 보고 kickstart 회피·ALERT (healthy 세션 kill 방지) → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림(본진 alert-only). 추가로 \"프로세스 살아있는데 poll-loop hung\"(spin)을 플러그인 PID의 telegram :443 ESTAB 연결 부재로 감지 → 전노드 ALERT-ONLY observe(자동재시작 X, 2틱 디바운스, false-positive 0 검증 후 Phase2 승격).",
       "changed": "2026-06-10"
     },
     {
-      "id": "auto-resume",
-      "current": "세션 클리어(source==clear) 후 ~/.claude/state/resume-task 포인터 1건 읽어 tasks.md [~] 항목 자동 \"이어서 진행\" 주입(손0). 1회 소비. 디폴트 ON.",
-      "changed": "2026-06-09"
+      "id": "typing-indicator",
+      "current": "노드 busy-state 기준 — telegram-source 턴 OR fleet bot-token 존재 시 typing daemon ON(4s sendChatAction). Stop 후 60s grace→PAUSE. 자율턴(auto-resume·워커)도 표시.",
+      "changed": "2026-06-10"
     },
     {
       "id": "worker-dispatch",
