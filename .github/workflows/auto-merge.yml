@@ -43,7 +43,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           files=$(gh pr diff ${{ github.event.pull_request.number }} --name-only --repo ${{ github.repository }})
-          if echo "$files" | grep -qiE '\.(css|svg|scss)$|^public/.*\.html$'; then
+          if echo "$files" | grep -qiE '\.(css|svg|scss|astro)$|^public/.*\.html$'; then
             echo "design=true" >> "$GITHUB_OUTPUT"
           else
             echo "design=false" >> "$GITHUB_OUTPUT"
@@ -54,7 +54,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} \
-            --body "🎨 디자인/스타일 파일(.css/.svg/.scss) 변경 감지 — auto-merge 보류. 폰 세로뷰포트(390px) 시각검증 통과 후 수동 머지(\`gh pr merge --squash\`). 게이트=T-260610-14."
+            --body "🎨 디자인/스타일 파일(.css/.svg/.scss/.astro) 변경 감지 — auto-merge 보류. 폰 세로뷰포트(390px) 시각검증 통과 후 수동 머지(\`gh pr merge --squash\`). 게이트=T-260610-14."
       # ⚠️ 제거 금지 (DO NOT REMOVE) — merge 는 DEPLOY_PAT(유저 PAT)로 (T-260610-14 deploy 자매갭 fix)
       # GITHUB_TOKEN 으로 머지하면 그 push 가 deploy.yml(on:push main)을 재트리거 못 함(GitHub
       #   anti-recursion) → 노드 PR 자동머지돼도 라이브 미반영 사고('apps 첫이름 적용 안 됨'의 진짜 원인).
