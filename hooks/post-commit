@@ -29,12 +29,12 @@ if [[ ! -x "$GENERATOR" ]]; then
 fi
 python3 "$GENERATOR" || exit 0
 
-# public/ai-glossary.html 변경 없으면 skip (P4: root ai-glossary.html/index.html 드롭, 용어집은 public/ 로 이전)
-if git diff --quiet public/ai-glossary.html; then
+# src/pages/ai-glossary.html.astro 변경 없으면 skip (T-260616-02: 용어집 public 정적 → Astro 페이지 전환)
+if git diff --quiet src/pages/ai-glossary.html.astro; then
   exit 0
 fi
 
 # 별 commit
-git add public/ai-glossary.html
+git add src/pages/ai-glossary.html.astro
 GIT_COMMITTER_DATE="$(date -u +'%Y-%m-%dT%H:%M:%S+00:00')" \
   git commit -m "auto: ai-glossary regenerate (post-commit hook)" --no-verify >/dev/null 2>&1 || true
