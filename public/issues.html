@@ -47,6 +47,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
+      --issue-accent: #fb923c;
+      --mono: ui-monospace, 'JetBrains Mono', 'SFMono-Regular', monospace;
       background-color: var(--bg);
       color: var(--fg);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -56,19 +58,18 @@
     }
     .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
 
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    /* sorry/lab 톤 — 중앙 hero */
+    .issue-hero { text-align: center; padding: 8px 0 36px; }
+    .issue-hero .logo {
+      font-family: var(--mono); font-size: 52px; font-weight: 600;
+      color: var(--issue-accent); line-height: 1;
     }
-    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
-    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
-    header a:hover { color: var(--accent); }
-
-    .intro {
-      font-size: 13px; color: var(--fg-dim);
-      margin-bottom: 20px; padding: 12px 14px;
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px;
-      line-height: 1.55;
+    .issue-hero .tagline {
+      font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px;
+    }
+    .issue-hero .intro {
+      color: var(--fg-dim); max-width: 520px; margin: 18px auto 0; font-size: 15px;
+      line-height: 1.7;
     }
 
     .hero-stats {
@@ -96,16 +97,19 @@
       display: flex; align-items: baseline; gap: 10px;
       padding-bottom: 8px; border-bottom: 1px dashed var(--border);
     }
-    .date-label { font-size: 15px; color: var(--accent); font-weight: 700; }
+    .date-label { font-size: 15px; color: var(--issue-accent); font-weight: 700; }
     .date-rel { font-size: 12px; color: var(--fg-dim); }
     .date-count { margin-left: auto; font-size: 11px; color: var(--fg-mute); }
 
     .issue-card {
       display: block;
       background: var(--bg-elev); border: 1px solid var(--border);
+      border-left: 3px solid var(--issue-accent);
       border-radius: 12px; padding: 14px 16px;
       color: inherit;
+      transition: border-color 0.15s;
     }
+    .issue-card:hover { border-color: var(--issue-accent); }
     .issue-preview {
       font-size: 13px; color: var(--fg-dim); line-height: 1.6;
       margin-top: 6px;
@@ -166,7 +170,7 @@
     }
     .section-label {
       display: inline-block; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.5px; color: var(--accent);
+      letter-spacing: 0.5px; color: var(--issue-accent);
       margin-bottom: 6px; text-transform: uppercase;
     }
     .section-body {
@@ -178,7 +182,7 @@
     .section-body li { margin-bottom: 4px; }
     .section-body code {
       background: var(--bg-elev); padding: 1px 5px; border-radius: 4px;
-      font-size: 12px; color: var(--accent);
+      font-size: 12px; color: var(--issue-accent);
     }
 
     .recur {
@@ -209,7 +213,7 @@
       display: inline-block; margin-top: 28px; color: var(--fg-dim);
       text-decoration: none; font-size: 14px;
     }
-    .back:hover { color: var(--accent); }
+    .back:hover { color: var(--issue-accent); }
 
     @media (max-width: 520px) {
       .hero-stats { grid-template-columns: 1fr 1fr; }
@@ -243,20 +247,17 @@
     .site-nav .nav-links a[aria-current="page"] { color: var(--accent); }
   </style>
   <div class="wrap">
-    <header>
-      <h1>이슈</h1>
-      <a href="./">← 홈으로</a>
-    </header>
-
-    <div class="intro">
-      발생했다가 해결한 이슈의 포스트모템. 증상과 원인, 조치, 재발 방지 Forcing Function 을 네 칸으로 남겨 두고 기기 간 공유합니다.
-    </div>
+    <section class="issue-hero">
+      <h1 class="logo">이슈</h1>
+      <p class="tagline">issues · 포스트모템 기록</p>
+      <p class="intro">발생했다가 해결한 이슈의 포스트모템. 증상·원인·조치·재발 방지 Forcing Function 을 남겨 두고 기기 간 공유합니다.</p>
+    </section>
 
     <div id="view">
       <div class="loading">불러오는 중…</div>
     </div>
 
-    <a class="back" href="./">← 홈으로</a>
+    <a class="back" href="/lab">← lab</a>
   </div>
 
   <script>
