@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import sorryData from '../data/sorry.json';
+
+// 사과 기록(반성문). stop-apology-detect 훅이 에이전트의 "죄송합니다" 발화를
+// 자동 감지해 apology-entry-append.sh 로 이 데이터 파일(src/data/sorry.json)에 append 한다.
+// 최신 엔트리가 배열 앞(prepend)이라 그대로 렌더한다.
+const entries = (sorryData.entries ?? []);
+---
+<Layout title="반성문 — 마이너스베타스튜디오" description="에이전트가 아니키에게 사과한 기록. 자동 감지·기록.">
+  <section class="hero">
+    <h1 class="logo">반성문</h1>
+    <p class="tagline">sorry · 사과 기록</p>
+    <p class="intro">에이전트가 일을 그르치거나 폐를 끼쳐 사과한 순간들의 자동 기록. 같은 실수를 반복하지 않으려는 흔적.</p>
+  </section>
+
+  {entries.length === 0 ? (
+    <p class="empty">아직 기록된 사과가 없습니다.</p>
+  ) : (
+    <div class="so-list">
+      {entries.map((e) => (
+        <article class="so-card">
+          <div class="so-meta">
+            <span class="so-date">{e.date}</span>
+            {e.node && <span class="so-node">{e.node}</span>}
+          </div>
+          <p class="so-text">{e.full_text || e.summary || e.title}</p>
+        </article>
+      ))}
+    </div>
+  )}
+
+  <style>
+    .hero { text-align: center; padding: 8px 0 40px; }
+    .hero .logo { font-family: var(--mono); font-size: 52px; font-weight: 600; color: #F04452; line-height: 1; }
+    .hero .tagline { font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px; }
+    .hero .intro { color: var(--fg-dim); max-width: 520px; margin: 18px auto 0; font-size: 15px; }
+    .so-list { display: flex; flex-direction: column; gap: 14px; }
+    .so-card { border: 1px solid var(--border); border-left: 3px solid #F04452; border-radius: 10px; padding: 16px 18px; background: var(--bg-elev); }
+    .so-meta { display: flex; gap: 10px; font-family: var(--mono); font-size: 12px; color: var(--fg-dim); margin-bottom: 8px; }
+    .so-text { color: var(--fg); font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+    .empty { text-align: center; color: var(--fg-dim); padding: 40px 0; }
+  </style>
+</Layout>
