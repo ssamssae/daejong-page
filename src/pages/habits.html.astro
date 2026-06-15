@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>습관 - 강대종</title>
-  <!-- OG / Twitter Card (2026-05-25) -->
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="습관 - 강대종" description="강대종과 Claude 협업에서 굳어진 운영 습관 모음. 자연어 답변, 명령어 복붙 방식, 완료 마킹, KST 시간 표기, 텔레그램 reply 규칙, 멀티 노드 보고와 SoT 메모 쓰기까지 실제 세션 운영 원칙을 정리합니다.">
+  <Fragment slot="head">
+    <!-- OG / Twitter Card (2026-05-25) -->
   <meta property="og:title" content="습관 - 강대종">
   <meta property="og:description" content="강대종 + Claude 협업의 운영 습관 — 자연어 디폴트, 명령어 끊어서, 작업 끝나면 마킹 등.">
   <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
@@ -19,7 +15,7 @@
   <meta name="twitter:description" content="강대종 + Claude 협업의 운영 습관 — 자연어 디폴트, 명령어 끊어서, 작업 끝나면 마킹 등.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/habits.html">
-  <script type="application/ld+json">
+  <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -43,12 +39,9 @@
   ]
 }
 </script>
-  <meta name="description" content="강대종과 Claude 협업에서 굳어진 운영 습관 모음. 자연어 답변, 명령어 복붙 방식, 완료 마킹, KST 시간 표기, 텔레그램 reply 규칙, 멀티 노드 보고와 SoT 메모 쓰기까지 실제 세션 운영 원칙을 정리합니다.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/page-dark.css">
-  <link rel="stylesheet" href="/lab-page.css">
-  <style>
+    <link rel="stylesheet" href="/page-dark.css" />
+    <link rel="stylesheet" href="/lab-page.css" />
+    <style is:global>
     /* 페이지 고유 레이아웃: 정렬 토글 버튼 · 최근 변경 줄 · 습관 카드 번호 배지/본문 */
     .habits-toolbar { display: flex; justify-content: flex-end; margin-bottom: 16px; }
     .sort-toggle {
@@ -86,20 +79,9 @@
       border-top: 1px dashed var(--border);
     }
   </style>
-</head>
-<body class="lab-page" style="--page-accent: var(--success)">
-  <nav class="lab-nav">
-    <div class="lab-nav-inner">
-      <a class="brand" href="/"><img src="/minusbeta-badge.svg" alt="마이너스베타스튜디오" width="30" height="30" /></a>
-      <div class="lab-nav-links">
-        <a href="/">홈</a><a href="/worklog">worklog</a>
-        <a href="/newsletter">newsletter</a><a href="/insights">insights</a><a href="/apps">products</a>
-        <a href="/system">system</a><a href="/lab">lab</a>
-      </div>
-    </div>
-  </nav>
+  </Fragment>
 
-  <main class="lab-main">
+  <div class="lab-page" style="--page-accent: var(--success)">
     <section class="lab-hero">
       <h1 class="logo">습관</h1>
       <p class="tagline">habits · 운영 습관</p>
@@ -437,21 +419,9 @@
     </div>
 
     <a class="lab-back" href="/lab">← lab</a>
-  </main>
-
-  <footer class="lab-foot">
-    <div><a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
-    <div class="biz">
-      <span>마이너스베타스튜디오 · 대표 강대종</span>
-      <span>사업자등록번호 878-21-02478</span>
-      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
-      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
-      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
     </div>
-    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
-  </footer>
 
-  <script>
+  <script is:inline>
     (function() {
       var list = document.querySelector('.list');
       var btn = document.getElementById('sort-toggle');
@@ -478,5 +448,4 @@
       });
     })();
   </script>
-</body>
-</html>
+</Layout>
