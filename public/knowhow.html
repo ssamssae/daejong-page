@@ -45,36 +45,11 @@
 </script>
   <meta name="description" content="다음 작업에서 다시 꺼내 쓰기 위한 재사용 노하우 모음. 우회 방법, 트릭, 일반화된 패턴을 카테고리와 태그, 최초 발견일, 재발견 기록, GitHub 원문 링크로 정리해 반복 시행착오를 줄이는 개인 작업 지식 베이스입니다.">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color:#ffffff;
-      color: var(--fg);
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      min-height: 100vh;
-      padding: 32px 16px 80px;
-      line-height: 1.7;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
-
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
-    }
-    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
-    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
-    header a:hover { color: var(--accent); }
-
-    .intro {
-      font-size: 13px; color: var(--fg-dim);
-      margin-bottom: 14px; padding: 12px 14px;
-      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 10px;
-      line-height: 1.55;
-    }
-
+    /* 노하우 — 컴포넌트 (틀은 lab-page.css 공용, 테마색: 핑크) */
     .recent-change {
       font-size: 12px; color: var(--fg-mute); line-height: 1.5;
       margin-bottom: 20px; padding: 2px 0 2px 11px;
-      border-left: 3px solid #3182F6;
+      border-left: 3px solid var(--page-accent);
       word-break: keep-all; overflow-wrap: break-word;
     }
     .recent-change b { color: var(--fg-dim); font-weight: 600; }
@@ -84,7 +59,7 @@
       margin-bottom: 24px;
     }
     .hero-card {
-      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 12px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
       padding: 14px 14px;
     }
     .hero-card-label {
@@ -101,14 +76,14 @@
 
     .knowhow-card {
       display: block;
-      background: var(--bg-elev); border: 1px solid #E5E8EB;
+      background: var(--bg-elev); border: 1px solid var(--border);
       border-radius: 12px; padding: 16px 18px;
       text-decoration: none; color: inherit;
       transition: border-color 0.15s, background 0.15s, transform 0.15s;
       cursor: pointer;
     }
     .knowhow-card:hover {
-      border-color: var(--accent);
+      border-color: var(--page-accent);
       background: var(--bg);
       transform: translateY(-1px);
     }
@@ -130,13 +105,13 @@
     .kh-tag {
       font-size: 10px; padding: 2px 8px; border-radius: 6px;
       font-weight: 600; letter-spacing: 0.3px;
-      color: var(--accent); background: rgba(49, 130, 246, 0.08);
-      border: 1px solid rgba(49, 130, 246, 0.2);
+      color: var(--page-accent); background: rgba(244,114,182, 0.08);
+      border: 1px solid rgba(244,114,182, 0.2);
     }
     .kh-cat {
       font-size: 10px; padding: 2px 8px; border-radius: 6px;
       font-weight: 700; letter-spacing: 0.3px;
-      color:#ffffff; background: var(--accent);
+      color:#ffffff; background: var(--page-accent);
     }
 
     .kh-meta {
@@ -151,37 +126,42 @@
     }
 
     .detail-hint {
-      font-size: 11px; color: var(--accent); margin-top: 10px;
+      font-size: 11px; color: var(--page-accent); margin-top: 10px;
       font-weight: 600; letter-spacing: 0.3px;
     }
 
     .empty {
       color: var(--fg-mute); text-align: center; padding: 60px 20px; font-size: 14px;
-      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 12px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
     }
     .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
     .loading { color: var(--fg-mute); text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
     .error { color: var(--danger); text-align: center; padding: 40px 0; font-size: 14px; }
 
-    .back {
-      display: inline-block; margin-top: 28px; color: var(--fg-dim);
-      text-decoration: none; font-size: 14px;
-    }
-    .back:hover { color: var(--accent); }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/page-dark.css">
+  <link rel="stylesheet" href="/lab-page.css">
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>노하우</h1>
-      <a href="./">← 홈으로</a>
-    </header>
-
-    <div class="intro">
-      다음 작업에서 다시 꺼내쓸 수 있는 재사용 노하우. 한 번 발견하면 정리해서 비슷한 작업에 0차 reflex 로 쓸 수 있게 만듭니다. <strong>이슈(포스트모템)</strong> 와 분리되어 사건/시점에 묶이지 않는 일반화된 knowledge 만 모읍니다.
+<body class="lab-page" style="--page-accent: #f472b6">
+  <nav class="lab-nav">
+    <div class="lab-nav-inner">
+      <a class="brand" href="/">mβ</a>
+      <div class="lab-nav-links">
+        <a href="/">홈</a><a href="/apps">apps</a><a href="/worklog">worklog</a>
+        <a href="/newsletter">newsletter</a><a href="/insights">insights</a>
+        <a href="/system">system</a><a href="/lab">lab</a>
+      </div>
     </div>
+  </nav>
+
+  <main class="lab-main">
+    <section class="lab-hero">
+      <h1 class="logo">노하우</h1>
+      <p class="tagline">knowhow · 재사용 노하우</p>
+      <p class="intro">다음 작업에서 다시 꺼내쓸 수 있는 재사용 노하우. 한 번 발견하면 정리해서 비슷한 작업에 0차 reflex 로 쓸 수 있게 만듭니다. 이슈(포스트모템)와 분리되어 사건·시점에 묶이지 않는 일반화된 knowledge 만 모읍니다.</p>
+    </section>
 
     <!-- 최근 변경: 노하우가 추가/수정되면 이 줄만 갱신 (누적 X, 최신 1건만, 정식 버전번호 X) -->
     <div class="recent-change"><b>최근 변경</b> · 2026-06-09 · 노하우 1편 추가 (graphify AST tier 도입과 공유 globals 오염 사고 — 정책보다 차단 훅이 막는다)</div>
@@ -190,8 +170,20 @@
       <div class="loading">불러오는 중…</div>
     </div>
 
-    <a class="back" href="./">← 홈으로</a>
-  </div>
+    <a class="lab-back" href="/system">← system</a>
+  </main>
+
+  <footer class="lab-foot">
+    <div><a href="https://kangdaejong.com">강대종.com</a> · <a href="/lab">Lab</a> · <a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
+    <div class="biz">
+      <span>마이너스베타스튜디오 · 대표 강대종</span>
+      <span>사업자등록번호 878-21-02478</span>
+      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
+      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
+      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
+    </div>
+    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
+  </footer>
 
   <script>
     const viewEl = document.getElementById('view');

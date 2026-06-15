@@ -18,99 +18,98 @@
   <meta name="twitter:description" content="1인 개발이지만 24/7 자동으로 굴러갑니다 — 작업일지 발행, 영상 요약, 야간 개발 사이클, 고객 응대까지.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/automations.html">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color:#ffffff;
-      color: var(--fg);
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      padding: 32px 0 64px;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
-    header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
-    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
-    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
-    header a:hover { color: var(--accent); }
-    .lead { color: var(--fg-dim); font-size: 15px; margin: 12px 0 28px; }
-    .lead b { color: var(--fg); font-weight: 600; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
-    .card {
-      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 14px;
-      padding: 16px 18px;
-    }
-    .card .ico { font-size: 20px; }
-    .card h3 { font-size: 15px; font-weight: 700; margin: 8px 0 4px; color: var(--fg); }
-    .card p { font-size: 13px; color: var(--fg-dim); }
-    .note {
-      margin-top: 28px; font-size: 12.5px; color: var(--fg-mute);
-      background: var(--bg-elev2); border: 1px solid #E5E8EB; border-radius: 10px; padding: 12px 14px;
-    }
-    footer { margin-top: 36px; }
-    footer a { color: var(--fg-mute); text-decoration: none; font-size: 14px; }
-    footer a:hover { color: var(--accent); }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/page-dark.css">
+  <link rel="stylesheet" href="/lab-page.css">
+  <style>
+    /* 자동화 — 카드 그리드 (틀은 lab-page.css 공용, 테마색: 그린) */
+    .auto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 560px) { .auto-grid { grid-template-columns: 1fr; } }
+    .auto-card { background: var(--bg-elev); border: 1px solid var(--border); border-left: 3px solid var(--page-accent); border-radius: 14px; padding: 16px 18px; }
+    .auto-card .ico { font-size: 20px; }
+    .auto-card h3 { font-size: 15px; font-weight: 700; margin: 8px 0 4px; color: var(--fg); }
+    .auto-card p { font-size: 13px; color: var(--fg-dim); line-height: 1.6; }
+    .auto-note { margin-top: 28px; font-size: 12.5px; color: var(--fg-mute); background: var(--bg-elev2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>자동화</h1>
-      <a href="./">← 홈으로</a>
-    </header>
+<body class="lab-page" style="--page-accent: #34d399">
+  <nav class="lab-nav">
+    <div class="lab-nav-inner">
+      <a class="brand" href="/">mβ</a>
+      <div class="lab-nav-links">
+        <a href="/">홈</a><a href="/apps">apps</a><a href="/worklog">worklog</a>
+        <a href="/newsletter">newsletter</a><a href="/insights">insights</a>
+        <a href="/system">system</a><a href="/lab">lab</a>
+      </div>
+    </div>
+  </nav>
 
-    <p class="lead">1인 개발이지만, 손이 가는 반복 작업은 거의 다 자동으로 돌립니다. 자는 동안에도 <b>24/7</b> 스스로 굴러가는 것들 — 사람은 판단과 결정에만 손을 댑니다.</p>
+  <main class="lab-main">
+    <section class="lab-hero">
+      <h1 class="logo">자동화</h1>
+      <p class="tagline">automations · 24/7 자동 운영</p>
+      <p class="intro">1인 개발이지만 손이 가는 반복 작업은 거의 다 자동으로 돌립니다. 자는 동안에도 24/7 스스로 굴러가는 것들 — 사람은 판단과 결정에만 손을 댑니다.</p>
+    </section>
 
-    <div class="grid">
-      <div class="card">
+    <div class="auto-grid">
+      <div class="auto-card">
         <div class="ico">📔</div>
         <h3>매일 작업일지 자동 발행</h3>
         <p>하루 동안 작업한 내용을 매일 밤 모아 정리하고, 작업일지로 자동 발행합니다.</p>
       </div>
-      <div class="card">
+      <div class="auto-card">
         <div class="ico">🎬</div>
         <h3>유튜브 영상 자동 요약</h3>
         <p>관심 분야 영상에서 핵심 인사이트만 뽑아 읽기 좋은 메모로 자동 정리합니다.</p>
       </div>
-      <div class="card">
+      <div class="auto-card">
         <div class="ico">🌙</div>
         <h3>야간 자동 개발 사이클</h3>
         <p>밤사이 밀린 코드 작업·점검을 스스로 골라 진행하고, 아침에 결과를 보고합니다.</p>
       </div>
-      <div class="card">
+      <div class="auto-card">
         <div class="ico">🖼️</div>
         <h3>SNS 카드 자동 게시</h3>
         <p>작업 기록을 보기 좋은 카드 이미지로 만들어 SNS에 자동으로 올립니다.</p>
       </div>
-      <div class="card">
+      <div class="auto-card">
         <div class="ico">💬</div>
         <h3>고객 문의 자동 응대</h3>
         <p>제품 문의를 메신저 봇이 1차로 받아 안내하고, 정말 사람이 필요한 것만 넘깁니다.</p>
       </div>
-      <div class="card">
+      <div class="auto-card">
         <div class="ico">📊</div>
         <h3>사용량·비용 자동 모니터링</h3>
         <p>개발에 쓰는 자원과 비용을 주기적으로 자동 집계해 한눈에 보이게 합니다.</p>
       </div>
-      <div class="card">
+      <div class="auto-card">
         <div class="ico">🔁</div>
         <h3>기기 간 자동 동기화</h3>
         <p>여러 작업 기기의 메모·할 일·기록을 끊김 없이 자동으로 맞춰 둡니다.</p>
       </div>
-      <div class="card">
+      <div class="auto-card">
         <div class="ico">🛟</div>
         <h3>자동 상태 점검·복구</h3>
         <p>자동화가 멈추지 않도록 스스로 상태를 점검하고, 문제가 생기면 알아서 되살립니다.</p>
       </div>
     </div>
 
-    <p class="note">이 페이지는 자랑 삼아 추려 둔 쇼케이스입니다. 실제 가동 현황은 비공개 운영 보드에서 실시간으로 관리합니다.</p>
+    <p class="auto-note">이 페이지는 자랑 삼아 추려 둔 쇼케이스입니다. 실제 가동 현황은 비공개 운영 보드에서 실시간으로 관리합니다.</p>
 
-    <footer>
-      <a href="./">← 홈으로</a>
-    </footer>
-  </div>
+    <a class="lab-back" href="/system">← system</a>
+  </main>
+
+  <footer class="lab-foot">
+    <div><a href="https://kangdaejong.com">강대종.com</a> · <a href="/lab">Lab</a> · <a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
+    <div class="biz">
+      <span>마이너스베타스튜디오 · 대표 강대종</span>
+      <span>사업자등록번호 878-21-02478</span>
+      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
+      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
+      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
+    </div>
+    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
+  </footer>
 </body>
 </html>
