@@ -45,28 +45,7 @@
 </script>
   <meta name="description" content="텔레그램 자연어로 제어하는 집 안 Tuya 스마트홈 지도. 거실, 내방, 화장실, 복도의 조명, 에어컨, 선풍기, 공기청정기, 정수기, 전체 on, 일괄소등 같은 IR 가전과 씬 마커를 눌러 트리거 예시를 확인합니다.">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color:#ffffff;
-      color: var(--fg);
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      min-height: 100vh;
-      padding: 32px 16px 80px;
-      line-height: 1.7;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
-    }
-    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
-    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
-    header a:hover { color: var(--accent); }
-    .intro {
-      font-size: 13px; color: var(--fg-dim);
-      margin-bottom: 24px; padding: 12px 14px;
-      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 10px;
-    }
+    /* 스마트홈 — 평면도/마커 (틀은 lab-page.css 공용, 테마색: 퍼플 / 마커는 의미색 유지) */
     .floorplan {
       width: 100%;
       max-width: 480px;
@@ -140,23 +119,33 @@
     #tooltip .tt-trigger::before { content: '" '; }
     #tooltip .tt-trigger::after { content: ' "'; }
     @media (max-width: 600px) {
-      body { padding: 24px 12px 60px; }
-      .wrap { padding: 0; }
-      header h1 { font-size: 20px; }
-      .intro { font-size: 12px; padding: 10px 12px; }
       #tooltip { font-size: 13px; padding: 10px 14px; max-width: 80vw; }
       .marker-dot { stroke-width: 2; }
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/page-dark.css">
+  <link rel="stylesheet" href="/lab-page.css">
 </head>
-<body>
-<div class="wrap">
-  <header>
-    <h1>🏠 스마트홈</h1>
-    <a href="./index.html">← 홈</a>
-  </header>
-  <div class="intro">이 집에서 텔레그램 자연어로 통제하는 가전들. 마커에 hover/tap 하면 디바이스 이름과 트리거 예시가 떠요.</div>
+<body class="lab-page" style="--page-accent: #a78bfa">
+  <nav class="lab-nav">
+    <div class="lab-nav-inner">
+      <a class="brand" href="/">mβ</a>
+      <div class="lab-nav-links">
+        <a href="/">홈</a><a href="/apps">apps</a><a href="/worklog">worklog</a>
+        <a href="/newsletter">newsletter</a><a href="/insights">insights</a>
+        <a href="/system">system</a><a href="/lab">lab</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+    <section class="lab-hero">
+      <h1 class="logo">🏠 스마트홈</h1>
+      <p class="tagline">smart home · 자연어 가전 제어</p>
+      <p class="intro">이 집에서 텔레그램 자연어로 통제하는 가전들. 마커에 hover/tap 하면 디바이스 이름과 트리거 예시가 떠요.</p>
+    </section>
   <svg class="floorplan" viewBox="0 0 480 320" role="img" aria-label="집 평면도 (거실, 내방, 화장실, 복도)">
     <!-- 거실 240x200 (좌상) -->
     <rect class="room-box" x="0" y="0" width="240" height="200" rx="6"/>
@@ -258,7 +247,21 @@
     <span class="legend-item"><span class="legend-dot scene"></span>씬</span>
   </div>
   <div id="tooltip" role="tooltip" aria-hidden="true"></div>
-</div>
+
+    <a class="lab-back" href="/system">← system</a>
+  </main>
+
+  <footer class="lab-foot">
+    <div><a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
+    <div class="biz">
+      <span>마이너스베타스튜디오 · 대표 강대종</span>
+      <span>사업자등록번호 878-21-02478</span>
+      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
+      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
+      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
+    </div>
+    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
+  </footer>
 <script>
 (function () {
   var tooltip = document.getElementById('tooltip');
