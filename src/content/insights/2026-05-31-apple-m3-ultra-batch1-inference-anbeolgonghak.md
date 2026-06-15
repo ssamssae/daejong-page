@@ -1,6 +1,6 @@
 ---
 title: "애플 M3 울트라, 미친 추론 성능으로 AI 추론 칩 최강 되나 | NVIDIA SOCAMM 만드는 이유 | Project Digits | Batch Size 1의 저지연 APP"
-date: "consumed_at: 2026-05-31"
+date: "2026-05-31"
 source_url: "https://youtu.be/dypejk0TNZ4"
 source_author: "안될공학 - IT 테크 신기술"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "모델보다 중요한건 하니스 입니다."
-date: "unknown"
+date: "2026-05-20"
 source_url: "https://youtu.be/8DySHAuAmts"
 source_author: "메이커 에반 | Maker Evan"
 ---
