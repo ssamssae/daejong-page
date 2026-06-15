@@ -11,26 +11,30 @@ const items = [
   { href: '/knowhow.html', title: '노하우', desc: '1인 개발·AI 협업에서 쌓은 노하우.' },
 ];
 ---
-<Layout title="system — 마이너스베타스튜디오" description="5노드 자동화 메시·기술 스택·Claude 스킬 시스템.">
-  <h1 class="accent-cyan">system</h1>
-  <p class="lead">자동화 · 기술 스택 · 5노드 메시</p>
-  <div class="list">
+<Layout title="system — 마이너스베타스튜디오" description="자동화 메시·기술 스택·Claude 스킬 시스템.">
+  <section class="hero">
+    <h1 class="logo">system</h1>
+    <p class="tagline">system · 자동화 · 기술 스택</p>
+    <p class="intro">launchd·cron·텔레그램으로 굴리는 자동화 파이프라인, 사용 기술 스택, 그리고 직접 만든 Claude 스킬 시스템을 한곳에.</p>
+  </section>
+  <div class="grid">
     {items.map((it) => (
-      <a class="row" href={it.href}>
-        <span class="row-title">{it.title}</span>
-        <span class="row-desc">{it.desc}</span>
-        <span class="row-arrow">→</span>
+      <a class="card" href={it.href}>
+        <span class="card-title">{it.title}</span>
+        <span class="card-desc">{it.desc}</span>
       </a>
     ))}
   </div>
   <style>
-    h1 { font-size: 32px; }
-    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin: 8px 0 32px; }
-    .list { display: flex; flex-direction: column; gap: 10px; }
-    .row { position: relative; border: 1px solid var(--border); border-radius: 10px; padding: 18px 44px 18px 20px; background: var(--bg-elev); color: var(--fg); }
-    .row:hover { border-color: var(--cyan); }
-    .row-title { display: block; font-family: var(--mono); font-weight: 600; color: var(--cyan); }
-    .row-desc { display: block; font-size: 13px; color: var(--fg-dim); margin-top: 4px; }
-    .row-arrow { position: absolute; top: 18px; right: 18px; font-family: var(--mono); color: var(--cyan); }
+    .hero { text-align: center; padding: 8px 0 40px; }
+    .hero .logo { font-family: var(--mono); font-size: 52px; font-weight: 600; color: var(--cyan); line-height: 1; }
+    .hero .tagline { font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px; }
+    .hero .intro { color: var(--fg-dim); max-width: 520px; margin: 18px auto 0; font-size: 15px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .card { border: 1px solid var(--border); border-radius: 10px; padding: 18px; background: var(--bg-elev); color: var(--fg); }
+    .card:hover { border-color: var(--cyan); }
+    .card-title { display: block; font-family: var(--mono); font-weight: 600; color: var(--cyan); }
+    .card-desc { display: block; font-size: 13px; color: var(--fg-dim); margin-top: 4px; }
+    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </Layout>
