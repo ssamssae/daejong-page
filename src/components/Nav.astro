@@ -11,7 +11,7 @@ const links = [
 ---
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="/">mβ</a>
+    <a class="brand" href="/"><img src="/minusbeta-badge.svg" alt="마이너스베타스튜디오" width="30" height="30" /></a>
     <div class="nav-links">
       {links.map(l => <a href={l.href}>{l.label}</a>)}
       <a class="home-link" href="https://kangdaejong.com">↗ 회사 홈</a>
@@ -20,7 +20,8 @@ const links = [
   <style>
     nav { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
     .nav-inner { max-width: 760px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .brand { font-family: var(--mono); font-weight: 600; font-size: 18px; color: var(--cyan); }
+    .brand { display: inline-flex; align-items: center; }
+    .brand img { height: 30px; width: 30px; display: block; }
     .nav-links { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
     .nav-links a { color: var(--fg-dim); }
     .nav-links a:hover { color: var(--magenta); }
