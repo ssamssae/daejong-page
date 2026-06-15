@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>Claude 스킬 - 강대종</title>
-  <!-- OG / Twitter Card (2026-05-25) -->
-  <meta property="og:title" content="Claude 스킬 - 강대종">
-  <meta property="og:description" content="강대종이 Claude Code 에서 매일 쓰는 커스텀 스킬 모음.">
-  <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://work.kangdaejong.com/skills.html">
-  <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Claude 스킬 - 강대종">
-  <meta name="twitter:description" content="강대종이 Claude Code 에서 매일 쓰는 커스텀 스킬 모음.">
-  <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
-  <link rel="canonical" href="https://work.kangdaejong.com/skills.html">
-  <script type="application/ld+json">
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/lab.css';
+---
+<Layout title="Claude 스킬 - 강대종" description="강대종이 Claude Code에서 매일 쓰는 커스텀 스킬 모음. 자동화, 아이디어, 세션 요약, Flutter 빌드, 체크리스트, PR 관리, 뉴스레터 발행, 야간 자동화 등 활성 스킬과 삭제, 수정 이력을 정리합니다.">
+  <Fragment slot="head">
+    <!-- OG / Twitter Card (2026-05-25) -->
+    <meta property="og:title" content="Claude 스킬 - 강대종">
+    <meta property="og:description" content="강대종이 Claude Code 에서 매일 쓰는 커스텀 스킬 모음.">
+    <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://work.kangdaejong.com/skills.html">
+    <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Claude 스킬 - 강대종">
+    <meta name="twitter:description" content="강대종이 Claude Code 에서 매일 쓰는 커스텀 스킬 모음.">
+    <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
+    <link rel="canonical" href="https://work.kangdaejong.com/skills.html">
+    <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -43,8 +40,7 @@
   ]
 }
 </script>
-  <meta name="description" content="강대종이 Claude Code에서 매일 쓰는 커스텀 스킬 모음. 자동화, 아이디어, 세션 요약, Flutter 빌드, 체크리스트, PR 관리, 뉴스레터 발행, 야간 자동화 등 활성 스킬과 삭제, 수정 이력을 정리합니다.">
-  <style>
+    <style is:global>
     /* Claude 스킬 — 필터/카드 컴포넌트 (틀은 lab-page.css 공용, 테마색: 앰버) */
 
     /* Top bar */
@@ -232,25 +228,10 @@
     }
     footer a { color: var(--fg-dim); text-decoration: none; }
     footer a:hover { color: var(--page-accent); }
-  </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/page-dark.css">
-  <link rel="stylesheet" href="/lab-page.css">
-</head>
-<body class="lab-page" style="--page-accent: #fb923c">
-  <nav class="lab-nav">
-    <div class="lab-nav-inner">
-      <a class="brand" href="/"><img src="/minusbeta-badge.svg" alt="마이너스베타스튜디오" width="30" height="30" /></a>
-      <div class="lab-nav-links">
-        <a href="/">홈</a><a href="/worklog">worklog</a>
-        <a href="/newsletter">newsletter</a><a href="/insights">insights</a><a href="/apps">products</a>
-        <a href="/system">system</a><a href="/lab">lab</a>
-      </div>
-    </div>
-  </nav>
+    </style>
+  </Fragment>
 
-  <main class="lab-main">
+  <div class="lab-page" style="--page-accent: #fb923c">
     <section class="lab-hero">
       <h1 class="logo">Claude 스킬</h1>
       <p class="tagline">claude skills · 직접 만든 스킬 시스템</p>
@@ -966,21 +947,9 @@
     </div>
 
     <a class="lab-back" href="/system">← system</a>
-  </main>
+  </div>
 
-  <footer class="lab-foot">
-    <div><a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
-    <div class="biz">
-      <span>마이너스베타스튜디오 · 대표 강대종</span>
-      <span>사업자등록번호 878-21-02478</span>
-      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
-      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
-      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
-    </div>
-    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
-  </footer>
-
-  <script>
+  <script is:inline>
     (function() {
       // Filter
       const pills = document.querySelectorAll('.filter-pill');
@@ -1013,5 +982,4 @@
       });
     })();
   </script>
-</body>
-</html>
+</Layout>

@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>막다른 길 - 강대종</title>
-  <meta name="description" content="시도했지만 막힌 작업을 모아둔 실패 사례 기록. 코레일 Playwright 봇 탐지처럼 브라우저 자동화 차단, API 제한, 구조적 한계를 증상과 판단 근거, 포기 이유, 재시도 조건까지 남겨 다음 시도에서 같은 길을 피합니다.">
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/lab.css';
+---
+<Layout title="막다른 길 - 강대종" description="시도했지만 막힌 작업을 모아둔 실패 사례 기록. 코레일 Playwright 봇 탐지처럼 브라우저 자동화 차단, API 제한, 구조적 한계를 증상과 판단 근거, 포기 이유, 재시도 조건까지 남겨 다음 시도에서 같은 길을 피합니다.">
+  <Fragment slot="head">
   <link rel="canonical" href="https://work.kangdaejong.com/dead-ends.html">
-  <script type="application/ld+json">
+  <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -33,24 +29,9 @@
   ]
 }
 </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/page-dark.css">
-  <link rel="stylesheet" href="/lab-page.css">
-</head>
-<body class="lab-page" style="--page-accent: var(--warn)">
-  <nav class="lab-nav">
-    <div class="lab-nav-inner">
-      <a class="brand" href="/"><img src="/minusbeta-badge.svg" alt="마이너스베타스튜디오" width="30" height="30" /></a>
-      <div class="lab-nav-links">
-        <a href="/">홈</a><a href="/worklog">worklog</a>
-        <a href="/newsletter">newsletter</a><a href="/insights">insights</a><a href="/apps">products</a>
-        <a href="/system">system</a><a href="/lab">lab</a>
-      </div>
-    </div>
-  </nav>
+  </Fragment>
 
-  <main class="lab-main">
+  <div class="lab-page" style="--page-accent: var(--warn)">
     <section class="lab-hero">
       <h1 class="logo">막다른 길</h1>
       <p class="tagline">dead ends · 막힌 시도들</p>
@@ -60,21 +41,9 @@
     <div id="view"><div class="lab-loading">불러오는 중…</div></div>
 
     <a class="lab-back" href="/lab">← lab</a>
-  </main>
+  </div>
 
-  <footer class="lab-foot">
-    <div><a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
-    <div class="biz">
-      <span>마이너스베타스튜디오 · 대표 강대종</span>
-      <span>사업자등록번호 878-21-02478</span>
-      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
-      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
-      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
-    </div>
-    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
-  </footer>
-
-  <script>
+  <script is:inline>
     const viewEl = document.getElementById('view');
 
     function escapeHtml(s) {
@@ -85,7 +54,7 @@
 
     async function init() {
       try {
-        const idxRes = await fetch('./dead-ends/index.json?_=' + Date.now());
+        const idxRes = await fetch('/dead-ends/index.json?_=' + Date.now());
         const idxData = await idxRes.json();
         const entries = (idxData.entries || [])
           .slice()
@@ -148,5 +117,4 @@
 
     init();
   </script>
-</body>
-</html>
+</Layout>

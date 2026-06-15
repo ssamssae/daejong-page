@@ -26,9 +26,11 @@ ROOT = Path(__file__).resolve().parent.parent
 # P4 Astro 전환: insight 신규 발행은 src/content/insights/ 로만 들어옴 (옛 insights/ 는 frozen).
 # 매처(hooks/post-commit)와 짝 — 신경로를 SoT 로 읽어야 새 인사이트의 ## 용어 가 용어집에 반영됨.
 INSIGHTS_DIR = ROOT / "src" / "content" / "insights"
-# P4 Astro 전환(commit 288766b): ai-glossary.html 은 root → public/ 로 이전(여전히 /ai-glossary.html 로 서빙),
-# root index.html 은 드롭(Astro 홈 대체). INDEX_HTML 통계 주입은 파일 부재 시 sync_index_stats 가 self-skip.
-GLOSSARY_HTML = ROOT / "public" / "ai-glossary.html"
+# P4 Astro 전환(commit 288766b): ai-glossary.html 은 root → public/ 로 이전(여전히 /ai-glossary.html 로 서빙).
+# T-260616-02 B안: lab 페이지 단일소스 Astro 전환으로 public/ai-glossary.html → src/pages/ai-glossary.html.astro
+#   로 이전(directory 빌드로 /ai-glossary.html URL 유지). 마커(BEGIN/END_GLOSSARY_DATA, AUTO-HERO-*)는
+#   .astro 안에서도 HTML 주석이라 문자열 치환 동일 작동. root index.html 드롭은 그대로(sync_index_stats self-skip).
+GLOSSARY_HTML = ROOT / "src" / "pages" / "ai-glossary.html.astro"
 INDEX_HTML = ROOT / "index.html"
 
 CATEGORIES_ORDER = [

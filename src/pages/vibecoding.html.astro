@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>에이전트 바이브코딩 변천사 - 강대종</title>
-  <!-- OG / Twitter Card (2026-05-25) -->
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/lab.css';
+---
+<Layout title="에이전트 바이브코딩 변천사 - 강대종" description="강대종이 Claude Code 커스텀 스킬로 바이브코딩 시스템을 만들어온 7주 변천사 보고서. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 스킬 39개, 물리 5대/논리 9노드 mesh, 그리고 stale을 막는 자기방어 인프라(forcing function)의 진화를 기록합니다.">
+  <Fragment slot="head">
+    <!-- OG / Twitter Card (2026-05-25) -->
   <meta property="og:title" content="에이전트 바이브코딩 변천사 - 강대종">
   <meta property="og:description" content="강대종이 Claude Code 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서.">
   <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
@@ -19,7 +16,7 @@
   <meta name="twitter:description" content="강대종이 Claude Code 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/vibecoding.html">
-  <script type="application/ld+json">
+  <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -43,12 +40,7 @@
   ]
 }
 </script>
-  <meta name="description" content="강대종이 Claude Code 커스텀 스킬로 바이브코딩 시스템을 만들어온 7주 변천사 보고서. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 스킬 39개, 물리 5대/논리 9노드 mesh, 그리고 stale을 막는 자기방어 인프라(forcing function)의 진화를 기록합니다.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/page-dark.css">
-  <link rel="stylesheet" href="/lab-page.css">
-  <style>
+  <style is:global>
     /* 페이지 고유 레이아웃 (색은 전부 page-dark 토큰 / --page-accent 참조) */
     .vc-report { margin-top: 8px; }
 
@@ -372,20 +364,9 @@
     .vc-foot-links a { color: var(--accent); text-decoration: none; }
     .vc-foot-links a:hover { color: var(--accent-2); }
   </style>
-</head>
-<body class="lab-page" style="--page-accent: var(--accent)">
-  <nav class="lab-nav">
-    <div class="lab-nav-inner">
-      <a class="brand" href="/"><img src="/minusbeta-badge.svg" alt="마이너스베타스튜디오" width="30" height="30" /></a>
-      <div class="lab-nav-links">
-        <a href="/">홈</a><a href="/worklog">worklog</a>
-        <a href="/newsletter">newsletter</a><a href="/insights">insights</a><a href="/apps">products</a>
-        <a href="/system">system</a><a href="/lab">lab</a>
-      </div>
-    </div>
-  </nav>
+  </Fragment>
 
-  <main class="lab-main">
+  <div class="lab-page" style="--page-accent: var(--accent)">
     <section class="lab-hero">
       <h1 class="logo">에이전트 바이브코딩 변천사</h1>
       <p class="tagline">agentic vibe coding · 5노드 mesh report</p>
@@ -999,18 +980,5 @@
     </div>
 
     <a class="lab-back" href="/lab">← lab</a>
-  </main>
-
-  <footer class="lab-foot">
-    <div><a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
-    <div class="biz">
-      <span>마이너스베타스튜디오 · 대표 강대종</span>
-      <span>사업자등록번호 878-21-02478</span>
-      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
-      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
-      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
     </div>
-    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
-  </footer>
-</body>
-</html>
+</Layout>

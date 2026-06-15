@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <title>STACK - 강대종</title>
-  <meta name="description" content="강대종 1인 개발자가 실제 운영하는 개발 스택 페이지로 Mac 본진, WSL, 맥미니, GPU 노드, iPhone을 Claude Code와 Codex 백엔드 중심 워크플로우, 역할별 토폴로지, 5노드 24/7 가동 구조로 정리합니다.">
-  <!-- OG / Twitter Card (2026-05-25) -->
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/lab.css';
+---
+<Layout title="STACK - 강대종" description="강대종 1인 개발자가 실제 운영하는 개발 스택 페이지로 Mac 본진, WSL, 맥미니, GPU 노드, iPhone을 Claude Code와 Codex 백엔드 중심 워크플로우, 역할별 토폴로지, 5노드 24/7 가동 구조로 정리합니다.">
+  <Fragment slot="head">
+    <!-- OG / Twitter Card (2026-05-25) -->
   <meta property="og:title" content="STACK - 강대종">
   <meta property="og:description" content="강대종이 1인 개발에서 실제로 쓰는 기술 스택 — Flutter, Claude Code, Substack, Notion, KST 워크플로우.">
   <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
@@ -20,7 +16,7 @@
   <meta name="twitter:description" content="강대종이 1인 개발에서 실제로 쓰는 기술 스택 — Flutter, Claude Code, Substack, Notion, KST 워크플로우.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/stack.html">
-  <script type="application/ld+json">
+  <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -44,7 +40,7 @@
   ]
 }
 </script>
-  <style>
+  <style is:global>
     /* 기술 스택 — lab-page 공용 컴포넌트(lab-stats / 좌측 accent 카드) 위에 노드 그리드.
        2026-06-15 리뉴얼: 옛 ✅/❌ feat-row 체크리스트 → 역량 태그 칩, 다크 네온 톤 정합. */
     .node-grid {
@@ -124,24 +120,9 @@
     .topo-svg { width: 100%; max-width: 720px; display: block; margin: 0 auto; font-family: var(--sans, 'Pretendard', sans-serif); }
     @media (max-width: 480px) { .topo-svg { min-width: 480px; } }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/page-dark.css">
-  <link rel="stylesheet" href="/lab-page.css">
-</head>
-<body class="lab-page">
-  <nav class="lab-nav">
-    <div class="lab-nav-inner">
-      <a class="brand" href="/"><img src="/minusbeta-badge.svg" alt="마이너스베타스튜디오" width="30" height="30" /></a>
-      <div class="lab-nav-links">
-        <a href="/">홈</a><a href="/worklog">worklog</a>
-        <a href="/newsletter">newsletter</a><a href="/insights">insights</a><a href="/apps">products</a>
-        <a href="/system">system</a><a href="/lab">lab</a>
-      </div>
-    </div>
-  </nav>
+  </Fragment>
 
-  <main class="lab-main">
+  <div class="lab-page">
     <section class="lab-hero">
       <h1 class="logo">기술 스택</h1>
       <p class="tagline">stack · 상주 5노드 + 모바일 1</p>
@@ -378,18 +359,5 @@
     </section>
 
     <a class="lab-back" href="/system">← system</a>
-  </main>
-
-  <footer class="lab-foot">
-    <div><a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
-    <div class="biz">
-      <span>마이너스베타스튜디오 · 대표 강대종</span>
-      <span>사업자등록번호 878-21-02478</span>
-      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
-      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
-      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
-    </div>
-    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
-  </footer>
-</body>
-</html>
+  </div>
+</Layout>
