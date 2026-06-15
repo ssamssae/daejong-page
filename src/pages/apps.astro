@@ -51,8 +51,8 @@ const saas = [
 ---
 <Layout title="apps — 마이너스베타스튜디오" description="강대종이 만든 출시 모바일 앱과 웹 SaaS 모음.">
   <section class="hero">
-    <h1 class="logo">apps</h1>
-    <p class="tagline">apps · 모바일 앱 &amp; 웹 SaaS</p>
+    <h1 class="logo">apps &amp; SaaS</h1>
+    <p class="tagline">모바일 앱 &amp; 웹 SaaS</p>
     <p class="intro">강대종이 출시한 모바일 앱과 웹 서비스. 모바일 {apps.length}개 · SaaS {saas.length}개.</p>
   </section>
 
@@ -106,10 +106,8 @@ const saas = [
     .sec-count { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); font-weight: 500; }
 
     .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .card { border: 1px solid var(--border); border-left: 3px solid var(--cyan); border-radius: 10px; padding: 16px 18px; background: var(--bg-elev); transition: border-color .15s, transform .15s; }
+    .card { border: 1px solid var(--border); border-left: 3px solid var(--cyan); border-right: 3px solid var(--magenta); border-radius: 10px; padding: 16px 18px; background: var(--bg-elev); transition: transform .15s; }
     .card:hover { transform: translateY(-2px); }
-    .card--app { border-left-color: var(--cyan); }
-    .card--saas { border-left-color: var(--magenta); }
     .card-name { font-weight: 700; font-size: 16px; color: var(--fg); }
     .card-status { font-family: var(--mono); font-size: 11px; color: var(--cyan); margin-top: 5px; }
     .card--saas .card-status { color: var(--magenta); }
