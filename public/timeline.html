@@ -44,37 +44,21 @@
   ]
 }
 </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/page-dark.css">
+  <link rel="stylesheet" href="/lab-page.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color:#ffffff;
-      color: var(--fg);
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      min-height: 100vh;
-      padding: 32px 16px 80px;
-      line-height: 1.7;
-    }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
-    }
-    header h1 { font-size: 20px; color: var(--accent); font-weight: 700; }
-    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
-    header a:hover { color: var(--accent); }
-    .intro {
-      color: var(--fg-dim); font-size: 14px; margin-bottom: 32px; padding: 16px 20px;
-      background: var(--bg-elev); border-radius: 12px; border-left: 3px solid #3182F6;
-    }
+    /* 타임라인 고유 레이아웃 (히트맵·마일스톤·이벤트 그리드) — 색은 page-dark 토큰 */
     .stats {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
       margin-bottom: 28px;
     }
     .stat {
-      background: var(--bg); border-radius: 12px; padding: 16px 12px; text-align: center;
-      border: 1px solid #E5E8EB;
+      background: var(--bg-elev); border-radius: 12px; padding: 16px 12px; text-align: center;
+      border: 1px solid var(--border);
     }
-    .stat-num { font-size: 26px; font-weight: 700; color: var(--accent); line-height: 1; }
+    .stat-num { font-size: 26px; font-weight: 700; color: var(--page-accent); line-height: 1; }
     .stat-label { font-size: 11px; color: var(--fg-mute); margin-top: 6px; letter-spacing: 0.3px; }
     @media (max-width: 560px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
@@ -82,7 +66,7 @@
 
     /* Heatmap */
     .heatmap-card {
-      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 14px;
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px;
       padding: 20px 20px 18px; margin-bottom: 28px; overflow-x: auto;
     }
     .heatmap-title {
@@ -113,15 +97,15 @@
       gap: 3px;
     }
     .hm-cell {
-      width: 12px; height: 12px; border-radius: 3px; background: var(--bg);
-      border: 1px solid #F2F4F6; cursor: default;
+      width: 12px; height: 12px; border-radius: 3px; background: var(--bg-elev2);
+      border: 1px solid var(--border); cursor: default;
       transition: transform 0.1s;
     }
-    .hm-cell:hover { transform: scale(1.3); border-color: var(--accent); }
-    .hm-cell.lv1 { background: var(--accent-bg); border-color: #A8C7F0; }
-    .hm-cell.lv2 { background: var(--accent); border-color: var(--accent-dim); }
-    .hm-cell.lv3 { background: var(--accent-dim); border-color: var(--accent-dim); }
-    .hm-cell.lv4 { background: var(--accent); border-color: #5B9BF8; box-shadow: 0 0 6px rgba(49, 130, 246, 0.4); }
+    .hm-cell:hover { transform: scale(1.3); border-color: var(--page-accent); }
+    .hm-cell.lv1 { background: var(--accent-bg); border-color: var(--border); }
+    .hm-cell.lv2 { background: var(--accent-dim); border-color: var(--accent-dim); }
+    .hm-cell.lv3 { background: var(--page-accent); border-color: var(--page-accent); }
+    .hm-cell.lv4 { background: var(--page-accent); border-color: var(--page-accent); box-shadow: 0 0 6px rgba(255, 0, 170, 0.4); }
     .heatmap-legend {
       display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--fg-mute);
       margin-top: 12px; justify-content: flex-end;
@@ -135,15 +119,15 @@
       gap: 12px; margin-bottom: 28px;
     }
     .ms-card {
-      background: var(--accent-bg);
-      border: 1px solid var(--accent-dim); border-radius: 12px;
+      background: var(--bg-elev);
+      border: 1px solid var(--border); border-left: 3px solid var(--page-accent); border-radius: 12px;
       padding: 16px; position: relative;
     }
     .ms-num {
       position: absolute; top: 10px; right: 12px;
-      font-size: 28px; font-weight: 800; color: var(--accent); opacity: 0.25; line-height: 1;
+      font-size: 28px; font-weight: 800; color: var(--page-accent); opacity: 0.25; line-height: 1;
     }
-    .ms-date { font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+    .ms-date { font-size: 11px; color: var(--page-accent); font-weight: 600; margin-bottom: 4px; }
     .ms-title { font-size: 14px; color: var(--fg); font-weight: 700; line-height: 1.4; }
 
     /* Event list */
@@ -158,8 +142,8 @@
       background: var(--bg-elev); border: 1px solid transparent; border-radius: 10px;
       transition: border-color 0.15s, background 0.15s;
     }
-    .event-row:hover { border-color: var(--border); background: var(--bg); }
-    .event-row.major { border-left: 3px solid #3182F6; }
+    .event-row:hover { border-color: var(--border); background: var(--bg-elev2); }
+    .event-row.major { border-left: 3px solid var(--page-accent); }
     .er-date { font-size: 11px; color: var(--fg-dim); font-weight: 600; }
     .er-title { font-size: 13px; color: var(--fg); line-height: 1.5; }
     .er-title strong { color: var(--fg); font-weight: 600; display: block; margin-bottom: 2px; }
@@ -167,33 +151,36 @@
     .er-tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
     .tag {
       font-size: 10px; padding: 2px 7px; border-radius: 8px;
-      background: var(--border); color: var(--fg-dim); border: 1px solid #E5E8EB;
+      background: var(--bg-elev2); color: var(--fg-dim); border: 1px solid var(--border);
     }
     .tag.flutter { border-color: var(--accent); color: var(--accent); }
     .tag.ai { border-color: var(--accent); color: var(--accent); }
     .tag.web { border-color: var(--success); color: var(--success); }
-    .tag.infra { border-color: #A855F7; color: #A855F7; }
+    .tag.infra { border-color: var(--accent-2); color: var(--accent-2); }
     @media (max-width: 640px) {
       .event-row { grid-template-columns: 70px 1fr; }
       .er-tags { grid-column: 2; justify-content: flex-start; margin-top: 4px; }
     }
-
-    .back { display: inline-block; margin-top: 24px; color: var(--fg-dim); text-decoration: none; font-size: 14px; }
-    .back:hover { color: var(--accent); }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="/page-dark.css">
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>개발 타임라인</h1>
-      <a href="./portfolio.html">← 포트폴리오</a>
-    </header>
-
-    <div class="intro">
-      2026년 4월, 코딩 한 줄 못 쓰던 85년생이 AI와 함께 개발을 시작했습니다. 이 페이지는 그 여정의 기록입니다.
+<body class="lab-page" style="--page-accent: var(--accent-2)">
+  <nav class="lab-nav">
+    <div class="lab-nav-inner">
+      <a class="brand" href="/">mβ</a>
+      <div class="lab-nav-links">
+        <a href="/">홈</a><a href="/apps">apps</a><a href="/worklog">worklog</a>
+        <a href="/newsletter">newsletter</a><a href="/insights">insights</a>
+        <a href="/system">system</a><a href="/issues.html">이슈</a><a href="/lab">lab</a>
+      </div>
     </div>
+  </nav>
+
+  <main class="lab-main">
+    <section class="lab-hero">
+      <h1 class="logo">개발 타임라인</h1>
+      <p class="tagline">dev timeline · 1인 개발 여정</p>
+      <p class="intro">2026년 4월, 코딩 한 줄 못 쓰던 85년생이 AI와 함께 개발을 시작했습니다. 이 페이지는 그 여정의 기록입니다.</p>
+    </section>
 
     <div class="stats" id="stats"></div>
 
@@ -226,8 +213,20 @@
     <div class="section-title">전체 이벤트</div>
     <div class="events" id="events"></div>
 
-    <a class="back" href="./">← 홈으로 돌아가기</a>
-  </div>
+    <a class="lab-back" href="/lab">← lab</a>
+  </main>
+
+  <footer class="lab-foot">
+    <div><a href="https://kangdaejong.com">강대종.com</a> · <a href="/lab">Lab</a> · <a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
+    <div class="biz">
+      <span>마이너스베타스튜디오 · 대표 강대종</span>
+      <span>사업자등록번호 878-21-02478</span>
+      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
+      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
+      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
+    </div>
+    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
+  </footer>
 
   <script>
     const events = [

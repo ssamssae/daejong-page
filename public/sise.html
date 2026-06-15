@@ -44,121 +44,136 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/page-dark.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/page-dark.css">
+  <link rel="stylesheet" href="/lab-page.css">
 <style>
-  /* ── 다크 네온 톤 토큰 (page-dark.css SoT 미러). 등락색은 도메인 의미라 보존 ── */
+  /* 등락색은 도메인 의미라 보존(한국식 상승=빨강/하락=파랑). --gray2 는 JS 인라인 참조 보존. 나머지 색은 page-dark 토큰. */
   :root {
-    --blue: #00e5ff; --blue-strong: #00b8d4;
     --up: #ff5a6a;       /* 한국식 상승 = 빨강 (다크 대비) */
-    --down: #4d94ff;     /* 한국식 하락 = 파랑 (다크 대비, 시안 액센트와 구분) */
-    --ink: #f5f5f5; --gray: #b9c0c9; --gray2: #8b95a1;
-    --line: #232323; --bg: #131313; --bg2: #191919; --white: #0a0a0a;
+    --down: #4d94ff;     /* 한국식 하락 = 파랑 (다크 대비, 액센트와 구분) */
+    --gray2: var(--fg-mute);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg); color: var(--ink); line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
-  .back { display: inline-flex; align-items: center; gap: 4px; color: var(--gray2); font-size: 13px; text-decoration: none; padding: 4px 0; }
-  .back:hover { color: var(--gray); }
-  header { padding: 8px 4px 20px; }
-  header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
-  header p { color: var(--gray2); font-size: 13px; margin-top: 4px; }
 
-  .panel { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 20px; margin-bottom: 16px; }
+  /* ── 패널 (JS 렌더 컨테이너 — 다크 카드) ── */
+  .panel { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
   .panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-  .panel-head h2 { font-size: 16px; font-weight: 700; }
-  .panel-head .meta { font-size: 12px; color: var(--gray2); }
+  .panel-head h2 { font-size: 16px; font-weight: 700; color: var(--fg); }
+  .panel-head .meta { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); }
 
   .search { display: flex; gap: 8px; margin-bottom: 14px; }
   .search input {
-    flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
-    font-size: 14px; font-family: inherit; background: var(--bg); color: var(--ink);
+    flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px;
+    font-size: 14px; font-family: inherit; background: var(--bg); color: var(--fg);
   }
-  .search input::placeholder { color: var(--gray2); }
-  .search input:focus { outline: none; border-color: var(--blue); background: var(--white); }
+  .search input::placeholder { color: var(--fg-mute); }
+  .search input:focus { outline: none; border-color: var(--page-accent); background: var(--bg-elev2); }
   .search button {
-    border: none; border-radius: 12px; padding: 0 18px; font-size: 14px; font-weight: 600;
-    background: var(--blue); color: var(--white); cursor: pointer; font-family: inherit;
+    border: none; border-radius: 8px; padding: 0 18px; font-size: 14px; font-weight: 600;
+    background: var(--page-accent); color: var(--bg); cursor: pointer; font-family: inherit;
   }
-  .search button:active { background: var(--blue-strong); }
+  .search button:active { background: var(--page-accent); filter: brightness(0.85); }
 
   .results { display: none; flex-direction: column; gap: 6px; margin-bottom: 14px; }
   .results.show { display: flex; }
   .result-row {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 12px; background: var(--bg); border-radius: 12px; cursor: pointer;
+    padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; cursor: pointer;
   }
-  .result-row:hover { background: var(--bg2); }
-  .result-row .nm { font-size: 14px; font-weight: 600; }
-  .result-row .cd { font-size: 12px; color: var(--gray2); margin-left: 6px; font-weight: 400; }
-  .result-row .add { font-size: 12px; color: var(--blue); font-weight: 600; }
+  .result-row:hover { background: var(--bg-elev2); }
+  .result-row .nm { font-size: 14px; font-weight: 600; color: var(--fg); }
+  .result-row .cd { font-size: 12px; color: var(--fg-mute); margin-left: 6px; font-weight: 400; }
+  .result-row .add { font-size: 12px; color: var(--page-accent); font-weight: 600; }
 
   .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   @media (max-width: 480px) { .cards { grid-template-columns: 1fr; } }
   .card {
-    position: relative; background: var(--bg); border: 1px solid var(--line);
-    border-radius: 14px; padding: 14px;
+    position: relative; background: var(--bg); border: 1px solid var(--border);
+    border-left: 3px solid var(--page-accent); border-radius: 10px; padding: 14px;
   }
-  .card .nm { font-size: 14px; font-weight: 600; }
-  .card .cd { font-size: 11px; color: var(--gray2); margin-top: 1px; }
-  .card .price { font-size: 20px; font-weight: 700; margin-top: 10px; font-variant-numeric: tabular-nums; }
+  .card .nm { font-size: 14px; font-weight: 600; color: var(--fg); }
+  .card .cd { font-size: 11px; color: var(--fg-mute); margin-top: 1px; }
+  .card .price { font-size: 20px; font-weight: 700; color: var(--fg); margin-top: 10px; font-variant-numeric: tabular-nums; }
   .card .chg { font-size: 13px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
   .card .chg.up { color: var(--up); }
   .card .chg.down { color: var(--down); }
-  .card .chg.flat { color: var(--gray2); }
+  .card .chg.flat { color: var(--fg-mute); }
   .card .rm {
     position: absolute; top: 10px; right: 12px; width: 22px; height: 22px; border: none;
-    border-radius: 50%; background: var(--bg2); color: var(--gray2); cursor: pointer; font-size: 14px; line-height: 1;
+    border-radius: 50%; background: var(--bg-elev2); color: var(--fg-mute); cursor: pointer; font-size: 14px; line-height: 1;
   }
-  .card .rm:hover { background: var(--line); color: var(--gray); }
+  .card .rm:hover { background: var(--border); color: var(--fg-dim); }
 
-  .count { font-size: 12px; color: var(--gray2); }
-  .soon { color: var(--gray2); font-size: 13px; padding: 20px 0; text-align: center; }
-  .footnote { font-size: 11px; color: var(--gray2); text-align: center; margin-top: 20px; line-height: 1.6; }
-  .footnote a { color: var(--gray); }
+  .count { font-size: 12px; color: var(--fg-mute); }
+  .soon { color: var(--fg-mute); font-size: 13px; padding: 20px 0; text-align: center; }
+  .footnote { font-size: 11px; color: var(--fg-mute); text-align: center; margin-top: 20px; line-height: 1.6; }
+  .footnote a { color: var(--fg-dim); }
 </style>
 </head>
-<body>
-<div class="wrap">
-  <a class="back" href="./index.html">← 강대종</a>
-  <header>
-    <h1>시세판</h1>
-    <p>인기 코인 · 환율을 한 화면에 — 개인용 대시보드 (무료 공개 데이터)</p>
-  </header>
-
-  <!-- 코인 패널 -->
-  <section class="panel">
-    <div class="panel-head"><h2>🪙 인기 코인</h2><span class="meta" id="coinMeta">실시간 · KRW</span></div>
-    <div class="search">
-      <input id="coinSearch" type="text" placeholder="코인 검색 (예: 비트코인, ETH)" autocomplete="off">
-      <button id="coinSearchBtn">검색</button>
+<body class="lab-page" style="--page-accent: var(--warn)">
+  <nav class="lab-nav">
+    <div class="lab-nav-inner">
+      <a class="brand" href="/">mβ</a>
+      <div class="lab-nav-links">
+        <a href="/">홈</a><a href="/apps">apps</a><a href="/worklog">worklog</a>
+        <a href="/newsletter">newsletter</a><a href="/insights">insights</a>
+        <a href="/system">system</a><a href="/issues.html">이슈</a><a href="/lab">lab</a>
+      </div>
     </div>
-    <div class="results" id="coinResults"></div>
-    <div class="cards" id="coinCards"></div>
-    <div class="soon" id="coinLoading">불러오는 중…</div>
-  </section>
+  </nav>
 
-  <!-- 환율 패널 -->
-  <section class="panel">
-    <div class="panel-head"><h2>💱 환율</h2><span class="meta" id="fxMeta">실시간</span></div>
-    <div class="cards" id="fxCards"></div>
-    <div class="soon" id="fxLoading">불러오는 중…</div>
-  </section>
+  <main class="lab-main">
+    <section class="lab-hero">
+      <h1 class="logo">시세판</h1>
+      <p class="tagline">market board · 코인·환율 실시간</p>
+      <p class="intro">인기 코인과 주요 환율을 한 화면에 — 개인용 대시보드. CoinGecko와 유럽중앙은행(ECB) 기반 무료 공개 데이터를 불러와 KRW 코인 검색·환율 카드·관심 주식 준비 상태를 보여준다.</p>
+    </section>
 
-  <!-- 주식 패널 (준비중 — serviceKey 필요로 차후 합류) -->
-  <section class="panel">
-    <div class="panel-head"><h2>📈 관심 주식</h2><span class="meta">준비중</span></div>
-    <div class="soon">전일 종가 기반 관심종목 패널은 준비 중이에요.</div>
-  </section>
+    <!-- 코인 패널 -->
+    <section class="panel">
+      <div class="panel-head"><h2>🪙 인기 코인</h2><span class="meta" id="coinMeta">실시간 · KRW</span></div>
+      <div class="search">
+        <input id="coinSearch" type="text" placeholder="코인 검색 (예: 비트코인, ETH)" autocomplete="off">
+        <button id="coinSearchBtn">검색</button>
+      </div>
+      <div class="results" id="coinResults"></div>
+      <div class="cards" id="coinCards"></div>
+      <div class="soon" id="coinLoading">불러오는 중…</div>
+    </section>
 
-  <div class="footnote">
-    코인 시세 <a href="https://www.coingecko.com" target="_blank" rel="noopener">Powered by CoinGecko</a> · 환율 <a href="https://frankfurter.dev" target="_blank" rel="noopener">Frankfurter</a>(유럽중앙은행 ECB)<br>
-    실시간 시세는 참고용이며 투자 권유가 아닙니다.
-  </div>
-</div>
+    <!-- 환율 패널 -->
+    <section class="panel">
+      <div class="panel-head"><h2>💱 환율</h2><span class="meta" id="fxMeta">실시간</span></div>
+      <div class="cards" id="fxCards"></div>
+      <div class="soon" id="fxLoading">불러오는 중…</div>
+    </section>
+
+    <!-- 주식 패널 (준비중 — serviceKey 필요로 차후 합류) -->
+    <section class="panel">
+      <div class="panel-head"><h2>📈 관심 주식</h2><span class="meta">준비중</span></div>
+      <div class="soon">전일 종가 기반 관심종목 패널은 준비 중이에요.</div>
+    </section>
+
+    <div class="footnote">
+      코인 시세 <a href="https://www.coingecko.com" target="_blank" rel="noopener">Powered by CoinGecko</a> · 환율 <a href="https://frankfurter.dev" target="_blank" rel="noopener">Frankfurter</a>(유럽중앙은행 ECB)<br>
+      실시간 시세는 참고용이며 투자 권유가 아닙니다.
+    </div>
+
+    <a class="lab-back" href="/lab">← lab</a>
+  </main>
+
+  <footer class="lab-foot">
+    <div><a href="https://kangdaejong.com">강대종.com</a> · <a href="/lab">Lab</a> · <a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
+    <div class="biz">
+      <span>마이너스베타스튜디오 · 대표 강대종</span>
+      <span>사업자등록번호 878-21-02478</span>
+      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
+      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
+      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
+    </div>
+    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
+  </footer>
 
 <script src="./sise/common.js"></script>
 <script src="./sise/coin.js"></script>

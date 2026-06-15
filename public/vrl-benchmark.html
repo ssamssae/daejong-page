@@ -44,298 +44,165 @@
 }
 </script>
   <meta name="description" content="Claude Code와 페어로 앱을 만드는 1인 개발자 강대종의 개발 여정 페이지. 출시한 앱, 개발 지표, 첫 코드부터 App Store 심사 제출까지의 압축된 과정, 작게 만들고 빨리 고치는 방식, 베타테스터 안내를 담았습니다.">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/page-dark.css">
+  <link rel="stylesheet" href="/lab-page.css">
   <style>
-    /* ── 다크 네온 톤 토큰 (page-dark.css SoT 미러) ── */
-    :root {
-      --bg:        #0a0a0a;
-      --bg-soft:   #131313;
-      --bg-band:   #191919;
-      --line:      #232323;
-      --ink:       #f5f5f5;
-      --ink-2:     #b9c0c9;
-      --ink-3:     #8b95a1;
-      --blue:      #00e5ff;
-      --blue-deep: #00b8d4;
-      --radius:    20px;
-      --shadow:    0 2px 24px rgba(0,0,0,0.30);
-      --shadow-lg: 0 8px 40px rgba(0,0,0,0.45);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-    /* ── 이중 헤더 (vrl 패턴: 상단 브랜드 바 + 하단 섹션 내비) ── */
-    .topbar {
-      border-bottom: 1px solid var(--line);
-      background: rgba(15,17,21,0.85);
-      backdrop-filter: saturate(180%) blur(12px);
-    }
-    .topbar .wrap {
-      height: 56px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .brand { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
-    .topbar-links { display: flex; gap: 22px; }
-    .topbar-links a { font-size: 14px; color: var(--ink-2); font-weight: 500; transition: color .15s; }
-    .topbar-links a:hover { color: var(--ink); }
-
-    .navbar {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(15,17,21,0.85);
-      backdrop-filter: saturate(180%) blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-    .navbar .wrap {
-      height: 52px;
-      display: flex; align-items: center; gap: 26px;
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-    }
-    .navbar .wrap::-webkit-scrollbar { display: none; }
-    .navbar a {
-      font-size: 14px; font-weight: 600; color: var(--ink-3);
-      white-space: nowrap; transition: color .15s; flex-shrink: 0;
-    }
-    .navbar a:hover { color: var(--ink); }
-    .navbar .cta {
-      margin-left: auto;
-      background: var(--blue); color: #fff;
-      padding: 8px 16px; border-radius: 999px; font-weight: 700;
-    }
-    .navbar .cta:hover { color: #fff; background: var(--blue-deep); }
-
-    /* ── Hero ── */
-    .hero { padding: 96px 0 72px; text-align: center; }
-    .hero .eyebrow {
+    /* ── 페이지 고유 레이아웃 (lab-* 로 못 덮는 부분만, page-dark 토큰 사용) ── */
+    .vrl-eyebrow {
       display: inline-block;
-      font-size: 13px; font-weight: 700; color: var(--blue);
-      background: rgba(77,148,255,0.14); padding: 6px 14px; border-radius: 999px;
-      margin-bottom: 24px; letter-spacing: -0.01em;
+      font-family: var(--mono); font-size: 12px; font-weight: 600;
+      color: var(--page-accent); border: 1px solid var(--border);
+      background: var(--bg-elev); padding: 5px 12px; border-radius: 999px;
+      margin-bottom: 18px; letter-spacing: 0.02em;
     }
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 60px);
-      font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .hero h1 .accent { color: var(--blue); }
-    .hero p {
-      font-size: clamp(16px, 2.4vw, 20px); color: var(--ink-2);
-      max-width: 600px; margin: 0 auto 36px;
-    }
-    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      font-size: 15px; font-weight: 700; padding: 14px 28px;
+      font-family: var(--mono); font-size: 14px; font-weight: 600; padding: 12px 24px;
       border-radius: 999px; transition: transform .15s, background .15s, border-color .15s;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--blue); color: #fff; }
-    .btn-primary:hover { background: var(--blue-deep); }
-    .btn-ghost { background: var(--bg); color: var(--ink); border: 1px solid var(--line); }
-    .btn-ghost:hover { border-color: var(--ink-3); }
+    .btn-primary { background: var(--page-accent); color: var(--bg); }
+    .btn-primary:hover { background: var(--page-accent); opacity: 0.9; }
+    .btn-ghost { background: var(--bg-elev); color: var(--fg); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--page-accent); }
 
-    /* ── 숫자 카드 밴드 (vrl 시그니처) ── */
-    .stats { background: var(--bg-band); padding: 56px 0; }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-    }
-    .stat {
-      background: var(--bg); border-radius: var(--radius); padding: 32px 24px;
-      text-align: center; box-shadow: var(--shadow); border: 1px solid var(--line);
-    }
-    .stat-num {
-      font-size: clamp(36px, 5vw, 52px); font-weight: 800;
-      color: var(--ink); letter-spacing: -0.03em; line-height: 1;
-    }
-    .stat-num .unit { font-size: 0.5em; font-weight: 700; color: var(--ink-3); margin-left: 4px; }
-    .stat-label { margin-top: 12px; font-size: 14px; color: var(--ink-2); font-weight: 600; }
+    /* 섹션 헤더 */
+    .section-head { text-align: center; margin: 8px 0 28px; }
+    .section-head .tag { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--page-accent); letter-spacing: 0.06em; }
+    .section-head h2 { font-size: 24px; font-weight: 700; margin-top: 8px; color: var(--fg); word-break: keep-all; }
+    .section-head p { color: var(--fg-dim); margin-top: 10px; font-size: 14px; }
 
-    /* ── 섹션 공통 ── */
-    section.block { padding: 88px 0; }
-    .section-head { text-align: center; margin-bottom: 48px; }
-    .section-head .tag { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 0.04em; }
-    .section-head h2 {
-      font-size: clamp(26px, 4vw, 38px); font-weight: 800;
-      letter-spacing: -0.03em; margin-top: 10px;
-    }
-    .section-head p { color: var(--ink-2); margin-top: 12px; font-size: 16px; }
+    .block { padding: 48px 0 8px; }
 
-    /* ── 앱 카드 그리드 ── */
-    .apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .app-card {
-      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 28px 24px; transition: transform .18s, box-shadow .18s, border-color .18s;
-    }
-    .app-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
-    .app-card .pill {
-      display: inline-block; font-size: 12px; font-weight: 700;
-      color: var(--blue); background: rgba(77,148,255,0.14); padding: 4px 10px; border-radius: 999px;
-      margin-bottom: 14px;
-    }
-    .app-card h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
-    .app-card .status { font-size: 13px; color: var(--ink-3); margin: 6px 0 14px; font-weight: 600; }
-    .app-card .desc { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+    /* 앱 카드 그리드 (lab-card 위에 그리드 배치) */
+    .apps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .apps-grid .lab-card { margin: 0; }
 
-    /* ── 여정 타임라인 ── */
-    .journey { display: flex; flex-direction: column; gap: 0; max-width: 720px; margin: 0 auto; padding-left: 18px; }
+    /* 여정 타임라인 (페이지 고유) */
+    .journey { display: flex; flex-direction: column; gap: 0; max-width: 640px; margin: 0 auto; padding-left: 4px; }
     .milestone {
-      position: relative; padding: 0 0 36px 32px;
-      border-left: 2px solid var(--line);
+      position: relative; padding: 0 0 28px 28px;
+      border-left: 2px solid var(--border);
     }
     .milestone:last-child { border-left-color: transparent; padding-bottom: 0; }
     .milestone::before {
-      content: ''; position: absolute; left: -7px; top: 2px;
+      content: ''; position: absolute; left: -7px; top: 4px;
       width: 12px; height: 12px; border-radius: 50%;
-      background: var(--blue); border: 3px solid var(--bg);
-      box-shadow: 0 0 0 2px var(--blue);
+      background: var(--page-accent); border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--page-accent);
     }
-    .milestone .date { font-size: 13px; font-weight: 700; color: var(--blue); }
-    .milestone h4 { font-size: 17px; font-weight: 800; margin: 4px 0 6px; letter-spacing: -0.02em; }
-    .milestone p { font-size: 14px; color: var(--ink-2); }
+    .milestone .date { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--page-accent); }
+    .milestone h4 { font-size: 16px; font-weight: 700; margin: 4px 0 6px; color: var(--fg); word-break: keep-all; }
+    .milestone p { font-size: 14px; color: var(--fg-dim); }
 
-    /* ── CTA ── */
-    .cta-band { background: var(--accent-bg); color: #fff; padding: 80px 0; text-align: center; }
-    .cta-band h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; letter-spacing: -0.03em; }
-    .cta-band p { color: var(--ink-2); margin: 14px 0 32px; font-size: 16px; }
-    .cta-band .btn-primary { background: var(--blue); }
-    .cta-band .btn-light { background: #fff; color: var(--bg); }
-    .cta-band .btn-light:hover { background: #F2F4F6; }
-
-    /* ── 푸터 ── */
-    footer { border-top: 1px solid var(--line); padding: 40px 0; }
-    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    footer .copy { font-size: 13px; color: var(--ink-3); }
-    footer .links { display: flex; gap: 20px; }
-    footer .links a { font-size: 13px; color: var(--ink-2); font-weight: 500; }
-
-    @media (max-width: 860px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .apps-grid { grid-template-columns: repeat(2, 1fr); }
-      .topbar-links { display: none; }
+    /* CTA 밴드 */
+    .cta-band {
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px;
+      padding: 48px 24px; text-align: center; margin-top: 8px;
     }
-    @media (max-width: 560px) {
+    .cta-band h2 { font-size: 22px; font-weight: 700; color: var(--fg); word-break: keep-all; }
+    .cta-band p { color: var(--fg-dim); margin: 12px 0 26px; font-size: 14px; }
+
+    @media (max-width: 520px) {
       .apps-grid { grid-template-columns: 1fr; }
-      .hero { padding: 64px 0 48px; }
-      section.block { padding: 60px 0; }
     }
   </style>
 </head>
-<body>
-  <!-- 이중 헤더 -->
-  <div class="topbar">
-    <div class="wrap">
-      <a href="index.html" class="brand">마이너스베타스튜디오</a>
-      <nav class="topbar-links">
-        <a href="portfolio.html">포트폴리오</a>
-        <a href="timeline.html">타임라인</a>
-        <a href="newsletter.html">뉴스레터</a>
-        <a href="https://github.com/ssamssae" target="_blank" rel="noopener">GitHub</a>
-      </nav>
+<body class="lab-page" style="--page-accent: var(--accent-2)">
+  <nav class="lab-nav">
+    <div class="lab-nav-inner">
+      <a class="brand" href="/">mβ</a>
+      <div class="lab-nav-links">
+        <a href="/">홈</a><a href="/apps">apps</a><a href="/worklog">worklog</a>
+        <a href="/newsletter">newsletter</a><a href="/insights">insights</a>
+        <a href="/system">system</a><a href="/issues.html">이슈</a><a href="/lab">lab</a>
+      </div>
     </div>
-  </div>
-  <div class="navbar">
-    <div class="wrap">
-      <a href="#intro">소개</a>
-      <a href="#metrics">지표</a>
-      <a href="#apps">앱</a>
-      <a href="#journey">여정</a>
-      <a href="https://groups.google.com/g/minusbetastudio" target="_blank" rel="noopener" class="cta">베타테스터 등록</a>
-      <a href="/" class="nav-home" style="margin-left:14px">홈</a>
-    </div>
-  </div>
+  </nav>
 
-  <!-- Hero -->
-  <header class="hero" id="intro">
-    <div class="wrap">
-      <span class="eyebrow">AI 페어 프로그래밍 · 1인 개발</span>
-      <h1>혼자서, 그러나<br><span class="accent">멈추지 않고</span> 만듭니다.</h1>
-      <p>Claude Code 와 페어로 코딩하는 1인 개발자 강대종입니다.
+  <main class="lab-main">
+    <section class="lab-hero" id="intro">
+      <span class="vrl-eyebrow">AI 페어 프로그래밍 · 1인 개발</span>
+      <h1 class="logo">혼자서, 그러나 멈추지 않고</h1>
+      <p class="tagline">solo dev · AI pair programming</p>
+      <p class="intro">Claude Code 와 페어로 코딩하는 1인 개발자 강대종입니다.
          메모 앱 한 줄에서 시작해, 매일 출시 가능한 제품을 빚어왔습니다.</p>
       <div class="hero-btns">
         <a href="#apps" class="btn btn-primary">출시한 앱 보기</a>
         <a href="portfolio.html" class="btn btn-ghost">포트폴리오 →</a>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- 숫자 카드 밴드 -->
-  <section class="stats" id="metrics">
-    <div class="wrap stats-grid">
-      <div class="stat">
-        <div class="stat-num" id="dayCount">0<span class="unit">일</span></div>
-        <div class="stat-label">개발 여정</div>
+    <!-- 숫자 카드 밴드 -->
+    <section id="metrics">
+      <div class="lab-stats">
+        <div class="lab-stat">
+          <div class="lab-stat-label">개발 여정</div>
+          <div class="lab-stat-value" id="dayCount">0<span class="unit">일</span></div>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-label">출시한 앱</div>
+          <div class="lab-stat-value">6<span class="unit">개</span></div>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-label">진행 프로젝트</div>
+          <div class="lab-stat-value">9<span class="unit">개</span></div>
+        </div>
+        <div class="lab-stat">
+          <div class="lab-stat-label">뉴스레터 발행</div>
+          <div class="lab-stat-value">17<span class="unit">화</span></div>
+        </div>
       </div>
-      <div class="stat">
-        <div class="stat-num">6<span class="unit">개</span></div>
-        <div class="stat-label">출시한 앱</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">9<span class="unit">개</span></div>
-        <div class="stat-label">진행 프로젝트</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">17<span class="unit">화</span></div>
-        <div class="stat-label">뉴스레터 발행</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 앱 -->
-  <section class="block" id="apps">
-    <div class="wrap">
+    <!-- 앱 -->
+    <section class="block" id="apps">
       <div class="section-head">
         <span class="tag">SHIPPED</span>
         <h2>출시했거나, 출시 직전입니다</h2>
         <p>완성도보다 출시를 택했습니다. 작게 만들고, 빨리 내고, 계속 고칩니다.</p>
       </div>
       <div class="apps-grid" id="appsGrid"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 여정 -->
-  <section class="block" id="journey" style="background:var(--bg-soft);">
-    <div class="wrap">
+    <!-- 여정 -->
+    <section class="block" id="journey">
       <div class="section-head">
         <span class="tag">JOURNEY</span>
         <h2>한 달 만에 일어난 일들</h2>
         <p>첫 코드부터 App Store 심사 제출까지, 압축된 개발 여정.</p>
       </div>
       <div class="journey" id="journeyList"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="cta-band">
-    <div class="wrap">
-      <h2>다음 앱을 가장 먼저 써보실래요?</h2>
-      <p>베타테스터로 등록하면 출시 전 버전을 먼저 받아보고 의견을 남길 수 있습니다.</p>
-      <div class="hero-btns">
-        <a href="https://groups.google.com/g/minusbetastudio" target="_blank" rel="noopener" class="btn btn-light">베타테스터 등록</a>
-        <a href="newsletter.html" class="btn btn-primary">뉴스레터 구독</a>
+    <!-- CTA -->
+    <section class="block">
+      <div class="cta-band">
+        <h2>다음 앱을 가장 먼저 써보실래요?</h2>
+        <p>베타테스터로 등록하면 출시 전 버전을 먼저 받아보고 의견을 남길 수 있습니다.</p>
+        <div class="hero-btns">
+          <a href="https://groups.google.com/g/minusbetastudio" target="_blank" rel="noopener" class="btn btn-ghost">베타테스터 등록</a>
+          <a href="newsletter.html" class="btn btn-primary">뉴스레터 구독</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 푸터 -->
-  <footer>
-    <div class="wrap">
-      <span class="copy">© 2026 강대종 · 마이너스베타스튜디오</span>
-      <nav class="links">
-        <a href="index.html">홈</a>
-        <a href="portfolio.html">포트폴리오</a>
-        <a href="info.html">소개</a>
-        <a href="https://github.com/ssamssae" target="_blank" rel="noopener">GitHub</a>
-      </nav>
+    <a class="lab-back" href="/lab">← lab</a>
+  </main>
+
+  <footer class="lab-foot">
+    <div><a href="https://kangdaejong.com">강대종.com</a> · <a href="/lab">Lab</a> · <a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
+    <div class="biz">
+      <span>마이너스베타스튜디오 · 대표 강대종</span>
+      <span>사업자등록번호 878-21-02478</span>
+      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
+      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
+      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
     </div>
+    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
   </footer>
 
   <script>
@@ -365,11 +232,13 @@
     var grid = document.getElementById('appsGrid');
     if (grid) {
       grid.innerHTML = apps.map(function (a) {
-        return '<div class="app-card">' +
-          '<span class="pill">' + a.pill + '</span>' +
-          '<h3>' + a.name + '</h3>' +
-          '<div class="status">' + a.status + '</div>' +
-          '<div class="desc">' + a.desc + '</div>' +
+        return '<div class="lab-card">' +
+          '<div class="lab-card-head">' +
+            '<span class="lab-cat">' + a.pill + '</span>' +
+            '<span class="lab-card-title">' + a.name + '</span>' +
+          '</div>' +
+          '<div class="lab-meta">' + a.status + '</div>' +
+          '<div class="lab-summary">' + a.desc + '</div>' +
         '</div>';
       }).join('');
     }

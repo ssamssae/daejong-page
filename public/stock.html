@@ -44,33 +44,12 @@
 }
 </script>
   <meta name="description" content="강대종의 관심종목 워치리스트. 가격 추적보다 왜 관심인지, 목표 진입가와 목표가, 빠질 조건을 적어 충동 매매를 줄이고 엔비디아, 메타 같은 종목의 AI 인프라, 광고 회복, capex 논거를 개인 기록으로 회고합니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/page-dark.css">
+  <link rel="stylesheet" href="/lab-page.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color:#ffffff;
-      color: var(--fg);
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      min-height: 100vh;
-      padding: 32px 16px 80px;
-      line-height: 1.7;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 8px; }
-
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #E5E8EB;
-    }
-    header h1 { font-size: 22px; color: var(--accent); font-weight: 700; }
-    header a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
-    header a:hover { color: var(--accent); }
-
-    .intro {
-      font-size: 13px; color: var(--fg-dim);
-      margin-bottom: 16px; padding: 12px 14px;
-      background: var(--bg-elev); border: 1px solid #E5E8EB; border-radius: 10px;
-      line-height: 1.55;
-    }
-    .intro strong { color: var(--fg); font-weight: 600; }
+    /* 페이지 고유 레이아웃 (상태 필터 칩 + 종목 카드) — page-dark 토큰 기반 */
     .disclaimer {
       font-size: 11px; color: var(--fg-mute);
       margin-bottom: 20px; padding: 0 2px;
@@ -82,25 +61,26 @@
       margin-bottom: 22px;
     }
     .chip {
-      background: var(--bg-elev2); border: 1px solid #E5E8EB;
+      background: var(--bg-elev2); border: 1px solid var(--border);
       color: var(--fg-dim); font-size: 13px; font-weight: 500;
       padding: 6px 13px; border-radius: 999px;
       cursor: pointer; font-family: inherit;
       transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
-    .chip:hover { border-color: var(--accent); color: var(--accent); }
-    .chip.active { background: var(--accent); border-color: var(--accent); color:#ffffff; }
+    .chip:hover { border-color: var(--page-accent); color: var(--page-accent); }
+    .chip.active { background: var(--page-accent); border-color: var(--page-accent); color: var(--bg); }
     .chip .cnt { opacity: 0.65; font-size: 12px; margin-left: 3px; }
 
     .list { display: flex; flex-direction: column; gap: 14px; }
     .empty { color: var(--fg-mute); font-size: 13px; text-align: center; padding: 32px 0; display: none; }
 
     .stock-card {
-      background: var(--bg-elev); border: 1px solid #E5E8EB;
-      border-radius: 12px; padding: 16px 18px;
-      transition: border-color 0.15s, background 0.15s;
+      background: var(--bg-elev); border: 1px solid var(--border);
+      border-left: 3px solid var(--page-accent);
+      border-radius: 10px; padding: 16px 18px;
+      transition: border-color 0.15s, transform 0.15s;
     }
-    .stock-card:hover { border-color: var(--accent); background: var(--bg); }
+    .stock-card:hover { border-color: var(--page-accent); transform: translateY(-1px); }
 
     .sc-head {
       display: flex; align-items: center; gap: 10px;
@@ -111,9 +91,9 @@
       font-size: 12px; padding: 3px 10px; border-radius: 6px;
       font-weight: 700; letter-spacing: 0.2px;
     }
-    .st-watch     { color: var(--accent); background: #EAF2FF; }   /* 관심 */
-    .st-candidate { color:#ffffff; background: var(--accent); }   /* 매수후보 */
-    .st-holding   { color: var(--success); background: #E7F7EF; }   /* 보유 */
+    .st-watch     { color: var(--accent); background: var(--bg-elev2); }   /* 관심 */
+    .st-candidate { color: var(--bg); background: var(--page-accent); }    /* 매수후보 */
+    .st-holding   { color: var(--success); background: var(--bg-elev2); }  /* 보유 */
     .st-idle      { color: var(--fg-mute); background: var(--bg-elev2); }   /* 관망 */
 
     .sc-name {
@@ -145,28 +125,29 @@
     .sc-source {
       font-size: 11px; color: var(--fg-mute);
       margin-top: 12px; padding-top: 10px;
-      border-top: 1px dashed #E5E8EB;
+      border-top: 1px dashed var(--border);
     }
-
-    .back {
-      display: inline-block; margin-top: 28px; color: var(--fg-dim);
-      text-decoration: none; font-size: 14px;
-    }
-    .back:hover { color: var(--accent); }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="/page-dark.css">
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <h1>관심종목</h1>
-      <a href="./">← 홈으로</a>
-    </header>
-
-    <div class="intro">
-      가격을 쫓는 워치리스트가 아니라 <strong>"왜 관심인지 · 목표가 · 빠질 조건"</strong>을 적어두는 투자 논거 보드. 충동 매매를 줄이고 생각을 정리하려고 만든 개인 dogfood 페이지. 종목 상태(관심 / 매수후보 / 보유 / 관망)로 필터링.
+<body class="lab-page" style="--page-accent: var(--success)">
+  <nav class="lab-nav">
+    <div class="lab-nav-inner">
+      <a class="brand" href="/">mβ</a>
+      <div class="lab-nav-links">
+        <a href="/">홈</a><a href="/apps">apps</a><a href="/worklog">worklog</a>
+        <a href="/newsletter">newsletter</a><a href="/insights">insights</a>
+        <a href="/system">system</a><a href="/issues.html">이슈</a><a href="/lab">lab</a>
+      </div>
     </div>
+  </nav>
+
+  <main class="lab-main">
+    <section class="lab-hero">
+      <h1 class="logo">관심종목</h1>
+      <p class="tagline">watchlist · 투자 논거 보드</p>
+      <p class="intro">가격을 쫓는 워치리스트가 아니라 "왜 관심인지 · 목표가 · 빠질 조건"을 적어두는 투자 논거 보드. 충동 매매를 줄이고 생각을 정리하려고 만든 개인 dogfood 페이지. 종목 상태(관심 / 매수후보 / 보유 / 관망)로 필터링.</p>
+    </section>
+
     <div class="disclaimer">
       ※ 개인 기록·회고용입니다. 투자 권유나 추천이 아니며, 어떤 종목의 매매도 권하지 않습니다. 손익 금액은 적지 않습니다.
     </div>
@@ -259,8 +240,21 @@
     </div>
     <div class="empty" id="empty">해당 상태의 종목이 없습니다.</div>
 
-    <a class="back" href="./">← 홈으로</a>
-  </div>
+    <a class="lab-back" href="/lab">← lab</a>
+  </main>
+
+  <footer class="lab-foot">
+    <div><a href="https://kangdaejong.com">강대종.com</a> · <a href="/lab">Lab</a> · <a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></div>
+    <div class="biz">
+      <span>마이너스베타스튜디오 · 대표 강대종</span>
+      <span>사업자등록번호 878-21-02478</span>
+      <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
+      <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
+      <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
+    </div>
+    <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
+  </footer>
+
   <script>
     (function() {
       var filters = document.getElementById('filters');
