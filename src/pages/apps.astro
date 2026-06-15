@@ -95,7 +95,7 @@ const saas = [
   <style>
     /* sorry/lab 톤 — 중앙 모노 hero + 좌측 accent 카드 */
     .hero { text-align: center; padding: 8px 0 36px; }
-    .hero .logo { font-family: var(--mono); font-size: 48px; font-weight: 600; color: var(--magenta); line-height: 1; }
+    .hero .logo { font-family: var(--mono); font-size: 52px; font-weight: 600; color: var(--magenta); line-height: 1; }
     .hero .tagline { font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px; }
     .hero .intro { color: var(--fg-dim); max-width: 520px; margin: 16px auto 0; font-size: 15px; line-height: 1.7; }
 
@@ -106,15 +106,16 @@ const saas = [
     .sec-count { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); font-weight: 500; }
 
     .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .card { border: 1px solid var(--border); border-left: 3px solid var(--cyan); border-right: 3px solid var(--magenta); border-radius: 10px; padding: 16px 18px; background: var(--bg-elev); transition: transform .15s; }
-    .card:hover { transform: translateY(-2px); }
-    .card-name { font-weight: 700; font-size: 16px; color: var(--fg); }
-    .card-status { font-family: var(--mono); font-size: 11px; color: var(--cyan); margin-top: 5px; }
-    .card--saas .card-status { color: var(--magenta); }
-    .card-desc { color: var(--fg-dim); font-size: 13px; line-height: 1.6; margin: 12px 0; }
+    .card { border: 1px solid var(--border); border-radius: 10px; padding: 18px; background: var(--bg-elev); transition: border-color .15s; }
+    .card:nth-child(odd):hover { border-color: var(--cyan); }
+    .card:nth-child(even):hover { border-color: var(--magenta); }
+    .card-name { display: block; font-family: var(--mono); font-weight: 600; font-size: 15px; color: var(--cyan); }
+    .card:nth-child(even) .card-name { color: var(--magenta); }
+    .card-status { font-family: var(--mono); font-size: 11px; color: var(--fg-mute); margin-top: 5px; }
+    .card-desc { color: var(--fg-dim); font-size: 13px; line-height: 1.6; margin: 12px 0 10px; }
     .card-links { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
-    .card-links a { color: var(--cyan); text-decoration: none; }
-    .card--saas .card-links a { color: var(--magenta); }
+    .card-links a { color: var(--fg-dim); text-decoration: none; }
+    .card-links a:hover { color: var(--cyan); }
     .card-links .disabled { color: var(--fg-mute); cursor: default; }
     @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
   </style>
