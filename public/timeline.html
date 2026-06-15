@@ -294,7 +294,11 @@
       { date: '2026-06-07', title: '한줄일기 Android 출시 + 뉴스레터 Ep27~31 5편 몰아 발행', desc: '39일 만에 한줄일기 안드로이드 Play 스토어 출시(출시 동결 해제). araseo-voice Siri 음성 비서, 6/4 이후 밀린 뉴스레터 Ep27~31 5편을 하룻밤에 Substack/홈페이지/네이버 발행.', tags: [['','Google Play'],['','Android'],['','뉴스레터']], major: 24 },
       { date: '2026-06-08', title: 'codex 강등 → claude 기본 엔진 + work.kangdaejong.com Astro 리뉴얼', desc: 'codex 요금제를 내리고 기본 엔진을 claude로 전환(pull-worker). 단어요 안드 비공개 테스트 검토 제출, 약먹자 조직계정 D-U-N-S 발급, work.kangdaejong.com Astro 리뉴얼 Phase1 착수.', tags: [['ai','Claude Code'],['web','Astro'],['flutter','Flutter']] },
       { date: '2026-06-09', title: '전권 위임 상황의 판단 — 짐작으로 지우지 않기', desc: '세션 클리어 직후 "둘 중에 지울 것을 네 판단으로 결정해 전권을 넘긴다"는 지시 — 무엇을 가리키는지 모르는 상태에서 짐작으로 지우지 않는 원칙을 지킴. 네이버 로그인 자동화 정비.', tags: [['ai','Claude AI'],['infra','자동화']] },
-      { date: '2026-06-10', title: 'cutoff 이후 사실 단정 금지 룰 박제 + 봇 손님 가로채기 fix', desc: 'knowledge cutoff 이후 출시된 AI 모델을 "픽션"으로 단정한 사고를 맥미니 STOP+실측으로 정정 → 새 행동 룰 박제. 봇이 CS 손님 가로채던 버그, 죽은 폴러 자동복구 파수꾼, 입력중 표시 자기충돌 fix.', tags: [['ai','Claude AI'],['infra','자동화']] }
+      { date: '2026-06-10', title: 'cutoff 이후 사실 단정 금지 룰 박제 + 봇 손님 가로채기 fix', desc: 'knowledge cutoff 이후 출시된 AI 모델을 "픽션"으로 단정한 사고를 맥미니 STOP+실측으로 정정 → 새 행동 룰 박제. 봇이 CS 손님 가로채던 버그, 죽은 폴러 자동복구 파수꾼, 입력중 표시 자기충돌 fix.', tags: [['ai','Claude AI'],['infra','자동화']] },
+      { date: '2026-06-11', title: '앱 지원 이메일 회사 메일로 통일', desc: '8개 앱의 지원 이메일을 회사 메일로 통일 — 저장소·웹·플레이 콘솔 전 채널 반영. Preflight Evidence Gate 규칙을 관찰 모드에서 좁은 차단으로 승격.', tags: [['infra','자동화'],['web','브랜딩']] },
+      { date: '2026-06-12', title: '드리프트 추적·자가점검 강화', desc: '깃 히스토리 토큰 노출 처리, 야간 워커 자가 점검 강화(done-task 재발사 갭 차단), PR free-text 리컨실러 머지로 종료된 작업의 stale 마킹을 자동화.', tags: [['infra','자동화'],['infra','5노드']] },
+      { date: '2026-06-13', title: '증거 기반 픽업 게이트 LIVE + Fable 5 배포', desc: '5노드 회의로 Evidence-Gated Pickup 확정, 산출물 키로 중복 작업 충돌 감지, SoT 뮤텍스 안전 마킹(sot-mark.sh) 병합. Fable 5 전체 배포 및 한줄일기 ASA 캠페인 런치.', tags: [['ai','Claude AI'],['infra','자동화'],['flutter','Flutter']] },
+      { date: '2026-06-14', title: '강제 아키텍처로 규칙 박기', desc: '메모리만으로 안 지켜지는 정책을 코드 훅으로 강제 — 컨텍스트 40% 단일 임계값 정정, 추천 증거 게이트, 마킹 블록 훅, 유료 이미지 API 차단 훅(무료 직구 강제). 메모요 google_sign_in v7 마이그레이션.', tags: [['flutter','Flutter'],['infra','자동화'],['web','SaaS']] }
     ];
 
     function parseDate(s) {
