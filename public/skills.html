@@ -265,7 +265,7 @@
         <button class="filter-pill" data-filter="codex">🏭 Codex</button>
       </div>
       <div class="topbar-right">
-        <span class="count-badge" id="countBadge">24개 활성</span>
+        <span class="count-badge" id="countBadge">39개 활성</span>
         <button class="btn-changelog" id="btnChangelog">📋 스킬 변동사항</button>
       </div>
     </div>
@@ -486,20 +486,6 @@
 
       <div class="card" data-device="mac">
         <div class="card-header">
-          <span class="card-name">/fleet</span>
-          <span class="card-tag">멀티기기</span>
-          <div class="card-devices">
-            <span class="card-device dev-mac">🍎 Mac</span>
-          </div>
-        </div>
-        <div class="card-desc">fleet-director — 5대 기기 자율 작업 디렉터. /fleet status, /fleet mission, /fleet ack 슬래시 호출.</div>
-        <div class="card-footer">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/fleet/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="card" data-device="mac">
-        <div class="card-header">
           <span class="card-name">/goodnight</span>
           <span class="card-tag">하루 마무리</span>
           <div class="card-devices">
@@ -552,21 +538,6 @@
         <div class="card-desc">이슈·사건을 증상·원인·조치·예방 4칸으로 구조화 기록. 예방 섹션 비어있으면 저장 거부. daejong-page /issues 페이지 공개 동기화.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/issue/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="card" data-device="mac wsl">
-        <div class="card-header">
-          <span class="card-name">/loop</span>
-          <span class="card-tag">반복 실행</span>
-          <div class="card-devices">
-            <span class="card-device dev-mac">🍎 Mac</span>
-            <span class="card-device dev-wsl">🪟 WSL</span>
-          </div>
-        </div>
-        <div class="card-desc">프롬프트·슬래시 커맨드를 반복 실행. 종료 조건(횟수/시간/수동) 지원. <code>/loop 5m /foo</code> 또는 인터벌 없이 자기 조절.</div>
-        <div class="card-footer">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/loop/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
@@ -815,6 +786,180 @@
         <div class="card-desc">WSL bash 에서 flutter analyze/test 실행 시 cmd.exe pushd UNC cwd 거부 함정 우회. run.sh 1줄 호출로 4단계 자동화.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/wsl-flutter-test/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac wsl codex">
+        <div class="card-header">
+          <span class="card-name">/autopilot</span>
+          <span class="card-tag">야간 자동</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
+        </div>
+        <div class="card-desc">트리거 한 번으로 5노드를 길게 자율로 굴리는 오케스트레이터. 낮 90분·밤 6시간, 본진이 관리감독·검증·통합.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/autopilot/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="codex">
+        <div class="card-header">
+          <span class="card-name">/codex-fire</span>
+          <span class="card-tag">병렬 작업</span>
+          <div class="card-devices">
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
+        </div>
+        <div class="card-desc">codex 자체 오케스트레이션 kickoff. 맥미니 codex 서브 오케스트레이터가 fan-out·수합·머지를 자율 수행.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/codex-fire/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="codex">
+        <div class="card-header">
+          <span class="card-name">/codex-loop-fleet</span>
+          <span class="card-tag">병렬 작업</span>
+          <div class="card-devices">
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
+        </div>
+        <div class="card-desc">4노드 codex REPL 에 task 1개씩 fan-out 해서 1 사이클. loop-fleet 의 codex 백엔드판.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/codex-loop-fleet/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="codex">
+        <div class="card-header">
+          <span class="card-name">/codex-mesh-vote</span>
+          <span class="card-tag">브레인스토밍</span>
+          <div class="card-devices">
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
+        </div>
+        <div class="card-desc">5개 물리 기기 codex 노드가 병렬 브레인스토밍 → 상호 투표 → 다수결. mesh-vote 의 codex 백엔드판.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/codex-mesh-vote/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac">
+        <div class="card-header">
+          <span class="card-name">/context-show</span>
+          <span class="card-tag">토큰</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
+        </div>
+        <div class="card-desc">텔레그램에서 본진 Claude Code 의 /context(컨텍스트 윈도우 사용량)를 자연어로 조회. LLM turn 추가 0.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/context-show/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac wsl">
+        <div class="card-header">
+          <span class="card-name">/grill-me</span>
+          <span class="card-tag">브레인스토밍</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
+        </div>
+        <div class="card-desc">계획·설계를 집요한 압박 질문으로 검증하고 의사결정 가지를 하나씩 정리. 약점을 먼저 털어낸다.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/grill-me/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac">
+        <div class="card-header">
+          <span class="card-name">/insight</span>
+          <span class="card-tag">홈페이지</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
+        </div>
+        <div class="card-desc">유튜브 링크의 자막 추출 + 발화자 인사이트 압축 발췌 후 Astro 콘텐츠 컬렉션에 자동 publish.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/insight/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac">
+        <div class="card-header">
+          <span class="card-name">/insta-photos</span>
+          <span class="card-tag">SNS</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
+        </div>
+        <div class="card-desc">텔레그램으로 보낸 실제 사진 1~10장을 IG 개인 피드에 캐러셀(또는 단일)로 업로드. 작업일지 카드와 별개 라인.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/insta-photos/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac wsl codex">
+        <div class="card-header">
+          <span class="card-name">/loop-fleet</span>
+          <span class="card-tag">병렬 작업</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
+        </div>
+        <div class="card-desc">5노드 tmux 세션에 /loop(dynamic 모드)를 fan-out 해서 자동 분배된 task 를 self-pace 로 실행.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/loop-fleet/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac wsl">
+        <div class="card-header">
+          <span class="card-name">/secret-set</span>
+          <span class="card-tag">자동화</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
+        </div>
+        <div class="card-desc">API 키·토큰·시크릿을 터미널 숨김 프롬프트로 안전하게 입력·저장하는 표준 도구. 셸 히스토리에 안 남음.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/secret-set/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac">
+        <div class="card-header">
+          <span class="card-name">/send-message</span>
+          <span class="card-tag">자동화</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
+        </div>
+        <div class="card-desc">macOS Messages.app 으로 iMessage/SMS 자동 발송. iPhone 문자 포워딩 경유, 본진·맥미니 동일 동작.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/send-message/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac">
+        <div class="card-header">
+          <span class="card-name">/workflow-audit</span>
+          <span class="card-tag">세션 요약</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+          </div>
+        </div>
+        <div class="card-desc">최근 N일 Claude Code 사용 패턴을 메타 분석해 반복 작업·토큰 낭비·워크플로우 비효율을 보고.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/workflow-audit/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
