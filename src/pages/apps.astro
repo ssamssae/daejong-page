@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// 출시 앱 + 첫이름 SaaS. 스토어 링크는 portfolio.html 의 정본 데이터.
+// 출시 앱 + 웹 SaaS. 스토어 링크는 portfolio.html 의 정본 데이터.
 const apps = [
   {
     name: '한줄일기 + AI 응원', status: 'iOS LIVE · Android LIVE · ₩1,900',
@@ -39,6 +39,9 @@ const apps = [
     desc: '25분 집중 + 5분 휴식 사이클 타이머. 집중 보조 미니 앱.',
     links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536777' }],
   },
+];
+
+const saas = [
   {
     name: '첫이름 — AI 사주 작명', status: '웹 SaaS · ₩19,900 · 출시 준비중',
     desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스.',
@@ -46,32 +49,75 @@ const apps = [
   },
 ];
 ---
-<Layout title="apps — 마이너스베타스튜디오" description="강대종이 만든 출시 앱과 웹 서비스 모음.">
-  <h1 class="accent-cyan">apps</h1>
-  <p class="lead">출시한 모바일 앱과 웹 서비스 · 총 {apps.length}개</p>
-  <div class="grid">
-    {apps.map((a) => (
-      <div class="card">
-        <div class="card-name">{a.name}</div>
-        <div class="card-status">{a.status}</div>
-        <p class="card-desc">{a.desc}</p>
-        <div class="card-links">
-          {a.links.map((l) => l.disabled
-            ? <span style="color:var(--fg-mute);cursor:default">{l.label}</span>
-            : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+<Layout title="apps — 마이너스베타스튜디오" description="강대종이 만든 출시 모바일 앱과 웹 SaaS 모음.">
+  <section class="hero">
+    <h1 class="logo">apps</h1>
+    <p class="tagline">apps · 모바일 앱 &amp; 웹 SaaS</p>
+    <p class="intro">강대종이 출시한 모바일 앱과 웹 서비스. 모바일 {apps.length}개 · SaaS {saas.length}개.</p>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-title">앱 <span class="sec-count">{apps.length}</span></h2>
+    <div class="grid">
+      {apps.map((a) => (
+        <div class="card card--app">
+          <div class="card-name">{a.name}</div>
+          <div class="card-status">{a.status}</div>
+          <p class="card-desc">{a.desc}</p>
+          <div class="card-links">
+            {a.links.map((l) => l.disabled
+              ? <span class="disabled">{l.label}</span>
+              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-title sec-title--saas">SaaS <span class="sec-count">{saas.length}</span></h2>
+    <div class="grid">
+      {saas.map((a) => (
+        <div class="card card--saas">
+          <div class="card-name">{a.name}</div>
+          <div class="card-status">{a.status}</div>
+          <p class="card-desc">{a.desc}</p>
+          <div class="card-links">
+            {a.links.map((l) => l.disabled
+              ? <span class="disabled">{l.label}</span>
+              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <style>
-    h1 { font-size: 32px; }
-    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin: 8px 0 32px; }
+    /* sorry/lab 톤 — 중앙 모노 hero + 좌측 accent 카드 */
+    .hero { text-align: center; padding: 8px 0 36px; }
+    .hero .logo { font-family: var(--mono); font-size: 48px; font-weight: 600; color: var(--cyan); line-height: 1; }
+    .hero .tagline { font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px; }
+    .hero .intro { color: var(--fg-dim); max-width: 520px; margin: 16px auto 0; font-size: 15px; line-height: 1.7; }
+
+    .sec { margin-top: 36px; }
+    .sec-title { font-size: 15px; font-family: var(--mono); color: var(--fg); font-weight: 600; margin: 0 0 16px; display: flex; align-items: center; gap: 9px; }
+    .sec-title::before { content: ''; width: 9px; height: 9px; border-radius: 2px; background: var(--cyan); }
+    .sec-title--saas::before { background: var(--magenta); }
+    .sec-count { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); font-weight: 500; }
+
     .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .card { border: 1px solid var(--border); border-radius: 10px; padding: 20px; background: var(--bg-elev); }
-    .card-name { font-weight: 700; font-size: 17px; }
-    .card-status { font-family: var(--mono); font-size: 11px; color: var(--cyan); margin-top: 4px; }
+    .card { border: 1px solid var(--border); border-left: 3px solid var(--cyan); border-radius: 10px; padding: 16px 18px; background: var(--bg-elev); transition: border-color .15s, transform .15s; }
+    .card:hover { transform: translateY(-2px); }
+    .card--app { border-left-color: var(--cyan); }
+    .card--saas { border-left-color: var(--magenta); }
+    .card-name { font-weight: 700; font-size: 16px; color: var(--fg); }
+    .card-status { font-family: var(--mono); font-size: 11px; color: var(--cyan); margin-top: 5px; }
+    .card--saas .card-status { color: var(--magenta); }
     .card-desc { color: var(--fg-dim); font-size: 13px; line-height: 1.6; margin: 12px 0; }
     .card-links { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
+    .card-links a { color: var(--cyan); text-decoration: none; }
+    .card--saas .card-links a { color: var(--magenta); }
+    .card-links .disabled { color: var(--fg-mute); cursor: default; }
     @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </Layout>
