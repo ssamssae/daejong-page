@@ -1,11 +1,39 @@
+/* tokens.css — daejong-page 디자인 토큰 단일 소스 (SoT)
+ * Layout.astro 가 전역 import → 모든 페이지가 이 :root 1곳을 참조.
+ * 2026-06-16 B안: 구 public/page-dark.css(토큰 미러)를 흡수해 진짜 단일소스화.
+ *   톤 변경은 여기 :root 1곳에서만. */
 :root {
-  --bg: #0a0a0a;
-  --bg-elev: #131313;
-  --border: #1f1f1f;
-  --fg: #f5f5f5;
-  --fg-dim: #a0a0a0;
-  --cyan: #00e5ff;
-  --magenta: #ff00aa;
+  /* 배경 계층 */
+  --bg:         #0a0a0a;  /* 페이지 배경 */
+  --bg-elev:    #131313;  /* 카드/박스 */
+  --bg-elev2:   #191919;  /* 한 단계 더 */
+
+  /* 경계선 */
+  --border:     #232323;  /* 일반 보더 */
+  --border-soft:#1a1a1a;
+
+  /* 텍스트 */
+  --fg:         #f5f5f5;  /* 본문 */
+  --fg-dim:     #b9c0c9;  /* 보조 (다크 가독성 위해 밝게) */
+  --fg-mute:    #8b95a1;  /* 약한 */
+
+  /* 액센트 — 네온 (헤더/링크/포인트) */
+  --cyan:       #00e5ff;
+  --magenta:    #ff00aa;
+  --accent:     #00e5ff;  /* = --cyan (lab 톤 별칭) */
+  --accent-2:   #ff00aa;  /* = --magenta */
+  --accent-dim: #00b8d4;
+
+  /* 상태색 — 다크 대비 위해 약간 밝게 */
+  --danger:     #ff5a6a;
+  --success:    #34d399;
+  --warn:       #fb923c;
+
+  /* 연한 상태 배경 */
+  --danger-bg:  #2a1518;
+  --accent-bg:  #0e2730;
+
+  /* 폰트 */
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
 }

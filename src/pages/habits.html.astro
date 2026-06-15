@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/lab.css';
 ---
 <Layout title="습관 - 강대종" description="강대종과 Claude 협업에서 굳어진 운영 습관 모음. 자연어 답변, 명령어 복붙 방식, 완료 마킹, KST 시간 표기, 텔레그램 reply 규칙, 멀티 노드 보고와 SoT 메모 쓰기까지 실제 세션 운영 원칙을 정리합니다.">
   <Fragment slot="head">
@@ -39,8 +40,6 @@ import Layout from '../layouts/Layout.astro';
   ]
 }
 </script>
-    <link rel="stylesheet" href="/page-dark.css" />
-    <link rel="stylesheet" href="/lab-page.css" />
     <style is:global>
     /* 페이지 고유 레이아웃: 정렬 토글 버튼 · 최근 변경 줄 · 습관 카드 번호 배지/본문 */
     .habits-toolbar { display: flex; justify-content: flex-end; margin-bottom: 16px; }
