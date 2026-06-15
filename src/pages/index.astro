@@ -23,8 +23,8 @@ const sections = [
 <Layout title="마이너스베타스튜디오 — 강대종" description="AI와 함께 1인 앱을 만드는 마이너스베타스튜디오. 작업일지·뉴스레터·인사이트·앱·자동화 허브.">
   <section class="hero">
     <div class="logo">mβ</div>
-    <h1>마이너스베타스튜디오</h1>
-    <p class="tagline">강대종 · AI와 함께 1인 앱을 만듭니다</p>
+    <h1>작업 일지</h1>
+    <p class="tagline">마이너스베타스튜디오의 빌드로그 · <a class="home-link" href="https://kangdaejong.com">회사 홈 ↗</a></p>
     <p class="intro">
       Claude Code 와 5노드 자동화 메시로 모바일 앱과 웹 서비스를 빌드하고,
       그 과정을 매일 작업일지·뉴스레터·인사이트로 기록합니다.
@@ -56,6 +56,8 @@ const sections = [
     .logo { font-family: var(--mono); font-size: 56px; font-weight: 600; color: var(--cyan); }
     .hero h1 { font-size: 30px; margin-top: 12px; }
     .tagline { font-family: var(--mono); font-size: 14px; color: var(--magenta); margin-top: 8px; }
+    .tagline .home-link { color: var(--cyan); }
+    .tagline .home-link:hover { color: var(--magenta); }
     .intro { color: var(--fg-dim); max-width: 540px; margin: 20px auto 0; font-size: 15px; }
     .sections { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 16px 0 56px; }
     .recent { margin-bottom: 48px; }
