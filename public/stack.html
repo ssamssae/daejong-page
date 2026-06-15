@@ -302,6 +302,13 @@
             <marker id="arr-blue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
               <path d="M0,0 L0,6 L9,3 z" fill="var(--accent)"/>
             </marker>
+            <!-- 회색 화살표 (양방향): 노드↔노드 ssh 직결 -->
+            <marker id="arr-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="var(--fg-mute)"/>
+            </marker>
+            <marker id="arr-gray-start" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse">
+              <path d="M0,0 L0,6 L8,3 z" fill="var(--fg-mute)"/>
+            </marker>
           </defs>
 
           <!-- ── 노드 배치 (본진 중앙 + 4 노드 사방 코너) ── -->
@@ -345,6 +352,10 @@
             <text x="80" y="58" text-anchor="middle" font-size="8.5" fill="var(--fg-mute)">@ssamssae_codex_bot</text>
           </g>
 
+          <!-- ── 노드 간 ssh 직결 (회색 점선, 예: 맥미니 ↔ 라이덴) ── -->
+          <line x1="192" y1="103" x2="548" y2="103" stroke="var(--fg-mute)" stroke-width="1.5" stroke-dasharray="5 4" marker-start="url(#arr-gray-start)" marker-end="url(#arr-gray)"/>
+          <text x="370" y="96" text-anchor="middle" font-size="9.5" fill="var(--fg-mute)">ssh 직결</text>
+
           <!-- ── 4 spoke 화살표: 본진 → 각 노드 (시안 실선) ── -->
           <line x1="282" y1="220" x2="195" y2="138" stroke="var(--accent)" stroke-width="2" marker-end="url(#arr-blue)"/>
           <text x="245" y="178" text-anchor="middle" font-size="10" fill="var(--accent)" font-weight="600">mac-mini-directive.sh</text>
@@ -366,7 +377,8 @@
             <text x="56" y="24" font-size="10" fill="var(--fg-dim)" font-weight="600">본진 → 각 노드</text>
             <text x="180" y="24" font-size="10" fill="var(--fg-mute)">*-directive.sh 로 명령 운반 (tmux load-buffer + paste-buffer)</text>
             <text x="14" y="44" font-size="10" fill="var(--fg-dim)">↩  각 노드 → 본진 <tspan font-weight="600" fill="var(--success)">mac-report.sh</tspan> 로 결과 회신 (본진 paste · 노드 reverse · 텔레그램 3-channel)</text>
-            <text x="14" y="64" font-size="9" fill="var(--fg-mute)">노드 간 ssh 직결도 가능. 5노드 모두 'claude' tmux 세션 통일. claude-skills repo 는 전 노드 symlink 동기화.</text>
+            <line x1="14" y1="61" x2="40" y2="61" stroke="var(--fg-mute)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="50" y="64" font-size="9" fill="var(--fg-mute)">노드 간 ssh 직결도 가능. 5노드 모두 'claude' tmux 세션 통일. claude-skills repo 는 전 노드 symlink 동기화.</text>
           </g>
         </svg>
       </div>
