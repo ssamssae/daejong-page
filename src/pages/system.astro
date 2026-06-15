@@ -32,8 +32,10 @@ const items = [
     .hero .intro { color: var(--fg-dim); max-width: 520px; margin: 18px auto 0; font-size: 15px; }
     .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .card { border: 1px solid var(--border); border-radius: 10px; padding: 18px; background: var(--bg-elev); color: var(--fg); }
-    .card:hover { border-color: var(--cyan); }
+    .card:nth-child(odd):hover { border-color: var(--cyan); }
+    .card:nth-child(even):hover { border-color: var(--magenta); }
     .card-title { display: block; font-family: var(--mono); font-weight: 600; color: var(--cyan); }
+    .card:nth-child(even) .card-title { color: var(--magenta); }
     .card-desc { display: block; font-size: 13px; color: var(--fg-dim); margin-top: 4px; }
     @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
   </style>
