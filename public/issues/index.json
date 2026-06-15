@@ -1,6 +1,18 @@
 {
  "entries": [
   {
+   "file": "2026-06-15-worker-tokens-false-busy.md",
+   "date": "2026-06-15",
+   "slug": "worker-tokens-false-busy",
+   "title": "자율 워커 busy 판정 false-positive — idle 푸터 'clear to save Nk tokens'",
+   "severity": "high",
+   "recurrence": "medium",
+   "scope": "자율 워커(bonjin/macmini-claude/pull) — idle 세션 false-busy",
+   "occurred_at": "2026-06-15",
+   "resolved_at": "2026-06-15 11:00 KST",
+   "updated": "2026-06-15T11:00:00+09:00"
+  },
+  {
    "file": "2026-06-12-claw-bot-token-rotation.md",
    "date": "2026-06-12",
    "slug": "claw-bot-token-rotation",
