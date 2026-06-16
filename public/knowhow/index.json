@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "file": "2026-06-17-stale-anchor-idempotent-step-ledger.md",
+      "date": "2026-06-17",
+      "slug": "stale-anchor-idempotent-step-ledger",
+      "title": "세션이 끊겼다 돌아오면 했던 일을 다시 한다 — STALE 앵커와 멱등성 스텝 레저",
+      "category": "AI 협업/방법론",
+      "tags": [
+        "idempotency",
+        "stale-anchor",
+        "step-ledger",
+        "ai-orchestration",
+        "session-restart",
+        "multi-step-task",
+        "deploy-automation"
+      ],
+      "summary": "자동화 에이전트에게 멀티스텝 작업(빌드→업로드→스샷→출시)을 맡겼더니 세션이 API 정지로 끊겼다 살아나며 끝낸 일을 처음부터 다시 했다. 원인은 멍청함이 아니라 멱등성 부재 — 재시작 세션은 prose 로 컨텍스트를 복원하는데 글은 sub-step 완료를 기계-체크 가능하게 담지 못한다. 처방은 완료를 글이 아닌 장부(ledger)에 적고 비싼 스텝 실행 전 장부에 묻기, 위임엔 끝난 것/남은 것 STALE 앵커 못박기, 강제 훅은 observe-canary 로."
+    },
+    {
       "file": "2026-06-09-verify-before-execute.md",
       "date": "2026-06-09",
       "slug": "verify-before-execute",
