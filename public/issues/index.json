@@ -1,6 +1,18 @@
 {
  "entries": [
   {
+   "file": "2026-06-20-codex-fast-session-kill.md",
+   "date": "2026-06-20",
+   "slug": "codex-fast-session-kill",
+   "title": "Codex fast 모드 처리 중 session kill 로 텔레그램 중계 1시간 단절",
+   "severity": "high",
+   "recurrence": "high",
+   "scope": "Codex TUI / Telegram relay / tmux supervisor",
+   "occurred_at": "2026-06-20 18:45 KST",
+   "resolved_at": "2026-06-20 19:53 KST",
+   "updated": "2026-06-20T19:53:00+09:00"
+  },
+  {
    "file": "2026-06-15-worker-tokens-false-busy.md",
    "date": "2026-06-15",
    "slug": "worker-tokens-false-busy",
