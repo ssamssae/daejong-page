@@ -1,6 +1,11 @@
 {
   "policies": [
     {
+      "id": "dynamic-workflow-cost-guard",
+      "current": "dynamic workflow/autopilot fan-out은 대형작업 한정. 워커는 먼저 \"독립 병렬 청크?\" 게이트를 통과하고, 하위 워커는 haiku급 저비용 모델로 다운시프트하며, 대량 읽기·리서치·fan-out 전 토큰 사전경고를 남긴다.",
+      "changed": "2026-06-18"
+    },
+    {
       "id": "auto-resume",
       "current": "세션 클리어(source==clear) 후 ~/.claude/state/resume-task 포인터 1건 읽어 tasks.md [~] 항목 자동 \"이어서 진행\" 주입(손0). 1회 소비. 디폴트 ON. 비본진 노드는 claude-coord/tasks.md 미러(ff-only pull 후) read — 로컬 사본 stale 오발동 방지.",
       "changed": "2026-06-12"
