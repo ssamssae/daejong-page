@@ -1,6 +1,16 @@
 {
   "policies": [
     {
+      "id": "telegram-poll-watchdog",
+      "current": "물리 5대 텔레그램 폴러 생존을 프로세스 2형태 OR(@형 plugin:telegram@claude-plugins-official | slash형 claude-plugins-official/telegram) pgrep 으로 결정론 감지(전 노드 실측). dead 판정 시 넓은 패턴(claude-plugins-official) 재확인 fail-safe 게이트 — 넓은건 alive 면 PROC_PAT 미스로 보고 kickstart 회피·ALERT (healthy 세션 kill 방지) → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림(본진 alert-only). 추가로 \"프로세스 살아있는데 MCP 채널만 failed\" 모드를 claude/plugin 프로세스 트리 소유 telegram :443 ESTAB 부재로 감지하고, N틱 디바운스 뒤 /mcp Telegram 항목만 정밀 선택해 Reconnect 한다.",
+      "changed": "2026-06-21"
+    },
+    {
+      "id": "worker-dispatch",
+      "current": "물리 5대 위에 Claude 5 + Codex 5 논리 10노드가 공존한다. Codex는 기본 실행 엔진으로 코드수정·테스트·반복조사·기계적 검증을 맡고, Claude는 planner/reviewer/gatekeeper 레인으로 제한 운용한다. 머신당 단일엔진 mutex로 같은 기기의 형제 엔진 충돌을 막고, 외부영향·배포·main 머지는 본진/맥미니 게이트를 통과한다.",
+      "changed": "2026-06-21"
+    },
+    {
       "id": "dynamic-workflow-cost-guard",
       "current": "dynamic workflow/autopilot fan-out은 대형작업 한정. 워커는 먼저 \"독립 병렬 청크?\" 게이트를 통과하고, 하위 워커는 haiku급 저비용 모델로 다운시프트하며, 대량 읽기·리서치·fan-out 전 토큰 사전경고를 남긴다.",
       "changed": "2026-06-18"
@@ -11,19 +21,9 @@
       "changed": "2026-06-12"
     },
     {
-      "id": "telegram-poll-watchdog",
-      "current": "물리 5대 텔레그램 폴러 생존을 프로세스 2형태 OR(@형 plugin:telegram@claude-plugins-official | slash형 claude-plugins-official/telegram) pgrep 으로 결정론 감지(전 노드 실측). dead 판정 시 넓은 패턴(claude-plugins-official) 재확인 fail-safe 게이트 — 넓은건 alive 면 PROC_PAT 미스로 보고 kickstart 회피·ALERT (healthy 세션 kill 방지) → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림(본진 alert-only). 추가로 \"프로세스 살아있는데 poll-loop hung\"(spin)을 플러그인 PID의 telegram :443 ESTAB 연결 부재로 감지 → 전노드 ALERT-ONLY observe(자동재시작 X, 2틱 디바운스, false-positive 0 검증 후 Phase2 승격).",
-      "changed": "2026-06-10"
-    },
-    {
       "id": "typing-indicator",
       "current": "노드 busy-state 기준 — telegram-source 턴 OR fleet bot-token 존재 시 typing daemon ON(4s sendChatAction). Stop 후 60s grace→PAUSE. 자율턴(auto-resume·워커)도 표시.",
       "changed": "2026-06-10"
-    },
-    {
-      "id": "worker-dispatch",
-      "current": "물리 5대 위에 Claude 5 + Codex 5 논리 10노드가 공존한다. Codex는 기본 실행 엔진으로 코드수정·테스트·반복조사·기계적 검증을 맡고, Claude는 planner/reviewer/gatekeeper 레인으로 제한 운용한다. 머신당 단일엔진 mutex로 같은 기기의 형제 엔진 충돌을 막고, 외부영향·배포·main 머지는 본진/맥미니 게이트를 통과한다.",
-      "changed": "2026-06-21"
     },
     {
       "id": "priority-queue-dispatch",
