@@ -2,18 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/lab.css';
 ---
-<Layout title="Claude 스킬 - 강대종" description="강대종이 Claude Code에서 매일 쓰는 커스텀 스킬 모음. 자동화, 아이디어, 세션 요약, Flutter 빌드, 체크리스트, PR 관리, 뉴스레터 발행, 야간 자동화 등 활성 스킬과 삭제, 수정 이력을 정리합니다.">
+<Layout title="AI 스킬 - 강대종" description="강대종이 Claude/Codex에서 매일 쓰는 커스텀 스킬 모음. 자동화, 아이디어, 세션 요약, Flutter 빌드, 체크리스트, PR 관리, 뉴스레터 발행, 야간 자동화 등 활성 스킬과 삭제, 수정 이력을 정리합니다.">
   <Fragment slot="head">
     <!-- OG / Twitter Card (2026-05-25) -->
-    <meta property="og:title" content="Claude 스킬 - 강대종">
-    <meta property="og:description" content="강대종이 Claude Code 에서 매일 쓰는 커스텀 스킬 모음.">
+    <meta property="og:title" content="AI 스킬 - 강대종">
+    <meta property="og:description" content="강대종이 Claude/Codex 에서 매일 쓰는 커스텀 스킬 모음.">
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://work.kangdaejong.com/skills.html">
     <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Claude 스킬 - 강대종">
-    <meta name="twitter:description" content="강대종이 Claude Code 에서 매일 쓰는 커스텀 스킬 모음.">
+    <meta name="twitter:title" content="AI 스킬 - 강대종">
+    <meta name="twitter:description" content="강대종이 Claude/Codex 에서 매일 쓰는 커스텀 스킬 모음.">
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
     <link rel="canonical" href="https://work.kangdaejong.com/skills.html">
     <script type="application/ld+json" is:inline>
@@ -41,7 +41,7 @@ import '../styles/lab.css';
 }
 </script>
     <style is:global>
-    /* Claude 스킬 — 필터/카드 컴포넌트 (틀은 lab-page.css 공용, 테마색: 앰버) */
+    /* AI 스킬 — 필터/카드 컴포넌트 (틀은 lab-page.css 공용, 테마색: 앰버) */
 
     /* Top bar */
     .topbar {
@@ -233,9 +233,9 @@ import '../styles/lab.css';
 
   <div class="lab-page" style="--page-accent: #fb923c">
     <section class="lab-hero">
-      <h1 class="logo">Claude 스킬</h1>
-      <p class="tagline">claude skills · 직접 만든 스킬 시스템</p>
-      <p class="intro">반복 작업을 슬래시 명령(/skill)으로 자동화한 Claude Code 스킬 모음. 노드별로 필터해서 볼 수 있어요.</p>
+      <h1 class="logo">AI 스킬</h1>
+      <p class="tagline">ai skills · Claude/Codex 작업 루틴</p>
+      <p class="intro">반복 작업을 슬래시 명령(/skill)으로 자동화한 Claude/Codex 스킬 모음. 노드별로 필터해서 볼 수 있어요.</p>
     </section>
 
     <div class="topbar">
@@ -243,7 +243,7 @@ import '../styles/lab.css';
         <button class="filter-pill active" data-filter="all">전체</button>
         <button class="filter-pill" data-filter="mac">🍎 Mac 전용</button>
         <button class="filter-pill" data-filter="wsl">🪟 WSL 전용</button>
-        <button class="filter-pill" data-filter="codex">🏭 Codex</button>
+        <button class="filter-pill" data-filter="codex">Codex 계열</button>
       </div>
       <div class="topbar-right">
         <span class="count-badge" id="countBadge">39개 활성</span>
@@ -794,7 +794,7 @@ import '../styles/lab.css';
             <span class="card-device dev-codex">🏭 Codex</span>
           </div>
         </div>
-        <div class="card-desc">codex 자체 오케스트레이션 kickoff. 맥미니 codex 서브 오케스트레이터가 fan-out·수합·머지를 자율 수행.</div>
+        <div class="card-desc">Codex 레인 자체 오케스트레이션 kickoff. fan-out·수합·머지를 Codex 노드들이 수행.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/codex-fire/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -808,7 +808,7 @@ import '../styles/lab.css';
             <span class="card-device dev-codex">🏭 Codex</span>
           </div>
         </div>
-        <div class="card-desc">4노드 codex REPL 에 task 1개씩 fan-out 해서 1 사이클. loop-fleet 의 codex 백엔드판.</div>
+        <div class="card-desc">5노드 Codex REPL 에 task 1개씩 fan-out 해서 1 사이클. loop-fleet 의 Codex 백엔드판.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/codex-loop-fleet/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>

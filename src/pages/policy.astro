@@ -8,11 +8,11 @@ import policyData from '../data/fleet-policy.json';
 const policies = policyData.policies;
 const lastUpdated = policies.reduce((m, p) => (p.changed > m ? p.changed : m), '');
 ---
-<Layout title="fleet 정책 — 마이너스베타스튜디오" description="9노드 함대가 지금 어떤 규칙으로 굴러가는지 — 코드가 SoT인 살아있는 정책 거울.">
+<Layout title="fleet 정책 — 마이너스베타스튜디오" description="물리 5대 · 논리 10노드(Claude 5 + Codex 5)가 지금 어떤 규칙으로 굴러가는지 — 코드가 SoT인 살아있는 정책 거울.">
   <section class="hero">
     <h1 class="logo">fleet 정책</h1>
     <p class="tagline">fleet policy · 살아있는 정책 거울</p>
-    <p class="intro">9노드 함대가 지금 어떤 규칙으로 굴러가는지 — 코드가 SoT인 살아있는 거울. 최종 변경 {lastUpdated}.</p>
+    <p class="intro">물리 5대 · 논리 10노드(Claude 5 + Codex 5)가 지금 어떤 규칙으로 굴러가는지 — 코드가 SoT인 살아있는 거울. 최종 변경 {lastUpdated}.</p>
   </section>
 
   <table class="ptable">
