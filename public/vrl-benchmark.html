@@ -275,7 +275,7 @@
         <div class="stat-label">개발 여정</div>
       </div>
       <div class="stat">
-        <div class="stat-num">6<span class="unit">개</span></div>
+        <div class="stat-num">7<span class="unit">개</span></div>
         <div class="stat-label">출시한 앱</div>
       </div>
       <div class="stat">
@@ -347,19 +347,21 @@
       if (el) el.innerHTML = diff + '<span class="unit">일</span>';
     })();
 
-    // 앱 카드 (portfolio.html 데이터 기반)
+    // 앱 카드 (공개 스토어 기준)
     var apps = [
-      { pill: 'iOS · Android', name: '한줄일기 + AI 응원', status: 'iOS LIVE · Android alpha · ₩1,900',
+      { pill: 'iOS · Android', name: '한줄일기 + AI 응원', status: 'iOS LIVE · Android LIVE · ₩1,900',
         desc: '하루 한 줄 일기에 AI가 공감+응원 한 줄을 남겨줍니다. 53주 감정 히트맵, 계정 0, 광고 0.' },
-      { pill: 'iOS · Android', name: '메모요', status: 'iOS · Android 출시',
+      { pill: 'iOS · Android', name: '메모요', status: 'iOS · Android LIVE',
         desc: '복수 선택 삭제를 지원하는 가벼운 다크 테마 메모 앱. 첫 Flutter 앱.' },
-      { pill: 'iOS', name: '더치페이 계산기', status: 'iOS 출시 v1.0.2',
+      { pill: 'iOS', name: '더치페이 계산기', status: 'iOS LIVE',
         desc: '금액·인원수 입력만으로 바로 정산하고 남은 금액까지 알려주는 정산 도우미.' },
-      { pill: 'iOS', name: '약먹자', status: 'iOS 출시 v1.0.1',
+      { pill: 'iOS', name: '약먹자', status: 'iOS LIVE',
         desc: '약 등록 → 알림 시각 설정만으로 매일 복약을 빼먹지 않게 도와주는 알림 앱.' },
-      { pill: 'iOS', name: '한컵', status: 'iOS 출시 v1.0',
+      { pill: 'iOS', name: '단어요', status: 'iOS LIVE',
+        desc: '영어 단어를 카드처럼 넘기며 학습하는 미니 단어장. 진행도와 즐겨찾기를 기기 안에 저장합니다.' },
+      { pill: 'iOS', name: '한컵', status: 'iOS LIVE',
         desc: '1컵 단위 카운트와 일일 목표량으로 수분 섭취를 챙겨주는 하루 물 트래커.' },
-      { pill: 'iOS', name: '포모도로', status: 'iOS 출시 v1.0',
+      { pill: 'iOS', name: '포모도로', status: 'iOS LIVE',
         desc: '25분 집중 + 5분 휴식 사이클 타이머. 집중을 돕는 미니 앱.' }
     ];
     var grid = document.getElementById('appsGrid');
