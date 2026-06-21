@@ -3,19 +3,19 @@ import Layout from '../layouts/Layout.astro';
 
 // 자동화·기술 콘텐츠는 기존 정적 페이지로 링크(점진 마이그레이션, P4 에서 통합/이전).
 const items = [
-  { href: '/policy', title: 'Fleet 정책', desc: '9노드 함대가 지금 어떤 규칙으로 굴러가나 — 코드가 SoT인 살아있는 정책 거울.' },
+  { href: '/policy', title: 'Fleet 정책', desc: '물리 5대 · 논리 10노드(Claude 5 + Codex 5)가 지금 어떤 규칙으로 굴러가나 — 코드가 SoT인 살아있는 정책 거울.' },
   { href: '/automations.html', title: '자동화', desc: 'launchd·cron·텔레그램 봇으로 굴리는 자동화 파이프라인.' },
-  { href: '/stack.html', title: '기술 스택', desc: 'Flutter·Astro·Cloudflare·Claude Code 등 사용 기술.' },
-  { href: '/skills.html', title: 'Claude 스킬', desc: '직접 만든 Claude Code 스킬 시스템.' },
+  { href: '/stack.html', title: '기술 스택', desc: 'Flutter·Astro·Cloudflare·Claude/Codex 운영 스택.' },
+  { href: '/skills.html', title: 'AI 스킬', desc: 'Claude·Codex 작업 루틴을 자동화한 스킬 시스템.' },
   { href: '/smart-home.html', title: '스마트홈', desc: 'Tuya·자연어 가전 제어 자동화.' },
   { href: '/knowhow.html', title: '노하우', desc: '1인 개발·AI 협업에서 쌓은 노하우.' },
 ];
 ---
-<Layout title="system — 마이너스베타스튜디오" description="자동화 메시·기술 스택·Claude 스킬 시스템.">
+<Layout title="system — 마이너스베타스튜디오" description="자동화 메시·기술 스택·AI 스킬 시스템.">
   <section class="hero">
     <h1 class="logo">system</h1>
     <p class="tagline">system · 자동화 · 기술 스택</p>
-    <p class="intro">launchd·cron·텔레그램으로 굴리는 자동화 파이프라인, 사용 기술 스택, 그리고 직접 만든 Claude 스킬 시스템을 한곳에.</p>
+    <p class="intro">launchd·cron·텔레그램으로 굴리는 자동화 파이프라인, Claude/Codex 운영 스택, 그리고 직접 만든 AI 스킬 시스템을 한곳에.</p>
   </section>
   <div class="grid">
     {items.map((it) => (

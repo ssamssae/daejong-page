@@ -1,127 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-// 공개 스토어 기준으로 수동 관리하는 앱 + 웹 SaaS 목록.
-const apps = [
-  {
-    name: '한줄일기 + AI 응원', status: 'iOS LIVE · Android LIVE · ₩1,900',
-    desc: '하루 한 줄 일기를 쓰면 AI가 공감+응원 한 줄 답글을 남겨줍니다. 53주 감정 히트맵, 로컬 저장, 계정·광고 0.',
-    links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6764308678' },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.hanjul' },
-    ],
-  },
-  {
-    name: '메모요', status: 'iOS · Android LIVE',
-    desc: '심플한 다크 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구.',
-    links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762068073' },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app' },
-    ],
-  },
-  {
-    name: '더치페이 계산기', status: 'iOS LIVE',
-    desc: '여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미. 금액·인원수 입력만으로 바로 정산.',
-    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762072499' }],
-  },
-  {
-    name: '약먹자', status: 'iOS LIVE',
-    desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 챙겨줍니다.',
-    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762100639' }],
-  },
-  {
-    name: '단어요', status: 'iOS LIVE',
-    desc: '영어 단어를 카드처럼 넘기며 학습하는 미니 단어장. 진행도와 즐겨찾기를 기기 안에 저장합니다.',
-    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6766556759' }],
-  },
-  {
-    name: '한컵', status: 'iOS LIVE',
-    desc: '하루 물 섭취량 트래커. 1컵 단위 카운트와 일일 목표량으로 수분 섭취를 챙겨주는 미니 앱.',
-    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536616' }],
-  },
-  {
-    name: '포모도로', status: 'iOS LIVE',
-    desc: '25분 집중 + 5분 휴식 사이클 타이머. 집중 보조 미니 앱.',
-    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536777' }],
-  },
-];
-
-const saas = [
-  {
-    name: '첫이름 — AI 사주 작명', status: '웹 SaaS · ₩19,900 · 결제 연동 준비중',
-    desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스.',
-    links: [{ label: '결제 연동 준비중', disabled: true }],
-  },
-];
+const target = '/products/';
 ---
-<Layout title="apps — 마이너스베타스튜디오" description="강대종이 만든 출시 모바일 앱과 웹 SaaS 모음.">
-  <section class="hero">
-    <h1 class="logo">products</h1>
-    <p class="tagline">모바일 앱 &amp; 웹 SaaS</p>
-    <p class="intro">강대종이 만든 모바일 앱과 웹 서비스. 모바일 {apps.length}개 · SaaS {saas.length}개.</p>
-  </section>
-
-  <section class="sec">
-    <h2 class="sec-title">앱 <span class="sec-count">{apps.length}</span></h2>
-    <div class="grid">
-      {apps.map((a) => (
-        <div class="card card--app">
-          <div class="card-name">{a.name}</div>
-          <div class="card-status">{a.status}</div>
-          <p class="card-desc">{a.desc}</p>
-          <div class="card-links">
-            {a.links.map((l) => l.disabled
-              ? <span class="disabled">{l.label}</span>
-              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2 class="sec-title sec-title--saas">SaaS <span class="sec-count">{saas.length}</span></h2>
-    <div class="grid">
-      {saas.map((a) => (
-        <div class="card card--saas">
-          <div class="card-name">{a.name}</div>
-          <div class="card-status">{a.status}</div>
-          <p class="card-desc">{a.desc}</p>
-          <div class="card-links">
-            {a.links.map((l) => l.disabled
-              ? <span class="disabled">{l.label}</span>
-              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <style>
-    /* sorry/lab 톤 — 중앙 모노 hero + 좌측 accent 카드 */
-    .hero { text-align: center; padding: 8px 0 36px; }
-    .hero .logo { font-family: var(--mono); font-size: 52px; font-weight: 600; color: var(--magenta); line-height: 1; }
-    .hero .tagline { font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px; }
-    .hero .intro { color: var(--fg-dim); max-width: 520px; margin: 16px auto 0; font-size: 15px; line-height: 1.7; }
-
-    .sec { margin-top: 36px; }
-    .sec-title { font-size: 15px; font-family: var(--mono); color: var(--fg); font-weight: 600; margin: 0 0 16px; display: flex; align-items: center; gap: 9px; }
-    .sec-title::before { content: ''; width: 9px; height: 9px; border-radius: 2px; background: var(--cyan); }
-    .sec-title--saas::before { background: var(--magenta); }
-    .sec-count { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); font-weight: 500; }
-
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .card { border: 1px solid var(--border); border-radius: 10px; padding: 18px; background: var(--bg-elev); transition: border-color .15s; }
-    .card:nth-child(odd):hover { border-color: var(--cyan); }
-    .card:nth-child(even):hover { border-color: var(--magenta); }
-    .card-name { display: block; font-family: var(--mono); font-weight: 600; font-size: 15px; color: var(--cyan); }
-    .card:nth-child(even) .card-name { color: var(--magenta); }
-    .card-status { font-family: var(--mono); font-size: 11px; color: var(--fg-mute); margin-top: 5px; }
-    .card-desc { color: var(--fg-dim); font-size: 13px; line-height: 1.6; margin: 12px 0 10px; }
-    .card-links { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
-    .card-links a { color: var(--fg-dim); text-decoration: none; }
-    .card-links a:hover { color: var(--cyan); }
-    .card-links .disabled { color: var(--fg-mute); cursor: default; }
-    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
-  </style>
-</Layout>
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href="https://work.kangdaejong.com/products/" />
+    <script is:inline>window.location.replace('/products/');</script>
+    <title>products로 이동 중</title>
+  </head>
+  <body>
+    <a href="/products/">products로 이동</a>
+  </body>
+</html>

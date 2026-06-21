@@ -5,7 +5,7 @@ const path = Astro.url.pathname;
 function activeKey(p) {
   if (p.startsWith('/newsletter')) return 'newsletter';
   if (p.startsWith('/insights')) return 'insights';
-  if (p.startsWith('/apps')) return 'products';
+  if (p.startsWith('/products') || p.startsWith('/apps')) return 'products';
   if (p.startsWith('/system')) return 'system';
   if (p.startsWith('/lab')) return 'lab';
   if (p === '/' || p.startsWith('/worklog')) return 'worklog';
@@ -24,7 +24,7 @@ const active = activeKey(path);
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet" />
-    <script is:inline src="https://kangdaejong.com/mb-components.js" defer></script>
+    <script is:inline src="/mb-components.js" defer></script>
     <title>{title}</title>
     <slot name="head" />
   </head>

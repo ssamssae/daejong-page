@@ -2,18 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/lab.css';
 ---
-<Layout title="에이전트 바이브코딩 변천사 - 강대종" description="강대종이 Claude Code 커스텀 스킬로 바이브코딩 시스템을 만들어온 7주 변천사 보고서. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 스킬 39개, 물리 5대/논리 9노드 mesh, 그리고 stale을 막는 자기방어 인프라(forcing function)의 진화를 기록합니다.">
+<Layout title="에이전트 바이브코딩 변천사 - 강대종" description="강대종이 Claude/Codex 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 스킬 39개, 물리 5대/논리 10노드 mesh, 그리고 stale을 막는 자기방어 인프라(forcing function)의 진화를 기록합니다.">
   <Fragment slot="head">
     <!-- OG / Twitter Card (2026-05-25) -->
   <meta property="og:title" content="에이전트 바이브코딩 변천사 - 강대종">
-  <meta property="og:description" content="강대종이 Claude Code 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서.">
+  <meta property="og:description" content="강대종이 Claude/Codex 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서.">
   <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://work.kangdaejong.com/vibecoding.html">
   <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="에이전트 바이브코딩 변천사 - 강대종">
-  <meta name="twitter:description" content="강대종이 Claude Code 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서.">
+  <meta name="twitter:description" content="강대종이 Claude/Codex 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/vibecoding.html">
   <script type="application/ld+json" is:inline>
@@ -369,16 +369,16 @@ import '../styles/lab.css';
   <div class="lab-page" style="--page-accent: var(--accent)">
     <section class="lab-hero">
       <h1 class="logo">에이전트 바이브코딩 변천사</h1>
-      <p class="tagline">agentic vibe coding · 5노드 mesh report</p>
-      <p class="intro">Claude Code 커스텀 스킬(/skill)을 메인으로 반복 작업을 자동화하는 시스템. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 바이브코딩 인프라가 어떻게 만들어졌고, stale을 막는 자기방어 레이어까지 어떻게 진화했는지 기록합니다.</p>
+      <p class="tagline">agentic vibe coding · 물리 5대 / 논리 10노드 mesh report</p>
+      <p class="intro">Claude/Codex 커스텀 스킬(/skill)을 메인으로 반복 작업을 자동화하는 시스템. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 바이브코딩 인프라가 어떻게 만들어졌고, stale을 막는 자기방어 레이어까지 어떻게 진화했는지 기록합니다.</p>
     </section>
 
     <div class="vc-report">
 
     <div class="vc-hero-card">
-      <div class="vc-hero-label">Report · 2026-06-15 갱신</div>
+      <div class="vc-hero-label">Report · 2026-06-21 갱신</div>
       <h2>혼자 만들고 혼자 다듬어온<br>에이전트 스킬 시스템</h2>
-      <p>Claude Code 커스텀 스킬(/skill)을 메인 백엔드로, 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 바이브코딩 인프라. 어떻게 만들어졌고, 어떻게 "스스로를 의심하는" 자기방어 인프라까지 진화했는지 기록합니다. 모델은 Claude Opus 4.8(1M 컨텍스트) 메인 + Fable 5 보조.</p>
+      <p>Claude/Codex 커스텀 스킬(/skill)을 기반으로, 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 바이브코딩 인프라. 어떻게 만들어졌고, 어떻게 "스스로를 의심하는" 자기방어 인프라까지 진화했는지 기록합니다. 현재 모델/엔진 역할은 Codex 실행 레인 + Claude 리뷰/게이트 레인으로 분리합니다.</p>
       <div class="hero-stats">
         <div class="stat">
           <div class="stat-num">39</div>
@@ -389,8 +389,8 @@ import '../styles/lab.css';
           <div class="stat-label">물리 기기</div>
         </div>
         <div class="stat">
-          <div class="stat-num">9</div>
-          <div class="stat-label">논리 노드 (codex 5+claude 4)</div>
+          <div class="stat-num">10</div>
+          <div class="stat-label">논리 노드 (Codex 5 + Claude 5)</div>
         </div>
         <div class="stat">
           <div class="stat-num">~7주</div>
@@ -542,12 +542,12 @@ import '../styles/lab.css';
         <div class="tl-date">2026-05-25 ~ 05-28</div>
         <div class="tl-card">
           <span class="tl-epoch">8기 · 코덱스 백엔드 라이브</span>
-          <div class="tl-title">5노드 Codex REPL 표준 셋업 + 자면서 앱 빌드 패턴</div>
+          <div class="tl-title">Codex REPL 표준 셋업 + 자면서 앱 빌드 패턴</div>
           <div class="tl-desc">
-            🍎 본진 · 🪟 WSL · 🖥 데스크탑 · 💻 노트북 4노드가 Codex REPL 활성 노드로 합류. 🏭 맥미니는 Codex 셋업 없이 launchd 워커(night-builder v2 + night-runner v1) 전담으로 역할을 분리했다.
+            처음에는 🍎 본진 · 🪟 WSL · 🖥 데스크탑 · 💻 노트북 4노드가 Codex REPL 활성 노드로 합류했고, 🏭 맥미니는 launchd 워커(night-builder v2 + night-runner v1) 전담으로 역할을 분리했다. 이후 2026-06-20 기준을 다시 박으면서 맥미니까지 Codex 레인을 보강해 5노드 Codex 표준으로 맞췄다.
             <br><br>표준값은 Codex CLI 2.1.150, gpt-5.5 xhigh fast, YOLO mode(<code>approval_policy="never"</code> + <code>sandbox_mode="danger-full-access"</code>), <code>features.hooks</code> 마이그레이션, Codex Mesh Mirror 그룹(chat_id -5069144185). codex-mesh-vote / codex-loop-fleet 스킬로 설계·투표·분산 실행 경로를 열었다.
             <br><br>bapeo repo에서는 "자면서 앱 빌드 3원칙" 운영 패턴을 시작했고, PR #7~13 squash merge로 8 PoC + coordinator + finalizer + release + run_chain 흐름을 묶었다.
-            <br><br><strong>⚠️ 6월 강등</strong>: Codex 요금제 다운(NICEGPTPRO5x → 저가 플랜)으로 Codex는 야간 자동 사이클·fan-out 엔진에서 빠지고 <strong>codex-mesh-vote(설계 투표) 전용</strong>으로 강등. 기본·다이나믹·야간 엔진은 전부 Claude로 전환됐다. 아래 9기 참조.
+            <br><br><strong>⚠️ 6월 초 재조정</strong>: Codex 요금제 다운(NICEGPTPRO5x → 저가 플랜) 직후에는 Codex를 야간 자동 사이클·fan-out 엔진에서 빼고 <strong>codex-mesh-vote(설계 투표)</strong> 중심으로 낮췄다. 이후 2026-06-20 Codex-main / Claude-reviewer 역할 기준으로 다시 표준화했다. 아래 9기 참조.
           </div>
           <div class="tl-skills">
             <span class="skill-badge new">/codex-mesh-vote</span>
@@ -564,9 +564,9 @@ import '../styles/lab.css';
         <div class="tl-date">2026-06-05 ~ 06-15</div>
         <div class="tl-card">
           <span class="tl-epoch">9기 · 역할반전 + 자기방어 인프라</span>
-          <div class="tl-title">Claude 기본 전환, 본진↔맥미니 역할반전, "스스로를 의심하는" 레이어</div>
+          <div class="tl-title">역할반전, 10노드 표준화, "스스로를 의심하는" 레이어</div>
           <div class="tl-desc">
-            Codex 강등으로 <strong>Claude 백엔드가 모든 자동 사이클의 기본 엔진</strong>이 됐다. Codex는 설계 투표(codex-mesh-vote)에만 가끔 호출. 물리 5대 위에 codex·claude 백엔드를 얹어 <strong>논리 9노드(codex 5 + claude 4)</strong> 함대로 운용한다.
+            이 구간 초반에는 Claude 백엔드를 자동 사이클 기본 엔진으로 두고 Codex를 설계 투표(codex-mesh-vote) 중심으로 낮췄다. 이후 2026-06-20 기준을 다시 박으면서 물리 5대 위에 <strong>Codex 5 + Claude 5 = 논리 10노드</strong>를 표준으로 운용한다. Codex는 기본 실행 엔진, Claude는 planner/reviewer/gatekeeper 레인이다.
             <br><br><strong>역할반전(6/5)</strong> — 🏭 맥미니가 제1 자동 오케스트레이터로 야간 자동 사이클을 지휘하고, 🍎 본진은 자동 작업을 돌리지 않는 <strong>수동 거버넌스 게이트키퍼</strong>(정책·머지·최종 승인)로 분리됐다.
             <br><br>그러나 이 시기 진짜 변화는 기능 추가가 아니라 <strong>"스스로를 의심하는" 자기방어 레이어</strong>다. 스킬이 많아질수록 정보가 낡고(stale) 어긋나기 시작했고, 메모리에 룰을 적는 것만으로는 안 지켜졌다. 그래서 메모리 대신 <strong>훅(hook)으로 강제하는 forcing function</strong>을 깔았다 — 큰 작업 전 증거 검증 게이트, 가드 마커 보호, 외부발신 사전·사후 알림, 컨텍스트 40% 하드클리어, 안티스테일 원장(ledger)·뮤텍스 마킹. (아래 05 섹션에서 자세히)
           </div>
@@ -574,7 +574,7 @@ import '../styles/lab.css';
             <span class="skill-badge new">/loop-fleet</span>
             <span class="skill-badge new">/mesh-vote (claude)</span>
             <span class="skill-badge new">우선큐 (manual-queue)</span>
-            <span class="skill-badge new">자율워커 4엔진</span>
+            <span class="skill-badge new">자율워커 10논리노드</span>
             <span class="skill-badge new">preflight-evidence-gate</span>
             <span class="skill-badge new">action-ledger / sot-mark</span>
             <span class="skill-badge del">Codex 야간 엔진</span>
@@ -585,7 +585,7 @@ import '../styles/lab.css';
     </div>
 
     <!-- Architecture -->
-    <h2 class="section-title"><span>02</span> 현재 기기 구조 — 물리 5대 / 논리 9노드 24/7</h2>
+    <h2 class="section-title"><span>02</span> 현재 기기 구조 — 물리 5대 / 논리 10노드 24/7</h2>
     <div class="arch-grid">
       <div class="arch-card">
         <div class="arch-icon">🍎</div>
@@ -639,7 +639,7 @@ import '../styles/lab.css';
       <div class="wf-block">
         <div class="wf-subtitle">🔄 loop-run 4단계 파이프라인</div>
         <div class="wf-pipeline">
-          <div class="wf-step plan">PLAN<br><small>Claude가 task 배열 JSON 생성</small></div>
+          <div class="wf-step plan">PLAN<br><small>Claude/Codex가 task 배열 JSON 생성</small></div>
           <div class="wf-arr">→</div>
           <div class="wf-step execute">EXECUTE<br><small>5노드 mesh 기기별 실행</small></div>
           <div class="wf-arr">→</div>
@@ -655,8 +655,8 @@ import '../styles/lab.css';
         <div class="routing-grid">
           <div class="routing-col">
             <div class="routing-label">자동 레인 (오토)</div>
-            <div class="routing-node mini">🏭 Mac mini = 제1 자동 오케스트레이터<br><small>야간 codex 30분 사이클로 5노드 fan-out</small></div>
-            <div class="routing-node wsl">자율워커 4엔진<br><small>본진·맥미니 × 클로드·코덱스 · 머신당 단일엔진 mutex · 자연어/초소버튼 토글</small></div>
+            <div class="routing-node mini">🏭 Mac mini = 제1 자동 오케스트레이터<br><small>Codex 실행 레인 / Claude 리뷰 레인 조율</small></div>
+            <div class="routing-node wsl">자율워커 10논리노드<br><small>5기기 × Claude/Codex · 머신당 단일엔진 mutex · 자연어/초소버튼 토글</small></div>
           </div>
           <div class="routing-mid">+</div>
           <div class="routing-col">
@@ -665,7 +665,7 @@ import '../styles/lab.css';
             <div class="routing-node result">FIFO + 원자적 claim + lease/reap<br><small>노드 죽으면 자동 재큐</small></div>
           </div>
         </div>
-        <div class="wf-note">🍎 Mac 본진은 수동 거버넌스 게이트키퍼(정책 · main 머지 · 최종 승인), 🏭 Mac mini는 자동 사이클 지휘 — 두 레인 모두 머신당 단일엔진 규칙으로 충돌 차단</div>
+        <div class="wf-note">🍎 Mac 본진은 수동 거버넌스 게이트키퍼(정책 · main 머지 · 최종 승인), 🏭 Mac mini는 자동 사이클 지휘 — 각 기기의 Claude/Codex 레인은 머신당 단일엔진 규칙으로 충돌 차단</div>
       </div>
 
     </div>
@@ -673,7 +673,7 @@ import '../styles/lab.css';
     <!-- Current skills -->
     <h2 class="section-title"><span>04</span> 현재 활성 스킬 39개</h2>
     <div class="skills-summary">
-      <p>2026-06-15 기준 <code>~/claude-skills</code>의 SKILL.md를 재계산한 활성 스킬 목록(<span style="color:var(--success)">초록 = 5/28 이후 신규</span>). 클린업을 거쳐 살아남은 스킬만 남기고, 실제 반복 사용 기록이 있는 것 중심으로 유지한다.</p>
+      <p>2026-06-21 기준 <code>~/claude-skills</code>의 SKILL.md를 기준으로 정리한 활성 스킬 목록(<span style="color:var(--success)">초록 = 5/28 이후 신규</span>). 클린업을 거쳐 살아남은 스킬만 남기고, 실제 반복 사용 기록이 있는 것 중심으로 유지한다.</p>
       <div class="skills-grid">
         <span class="skill-badge new">/araseo</span>
         <span class="skill-badge">/autopilot</span>
@@ -722,7 +722,7 @@ import '../styles/lab.css';
     <div class="proposal">
       <h3 style="color: var(--warn);">🛡️ 메모리에 적는 것만으론 안 지켜진다</h3>
       <p style="margin-top:12px; font-size:15px; line-height:1.8;">
-        스킬이 39개로 늘고 노드가 9개로 갈라지자, 새로운 적이 생겼다 — <strong>stale(낡은 정보)</strong>다.
+        스킬이 39개로 늘고 논리 노드가 10개로 갈라지자, 새로운 적이 생겼다 — <strong>stale(낡은 정보)</strong>다.
         끝난 작업을 다시 집어들고, 이미 구현된 걸 "없다"고 단정하고, 한 노드의 결과가 다른 노드에 안 닿는 일이 반복됐다.
         교훈은 단순했다: <strong>메모리·문서에 "이렇게 하자"고 적는 것만으로는 안 지켜진다.</strong>
         그래서 6월의 작업 대부분은 새 기능이 아니라, <strong>모델 자신이 우회할 수 없도록 훅(hook)으로 강제하는 자기방어 레이어</strong>였다.
@@ -754,7 +754,7 @@ import '../styles/lab.css';
         <div class="axis-card">
           <div class="axis-card-head">4. 함대 토글 + 우선큐</div>
           <p>
-            자율워커는 <strong>4엔진</strong>(본진·맥미니 × Claude·Codex)을 자연어/대시보드 버튼으로 켜고 끄되, <strong>머신당 단일 엔진 mutex</strong>로 충돌을 차단한다.
+            자율워커는 <strong>10논리노드</strong>(물리 5대 × Claude/Codex)를 자연어/대시보드 버튼으로 켜고 끄되, <strong>머신당 단일 엔진 mutex</strong>로 충돌을 차단한다.
             급한 일감은 <code>큐 &lt;할일&gt;</code> 한 줄로 <strong>우선큐</strong>에 던지면 idle 노드가 FIFO + 원자적 claim으로 하나씩 처리하고, 노드가 죽으면 lease/reap이 자동 재큐한다.
           </p>
         </div>
@@ -962,7 +962,7 @@ import '../styles/lab.css';
         <div class="proposal-num">4</div>
         <div class="proposal-text">
           <h4>도구 줄이기가 늘리기만큼 중요했다</h4>
-          <p>Codex 백엔드를 메인에서 설계 투표 전용으로 강등하고, 안 쓰는 스킬을 클린업했다. 처음엔 "더 많은 백엔드 = 더 강함"이라 믿었지만, 실제로는 <strong>단순한 단일 스택 + 명확한 한 가지 기본 엔진</strong>이 운영 부채를 크게 줄였다.</p>
+          <p>Codex와 Claude를 같은 일을 하는 두 백엔드로 두지 않고 역할을 분리했다. Codex는 실행 엔진, Claude는 리뷰·게이트 레인으로 세우고 안 쓰는 스킬을 클린업하자 <strong>많은 노드 + 명확한 책임 경계</strong>가 운영 부채를 줄였다.</p>
         </div>
       </div>
       <p style="margin-top:8px; color: var(--fg-dim); font-size:14px; line-height:1.7;">

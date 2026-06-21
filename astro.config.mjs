@@ -8,6 +8,6 @@ export default defineConfig({
     '/newsletter.html': '/newsletter',
     '/insights.html': '/insights',
     '/insight.html': '/insights',
-    '/portfolio.html': '/apps',
+    '/portfolio.html': '/products/',
   },
 });
