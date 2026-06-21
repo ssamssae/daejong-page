@@ -24,39 +24,12 @@ const active = activeKey(path);
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet" />
-    <script is:inline src="https://kangdaejong.com/mb-components.js" defer></script>
+    <script is:inline src="/mb-components.js" defer></script>
     <title>{title}</title>
     <slot name="head" />
   </head>
   <body>
     <mb-header active={active}></mb-header>
-    <script is:inline>
-      (() => {
-        const PRODUCT_PATH = 'https://work.kangdaejong.com/products/';
-        const LEGACY_PATH = 'https://work.kangdaejong.com/apps';
-
-        const patchHeaderLink = () => {
-          const header = document.querySelector('mb-header');
-          const link = header?.shadowRoot?.querySelector(`a[href="${LEGACY_PATH}"]`);
-          if (!link) return false;
-          link.href = PRODUCT_PATH;
-          return true;
-        };
-
-        const patchWhenReady = () => {
-          if (patchHeaderLink()) return;
-          customElements.whenDefined('mb-header').then(() => {
-            requestAnimationFrame(patchHeaderLink);
-          });
-        };
-
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', patchWhenReady, { once: true });
-        } else {
-          patchWhenReady();
-        }
-      })();
-    </script>
     <main><slot /></main>
     <mb-footer></mb-footer>
     <style is:global>
