@@ -145,7 +145,7 @@ import '../styles/lab.css';
     </section>
 
     <!-- 최근 변경: 노하우가 추가/수정되면 이 줄만 갱신 (누적 X, 최신 1건만, 정식 버전번호 X) -->
-    <div class="recent-change"><b>최근 변경</b> · 2026-06-09 · 노하우 1편 추가 (graphify AST tier 도입과 공유 globals 오염 사고 — 정책보다 차단 훅이 막는다)</div>
+    <div class="recent-change"><b>최근 변경</b> · 2026-06-21 · 노하우 1편 추가 (물리 노드와 논리 AI 노드는 분리해서 적는다 — 5대/10노드 표준화와 생성 SoT 갱신)</div>
 
     <div id="view">
       <div class="loading">불러오는 중…</div>
@@ -234,7 +234,7 @@ import '../styles/lab.css';
       const rediscovered = it.rediscovered || '';
 
       // detail link → markdown 파일 직접 (GitHub raw 가 아니라 GitHub Pages 로 .md 는 안 보이니 GitHub blob 링크)
-      const ghHref = 'https://github.com/ssamssae/daejong-page/blob/main/knowhow/' + encodeURIComponent(it.file);
+      const ghHref = 'https://github.com/ssamssae/daejong-page/blob/main/public/knowhow/' + encodeURIComponent(it.file);
 
       let html = '<a class="knowhow-card" href="' + ghHref + '" target="_blank" rel="noopener">';
       html += '<div class="kh-head">';
