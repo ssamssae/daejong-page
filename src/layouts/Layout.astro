@@ -5,7 +5,7 @@ const path = Astro.url.pathname;
 function activeKey(p) {
   if (p.startsWith('/newsletter')) return 'newsletter';
   if (p.startsWith('/insights')) return 'insights';
-  if (p.startsWith('/apps')) return 'products';
+  if (p.startsWith('/products') || p.startsWith('/apps')) return 'products';
   if (p.startsWith('/system')) return 'system';
   if (p.startsWith('/lab')) return 'lab';
   if (p === '/' || p.startsWith('/worklog')) return 'worklog';
