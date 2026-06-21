@@ -30,6 +30,33 @@ const active = activeKey(path);
   </head>
   <body>
     <mb-header active={active}></mb-header>
+    <script is:inline>
+      (() => {
+        const PRODUCT_PATH = 'https://work.kangdaejong.com/products';
+        const LEGACY_PATH = 'https://work.kangdaejong.com/apps';
+
+        const patchHeaderLink = () => {
+          const header = document.querySelector('mb-header');
+          const link = header?.shadowRoot?.querySelector(`a[href="${LEGACY_PATH}"]`);
+          if (!link) return false;
+          link.href = PRODUCT_PATH;
+          return true;
+        };
+
+        const patchWhenReady = () => {
+          if (patchHeaderLink()) return;
+          customElements.whenDefined('mb-header').then(() => {
+            requestAnimationFrame(patchHeaderLink);
+          });
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', patchWhenReady, { once: true });
+        } else {
+          patchWhenReady();
+        }
+      })();
+    </script>
     <main><slot /></main>
     <mb-footer></mb-footer>
     <style is:global>
