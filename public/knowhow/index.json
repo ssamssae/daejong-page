@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "file": "2026-06-21-physical-logical-ai-node-standard.md",
+      "date": "2026-06-21",
+      "slug": "physical-logical-ai-node-standard",
+      "title": "물리 노드와 논리 AI 노드는 분리해서 적는다 — 5대/10노드 표준화와 생성 SoT 갱신",
+      "category": "AI 협업/방법론",
+      "tags": [
+        "ai-orchestration",
+        "node-standard",
+        "codex",
+        "claude",
+        "review",
+        "implementation",
+        "generated-source",
+        "staleness"
+      ],
+      "summary": "AI 작업망에서 '노드'라는 말을 물리 기기, 논리 AI 주체, 텔레그램 폴러에 섞어 쓰면 5노드·9노드·10노드가 금방 뒤엉킨다. 숫자는 물리 5대 / 논리 10노드(Claude 5 + Codex 5)처럼 단위를 붙이고, 역할은 Codex 실행 레인 / Claude 리뷰·게이트 레인으로 적는다. 작업 기록에는 구현·리뷰 주체를 남기고, 공개 JSON 같은 생성본은 원본 헤더까지 같이 고쳐야 다음 생성 때 되돌아가지 않는다."
+    },
+    {
       "file": "2026-06-17-stale-anchor-idempotent-step-ledger.md",
       "date": "2026-06-17",
       "slug": "stale-anchor-idempotent-step-ledger",
