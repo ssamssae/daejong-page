@@ -2,12 +2,7 @@
   "policies": [
     {
       "id": "telegram-poll-watchdog",
-      "current": "물리 5대 텔레그램 폴러 생존을 프로세스 2형태 OR(@형 plugin:telegram@claude-plugins-official | slash형 claude-plugins-official/telegram) pgrep 으로 결정론 감지(전 노드 실측). dead 판정 시 넓은 패턴(claude-plugins-official) 재확인 fail-safe 게이트 — 넓은건 alive 면 PROC_PAT 미스로 보고 kickstart 회피·ALERT (healthy 세션 kill 방지) → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림(본진 alert-only). 추가로 \"프로세스 살아있는데 MCP 채널만 failed\" 모드를 claude/plugin 프로세스 트리 소유 telegram :443 ESTAB 부재로 감지하고, N틱 디바운스 뒤 /mcp Telegram 항목만 정밀 선택해 Reconnect 한다.",
-      "changed": "2026-06-21"
-    },
-    {
-      "id": "worker-dispatch",
-      "current": "물리 5대 위에 Claude 5 + Codex 5 논리 10노드가 공존한다. Codex는 기본 실행 엔진으로 코드수정·테스트·반복조사·기계적 검증을 맡고, Claude는 planner/reviewer/gatekeeper 레인으로 제한 운용한다. 머신당 단일엔진 mutex로 같은 기기의 형제 엔진 충돌을 막고, 외부영향·배포·main 머지는 본진/맥미니 게이트를 통과한다.",
+      "current": "5노드 텔레그램 폴러 생존을 프로세스 2형태 OR(@형 plugin:telegram@claude-plugins-official | slash형 claude-plugins-official/telegram) pgrep 으로 결정론 감지(전 노드 실측). dead 판정 시 넓은 패턴(claude-plugins-official) 재확인 fail-safe 게이트 — 넓은건 alive 면 PROC_PAT 미스로 보고 kickstart 회피·ALERT (healthy 세션 kill 방지) → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림(본진 alert-only). 추가로 \"프로세스 살아있는데 MCP 채널만 failed\" 모드를 claude/plugin 프로세스 트리 소유 telegram :443 ESTAB 부재로 감지하고, N틱 디바운스 뒤 /mcp 항목 Reconnect 한다. T-260621-19 일반화: telegram 뿐 아니라 설정에 켜진 child-proc MCP 채널(playwright/gemini)의 claude 자식 프로세스 부재를 confirmed-dead 로 보고 1틱(≈10min, telegram hung 2틱보다 빠름) 디바운스 후 /mcp 의 ✘ failed 항목을 Reconnect. 본진은 채널 일반화 경로에서도 alert-only(인터랙티브 Playwright 작업 방해 회피).",
       "changed": "2026-06-21"
     },
     {
@@ -24,6 +19,11 @@
       "id": "typing-indicator",
       "current": "노드 busy-state 기준 — telegram-source 턴 OR fleet bot-token 존재 시 typing daemon ON(4s sendChatAction). Stop 후 60s grace→PAUSE. 자율턴(auto-resume·워커)도 표시.",
       "changed": "2026-06-10"
+    },
+    {
+      "id": "worker-dispatch",
+      "current": "머신당 단일엔진 mutex(켜면 형제 자동 OFF). 엔진 4종 bonjin/macmini × claude/codex. 다이나믹·야간 기본=claude, codex=mesh-vote 전용.",
+      "changed": "2026-06-08"
     },
     {
       "id": "priority-queue-dispatch",
