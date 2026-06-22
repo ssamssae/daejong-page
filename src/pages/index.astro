@@ -7,8 +7,9 @@ import { getCollection } from 'astro:content';
 const recentWorklog = (await getCollection('worklog'))
   .sort((a, b) => b.data.date.localeCompare(a.data.date) || (b.data.version ?? '').localeCompare(a.data.version ?? ''))
   .slice(0, 5);
+const epNum = (e) => parseInt(String(e.id).replace(/\D/g, ''), 10) || 0;
 const recentNewsletter = (await getCollection('newsletter'))
-  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .sort((a, b) => epNum(b) - epNum(a))
   .slice(0, 3);
 
 const sections = [

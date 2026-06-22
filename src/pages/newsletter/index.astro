@@ -2,9 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import PostList from '../../components/PostList.astro';
 import { getCollection } from 'astro:content';
-const posts = (await getCollection('newsletter')).sort((a, b) =>
-  b.data.date.localeCompare(a.data.date)
-);
+const epNum = (e) => parseInt(String(e.id).replace(/\D/g, ''), 10) || 0;
+const posts = (await getCollection('newsletter')).sort((a, b) => epNum(b) - epNum(a));
 ---
 <Layout title="뉴스레터 — 바이브코딩" description="Claude Code 로 1인 앱 만드는 여정. 격주 발행.">
   <h1 class="accent-magenta">뉴스레터</h1>
