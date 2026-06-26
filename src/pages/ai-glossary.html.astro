@@ -106,7 +106,7 @@ import '../styles/lab.css';
     <div class="hero-stats">
       <div class="hero-card">
         <div class="hero-card-label">누적 용어</div>
-        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->354<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
+        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->361<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
         <div class="hero-card-sub">영상 인사이트에서 추출</div>
       </div>
       <div class="hero-card">
@@ -895,6 +895,24 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-06-23-fugu-ultra-fable-killer-nateherk.md</span>
     </div>
 
+    <div class="term">
+      <h3>sycophancy (아첨)</h3>
+      <p>AI 가 반박 없이 사용자에게 동조하는 yes-man 경향. 긴 대화·개인화에서 심해진다.</p>
+      <span class="src">영상: 2026-06-26-claude-money-4-upgrades-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>sub-agent</h3>
+      <p>자기 task 와 깨끗한 컨텍스트 창을 가진 별도의 Claude. 병렬로 일하고 메인 세션에 보고한다.</p>
+      <span class="src">영상: 2026-06-26-claude-money-4-upgrades-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>one-shot prompt</h3>
+      <p>한 번의 프롬프트로 결과를 받는 방식. 보통 65% 수준까지만 도달한다는 한계 지적.</p>
+      <span class="src">영상: 2026-06-26-claude-money-4-upgrades-nateherk.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -1021,6 +1039,18 @@ import '../styles/lab.css';
       <h3>하이브리드 검색 + 리랭킹(Hybrid Search + Reranking)</h3>
       <p>벡터 similarity search와 키워드 검색을 결합한 뒤 relevance 점수로 재정렬하는 고급 벡터 검색 기법. 단순 chunk 검색의 정확도 한계를 보완한다.</p>
       <span class="src">영상: 2026-06-18-claude-second-brain-levels-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>context rot</h3>
+      <p>대화가 길어질수록 모델 성능이 떨어지는 현상. 창이 다 차기 전부터 시작된다.</p>
+      <span class="src">영상: 2026-06-26-claude-money-4-upgrades-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>session handoff</h3>
+      <p>/clear 전에 결정·핵심 파일·다음 진입점을 요약해 새 세션으로 무손실 인계하는 커스텀 스킬.</p>
+      <span class="src">영상: 2026-06-26-claude-money-4-upgrades-nateherk.md</span>
     </div>
 
     <h2>도구 통신 (MCP · CLI · API)</h2>
@@ -1191,6 +1221,12 @@ import '../styles/lab.css';
       <h3>OpenRouter Fusion API</h3>
       <p>하나의 프롬프트를 여러 모델에 동시에 보내고 judge가 답을 병합하는 API 방식. Fugu와 비교 대상으로 나온다.</p>
       <span class="src">영상: 2026-06-23-fugu-ultra-fable-killer-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Playwright CLI</h3>
+      <p>브라우저를 실제로 열어 스크린샷·클릭·폼 제출하는 컴퓨터 유즈 검증 도구.</p>
+      <span class="src">영상: 2026-06-26-claude-money-4-upgrades-nateherk.md</span>
     </div>
 
     <h2>지식 · 컨텍스트 자산</h2>
@@ -1422,7 +1458,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>/goal</h3>
       <p>verifiable stopping condition 박은 long-running task — 단일 prompt 보다 큰 / open-ended backlog 보다 작은 영역. Codex native + Claude Code 도 영상 녹화 직후 출시.</p>
-      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md, 2026-05-29-opus-4-8-how-to-use-nateherk.md, 2026-05-31-claude-dynamic-workflows-nateherk.md, 2026-06-04-claude-code-12-best-features-nateherk.md, 2026-06-13-claude-fable-5-self-video-nateherk.md</span>
+      <span class="src">영상: 2026-05-27-100hours-claude-vs-codex-nateherk.md, 2026-05-29-opus-4-8-how-to-use-nateherk.md, 2026-05-31-claude-dynamic-workflows-nateherk.md, 2026-06-04-claude-code-12-best-features-nateherk.md, 2026-06-13-claude-fable-5-self-video-nateherk.md, 2026-06-26-claude-money-4-upgrades-nateherk.md</span>
     </div>
 
     <div class="term">
@@ -1735,6 +1771,12 @@ import '../styles/lab.css';
       <h3>Constraint first, KPI second, build third</h3>
       <p>먼저 비즈니스 제약을 찾고, 움직일 수치를 정한 뒤, 마지막에 AI 솔루션을 만드는 운영 원칙.</p>
       <span class="src">영상: 2026-06-22-claude-ai-consultant-roadmap-nateherk.md</span>
+    </div>
+
+    <div class="term">
+      <h3>definition of done</h3>
+      <p>AI 가 스스로 완료를 선언하기 전 충족해야 할 객관적·검증 가능한 완료 기준.</p>
+      <span class="src">영상: 2026-06-26-claude-money-4-upgrades-nateherk.md</span>
     </div>
 
     <h2>커리어 · 조직</h2>
