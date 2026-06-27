@@ -5,7 +5,7 @@ import policyData from '../data/fleet-policy.json';
 // 살아있는 정책 거울 — SoT 는 정책을 구현한 코드의 @POLICY 헤더.
 // 이 JSON 은 claude-automations/scripts/gen-policy-registry.py 가 떨군 공개용 슬림본
 // (정책명·현재동작·변경일만, 내부 경로·task-id 제거).
-const policies = policyData.policies;
+const policies = [...policyData.policies].sort((a, b) => b.changed.localeCompare(a.changed));
 const lastUpdated = policies.reduce((m, p) => (p.changed > m ? p.changed : m), '');
 ---
 <Layout title="fleet 정책 — 마이너스베타스튜디오" description="물리 5대 · 논리 10노드(Claude 5 + Codex 5)가 지금 어떤 규칙으로 굴러가는지 — 코드가 SoT인 살아있는 정책 거울.">
