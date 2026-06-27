@@ -8,7 +8,8 @@ function activeKey(p) {
   if (p.startsWith('/products') || p.startsWith('/apps')) return 'products';
   if (p.startsWith('/system')) return 'system';
   if (p.startsWith('/lab')) return 'lab';
-  if (p === '/' || p.startsWith('/worklog')) return 'worklog';
+  if (p === '/') return 'workshop';
+  if (p.startsWith('/worklog')) return 'worklog';
   return '';
 }
 const active = activeKey(path);
