@@ -1,6 +1,42 @@
 {
   "entries": [
     {
+      "file": "2026-06-27-squash-merge-cherry-pick-test-regression.md",
+      "date": "2026-06-27",
+      "slug": "squash-merge-cherry-pick-test-regression",
+      "title": "squash-merge 된 PR 의 후속 작업 브랜치 — main 베이스로 옮기면 테스트 회귀",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "squash-merge PR 후속 브랜치 main 머지",
+      "occurred_at": "2026-06-27 20:45 KST",
+      "resolved_at": "2026-06-27 21:00 KST",
+      "updated": "2026-06-27T23:02:00+09:00"
+    },
+    {
+      "file": "2026-06-27-bridge-flow-mirror-final-report-missed.md",
+      "date": "2026-06-27",
+      "slug": "bridge-flow-mirror-final-report-missed",
+      "title": "작업흐름 카드는 뜨는데 최종 보고가 노드 챗에 누락 — 마지막 보고 빼먹냐",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "비-텔레그램-origin turn 최종보고 → 노드 봇챗",
+      "occurred_at": "2026-06-27 19:25 KST",
+      "resolved_at": null,
+      "updated": "2026-06-27T23:02:00+09:00"
+    },
+    {
+      "file": "2026-06-27-codex-inject-slash-command-mangle.md",
+      "date": "2026-06-27",
+      "slug": "codex-inject-slash-command-mangle",
+      "title": "codex 세션에 directive inject 시 슬래시 깨짐 — 입력란 잔여물 + 슬래시커맨드 오인",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "codex 세션 directive 주입 경로",
+      "occurred_at": "2026-06-27 08:50 KST",
+      "resolved_at": "2026-06-27 09:00 KST",
+      "updated": "2026-06-27T23:02:00+09:00"
+    },
+    {
       "file": "2026-06-26-node-report-missed-trigger-chat.md",
       "date": "2026-06-26",
       "slug": "node-report-missed-trigger-chat",
