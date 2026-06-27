@@ -1,10 +1,10 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 
 const index = read("src/pages/index.astro");
 const layout = read("src/layouts/Layout.astro");
-const components = read("public/mb-components.js");
+const hasLocalHeaderMirror = existsSync(new URL("../public/mb-components.js", import.meta.url));
 
 const checks = [
   {
@@ -30,16 +30,14 @@ const checks = [
       /if \(p\.startsWith\('\/worklog'\)\) return 'worklog';/.test(layout),
   },
   {
-    label: "common header exposes 작업장 at root and 작업일지 at /worklog",
+    label: "work site consumes shared header from kangdaejong.com",
     ok:
-      /key:\s*'workshop',\s*label:\s*'작업장',\s*href:\s*'https:\/\/work\.kangdaejong\.com\/'/.test(components) &&
-      /key:\s*'worklog',\s*label:\s*'작업일지',\s*href:\s*'https:\/\/work\.kangdaejong\.com\/worklog'/.test(components),
+      /<script src="https:\/\/kangdaejong\.com\/mb-components\.js" defer><\/script>/.test(layout) &&
+      !/src="\/mb-components\.js"/.test(layout),
   },
   {
-    label: "footer root link is 작업장, not 작업일지",
-    ok:
-      /<a href="https:\/\/work\.kangdaejong\.com\/">작업장<\/a>/.test(components) &&
-      !/<a href="https:\/\/work\.kangdaejong\.com\/">작업일지<\/a>/.test(components),
+    label: "work site has no local shared-header mirror",
+    ok: !hasLocalHeaderMirror,
   },
 ];
 
