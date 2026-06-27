@@ -76,8 +76,26 @@ const tools = [
 <Layout title="products — 마이너스베타스튜디오" description="강대종이 공개한 모바일 앱, 웹 SaaS, 오픈소스 툴 모음.">
   <section class="hero">
     <h1 class="logo">products</h1>
-    <p class="tagline">모바일 앱 &amp; 웹 SaaS &amp; 오픈소스 툴</p>
-    <p class="intro">강대종이 공개한 모바일 앱 {apps.length}개, 준비 중인 웹 SaaS {saas.length}개, 오픈소스 툴 {tools.length}개.</p>
+    <p class="tagline">오픈소스 툴 &amp; 모바일 앱 &amp; 웹 SaaS</p>
+    <p class="intro">강대종이 공개한 오픈소스 툴 {tools.length}개, 모바일 앱 {apps.length}개, 준비 중인 웹 SaaS {saas.length}개.</p>
+  </section>
+
+  <section class="sec">
+    <h2 class="sec-title sec-title--tools">오픈소스 툴 <span class="sec-count">{tools.length}</span></h2>
+    <div class="grid">
+      {tools.map((a) => (
+        <div class="card card--tool">
+          <div class="card-name">{a.name}</div>
+          <div class="card-status">{a.status}</div>
+          <p class="card-desc">{a.desc}</p>
+          <div class="card-links">
+            {a.links.map((l) => l.disabled
+              ? <span class="disabled">{l.label}</span>
+              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+          </div>
+        </div>
+      ))}
+    </div>
   </section>
 
   <section class="sec">
@@ -103,24 +121,6 @@ const tools = [
     <div class="grid">
       {saas.map((a) => (
         <div class="card card--saas">
-          <div class="card-name">{a.name}</div>
-          <div class="card-status">{a.status}</div>
-          <p class="card-desc">{a.desc}</p>
-          <div class="card-links">
-            {a.links.map((l) => l.disabled
-              ? <span class="disabled">{l.label}</span>
-              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2 class="sec-title sec-title--tools">오픈소스 툴 <span class="sec-count">{tools.length}</span></h2>
-    <div class="grid">
-      {tools.map((a) => (
-        <div class="card card--tool">
           <div class="card-name">{a.name}</div>
           <div class="card-status">{a.status}</div>
           <p class="card-desc">{a.desc}</p>
