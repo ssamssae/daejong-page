@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-06-28-codex-bridge-typing-stuck-on-interrupt.md",
+      "date": "2026-06-28",
+      "slug": "codex-bridge-typing-stuck-on-interrupt",
+      "title": "코덱스 텔레그램 브릿지 typing-stuck — codex REPL 중단(interrupt) 상태를 못 풀어 입력중 무한 표시",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "라이덴(WSL) codex 노드 / codex-repl-telegram-bridge — codex 브릿지 전 노드 공통",
+      "occurred_at": "2026-06-28 12:3x KST",
+      "resolved_at": "2026-06-28 12:4x KST",
+      "updated": "2026-06-28T12:55:00+09:00"
+    },
+    {
       "file": "2026-06-27-squash-merge-cherry-pick-test-regression.md",
       "date": "2026-06-27",
       "slug": "squash-merge-cherry-pick-test-regression",
