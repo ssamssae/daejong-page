@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Astro 새 라우트 (P4) -->
   <url><loc>https://work.kangdaejong.com/</loc></url>
+  <url><loc>https://work.kangdaejong.com/about</loc></url>
   <url><loc>https://work.kangdaejong.com/worklog</loc></url>
   <url><loc>https://work.kangdaejong.com/newsletter</loc></url>
   <url><loc>https://work.kangdaejong.com/insights</loc></url>
