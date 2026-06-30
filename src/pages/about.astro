@@ -1,0 +1,374 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const profileChips = [
+  '마이너스베타스튜디오',
+  '1인 앱 제작',
+  'AI 작업장 운영',
+  '기록형 빌더',
+];
+
+const focusItems = [
+  {
+    title: '작게 만들고 공개하기',
+    body: '큰 선언보다 바로 써볼 수 있는 작은 앱과 도구를 먼저 만듭니다.',
+  },
+  {
+    title: '기록으로 검증하기',
+    body: '작업일지, 뉴스레터, 인사이트로 시도와 실패를 남겨 다음 판단의 재료로 씁니다.',
+  },
+  {
+    title: '자동화로 반복 줄이기',
+    body: '폰, 노트북, 데스크탑, 맥을 묶어 작업 흐름을 계속 손보는 편입니다.',
+  },
+  {
+    title: '사용자 손끝 보기',
+    body: '설명보다 입력, 삭제, 복구, 결제 직전의 작은 마찰을 먼저 봅니다.',
+  },
+];
+
+const notes = [
+  '정확한 보고를 좋아합니다.',
+  '작동하는 작은 개선을 선호합니다.',
+  '혼자 해도 기록은 팀처럼 남깁니다.',
+  '앱, 자동화, 글을 같은 작업장 안에서 굴립니다.',
+];
+
+const faqs = [
+  {
+    q: '무슨 일을 하나요?',
+    a: '마이너스베타스튜디오 이름으로 모바일 앱, 웹 서비스, 오픈소스 자동화 도구를 만들고 운영합니다.',
+  },
+  {
+    q: '요즘 집중하는 것은요?',
+    a: 'AI 에이전트가 실제 제품 제작과 운영에 섞일 때 어디까지 손을 덜어주는지 계속 실험하고 있습니다.',
+  },
+  {
+    q: '어떤 톤으로 일하나요?',
+    a: '빠르게 만들되 검증은 남깁니다. 애매한 말보다 파일, 커밋, 빌드 결과로 확인하는 방식을 좋아합니다.',
+  },
+  {
+    q: '어디서 더 볼 수 있나요?',
+    a: '제품 목록, 작업일지, 뉴스레터에 공개 가능한 작업 기록을 모아두고 있습니다.',
+  },
+];
+---
+<Layout title="강대종 소개서 — 마이너스베타스튜디오" description="강대종의 제품, 기록, 자동화 작업 방식을 소개하는 개인 프로필 페이지.">
+  <section class="hero" aria-labelledby="about-title">
+    <div class="hero-copy">
+      <p class="kicker">profile note</p>
+      <h1 id="about-title">강대종 소개서</h1>
+      <p class="lead">
+        앱을 만들고, 자동화를 굴리고, 그 과정을 기록으로 남깁니다.
+        혼자 일하지만 작업 방식은 작게 나누고 계속 검증하는 쪽에 가깝습니다.
+      </p>
+      <div class="chip-row" aria-label="프로필 키워드">
+        {profileChips.map((chip) => <span>{chip}</span>)}
+      </div>
+      <div class="hero-actions" aria-label="주요 링크">
+        <a class="button button--primary" href="/products/">제품 보기</a>
+        <a class="button" href="/worklog">작업일지</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img
+        src="/daejong-profile-suit.jpg"
+        width="960"
+        height="1280"
+        alt="정장을 입은 강대종 전신 프로필 사진"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </figure>
+  </section>
+
+  <section class="summary" aria-labelledby="summary-title">
+    <p class="section-kicker">one line</p>
+    <h2 id="summary-title">만드는 사람의 자기소개</h2>
+    <p>
+      강대종은 마이너스베타스튜디오에서 작은 모바일 앱, 웹 SaaS, 텔레그램 브릿지 같은 작업 도구를 만듭니다.
+      제품은 작게 공개하고, 운영에서 생기는 문제는 자동화와 기록으로 다시 작업장에 반영합니다.
+    </p>
+  </section>
+
+  <section class="section-block" aria-labelledby="focus-title">
+    <div class="section-head">
+      <p class="section-kicker">work style</p>
+      <h2 id="focus-title">일하는 방식</h2>
+    </div>
+    <div class="card-grid">
+      {focusItems.map((item) => (
+        <article class="info-card">
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block" aria-labelledby="notes-title">
+    <div class="section-head">
+      <p class="section-kicker">daily notes</p>
+      <h2 id="notes-title">성격과 일상</h2>
+    </div>
+    <ul class="note-list">
+      {notes.map((note) => <li>{note}</li>)}
+    </ul>
+  </section>
+
+  <section class="section-block" aria-labelledby="faq-title">
+    <div class="section-head">
+      <p class="section-kicker">faq</p>
+      <h2 id="faq-title">자주 묻는 말</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-title">
+    <p class="section-kicker">contact</p>
+    <h2 id="contact-title">작업장으로 이어지는 링크</h2>
+    <p>제품, 기록, 연락 채널은 공개 페이지 안에서만 정리합니다.</p>
+    <div class="contact-actions">
+      <a class="button button--primary" href="mailto:ssamssae@naver.com">메일 보내기</a>
+      <a class="button" href="/newsletter">뉴스레터</a>
+      <a class="button" href="/insights">인사이트</a>
+    </div>
+  </section>
+
+  <style>
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 276px;
+      gap: 28px;
+      align-items: center;
+      padding: 8px 0 38px;
+    }
+    .hero-copy { min-width: 0; }
+    .kicker,
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+    .hero h1 {
+      font-size: 44px;
+      line-height: 1.08;
+      margin-top: 8px;
+      letter-spacing: 0;
+    }
+    .lead {
+      color: var(--fg-dim);
+      font-size: 16px;
+      line-height: 1.75;
+      margin-top: 18px;
+      max-width: 430px;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .chip-row span {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: var(--fg-dim);
+      background: var(--bg-elev);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .hero-actions,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .button {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+      background: var(--bg-elev);
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.3;
+      transition: border-color .15s, color .15s;
+    }
+    .button:hover {
+      border-color: var(--magenta);
+      color: var(--magenta);
+    }
+    .button--primary {
+      border-color: rgba(0, 229, 255, .55);
+      color: var(--cyan);
+    }
+    .button--primary:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .portrait {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg-elev);
+      aspect-ratio: 3 / 4;
+    }
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .summary {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+      margin-bottom: 42px;
+    }
+    .summary h2,
+    .section-head h2,
+    .contact h2 {
+      margin-top: 6px;
+      font-size: 21px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+    .summary p:not(.section-kicker),
+    .contact p:not(.section-kicker) {
+      color: var(--fg-dim);
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .section-block { margin-bottom: 44px; }
+    .section-head { margin-bottom: 14px; }
+    .section-head .section-kicker:nth-child(1) { color: var(--magenta); }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .info-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 17px;
+      background: var(--bg-elev);
+      transition: border-color .15s;
+    }
+    .info-card:nth-child(odd):hover { border-color: var(--cyan); }
+    .info-card:nth-child(even):hover { border-color: var(--magenta); }
+    .info-card h3 {
+      font-family: var(--mono);
+      color: var(--cyan);
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: 0;
+    }
+    .info-card:nth-child(even) h3 { color: var(--magenta); }
+    .info-card p {
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.62;
+      margin-top: 9px;
+    }
+    .note-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .note-list li {
+      min-height: 48px;
+      border-left: 3px solid var(--cyan);
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: var(--bg-elev);
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .note-list li:nth-child(even) { border-left-color: var(--magenta); }
+    .faq-list {
+      display: grid;
+      gap: 10px;
+    }
+    details {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-elev);
+      padding: 0;
+    }
+    summary {
+      cursor: pointer;
+      min-height: 46px;
+      padding: 12px 16px;
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    details[open] { border-color: rgba(255, 0, 170, .45); }
+    details p {
+      border-top: 1px solid var(--border-soft);
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.7;
+      padding: 12px 16px 16px;
+    }
+    .contact {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-elev);
+      padding: 22px;
+    }
+    .contact .section-kicker { color: var(--cyan); }
+
+    @media (max-width: 680px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-top: 0;
+      }
+      .portrait {
+        width: min(100%, 330px);
+        margin: 0 auto;
+        order: -1;
+      }
+      .hero h1 { font-size: 34px; }
+      .lead { font-size: 15px; }
+      .card-grid,
+      .note-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-actions,
+      .contact-actions {
+        flex-direction: column;
+      }
+      .button { width: 100%; }
+    }
+  </style>
+</Layout>

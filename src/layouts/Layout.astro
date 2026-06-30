@@ -3,6 +3,7 @@ import '../styles/tokens.css';
 const { title, description } = Astro.props;
 const path = Astro.url.pathname;
 function activeKey(p) {
+  if (p.startsWith('/about')) return 'workshop';
   if (p.startsWith('/newsletter')) return 'newsletter';
   if (p.startsWith('/insights')) return 'insights';
   if (p.startsWith('/products') || p.startsWith('/apps')) return 'products';

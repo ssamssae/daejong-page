@@ -13,6 +13,7 @@ const recentNewsletter = (await getCollection('newsletter'))
   .slice(0, 3);
 
 const sections = [
+  { href: '/about', title: 'about', desc: '강대종 소개서. 만드는 방식과 작업장으로 이어지는 링크.', accent: 'magenta' },
   { href: '/products/', title: 'products', desc: '공개한 모바일 앱과 준비 중인 웹 SaaS.', accent: 'cyan' },
   { href: '/worklog', title: 'worklog', desc: '매일의 빌드로그. AI와 함께 만드는 과정 기록.', accent: 'magenta' },
   { href: '/newsletter', title: 'newsletter', desc: '바이브코딩 — 1인 앱 제작 여정 격주 발행.', accent: 'cyan' },
