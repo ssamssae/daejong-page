@@ -6,8 +6,297 @@
       "title": "코레일 Playwright 봇 자동화 — PerimeterX 3단계 우회 전부 실패",
       "date": "2026-05-05",
       "category": "자동화",
-      "tags": ["korail", "playwright", "perimeter-x", "bot-detection", "stealth"],
+      "tags": [
+        "korail",
+        "playwright",
+        "perimeter-x",
+        "bot-detection",
+        "stealth"
+      ],
       "summary": "headed 모드 + playwright-stealth + 베지어 마우스 + 퍼시스턴트 프로필까지 적용했으나 코레일 PerimeterX 서버사이드 차단을 뚫지 못함. CDP 기반 브라우저 자동화는 korail.com 에서 막힌 길. 앱 API 스니핑 또는 수동 체크로 우회 필요."
+    },
+    {
+      "file": "2026-06-28-telegram-bridge-claude-codex-merge.md",
+      "slug": "2026-06-28-telegram-bridge-claude-codex-merge",
+      "title": "텔레그램 브릿지 claude·codex 겸용 통합 — 분리로 선회",
+      "date": "2026-06-28",
+      "category": "자동화",
+      "tags": [
+        "telegram-bridge",
+        "claude",
+        "codex",
+        "유지보수",
+        "구조"
+      ],
+      "summary": "claude 브릿지와 codex 브릿지를 하나로 합쳐 겸용으로 발전시키려다, 유지보수 때 한쪽을 잘못 건드리면 전체가 꼬일 구조 리스크가 커서 드롭. 코덱스 전용·클로드 전용 두 프로그램으로 분리 개발하기로 함."
+    },
+    {
+      "file": "2026-06-27-cheotireum-web-paid-e2e.md",
+      "slug": "2026-06-27-cheotireum-web-paid-e2e",
+      "title": "첫이름 웹 유료결제 E2E 검증 — 앱 경로로 전환",
+      "date": "2026-06-27",
+      "category": "제품",
+      "tags": [
+        "첫이름",
+        "e2e",
+        "결제",
+        "web",
+        "방향전환"
+      ],
+      "summary": "첫이름 웹의 라이브 유료결제 E2E(시뮬→데이터→테스트결제→PDF) 검증을 중단. 웹 스토어 제출은 안 하기로 확정하고, 후속은 모바일 앱 자체 E2E 작동 수정으로 방향 전환."
+    },
+    {
+      "file": "2026-06-28-automerge-sensitive-path-guard.md",
+      "slug": "2026-06-28-automerge-sensitive-path-guard",
+      "title": "auto-merge 민감경로 가드 추가 — 손0 흐름 우선으로 드롭",
+      "date": "2026-06-28",
+      "category": "인프라",
+      "tags": [
+        "auto-merge",
+        "ci",
+        "guard",
+        "손0"
+      ],
+      "summary": "자동머지가 '수동게이트' 안전하네스 PR을 머지한 걸 갭으로 보고 민감경로에 가드를 추가하려 했으나, 이게 오히려 아니키가 선호하는 손0(무개입) 흐름이라 드롭. 본진 사후 리뷰가 GREEN이라 무사고였던 점도 근거."
+    },
+    {
+      "file": "2026-06-26-codex-effort-auto-routing.md",
+      "slug": "2026-06-26-codex-effort-auto-routing",
+      "title": "Codex 5노드 effort 자동 라우팅 — 완성 엔진 부재로 보류",
+      "date": "2026-06-26",
+      "category": "인프라",
+      "tags": [
+        "codex",
+        "effort",
+        "routing",
+        "토큰절감"
+      ],
+      "summary": "5노드 Codex 기본 reasoning effort=xhigh가 검증·폴링·배포확인 같은 가벼운 작업에도 과잉 토큰을 쓰는 문제. medium 기본 + 필요 시 high/xhigh 승격 자동 라우팅을 검토했으나, 완성된 엔진이 없고 기존 값싼-서브에이전트 위임 룰과 중복이라 보류."
+    },
+    {
+      "file": "2026-06-07-070-cs-deflect-line.md",
+      "slug": "2026-06-07-070-cs-deflect-line",
+      "title": "070 CS 상담 deflect 라인 구축 — 드롭 확정",
+      "date": "2026-06-07",
+      "category": "자동화",
+      "tags": [
+        "cs",
+        "070",
+        "cpaas",
+        "상담"
+      ],
+      "summary": "070 번호로 들어오는 CS 문의를 자동 응대/deflect하는 라인 구축을 검토했으나 드롭 확정. 재개 트리거는 CS 자동화 루프를 본격 설계하는 시점."
+    },
+    {
+      "file": "2026-06-17-codex-worker-paygo-bridge.md",
+      "slug": "2026-06-17-codex-worker-paygo-bridge",
+      "title": "codex-worker 종량제 브릿지 5노드 구현 — 자동워커 OFF로 취소",
+      "date": "2026-06-17",
+      "category": "자동화",
+      "tags": [
+        "codex",
+        "worker",
+        "종량제",
+        "자동화"
+      ],
+      "summary": "Codex 종량제 워커를 5노드에 브릿지로 구현하려다, 자동워커를 전면 OFF하고 종량제는 낮 수동위임('코덱스 시켜') 전용으로 운영하기로 계획 수정하면서 취소."
+    },
+    {
+      "file": "2026-06-17-hanjul-play-managed-publishing-off.md",
+      "slug": "2026-06-17-hanjul-play-managed-publishing-off",
+      "title": "한줄일기 Play 관리게시 OFF 자동화 — 2FA 자동화 막힘",
+      "date": "2026-06-17",
+      "category": "자동화",
+      "tags": [
+        "play-console",
+        "playwright",
+        "2fa",
+        "totp",
+        "한줄일기"
+      ],
+      "summary": "한줄일기 Play 관리게시(Managed publishing)를 끄려고 Playwright 자동화를 시도했으나, 로그인은 통과해도 2FA 폰 프롬프트가 안 오고 OTP/TOTP로 전환해도 30초 윈도우 동기화에 막혀 중단('그냥 하지말자')."
+    },
+    {
+      "file": "2026-06-13-routing-gap-fix.md",
+      "slug": "2026-06-13-routing-gap-fix",
+      "title": "노드 라우팅 갭 픽스 — 재현 불가로 취소",
+      "date": "2026-06-13",
+      "category": "인프라",
+      "tags": [
+        "routing",
+        "노드",
+        "재현불가",
+        "설계"
+      ],
+      "summary": "노드 라우팅 신뢰성(노트북 queued 등) 갭을 고치려 했으나, 갭을 재현할 구체 케이스가 없고 범위가 불명확한 채 설계만 떠 있어 취소. 재오픈 트리거는 실제 재현 케이스 확보 시점."
+    },
+    {
+      "file": "2026-06-04-ai-automation-agency.md",
+      "slug": "2026-06-04-ai-automation-agency",
+      "title": "AI 자동화 에이전시 라인 — PMF 먼저로 보류",
+      "date": "2026-06-04",
+      "category": "사업",
+      "tags": [
+        "사업",
+        "에이전시",
+        "pmf",
+        "mesh-vote"
+      ],
+      "summary": "AI 자동화 에이전시를 새 사업 축으로 추가하려 했으나 mesh-vote 4:1로 보류. 첫이름의 수익검증/PMF가 먼저고, 검증 전 새 축 추가는 분산·이중지출 리스크가 최대라는 판단(후회회피 우선)."
+    },
+    {
+      "file": "2026-04-21-gieogu-local-rag.md",
+      "slug": "2026-04-21-gieogu-local-rag",
+      "title": "기억이 — 로컬 RAG 자동화 프로젝트 드롭",
+      "date": "2026-04-21",
+      "category": "제품",
+      "tags": [
+        "rag",
+        "로컬",
+        "검색",
+        "드롭"
+      ],
+      "summary": "로컬 RAG 기반 개인 기억/검색 자동화 프로젝트 '기억이'를 드롭."
+    },
+    {
+      "file": "2026-05-01-todos-live-activity-panel.md",
+      "slug": "2026-05-01-todos-live-activity-panel",
+      "title": "todos.html 라이브 액티비티 패널 드롭",
+      "date": "2026-05-01",
+      "category": "인프라",
+      "tags": [
+        "todos",
+        "ui",
+        "live-activity",
+        "드롭"
+      ],
+      "summary": "todos.html에 실시간 활동 패널을 붙이는 작업을 드롭."
+    },
+    {
+      "file": "2026-05-01-macmini-mail-watcher.md",
+      "slug": "2026-05-01-macmini-mail-watcher",
+      "title": "맥미니 mail-watcher 드롭",
+      "date": "2026-05-01",
+      "category": "자동화",
+      "tags": [
+        "mail",
+        "맥미니",
+        "watcher",
+        "드롭"
+      ],
+      "summary": "맥미니에서 메일을 감시·트리거하는 mail-watcher 프로젝트를 드롭."
+    },
+    {
+      "file": "2026-04-21-morning-evening-automation.md",
+      "slug": "2026-04-21-morning-evening-automation",
+      "title": "morning-briefing + evening-wrap 자동화 드롭",
+      "date": "2026-04-21",
+      "category": "자동화",
+      "tags": [
+        "briefing",
+        "루틴",
+        "자동화",
+        "드롭"
+      ],
+      "summary": "아침 브리핑 + 저녁 마무리 자동 루틴(morning-briefing / evening-wrap)을 드롭."
+    },
+    {
+      "file": "2026-05-01-naver-blog-auto-publish.md",
+      "slug": "2026-05-01-naver-blog-auto-publish",
+      "title": "네이버 블로그 자동발행 — 본진 한정으로 후퇴",
+      "date": "2026-05-01",
+      "category": "자동화",
+      "tags": [
+        "naver",
+        "블로그",
+        "자동발행",
+        "제약"
+      ],
+      "summary": "네이버 블로그 전면 자동발행을 목표했으나, 네이버 측 자동화 제약으로 본진(특정 기기·로그인 세션) 한정 조건부 GO로 후퇴 후 일반 자동화는 드롭."
+    },
+    {
+      "file": "2026-05-14-news-curation.md",
+      "slug": "2026-05-14-news-curation",
+      "title": "뉴스 큐레이션 자동화 드롭",
+      "date": "2026-05-14",
+      "category": "자동화",
+      "tags": [
+        "뉴스",
+        "큐레이션",
+        "자동화",
+        "드롭"
+      ],
+      "summary": "뉴스 큐레이션 자동화 프로젝트를 드롭."
+    },
+    {
+      "file": "2026-04-28-review-radar.md",
+      "slug": "2026-04-28-review-radar",
+      "title": "심사레이더(Review Radar) 드롭",
+      "date": "2026-04-28",
+      "category": "제품",
+      "tags": [
+        "심사",
+        "레이더",
+        "스토어",
+        "드롭"
+      ],
+      "summary": "앱 스토어 심사 상태를 추적하는 '심사레이더(Review Radar)' 프로젝트를 드롭."
+    },
+    {
+      "file": "2026-05-02-someday.md",
+      "slug": "2026-05-02-someday",
+      "title": "Someday 폐지",
+      "date": "2026-05-02",
+      "category": "인프라",
+      "tags": [
+        "someday",
+        "백로그",
+        "폐지"
+      ],
+      "summary": "'언젠가(Someday)' 백로그 분류/페이지를 폐지."
+    },
+    {
+      "file": "2026-05-30-soundmap-outsourcing.md",
+      "slug": "2026-05-30-soundmap-outsourcing",
+      "title": "soundmap 직접개발 — 외주로 전환",
+      "date": "2026-05-30",
+      "category": "제품",
+      "tags": [
+        "soundmap",
+        "외주",
+        "위치기반",
+        "오디오"
+      ],
+      "summary": "위치기반 사운드 레코딩 앱 soundmap을 직접 개발하지 않고 외주자에게 위임(월 예산 책정). 본인은 프로토/컨셉 서포트로 역할 축소."
+    },
+    {
+      "file": "2026-06-30-pr241-codex-claude-review.md",
+      "slug": "2026-06-30-pr241-codex-claude-review",
+      "title": "PR #241 Codex-Claude 다회 토론 리뷰 — 리뷰가 지시 위반해 중단",
+      "date": "2026-06-30",
+      "category": "인프라",
+      "tags": [
+        "review",
+        "codex",
+        "claude",
+        "권한",
+        "중단"
+      ],
+      "summary": "PR #241 사후 리뷰를 Codex-Claude 다회 토론으로 돌리려 했으나, 첫 Claude 리뷰 라우트가 'review-only' 지시를 어기고 Mac의 todo rebase/워커 플래그 조작을 시도해 중단. 충돌 복구 후 no-tools 재시도는 별도 task로 분리."
+    },
+    {
+      "file": "2026-05-27-infra-config-env-decrypt.md",
+      "slug": "2026-05-27-infra-config-env-decrypt",
+      "title": "infra-config 잔여 .env decrypt-run 전환 — 핸드오프 후 미완 취소",
+      "date": "2026-05-27",
+      "category": "인프라",
+      "tags": [
+        "infra-config",
+        "sops",
+        "env",
+        "decrypt"
+      ],
+      "summary": "나머지 .env 4곳을 decrypt-run.sh 경유로 전환하려 했으나, hot-path 예외 분류 등 잔여 범위가 애매한 채 본진 드라이브로 핸드오프되며 더 진행하지 않음."
     }
   ]
 }
