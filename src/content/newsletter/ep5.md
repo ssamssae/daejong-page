@@ -5,7 +5,7 @@ version: "ep5"
 ---
 
 <!--
-Source: https://daejongkang.substack.com/p/32b
+Source: https://minusbetastudio.substack.com/p/32b
 Synced: 2026-04-30T23:42:59
 -->
 

@@ -35,4 +35,4 @@ gcloud services enable drive.googleapis.com --project memoyo-496812
 ## 관련 링크
 - 메모리: `project_memoyo_1_0_7_active.md`
 - 관련 이슈: `2026-05-02-google-oauth-playwright-stealth-bypass.md` (별건 — Playwright 로그인 자동화)
-- 뉴스레터: Ep13 (이 사건의 일반 독자용 서사) — https://daejongkang.substack.com/p/oauth
+- 뉴스레터: Ep13 (이 사건의 일반 독자용 서사) — https://minusbetastudio.substack.com/p/oauth

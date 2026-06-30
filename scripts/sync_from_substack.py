@@ -16,7 +16,7 @@ Dependencies (Mac/WSL 양쪽 둘 다):
     pip install --user --break-system-packages markdownify beautifulsoup4 lxml
 
 Usage:
-    python3 sync_from_substack.py --url https://daejongkang.substack.com/p/<slug> --ep 5
+    python3 sync_from_substack.py --url https://minusbetastudio.substack.com/p/<slug> --ep 5
     python3 sync_from_substack.py --url <url> --ep 4 --reading-time 9
 """
 
@@ -117,7 +117,7 @@ def update_index(ep_num, art, reading_min, substack_url):
 
 def main():
     p = argparse.ArgumentParser(description='Sync a published Substack article to the local newsletter cache.')
-    p.add_argument('--url', required=True, help='Public Substack article URL (e.g. https://daejongkang.substack.com/p/abc)')
+    p.add_argument('--url', required=True, help='Public Substack article URL (e.g. https://minusbetastudio.substack.com/p/abc)')
     p.add_argument('--ep', type=int, required=True, help='Episode number')
     p.add_argument('--reading-time', type=int, default=0, help='Reading minutes; 0 = auto-estimate from body length')
     args = p.parse_args()
