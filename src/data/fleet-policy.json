@@ -17,13 +17,13 @@
     },
     {
       "id": "typing-indicator",
-      "current": "노드 busy-state 기준 — telegram-source 턴 OR fleet bot-token 존재 시 typing daemon ON(4s sendChatAction). Stop 후 60s grace→PAUSE. 자율턴(auto-resume·워커)도 표시.",
-      "changed": "2026-06-10"
+      "current": "노드 busy-state 기준 — telegram-source 턴 OR fleet bot-token 존재 시 typing daemon ON(4s sendChatAction). Stop 후 60s grace→PAUSE. 자율턴(auto-resume·워커)도 표시. 2026-06-27부터 백그라운드 작업·디렉티브 작업도 '확인 중인지 멈춘 건지' 보이도록 flow mirror/typing 관찰을 강화하고, 텔레그램-origin이 아닌 작업의 최종 보고 누락은 node-report 경로로 보완한다.",
+      "changed": "2026-06-27"
     },
     {
       "id": "worker-dispatch",
-      "current": "머신당 단일엔진 mutex(켜면 형제 자동 OFF). 엔진 4종 bonjin/macmini × claude/codex. 다이나믹·야간 기본=claude, codex=mesh-vote 전용.",
-      "changed": "2026-06-08"
+      "current": "머신당 단일엔진 mutex(켜면 형제 자동 OFF). 본진/맥미니가 오케스트레이터, WSL·데스크탑·노트북이 executor 우선 노드다. 기본 실행 엔진은 Codex, Claude는 prompt compiler·safety reviewer·gatekeeper 역할로 쓴다. 작업 시작은 slot lease와 conflict key를 거치고, main 반영은 PR/merge gate 또는 통합 자동머지 게이트를 통과해야 한다.",
+      "changed": "2026-06-27"
     },
     {
       "id": "priority-queue-dispatch",
@@ -34,6 +34,46 @@
       "id": "context-auto-clear",
       "current": "컨텍스트 ≥40%(400k) Stop훅 셀프클리어 강제(자동컴팩트 ~55% 전에). 컴팩트 2회 백스톱. 클리어는 session-clear 스킬 경유(마킹+resume 포인터).",
       "changed": "2026-06-01"
+    },
+    {
+      "id": "unified-auto-merge",
+      "current": "18개 repo 공통 GitHub Actions auto-merge 게이트를 배포했다. 노드는 PR을 만들고, Actions가 충돌·테스트·민감경로를 판정한다. 일반 저위험 PR은 자동 머지하고, 앱 버전·빌드·스토어·결제·디자인톤·외부영향 경로는 held-sensitive로 보류해 사람이 승인한다. 충돌 PR은 held-conflict로 남긴다.",
+      "changed": "2026-06-27"
+    },
+    {
+      "id": "node-report-routing",
+      "current": "노드 보고는 기본적으로 본진 mac으로 돌아가야 한다. stale orchestrator.env가 남아 보고가 맥미니로 새는 사고를 막기 위해 오케 OFF 시 워커노드 orchestrator.env를 백업 후 제거한다. mac-report는 현재 오케/issuer/env를 재확인하고, stale 라우팅이면 본진 기본값으로 복귀한다.",
+      "changed": "2026-06-27"
+    },
+    {
+      "id": "node-conversation-mirror",
+      "current": "노드 간 Claude↔Codex 대화는 raw tmux send-keys 금지, 반드시 *-codex-directive.sh 또는 정식 directive wrapper를 경유한다. 송신·수신 양쪽 텔레그램 DM과 Mesh Mirror 그룹에 노드대화 송수신을 남겨, 어떤 노드가 무엇을 받았고 어떤 답을 했는지 추적 가능하게 한다.",
+      "changed": "2026-06-27"
+    },
+    {
+      "id": "interactive-codex-routing",
+      "current": "Codex 호출은 헤드리스 codex exec가 아니라 각 노드의 인터랙티브 Codex 세션으로 라우팅한다. 그래야 텔레그램 미러, flow mirror, 장기작업 진행 보고, 수신 ack가 같은 경로에서 관찰된다. 예외가 필요하면 별도 지시와 이유가 있어야 한다.",
+      "changed": "2026-06-27"
+    },
+    {
+      "id": "task-numbering-and-marking",
+      "current": "모든 실행 작업은 T-번호를 갖고, 완료·보류·취소는 ~/todo/tasks.md에 sot-mark.sh로 남긴다. 단발 작업도 예외 없이 번호를 매겨야 나중에 어떤 노드가 무엇을 했는지 역추적할 수 있다. 완료 기준은 결과 보고가 아니라 SoT 마킹과 근거 기록까지다.",
+      "changed": "2026-06-27"
+    },
+    {
+      "id": "codex-usage-backstop",
+      "current": "Codex 사용량 backstop은 CLI 세션 JSONL rate_limits를 파싱해 5h/weekly 사용률을 기록하고, 본진 collector가 5노드 중 가장 fresh한 계정 사용량을 선택해 본진·맥미니 gate와 초소 게이지에 퍼블리시한다. stale 소스는 기록하지 않아 잘못된 사용량으로 자동작업을 열지 않는다.",
+      "changed": "2026-06-27"
+    },
+    {
+      "id": "telegram-bridge-observability",
+      "current": "Claude/Codex 텔레그램 브릿지는 flow mirror, 수신 ack, watchdog, bridge freshness를 통해 멈춤과 진행 중을 구분한다. 백그라운드 작업은 주기적 진행 보고로 노출하고, 서비스 dead·stale·routing mismatch는 자동복구 또는 alert-only 정책으로 분리한다.",
+      "changed": "2026-06-27"
+    },
+    {
+      "id": "shared-header-cache",
+      "current": "대표소개·회사소개·작업장은 kangdaejong.com/mb-components.js 공통 헤더 정본을 소비한다. 2026-06-27 브라우저 4시간 캐시 문제를 해결하기 위해 Cloudflare browser_cache_ttl을 Respect Existing Headers로 전환했고, mb-components.js는 origin Cache-Control max-age=0 정책을 존중해 즉시 반영된다.",
+      "changed": "2026-06-27"
     }
   ]
 }
