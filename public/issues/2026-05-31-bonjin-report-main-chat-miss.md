@@ -16,7 +16,7 @@ prevention_deferred: null
 ## 원인
 1. **본진 보고를 `forward-to-group.sh macbook` 단독 호출로 보냄** — 이 스크립트는 `TELEGRAM_CHAT_ID_GROUP`(Agent Mesh Mirror 그룹) 전용. 아니키 메인 DM(`TELEGRAM_CHAT_ID`)으로는 애초에 안 간다.
 2. **해당 turn 들이 텔레그램 origin 이 아님** — SessionStart auto-resume, WSL mac-report 자동 paste, 시스템 트리거 insight 요청은 모두 incoming chat_id 가 없어 `reply` 툴을 못 쓴다. 그래서 본진이 "그룹 forward" 한쪽만 골라 발사.
-3. **본진→아니키 DM proactive push 전용 경로가 부재** — 다른 watcher(gmail/korail 등)는 Mac 봇 토큰으로 아니키 chat 에 직접 sendMessage 하지만, 본진 보고용으로 묶인 표준 헬퍼가 없어 매번 forward-to-group 으로만 흘렀다. 표준("본진→아니키 보고 = 아니키 봇 챗 + 그룹 둘 다")의 (a) 채널이 구조적으로 빠져 있었음.
+3. **본진→아니키 DM proactive push 전용 경로가 부재** — 다른 watcher(gmail/rail-booking 등)는 Mac 봇 토큰으로 아니키 chat 에 직접 sendMessage 하지만, 본진 보고용으로 묶인 표준 헬퍼가 없어 매번 forward-to-group 으로만 흘렀다. 표준("본진→아니키 보고 = 아니키 봇 챗 + 그룹 둘 다")의 (a) 채널이 구조적으로 빠져 있었음.
 
 ## 조치
 1. **신규 헬퍼 `bonjin-report.sh` (코드, LIVE)** — `~/.claude/automations/scripts/bonjin-report.sh`. 한 번 호출로 (a) Mac 봇 토큰 → 아니키 DM(`TELEGRAM_CHAT_ID`) sendMessage + (b) `forward-to-group.sh macbook` 그룹 미러 둘 다 발사. decrypt-run re-exec 표준 패턴 + stdin("-")/파일 인자 지원. dual-channel 누락 방지 `⚠️ 제거 금지` 가드 마커 박음.
