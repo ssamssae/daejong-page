@@ -7,13 +7,13 @@
     },
     {
       "id": "dynamic-workflow-cost-guard",
-      "current": "dynamic workflow/autopilot fan-out은 대형작업 한정. 워커는 먼저 \"독립 병렬 청크?\" 게이트를 통과하고, 하위 워커는 haiku급 저비용 모델로 다운시프트하며, 대량 읽기·리서치·fan-out 전 토큰 사전경고를 남긴다.",
-      "changed": "2026-06-18"
+      "current": "API 전용 Task Budgets를 쓰지 않는 구독/브릿지 경로에서는 시간박스·iter박스·토큰 사전경고·local LLM advisory digest를 prompt-level budget으로 표준화한다. Dynamic workflow/autopilot fan-out은 대형작업 한정이며, 워커는 먼저 \"독립 병렬 청크?\" 게이트를 통과하고, 하위 워커는 haiku급 저비용 모델로 다운시프트한다.",
+      "changed": "2026-07-01"
     },
     {
       "id": "auto-resume",
-      "current": "세션 클리어(source==clear) 후 ~/.claude/state/resume-task 포인터 1건 읽어 tasks.md [~] 항목 자동 \"이어서 진행\" 주입(손0). 1회 소비. 디폴트 ON. 비본진 노드는 claude-coord/tasks.md 미러(ff-only pull 후) read — 로컬 사본 stale 오발동 방지.",
-      "changed": "2026-06-12"
+      "current": "SessionStart 시(source 무관) ~/.claude/next-cycle.md(RESUME_TASK 헤더) 우선·resume-task 포인터 폴백으로 이어갈 task 1건 읽어 tasks.md [~] 항목 자동 \"이어서 진행\" 주입(손0). next-cycle.md archive·포인터 rm 으로 1회 소비, 6h staleness 가드. 디폴트 ON. 비본진 노드는 claude-coord/tasks.md 미러(ff-only fetch 후) read.",
+      "changed": "2026-07-01"
     },
     {
       "id": "typing-indicator",
@@ -32,8 +32,8 @@
     },
     {
       "id": "context-auto-clear",
-      "current": "컨텍스트 ≥40%(400k) Stop훅 셀프클리어 강제(자동컴팩트 ~55% 전에). 컴팩트 2회 백스톱. 클리어는 session-clear 스킬 경유(마킹+resume 포인터).",
-      "changed": "2026-06-01"
+      "current": "컨텍스트 ≥45%(450k) Stop훅 셀프클리어 강제(자동컴팩트 ~55% 전에). (2026-07-02 40%→45% 상향, 아니키) 컴팩트 2회 백스톱. 클리어는 session-clear 스킬 경유(마킹+resume 포인터).",
+      "changed": "2026-07-02"
     },
     {
       "id": "unified-auto-merge",
