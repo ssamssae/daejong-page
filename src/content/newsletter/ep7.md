@@ -35,6 +35,6 @@ App Store에 출시됐어요.
 
 ---
 
-_다음 회에서는: 새벽 4시에 Apple 리젝 메일을 받은 이야기 — 2.1 Information Needed 리젝 대응기._
+_다음 회에서는: 이른 시간에 Apple 리젝 메일을 확인한 이야기 — 2.1 Information Needed 리젝 대응기._
 
 — 강대종 (1인 바이브코더, Claude Code 동반자) / [@ssamssae](https://github.com/ssamssae)

@@ -1,18 +1,18 @@
 ---
 category: 자동화
-tags: [korail, playwright, perimeter-x, bot-detection, anti-bot, stealth]
+tags: [rail-booking, playwright, perimeter-x, bot-detection, anti-bot, stealth]
 date: 2026-05-05
 ---
 
-# 코레일 Playwright 봇 자동화 — 막다른 길
+# 철도 예매 Playwright 자동화 — 막다른 길
 
 - **시도 날짜:** 2026-05-05
-- **목표:** 서울→진영 2026-05-23 09:04 KTX 일반실 좌석 모니터링 + 자동예약
+- **목표:** 특정 구간·일시의 고속철도 좌석 모니터링 + 자동예약
 
 ## 뭘 시도했나
 
 ### v1 — headless + 직접 API
-- `letskorail.com` API 직접 호출 (YYYYMMDD 파라미터)
+- `철도 예매 도메인` API 직접 호출 (YYYYMMDD 파라미터)
 - headless Playwright, 고정 3분 폴링
 - 결과: 세션 만료 + 탐지
 
@@ -36,7 +36,7 @@ date: 2026-05-05
 
 ## 왜 막혔나
 
-코레일이 도입한 **PerimeterX (현 HUMAN Security)** 가 다층 탐지를 한다:
+해당 철도 예매 서비스가 도입한 **PerimeterX (현 HUMAN Security)** 가 다층 탐지를 한다:
 
 | 탐지 레이어 | 내용 |
 |---|---|
@@ -49,10 +49,10 @@ JS 레이어 패치로 일부 탐지를 늦출 수 있지만, **서버사이드 
 
 ## 남은 선택지 (미시도)
 
-1. **코레일 앱 + mitmproxy 스니핑** → 네이티브 API 직접 호출 (PerimeterX 미적용 예상)
+1. **철도 예매 앱 + mitmproxy 스니핑** → 네이티브 API 직접 호출 (PerimeterX 미적용 예상)
 2. **iOS 시뮬레이터 + Appium** → 웹 자동화 아닌 앱 UI 자동화
 3. **모바일 핫스팟으로 IP 변경** 후 단발성 수동 체크
 
 ## 결론
 
-브라우저 자동화(Playwright/Selenium/CDP 기반) 경로는 **코레일 korail.com 기준 막힌 길**. 앱 API 경로나 수동 체크로 우회해야 함.
+브라우저 자동화(Playwright/Selenium/CDP 기반) 경로는 **철도 예매 도메인 기준 막힌 길**. 앱 API 경로나 수동 체크로 우회해야 함.

@@ -28,7 +28,7 @@ summary: "Anthropic Cloud routine이 /todo 파일에 매일 commit + prompt 안 
 2. routine #1 prompt 전체를 비활성 안내문 + PAT 자리를 `REVOKED_2026-05-11` 문자열로 교체. 재활성화돼도 GitHub 쓰기 X.
 3. 2026-05-11 todos 봉합 — local 262줄 + origin 8줄 newsletter 를 `## 뉴스레터 소재 (auto-collected)` 섹션으로 흡수, commit/push.
 4. 4기기 (WSL/Mac mini/Desktop/Hermes) claude-skills HEAD 동기화 (`682c73f`).
-5. PAT revoke 는 todos 등재 (퇴근 후 OAuth app revoke + 재인증).
+5. PAT revoke 는 todos 등재 (추후 OAuth app revoke + 재인증).
 
 ## 예방 (Forcing function 우선)
 
