@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-07-03-macmini-double-dispatch-duplicate-build.md",
+      "date": "2026-07-03",
+      "slug": "macmini-double-dispatch-duplicate-build",
+      "title": "노드 이중배정 — codex+claude 두 세션이 같은 task 병렬 → ASC 중복 빌드",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "한 노드 / 스토어 배포 파이프라인 — ASC 빌드 중복(hanjul T-260703-20)",
+      "occurred_at": "2026-07-03 21:30~21:41 KST",
+      "resolved_at": "2026-07-03 21:58 KST",
+      "updated": "2026-07-03T21:58:00+09:00"
+    },
+    {
       "file": "2026-06-28-codex-bridge-typing-stuck-on-interrupt.md",
       "date": "2026-06-28",
       "slug": "codex-bridge-typing-stuck-on-interrupt",
