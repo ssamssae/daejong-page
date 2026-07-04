@@ -106,7 +106,7 @@ import '../styles/lab.css';
     <div class="hero-stats">
       <div class="hero-card">
         <div class="hero-card-label">누적 용어</div>
-        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->401<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
+        <div class="hero-card-value"><!--AUTO-HERO-TERMS-START-->409<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></div>
         <div class="hero-card-sub">영상 인사이트에서 추출</div>
       </div>
       <div class="hero-card">
@@ -1009,6 +1009,24 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-07-03-agi-already-here-context-recentai.md</span>
     </div>
 
+    <div class="term">
+      <h3>구스 (Goose)</h3>
+      <p>블록이 LLM 툴콜링 지원 이전부터 만든 자체 코딩 에이전트. MCP 클라이언트의 공식 레퍼런스 구현이었다.</p>
+      <span class="src">영상: 2026-07-04-block-50-ai-champions-agentos.md</span>
+    </div>
+
+    <div class="term">
+      <h3>자동 수정 루프 (auto-fix loop)</h3>
+      <p>AI 리뷰어가 지적한 문제를 또 다른 에이전트가 자동으로 고쳐 커밋해, 사람이 PR을 열 때쯤엔 지적이 이미 정리돼 있게 하는 파이프라인.</p>
+      <span class="src">영상: 2026-07-04-block-50-ai-champions-agentos.md</span>
+    </div>
+
+    <div class="term">
+      <h3>빌더봇 / 오케스트레이터</h3>
+      <p>다수 에이전트를 지휘해 여러 코드베이스에 걸친 실행 계획을 짜는 상위 조정자. 비엔지니어도 Slack에서 호출 가능.</p>
+      <span class="src">영상: 2026-07-04-block-50-ai-champions-agentos.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -1166,7 +1184,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>MCP (Model Context Protocol)</h3>
       <p>에이전트에게 사용 가능한 tool 목록을 표준화해 주는 protocol. "메뉴 씌운 API". 초기엔 모든 tool 을 컨텍스트에 로드해 토큰 폭주, 지금은 deferred(필요할 때만) 로 개선.</p>
-      <span class="src">영상: 2026-05-18-claude-5-levels-nateherk.md, 2026-05-22-7-clis-claude-code-moritz.md, 2026-05-26-tech-moat-not-code-tiffintech.md, 2026-06-16-claude-code-unreal-engine-5-game-stefan.md</span>
+      <span class="src">영상: 2026-05-18-claude-5-levels-nateherk.md, 2026-05-22-7-clis-claude-code-moritz.md, 2026-05-26-tech-moat-not-code-tiffintech.md, 2026-06-16-claude-code-unreal-engine-5-game-stefan.md, 2026-07-04-block-50-ai-champions-agentos.md</span>
     </div>
 
     <div class="term">
@@ -1529,6 +1547,18 @@ import '../styles/lab.css';
       <h3>Context (맥락)</h3>
       <p>조직·업무에 관해 사람 머릿속에 있는 암묵지·프로세스 지식. 모델에 이식돼야 에이전트가 제대로 작동.</p>
       <span class="src">영상: 2026-07-03-agi-already-here-context-recentai.md</span>
+    </div>
+
+    <div class="term">
+      <h3>AGENTS.md / CLAUDE.md</h3>
+      <p>저장소 안에 두는 에이전트용 컨텍스트 파일(에이전트를 위한 저장소 안내서).</p>
+      <span class="src">영상: 2026-07-04-block-50-ai-champions-agentos.md</span>
+    </div>
+
+    <div class="term">
+      <h3>가드레일 규칙 파일</h3>
+      <p>에이전트가 넘지 말아야 할 제약·금지사항을 명시해 결과물 신뢰를 확보하는 규칙 파일.</p>
+      <span class="src">영상: 2026-07-04-block-50-ai-champions-agentos.md</span>
     </div>
 
     <h2>워크플로우 · 문화</h2>
@@ -1983,6 +2013,12 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-07-03-claude-5-income-methods-honjabseu.md</span>
     </div>
 
+    <div class="term">
+      <h3>6단계 성숙도 모델</h3>
+      <p>AI 실력이 아니라 '엔지니어와 에이전트의 관계'로 조직의 AI 성숙도를 0~5단계로 측정하는 진단표.</p>
+      <span class="src">영상: 2026-07-04-block-50-ai-champions-agentos.md</span>
+    </div>
+
     <h2>커리어 · 조직</h2>
 
     <div class="term">
@@ -2157,6 +2193,18 @@ import '../styles/lab.css';
       <h3>생산성 역설 (Solow paradox)</h3>
       <p>신기술이 생산성 통계엔 좀처럼 안 잡히는 현상. 전기모터·PC의 수십 년 확산 지연이 대표 사례.</p>
       <span class="src">영상: 2026-07-03-agi-already-here-context-recentai.md</span>
+    </div>
+
+    <div class="term">
+      <h3>AI 챔피언 프로그램</h3>
+      <p>전원 교육 대신 소수(50명)를 지명해 저장소·패턴을 개선하게 함으로써 조직 전체의 바닥을 끌어올리는 전환 전략.</p>
+      <span class="src">영상: 2026-07-04-block-50-ai-champions-agentos.md</span>
+    </div>
+
+    <div class="term">
+      <h3>포워드 디플로이드 엔지니어 (Forward Deployed Engineer)</h3>
+      <p>전략 고객사의 실제 운영 시스템에 최신 모델을 요구사항 파악부터 설계·구축·배포까지 이끄는 직무. 성공 기준은 '측정 가능한 업무 임팩트'.</p>
+      <span class="src">영상: 2026-07-04-block-50-ai-champions-agentos.md</span>
     </div>
 
     <h2>빌링 · 운영</h2>
