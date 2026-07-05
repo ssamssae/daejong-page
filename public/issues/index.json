@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-07-05-macmini-misroute.md",
+      "date": "2026-07-05",
+      "slug": "macmini-misroute",
+      "title": "맥미니 directive 오배달 + 인바운드 slot 미검사 — codex 슬롯 task를 claude 세션이 실행",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "맥미니(codex+claude 2세션) / cross-node directive 라우팅",
+      "occurred_at": "2026-07-05 20:55 KST",
+      "resolved_at": "2026-07-05 21:04 KST",
+      "updated": "2026-07-05T21:12:00+09:00"
+    },
+    {
       "file": "2026-07-05-coord-detached-head.md",
       "date": "2026-07-05",
       "slug": "coord-detached-head",
@@ -22,7 +34,7 @@
       "scope": "한 노드 / 스토어 배포 파이프라인 — ASC 빌드 중복(hanjul T-260703-20)",
       "occurred_at": "2026-07-03 21:30~21:41 KST",
       "resolved_at": "2026-07-03 21:58 KST",
-      "updated": "2026-07-03T21:58:00+09:00"
+      "updated": "2026-07-05T21:12:00+09:00"
     },
     {
       "file": "2026-06-28-codex-bridge-typing-stuck-on-interrupt.md",
