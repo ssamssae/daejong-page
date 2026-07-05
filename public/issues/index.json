@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-07-05-coord-detached-head.md",
+      "date": "2026-07-05",
+      "slug": "coord-detached-head",
+      "title": "coord 미러 detached HEAD 좌초 — action-ledger.sh rebase 후 HEAD==main 검사 누락으로 고아 ledger 커밋",
+      "severity": "medium",
+      "recurrence": "medium",
+      "scope": "맥미니 claude-coord 미러 / action-ledger.sh 전 노드 공용",
+      "occurred_at": "2026-07-03 21:45 KST",
+      "resolved_at": "2026-07-05 16:11 KST",
+      "updated": "2026-07-05T16:51:00+09:00"
+    },
+    {
       "file": "2026-07-03-macmini-double-dispatch-duplicate-build.md",
       "date": "2026-07-03",
       "slug": "macmini-double-dispatch-duplicate-build",
