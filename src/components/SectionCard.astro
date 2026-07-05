@@ -1,23 +1,53 @@
 ---
-// 허브 홈 5섹션 그리드 카드.
-const { href, title, desc, accent } = Astro.props as {
-  href: string; title: string; desc: string; accent?: 'cyan' | 'magenta';
+// 허브 홈 섹션 카드.
+const { href, title, desc, index, emoji } = Astro.props as {
+  href: string; title: string; desc: string; index?: number; emoji?: string;
 };
-const accentVar = accent === 'magenta' ? 'var(--magenta)' : 'var(--cyan)';
+const label = typeof index === 'number' ? String(index).padStart(2, '0') : '→';
 ---
 <a class="section-card" href={href}>
-  <span class="sc-title" style={`color:${accentVar}`}>{title}</span>
+  <span class="sc-meta">
+    <span>{label}</span>
+    {emoji && <span aria-hidden="true">{emoji}</span>}
+  </span>
+  <span class="sc-title">{title}</span>
   <span class="sc-desc">{desc}</span>
-  <span class="sc-arrow" style={`color:${accentVar}`}>→</span>
+  <span class="sc-arrow" aria-hidden="true">→</span>
 </a>
 <style>
   .section-card {
-    display: flex; flex-direction: column; gap: 8px; position: relative;
-    border: 1px solid var(--border); border-radius: 10px; padding: 20px;
-    background: var(--bg-elev); color: var(--fg); transition: border-color .15s;
+    display: flex;
+    min-height: 188px;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px;
+    background: var(--bg);
+    color: var(--fg);
+    text-decoration: none;
+    transition: border-color .15s, background-color .15s;
   }
-  .section-card:hover { border-color: var(--cyan); color: var(--fg); }
-  .sc-title { font-family: var(--mono); font-weight: 600; font-size: 16px; }
-  .sc-desc { font-size: 13px; color: var(--fg-dim); line-height: 1.55; }
-  .sc-arrow { position: absolute; top: 18px; right: 18px; font-family: var(--mono); }
+  .section-card:hover {
+    border-color: var(--fg);
+    background: var(--bg-elev);
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .sc-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--fg-mute);
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .sc-title { font-weight: 700; font-size: 22px; line-height: 1.25; }
+  .sc-desc { max-width: 28ch; font-size: 14px; color: var(--fg-dim); line-height: 1.58; }
+  .sc-arrow { margin-top: auto; font-size: 18px; }
+  @media (max-width: 640px) {
+    .section-card { min-height: 156px; padding: 18px; }
+    .sc-title { font-size: 20px; }
+  }
 </style>

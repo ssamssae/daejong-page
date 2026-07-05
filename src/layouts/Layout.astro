@@ -1,19 +1,8 @@
 ---
 import '../styles/tokens.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 const { title, description } = Astro.props;
-const path = Astro.url.pathname;
-function activeKey(p) {
-  if (p.startsWith('/about')) return 'workshop';
-  if (p.startsWith('/newsletter')) return 'newsletter';
-  if (p.startsWith('/insights')) return 'insights';
-  if (p.startsWith('/products') || p.startsWith('/apps')) return 'products';
-  if (p.startsWith('/system')) return 'system';
-  if (p.startsWith('/lab')) return 'lab';
-  if (p === '/') return 'workshop';
-  if (p.startsWith('/worklog')) return 'worklog';
-  return '';
-}
-const active = activeKey(path);
 ---
 <!doctype html>
 <html lang="ko">
@@ -26,21 +15,42 @@ const active = activeKey(path);
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet" />
-    <script src="https://kangdaejong.com/mb-components.js" defer></script>
     <title>{title}</title>
     <slot name="head" />
   </head>
   <body>
-    <mb-header active={active}></mb-header>
+    <Nav />
     <main><slot /></main>
-    <mb-footer></mb-footer>
+    <Footer />
     <style is:global>
       * { box-sizing: border-box; margin: 0; padding: 0; }
-      html, body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-height: 1.65; }
-      main { max-width: 760px; margin: 0 auto; padding: 48px 24px 64px; }
-      a { color: var(--cyan); text-decoration: none; }
-      a:hover { color: var(--magenta); }
-      h1, h2, h3 { font-weight: 700; letter-spacing: -0.01em; }
+      html { background: var(--bg); }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--sans);
+        line-height: 1.62;
+        text-rendering: geometricPrecision;
+      }
+      main {
+        width: min(calc(100% - 48px), 1120px);
+        margin: 0 auto;
+        padding: 48px 0 72px;
+      }
+      a {
+        color: var(--fg);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.18em;
+      }
+      a:hover { color: var(--fg); text-decoration-thickness: 2px; }
+      img { max-width: 100%; height: auto; }
+      h1, h2, h3 { font-family: var(--sans); font-weight: 700; letter-spacing: 0; }
+      p { color: var(--fg-dim); }
+      ::selection { background: var(--fg); color: var(--bg); }
+      @media (max-width: 640px) {
+        main { width: min(calc(100% - 32px), 1120px); padding: 36px 0 56px; }
+      }
     </style>
   </body>
 </html>

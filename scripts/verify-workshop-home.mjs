@@ -4,40 +4,61 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf
 
 const index = read("src/pages/index.astro");
 const layout = read("src/layouts/Layout.astro");
+const tokens = read("src/styles/tokens.css");
+const nav = read("src/components/Nav.astro");
+const footer = read("src/components/Footer.astro");
 const hasLocalHeaderMirror = existsSync(new URL("../public/mb-components.js", import.meta.url));
 
 const checks = [
   {
-    label: "home H1 is 작업장",
-    ok: /<h1>작업장<\/h1>/.test(index),
+    label: "home carries the dasolin-tone workshop marker",
+    ok: /data-tone="dasolin-workshop"/.test(index),
   },
   {
-    label: "home tagline describes the hub and removes inline company-home arrow",
-    ok:
-      /마이너스베타스튜디오의 제품·기록·자동화 허브/.test(index) &&
-      !/회사 홈 ↗/.test(index),
+    label: "home first viewport names Kang Daejong work hub",
+    ok: /<h1[^>]*>강대종의 작업장<\/h1>/.test(index),
   },
   {
-    label: "home intro names products, tools, worklog, newsletter, and insights",
+    label: "home keeps concrete products, tools, logs, newsletter, and insights",
     ok:
-      /모바일 앱과 웹 서비스, 오픈소스 도구/.test(index) &&
+      /제품·오픈소스 도구/.test(index) &&
       /작업일지·뉴스레터·인사이트/.test(index),
   },
   {
-    label: "layout makes root active as workshop and keeps worklog separate",
-    ok:
-      /if \(p === '\/'\) return 'workshop';/.test(layout) &&
-      /if \(p\.startsWith\('\/worklog'\)\) return 'worklog';/.test(layout),
+    label: "home exposes numbered step sections",
+    ok: /STEP 01/.test(index) && /STEP 02/.test(index) && /STEP 03/.test(index),
   },
   {
-    label: "work site consumes shared header from kangdaejong.com",
+    label: "layout uses local sticky nav/footer instead of remote shared header",
     ok:
-      /<script src="https:\/\/kangdaejong\.com\/mb-components\.js" defer><\/script>/.test(layout) &&
-      !/src="\/mb-components\.js"/.test(layout),
+      /import Nav from '\.\.\/components\/Nav\.astro';/.test(layout) &&
+      /import Footer from '\.\.\/components\/Footer\.astro';/.test(layout) &&
+      !/mb-components\.js/.test(layout),
   },
   {
     label: "work site has no local shared-header mirror",
     ok: !hasLocalHeaderMirror,
+  },
+  {
+    label: "design tokens are monochrome with CTA-only color",
+    ok:
+      /--bg:\s*#ffffff;/.test(tokens) &&
+      /--accent-cta:\s*#2563eb;/.test(tokens) &&
+      !/--bg:\s*#0a0a0a;/.test(tokens),
+  },
+  {
+    label: "nav preserves key work-site routes",
+    ok:
+      /href: '\/products\/'/.test(nav) &&
+      /href: '\/worklog'/.test(nav) &&
+      /href: '\/newsletter'/.test(nav) &&
+      /href: '\/system'/.test(nav),
+  },
+  {
+    label: "footer keeps public business contact information",
+    ok:
+      /minusbetastudio@gmail\.com/.test(footer) &&
+      /사업자등록번호/.test(footer),
   },
 ];
 
