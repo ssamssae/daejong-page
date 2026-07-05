@@ -1,37 +1,37 @@
 /* tokens.css — daejong-page 디자인 토큰 단일 소스 (SoT)
  * Layout.astro 가 전역 import → 모든 페이지가 이 :root 1곳을 참조.
- * 2026-06-16 B안: 구 public/page-dark.css(토큰 미러)를 흡수해 진짜 단일소스화.
- *   톤 변경은 여기 :root 1곳에서만. */
+ * 2026-07-06 T-260706-09: work.kangdaejong.com 홈/디자인시스템 1차 리뉴얼. */
 :root {
-  /* 배경 계층 */
-  --bg:         #0a0a0a;  /* 페이지 배경 */
-  --bg-elev:    #131313;  /* 카드/박스 */
-  --bg-elev2:   #191919;  /* 한 단계 더 */
+  /* 배경 계층 — 흑백 모노크롬 */
+  --bg:         #ffffff;  /* 페이지 배경 */
+  --bg-elev:    #f7f7f7;  /* 카드/박스 */
+  --bg-elev2:   #eeeeee;  /* 한 단계 더 */
 
   /* 경계선 */
-  --border:     #232323;  /* 일반 보더 */
-  --border-soft:#1a1a1a;
+  --border:     #dedede;  /* 일반 보더 */
+  --border-soft:#eeeeee;
 
   /* 텍스트 */
-  --fg:         #f5f5f5;  /* 본문 */
-  --fg-dim:     #b9c0c9;  /* 보조 (다크 가독성 위해 밝게) */
-  --fg-mute:    #8b95a1;  /* 약한 */
+  --fg:         #111111;  /* 본문 */
+  --fg-dim:     #4f4f4f;  /* 보조 */
+  --fg-mute:    #777777;  /* 약한 */
 
-  /* 액센트 — 네온 (헤더/링크/포인트) */
-  --cyan:       #00e5ff;
-  --magenta:    #ff00aa;
-  --accent:     #00e5ff;  /* = --cyan (lab 톤 별칭) */
-  --accent-2:   #ff00aa;  /* = --magenta */
-  --accent-dim: #00b8d4;
+  /* 액센트 — CTA 전용 컬러, 일반 링크/정보색은 모노크롬 */
+  --cyan:       #111111;
+  --magenta:    #555555;
+  --accent:     #2563eb;
+  --accent-cta: #2563eb;
+  --accent-2:   #111111;
+  --accent-dim: #1748b8;
 
-  /* 상태색 — 다크 대비 위해 약간 밝게 */
-  --danger:     #ff5a6a;
-  --success:    #34d399;
-  --warn:       #fb923c;
+  /* 상태색 */
+  --danger:     #b42318;
+  --success:    #127a3d;
+  --warn:       #9a4d00;
 
   /* 연한 상태 배경 */
-  --danger-bg:  #2a1518;
-  --accent-bg:  #0e2730;
+  --danger-bg:  #fff1f0;
+  --accent-bg:  #eef4ff;
 
   /* 폰트 */
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;

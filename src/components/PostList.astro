@@ -14,7 +14,7 @@ const { posts, base } = Astro.props as { posts: Post[]; base: string };
       <li>
         <a href={`${base}/${p.id}/`}>
           <span class="date">{p.data.date}</span>
-          {epMatch && <span class="ep">Ep.{epMatch[1]}</span>}
+          <span class="ep" aria-hidden={epMatch ? undefined : 'true'}>{epMatch ? `Ep.${epMatch[1]}` : ''}</span>
           <span class="title">{p.data.title}</span>
         </a>
       </li>
@@ -22,18 +22,28 @@ const { posts, base } = Astro.props as { posts: Post[]; base: string };
   })}
 </ul>
 <style>
-  .post-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .post-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
   .post-list li { border-bottom: 1px solid var(--border); }
   .post-list a {
-    display: flex; gap: 16px; align-items: baseline; padding: 14px 4px;
+    display: grid;
+    grid-template-columns: 96px 56px minmax(0, 1fr);
+    gap: 12px;
+    align-items: baseline;
+    min-height: 58px;
+    padding: 16px 0;
     color: var(--fg);
+    text-decoration: none;
   }
-  .post-list a:hover { color: var(--cyan); background: var(--bg-elev); }
-  .date { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); flex-shrink: 0; min-width: 88px; }
-  .ep { font-family: var(--mono); font-size: 12px; color: var(--magenta); flex-shrink: 0; min-width: 44px; }
-  .title { font-size: 15px; }
+  .post-list a:hover { color: var(--fg); background: var(--bg-elev); }
+  .date { font-size: 12px; color: var(--fg-mute); }
+  .ep { font-size: 12px; color: var(--fg-mute); }
+  .title { min-width: 0; font-size: 15px; font-weight: 600; }
   @media (max-width: 520px) {
-    .post-list a { flex-direction: column; gap: 4px; }
-    .ep { min-width: 0; }
+    .post-list a {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      min-height: auto;
+      padding: 14px 0;
+    }
   }
 </style>

@@ -13,13 +13,30 @@ const recentNewsletter = (await getCollection('newsletter'))
   .slice(0, 3);
 
 const sections = [
-  { href: '/about', title: 'about', desc: '강대종 소개서. 만드는 방식과 작업장으로 이어지는 링크.', accent: 'magenta' },
-  { href: '/products/', title: 'products', desc: '공개한 모바일 앱과 준비 중인 웹 SaaS.', accent: 'cyan' },
-  { href: '/worklog', title: 'worklog', desc: '매일의 빌드로그. AI와 함께 만드는 과정 기록.', accent: 'magenta' },
-  { href: '/newsletter', title: 'newsletter', desc: '바이브코딩 — 1인 앱 제작 여정 격주 발행.', accent: 'cyan' },
-  { href: '/insights', title: 'insights', desc: '영상·아티클에서 뽑은 학습 노트.', accent: 'magenta' },
-  { href: '/system', title: 'system', desc: '물리 5대 · 논리 10노드 자동화 스택.', accent: 'cyan' },
-  { href: '/lab', title: 'lab', desc: '잡학·실험·접은 시도들의 기록.', accent: 'magenta' },
+  { href: '/products/', title: '제품', desc: '공개한 모바일 앱과 준비 중인 웹 SaaS를 한 곳에 모았습니다.', emoji: '📦' },
+  { href: '/worklog', title: '작업일지', desc: '매일의 빌드로그. 무엇을 만들고 고쳤는지 짧게 남깁니다.', emoji: '✍️' },
+  { href: '/newsletter', title: '뉴스레터', desc: '바이브코딩과 1인 앱 제작 여정을 격주로 정리합니다.', emoji: '💌' },
+  { href: '/insights', title: '인사이트', desc: '영상과 아티클에서 건진 학습 노트를 선별해 둡니다.', emoji: '🔎' },
+  { href: '/system', title: '시스템', desc: '물리 5대, 논리 10노드 자동화 스택의 현재 구조입니다.', emoji: '🧭' },
+  { href: '/lab', title: 'lab', desc: '잡학, 실험, 접은 시도까지 작업의 주변부를 기록합니다.', emoji: '🧪' },
+];
+
+const steps = [
+  {
+    label: 'STEP 01',
+    title: '만드는 것을 고른다',
+    desc: '제품·오픈소스 도구, 자동화, 콘텐츠 중 지금 실제로 움직이는 작업을 먼저 올립니다.',
+  },
+  {
+    label: 'STEP 02',
+    title: '과정을 기록한다',
+    desc: '작업일지·뉴스레터·인사이트로 선택과 시행착오를 공개 가능한 선에서 남깁니다.',
+  },
+  {
+    label: 'STEP 03',
+    title: '다음 빌드로 연결한다',
+    desc: '배운 점은 제품, 운영 자동화, 공개 도구로 다시 돌아가게 만듭니다.',
+  },
 ];
 
 const bridgeProjects = [
@@ -29,111 +46,316 @@ const bridgeProjects = [
     desc: 'Codex CLI REPL을 텔레그램에서 제어하는 전용 브릿지. 텍스트·이미지·영상·음성·파일 입력, 진행보고, reasoning mirror, typing recovery를 지원합니다.',
     repo: 'https://github.com/ssamssae/codex-telegram-bridge',
     release: 'https://github.com/ssamssae/codex-telegram-bridge/releases/tag/v0.3.23',
-    accent: 'cyan',
   },
   {
     name: 'Claude Telegram Bridge',
     status: 'PUBLIC · v0.1.0',
-    desc: 'Claude Code live tmux 세션을 텔레그램으로 연결하는 전용 브릿지. claude -p 없이 세션 주입·transcript 추출·미디어 local_path 전달로 동작합니다.',
+    desc: 'Claude Code live tmux 세션을 텔레그램으로 연결하는 전용 브릿지. 세션 주입·transcript 추출·미디어 local_path 전달로 동작합니다.',
     repo: 'https://github.com/ssamssae/claude-telegram-bridge',
     release: 'https://github.com/ssamssae/claude-telegram-bridge/releases/tag/v0.1.0',
-    accent: 'magenta',
   },
 ];
 ---
-<Layout title="작업장 — 마이너스베타스튜디오" description="마이너스베타스튜디오 작업장. 제품·작업일지·뉴스레터·인사이트·자동화 스택을 한 곳에서 보는 허브.">
-  <section class="hero">
-    <div class="logo"><img src="/minusbeta-badge.svg" alt="마이너스베타스튜디오" width="88" height="88" /></div>
-    <h1>작업장</h1>
-    <p class="tagline">마이너스베타스튜디오의 제품·기록·자동화 허브</p>
-    <p class="intro">
-      Claude 5 + Codex 5 논리 10노드 자동화 메시로 모바일 앱과 웹 서비스, 오픈소스 도구를 만들고,
-      그 과정을 작업일지·뉴스레터·인사이트로 기록합니다.
-    </p>
-  </section>
+<Layout title="강대종의 작업장 — work.kangdaejong.com" description="강대종의 작업장. 제품·오픈소스 도구·작업일지·뉴스레터·인사이트·자동화 스택을 한 곳에서 보는 허브.">
+  <div class="home" data-tone="dasolin-workshop">
+    <section class="hero" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p class="eyebrow">work.kangdaejong.com</p>
+        <h1 id="home-title">강대종의 작업장</h1>
+        <p class="lead">
+          제품·오픈소스 도구를 만들고, 그 과정을 작업일지·뉴스레터·인사이트로 남기는
+          마이너스베타스튜디오의 공개 작업 허브입니다.
+        </p>
+        <div class="hero-actions" aria-label="주요 이동">
+          <a class="button primary" href="/products/">제품 보기</a>
+          <a class="button secondary" href="/worklog">최근 작업일지</a>
+        </div>
+      </div>
 
-  <section class="bridge-feature" aria-labelledby="bridge-feature-title">
-    <div class="bridge-head">
-      <p class="bridge-kicker">open source tools</p>
-      <h2 id="bridge-feature-title">Telegram Bridges</h2>
-      <p>폰에서 Codex와 Claude를 직접 다루기 위해 만든 두 개의 공개 브릿지.</p>
-    </div>
-    <div class="bridge-grid">
-      {bridgeProjects.map((p) => (
-        <article class={`bridge-card bridge-card--${p.accent}`}>
-          <div class="bridge-card-top">
-            <h3>{p.name}</h3>
-            <span>{p.status}</span>
+      <aside class="hero-panel" aria-label="작업장 구성">
+        <img src="/minusbeta-badge.svg" alt="마이너스베타스튜디오 배지" width="78" height="78" />
+        <div>
+          <p class="panel-kicker">Minus Beta Studio</p>
+          <h2>작게 만들고, 자주 기록합니다.</h2>
+        </div>
+        <dl class="panel-list">
+          <div>
+            <dt>now</dt>
+            <dd>앱, 웹 SaaS, 자동화 도구</dd>
           </div>
-          <p>{p.desc}</p>
-          <div class="bridge-links">
-            <a href={p.repo} target="_blank" rel="noopener">GitHub</a>
-            <a href={p.release} target="_blank" rel="noopener">Release</a>
+          <div>
+            <dt>log</dt>
+            <dd>작업일지, 뉴스레터, 인사이트</dd>
           </div>
-        </article>
-      ))}
-    </div>
-  </section>
+          <div>
+            <dt>stack</dt>
+            <dd>AI-assisted build system</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
 
-  <section class="sections">
-    {sections.map((s) => <SectionCard href={s.href} title={s.title} desc={s.desc} accent={s.accent} />)}
-  </section>
+    <section class="steps" aria-labelledby="steps-title">
+      <div class="section-heading">
+        <p>작업 방식</p>
+        <h2 id="steps-title">공개 작업장은 세 단계로 굴러갑니다.</h2>
+      </div>
+      <div class="step-list">
+        {steps.map((step) => (
+          <article class="step-card">
+            <span>{step.label}</span>
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
 
-  <section class="recent">
-    <div class="recent-head">
-      <h2 class="accent-magenta">최근 작업일지</h2>
-      <a href="/worklog">전체 →</a>
-    </div>
-    <PostList posts={recentWorklog} base="/worklog" />
-  </section>
+    <section class="bridge-feature" aria-labelledby="bridge-feature-title">
+      <div class="section-heading">
+        <p>open source tools</p>
+        <h2 id="bridge-feature-title">폰에서 AI 작업장을 다루기 위해 만든 브릿지</h2>
+      </div>
+      <div class="bridge-grid">
+        {bridgeProjects.map((p) => (
+          <article class="bridge-card">
+            <div class="bridge-card-top">
+              <h3>{p.name}</h3>
+              <span>{p.status}</span>
+            </div>
+            <p>{p.desc}</p>
+            <div class="bridge-links">
+              <a href={p.repo} target="_blank" rel="noopener">GitHub</a>
+              <a href={p.release} target="_blank" rel="noopener">Release</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
 
-  <section class="recent">
-    <div class="recent-head">
-      <h2 class="accent-cyan">최근 뉴스레터</h2>
-      <a href="/newsletter">전체 →</a>
-    </div>
-    <PostList posts={recentNewsletter} base="/newsletter" />
-  </section>
+    <section class="sections" aria-labelledby="sections-title">
+      <div class="section-heading">
+        <p>둘러보기</p>
+        <h2 id="sections-title">필요한 기록으로 바로 이동합니다.</h2>
+      </div>
+      <div class="section-grid">
+        {sections.map((s, index) => <SectionCard href={s.href} title={s.title} desc={s.desc} index={index + 1} emoji={s.emoji} />)}
+      </div>
+    </section>
+
+    <section class="recent">
+      <div class="recent-head">
+        <div>
+          <p>recent log</p>
+          <h2>최근 작업일지</h2>
+        </div>
+        <a href="/worklog">전체 보기</a>
+      </div>
+      <PostList posts={recentWorklog} base="/worklog" />
+    </section>
+
+    <section class="recent">
+      <div class="recent-head">
+        <div>
+          <p>newsletter</p>
+          <h2>최근 뉴스레터</h2>
+        </div>
+        <a href="/newsletter">전체 보기</a>
+      </div>
+      <PostList posts={recentNewsletter} base="/newsletter" />
+    </section>
+  </div>
 
   <style>
-    .hero { text-align: center; padding: 24px 0 48px; }
-    .logo img { height: 88px; width: 88px; display: block; margin: 0 auto; }
-    .hero h1 { font-size: 30px; margin-top: 12px; }
-    .tagline { font-family: var(--mono); font-size: 14px; color: var(--magenta); margin-top: 8px; }
-    .tagline .home-link { color: var(--cyan); }
-    .tagline .home-link:hover { color: var(--magenta); }
-    .intro { color: var(--fg-dim); max-width: 540px; margin: 20px auto 0; font-size: 15px; }
-    .bridge-feature { margin: 0 0 48px; }
-    .bridge-head { margin-bottom: 14px; }
-    .bridge-kicker { font-family: var(--mono); font-size: 11px; color: var(--fg-mute); text-transform: uppercase; letter-spacing: 0; }
-    .bridge-head h2 { font-family: var(--mono); font-size: 20px; line-height: 1.25; margin-top: 4px; color: var(--fg); }
-    .bridge-head p:not(.bridge-kicker) { color: var(--fg-dim); font-size: 13px; margin-top: 6px; line-height: 1.55; }
-    .bridge-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .home { display: flex; flex-direction: column; gap: 84px; }
+    .hero {
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+      gap: 72px;
+      align-items: center;
+      padding: 24px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow,
+    .section-heading p,
+    .recent-head p,
+    .panel-kicker,
+    .step-card span,
+    .bridge-card-top span,
+    .panel-list dt {
+      color: var(--fg-mute);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--fg);
+      font-size: 58px;
+      line-height: 1.05;
+    }
+    .lead {
+      max-width: 660px;
+      margin-top: 24px;
+      color: var(--fg-dim);
+      font-size: 20px;
+      line-height: 1.62;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--fg);
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button:hover { text-decoration: none; }
+    .button.primary { border-color: var(--accent-cta); background: var(--accent-cta); color: #ffffff; }
+    .button.primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); color: #ffffff; }
+    .button.secondary { background: var(--bg); color: var(--fg); }
+    .button.secondary:hover { background: var(--bg-elev); color: var(--fg); }
+    .hero-panel {
+      display: grid;
+      gap: 22px;
+      align-content: start;
+      padding: 28px 0 28px 34px;
+      border-left: 1px solid var(--border);
+    }
+    .hero-panel img { width: 78px; height: 78px; }
+    .hero-panel h2 {
+      max-width: 360px;
+      margin-top: 6px;
+      font-size: 28px;
+      line-height: 1.22;
+    }
+    .panel-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+    .panel-list div {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .panel-list dd { color: var(--fg); font-weight: 600; }
+    .section-heading {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .section-heading h2 {
+      max-width: 760px;
+      font-size: 34px;
+      line-height: 1.22;
+    }
+    .step-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .step-card,
     .bridge-card {
-      border: 1px solid var(--border); border-radius: 10px; padding: 18px;
-      background: var(--bg-elev); transition: border-color .15s;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      padding: 22px;
     }
-    .bridge-card--cyan:hover { border-color: var(--cyan); }
-    .bridge-card--magenta:hover { border-color: var(--magenta); }
-    .bridge-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-    .bridge-card h3 { font-family: var(--mono); font-size: 15px; line-height: 1.35; color: var(--cyan); }
-    .bridge-card--magenta h3 { color: var(--magenta); }
-    .bridge-card-top span { flex: 0 0 auto; font-family: var(--mono); font-size: 10px; color: var(--fg-mute); line-height: 1.35; padding-top: 2px; }
-    .bridge-card p { color: var(--fg-dim); font-size: 13px; line-height: 1.6; margin: 12px 0; }
-    .bridge-links { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
-    .bridge-links a { color: var(--fg-dim); }
-    .bridge-card--cyan .bridge-links a:hover { color: var(--cyan); }
-    .bridge-card--magenta .bridge-links a:hover { color: var(--magenta); }
-    .sections { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 16px 0 56px; }
-    .recent { margin-bottom: 48px; }
-    .recent-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
-    .recent-head h2 { font-size: 18px; }
-    .recent-head a { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); }
-    @media (max-width: 620px) {
-      .bridge-grid { grid-template-columns: 1fr; }
+    .step-card h3 {
+      margin-top: 26px;
+      font-size: 22px;
+      line-height: 1.28;
+    }
+    .step-card p {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.62;
+    }
+    .bridge-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .bridge-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .bridge-card h3 { font-size: 22px; line-height: 1.25; }
+    .bridge-card p { margin-top: 16px; font-size: 14px; line-height: 1.62; }
+    .bridge-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 18px; font-size: 14px; font-weight: 700; }
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .recent {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 48px;
+      padding-top: 34px;
+      border-top: 1px solid var(--border);
+    }
+    .recent-head h2 { margin-top: 6px; font-size: 28px; line-height: 1.2; }
+    .recent-head a {
+      display: inline-flex;
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .recent-head a:hover { text-decoration: underline; }
+
+    @media (max-width: 880px) {
+      .home { gap: 68px; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding-top: 18px;
+      }
+      .hero h1 { font-size: 42px; }
+      .lead { font-size: 18px; }
+      .hero-panel {
+        padding: 26px 0 0;
+        border-left: 0;
+        border-top: 1px solid var(--border);
+      }
+      .section-heading,
+      .recent {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .step-list,
+      .bridge-grid,
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .home { gap: 56px; }
+      .hero { padding-bottom: 42px; }
+      .hero h1 { font-size: 36px; }
+      .lead { font-size: 16px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .button { width: 100%; }
+      .section-heading h2 { font-size: 28px; }
+      .panel-list div { grid-template-columns: 1fr; gap: 4px; }
       .bridge-card-top { display: block; }
-      .bridge-card-top span { display: block; margin-top: 5px; }
+      .bridge-card-top span { display: block; margin-top: 6px; }
     }
-    @media (max-width: 520px) { .sections { grid-template-columns: 1fr; } }
   </style>
 </Layout>
