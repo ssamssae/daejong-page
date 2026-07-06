@@ -18,7 +18,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <nav>
   <div class="nav-inner">
     <a class="brand" href="/" aria-label="마이너스베타스튜디오 홈">
-      <img src="/minusbeta-badge.svg" alt="" width="28" height="28" />
+      <img src="/minusbeta-badge.svg" alt="" width="30" height="30" />
       <span>마이너스베타스튜디오</span>
     </a>
     <div class="nav-links">
@@ -57,7 +57,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       text-decoration: none;
       white-space: nowrap;
     }
-    .brand img { height: 28px; width: 28px; display: block; }
+    .brand img { height: 30px; width: 30px; display: block; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -66,7 +66,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       min-width: 0;
       overflow-x: auto;
       scrollbar-width: none;
-      font-size: 14px;
+      font-size: 13px;
       white-space: nowrap;
     }
     .nav-links::-webkit-scrollbar { display: none; }
@@ -92,7 +92,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       border-radius: 8px;
       background: var(--accent-cta);
       color: #ffffff;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
@@ -105,8 +105,9 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
-      font-size: 12px;
+      font-size: 13px;
     }
+    .nav-sub a { font-weight: 700; }
     @media (max-width: 760px) {
       .nav-inner {
         width: min(calc(100% - 32px), 1120px);
