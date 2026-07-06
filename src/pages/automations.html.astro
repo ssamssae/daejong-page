@@ -1,83 +1,407 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/lab.css';
+
+const updatedAt = '2026-07-06';
+
+const stats = [
+  { label: 'physical fleet', value: '5대', sub: 'Mac · WSL · GPU 데스크탑 · 노트북 · 맥미니' },
+  { label: 'logical agents', value: '10노드', sub: 'Claude 5 + Codex 5 역할 분리' },
+  { label: 'delivery', value: '보고 보증', sub: 'mac-report · queue · mirror · retry' },
+  { label: 'last refresh', value: updatedAt, sub: '공개 페이지 기준 최신 정리' },
+];
+
+const liveLayers = [
+  {
+    key: '01',
+    title: 'Directive 배차 레일',
+    tone: 'green',
+    desc: '본진에서 작업을 쪼개 노드에 전달하고, 각 노드는 브랜치·검증·PR·보고까지 닫는다. 대화가 아니라 “작업 계약” 단위로 움직인다.',
+    tags: ['task id', 'branch', 'PR gate'],
+  },
+  {
+    key: '02',
+    title: '텔레그램 브릿지와 보고 보증',
+    tone: 'cyan',
+    desc: 'Claude/Codex 세션 입력·출력·진행상태를 폰에서 볼 수 있게 하고, 완료 보고가 누락되면 재전송 큐로 표면화한다.',
+    tags: ['bridge', 'mac-report', 'must-deliver'],
+  },
+  {
+    key: '03',
+    title: 'Claude/Codex 역할 분리',
+    tone: 'magenta',
+    desc: 'Codex는 실행 워커, Claude는 고비용 판단·리뷰·게이트 역할로 둔다. 자동 fan-out은 비용 토글과 시간/iter 봉투 안에서만 열린다.',
+    tags: ['executor', 'reviewer', 'cost guard'],
+  },
+  {
+    key: '04',
+    title: '스킬·룰 현행화 루프',
+    tone: 'amber',
+    desc: '반복 작업은 스킬로 만들고, stale 문서·은퇴 스크립트·위험 플래그는 감사 큐에서 작은 PR로 계속 정리한다.',
+    tags: ['skills', 'audit', 'sync'],
+  },
+  {
+    key: '05',
+    title: '제품 출시 자동화',
+    tone: 'green',
+    desc: 'Flutter 앱 빌드, 스크린샷, 스토어 제출 체크리스트, PR 리뷰를 자동화한다. 결제·스토어 제출처럼 비가역 작업은 명시 승인 뒤에만 실행한다.',
+    tags: ['Flutter', 'screenshots', 'release rail'],
+  },
+  {
+    key: '06',
+    title: '자비스·스마트홈 음성 루프',
+    tone: 'cyan',
+    desc: 'RODE 마이크 → wake → STT → 결정론 루틴 → 무무 클론 TTS/Nest 출력까지 연결했다. 물 토출은 별도 확인 플래그 없이는 막는다.',
+    tags: ['wake', 'STT', 'TTS', 'Tuya guard'],
+  },
+];
+
+const pipelines = [
+  ['작업 기록', '작업일지·뉴스레터·인사이트를 공개 가능한 선으로 정리하고 사이트 빌드까지 연결한다.'],
+  ['PR 운영', '노드가 만든 변경은 diff check와 테스트를 거쳐 PR로 올라오고, 민감 경로는 수동 게이트로 멈춘다.'],
+  ['장기 작업', '10분 이상 작업은 중간 보고를 남기고, 완료 시 결과·근거·남은 일을 회수한다.'],
+  ['오류 회수', '끊긴 보고, stale checkout, bridge 지연 같은 운영 사고를 이슈·dead-end·정책으로 되먹인다.'],
+  ['스킬 배차표', '감사에서 나온 작은 수리 항목을 repo별로 배차하고, 완료 근거를 SoT에 남긴다.'],
+  ['홈 루틴', '게임 모드, 수면 모드, 조명·플러그·에어컨 루틴은 LLM 없이 키워드 결정론으로 실행한다.'],
+];
+
+const retired = [
+  {
+    title: 'morning-briefing / evening-wrap',
+    reason: '실사용 0에 가까워 상시 루틴 자동화에서 제거',
+    href: '/dead-ends/detail.html?slug=2026-04-21-morning-evening-automation',
+  },
+  {
+    title: '뉴스 큐레이션 자동화',
+    reason: '저작권 리스크가 커서 공개 자동 발행 라인 폐기',
+    href: '/dead-ends/detail.html?slug=2026-05-14-news-curation',
+  },
+  {
+    title: '리뷰 레이더',
+    reason: '스토어 API/권한 비용 대비 효용이 낮아 중단',
+    href: '/dead-ends/detail.html?slug=2026-04-28-review-radar',
+  },
+  {
+    title: '070 CS deflect 라인',
+    reason: 'CS 루프 본격화 전까지 별도 전화 자동응대는 보류',
+    href: '/dead-ends/detail.html?slug=2026-06-07-070-cs-deflect-line',
+  },
+  {
+    title: 'AI 자동화 에이전시',
+    reason: '첫 제품 PMF 전 새 사업 축 추가는 분산 리스크가 커서 보류',
+    href: '/dead-ends/detail.html?slug=2026-06-04-ai-automation-agency',
+  },
+  {
+    title: 'Claude/Codex 브릿지 단일 통합',
+    reason: '한 코드베이스로 합치면 장애 반경이 커져 분리 유지로 결정',
+    href: '/dead-ends/detail.html?slug=2026-06-28-telegram-bridge-claude-codex-merge',
+  },
+  {
+    title: 'Codex 종량제 워커 자동 브릿지',
+    reason: '자동 실행 대신 명시 호출·비용 토글 안에서만 쓰는 쪽으로 후퇴',
+    href: '/dead-ends/detail.html?slug=2026-06-17-codex-worker-paygo-bridge',
+  },
+  {
+    title: '코레일 Playwright 자동화',
+    reason: 'PerimeterX 차단에 막혀 브라우저 자동화 경로는 dead-end 처리',
+    href: '/dead-ends/detail.html?slug=2026-05-05-korail-playwright-bot-detection',
+  },
+];
+
+const rules = [
+  '사용자 손이 꼭 필요한 권한·로그인·비가역 제출만 멈추고, 나머지는 자동 경로를 먼저 찾는다.',
+  '스마트홈과 비용 발생 루틴은 LLM 판단에 맡기지 않고 결정론과 확인 플래그를 둔다.',
+  '공개 페이지에는 내부 경로, 토큰, 개인식별정보, 실시간 제어 세부를 싣지 않는다.',
+  '작업 완료는 말로 끝내지 않고 검증 결과, PR, 보고, SoT 근거까지 남긴다.',
+];
 ---
-<Layout title="자동화 - 강대종" description="1인 개발이지만 24/7 자동으로 굴러갑니다 — 작업일지 발행, 영상 요약, 야간 개발 사이클, 고객 응대까지 자동화한 운영 쇼케이스.">
+<Layout title="자동화 - 강대종" description="강대종이 실제 운영하는 5대 노드 자동화 시스템. Claude/Codex 배차, 텔레그램 브릿지, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프까지 현재 살아있는 구조와 폐기한 길을 정리합니다.">
   <Fragment slot="head">
     <meta property="og:title" content="자동화 - 강대종">
-    <meta property="og:description" content="1인 개발이지만 24/7 자동으로 굴러갑니다 — 작업일지 발행, 영상 요약, 야간 개발 사이클, 고객 응대까지.">
+    <meta property="og:description" content="5대 노드 자동화 시스템: 배차, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프.">
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://work.kangdaejong.com/automations.html">
     <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="자동화 - 강대종">
-    <meta name="twitter:description" content="1인 개발이지만 24/7 자동으로 굴러갑니다 — 작업일지 발행, 영상 요약, 야간 개발 사이클, 고객 응대까지.">
+    <meta name="twitter:description" content="5대 노드 자동화 시스템: 배차, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프.">
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
     <link rel="canonical" href="https://work.kangdaejong.com/automations.html">
     <style is:global>
-    /* 자동화 — 카드 그리드 (틀은 lab-page.css 공용, 테마색: 그린) */
-    .auto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 560px) { .auto-grid { grid-template-columns: 1fr; } }
-    .auto-card { background: var(--bg-elev); border: 1px solid var(--border); border-left: 3px solid var(--page-accent); border-radius: 14px; padding: 16px 18px; }
-    .auto-card .ico { font-size: 20px; }
-    .auto-card h3 { font-size: 15px; font-weight: 700; margin: 8px 0 4px; color: var(--fg); }
-    .auto-card p { font-size: 13px; color: var(--fg-dim); line-height: 1.6; }
-    .auto-note { margin-top: 28px; font-size: 12.5px; color: var(--fg-mute); background: var(--bg-elev2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+      .auto-wrap { --page-accent: #34d399; }
+      .auto-section { margin-top: 34px; }
+      .auto-section-head { margin-bottom: 14px; }
+      .auto-kicker {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--page-accent);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 5px;
+      }
+      .auto-section h2 {
+        font-size: 21px;
+        line-height: 1.35;
+        color: var(--fg);
+      }
+      .auto-section-head p {
+        max-width: 680px;
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .auto-layer-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .auto-layer,
+      .auto-pipeline,
+      .auto-retired,
+      .auto-rule {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--bg-elev);
+      }
+      .auto-layer {
+        min-height: 214px;
+        padding: 17px 18px;
+        border-left: 3px solid var(--page-accent);
+      }
+      .auto-layer.tone-cyan { border-left-color: var(--cyan); }
+      .auto-layer.tone-magenta { border-left-color: var(--magenta); }
+      .auto-layer.tone-amber { border-left-color: var(--warn); }
+      .auto-layer-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .auto-layer-num {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--fg-mute);
+      }
+      .auto-layer h3 {
+        font-size: 16px;
+        line-height: 1.45;
+        color: var(--fg);
+      }
+      .auto-layer p {
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .auto-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 13px;
+      }
+      .auto-tags span {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--fg-dim);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg-elev2);
+        padding: 2px 7px;
+      }
+      .auto-pipeline-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .auto-pipeline {
+        padding: 14px 15px;
+        min-height: 132px;
+      }
+      .auto-pipeline b {
+        display: block;
+        color: var(--fg);
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .auto-pipeline p {
+        font-size: 12.5px;
+        line-height: 1.65;
+      }
+      .auto-retired-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .auto-retired {
+        display: grid;
+        grid-template-columns: minmax(180px, 0.75fr) minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: center;
+        padding: 12px 14px;
+        text-decoration: none;
+      }
+      .auto-retired:hover {
+        border-color: var(--danger);
+        text-decoration: none;
+      }
+      .auto-retired b {
+        color: var(--fg);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .auto-retired span {
+        color: var(--fg-dim);
+        font-size: 12.5px;
+        line-height: 1.55;
+      }
+      .auto-retired em {
+        color: var(--danger);
+        font-family: var(--mono);
+        font-style: normal;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .auto-rules {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .auto-rule {
+        padding: 13px 15px;
+        color: var(--fg-dim);
+        font-size: 13px;
+        line-height: 1.65;
+      }
+      .auto-link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .auto-link-row a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 0 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--fg);
+        background: var(--bg-elev);
+        text-decoration: none;
+        font-size: 13px;
+      }
+      .auto-link-row a:hover {
+        border-color: var(--page-accent);
+        color: var(--page-accent);
+      }
+      @media (max-width: 760px) {
+        .auto-layer-grid,
+        .auto-pipeline-grid,
+        .auto-rules {
+          grid-template-columns: 1fr;
+        }
+        .auto-retired {
+          grid-template-columns: 1fr;
+          gap: 5px;
+        }
+        .auto-retired em {
+          white-space: normal;
+        }
+      }
     </style>
   </Fragment>
 
-  <div class="lab-page" style="--page-accent: #34d399">
+  <div class="lab-page auto-wrap">
     <section class="lab-hero">
       <h1 class="logo">자동화</h1>
-      <p class="tagline">automations · 24/7 자동 운영</p>
-      <p class="intro">1인 개발이지만 손이 가는 반복 작업은 거의 다 자동으로 돌립니다. 자는 동안에도 24/7 스스로 굴러가는 것들 — 사람은 판단과 결정에만 손을 댑니다.</p>
+      <p class="tagline">automation system · 5-node operating stack</p>
+      <p class="intro">이 페이지는 “켜져 있는 것”과 “일부러 접은 것”을 함께 보여주는 자동화 운영 지도입니다. 1인 개발자의 반복 작업을 줄이되, 비용·권한·안전 게이트는 사람이 통제합니다.</p>
     </section>
 
-    <div class="auto-grid">
-      <div class="auto-card">
-        <div class="ico">📔</div>
-        <h3>매일 작업일지 자동 발행</h3>
-        <p>하루 동안 작업한 내용을 매일 밤 모아 정리하고, 작업일지로 자동 발행합니다.</p>
-      </div>
-      <div class="auto-card">
-        <div class="ico">🎬</div>
-        <h3>유튜브 영상 자동 요약</h3>
-        <p>관심 분야 영상에서 핵심 인사이트만 뽑아 읽기 좋은 메모로 자동 정리합니다.</p>
-      </div>
-      <div class="auto-card">
-        <div class="ico">🌙</div>
-        <h3>야간 자동 개발 사이클</h3>
-        <p>밤사이 밀린 코드 작업·점검을 스스로 골라 진행하고, 아침에 결과를 보고합니다.</p>
-      </div>
-      <div class="auto-card">
-        <div class="ico">🖼️</div>
-        <h3>SNS 카드 자동 게시</h3>
-        <p>작업 기록을 보기 좋은 카드 이미지로 만들어 SNS에 자동으로 올립니다.</p>
-      </div>
-      <div class="auto-card">
-        <div class="ico">💬</div>
-        <h3>고객 문의 자동 응대</h3>
-        <p>제품 문의를 메신저 봇이 1차로 받아 안내하고, 정말 사람이 필요한 것만 넘깁니다.</p>
-      </div>
-      <div class="auto-card">
-        <div class="ico">📊</div>
-        <h3>사용량·비용 자동 모니터링</h3>
-        <p>개발에 쓰는 자원과 비용을 주기적으로 자동 집계해 한눈에 보이게 합니다.</p>
-      </div>
-      <div class="auto-card">
-        <div class="ico">🔁</div>
-        <h3>기기 간 자동 동기화</h3>
-        <p>여러 작업 기기의 메모·할 일·기록을 끊김 없이 자동으로 맞춰 둡니다.</p>
-      </div>
-      <div class="auto-card">
-        <div class="ico">🛟</div>
-        <h3>자동 상태 점검·복구</h3>
-        <p>자동화가 멈추지 않도록 스스로 상태를 점검하고, 문제가 생기면 알아서 되살립니다.</p>
-      </div>
+    <div class="lab-stats">
+      {stats.map((s) => (
+        <div class="lab-stat">
+          <div class="lab-stat-label">{s.label}</div>
+          <div class="lab-stat-value">{s.value}</div>
+          <div class="lab-stat-sub">{s.sub}</div>
+        </div>
+      ))}
     </div>
 
-    <p class="auto-note">이 페이지는 자랑 삼아 추려 둔 쇼케이스입니다. 실제 가동 현황은 비공개 운영 보드에서 실시간으로 관리합니다.</p>
+    <section class="auto-section" aria-labelledby="live-layers">
+      <div class="auto-section-head">
+        <p class="auto-kicker">live layers</p>
+        <h2 id="live-layers">지금 살아있는 자동화 레이어</h2>
+        <p>단일 봇 하나가 아니라, 배차·브릿지·검증·보고·게이트가 나뉘어 붙은 운영 체계입니다.</p>
+      </div>
+      <div class="auto-layer-grid">
+        {liveLayers.map((layer) => (
+          <article class={`auto-layer tone-${layer.tone}`}>
+            <div class="auto-layer-top">
+              <h3>{layer.title}</h3>
+              <span class="auto-layer-num">{layer.key}</span>
+            </div>
+            <p>{layer.desc}</p>
+            <div class="auto-tags">
+              {layer.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="auto-section" aria-labelledby="pipeline-map">
+      <div class="auto-section-head">
+        <p class="auto-kicker">pipeline map</p>
+        <h2 id="pipeline-map">실제 작업은 이렇게 흘러갑니다</h2>
+        <p>콘텐츠 발행, 앱 출시, 스킬 감사, 스마트홈 루틴까지 같은 원칙으로 묶습니다. 자동화가 실패하면 실패도 기록으로 남겨 다음 설계에 반영합니다.</p>
+      </div>
+      <div class="auto-pipeline-grid">
+        {pipelines.map(([title, desc]) => (
+          <article class="auto-pipeline">
+            <b>{title}</b>
+            <p>{desc}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="auto-section" aria-labelledby="retired-map">
+      <div class="auto-section-head">
+        <p class="auto-kicker">retired / held</p>
+        <h2 id="retired-map">접은 자동화도 운영 자산입니다</h2>
+        <p>드롭한 항목은 잊지 않고 막다른 길로 보관합니다. 왜 접었는지 남겨야 같은 자동화를 다시 만들지 않습니다.</p>
+      </div>
+      <div class="auto-retired-list">
+        {retired.map((item) => (
+          <a class="auto-retired" href={item.href}>
+            <b>{item.title}</b>
+            <span>{item.reason}</span>
+            <em>dead-end</em>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="auto-section" aria-labelledby="guardrails">
+      <div class="auto-section-head">
+        <p class="auto-kicker">guardrails</p>
+        <h2 id="guardrails">자동화 원칙</h2>
+        <p>많이 자동화할수록 “언제 멈출지”가 더 중요합니다. 아래 규칙은 공개 가능한 수준으로 요약한 운영 원칙입니다.</p>
+      </div>
+      <div class="auto-rules">
+        {rules.map((rule) => <div class="auto-rule">{rule}</div>)}
+      </div>
+    </section>
+
+    <div class="auto-link-row" aria-label="관련 페이지">
+      <a href="/policy">Fleet 정책</a>
+      <a href="/stack.html">기술 스택</a>
+      <a href="/skills.html">AI 스킬</a>
+      <a href="/smart-home.html">스마트홈</a>
+      <a href="/dead-ends.html">막다른 길</a>
+    </div>
 
     <a class="lab-back" href="/system">← system</a>
   </div>
