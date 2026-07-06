@@ -1,22 +1,129 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import '../styles/lab.css';
+
+const metrics = [
+  { value: '5', unit: 'stationary nodes', label: '상주 물리 노드' },
+  { value: '10', unit: 'AI lanes', label: 'Claude 5 + Codex 5' },
+  { value: '3', unit: 'local GPUs', label: '2070S · 3060Ti · 3060' },
+  { value: '24/7', unit: 'ready', label: '폰 한 줄로 기동' },
+];
+
+const layers = [
+  {
+    eyebrow: 'Control plane',
+    title: '본진이 판단을 잡는다',
+    body: '정책, 머지, 외부영향, 최종 승인 같은 판단 계층은 본진이 붙잡고, 나머지는 노드로 흘린다.',
+  },
+  {
+    eyebrow: 'Execution layer',
+    title: 'Codex가 손을 움직인다',
+    body: '코드 수정, 반복 검증, 로그 스캔, 작은 PR은 Codex 레인이 빠르게 처리한다.',
+  },
+  {
+    eyebrow: 'Review layer',
+    title: 'Claude는 게이트와 리뷰',
+    body: '계획, 리스크 판정, 리뷰, 배포 직전 확인처럼 실패 비용이 큰 지점에 Claude를 배치한다.',
+  },
+  {
+    eyebrow: 'Ingress',
+    title: '폰이 작업장 리모컨',
+    body: '텔레그램과 SSH가 외부 입력면이다. 어디서든 작업을 넣고, 결과는 다시 폰으로 회수한다.',
+  },
+];
+
+const nodes = [
+  {
+    icon: '🍎',
+    name: '본진',
+    type: 'hub',
+    hardware: 'MacBook Pro · arm64 · macOS',
+    handle: '@MyClaude_ssamssae_bot',
+    role: '정책·머지·외부영향 게이트. 작업을 각 노드로 보내고 보고를 회수하는 중심 노드.',
+    tags: ['SoT', 'gate', 'merge', 'mesh hub'],
+  },
+  {
+    icon: '🏭',
+    name: '맥미니',
+    type: 'build',
+    hardware: 'Mac mini M1 · arm64 · macOS',
+    handle: '@ssamssae_claw_bot',
+    role: 'iOS/Android 빌드, 서명, 업로드와 launchd 상주 워커를 맡는 실무 생산 노드.',
+    tags: ['build', 'release', 'launchd', 'worker'],
+  },
+  {
+    icon: '🪟',
+    name: '라이덴',
+    type: 'work',
+    hardware: 'Ryzen 3900X · Ubuntu 24.04 WSL2',
+    handle: '@Myclaude2_ssamssae_bot',
+    role: '낮 시간 즉응 작업자. 코드 수정, 분석, WSL 경로 검증을 빠르게 맡긴다.',
+    tags: ['WSL', 'RTX 2070S', 'analysis', 'patch'],
+  },
+  {
+    icon: '🖥',
+    name: '데스크탑',
+    type: 'gpu',
+    hardware: 'Ubuntu 24.04 WSL2 · x86_64',
+    handle: '@jarvice_ssamssae_bot',
+    role: '로컬 LLM, 이미지, 음성, 스마트홈 실험이 붙는 GPU 실험 노드.',
+    tags: ['RTX 3060Ti', 'LLM', 'voice', 'smart home'],
+  },
+  {
+    icon: '💻',
+    name: '노트북',
+    type: 'mobile',
+    hardware: 'Lenovo Legion 5 · Ubuntu 24.04 WSL2',
+    handle: '@ssamssae_codex_bot',
+    role: '오프라인 캡처와 외출 시 원격 작업을 보조하는 다섯 번째 상주 노드.',
+    tags: ['RTX 3060', 'field', 'sync', 'backup'],
+  },
+  {
+    icon: '📱',
+    name: 'iPhone',
+    type: 'entry',
+    hardware: 'mobile command surface',
+    handle: 'Telegram · SSH · Chrome Remote Desktop',
+    role: '입력면. 외출 중에도 지시를 넣고 진행 상황을 받는 작업장 리모컨.',
+    tags: ['Telegram', 'SSH', 'remote'],
+  },
+];
+
+const routes = [
+  { from: '아니키', verb: 'Telegram', to: '본진', body: '자연어 요청을 작업 큐로 바꾼다.' },
+  { from: '본진', verb: '*-directive.sh', to: '노드', body: '브랜치와 범위를 지정해 실제 손을 배차한다.' },
+  { from: '노드', verb: 'mac-report.sh', to: '본진', body: '검증 결과, PR, 막힌 지점을 되돌려 보낸다.' },
+  { from: '본진', verb: 'manual gate', to: '외부', body: '머지·배포·제출 같은 외부영향은 사람이 닫는다.' },
+];
+
+const stackItems = [
+  'Astro + GitHub Pages',
+  'Flutter apps',
+  'Cloudflare Workers',
+  'Telegram bridges',
+  'Claude Code',
+  'Codex CLI',
+  'tmux',
+  'Tailscale',
+  'Chrome Remote Desktop',
+  'launchd',
+  'WSL2',
+  'local GPU tools',
+];
 ---
-<Layout title="STACK - 강대종" description="강대종 1인 개발자가 실제 운영하는 개발 스택 페이지로 Mac 본진, WSL, 맥미니, GPU 노드, iPhone을 Claude/Codex 워크플로우, 역할별 토폴로지, 물리 5대 · 논리 10노드 24/7 구조로 정리합니다.">
+<Layout title="STACK - 강대종" description="강대종이 실제로 굴리는 5노드 AI 작업장 시스템. 물리 노드, Claude/Codex 레인, GPU, 모바일 입력면, 배차와 보고 흐름을 한 화면에 정리합니다.">
   <Fragment slot="head">
-    <!-- OG / Twitter Card (2026-05-25) -->
-  <meta property="og:title" content="STACK - 강대종">
-  <meta property="og:description" content="강대종이 1인 개발에서 실제로 쓰는 기술 스택 — Flutter, Claude/Codex, Substack, Notion, KST 워크플로우.">
-  <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://work.kangdaejong.com/stack.html">
-  <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="STACK - 강대종">
-  <meta name="twitter:description" content="강대종이 1인 개발에서 실제로 쓰는 기술 스택 — Flutter, Claude/Codex, Substack, Notion, KST 워크플로우.">
-  <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
-  <link rel="canonical" href="https://work.kangdaejong.com/stack.html">
-  <script type="application/ld+json" is:inline>
+    <meta property="og:title" content="STACK - 강대종">
+    <meta property="og:description" content="5노드 AI 작업장 시스템 — 물리 노드, Claude/Codex 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
+    <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://work.kangdaejong.com/stack.html">
+    <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="STACK - 강대종">
+    <meta name="twitter:description" content="5노드 AI 작업장 시스템 — 물리 노드, Claude/Codex 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
+    <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
+    <link rel="canonical" href="https://work.kangdaejong.com/stack.html">
+    <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -40,325 +147,728 @@ import '../styles/lab.css';
   ]
 }
 </script>
-  <style is:global>
-    /* 기술 스택 — lab-page 공용 컴포넌트(lab-stats / 좌측 accent 카드) 위에 노드 그리드.
-       2026-06-15 리뉴얼: 옛 ✅/❌ feat-row 체크리스트 → 역량 태그 칩, 다크 네온 톤 정합. */
-    .node-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 4px;
-    }
-    @media (max-width: 700px) { .node-grid { grid-template-columns: 1fr; } }
+    <style is:global>
+      .stack-page {
+        --stack-blue: #2563eb;
+        --stack-green: #127a3d;
+        --stack-red: #b42318;
+        --stack-amber: #9a4d00;
+        --stack-line: #d8dee8;
+      }
 
-    .node-card {
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--page-accent);
-      border-radius: 12px;
-      padding: 18px 20px;
-      background: var(--bg-elev);
-      transition: border-color 0.16s, transform 0.16s, box-shadow 0.16s;
-    }
-    .node-card:hover {
-      border-color: var(--page-accent);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px -10px var(--page-accent);
-    }
-    .node-head { display: flex; align-items: center; gap: 11px; flex-wrap: wrap; }
-    .node-icon { font-size: 26px; line-height: 1; }
-    .node-name { font-size: 18px; font-weight: 700; color: var(--fg); letter-spacing: -0.2px; }
-    .node-badge {
-      margin-left: auto;
-      display: inline-flex; align-items: center; gap: 5px;
-      padding: 3px 10px; border-radius: 999px;
-      font-family: var(--mono); font-size: 10.5px; font-weight: 600;
-      color: var(--accent); background: var(--accent-bg);
-      border: 1px solid rgba(0,229,255,0.28);
-      white-space: nowrap;
-    }
-    .node-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+      .stack-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+        gap: 40px;
+        align-items: center;
+        padding: 24px 0 48px;
+        border-bottom: 1px solid var(--border);
+      }
 
-    .node-meta {
-      font-family: var(--mono); font-size: 11px; color: var(--fg-mute);
-      margin-top: 10px; line-height: 1.6; word-break: break-all;
-    }
-    .node-role {
-      font-size: 13px; color: var(--fg-dim); line-height: 1.6;
-      margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--border-soft);
-    }
-    .node-caps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-    .cap {
-      font-family: var(--mono); font-size: 10.5px; font-weight: 500;
-      padding: 3px 9px; border-radius: 7px;
-      color: var(--fg-dim); background: var(--bg-elev2); border: 1px solid var(--border);
-    }
-    .cap-key { color: var(--page-accent); border-color: rgba(0,229,255,0.22); }
-    .cap-gpu { color: var(--accent-2); border-color: rgba(255,0,170,0.25); }
+      .stack-kicker,
+      .section-kicker,
+      .metric-label,
+      .node-type,
+      .route-verb,
+      .tool-chip {
+        font-family: var(--mono);
+      }
 
-    /* 백엔드 구성 */
-    .section { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--border); }
-    .section-title { font-size: 19px; font-weight: 700; color: var(--fg); margin: 0 0 6px; letter-spacing: -0.3px; }
-    .section-desc { font-size: 13px; color: var(--fg-dim); margin: 0 0 18px; line-height: 1.65; }
-    .be-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    @media (max-width: 700px) { .be-grid { grid-template-columns: 1fr; } }
-    .be-item {
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 11px;
-      padding: 14px 16px; font-size: 13px; color: var(--fg-dim); line-height: 1.6;
-    }
-    .be-item strong { display: block; color: var(--fg); margin-bottom: 5px; font-size: 13.5px; }
-    .be-item code {
-      font-family: var(--mono); font-size: 11.5px;
-      background: var(--bg-elev2); color: var(--accent-dim);
-      padding: 1px 5px; border-radius: 5px;
-    }
+      .stack-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--stack-blue);
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
 
-    /* 토폴로지 */
-    .topo-wrap {
-      background: var(--bg-elev); border: 1px solid var(--border);
-      border-radius: 16px; padding: 14px; overflow-x: auto; margin-top: 4px;
-    }
-    .topo-svg { width: 100%; max-width: 720px; display: block; margin: 0 auto; font-family: var(--sans, 'Pretendard', sans-serif); }
-    @media (max-width: 480px) { .topo-svg { min-width: 480px; } }
-  </style>
+      .stack-kicker::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--stack-blue);
+      }
+
+      .stack-hero h1 {
+        max-width: 620px;
+        font-size: 64px;
+        line-height: 1.02;
+        margin: 0;
+        color: var(--fg);
+      }
+
+      .stack-lead {
+        max-width: 620px;
+        margin-top: 22px;
+        font-size: 18px;
+        line-height: 1.72;
+        color: var(--fg-dim);
+      }
+
+      .stack-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .stack-button {
+        display: inline-flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid var(--fg);
+        border-radius: 8px;
+        color: var(--fg);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .stack-button:hover {
+        color: var(--fg);
+        text-decoration: none;
+        background: var(--bg-elev);
+      }
+
+      .stack-button.primary {
+        border-color: var(--stack-blue);
+        background: var(--stack-blue);
+        color: #ffffff;
+      }
+
+      .stack-button.primary:hover {
+        color: #ffffff;
+        background: var(--accent-dim);
+      }
+
+      .metric-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 34px;
+      }
+
+      .metric {
+        min-height: 98px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 14px;
+        background: var(--bg-elev);
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--fg);
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 6px;
+        color: var(--fg-dim);
+        font-size: 12px;
+      }
+
+      .metric-label {
+        margin-top: 12px;
+        color: var(--fg-mute);
+        font-size: 10px;
+      }
+
+      .system-map {
+        position: relative;
+        min-height: 560px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background:
+          linear-gradient(var(--stack-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--stack-line) 1px, transparent 1px),
+          var(--bg-elev);
+        background-size: 42px 42px;
+        overflow: hidden;
+      }
+
+      .system-map::before {
+        content: "";
+        position: absolute;
+        inset: 42px;
+        border: 1px dashed #a9b2c0;
+        border-radius: 8px;
+        pointer-events: none;
+      }
+
+      .map-title {
+        position: absolute;
+        top: 22px;
+        left: 22px;
+        color: var(--fg);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .map-caption {
+        position: absolute;
+        left: 22px;
+        bottom: 20px;
+        max-width: 340px;
+        color: var(--fg-dim);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .map-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .map-node {
+        position: absolute;
+        width: 138px;
+        min-height: 74px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+        background: #ffffff;
+        box-shadow: 0 14px 28px rgba(17, 17, 17, 0.06);
+      }
+
+      .map-node.hub {
+        width: 162px;
+        min-height: 88px;
+        border-color: var(--stack-blue);
+        background: #eef4ff;
+      }
+
+      .map-node .map-icon {
+        display: block;
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .map-node strong {
+        display: block;
+        margin-top: 7px;
+        color: var(--fg);
+        font-size: 14px;
+      }
+
+      .map-node span {
+        display: block;
+        margin-top: 2px;
+        color: var(--fg-mute);
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+
+      .map-node.mac { left: 34px; top: 148px; }
+      .map-node.raiden { right: 34px; top: 148px; }
+      .map-node.desktop { left: 34px; top: 326px; }
+      .map-node.notebook { right: 34px; top: 326px; }
+      .map-node.phone { left: 50%; bottom: 82px; transform: translateX(-50%); }
+      .map-node.hub { left: 50%; top: 236px; transform: translateX(-50%); }
+
+      .stack-section {
+        padding: 54px 0 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 22px;
+      }
+
+      .section-kicker {
+        color: var(--stack-blue);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .section-head h2 {
+        margin-top: 6px;
+        color: var(--fg);
+        font-size: 32px;
+        line-height: 1.18;
+      }
+
+      .section-head p {
+        color: var(--fg-dim);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .layer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .layer-card {
+        min-height: 208px;
+        padding: 20px;
+        background: var(--bg-elev);
+      }
+
+      .layer-card + .layer-card {
+        border-left: 1px solid var(--border);
+      }
+
+      .layer-card .eyebrow {
+        color: var(--stack-blue);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .layer-card h3 {
+        margin-top: 16px;
+        color: var(--fg);
+        font-size: 19px;
+        line-height: 1.3;
+      }
+
+      .layer-card p {
+        margin-top: 12px;
+        color: var(--fg-dim);
+        font-size: 13px;
+        line-height: 1.66;
+      }
+
+      .node-roster {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .node-card {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 18px;
+        background: var(--bg-elev);
+      }
+
+      .node-top {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .node-icon {
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: #ffffff;
+        font-size: 20px;
+        flex: 0 0 auto;
+      }
+
+      .node-card h3 {
+        color: var(--fg);
+        font-size: 18px;
+        line-height: 1.25;
+      }
+
+      .node-type {
+        display: inline-block;
+        margin-top: 4px;
+        color: var(--stack-blue);
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .node-meta {
+        margin-top: 16px;
+        color: var(--fg-mute);
+        font-family: var(--mono);
+        font-size: 11px;
+        line-height: 1.6;
+        word-break: break-word;
+      }
+
+      .node-role {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border-soft);
+        color: var(--fg-dim);
+        font-size: 13px;
+        line-height: 1.66;
+      }
+
+      .tag-row,
+      .tool-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .tag-row {
+        margin-top: 14px;
+      }
+
+      .tag {
+        padding: 4px 8px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: #ffffff;
+        color: var(--fg-dim);
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+
+      .route-board {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+
+      .route-step {
+        position: relative;
+        min-height: 188px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 18px;
+        background: var(--bg-elev);
+      }
+
+      .route-step::after {
+        content: "";
+        position: absolute;
+        top: 44px;
+        right: -13px;
+        width: 12px;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .route-step:last-child::after {
+        display: none;
+      }
+
+      .route-index {
+        color: var(--stack-blue);
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .route-line {
+        margin-top: 16px;
+        color: var(--fg);
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .route-verb {
+        display: block;
+        margin: 6px 0;
+        color: var(--stack-amber);
+        font-size: 11px;
+      }
+
+      .route-step p {
+        margin-top: 12px;
+        color: var(--fg-dim);
+        font-size: 13px;
+        line-height: 1.62;
+      }
+
+      .tool-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 24px;
+        align-items: start;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 24px;
+        background: var(--bg-elev);
+      }
+
+      .tool-panel h2 {
+        color: var(--fg);
+        font-size: 26px;
+        line-height: 1.24;
+      }
+
+      .tool-panel p {
+        margin-top: 12px;
+        color: var(--fg-dim);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .tool-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 0 10px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: #ffffff;
+        color: var(--fg);
+        font-size: 11px;
+      }
+
+      .stack-back {
+        display: inline-flex;
+        margin-top: 36px;
+        color: var(--fg-dim);
+        font-size: 14px;
+        text-decoration: none;
+      }
+
+      .stack-back:hover {
+        color: var(--fg);
+      }
+
+      @media (max-width: 960px) {
+        .stack-hero,
+        .section-head,
+        .tool-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .system-map {
+          min-height: 520px;
+        }
+
+        .metric-strip,
+        .layer-grid,
+        .route-board {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .layer-card + .layer-card {
+          border-left: 0;
+          border-top: 1px solid var(--border);
+        }
+
+        .layer-card:nth-child(2) {
+          border-top: 0;
+          border-left: 1px solid var(--border);
+        }
+
+        .node-roster {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .route-step::after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .stack-hero {
+          gap: 28px;
+          padding-top: 6px;
+        }
+
+        .stack-hero h1 {
+          font-size: 42px;
+        }
+
+        .stack-lead {
+          font-size: 16px;
+        }
+
+        .layer-grid,
+        .node-roster,
+        .route-board {
+          grid-template-columns: 1fr;
+        }
+
+        .metric-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .layer-card:nth-child(2) {
+          border-left: 0;
+          border-top: 1px solid var(--border);
+        }
+
+        .system-map {
+          min-height: 600px;
+        }
+
+        .map-node,
+        .map-node.hub {
+          width: 132px;
+          min-height: 70px;
+        }
+
+        .map-node.mac { left: 18px; top: 130px; }
+        .map-node.raiden { right: 18px; top: 130px; }
+        .map-node.desktop { left: 18px; top: 318px; }
+        .map-node.notebook { right: 18px; top: 318px; }
+        .map-node.hub { top: 226px; }
+        .map-node.phone { bottom: 94px; }
+        .map-caption { right: 18px; max-width: none; }
+      }
+    </style>
   </Fragment>
 
-  <div class="lab-page">
-    <section class="lab-hero">
-      <h1 class="logo">기술 스택</h1>
-      <p class="tagline">stack · 물리 5대 + 논리 10노드 + 모바일 1</p>
-      <p class="intro">바이브코딩 한 사람이 굴리는 인프라. 24/7 상주 5대 위에 Claude 5 + Codex 5 논리 10노드를 얹고, 🍎 본진이 hub 가 되어 각 노드에 directive 를 운반하면 노드가 결과를 회신한다.</p>
-    </section>
-
-    <div class="lab-stats">
-      <div class="lab-stat">
-        <div class="lab-stat-label">상주 노드</div>
-        <div class="lab-stat-value">5<span class="unit">+ 모바일 1</span></div>
-        <div class="lab-stat-sub">🍎 본진 · 🏭 맥미니 · 🪟 라이덴 · 🖥 데스크탑 · 💻 노트북</div>
-      </div>
-      <div class="lab-stat">
-        <div class="lab-stat-label">가동</div>
-        <div class="lab-stat-value">24/7<span class="unit">always idle ready</span></div>
-        <div class="lab-stat-sub">자동 사이클 + 즉응 위임</div>
-      </div>
-      <div class="lab-stat">
-        <div class="lab-stat-label">AI 노드</div>
-        <div class="lab-stat-value">Claude 5<span class="unit">+ Codex 5</span></div>
-        <div class="lab-stat-sub">Codex 실행 · Claude 리뷰/게이트</div>
-      </div>
-      <div class="lab-stat">
-        <div class="lab-stat-label">로컬 GPU</div>
-        <div class="lab-stat-value">3<span class="unit">장</span></div>
-        <div class="lab-stat-sub">RTX 2070S · 3060Ti · 3060</div>
-      </div>
-    </div>
-
-    <div class="node-grid">
-
-      <div class="node-card">
-        <div class="node-head">
-          <span class="node-icon" role="img" aria-label="Mac 본진">🍎</span>
-          <span class="node-name">본진</span>
-          <span class="node-badge"><span class="dot"></span>Claude + Codex</span>
+  <div class="stack-page">
+    <section class="stack-hero">
+      <div>
+        <div class="stack-kicker">OPERATING STACK</div>
+        <h1>혼자 굴리는 5노드 AI 작업장</h1>
+        <p class="stack-lead">
+          앱, 글, 배포, 자동화를 한 사람이 처리하기 위해 만든 실제 운영 시스템입니다.
+          판단은 본진에 남기고, 손이 필요한 일은 Claude/Codex 레인과 물리 노드로 흘립니다.
+        </p>
+        <div class="stack-actions">
+          <a class="stack-button primary" href="/system">시스템 보기</a>
+          <a class="stack-button" href="/products/">제품 보기</a>
         </div>
-        <div class="node-meta">MacBook Pro · arm64 · macOS · 24/7 stationary<br>@MyClaude_ssamssae_bot</div>
-        <div class="node-role">수동 거버넌스 게이트키퍼 · SoT 정본 · 정책·머지·최종 승인 · agent-mesh hub (각 노드에 directive 운반 · 보고 수신).</div>
-        <div class="node-caps">
-          <span class="cap cap-key">hub</span>
-          <span class="cap">Claude Code</span>
-          <span class="cap">Codex</span>
-          <span class="cap">tmux</span>
-          <span class="cap">SSH</span>
-          <span class="cap">Ghostty</span>
-          <span class="cap">Chrome RD</span>
+        <div class="metric-strip" aria-label="작업장 요약 지표">
+          {metrics.map((item) => (
+            <div class="metric">
+              <strong>{item.value}</strong>
+              <span>{item.unit}</span>
+              <div class="metric-label">{item.label}</div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div class="node-card">
-        <div class="node-head">
-          <span class="node-icon" role="img" aria-label="맥미니">🏭</span>
-          <span class="node-name">맥미니</span>
-          <span class="node-badge"><span class="dot"></span>Claude + Codex</span>
-        </div>
-        <div class="node-meta">Mac mini · M1 arm64 · macOS · 24/7 하드워커<br>@ssamssae_claw_bot</div>
-        <div class="node-role">제1 자동 오케스트레이터 · Codex 실행 레인과 Claude 리뷰 레인 조율 · iOS/Android 빌드·서명·업로드 전담 · launchd 워커.</div>
-        <div class="node-caps">
-          <span class="cap cap-key">빌드·배포</span>
-          <span class="cap">Claude Code</span>
-          <span class="cap">Codex</span>
-          <span class="cap">launchd 워커</span>
-          <span class="cap">tmux</span>
-          <span class="cap">SSH</span>
-          <span class="cap">Chrome RD</span>
-        </div>
-      </div>
-
-      <div class="node-card">
-        <div class="node-head">
-          <span class="node-icon" role="img" aria-label="라이덴">🪟</span>
-          <span class="node-name">라이덴</span>
-          <span class="node-badge"><span class="dot"></span>Claude + Codex</span>
-        </div>
-        <div class="node-meta">Ryzen 3900X · Ubuntu 24.04 WSL2 · 24/7<br>@Myclaude2_ssamssae_bot</div>
-        <div class="node-role">낮 즉응 작업자 · <code>wsl/*</code> 브랜치 코드 수정·분석 · Windows 게이트 (빌드/배포는 맥미니 담당).</div>
-        <div class="node-caps">
-          <span class="cap cap-gpu">RTX 2070S 8GB</span>
-          <span class="cap">Claude Code</span>
-          <span class="cap">Codex</span>
-          <span class="cap">tmux</span>
-          <span class="cap">SSH</span>
-          <span class="cap">Chrome RD</span>
-        </div>
-      </div>
-
-      <div class="node-card">
-        <div class="node-head">
-          <span class="node-icon" role="img" aria-label="데스크탑">🖥️</span>
-          <span class="node-name">데스크탑</span>
-          <span class="node-badge"><span class="dot"></span>Claude + Codex</span>
-        </div>
-        <div class="node-meta">Ubuntu 24.04 WSL2 · x86_64 · 24/7<br>@jarvice_ssamssae_bot</div>
-        <div class="node-role">로컬 LLM/Stable Diffusion/Whisper 실험 · 챗봇 노드 · 보이스 클론 등 GPU 워크로드 호스트 · 시청 겸용.</div>
-        <div class="node-caps">
-          <span class="cap cap-gpu">RTX 3060Ti 8GB</span>
-          <span class="cap">Claude Code</span>
-          <span class="cap">Codex</span>
-          <span class="cap">tmux</span>
-          <span class="cap">SSH</span>
-          <span class="cap">Chrome RD</span>
-        </div>
-      </div>
-
-      <div class="node-card">
-        <div class="node-head">
-          <span class="node-icon" role="img" aria-label="노트북">💻</span>
-          <span class="node-name">노트북</span>
-          <span class="node-badge"><span class="dot"></span>Claude + Codex</span>
-        </div>
-        <div class="node-meta">Lenovo Legion 5 · Ubuntu 24.04 WSL2 · 24/7<br>@ssamssae_codex_bot</div>
-        <div class="node-role">Claude/Codex 5번째 물리 노드 · 모바일/오프라인 캡처 sync 헤드 · 외출 시 원격 SSH 헤드.</div>
-        <div class="node-caps">
-          <span class="cap cap-gpu">RTX 3060 6GB</span>
-          <span class="cap">Claude Code</span>
-          <span class="cap">Codex</span>
-          <span class="cap">tmux</span>
-          <span class="cap">SSH</span>
-        </div>
-      </div>
-
-      <div class="node-card">
-        <div class="node-head">
-          <span class="node-icon" role="img" aria-label="iPhone">📱</span>
-          <span class="node-name">iPhone</span>
-          <span class="node-badge" style="color:var(--fg-mute);background:var(--bg-elev2);border-color:var(--border)">mobile</span>
-        </div>
-        <div class="node-meta">iPhone 17 · 외출 시 휴대</div>
-        <div class="node-role">외출 SSH 트리거 헤드 · Chrome Remote Desktop 웹 접근으로 상주 5노드를 어디서나 컨트롤.</div>
-        <div class="node-caps">
-          <span class="cap">Termius (SSH)</span>
-          <span class="cap">Chrome RD</span>
-          <span class="cap">텔레그램</span>
-        </div>
-      </div>
-
-    </div>
-
-    <section class="section">
-      <h2 class="section-title">백엔드 구성</h2>
-      <p class="section-desc">2026-06 기준 — 물리 5대 위에 <strong style="color:var(--fg)">Claude 5 + Codex 5</strong> 논리 10노드를 운용한다. Codex는 기본 실행 엔진, Claude는 planner/reviewer/gatekeeper 레인으로 쓴다.</p>
-      <div class="be-grid">
-        <div class="be-item"><strong>Codex 실행 레인</strong>Codex 5노드가 코드수정·테스트·반복조사·기계적 검증을 주로 맡는다.</div>
-        <div class="be-item"><strong>Claude 리뷰 레인</strong>Claude 5노드는 계획·리뷰·게이트·MCP/배포 등 고위험 판단에 제한적으로 쓴다.</div>
-        <div class="be-item"><strong>비용·한도 가드</strong>토큰/한도 소진 시 작업을 축소하거나 우선큐로 넘기고, 대량 fan-out 전에는 비용 사전경고를 남긴다.</div>
-        <div class="be-item"><strong>메시·스킬</strong><code>mesh-vote</code> / <code>loop-fleet</code> / <code>codex-directive</code> / Agent Mesh Mirror 그룹으로 노드 간 명령·보고를 양방향 미러.</div>
-      </div>
-    </section>
-
-    <!-- 토폴로지 다이어그램 -->
-    <section class="section">
-      <h2 class="section-title">기기 연결 토폴로지</h2>
-      <p class="section-desc">물리 5대 hub-and-spoke 메시 — 🍎 본진이 hub. 각 노드에 <code style="font-family:var(--mono);font-size:11.5px;background:var(--bg-elev2);color:var(--accent-dim);padding:1px 5px;border-radius:5px">*-directive.sh</code> 로 명령 운반(시안 실선) + <code style="font-family:var(--mono);font-size:11.5px;background:var(--bg-elev2);color:var(--accent-dim);padding:1px 5px;border-radius:5px">mac-report.sh</code> 회신. 물리 5대 전부 같은 Tailscale tailnet(점선 경계)이라 노드끼리 any-to-any 직결되지만, 작업 라우팅은 본진 경유가 원칙.</p>
-      <div class="topo-wrap">
-        <svg viewBox="0 0 740 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="기기 토폴로지 다이어그램 (5노드 hub-and-spoke)" class="topo-svg">
+      <div class="system-map" role="img" aria-label="5노드 작업장 시스템 맵">
+        <div class="map-title">hub-and-spoke mesh · tailscale boundary</div>
+        <svg class="map-svg" viewBox="0 0 600 560" aria-hidden="true">
           <defs>
-            <!-- 시안 화살표: Mac→노드 (*-directive.sh) -->
-            <marker id="arr-blue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L9,3 z" fill="var(--accent)"/>
+            <marker id="stack-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"></path>
             </marker>
           </defs>
-
-          <!-- ── 노드 배치 (본진 중앙 + 4 노드 사방 코너) ── -->
-          <!-- 본진 (center / hub) -->
-          <g transform="translate(280, 215)">
-            <rect x="0" y="0" width="180" height="80" rx="14" fill="var(--accent-bg)" stroke="var(--accent)" stroke-width="2"/>
-            <text x="90" y="30" text-anchor="middle" font-size="22">🍎</text>
-            <text x="90" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="var(--fg)">본진 (hub)</text>
-            <text x="90" y="69" text-anchor="middle" font-size="9.5" fill="var(--fg-mute)">@MyClaude_ssamssae_bot</text>
-          </g>
-
-          <!-- 맥미니 (top-left) -->
-          <g transform="translate(30, 70)">
-            <rect x="0" y="0" width="160" height="66" rx="12" fill="var(--bg-elev2)" stroke="var(--accent-2)" stroke-width="1.5"/>
-            <text x="80" y="24" text-anchor="middle" font-size="20">🏭</text>
-            <text x="80" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="var(--fg)">맥미니</text>
-            <text x="80" y="58" text-anchor="middle" font-size="8.5" fill="var(--fg-mute)">@ssamssae_claw_bot</text>
-          </g>
-
-          <!-- 라이덴 (top-right) -->
-          <g transform="translate(550, 70)">
-            <rect x="0" y="0" width="160" height="66" rx="12" fill="var(--bg-elev2)" stroke="var(--success)" stroke-width="1.5"/>
-            <text x="80" y="24" text-anchor="middle" font-size="20">🪟</text>
-            <text x="80" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="var(--fg)">라이덴</text>
-            <text x="80" y="58" text-anchor="middle" font-size="8.5" fill="var(--fg-mute)">@Myclaude2_ssamssae_bot</text>
-          </g>
-
-          <!-- 데스크탑 (bottom-left) -->
-          <g transform="translate(30, 390)">
-            <rect x="0" y="0" width="160" height="66" rx="12" fill="var(--bg-elev2)" stroke="var(--accent-2)" stroke-width="1.5"/>
-            <text x="80" y="24" text-anchor="middle" font-size="20">🖥️</text>
-            <text x="80" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="var(--fg)">데스크탑</text>
-            <text x="80" y="58" text-anchor="middle" font-size="8.5" fill="var(--fg-mute)">@jarvice_ssamssae_bot</text>
-          </g>
-
-          <!-- 노트북 (bottom-right) -->
-          <g transform="translate(550, 390)">
-            <rect x="0" y="0" width="160" height="66" rx="12" fill="var(--bg-elev2)" stroke="var(--accent-2)" stroke-width="1.5"/>
-            <text x="80" y="24" text-anchor="middle" font-size="20">💻</text>
-            <text x="80" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="var(--fg)">노트북</text>
-            <text x="80" y="58" text-anchor="middle" font-size="8.5" fill="var(--fg-mute)">@ssamssae_codex_bot</text>
-          </g>
-
-          <!-- ── Tailscale tailnet 경계 (회색 점선 — 5노드 any-to-any 직결, 작업은 본진 경유 원칙) ── -->
-          <rect x="14" y="50" width="712" height="434" rx="16" fill="none" stroke="var(--fg-mute)" stroke-width="1.2" stroke-dasharray="6 5" opacity="0.5"/>
-          <text x="722" y="44" text-anchor="end" font-size="9.5" fill="var(--fg-mute)">Tailscale tailnet · 노드 간 직결</text>
-
-          <!-- ── 4 spoke 화살표: 본진 → 각 노드 (시안 실선) ── -->
-          <line x1="282" y1="220" x2="195" y2="138" stroke="var(--accent)" stroke-width="2" marker-end="url(#arr-blue)"/>
-          <text x="245" y="178" text-anchor="middle" font-size="10" fill="var(--accent)" font-weight="600">mac-mini-directive.sh</text>
-
-          <line x1="458" y1="220" x2="545" y2="138" stroke="var(--accent)" stroke-width="2" marker-end="url(#arr-blue)"/>
-          <text x="495" y="178" text-anchor="middle" font-size="10" fill="var(--accent)" font-weight="600">wsl-directive.sh</text>
-
-          <line x1="282" y1="295" x2="195" y2="385" stroke="var(--accent)" stroke-width="2" marker-end="url(#arr-blue)"/>
-          <text x="240" y="350" text-anchor="middle" font-size="10" fill="var(--accent)" font-weight="600">desktop3060ti-directive.sh</text>
-
-          <line x1="458" y1="295" x2="545" y2="385" stroke="var(--accent)" stroke-width="2" marker-end="url(#arr-blue)"/>
-          <text x="500" y="350" text-anchor="middle" font-size="10" fill="var(--accent)" font-weight="600">notebook3060-directive.sh</text>
-
-          <!-- ── 범례 + 캡션 ── -->
-          <g transform="translate(30, 490)">
-            <rect x="0" y="0" width="680" height="78" rx="10" fill="var(--bg-elev2)" stroke="var(--border)" stroke-width="1"/>
-            <line x1="14" y1="20" x2="44" y2="20" stroke="var(--accent)" stroke-width="2"/>
-            <polygon points="38,16 48,20 38,24" fill="var(--accent)"/>
-            <text x="56" y="24" font-size="10" fill="var(--fg-dim)" font-weight="600">본진 → 각 노드</text>
-            <text x="180" y="24" font-size="10" fill="var(--fg-mute)">*-directive.sh 로 명령 운반 (tmux load-buffer + paste-buffer)</text>
-            <text x="14" y="44" font-size="10" fill="var(--fg-dim)">↩  각 노드 → 본진 <tspan font-weight="600" fill="var(--success)">mac-report.sh</tspan> 로 결과 회신 (본진 paste · 노드 reverse · 텔레그램 3-channel)</text>
-            <line x1="14" y1="61" x2="40" y2="61" stroke="var(--fg-mute)" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <text x="50" y="64" font-size="9" fill="var(--fg-mute)">점선 경계 = Tailscale tailnet (전 노드 any-to-any 직결, 작업은 본진 경유 원칙). 물리 5대 위에 Claude/Codex 레인 공존.</text>
-          </g>
+          <line x1="300" y1="278" x2="116" y2="186" stroke="#2563eb" stroke-width="2" marker-end="url(#stack-arrow)"></line>
+          <line x1="300" y1="278" x2="484" y2="186" stroke="#2563eb" stroke-width="2" marker-end="url(#stack-arrow)"></line>
+          <line x1="300" y1="318" x2="116" y2="372" stroke="#2563eb" stroke-width="2" marker-end="url(#stack-arrow)"></line>
+          <line x1="300" y1="318" x2="484" y2="372" stroke="#2563eb" stroke-width="2" marker-end="url(#stack-arrow)"></line>
+          <line x1="300" y1="330" x2="300" y2="472" stroke="#9a4d00" stroke-width="2" stroke-dasharray="6 5"></line>
         </svg>
+        <div class="map-node mac"><span class="map-icon">🏭</span><strong>맥미니</strong><span>build node</span></div>
+        <div class="map-node raiden"><span class="map-icon">🪟</span><strong>라이덴</strong><span>wsl worker</span></div>
+        <div class="map-node hub"><span class="map-icon">🍎</span><strong>본진</strong><span>control plane</span></div>
+        <div class="map-node desktop"><span class="map-icon">🖥</span><strong>데스크탑</strong><span>gpu lab</span></div>
+        <div class="map-node notebook"><span class="map-icon">💻</span><strong>노트북</strong><span>field node</span></div>
+        <div class="map-node phone"><span class="map-icon">📱</span><strong>iPhone</strong><span>command surface</span></div>
+        <p class="map-caption">
+          실선은 본진이 노드로 작업을 배차하는 경로, 점선은 모바일 입력면입니다.
+          외부영향이 생기면 자동으로 멈추고 사람이 게이트를 닫습니다.
+        </p>
       </div>
     </section>
 
-    <a class="lab-back" href="/system">← system</a>
+    <section class="stack-section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">LAYERS</div>
+          <h2>역할을 나눠서 사고를 줄입니다</h2>
+        </div>
+        <p>
+          이 페이지의 핵심은 장비 자랑이 아니라 실패면을 줄이는 운영 구조입니다.
+          판단, 실행, 리뷰, 입력면을 분리해서 작은 작업도 같은 흐름으로 처리합니다.
+        </p>
+      </div>
+      <div class="layer-grid">
+        {layers.map((layer) => (
+          <article class="layer-card">
+            <div class="eyebrow">{layer.eyebrow}</div>
+            <h3>{layer.title}</h3>
+            <p>{layer.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="stack-section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">NODES</div>
+          <h2>물리 노드 로스터</h2>
+        </div>
+        <p>
+          각 노드는 역할이 다릅니다. 하나가 막히면 다른 노드가 이어받고,
+          배포나 계정 같은 위험 작업은 본진 게이트로 되돌립니다.
+        </p>
+      </div>
+      <div class="node-roster">
+        {nodes.map((node) => (
+          <article class="node-card">
+            <div class="node-top">
+              <span class="node-icon" aria-hidden="true">{node.icon}</span>
+              <div>
+                <h3>{node.name}</h3>
+                <span class="node-type">{node.type}</span>
+              </div>
+            </div>
+            <div class="node-meta">
+              {node.hardware}<br />
+              {node.handle}
+            </div>
+            <p class="node-role">{node.role}</p>
+            <div class="tag-row">
+              {node.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="stack-section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">FLOW</div>
+          <h2>작업은 이렇게 움직입니다</h2>
+        </div>
+        <p>
+          자연어 요청이 들어오면 본진이 범위와 위험도를 정하고, 노드는 작업과 검증을 수행합니다.
+          결과는 다시 본진으로 모여 PR, 보고, 다음 행동으로 정리됩니다.
+        </p>
+      </div>
+      <div class="route-board">
+        {routes.map((route, index) => (
+          <article class="route-step">
+            <div class="route-index">{String(index + 1).padStart(2, '0')}</div>
+            <div class="route-line">
+              {route.from}
+              <span class="route-verb">{route.verb}</span>
+              {route.to}
+            </div>
+            <p>{route.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="stack-section">
+      <div class="tool-panel">
+        <div>
+          <div class="section-kicker">TOOLCHAIN</div>
+          <h2>제품과 운영을 같은 작업장 안에 둡니다</h2>
+          <p>
+            공개 사이트, 모바일 앱, 자동화 브릿지, 로컬 GPU 실험이 같은 운영 레이어를 공유합니다.
+            그래서 작은 수정도 빌드, 검증, PR, 보고 흐름으로 남습니다.
+          </p>
+        </div>
+        <div class="tool-stack">
+          {stackItems.map((item) => <span class="tool-chip">{item}</span>)}
+        </div>
+      </div>
+      <a class="stack-back" href="/system">← 시스템 페이지로 돌아가기</a>
+    </section>
   </div>
 </Layout>
