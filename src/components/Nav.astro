@@ -1,15 +1,13 @@
 ---
-const primary = [
+const links = [
   { href: '/', label: '작업장' },
+  { href: 'https://kangdaejong.com', label: '회사소개' },
+  { href: 'https://founder.kangdaejong.com', label: '대표소개' },
   { href: '/products/', label: '제품' },
   { href: '/worklog', label: '작업일지' },
   { href: '/newsletter', label: '뉴스레터' },
   { href: '/insights', label: '인사이트' },
   { href: '/system', label: '시스템' },
-];
-const secondary = [
-  { href: 'https://kangdaejong.com', label: '회사소개' },
-  { href: 'https://founder.kangdaejong.com', label: '대표소개' },
   { href: '/lab', label: 'lab' },
 ];
 const path = Astro.url.pathname;
@@ -22,12 +20,9 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       <span>마이너스베타스튜디오</span>
     </a>
     <div class="nav-links">
-      {primary.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
+      {links.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
     </div>
     <a class="nav-cta" href="mailto:minusbetastudio@gmail.com">문의</a>
-  </div>
-  <div class="nav-sub">
-    {secondary.map(l => <a href={l.href}>{l.label}</a>)}
   </div>
   <style>
     nav {
@@ -70,13 +65,12 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       white-space: nowrap;
     }
     .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a,
-    .nav-sub a {
+    .nav-links a {
       color: var(--fg-dim);
       text-decoration: none;
+      font-weight: 600;
     }
     .nav-links a:hover,
-    .nav-sub a:hover,
     .nav-links a[aria-current="page"] {
       color: var(--fg);
     }
@@ -98,16 +92,6 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       white-space: nowrap;
     }
     .nav-cta:hover { color: #ffffff; text-decoration: none; background: var(--accent-dim); }
-    .nav-sub {
-      width: min(calc(100% - 48px), 1120px);
-      margin: 0 auto;
-      padding: 0 0 12px;
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: 13px;
-    }
-    .nav-sub a { font-weight: 700; }
     @media (max-width: 760px) {
       .nav-inner {
         width: min(calc(100% - 32px), 1120px);
@@ -124,10 +108,6 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         gap: 16px;
       }
       .nav-cta { min-height: 34px; padding: 0 12px; }
-      .nav-sub {
-        width: min(calc(100% - 32px), 1120px);
-        padding-bottom: 10px;
-      }
     }
   </style>
 </nav>

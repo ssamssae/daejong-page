@@ -55,6 +55,16 @@ const checks = [
       /href: '\/system'/.test(nav),
   },
   {
+    label: "nav uses one unified header row for work, company, founder, and lab links",
+    ok:
+      !/class="nav-sub"/.test(nav) &&
+      /const links = \[/.test(nav) &&
+      /href: '\/', label: '작업장'/.test(nav) &&
+      /href: 'https:\/\/kangdaejong\.com', label: '회사소개'/.test(nav) &&
+      /href: 'https:\/\/founder\.kangdaejong\.com', label: '대표소개'/.test(nav) &&
+      /href: '\/lab', label: 'lab'/.test(nav),
+  },
+  {
     label: "footer keeps public business contact information",
     ok:
       /minusbetastudio@gmail\.com/.test(footer) &&
