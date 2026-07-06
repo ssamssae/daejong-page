@@ -1,6 +1,6 @@
 {
   "name": "daejong-page",
   "type": "module",
-  "scripts": { "dev": "astro dev", "build": "astro build", "preview": "astro preview", "verify:stack-page": "node scripts/verify-stack-page.mjs" },
+  "scripts": { "dev": "astro dev", "build": "astro build", "preview": "astro preview", "verify:stack-page": "node scripts/verify-stack-page.mjs", "verify:knowhow-refresh": "node scripts/verify-knowhow-refresh.mjs" },
   "dependencies": { "astro": "^6.3.3" }
 }

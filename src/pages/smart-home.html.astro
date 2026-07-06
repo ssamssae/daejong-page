@@ -1,19 +1,73 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import '../styles/lab.css';
+
+const metrics = [
+  { label: 'controllable devices', value: '18', detail: 'Tuya · IR · local scene' },
+  { label: 'natural commands', value: '36+', detail: 'Korean aliases and routines' },
+  { label: 'primary rooms', value: '4', detail: 'living · room · bath · hall' },
+  { label: 'safe fallback', value: 'manual', detail: 'voice and app remain available' },
+];
+
+const zones = [
+  { id: 'living', name: '거실', devices: 9, routines: ['게임', '업라이트', '일괄소등'] },
+  { id: 'room', name: '내방', devices: 2, routines: ['수면', '온수매트'] },
+  { id: 'bath', name: '화장실', devices: 3, routines: ['물', '정수기'] },
+  { id: 'hall', name: '복도', devices: 1, routines: ['외출', '귀가'] },
+];
+
+const devices = [
+  { zone: 'living', name: '거실 조명', type: 'Tuya', command: '거실 조명 켜', state: 'direct' },
+  { zone: 'living', name: '에어컨', type: 'IR', command: '에어컨 꺼', state: 'routine' },
+  { zone: 'living', name: '공기청정기', type: 'IR', command: '공기청정기 켜', state: 'routine' },
+  { zone: 'living', name: '스피커 플러그', type: 'Tuya', command: '스피커 켜', state: 'direct' },
+  { zone: 'living', name: '이케아 조명', type: 'IR', command: '이케아 켜', state: 'scene' },
+  { zone: 'room', name: '내방 조명', type: 'Tuya', command: '내방 조명 꺼', state: 'direct' },
+  { zone: 'room', name: '온수매트', type: 'IR', command: '온수매트 켜', state: 'routine' },
+  { zone: 'bath', name: '화장실 조명', type: 'Tuya', command: '화장실 off', state: 'direct' },
+  { zone: 'bath', name: '정수기 급수', type: 'Scene', command: '물 줘', state: 'guarded' },
+  { zone: 'hall', name: '복도 조명', type: 'Tuya', command: '복도 off', state: 'direct' },
+];
+
+const routines = [
+  {
+    name: '게임 모드',
+    command: '나 게임 할 거야',
+    steps: ['스피커 켜기', '이케아 조명', '메인 조명', '응답 TTS'],
+  },
+  {
+    name: '수면 모드',
+    command: '나 잘 거야',
+    steps: ['스피커 끄기', '공기청정기 끄기', '조명 일괄 off', '수면 응답'],
+  },
+  {
+    name: '외출 모드',
+    command: '나 외출',
+    steps: ['대기전력 off', '거실 off', '복도 off', '확인 응답'],
+  },
+];
+
+const pipeline = [
+  { label: 'input', value: 'Telegram · voice' },
+  { label: 'parse', value: 'Korean intent map' },
+  { label: 'route', value: 'Tuya · IR · local' },
+  { label: 'guard', value: 'water and unsafe action gate' },
+  { label: 'reply', value: 'state report · TTS' },
+];
 ---
-<Layout title="스마트홈 - 강대종" description="텔레그램 자연어로 제어하는 집 안 Tuya 스마트홈 지도. 거실, 내방, 화장실, 복도의 조명, 에어컨, 선풍기, 공기청정기, 정수기, 전체 on, 일괄소등 같은 IR 가전과 씬 마커를 눌러 트리거 예시를 확인합니다.">
+<Layout
+  title="스마트홈 - 강대종"
+  description="강대종 작업장의 스마트홈 자동화. 텔레그램과 음성 명령을 Tuya, IR, 로컬 루틴으로 라우팅하는 실제 홈 오토메이션 운영 화면입니다."
+>
   <Fragment slot="head">
-    <!-- OG / Twitter Card (2026-05-25) -->
     <meta property="og:title" content="스마트홈 - 강대종">
-    <meta property="og:description" content="이 집에서 텔레그램 자연어로 통제하는 Tuya 가전들 — 조명, IR, 씬.">
+    <meta property="og:description" content="텔레그램과 음성 명령을 Tuya, IR, 로컬 루틴으로 라우팅하는 실제 홈 오토메이션 운영 화면.">
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://work.kangdaejong.com/smart-home.html">
     <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="스마트홈 - 강대종">
-    <meta name="twitter:description" content="이 집에서 텔레그램 자연어로 통제하는 Tuya 가전들 — 조명, IR, 씬.">
+    <meta name="twitter:description" content="자연어 명령을 실제 집 안 가전 제어로 연결하는 홈 오토메이션 운영 화면.">
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
     <link rel="canonical" href="https://work.kangdaejong.com/smart-home.html">
     <script type="application/ld+json" is:inline>
@@ -30,290 +84,755 @@ import '../styles/lab.css';
       "description": "1인 개발자 / Vibe coder / Solo founder"
     },
     {
-      "@type": "WebSite",
-      "@id": "https://work.kangdaejong.com/#website",
-      "name": "강대종",
-      "url": "https://work.kangdaejong.com/",
+      "@type": "WebPage",
+      "@id": "https://work.kangdaejong.com/smart-home.html#webpage",
+      "name": "스마트홈 - 강대종",
+      "url": "https://work.kangdaejong.com/smart-home.html",
       "inLanguage": "ko",
-      "author": {"@id": "https://work.kangdaejong.com/#person"}
+      "author": {"@id": "https://work.kangdaejong.com/#person"},
+      "description": "자연어 명령을 Tuya, IR, 로컬 루틴으로 라우팅하는 스마트홈 자동화 운영 화면."
     }
   ]
 }
 </script>
-    <style is:global>
-    /* 스마트홈 — 평면도/마커 (틀은 lab-page.css 공용, 테마색: 퍼플 / 마커는 의미색 유지) */
-    .floorplan {
-      width: 100%;
-      max-width: 480px;
-      margin: 0 auto 16px;
-      display: block;
-      background: var(--bg);
-    }
-    .room-box {
-      fill: var(--bg);
-      stroke: var(--border);
-      stroke-width: 1;
-      transition: fill 0.15s ease;
-    }
-    .room-box:hover { fill: var(--bg-elev); }
-    .room-label {
-      font: 600 12px 'Pretendard', sans-serif;
-      fill: var(--fg-dim);
-    }
-    .marker-dot {
-      stroke: var(--bg);
-      stroke-width: 1.5;
-      transition: r 0.15s ease, filter 0.15s ease;
-      cursor: pointer;
-    }
-    .marker-hit {
-      fill: transparent;
-      cursor: pointer;
-    }
-    .marker-group:hover .marker-dot,
-    .marker-group:focus .marker-dot {
-      r: 8;
-      filter: drop-shadow(0 0 4px currentColor);
-    }
-    .marker-tuya { fill: var(--accent); color: var(--accent); }
-    .marker-ir { fill: var(--warn); color: var(--warn); }
-    .marker-scene { fill: var(--success); color: var(--success); }
-
-    .legend {
-      display: flex; justify-content: center; gap: 18px;
-      font-size: 12px; color: var(--fg-dim);
-      margin-bottom: 24px;
-    }
-    .legend-item { display: inline-flex; align-items: center; gap: 6px; }
-    .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-    .legend-dot.tuya { background: var(--accent); }
-    .legend-dot.ir { background: var(--warn); }
-    .legend-dot.scene { background: var(--success); }
-
-    #tooltip {
-      position: fixed;
-      pointer-events: none;
-      background: var(--fg); color:#ffffff;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 12px;
-      line-height: 1.5;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      opacity: 0;
-      transition: opacity 0.12s ease;
-      z-index: 100;
-      max-width: 220px;
-    }
-    #tooltip.visible { opacity: 1; }
-    #tooltip .tt-name {
-      font-weight: 700; margin-bottom: 4px;
-    }
-    #tooltip .tt-triggers {
-      font-size: 11px; color: #A1A6B0;
-    }
-    #tooltip .tt-trigger { display: block; }
-    #tooltip .tt-trigger::before { content: '" '; }
-    #tooltip .tt-trigger::after { content: ' "'; }
-    @media (max-width: 600px) {
-      #tooltip { font-size: 13px; padding: 10px 14px; max-width: 80vw; }
-      .marker-dot { stroke-width: 2; }
-    }
-    </style>
   </Fragment>
 
-  <div class="lab-page" style="--page-accent: #a78bfa">
-    <section class="lab-hero">
-      <h1 class="logo">🏠 스마트홈</h1>
-      <p class="tagline">smart home · 자연어 가전 제어</p>
-      <p class="intro">이 집에서 텔레그램 자연어로 통제하는 가전들. 마커에 hover/tap 하면 디바이스 이름과 트리거 예시가 떠요.</p>
+  <div class="smart-home-shell">
+    <section class="smart-hero" aria-labelledby="smart-home-title">
+      <div class="hero-copy">
+        <p class="eyebrow">home automation console</p>
+        <h1 id="smart-home-title">스마트홈</h1>
+        <p class="hero-lead">
+          텔레그램과 음성으로 들어온 한국어 명령을 실제 가전 제어로 바꾸는 집 안 운영면입니다.
+          Tuya 직접 제어, IR 리모컨, 로컬 루틴을 한 흐름으로 묶었습니다.
+        </p>
+      </div>
+      <div class="command-panel" aria-label="자연어 명령 처리 예시">
+        <div class="panel-topline">
+          <span class="status-dot"></span>
+          <span>jarvis-home-router</span>
+          <span class="panel-time">live map</span>
+        </div>
+        <div class="command-feed">
+          <p><span>input</span>나 게임 할 거야</p>
+          <p><span>intent</span>game_mode</p>
+          <p><span>actions</span>speaker_on · ikea_on · main_on</p>
+          <p><span>reply</span>게임 재미있게 하세요 대종님</p>
+        </div>
+      </div>
     </section>
-  <svg class="floorplan" viewBox="0 0 480 320" role="img" aria-label="집 평면도 (거실, 내방, 화장실, 복도)">
-    <!-- 거실 240x200 (좌상) -->
-    <rect class="room-box" x="0" y="0" width="240" height="200" rx="6"/>
-    <text class="room-label" x="12" y="20">거실</text>
-    <!-- 내방 240x120 (우상) -->
-    <rect class="room-box" x="240" y="0" width="240" height="120" rx="6"/>
-    <text class="room-label" x="252" y="20">내방</text>
-    <!-- 화장실 160x120 (좌하) -->
-    <rect class="room-box" x="0" y="200" width="160" height="120" rx="6"/>
-    <text class="room-label" x="12" y="220">화장실</text>
-    <!-- 복도 320x120 (가운데 하단, 거실 + 내방 아래 일부) -->
-    <rect class="room-box" x="160" y="200" width="320" height="120" rx="6"/>
-    <text class="room-label" x="172" y="220">복도</text>
-    <!-- ▼ 거실 (9개, 0..240 × 0..200) -->
-    <g class="marker-group" data-name="거실 조명" data-cat="tuya" data-triggers='["거실 조명 켜","거실 조명 꺼"]'>
-      <circle class="marker-hit" cx="120" cy="100" r="20"/>
-      <circle class="marker-dot marker-tuya" cx="120" cy="100" r="6"/>
-    </g>
-    <g class="marker-group" data-name="에어컨" data-cat="ir" data-triggers='["에어컨 켜","에어컨 꺼"]'>
-      <circle class="marker-hit" cx="40" cy="55" r="20"/>
-      <circle class="marker-dot marker-ir" cx="40" cy="55" r="6"/>
-    </g>
-    <g class="marker-group" data-name="선풍기" data-cat="ir" data-triggers='["선풍기 켜","선풍기 꺼"]'>
-      <circle class="marker-hit" cx="200" cy="55" r="20"/>
-      <circle class="marker-dot marker-ir" cx="200" cy="55" r="6"/>
-    </g>
-    <g class="marker-group" data-name="공기청정기" data-cat="ir" data-triggers='["공기청정기 켜","공기청정기 꺼"]'>
-      <circle class="marker-hit" cx="40" cy="150" r="20"/>
-      <circle class="marker-dot marker-ir" cx="40" cy="150" r="6"/>
-    </g>
-    <g class="marker-group" data-name="이케아 조명" data-cat="ir" data-triggers='["이케아 켜","이케아 꺼"]'>
-      <circle class="marker-hit" cx="200" cy="150" r="20"/>
-      <circle class="marker-dot marker-ir" cx="200" cy="150" r="6"/>
-    </g>
-    <g class="marker-group" data-name="메인 조명" data-cat="scene" data-triggers='["메인 on","메인 off"]'>
-      <circle class="marker-hit" cx="120" cy="60" r="20"/>
-      <circle class="marker-dot marker-scene" cx="120" cy="60" r="6"/>
-    </g>
-    <g class="marker-group" data-name="스피커" data-cat="tuya" data-triggers='["스피커"]'>
-      <circle class="marker-hit" cx="60" cy="170" r="20"/>
-      <circle class="marker-dot marker-tuya" cx="60" cy="170" r="6"/>
-    </g>
-    <g class="marker-group" data-name="핑거봇" data-cat="tuya" data-triggers='["핑거봇 터치"]'>
-      <circle class="marker-hit" cx="180" cy="170" r="20"/>
-      <circle class="marker-dot marker-tuya" cx="180" cy="170" r="6"/>
-    </g>
-    <g class="marker-group" data-name="업라이트" data-cat="scene" data-triggers='["업라이트"]'>
-      <circle class="marker-hit" cx="120" cy="140" r="20"/>
-      <circle class="marker-dot marker-scene" cx="120" cy="140" r="6"/>
-    </g>
 
-    <!-- ▼ 내방 (2개, 240..480 × 0..120) -->
-    <g class="marker-group" data-name="내방 조명" data-cat="tuya" data-triggers='["내방 조명 켜","내방 조명 꺼"]'>
-      <circle class="marker-hit" cx="360" cy="50" r="20"/>
-      <circle class="marker-dot marker-tuya" cx="360" cy="50" r="6"/>
-    </g>
-    <g class="marker-group" data-name="온수매트" data-cat="ir" data-triggers='["온수매트 켜","온수매트 꺼"]'>
-      <circle class="marker-hit" cx="360" cy="90" r="20"/>
-      <circle class="marker-dot marker-ir" cx="360" cy="90" r="6"/>
-    </g>
+    <section class="metrics-grid" aria-label="스마트홈 요약">
+      {metrics.map((metric) => (
+        <div class="metric-tile">
+          <span class="metric-label">{metric.label}</span>
+          <strong>{metric.value}</strong>
+          <span class="metric-detail">{metric.detail}</span>
+        </div>
+      ))}
+    </section>
 
-    <!-- ▼ 화장실 (3개, 0..160 × 200..320) -->
-    <g class="marker-group" data-name="화장실 조명" data-cat="tuya" data-triggers='["화장실 조명 켜","화장실 조명 꺼"]'>
-      <circle class="marker-hit" cx="50" cy="250" r="20"/>
-      <circle class="marker-dot marker-tuya" cx="50" cy="250" r="6"/>
-    </g>
-    <g class="marker-group" data-name="정수기" data-cat="tuya" data-triggers='["정수기"]'>
-      <circle class="marker-hit" cx="110" cy="250" r="20"/>
-      <circle class="marker-dot marker-tuya" cx="110" cy="250" r="6"/>
-    </g>
-    <g class="marker-group" data-name="정수기 급수" data-cat="scene" data-triggers='["정수기 급수","물"]'>
-      <circle class="marker-hit" cx="80" cy="290" r="20"/>
-      <circle class="marker-dot marker-scene" cx="80" cy="290" r="6"/>
-    </g>
+    <section class="control-section" aria-labelledby="control-map-title">
+      <div class="section-heading">
+        <p class="eyebrow">room control map</p>
+        <h2 id="control-map-title">방 단위로 묶은 제어면</h2>
+      </div>
 
-    <!-- ▼ 복도 (1개, 160..480 × 200..320) -->
-    <g class="marker-group" data-name="복도 조명" data-cat="tuya" data-triggers='["복도 조명 켜","복도 조명 꺼"]'>
-      <circle class="marker-hit" cx="320" cy="260" r="20"/>
-      <circle class="marker-dot marker-tuya" cx="320" cy="260" r="6"/>
-    </g>
+      <div class="control-layout">
+        <div class="floor-visual" aria-label="스마트홈 방별 자동화 지도">
+          {zones.map((zone) => (
+            <button class={`room-cell room-${zone.id}`} type="button" data-zone-filter={zone.id}>
+              <span class="room-name">{zone.name}</span>
+              <span class="room-count">{zone.devices} devices</span>
+              <span class="room-routines">{zone.routines.join(' · ')}</span>
+            </button>
+          ))}
+          <span class="device-pip pip-living-one" data-zone="living"></span>
+          <span class="device-pip pip-living-two" data-zone="living"></span>
+          <span class="device-pip pip-room" data-zone="room"></span>
+          <span class="device-pip pip-bath" data-zone="bath"></span>
+          <span class="device-pip pip-hall" data-zone="hall"></span>
+        </div>
 
-    <!-- ▼ 전체 씬 (3개, 가운데 floating) -->
-    <g class="marker-group" data-name="일괄소등" data-cat="scene" data-triggers='["일괄소등"]'>
-      <circle class="marker-hit" cx="240" cy="200" r="20"/>
-      <circle class="marker-dot marker-scene" cx="240" cy="200" r="6"/>
-    </g>
-    <g class="marker-group" data-name="전체 on" data-cat="scene" data-triggers='["전체 on"]'>
-      <circle class="marker-hit" cx="270" cy="285" r="20"/>
-      <circle class="marker-dot marker-scene" cx="270" cy="285" r="6"/>
-    </g>
-    <g class="marker-group" data-name="전체 off" data-cat="scene" data-triggers='["전체 off"]'>
-      <circle class="marker-hit" cx="210" cy="285" r="20"/>
-      <circle class="marker-dot marker-scene" cx="210" cy="285" r="6"/>
-    </g>
-  </svg>
-  <div class="legend">
-    <span class="legend-item"><span class="legend-dot tuya"></span>Tuya 직접</span>
-    <span class="legend-item"><span class="legend-dot ir"></span>IR 가전</span>
-    <span class="legend-item"><span class="legend-dot scene"></span>씬</span>
+        <div class="zone-digest">
+          {zones.map((zone) => (
+            <button class="zone-button" type="button" data-zone-filter={zone.id} aria-pressed="false">
+              <span>{zone.name}</span>
+              <strong>{zone.devices}</strong>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="routine-grid" aria-labelledby="routine-title">
+      <div class="section-heading">
+        <p class="eyebrow">routines</p>
+        <h2 id="routine-title">한 문장으로 실행되는 루틴</h2>
+      </div>
+      <div class="routine-list">
+        {routines.map((routine) => (
+          <article class="routine-card">
+            <div>
+              <h3>{routine.name}</h3>
+              <p class="routine-command">{routine.command}</p>
+            </div>
+            <ol>
+              {routine.steps.map((step) => <li>{step}</li>)}
+            </ol>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="device-section" aria-labelledby="device-title">
+      <div class="section-heading">
+        <p class="eyebrow">device registry</p>
+        <h2 id="device-title">제어 대상</h2>
+      </div>
+      <div class="device-table" role="table" aria-label="스마트홈 장치 목록">
+        <div class="device-row device-head" role="row">
+          <span role="columnheader">구역</span>
+          <span role="columnheader">장치</span>
+          <span role="columnheader">경로</span>
+          <span role="columnheader">명령</span>
+        </div>
+        {devices.map((device) => (
+          <div class="device-row" role="row" data-zone={device.zone}>
+            <span role="cell">{zones.find((zone) => zone.id === device.zone)?.name}</span>
+            <strong role="cell">{device.name}</strong>
+            <span role="cell" class={`route-badge route-${device.state}`}>{device.type}</span>
+            <code role="cell">{device.command}</code>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="pipeline-section" aria-labelledby="pipeline-title">
+      <div class="section-heading">
+        <p class="eyebrow">automation route</p>
+        <h2 id="pipeline-title">명령이 움직이는 경로</h2>
+      </div>
+      <div class="pipeline">
+        {pipeline.map((item) => (
+          <div class="pipeline-step">
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <a class="back-link" href="/system">system으로 돌아가기</a>
   </div>
-  <div id="tooltip" role="tooltip" aria-hidden="true"></div>
 
-    <a class="lab-back" href="/system">← system</a>
-  </div>
+  <style>
+    .smart-home-shell {
+      --blue: #2563eb;
+      --green: #127a3d;
+      --amber: #9a4d00;
+      --coral: #b42318;
+      --ink-soft: #333333;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .smart-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 8px 0 4px;
+    }
+
+    .hero-copy {
+      display: flex;
+      min-height: 320px;
+      flex-direction: column;
+      justify-content: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 38px 0;
+    }
+
+    .eyebrow {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin-top: 12px;
+      color: var(--fg);
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: 0.98;
+    }
+
+    .hero-lead {
+      max-width: 620px;
+      margin-top: 24px;
+      color: var(--fg-dim);
+      font-size: 18px;
+      line-height: 1.75;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .command-panel {
+      display: flex;
+      min-height: 320px;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 38%),
+        linear-gradient(315deg, rgba(18, 122, 61, 0.1), transparent 40%),
+        var(--bg-elev);
+      padding: 18px;
+    }
+
+    .panel-topline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--fg-dim);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(18, 122, 61, 0.12);
+    }
+
+    .panel-time {
+      margin-left: auto;
+      color: var(--fg-mute);
+    }
+
+    .command-feed {
+      display: grid;
+      gap: 10px;
+    }
+
+    .command-feed p {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.45;
+      padding: 11px 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .command-feed span {
+      color: var(--blue);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric-tile,
+    .control-section,
+    .routine-card,
+    .device-section,
+    .pipeline-section {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-elev);
+    }
+
+    .metric-tile {
+      min-height: 132px;
+      padding: 16px;
+    }
+
+    .metric-label,
+    .metric-detail {
+      display: block;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .metric-tile strong {
+      display: block;
+      margin: 10px 0 8px;
+      color: var(--fg);
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .control-section,
+    .device-section,
+    .pipeline-section {
+      padding: 20px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      color: var(--fg);
+      font-size: 24px;
+      line-height: 1.25;
+      word-break: keep-all;
+    }
+
+    .control-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .floor-visual {
+      position: relative;
+      display: grid;
+      min-height: 360px;
+      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-rows: 1.05fr 0.95fr;
+      gap: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+        #ffffff;
+      background-size: 28px 28px;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .room-cell {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(247, 247, 247, 0.92);
+      color: var(--fg);
+      font: inherit;
+      padding: 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+    }
+
+    .room-cell:hover,
+    .room-cell.is-active {
+      border-color: var(--blue);
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .room-name {
+      color: var(--fg);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .room-count,
+    .room-routines {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .room-living { grid-column: 1; grid-row: 1; }
+    .room-room { grid-column: 2; grid-row: 1; }
+    .room-bath { grid-column: 1; grid-row: 2; }
+    .room-hall { grid-column: 2; grid-row: 2; }
+
+    .device-pip {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.14);
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+
+    .pip-living-one { top: 30%; left: 23%; background: var(--blue); }
+    .pip-living-two { top: 43%; left: 37%; background: var(--green); }
+    .pip-room { top: 30%; right: 23%; background: var(--amber); }
+    .pip-bath { bottom: 25%; left: 28%; background: var(--coral); }
+    .pip-hall { bottom: 30%; right: 28%; background: var(--green); }
+
+    .floor-visual.has-filter .device-pip:not(.is-active) {
+      opacity: 0.28;
+      transform: scale(0.82);
+    }
+
+    .zone-digest {
+      display: grid;
+      gap: 10px;
+    }
+
+    .zone-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 78px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--fg);
+      font: inherit;
+      padding: 14px;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.16s ease, background 0.16s ease;
+    }
+
+    .zone-button:hover,
+    .zone-button[aria-pressed='true'] {
+      border-color: var(--blue);
+      background: var(--accent-bg);
+    }
+
+    .zone-button span {
+      color: var(--fg-dim);
+      font-weight: 700;
+    }
+
+    .zone-button strong {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 24px;
+    }
+
+    .routine-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .routine-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .routine-card {
+      display: flex;
+      min-height: 250px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px;
+    }
+
+    .routine-card h3 {
+      color: var(--fg);
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .routine-command {
+      display: inline-block;
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.45;
+      padding: 8px 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .routine-card ol {
+      display: grid;
+      gap: 8px;
+      margin-top: 20px;
+      list-style: none;
+      counter-reset: routine-step;
+    }
+
+    .routine-card li {
+      counter-increment: routine-step;
+      display: flex;
+      gap: 9px;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .routine-card li::before {
+      content: counter(routine-step, decimal-leading-zero);
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .device-table {
+      display: grid;
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--border);
+    }
+
+    .device-row {
+      display: grid;
+      grid-template-columns: 0.8fr 1.1fr 0.7fr 1.35fr;
+      gap: 12px;
+      align-items: center;
+      background: #ffffff;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.45;
+      padding: 13px 14px;
+      transition: background 0.16s ease, opacity 0.16s ease;
+    }
+
+    .device-row.is-muted {
+      opacity: 0.42;
+    }
+
+    .device-head {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .device-row strong {
+      color: var(--fg);
+      font-size: 14px;
+    }
+
+    .route-badge {
+      width: fit-content;
+      border-radius: 6px;
+      color: #ffffff;
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 8px;
+    }
+
+    .route-direct { background: var(--blue); }
+    .route-routine { background: var(--green); }
+    .route-scene { background: var(--amber); }
+    .route-guarded { background: var(--coral); }
+
+    code {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .pipeline-step {
+      position: relative;
+      min-height: 118px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px;
+    }
+
+    .pipeline-step::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -11px;
+      width: 11px;
+      border-top: 1px solid var(--border);
+    }
+
+    .pipeline-step:last-child::after {
+      display: none;
+    }
+
+    .pipeline-step span {
+      display: block;
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .pipeline-step strong {
+      display: block;
+      margin-top: 12px;
+      color: var(--fg);
+      font-size: 14px;
+      line-height: 1.45;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .back-link {
+      align-self: flex-start;
+      color: var(--fg-dim);
+      font-family: var(--mono);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--blue);
+    }
+
+    @media (max-width: 900px) {
+      .smart-hero,
+      .control-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .command-panel {
+        min-height: auto;
+      }
+
+      .metrics-grid,
+      .routine-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .zone-digest {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .zone-button {
+        min-height: 68px;
+      }
+
+      .pipeline {
+        grid-template-columns: 1fr;
+      }
+
+      .pipeline-step {
+        min-height: auto;
+      }
+
+      .pipeline-step::after {
+        top: auto;
+        right: auto;
+        bottom: -11px;
+        left: 22px;
+        width: 1px;
+        height: 11px;
+        border-top: 0;
+        border-left: 1px solid var(--border);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .smart-home-shell {
+        gap: 22px;
+      }
+
+      .hero-lead {
+        font-size: 16px;
+      }
+
+      .command-feed p,
+      .device-row {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics-grid,
+      .routine-list,
+      .zone-digest {
+        grid-template-columns: 1fr;
+      }
+
+      .floor-visual {
+        min-height: 520px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+      }
+
+      .room-living,
+      .room-room,
+      .room-bath,
+      .room-hall {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .device-pip {
+        display: none;
+      }
+    }
+  </style>
 
   <script is:inline>
-(function () {
-  var tooltip = document.getElementById('tooltip');
-  var markers = document.querySelectorAll('.marker-group');
-  var pinnedMarker = null; // tap 으로 pin 된 마커
+    (function () {
+      var filters = Array.prototype.slice.call(document.querySelectorAll('[data-zone-filter]'));
+      var rows = Array.prototype.slice.call(document.querySelectorAll('.device-row[data-zone]'));
+      var pips = Array.prototype.slice.call(document.querySelectorAll('.device-pip[data-zone]'));
+      var floor = document.querySelector('.floor-visual');
+      var activeZone = '';
 
-  function showTooltip(marker, clientX, clientY) {
-    var name = marker.dataset.name || '';
-    var triggers = [];
-    try { triggers = JSON.parse(marker.dataset.triggers || '[]'); } catch (e) {}
-    var triggersHtml = triggers.map(function (t) {
-      return '<span class="tt-trigger">' + escapeHtml(t) + '</span>';
-    }).join('');
-    tooltip.innerHTML =
-      '<div class="tt-name">' + escapeHtml(name) + '</div>' +
-      '<div class="tt-triggers">' + triggersHtml + '</div>';
-    tooltip.classList.add('visible');
-    tooltip.setAttribute('aria-hidden', 'false');
-    positionTooltip(clientX, clientY);
-  }
-
-  function hideTooltip() {
-    tooltip.classList.remove('visible');
-    tooltip.setAttribute('aria-hidden', 'true');
-    pinnedMarker = null;
-  }
-
-  function positionTooltip(clientX, clientY) {
-    // 우상단 디폴트, 화면 경계 flip
-    var ttRect = tooltip.getBoundingClientRect();
-    var pad = 12;
-    var x = clientX + pad;
-    var y = clientY - ttRect.height - pad;
-    if (x + ttRect.width > window.innerWidth - 8) {
-      x = clientX - ttRect.width - pad;
-    }
-    if (y < 8) {
-      y = clientY + pad;
-    }
-    tooltip.style.left = x + 'px';
-    tooltip.style.top = y + 'px';
-  }
-
-  function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, function (c) {
-      return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c];
-    });
-  }
-
-  markers.forEach(function (m) {
-    m.addEventListener('mouseenter', function (e) {
-      if (pinnedMarker) return; // pin 중엔 hover 무시
-      showTooltip(m, e.clientX, e.clientY);
-    });
-    m.addEventListener('mousemove', function (e) {
-      if (pinnedMarker) return;
-      positionTooltip(e.clientX, e.clientY);
-    });
-    m.addEventListener('mouseleave', function () {
-      if (pinnedMarker) return;
-      hideTooltip();
-    });
-    m.addEventListener('click', function (e) {
-      e.stopPropagation();
-      if (pinnedMarker === m) {
-        hideTooltip();
-      } else {
-        pinnedMarker = m;
-        showTooltip(m, e.clientX, e.clientY);
+      function setZone(zone) {
+        activeZone = activeZone === zone ? '' : zone;
+        filters.forEach(function (button) {
+          var isActive = button.dataset.zoneFilter === activeZone;
+          button.classList.toggle('is-active', isActive);
+          if (button.classList.contains('zone-button')) {
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          }
+        });
+        rows.forEach(function (row) {
+          row.classList.toggle('is-muted', Boolean(activeZone) && row.dataset.zone !== activeZone);
+        });
+        pips.forEach(function (pip) {
+          pip.classList.toggle('is-active', Boolean(activeZone) && pip.dataset.zone === activeZone);
+        });
+        if (floor) {
+          floor.classList.toggle('has-filter', Boolean(activeZone));
+        }
       }
-    });
-  });
 
-  document.addEventListener('click', function (e) {
-    if (pinnedMarker && !e.target.closest('.marker-group')) {
-      hideTooltip();
-    }
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') hideTooltip();
-  });
-})();
-</script>
+      filters.forEach(function (button) {
+        button.addEventListener('click', function () {
+          setZone(button.dataset.zoneFilter || '');
+        });
+      });
+    })();
+  </script>
 </Layout>

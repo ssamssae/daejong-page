@@ -1,6 +1,56 @@
 {
   "entries": [
     {
+      "file": "2026-07-07-durable-scheduler-for-delayed-actions.md",
+      "date": "2026-07-07",
+      "slug": "durable-scheduler-for-delayed-actions",
+      "title": "\"30분 뒤에 꺼줘\"는 세션이 아니라 OS에 맡긴다 — 지연 실행용 durable 스케줄러",
+      "category": "자동화",
+      "tags": [
+        "durable-scheduler",
+        "launchd",
+        "delayed-action",
+        "session-lifecycle",
+        "smart-home",
+        "idempotency"
+      ],
+      "summary": "채팅 세션 안의 sleep 타이머로 지연 실행을 맡기면 세션 정리·재부팅·컨텍스트 재시작과 함께 예약이 조용히 사라진다. 미래 시점의 가전 제어·발송 같은 행동은 launchd나 systemd-run 같은 OS 레벨 일회성 타이머에 박고, 예약·발사 알림과 발사 직전 상태 확인까지 남겨야 한다."
+    },
+    {
+      "file": "2026-07-07-detached-head-silent-push-failure.md",
+      "date": "2026-07-07",
+      "slug": "detached-head-silent-push-failure",
+      "title": "detached HEAD에서 자동으로 커밋하면 push가 조용히 실패한다 — 커밋 전 브랜치 앵커를 단언한다",
+      "category": "Git/자동화",
+      "tags": [
+        "git",
+        "detached-head",
+        "push",
+        "branch-anchor",
+        "flock",
+        "automation",
+        "silent-fail"
+      ],
+      "summary": "자동 커밋이 detached HEAD 위에서 성공하면 커밋은 생기지만 브랜치에 붙지 않아 push가 조용히 실패한다. 커밋 직전에 symbolic-ref로 목표 브랜치 앵커를 단언하고, 같은 저장소 쓰기는 flock으로 직렬화하며, detached 상태를 일부러 만든 회귀 테스트로 예방 게이트를 굳힌다."
+    },
+    {
+      "file": "2026-07-07-idempotent-dispatch-claim-gate.md",
+      "date": "2026-07-07",
+      "slug": "idempotent-dispatch-claim-gate",
+      "title": "같은 일을 두 곳에 시키면 두 번 한다 — 착수 전 claim 게이트로 중복 실행을 막는다",
+      "category": "AI 협업/방법론",
+      "tags": [
+        "dispatch",
+        "claim-gate",
+        "idempotency",
+        "lease",
+        "multi-agent",
+        "irreversible",
+        "deduplication"
+      ],
+      "summary": "작업 배정 단계에 잠금이 있어도 실제 착수 지점이 열려 있으면 같은 작업을 두 주체가 동시에 실행할 수 있다. 빌드·업로드·발송처럼 되돌리기 어려운 일은 착수 직전에 작업ID 기준 claim/lease를 잡고, 모든 주체가 공유하는 직렬화 지점과 wrapper 게이트로 중복 실행을 코드가 막아야 한다."
+    },
+    {
       "file": "2026-06-21-physical-logical-ai-node-standard.md",
       "date": "2026-06-21",
       "slug": "physical-logical-ai-node-standard",
