@@ -1,6 +1,54 @@
 {
   "entries": [
     {
+      "file": "2026-07-07-durable-scheduler-for-delayed-actions.md",
+      "date": "2026-07-07",
+      "slug": "durable-scheduler-for-delayed-actions",
+      "title": "\"30분 뒤에 꺼줘\"는 세션이 아니라 OS에 맡긴다 — 지연 실행용 durable 스케줄러",
+      "category": "자동화",
+      "tags": [
+        "scheduler",
+        "launchd",
+        "delayed-action",
+        "session-lifecycle",
+        "reliability",
+        "one-shot"
+      ],
+      "summary": "\"30분 뒤에 꺼줘\" 같은 지연 실행을 채팅 세션 안에서 처리하면, 세션이 정리·재시작·재부팅되는 순간 예약도 같이 사라진다(실제로 걸어둔 가전 끄기가 조용히 드롭). 미래 시점 행동은 세션 생애주기가 아니라 OS 레벨 일회성 스케줄(macOS launchd / linux systemd-run)에 박는다. 발사 후 self-remove 로 한 번만 보장, 예약·발사 각각 알림, 토글형은 발사 직전 상태 read 후 조건부 실행, 발사 호스트는 24시간 켜진 기기. 세션은 대화의 수명이고 예약은 그보다 오래 살아야 한다."
+    },
+    {
+      "file": "2026-07-07-detached-head-silent-push-failure.md",
+      "date": "2026-07-07",
+      "slug": "detached-head-silent-push-failure",
+      "title": "detached HEAD에서 자동으로 커밋하면 push가 조용히 실패한다 — 커밋 전 브랜치 앵커를 단언한다",
+      "category": "인프라",
+      "tags": [
+        "git",
+        "detached-head",
+        "silent-failure",
+        "automation",
+        "flock",
+        "regression-test"
+      ],
+      "summary": "기록용 자동화가 쓰기 전 rebase 를 돌다 완료 직전 중단되면 HEAD 가 브랜치를 떠난 detached 상태로 남는다. 이때 확인 없이 commit 하면 커밋은 성공하지만 어떤 브랜치에도 안 붙은 고아 커밋이라 push 로 안 올라간다 — 에러도 안 나서 며칠치가 조용히 갇힌다. 커밋 직전 'HEAD==refs/heads/main' 단언으로 detach 면 차단(또는 clean 시 자동복구), 동시 실행은 flock, detach 시뮬 회귀 테스트로 굳힌다. 감지 알림과 예방 게이트는 다른 일 — 감지만으론 고아 생성을 못 막는다. 복구는 salvage 태그 박제 후 cherry-pick, force 금지."
+    },
+    {
+      "file": "2026-07-07-idempotent-dispatch-claim-gate.md",
+      "date": "2026-07-07",
+      "slug": "idempotent-dispatch-claim-gate",
+      "title": "같은 일을 두 곳에 시키면 두 번 한다 — 착수 전 claim 게이트로 중복 실행을 막는다",
+      "category": "워크플로우",
+      "tags": [
+        "idempotency",
+        "dispatch",
+        "claim-lease",
+        "double-dispatch",
+        "serialization",
+        "irreversible"
+      ],
+      "summary": "한 작업이 두 주체에 배정되고, 착수 전 '이미 누가 잡았나' 확인 게이트가 없고, 결과가 비가역이면(스토어 업로드·결제·발송) 언젠가 반드시 중복 실행된다(실제로 같은 버전 빌드가 2개 업로드됨). 번호 채번엔 경합방지가 있어도 착수엔 잠금이 없는 게 흔한 갭. 착수 직전 node+session+task 스코프 claim 을 강제하되, 여러 기계에 걸치면 로컬 락은 못 막으니 모두가 보는 공유 자원(git remote 등)을 직렬화 지점으로 쓴다. 게이트는 사람 의지 아닌 wrapper/훅으로. 겹쳤으면 한쪽 owner 확정·나머지 stand down, 중복본은 삭제 아닌 보관, 비가역 단계는 정리까지 보류."
+    },
+    {
       "file": "2026-06-21-physical-logical-ai-node-standard.md",
       "date": "2026-06-21",
       "slug": "physical-logical-ai-node-standard",
