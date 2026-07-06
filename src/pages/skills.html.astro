@@ -246,7 +246,7 @@ import '../styles/lab.css';
         <button class="filter-pill" data-filter="codex">Codex 계열</button>
       </div>
       <div class="topbar-right">
-        <span class="count-badge" id="countBadge">39개 활성</span>
+        <span class="count-badge" id="countBadge">40개 활성</span>
         <button class="btn-changelog" id="btnChangelog">📋 스킬 변동사항</button>
       </div>
     </div>
@@ -254,6 +254,50 @@ import '../styles/lab.css';
     <!-- Changelog panel -->
     <div class="changelog-panel" id="changelogPanel">
       <h2>스킬 변동사항</h2>
+
+      <div class="cl-group">
+        <div class="cl-date">2026-07-07</div>
+        <div class="cl-item">
+          <span class="cl-badge new">신규</span>
+          <span class="cl-name">/app-icon</span>
+          <span class="cl-reason">앱 아이콘 후보 생성·선택·적용 루틴을 공개 목록에 추가. 유료 이미지 API 없이 구독/무료 경로만 사용.</span>
+        </div>
+        <div class="cl-item">
+          <span class="cl-badge new">신규</span>
+          <span class="cl-name">/app-revenue</span>
+          <span class="cl-reason">Play Console·AdMob 조회 루틴을 추가. 세션 저장 없이 매번 사용자 2FA 확인을 거친다.</span>
+        </div>
+        <div class="cl-item">
+          <span class="cl-badge new">신규</span>
+          <span class="cl-name">/design-skill</span>
+          <span class="cl-reason">공개 웹 페이지의 디자인 톤·카피·검증 게이트를 맞추는 스킬을 추가.</span>
+        </div>
+        <div class="cl-item">
+          <span class="cl-badge new">신규</span>
+          <span class="cl-name">/tuya</span>
+          <span class="cl-reason">가전 제어 표준 스킬을 추가. 로컬 우선 제어와 물토출 안전가드를 명시한다.</span>
+        </div>
+        <div class="cl-item">
+          <span class="cl-badge del">삭제</span>
+          <span class="cl-name">/done</span>
+          <span class="cl-reason">2026-05-21 공개 done 페이지 제거 이후 은퇴한 스킬이라 활성 목록에서 제외.</span>
+        </div>
+        <div class="cl-item">
+          <span class="cl-badge del">삭제</span>
+          <span class="cl-name">/loop-run</span>
+          <span class="cl-reason">현행 스킬 폴더에 없는 항목이라 활성 목록에서 제외.</span>
+        </div>
+        <div class="cl-item">
+          <span class="cl-badge del">삭제</span>
+          <span class="cl-name">/night-runner</span>
+          <span class="cl-reason">현행 스킬 폴더에 없는 항목이라 활성 목록에서 제외.</span>
+        </div>
+        <div class="cl-item">
+          <span class="cl-badge edit">수정</span>
+          <span class="cl-name">여러 스킬</span>
+          <span class="cl-reason">7월 정책·라우팅 변경분에 맞춰 Codex, 발행, PR 관리, 세션·할일 계열 설명을 현행화.</span>
+        </div>
+      </div>
 
       <div class="cl-group">
         <div class="cl-date">2026-05-09</div>
@@ -389,6 +433,39 @@ import '../styles/lab.css';
         </div>
       </div>
 
+      <div class="card" data-device="mac wsl codex">
+        <div class="card-header">
+          <span class="card-name">/app-icon</span>
+          <span class="card-tag">앱 아이콘</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+            <span class="card-device dev-codex">🏭 Codex</span>
+          </div>
+          <span class="card-new-badge">NEW</span>
+        </div>
+        <div class="card-desc">앱 아이콘 후보 생성 → 텔레그램 선택 → 확정본 적용까지 이어지는 아이콘 제작 루틴. 유료 이미지 API 없이 구독/무료 생성 경로만 사용.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/app-icon/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="card" data-device="mac wsl">
+        <div class="card-header">
+          <span class="card-name">/app-revenue</span>
+          <span class="card-tag">매출 조회</span>
+          <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
+          </div>
+          <span class="card-new-badge">NEW</span>
+        </div>
+        <div class="card-desc">Play Console 설치수·매출과 AdMob 광고수익을 조회. 세션을 저장하지 않고 매번 사용자 2FA 확인을 거친 뒤 요약한다.</div>
+        <div class="card-footer">
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/app-revenue/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
       <div class="card" data-device="mac wsl">
         <div class="card-header">
           <span class="card-name">/brainstorm</span>
@@ -450,18 +527,20 @@ import '../styles/lab.css';
         </div>
       </div>
 
-      <div class="card" data-device="mac wsl">
+      <div class="card" data-device="mac wsl codex">
         <div class="card-header">
-          <span class="card-name">/done</span>
-          <span class="card-tag">체크리스트</span>
+          <span class="card-name">/design-skill</span>
+          <span class="card-tag">디자인</span>
           <div class="card-devices">
             <span class="card-device dev-mac">🍎 Mac</span>
             <span class="card-device dev-wsl">🪟 WSL</span>
+            <span class="card-device dev-codex">🏭 Codex</span>
           </div>
+          <span class="card-new-badge">NEW</span>
         </div>
-        <div class="card-desc">오늘 한 일을 체크박스 리스트로 저장 → 홈페이지 /done 반영. worklog=산문, done=리스트 담백하게.</div>
+        <div class="card-desc">공개 웹 페이지의 디자인 톤·레이아웃·카피 변경 전에 기존 톤과 검증 게이트를 맞추는 웹 디자인 작업 루틴.</div>
         <div class="card-footer">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/done/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/design-skill/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
@@ -473,7 +552,7 @@ import '../styles/lab.css';
             <span class="card-device dev-mac">🍎 Mac</span>
           </div>
         </div>
-        <div class="card-desc">하루 마무리 종합 스킬. worklog + done + 이슈 점검을 한 번에. claude-automations·claude-skills·daejong-page 3개 repo 점검 후 홈페이지 반영.</div>
+        <div class="card-desc">하루 마무리 종합 스킬. worklog 작성, 미기록 이슈 점검, 주요 repo 상태 확인을 한 번에 묶어 정리한다.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/goodnight/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -524,21 +603,6 @@ import '../styles/lab.css';
 
       <div class="card" data-device="mac wsl">
         <div class="card-header">
-          <span class="card-name">/loop-run</span>
-          <span class="card-tag">에이전트 루프</span>
-          <div class="card-devices">
-            <span class="card-device dev-mac">🍎 Mac</span>
-            <span class="card-device dev-wsl">🪟 WSL</span>
-          </div>
-        </div>
-        <div class="card-desc">목표 입력 → PLAN→EXECUTE→JUDGE→REPORT 전체 루프 자동 실행. 기기별 task 분배, 최대 2회 재시도, 텔레그램 보고.</div>
-        <div class="card-footer">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/loop-run/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="card" data-device="mac wsl">
-        <div class="card-header">
           <span class="card-name">/merge-janitor</span>
           <span class="card-tag">PR 관리</span>
           <div class="card-devices">
@@ -546,7 +610,7 @@ import '../styles/lab.css';
             <span class="card-device dev-wsl">🪟 WSL</span>
           </div>
         </div>
-        <div class="card-desc">night-runner 가 만든 janitor 브랜치 PR 을 머지·닫기. "PR #N 머지" 자연어로 호출. 대형 변경·민감파일 자동 경고.</div>
+        <div class="card-desc">janitor 계열 PR 을 머지하거나 닫기 전 위험 신호를 점검. 대형 변경·민감파일·충돌 가능성을 먼저 경고한다.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/merge-janitor/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -560,7 +624,7 @@ import '../styles/lab.css';
             <span class="card-device dev-mac">🍎 Mac</span>
           </div>
         </div>
-        <div class="card-desc">마크다운 → 네이버 블로그(SmartEditor ONE) 자동 발행. Mac 본진 Playwright + 자동로그인. 1일 1~2건·본인 계정·기본 전체공개 4조건 충족 시만 GO.</div>
+        <div class="card-desc">마크다운을 네이버 블로그 SmartEditor ONE에 붙여넣고 발행 전 가드를 적용. frontmatter 제거와 단일 발행 경로를 기준으로 동작한다.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/naver-blog-publish/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -574,23 +638,26 @@ import '../styles/lab.css';
             <span class="card-device dev-mac">🍎 Mac</span>
           </div>
         </div>
-        <div class="card-desc">뉴스레터 ep 1개를 Substack · 홈페이지 · 네이버 블로그 3채널 동시 발행. 채널별 독립 진행(1개 실패해도 나머지 계속).</div>
+        <div class="card-desc">뉴스레터 에피소드 1개를 Substack · 홈페이지 · 네이버 블로그 3채널로 발행. 중복 발행 방지와 작업 기록 갱신을 가드에 태운다.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/newsletter-publish/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
-      <div class="card" data-device="codex">
+      <div class="card" data-device="mac wsl codex">
         <div class="card-header">
-          <span class="card-name">/night-runner</span>
-          <span class="card-tag">야간 자동</span>
+          <span class="card-name">/tuya</span>
+          <span class="card-tag">가전 제어</span>
           <div class="card-devices">
+            <span class="card-device dev-mac">🍎 Mac</span>
+            <span class="card-device dev-wsl">🪟 WSL</span>
             <span class="card-device dev-codex">🏭 Codex</span>
           </div>
+          <span class="card-new-badge">NEW</span>
         </div>
-        <div class="card-desc">야간 repo 점검 v1 안전모드. projects.yaml 라운드로빈으로 1개 repo 선정 → read-only 점검 5종 → 텔레그램 보고. 코드 수정·push 0.</div>
+        <div class="card-desc">선풍기·에어컨·조명·정수기 같은 가전을 자연어로 제어. 로컬 우선 경로와 물토출 안전 확인을 기준으로 동작한다.</div>
         <div class="card-footer">
-          <a href="https://github.com/ssamssae/claude-skills/blob/main/night-runner/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
+          <a href="https://github.com/ssamssae/claude-skills/blob/main/tuya/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
       </div>
 
@@ -630,7 +697,7 @@ import '../styles/lab.css';
             <span class="card-device dev-wsl">🪟 WSL</span>
           </div>
         </div>
-        <div class="card-desc">텔레그램에서 현재 세션 클리어. 후속안 저장 후 /clear 자동 실행. 트리거 "세션 클리어", "클리어하자", "/reset".</div>
+        <div class="card-desc">텔레그램에서 현재 세션을 정리. 이어갈 작업 포인터를 남긴 뒤 세션을 초기화하고, 자동 재개가 오래된 맥락을 다시 쓰지 않게 한다.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/session-clear/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -645,7 +712,7 @@ import '../styles/lab.css';
             <span class="card-device dev-codex">🏭 Codex</span>
           </div>
         </div>
-        <div class="card-desc">앱 스토어 제출 루틴. lessons/ 의 과거 실수·리젝 사례를 Step 0 에서 읽어 재발 방지 체크리스트 후 빌드·업로드·심사 제출.</div>
+        <div class="card-desc">앱 스토어 제출 전 과거 실수·리젝 사례를 먼저 읽고 체크리스트화. 실제 업로드·심사 제출은 명시 확인이 있을 때만 진행한다.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/submit-app/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -660,7 +727,7 @@ import '../styles/lab.css';
             <span class="card-device dev-wsl">🪟 WSL</span>
           </div>
         </div>
-        <div class="card-desc">할일·사이드 프로젝트를 ~/daejong-page/todos/YYYY-MM-DD.md 에 기록. "해야 해 / 끝났어 / 취소" 자연어 트리거로 자동 처리.</div>
+        <div class="card-desc">할일과 실행 작업을 단일 작업장 기준으로 조회·추가·완료·수정. "해야 해 / 끝났어 / 취소" 자연어 트리거로 처리.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/todo/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -836,7 +903,7 @@ import '../styles/lab.css';
             <span class="card-device dev-mac">🍎 Mac</span>
           </div>
         </div>
-        <div class="card-desc">텔레그램에서 본진 Claude Code 의 /context(컨텍스트 윈도우 사용량)를 자연어로 조회. LLM turn 추가 0.</div>
+        <div class="card-desc">텔레그램에서 Claude Code 의 /context 사용량을 자연어로 조회. 별도 추론 턴을 늘리지 않고 현재 컨텍스트 상태만 확인한다.</div>
         <div class="card-footer">
           <a href="https://github.com/ssamssae/claude-skills/blob/main/context-show/SKILL.md" target="_blank" rel="noopener">GitHub →</a>
         </div>
@@ -980,6 +1047,8 @@ import '../styles/lab.css';
         btn.classList.toggle('open', isOpen);
         btn.textContent = isOpen ? '📋 변동사항 닫기' : '📋 스킬 변동사항';
       });
+
+      updateCount();
     })();
   </script>
 </Layout>
