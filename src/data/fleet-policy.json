@@ -1,79 +1,84 @@
 {
   "policies": [
     {
-      "id": "telegram-poll-watchdog",
-      "current": "5노드 텔레그램 폴러 생존을 프로세스 2형태 OR(@형 plugin:telegram@claude-plugins-official | slash형 claude-plugins-official/telegram) pgrep 으로 결정론 감지(전 노드 실측). dead 판정 시 넓은 패턴(claude-plugins-official) 재확인 fail-safe 게이트 — 넓은건 alive 면 PROC_PAT 미스로 보고 kickstart 회피·ALERT (healthy 세션 kill 방지) → 죽은 노드(본진 제외 4노드) 폴러 호스트 자동 재시작 + 알림(본진 alert-only). 추가로 \"프로세스 살아있는데 MCP 채널만 failed\" 모드를 claude/plugin 프로세스 트리 소유 telegram :443 ESTAB 부재로 감지하고, N틱 디바운스 뒤 /mcp 항목 Reconnect 한다. T-260621-19 일반화: telegram 뿐 아니라 설정에 켜진 child-proc MCP 채널(playwright/gemini)의 claude 자식 프로세스 부재를 confirmed-dead 로 보고 1틱(≈10min, telegram hung 2틱보다 빠름) 디바운스 후 /mcp 의 ✘ failed 항목을 Reconnect. 본진은 채널 일반화 경로에서도 alert-only(인터랙티브 Playwright 작업 방해 회피).",
-      "changed": "2026-06-21"
+      "id": "persona-advisory-rubric",
+      "current": "강대종의 판단 기준을 흉내 내는 자문 규칙서가 추가됐다. 이 규칙서는 승인권자가 아니라 보수적인 go/hold 의견만 내며, 질문·관찰은 실행 지시로 보지 않고 되돌릴 수 없는 행동은 사람이 직접 확인한다.",
+      "changed": "2026-07-06"
     },
     {
-      "id": "dynamic-workflow-cost-guard",
-      "current": "dynamic workflow/autopilot fan-out은 대형작업 한정. 워커는 먼저 \"독립 병렬 청크?\" 게이트를 통과하고, 하위 워커는 haiku급 저비용 모델로 다운시프트하며, 대량 읽기·리서치·fan-out 전 토큰 사전경고를 남긴다.",
-      "changed": "2026-06-18"
+      "id": "routing-registry",
+      "current": "fleet 라우팅은 중앙 조정자, 능력 전담 노드, 작업 노드라는 역할 중심 레지스트리로 정리됐다. 메시지 전달, 작업 배정, 보고 경로를 한 표에서 관리하되 공개 페이지에는 내부 호스트명이나 접속 별칭을 노출하지 않는다.",
+      "changed": "2026-07-06"
+    },
+    {
+      "id": "visibility-message-bus",
+      "current": "노드 간 지시와 보고는 관찰 가능한 메시지 버스를 경유한다. 화면 밖 헤드리스 호출이나 직접 발송은 금지하고, Claude와 Codex 같은 실행 엔진도 발신 주체가 구분되도록 라우팅한다.",
+      "changed": "2026-07-05"
+    },
+    {
+      "id": "executor-routing",
+      "current": "무거운 테스트·컴파일·대량 파일 처리처럼 CPU 비중이 큰 작업은 성능이 높은 작업 노드에 우선 배정한다. 단, 플랫폼 의존 빌드나 스토어 관련 절차는 해당 능력을 가진 전담 노드와 수동 게이트를 우선한다.",
+      "changed": "2026-07-04"
+    },
+    {
+      "id": "operating-constitution-v4",
+      "current": "운영 헌법은 12원칙 체계로 정리됐다. 핵심은 자동화 우선, 가시성, 위험티어, 단일 기록원, 중앙 머지 게이트, 증거 우선, 가역 우선, 정석 우선, 국소 변경, 재발방지의 코드화, 비용 봉투, 거부 존중이다.",
+      "changed": "2026-07-02"
+    },
+    {
+      "id": "risk-tier-gates",
+      "current": "모든 행동은 R0~R4 위험티어로 분류한다. 읽기와 가역적인 PR 작업은 자동 진행할 수 있지만, 대외 발신·공개 게시·결제·물리 기기·정책 변경처럼 되돌리기 어려운 행동은 명시 확인 없이는 진행하지 않는다.",
+      "changed": "2026-07-02"
+    },
+    {
+      "id": "hard-deny-before-escalation",
+      "current": "정책 평가는 hard_deny를 가장 먼저 본다. 강제 푸시, 대량 삭제, 시크릿 접근, 유료 API 종량제 호출, 화면 밖 실행처럼 금지된 행동은 일반 승인 절차로 우회할 수 없고 별도 명시 예외가 있어야 한다.",
+      "changed": "2026-07-02"
+    },
+    {
+      "id": "r3-escalation-split",
+      "current": "진짜 금지와 사람 확인이 필요한 고위험 행동을 분리했다. R3 항목은 차단이 아니라 사람 확인 대기이며, 무응답은 승인으로 해석하지 않는다.",
+      "changed": "2026-07-02"
+    },
+    {
+      "id": "policy-observe-gate",
+      "current": "정책 게이트는 먼저 관찰 모드로 도입된다. 분류 결과와 이유를 기록해 오분류를 잡은 뒤, 충분히 검증된 규칙만 강제 모드로 올린다.",
+      "changed": "2026-07-02"
+    },
+    {
+      "id": "codex-paygo-hard-deny",
+      "current": "Codex 종량제 API 경로는 기본 금지다. 자동 작업은 구독 세션과 관찰 가능한 브릿지 경로만 사용하고, 비용이 새로 발생하는 스위치는 강대종의 명시 확인이 필요하다.",
+      "changed": "2026-07-02"
+    },
+    {
+      "id": "task-branch-pr-contract",
+      "current": "작업 노드는 한 번에 하나의 작업만 맡고, 별도 브랜치에서 변경한 뒤 PR과 보고서로 닫는다. main 직접 반영, 자동 병합, 임의 fan-out은 금지된다.",
+      "changed": "2026-07-02"
+    },
+    {
+      "id": "task-ledger-and-evidence",
+      "current": "작업 상태, 실행 증거, 정책 데이터는 서로 섞지 않는다. 모든 실행 작업은 번호를 갖고, 완료 판단은 말이 아니라 검증 출력·PR·기록 근거로 남긴다.",
+      "changed": "2026-07-02"
+    },
+    {
+      "id": "public-release-gate",
+      "current": "공개 사이트와 앱 스토어처럼 외부에 바로 보이는 반영은 수동 게이트를 통과해야 한다. PR 생성은 가능하지만, merge나 배포는 공개 게시로 취급해 별도 확인을 요구한다.",
+      "changed": "2026-07-02"
     },
     {
       "id": "auto-resume",
-      "current": "세션 클리어(source==clear) 후 ~/.claude/state/resume-task 포인터 1건 읽어 tasks.md [~] 항목 자동 \"이어서 진행\" 주입(손0). 1회 소비. 디폴트 ON. 비본진 노드는 claude-coord/tasks.md 미러(ff-only pull 후) read — 로컬 사본 stale 오발동 방지.",
-      "changed": "2026-06-12"
+      "current": "세션이 끊기거나 정리될 때는 이어갈 작업 하나만 짧은 포인터로 남긴다. 다음 세션은 그 포인터를 한 번만 소비하고, 작업 결과 자체는 별도 기록원에 남긴다.",
+      "changed": "2026-07-01"
     },
     {
-      "id": "typing-indicator",
-      "current": "노드 busy-state 기준 — telegram-source 턴 OR fleet bot-token 존재 시 typing daemon ON(4s sendChatAction). Stop 후 60s grace→PAUSE. 자율턴(auto-resume·워커)도 표시. 2026-06-27부터 백그라운드 작업·디렉티브 작업도 '확인 중인지 멈춘 건지' 보이도록 flow mirror/typing 관찰을 강화하고, 텔레그램-origin이 아닌 작업의 최종 보고 누락은 node-report 경로로 보완한다.",
-      "changed": "2026-06-27"
+      "id": "dynamic-workflow-cost-guard",
+      "current": "동적 fan-out은 큰 작업에만 쓴다. 작은 수정은 단일 경로로 끝내고, 대량 읽기나 반복 검증은 저비용 요약 경로와 시간·반복 한도를 먼저 둔다.",
+      "changed": "2026-07-01"
     },
     {
-      "id": "worker-dispatch",
-      "current": "머신당 단일엔진 mutex(켜면 형제 자동 OFF). 본진/맥미니가 오케스트레이터, WSL·데스크탑·노트북이 executor 우선 노드다. 기본 실행 엔진은 Codex, Claude는 prompt compiler·safety reviewer·gatekeeper 역할로 쓴다. 작업 시작은 slot lease와 conflict key를 거치고, main 반영은 PR/merge gate 또는 통합 자동머지 게이트를 통과해야 한다.",
-      "changed": "2026-06-27"
-    },
-    {
-      "id": "priority-queue-dispatch",
-      "current": "우선큐(매뉴얼)=픽업 모델 — 매뉴얼토글 머신서 launchd 2~3분 tick, idle 워커노드(라이덴/데스크탑/노트북)가 atomic claim 후 처리, lease 만료시 재큐. 백로그(tasks.md)와 별개.",
-      "changed": "2026-06-05"
-    },
-    {
-      "id": "context-auto-clear",
-      "current": "컨텍스트 ≥40%(400k) Stop훅 셀프클리어 강제(자동컴팩트 ~55% 전에). 컴팩트 2회 백스톱. 클리어는 session-clear 스킬 경유(마킹+resume 포인터).",
-      "changed": "2026-06-01"
-    },
-    {
-      "id": "unified-auto-merge",
-      "current": "18개 repo 공통 GitHub Actions auto-merge 게이트를 배포했다. 노드는 PR을 만들고, Actions가 충돌·테스트·민감경로를 판정한다. 일반 저위험 PR은 자동 머지하고, 앱 버전·빌드·스토어·결제·디자인톤·외부영향 경로는 held-sensitive로 보류해 사람이 승인한다. 충돌 PR은 held-conflict로 남긴다.",
-      "changed": "2026-06-27"
-    },
-    {
-      "id": "node-report-routing",
-      "current": "노드 보고는 기본적으로 본진 mac으로 돌아가야 한다. stale orchestrator.env가 남아 보고가 맥미니로 새는 사고를 막기 위해 오케 OFF 시 워커노드 orchestrator.env를 백업 후 제거한다. mac-report는 현재 오케/issuer/env를 재확인하고, stale 라우팅이면 본진 기본값으로 복귀한다.",
-      "changed": "2026-06-27"
-    },
-    {
-      "id": "node-conversation-mirror",
-      "current": "노드 간 Claude↔Codex 대화는 raw tmux send-keys 금지, 반드시 *-codex-directive.sh 또는 정식 directive wrapper를 경유한다. 송신·수신 양쪽 텔레그램 DM과 Mesh Mirror 그룹에 노드대화 송수신을 남겨, 어떤 노드가 무엇을 받았고 어떤 답을 했는지 추적 가능하게 한다.",
-      "changed": "2026-06-27"
-    },
-    {
-      "id": "interactive-codex-routing",
-      "current": "Codex 호출은 헤드리스 codex exec가 아니라 각 노드의 인터랙티브 Codex 세션으로 라우팅한다. 그래야 텔레그램 미러, flow mirror, 장기작업 진행 보고, 수신 ack가 같은 경로에서 관찰된다. 예외가 필요하면 별도 지시와 이유가 있어야 한다.",
-      "changed": "2026-06-27"
-    },
-    {
-      "id": "task-numbering-and-marking",
-      "current": "모든 실행 작업은 T-번호를 갖고, 완료·보류·취소는 ~/todo/tasks.md에 sot-mark.sh로 남긴다. 단발 작업도 예외 없이 번호를 매겨야 나중에 어떤 노드가 무엇을 했는지 역추적할 수 있다. 완료 기준은 결과 보고가 아니라 SoT 마킹과 근거 기록까지다.",
-      "changed": "2026-06-27"
-    },
-    {
-      "id": "codex-usage-backstop",
-      "current": "Codex 사용량 backstop은 CLI 세션 JSONL rate_limits를 파싱해 5h/weekly 사용률을 기록하고, 본진 collector가 5노드 중 가장 fresh한 계정 사용량을 선택해 본진·맥미니 gate와 초소 게이지에 퍼블리시한다. stale 소스는 기록하지 않아 잘못된 사용량으로 자동작업을 열지 않는다.",
-      "changed": "2026-06-27"
-    },
-    {
-      "id": "telegram-bridge-observability",
-      "current": "Claude/Codex 텔레그램 브릿지는 flow mirror, 수신 ack, watchdog, bridge freshness를 통해 멈춤과 진행 중을 구분한다. 백그라운드 작업은 주기적 진행 보고로 노출하고, 서비스 dead·stale·routing mismatch는 자동복구 또는 alert-only 정책으로 분리한다.",
-      "changed": "2026-06-27"
-    },
-    {
-      "id": "shared-header-cache",
-      "current": "대표소개·회사소개·작업장은 kangdaejong.com/mb-components.js 공통 헤더 정본을 소비한다. 2026-06-27 브라우저 4시간 캐시 문제를 해결하기 위해 Cloudflare browser_cache_ttl을 Respect Existing Headers로 전환했고, mb-components.js는 origin Cache-Control max-age=0 정책을 존중해 즉시 반영된다.",
-      "changed": "2026-06-27"
+      "id": "context-lifecycle",
+      "current": "긴 세션은 자동 압축 직전에 작업 상태를 기록하고 새 세션으로 넘긴다. 결과 본문을 복사해 이어붙이지 않고, 검증 가능한 포인터만 남겨 오래된 정보가 다시 퍼지는 것을 막는다.",
+      "changed": "2026-07-01"
     }
   ]
 }
