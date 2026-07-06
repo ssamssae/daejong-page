@@ -17,9 +17,9 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 ---
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="/" aria-label="강대종 작업장 홈">
+    <a class="brand" href="/" aria-label="마이너스베타스튜디오 홈">
       <img src="/minusbeta-badge.svg" alt="" width="28" height="28" />
-      <span>강대종 작업장</span>
+      <span>마이너스베타스튜디오</span>
     </a>
     <div class="nav-links">
       {primary.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
