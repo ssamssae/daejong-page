@@ -391,7 +391,7 @@
       "title": "codex 노드 전부 idle — A게이트 ssh 가 루프 stdin 삼킴 (SC2095)",
       "severity": "high",
       "recurrence": "medium",
-      "scope": "야간 자동 사이클 — codex 워커 노드 dispatch 경로(routing-lib A게이트, codex-night-cycle)",
+      "scope": "자동 사이클 — codex 워커 노드 dispatch 경로(routing-lib A게이트, codex-night-cycle)",
       "occurred_at": "2026-06-06 22:00 KST",
       "resolved_at": "2026-06-06 23:48 KST",
       "updated": "2026-06-12T10:28:00+09:00"

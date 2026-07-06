@@ -208,7 +208,7 @@ Claude Code에 "포모도로 앱 App Review Information Notes 업데이트해줘
 
 ## 마무리
 
-새벽 4시에 리젝 메일을 받는 건 여전히 기분 좋은 경험은 아니다. 그래도 이제는 어떻게 해야 할지 안다.
+이른 시간에 리젝 메일을 확인하는 건 여전히 기분 좋은 경험은 아니다. 그래도 이제는 어떻게 해야 할지 안다.
 
 App Store Connect 켜고, App Review Information 탭 열고, Notes 채우고, 필요하면 시뮬레이터 영상 붙이고, 재제출. 빠르면 같은 날 통과된다.
 

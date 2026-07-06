@@ -8,10 +8,10 @@ prevention_deferred: null
 - **해결 일자:** 2026-06-06 23:48 KST
 - **심각도:** high
 - **재발 가능성:** medium
-- **영향 범위:** 야간 자동 사이클 — codex 워커 노드(라이덴/데스크탑/노트북) dispatch 경로(routing-lib A게이트, codex-night-cycle)
+- **영향 범위:** 자동 사이클 — codex 워커 노드(라이덴/데스크탑/노트북) dispatch 경로(routing-lib A게이트, codex-night-cycle)
 
 ## 증상
-야간 자동 사이클에서 codex 워커 노드가 전부 idle — 오케스트레이터가 노드 dispatch 를 한 번 돌리면 첫 노드 이후로 일감이 주입되지 않음. 노드는 살아있으나 디렉티브가 도착하지 않아 일을 안 함.
+자동 사이클에서 codex 워커 노드가 전부 idle — 오케스트레이터가 노드 dispatch 를 한 번 돌리면 첫 노드 이후로 일감이 주입되지 않음. 노드는 살아있으나 디렉티브가 도착하지 않아 일을 안 함.
 
 ## 원인
 A게이트 dispatch 루프가 `while read ... ; do ssh <node> ...; done` 형태였는데, 루프 내부 `ssh` 가 `-n` 없이 호출돼 **루프의 stdin(노드 목록) 을 통째로 삼킴**(shellcheck SC2095). 첫 iteration 의 ssh 가 남은 노드 목록을 다 빨아들여 루프가 1회만 돌고 종료 → 둘째 노드부터 dispatch 안 됨 = 전 노드 idle 근인.
