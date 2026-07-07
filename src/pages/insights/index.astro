@@ -135,12 +135,12 @@ const formatMonth = (month) => month.replace('-', '.');
   <style>
     .insights-hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
-      gap: 48px;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: 40px;
       align-items: end;
       border-bottom: 1px solid var(--border);
-      padding: 18px 0 42px;
-      margin-bottom: 58px;
+      padding: 18px 0 40px;
+      margin-bottom: 44px;
     }
 
     .eyebrow {
@@ -153,80 +153,86 @@ const formatMonth = (month) => month.replace('-', '.');
     }
 
     h1 {
-      max-width: 760px;
       color: var(--fg);
-      font-size: 64px;
-      line-height: 1.02;
-      word-break: keep-all;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
+      margin: 0 0 20px;
     }
 
     .lead {
-      max-width: 680px;
-      margin-top: 24px;
+      max-width: 640px;
       color: var(--fg-dim);
-      font-size: 20px;
-      line-height: 1.7;
+      font-size: 18px;
+      line-height: 1.75;
       word-break: keep-all;
     }
 
     .hero-stats {
       display: grid;
-      border-top: 1px solid var(--border);
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--fg);
     }
 
     .hero-stats div {
       display: grid;
-      grid-template-columns: 84px minmax(0, 1fr);
-      gap: 12px 20px;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 16px;
       align-items: baseline;
-      padding: 20px 0;
       border-bottom: 1px solid var(--border);
+      min-height: 58px;
+      padding: 14px 0;
     }
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
-      font-size: 34px;
-      font-weight: 700;
-      line-height: 1;
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      min-width: 0;
     }
 
     .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
-      gap: 32px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
       align-items: end;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .section-head.compact {
       display: block;
-      margin-bottom: 14px;
     }
 
     .section-head h2 {
-      max-width: 720px;
-      font-size: 34px;
-      line-height: 1.2;
-      word-break: keep-all;
+      color: var(--fg);
+      font-size: 24px;
+      line-height: 1.25;
     }
 
     .section-head > p {
-      color: var(--fg-dim);
-      font-size: 15px;
+      max-width: 360px;
+      color: var(--fg-mute);
+      font-size: 14px;
       line-height: 1.6;
+      text-align: right;
+    }
+
+    .featured-section .section-head,
+    .topic-section .section-head {
+      display: block;
     }
 
     .featured-section,
     .topic-section,
     .archive-section {
-      margin-top: 72px;
+      margin-top: 56px;
     }
 
     .featured-grid {
@@ -236,13 +242,12 @@ const formatMonth = (month) => month.replace('-', '.');
     }
 
     .insight-card {
-      display: grid;
-      align-content: start;
-      gap: 18px;
-      min-height: 292px;
+      display: flex;
+      min-height: 260px;
+      flex-direction: column;
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 24px;
+      padding: 22px;
       background: var(--bg);
       color: var(--fg);
       text-decoration: none;
@@ -267,8 +272,9 @@ const formatMonth = (month) => month.replace('-', '.');
 
     .card-topline {
       display: flex;
-      justify-content: space-between;
-      gap: 18px;
+      flex-direction: column;
+      gap: 52px;
+      margin-bottom: 14px;
       color: var(--fg-mute);
       font-family: var(--mono);
       font-size: 12px;
@@ -276,22 +282,29 @@ const formatMonth = (month) => month.replace('-', '.');
     }
 
     .insight-card strong {
-      font-size: 24px;
-      line-height: 1.25;
+      font-size: 22px;
+      line-height: 1.32;
+      margin-bottom: 12px;
       word-break: keep-all;
     }
 
     .summary {
       color: var(--fg-dim);
       font-size: 14px;
-      line-height: 1.62;
+      line-height: 1.7;
     }
 
     .read-more {
-      align-self: end;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 34px;
       margin-top: auto;
-      color: var(--fg-dim);
-      font-size: 14px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      color: inherit;
+      font-size: 13px;
       font-weight: 700;
     }
 
@@ -320,7 +333,7 @@ const formatMonth = (month) => month.replace('-', '.');
 
     .topic-list strong {
       color: var(--fg);
-      font-size: 22px;
+      font-size: 18px;
       line-height: 1.25;
     }
 
@@ -332,31 +345,28 @@ const formatMonth = (month) => month.replace('-', '.');
     .month-block {
       display: grid;
       grid-template-columns: 180px minmax(0, 1fr);
-      gap: 32px;
-      padding-top: 22px;
+      gap: 24px;
       border-top: 1px solid var(--border);
+      padding-top: 24px;
     }
 
     .month-block header {
       position: sticky;
       top: 96px;
       align-self: start;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
     }
 
     .month-block h3 {
-      font-size: 22px;
-      line-height: 1.2;
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 6px;
     }
 
     .month-block header span {
       color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
+      font-size: 13px;
     }
 
     .month-block ol {
@@ -370,11 +380,11 @@ const formatMonth = (month) => month.replace('-', '.');
 
     .month-block a {
       display: grid;
-      grid-template-columns: 104px minmax(0, 1fr);
-      gap: 18px;
+      grid-template-columns: 116px minmax(0, 1fr);
+      gap: 16px;
       align-items: baseline;
-      min-height: 58px;
-      padding: 15px 0;
+      min-height: 56px;
+      padding: 14px 0;
       color: var(--fg);
       text-decoration: none;
     }
@@ -395,7 +405,7 @@ const formatMonth = (month) => month.replace('-', '.');
       min-width: 0;
       color: var(--fg);
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1.5;
       word-break: keep-all;
     }
@@ -413,7 +423,11 @@ const formatMonth = (month) => month.replace('-', '.');
       }
 
       .lead {
-        font-size: 18px;
+        font-size: 16px;
+      }
+
+      .hero-stats {
+        max-width: 520px;
       }
 
       .month-block header {
@@ -424,16 +438,12 @@ const formatMonth = (month) => month.replace('-', '.');
     @media (max-width: 640px) {
       .insights-hero {
         gap: 34px;
-        padding-top: 10px;
-        margin-bottom: 50px;
+        padding-top: 8px;
+        margin-bottom: 36px;
       }
 
       h1 {
-        font-size: 38px;
-      }
-
-      .lead {
-        font-size: 16px;
+        font-size: 56px;
       }
 
       .hero-stats div,
@@ -443,7 +453,17 @@ const formatMonth = (month) => month.replace('-', '.');
       }
 
       .section-head h2 {
-        font-size: 28px;
+        font-size: 24px;
+      }
+
+      .section-head,
+      .archive-head {
+        display: block;
+      }
+
+      .section-head > p {
+        margin-top: 10px;
+        text-align: left;
       }
 
       .featured-section,
@@ -453,12 +473,16 @@ const formatMonth = (month) => month.replace('-', '.');
       }
 
       .insight-card {
-        min-height: 216px;
+        min-height: 220px;
         padding: 20px;
       }
 
+      .card-topline {
+        gap: 36px;
+      }
+
       .insight-card strong {
-        font-size: 21px;
+        font-size: 22px;
       }
 
       .month-block {
