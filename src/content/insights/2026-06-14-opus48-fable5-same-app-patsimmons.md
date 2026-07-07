@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=TzJCly4YgDQ"
 source_author: "Pat Simmons"
 ---
 
-# I Made Opus 4.8 and Fable 5 Build the Same App (RAW RESULTS) — Pat Simmons
-
 ## 한 줄 요약
 동일한 프롬프트로 이커머스 스토어, 3D 아트 뮤지엄, 에이지 오브 엠파이어 클론 세 앱을 Opus 4.8과 Fable 5에게 원샷으로 빌드시킨 결과, 속도·품질·토큰 효율 모든 면에서 Fable 5가 압도적으로 앞섰다. Fable 5는 병렬 에이전트 자체 조율, 실시간 QA, 이미지 프롬프팅 최적화까지 수행했고 Opus 4.8은 3D 게임 빌드에서 결과물 자체가 동작 불가 수준이었다.
 

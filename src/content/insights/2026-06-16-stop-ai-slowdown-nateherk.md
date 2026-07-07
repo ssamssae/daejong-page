@@ -5,8 +5,6 @@ source_url: "https://youtu.be/CvA8-aScqio"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# We Might Actually Need to Stop AI — Nate Herk | AI Automation
-
 ## 한 줄 요약
 선두 AI 랩 두 곳(Anthropic·OpenAI)이 같은 주에 "AI를 늦출 검증 가능한 방법이 필요하다"고 요청하면서 동시에 상장 절차를 밟은 모순을 짚고, 왜 그들이 스스로는 못 멈추는지(인센티브)와 개인이 뭘 해야 하는지를 정리한 영상.
 

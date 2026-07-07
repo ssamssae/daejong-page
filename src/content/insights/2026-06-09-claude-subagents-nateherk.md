@@ -5,8 +5,6 @@ source_url: "https://youtu.be/e18sdZLwP7o"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# How to Build Claude Subagents Better Than 99% of People — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Claude Code 서브에이전트가 무엇이고(메인=오케스트레이터, 서브=독립 컨텍스트 일꾼), 언제·어떻게 써야 잘 쓰는지를 컨텍스트 보존·비용 절감·병렬화 관점에서 정리한 실전 가이드.
 

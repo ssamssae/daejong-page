@@ -5,8 +5,6 @@ source_url: "https://youtu.be/0l5oJsjCPus?si=RlPK9xyVnYrmkT78"
 source_author: "조코딩 JoCoding"
 ---
 
-# 전세계 기업들을 관찰한 OpenAI 내부자가 알려주는 진짜 AX와 AI Native 되는 방법 — 조코딩 JoCoding
-
 ## 한 줄 요약
 OpenAI 스타트업 팀이 Codex, 자동화, computer use, 장기 실행 agent, AI native 조직의 조건을 설명한다. 핵심은 모델 자체를 복제하려는 일반 지능 경쟁이 아니라, 고객 문제와 워크플로우를 깊게 이해하고 모델 발전을 흡수하는 제품 구조를 만드는 것이다.
 

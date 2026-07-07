@@ -5,8 +5,6 @@ source_url: "https://pakodas.substack.com/p/how-to-be-a-30x-ai-engineer-with-a-t
 source_author: "Pratik Bhavsar"
 ---
 
-# How to Be a 30x AI Engineer with a Taste — Pratik Bhavsar (Substack)
-
 ## 한 줄 요약
 AI가 코드를 생성하는 시대에 엔지니어를 차별화하는 건 'taste(내적 평가 함수의 품질)'이며, 저자는 이를 recognition·compass·vision 세 형태로 나누고 3개월 훈련법·모델 주도 개발 습관·커리어 재배치로 키우는 법을 제시한다.
 

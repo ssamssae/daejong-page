@@ -5,8 +5,6 @@ source_url: "https://youtu.be/c0kaKxM2pHg"
 source_author: "Nate Herk"
 ---
 
-# grill me — 머릿속 지식을 끝없는 질문으로 추출하는 스킬 — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Nate Herk가 "grill me" 스킬(Matt PCO 원작)을 소개한다 — 사용자를 끝없이 질문하며 매 답변마다 checkpoint해 머릿속 지식을 knowledge doc으로 추출하고, 그걸로 스킬·컨텍스트·프로젝트 품질을 한 번에 끌어올리는 방법.
 

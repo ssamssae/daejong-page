@@ -5,8 +5,6 @@ source_url: "https://youtu.be/lkR6mvqQQlk"
 source_author: "Nate Herk"
 ---
 
-# Claude Mythos는 공개될까 — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Anthropic이 Opus 위 티어로 개발 중인 미공개 모델 "Mythos"의 API 식별자가 잠깐 노출돼 공개 임박설이 돌았으나, 발화자는 Anthropic의 "일반 공개 계획 없음" 발언·IPO·OpenAI 경쟁 정황을 근거로 당분간 공개 안 되고 능력만 차기 Opus에 흡수될 것이라 본다.
 

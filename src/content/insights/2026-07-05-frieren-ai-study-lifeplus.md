@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=FdMia-7e2JE"
 source_author: "LIFEPLUS TV"
 ---
 
-# 장송의 프리렌으로 배우는 AI 시대 공부법 — LIFEPLUS TV
-
 ## 한 줄 요약
 궤도는 『장송의 프리렌』의 "오래 산 마법사와 짧게 사는 제자" 구도를 AI 시대 공부의 비유로 삼아, 공부가 지식 암기에서 질문·연결·검증·맥락·목적을 다루는 힘으로 옮겨간다고 설명한다.
 

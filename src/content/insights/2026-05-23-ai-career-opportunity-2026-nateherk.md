@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=iIfOprq2kCM"
 source_author: "Nate Herk"
 ---
 
-# The AI Career Opportunity Nobody is Talking About in 2026 — Nate Herk | AI Automation
-
 ## 한 줄 요약
 IBM 의 2000명 CEO 조사 풀이 — AI 에이전시 차리는 길만이 답이 아니라, 기존 직장에서 가장 AI-fluent 한 사람으로 조용히 자리 잡아 사내 승진 받는 "Path B" 가 대부분에겐 더 현실적이라는 주장. CAIO 76% 채용·86% vs 25% adoption gap·CAIO 57% 가 내부 승진 같은 stat 으로 뒷받침한다.
 

@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=CDC7mNaNzI8"
 source_author: "Moritz | AI Builder"
 ---
 
-# 7 CLIs to 10x Your Claude Code — Moritz | AI Builder
-
 ## 한 줄 요약
 AI 에이전트가 다른 소프트웨어와 통신하는 방식으로 CLI 가 MCP·API 를 빠르게 대체하고 있다는 주장과 함께, 발화자가 Claude Code 생산성을 끌어올린다고 소개하는 7개 CLI 도구(GWS, Higgsfield, Playwright, Apify, Postiz, WhatsApp, Summarize)와 보너스 도구들을 데모로 보여주는 영상.
 

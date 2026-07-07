@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=-zL_trhnQaI"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# Claude를 배운 다음 할 일 — AI 컨설턴트 로드맵 — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Nate Herk는 Claude나 자동화 도구 자체를 익힌 것보다 중요한 것은 비즈니스 제약을 진단하고 KPI로 성과를 증명하는 능력이라고 말한다. 다음 기회는 단순 빌더가 아니라 독립 또는 사내 AI 컨설턴트가 되는 길이라고 설명한다.
 

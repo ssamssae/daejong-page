@@ -5,8 +5,6 @@ source_url: "https://youtu.be/dypejk0TNZ4"
 source_author: "안될공학 - IT 테크 신기술"
 ---
 
-# 애플 M3 울트라, 추론 성능과 Batch Size 1 — 안될공학
-
 ## 한 줄 요약
 M3 울트라 맥 스튜디오가 512GB 통합 메모리로 6,710억 파라미터 모델(DeepSeek R1/V3)을 한 대에 올릴 수 있게 된 원리와, 애플이 "배치 사이즈 1 저지연 추론"에 특화한 이유, 그리고 엔비디아가 Project DIGITS·SOCAMM으로 대응하는 맥락을 풀어준 영상.
 

@@ -5,8 +5,6 @@ source_url: "https://news.hada.io/topic?id=30488"
 source_author: "Alex Ewerlöf (원문) · GeekNews GN⁺ 정리"
 ---
 
-# 에이전트 코딩에 로컬 LLM 활용하기 — Alex Ewerlöf
-
 ## 한 줄 요약
 클라우드 LLM 가격이 사용량 과금으로 급증하는 가운데, 로컬 오픈소스 모델도 "결정론적 하니스(린트·테스트·AGENTS.md)"로 감싸면 약한 모델의 품질을 최대 6배까지 끌어올릴 수 있다 — 핵심은 모델 크기가 아니라 모델을 둘러싼 도구·규칙·컨텍스트 설계라는 것.
 

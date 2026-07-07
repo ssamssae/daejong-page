@@ -5,8 +5,6 @@ source_url: "https://youtu.be/DQbpvuVN0SI"
 source_author: "Tech Bridge"
 ---
 
-# 1,000시간 넘게 배운 Claude를 15분 만에 — Tech Bridge
-
 ## 한 줄 요약
 Claude 사용자를 아마추어부터 에이전트 오케스트레이터까지 6단계로 나눠, 각 단계에서 무엇을 어떻게 써야 다음 레벨로 올라가는지 실전 팁과 함께 정리한 영상.
 

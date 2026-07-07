@@ -5,8 +5,6 @@ source_url: "https://youtu.be/v1wZwxY3CMg"
 source_author: "Bloomberg Originals"
 ---
 
-# Inside Anthropic, the $965 Billion AI Juggernaut — Bloomberg Originals
-
 ## 한 줄 요약
 Anthropic의 Dario·Daniela Amodei 남매를 추적한 Bloomberg 다큐 — 스케일링 법칙·Claude Code/Cowork의 폭발적 성장, 일자리 소멸 경고, Mythos 사이버 슈퍼웨폰, 펜타곤과의 충돌까지 "안전 우선 AI"의 모순과 야망을 담았다.
 

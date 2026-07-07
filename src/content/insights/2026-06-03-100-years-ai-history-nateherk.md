@@ -5,8 +5,6 @@ source_url: "https://youtu.be/NHFbAg2b54U"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# 100년 AI 역사 — Turing의 Enigma부터 Claude Code까지 — Nate Herk
-
 ## 한 줄 요약
 Enigma 암호 해독(Turing)과 다트머스 AI 명명에서 시작해, 심볼릭 vs 신경망 두 진영의 부침(두 번의 AI 겨울), 백프로파게이션·GPU·ImageNet·AlexNet의 돌파, 트랜스포머·GPT·ChatGPT, 그리고 Claude Code/vibe coding까지 — AI 100년 역사를 한 영상에 압축한다.
 

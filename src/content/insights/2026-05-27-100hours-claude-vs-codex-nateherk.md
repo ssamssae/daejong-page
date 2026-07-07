@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=RLjaUES9P8A"
 source_author: "Nate Herk"
 ---
 
-# 100 Hours Testing Claude Code vs ChatGPT Codex — Nate Herk | AI Automation
-
 ## 한 줄 요약
 
 Claude Code 와 ChatGPT Codex 를 features / pricing / 3 실측 use case (PDF · landing page · dashboard) 로 100시간 테스트 비교 — "어느 tool 이 더 좋냐가 아니라 지금 내 task 에 어느 게 맞냐" 라는 framing 으로 본질 차이 (Claude = 창의 / brainstorming / push back, Codex = 지시 준수 / code review / bug 찾기) 정리.

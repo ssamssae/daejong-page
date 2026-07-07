@@ -5,8 +5,6 @@ source_url: "https://youtu.be/lhj4jc2D1FQ"
 source_author: "Max Brodeur-Urbas (Gumloop CEO) / EO Korea"
 ---
 
-# 1,000억 투자 받은 AI 스타트업 대표의 찐 조언 — EO Korea
-
 ## 한 줄 요약
 Instacart·Shopify 등이 쓰는 자동화 플랫폼 Gumloop의 창업자 Max Brodeur-Urbas가, "전부 자동화" 하이프의 함정과 "내가 깊이 이해하는 것만 AI로 가속하라"는 원칙, 그리고 실패를 사냥하고 굉장한 걸 만들면 사람·돈이 따라온다는 창업 마인드셋을 풀어낸 인터뷰.
 

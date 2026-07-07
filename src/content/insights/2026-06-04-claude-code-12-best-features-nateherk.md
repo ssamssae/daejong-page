@@ -5,8 +5,6 @@ source_url: "https://youtu.be/vfWTyEreOEc"
 source_author: "Nate Herk"
 ---
 
-# Claude Code 전 기능 티어 랭킹 + Top 12 — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Claude 생태계 500시간 사용자가 Claude Code의 모든 기능을 D~S 티어로 매기고, "내 실제 일상 업무를 얼마나 바꾸는가" 기준으로 고른 top 12를 1위 skills부터 12위 /goal까지 풀어준 영상.
 

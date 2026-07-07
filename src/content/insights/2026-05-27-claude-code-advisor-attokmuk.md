@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=Ce9Uq_BJy6Y"
 source_author: "에떠먹"
 ---
 
-# 클로드코드 미친 신기능, 개발자분들 빠르게 보세요. — 에떠먹 | AI 쉽게 떠먹여주는 남자
-
 ## 한 줄 요약
 클로드 코드 신기능 "어드바이저(Advisor)" — 가벼운 실행 모델(executor)이 막힐 때만 더 똑똑한 모델에게 에스컬레이션해 조언을 받는 패턴으로, 비용은 낮추고 성능은 올린다.
 

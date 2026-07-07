@@ -5,8 +5,6 @@ source_url: "https://youtu.be/Rb0OVBaKYdQ"
 source_author: "Dante's Datalab"
 ---
 
-# 로컬 LLM은 GPU 성능보다 VRAM이 먼저다 — R9700 32GB와 Hermes 에이전트 실험 — Dante's Datalab
-
 ## 한 줄 요약
 발화자는 AMD EPYC 4585PX와 Radeon AI Pro R9700 32GB 장비에서 오픈웨이트 모델을 직접 돌려 보며, 로컬 LLM 장비 선택의 첫 관문은 원시 GPU 성능이 아니라 모델이 VRAM에 통째로 올라가느냐라고 정리한다. 결론은 로컬 모델을 프론티어 모델 대체재가 아니라 보안·반복·문서·짧은 에이전트 작업을 맡기는 "유능한 인턴"으로 보라는 것이다.
 

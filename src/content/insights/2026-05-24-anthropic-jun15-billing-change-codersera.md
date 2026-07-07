@@ -5,8 +5,6 @@ source_url: "https://codersera.com/blog/anthropic-june-2026-billing-change-claud
 source_author: "Codersera"
 ---
 
-# Anthropic 6/15 빌링 변경 — 인터랙티브 ↔ 프로그램/에이전트 분리 + 사용자 대안 4가지 — Codersera
-
 ## 한 줄 요약
 2026-06-15 부터 Anthropic 이 Claude Code 빌링을 "사람이 직접 치는 사용" 과 "프로그램·에이전트가 자동으로 호출하는 사용" 두 통으로 나누고, 자동화 쪽은 별도 monthly credit pool (Pro $20 / Max5× $100 / Max20× $200) 에서 full API rate 로 차감되도록 종량제로 분리한다. 한도 초과 시 사용자가 선택할 수 있는 대안 4가지(DeepSeek 헤드리스 CLI / 오픈소스 프레임워크+자체 키 / Cursor IDE / Claude+저비용 혼합)를 정리한 글.
 

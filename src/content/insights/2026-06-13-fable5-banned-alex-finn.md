@@ -5,8 +5,6 @@ source_url: "https://youtu.be/mm3Ybi-9cCw"
 source_author: "Alex Finn"
 ---
 
-# CLAUDE FABLE 5 BANNED. IT ACTUALLY HAPPENED... — Alex Finn
-
 ## 한 줄 요약
 
 발화자(Alex Finn)가 "Claude Fable 5가 밴됐다"는 속보를 본인 관점으로 다루는 논평 영상. 트럼프가 외국 국적자의 Fable 5 사용을 막았다는 주장과 그로 인한 글로벌 경제·고용·공급망 파장 추측, 책임 소재(앤트로픽의 공포 마케팅), 그리고 로컬·오픈소스 AI로의 전환 주장을 담는다. (※ 영상 발화자의 주장·추측이며 사실 확인된 보도가 아님)
