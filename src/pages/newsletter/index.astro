@@ -1,16 +1,448 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PostList from '../../components/PostList.astro';
 import { getCollection } from 'astro:content';
-const epNum = (e) => parseInt(String(e.id).replace(/\D/g, ''), 10) || 0;
-const posts = (await getCollection('newsletter')).sort((a, b) => epNum(b) - epNum(a));
+
+const episodeNumber = (entry: { id: string; data: { version?: string } }) =>
+  parseInt(String(entry.data.version ?? entry.id).replace(/\D/g, ''), 10) || 0;
+
+const posts = (await getCollection('newsletter')).sort((a, b) => episodeNumber(b) - episodeNumber(a));
+const latestPosts = posts.slice(0, 3);
+const monthGroups = posts.reduce((groups, post) => {
+  const month = post.data.date.slice(0, 7);
+  if (!groups.has(month)) groups.set(month, []);
+  groups.get(month)?.push(post);
+  return groups;
+}, new Map());
+
+const latestDate = posts[0]?.data.date ?? '';
+const firstDate = posts[posts.length - 1]?.data.date ?? '';
+const latestEpisode = posts[0] ? episodeNumber(posts[0]) : 0;
+const firstEpisode = posts[posts.length - 1] ? episodeNumber(posts[posts.length - 1]) : 0;
+
+const dateLabel = (date: string) => date.replaceAll('-', '.');
+const monthLabel = (month: string) => {
+  const [year, mm] = month.split('-');
+  return `${year}.${mm}`;
+};
+const episodeLabel = (post: { id: string; data: { version?: string } }) =>
+  `EP.${String(episodeNumber(post)).padStart(2, '0')}`;
 ---
+
 <Layout title="뉴스레터 — 바이브코딩" description="Claude Code 로 1인 앱 만드는 여정. 격주 발행.">
-  <h1 class="accent-magenta">뉴스레터</h1>
-  <p class="lead">바이브코딩 · Claude Code 로 1인 앱 만드는 여정 · 총 {posts.length}편 · <a href="https://minusbetastudio.substack.com" target="_blank" rel="noopener">Substack 구독 ↗</a></p>
-  <PostList posts={posts} base="/newsletter" />
+  <section class="newsletter-hero" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <p class="eyebrow">VIBECODING LETTER</p>
+      <h1 id="page-title">뉴스레터</h1>
+      <p class="lead">
+        혼자 앱을 만들며 겪은 출시, 자동화, 실패 복구의 기록을 편지처럼 묶습니다.
+        매회 하나의 사건을 끝까지 따라가며 다음 빌드에 남길 규칙을 정리합니다.
+      </p>
+      <a class="subscribe-link" href="https://minusbetastudio.substack.com" target="_blank" rel="noopener">
+        Substack 구독
+      </a>
+    </div>
+    <dl class="hero-stats" aria-label="뉴스레터 요약">
+      <div>
+        <dt>편수</dt>
+        <dd>{posts.length}</dd>
+      </div>
+      <div>
+        <dt>회차</dt>
+        <dd>{firstEpisode && latestEpisode ? `EP.${firstEpisode} - EP.${latestEpisode}` : '-'}</dd>
+      </div>
+      <div>
+        <dt>범위</dt>
+        <dd>{firstDate && latestDate ? `${dateLabel(firstDate)} - ${dateLabel(latestDate)}` : '-'}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="latest-section" aria-labelledby="latest-title">
+    <div class="section-head">
+      <p class="eyebrow">LATEST ISSUES</p>
+      <h2 id="latest-title">최근 편지</h2>
+    </div>
+    <div class="latest-grid">
+      {latestPosts.map((post, index) => (
+        <article class={index === 0 ? 'issue-card primary' : 'issue-card'}>
+          <a href={`/newsletter/${post.id}/`}>
+            <span class="issue-number">{episodeLabel(post)}</span>
+            <span class="issue-date">{dateLabel(post.data.date)}</span>
+            <h3>{post.data.title}</h3>
+            {post.data.summary && <p>{post.data.summary}</p>}
+            <span class="read-more">읽기</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="archive-section" aria-labelledby="archive-title">
+    <div class="section-head archive-head">
+      <div>
+        <p class="eyebrow">LETTER ARCHIVE</p>
+        <h2 id="archive-title">전체 회차</h2>
+      </div>
+      <p>{monthGroups.size}개월치 편지를 최신순으로 묶었습니다.</p>
+    </div>
+
+    <div class="archive-list">
+      {Array.from(monthGroups.entries()).map(([month, items]) => (
+        <section class="month-block" aria-labelledby={`month-${month}`}>
+          <header>
+            <h3 id={`month-${month}`}>{monthLabel(month)}</h3>
+            <span>{items.length}편</span>
+          </header>
+          <ol>
+            {items.map((post) => (
+              <li>
+                <a href={`/newsletter/${post.id}/`}>
+                  <time datetime={post.data.date}>{dateLabel(post.data.date)}</time>
+                  <small>{episodeLabel(post)}</small>
+                  <span>{post.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
+    </div>
+  </section>
+
   <style>
-    h1 { font-size: 32px; margin-bottom: 8px; }
-    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin-bottom: 32px; }
+    .newsletter-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: 40px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0 40px;
+      margin-bottom: 44px;
+    }
+
+    .eyebrow {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: var(--fg);
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
+      margin: 0 0 20px;
+    }
+
+    .lead {
+      max-width: 660px;
+      color: var(--fg-dim);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .subscribe-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      margin-top: 24px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--fg);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .subscribe-link:hover {
+      color: var(--bg);
+      background: #1c1c1c;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--fg);
+    }
+
+    .hero-stats div {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      min-height: 58px;
+      padding: 14px 0;
+    }
+
+    .hero-stats dt {
+      color: var(--fg-mute);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-stats dd {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .latest-section,
+    .archive-section {
+      margin-top: 56px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .latest-section .section-head {
+      display: block;
+    }
+
+    .section-head h2 {
+      color: var(--fg);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .section-head p:last-child {
+      max-width: 360px;
+      color: var(--fg-mute);
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .latest-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .issue-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      min-height: 282px;
+    }
+
+    .issue-card.primary {
+      background: var(--fg);
+      color: var(--bg);
+      border-color: var(--fg);
+    }
+
+    .issue-card a {
+      display: flex;
+      min-height: 282px;
+      flex-direction: column;
+      padding: 22px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .issue-card a:hover {
+      color: inherit;
+      background: var(--bg-elev);
+    }
+
+    .issue-card.primary a:hover {
+      background: #1c1c1c;
+    }
+
+    .issue-number {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 52px;
+    }
+
+    .primary .issue-number,
+    .primary .issue-date,
+    .primary p {
+      color: #d7d7d7;
+    }
+
+    .issue-date {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .issue-card h3 {
+      color: inherit;
+      font-size: 22px;
+      line-height: 1.32;
+      margin-bottom: 12px;
+    }
+
+    .issue-card p {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .issue-card.primary p {
+      color: #d7d7d7;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 34px;
+      margin-top: auto;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      color: inherit;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .archive-list {
+      display: grid;
+      gap: 28px;
+    }
+
+    .month-block {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .month-block header {
+      position: sticky;
+      top: 112px;
+      align-self: start;
+    }
+
+    .month-block h3 {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .month-block header span {
+      color: var(--fg-mute);
+      font-size: 13px;
+    }
+
+    .month-block ol {
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+
+    .month-block li {
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .month-block a {
+      display: grid;
+      grid-template-columns: 116px 72px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      min-height: 56px;
+      padding: 14px 0;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .month-block a:hover {
+      color: var(--fg);
+      background: var(--bg-elev);
+    }
+
+    .month-block time,
+    .month-block small {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .month-block a > span {
+      min-width: 0;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .newsletter-hero,
+      .month-block {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        max-width: 520px;
+      }
+
+      .latest-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .issue-card,
+      .issue-card a {
+        min-height: 232px;
+      }
+
+      .issue-number {
+        margin-bottom: 36px;
+      }
+
+      .month-block header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .newsletter-hero {
+        padding-top: 8px;
+        margin-bottom: 36px;
+      }
+
+      h1 {
+        font-size: 56px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .section-head,
+      .archive-head {
+        display: block;
+      }
+
+      .section-head p:last-child {
+        margin-top: 10px;
+        text-align: left;
+      }
+
+      .month-block a {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        min-height: auto;
+        padding: 14px 0;
+      }
+    }
   </style>
 </Layout>
