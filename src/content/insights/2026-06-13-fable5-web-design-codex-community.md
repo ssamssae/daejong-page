@@ -5,8 +5,6 @@ source_url: "https://youtu.be/4OuUnuhuRqI"
 source_author: "Codex Community"
 ---
 
-# Fable 5 for Web Design is Next Level!!! — Codex Community
-
 ## 한 줄 요약
 
 Fable 5로 단일 프롬프트만 써서 인터랙티브·3D·애니메이션 웹사이트를 생성·리디자인하는 실험 영상. 자기소개 사이트, Type UI/Reddit 리디자인, 브라우저에서 플레이 가능한 3D 팩맨 게임, 포트폴리오, Vanguard 복제까지 테스트하고 웹디자인에서 Fable 5가 Gemini·ChatGPT보다 낫다고 결론 내린다.

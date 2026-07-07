@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=6cEQEba0i2A"
 source_author: "Nate Herk"
 ---
 
-# Claude Code 세션 한도를 2배로 늘리는 습관 (prompt caching) — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Claude Code 의 prompt caching 이 세션 한도와 토큰을 어떻게 아끼는지, 캐시 TTL(구독 1시간 vs API·서브에이전트 5분)·3계층 캐시 구조·캐시를 깨는 행동(1시간 방치·모델 전환·시스템/프로젝트 변경)을 8020 수준으로 정리한 영상.
 

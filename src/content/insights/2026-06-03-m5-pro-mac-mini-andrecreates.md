@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=U8beguBdW8s"
 source_author: "André Creates"
 ---
 
-# M5/M5 Pro Mac mini, 사기 전에 봐라 — André Creates
-
 ## 한 줄 요약
 곧 나올 M5·M5 Pro Mac mini가 단일코어 최강 + Max/Ultra급 멀티코어 성능을 노트북 대비 $600~700 싸게 주므로, 데스크 작업자는 조금 더 기다렸다 이걸 사라는 영상.
 

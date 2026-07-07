@@ -5,8 +5,6 @@ source_url: "https://youtu.be/ZRb7D6R64hM"
 source_author: "Nate Herk"
 ---
 
-# Every Level of Claude Explained in 21 Minutes — Nate Herk
-
 영상 메타:
 - URL: https://youtu.be/ZRb7D6R64hM
 - 채널: Nate Herk | AI Automation

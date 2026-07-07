@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=is0zk47UjRc"
 source_author: "BZCF | 비즈까페"
 ---
 
-# 클로드 코드 총괄 : "코딩하지 마라" — BZCF | 비즈까페
-
 ## 한 줄 요약
 Claude Code 창시자 Boris Cherny 의 화롯가 대담. "코딩은 (적어도 나에겐) 100% 해결됐다"는 선언부터, /loop 중심 개인 셋업, 제너럴리스트·스타트업 전성시대 전망, 인쇄술에 빗댄 소프트웨어 민주화론까지.
 

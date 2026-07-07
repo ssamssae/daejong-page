@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=GpSqBjW6hR4"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# Sakana Fugu Ultra 테스트 — Fable 킬러인가, 느린 오케스트레이터인가 — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Nate Herk는 Sakana Fugu Ultra를 Claude Code 안에서 직접 돌려 보고, 이것이 더 뛰어난 단일 모델이라기보다 여러 프런티어 모델을 자동 배분하는 오케스트레이션 API라고 설명한다. 그의 38개 테스트에서는 품질은 Opus 4.8과 거의 비슷했지만, Fugu가 훨씬 느리고 비쌌다고 말한다.
 

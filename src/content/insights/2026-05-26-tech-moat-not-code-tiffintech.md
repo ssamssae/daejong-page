@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=UfTAIEQqrJU"
 source_author: "Tiff In Tech"
 ---
 
-# The Real Moat in Tech Isn't Code — Tiff In Tech
-
 ## 한 줄 요약
 앱 레이어(파운데이션 모델 API + 프롬프트 + UI 래퍼)는 로컬 추론·소비자 하드웨어 성능 상승으로 복제 비용이 0 에 수렴했고, 진짜 해자는 한 단계 아래 — 데이터·전력·칩·툴체인 같은 컴파운딩 인프라 레이어로 이동했다.
 

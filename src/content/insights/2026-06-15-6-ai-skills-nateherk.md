@@ -5,8 +5,6 @@ source_url: "https://youtu.be/3XIGcM7VICc"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# Learn These 6 AI Skills Now (Before AI Replaces You) — Nate Herk | AI Automation
-
 ## 한 줄 요약
 AI가 직업을 바꿔놓는 시대에 커리어를 방어할 6가지 스킬(AI 사람 되기 · 취향/판단 · 컨텍스트 엔지니어링 · 반복 속도 · 자비스형 자동화 · 수입원 다각화)을 발화자가 실전 예시와 함께 정리한 영상.
 

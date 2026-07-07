@@ -5,8 +5,6 @@ source_url: "https://youtu.be/q5lg3npxjAc"
 source_author: "Nate Herk"
 ---
 
-# Opus 4.8 Just Dropped. Here's How To Actually Use It. — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Opus 4.8 출시 직후 정리 영상으로, 4.7 의 불만(게으름·과도한 안전·토큰 폭증·태도)을 4.8 이 어떻게 정조준했는지와 effort 레버·프롬프트 방식 등 실사용 변화를 다룬다.
 

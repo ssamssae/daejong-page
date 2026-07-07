@@ -5,8 +5,6 @@ source_url: "https://youtu.be/ONmaDdOBGig"
 source_author: "Nate Herk"
 ---
 
-# Claude Fable 5 Made This Entire Video By Itself. — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Nate Herk 가 Claude Fable 5 에 /goal 프롬프트 하나만 주고 자리를 비웠더니 리서치·스크립트·보이스클론·아바타·모션그래픽·편집·자가검증까지 끝난 유튜브 영상이 1시간 만에 완성됐다는 실험 — 영상 자체가 그 결과물이다.
 

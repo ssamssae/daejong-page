@@ -5,8 +5,6 @@ source_url: "https://youtu.be/0WDkwMxj13s"
 source_author: "Nate Herk"
 ---
 
-# Claude Opus 4.8 을 통째로 내 AI 운영체제로 만든 법 — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Nate Herk 가 Claude Opus 4.8 을 자기 비즈니스 전체를 굴리는 개인 AI 운영체제(AIOS)로 만든 방식을 4C 프레임워크(Context·Connections·Capabilities·Cadence)와 마인드셋(컨텍스트가 왕, 단계적 신뢰, 권한 스코핑) 중심으로 설명하는 영상.
 

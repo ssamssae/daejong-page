@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=iqivPIN3ThU"
 source_author: "Louie Shearon"
 ---
 
-# I Upgraded My Mac Mini Myself & Saved $2,000 (Fully Loaded) — Louie Shearon
-
 ## 한 줄 요약
 M4 Pro Mac Mini의 SSD를 512GB에서 4TB로 직접 교체하여 저장 공간 병목을 해결하고 $2,000의 업그레이드 비용을 절약한 DIY 프로세스. 자신의 외장 드라이브 의존 개발 환경을 내부 저장소 충분한 머신으로 전환.
 

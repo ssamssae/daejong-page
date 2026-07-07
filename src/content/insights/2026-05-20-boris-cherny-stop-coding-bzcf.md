@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=is0zk47UjRc"
 source_author: "Boris Cherny"
 ---
 
-# 클로드 코드 총괄 : "코딩하지 마라" — BZCF | 비즈까페
-
 ## 한 줄 요약
 Claude Code 창시자 Boris Cherny 가 "본인은 작년 10월부터 코드 한 줄 안 썼고 모델이 100% 작성, 어떤 날은 하루 150 PR" 이라며 /loop·서브 에이전트·크로스 디스시플린 제너럴리스트로 굴러가는 Anthropic 내부 작업 방식과, 인쇄기 비유로 소프트웨어 빌딩이 곧 텍스트 메시지처럼 보편 스킬이 될 거라는 전망을 풀어낸 인터뷰.
 

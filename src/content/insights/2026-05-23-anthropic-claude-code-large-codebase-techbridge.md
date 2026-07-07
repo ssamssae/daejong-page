@@ -5,8 +5,6 @@ source_url: "https://youtu.be/diF0Qbj56ys"
 source_author: "Tech Bridge"
 ---
 
-# [한글자막] Anthropic이 공개한 대규모 코딩 프로젝트용 최고의 Claude Code 설정법 — Tech Bridge
-
 ## 한 줄 요약
 Anthropic 이 정리한 대규모 코드베이스용 Claude Code 셋업법 — file system 기반 navigation 위에 Claude.md·hooks·skills·plugins·LSP·MCP·subagents 7요소로 harness 를 짜고, progressive context loading 으로 토큰을 아끼는 원칙을 압축 정리.
 

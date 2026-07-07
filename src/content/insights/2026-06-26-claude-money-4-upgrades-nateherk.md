@@ -5,8 +5,6 @@ source_url: "https://youtu.be/iTY8Q449YNQ"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# I asked Claude Code to make me as much money as possible — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Claude Code 의 기본 습관(아첨·미검증·컨텍스트 부패·단일 에이전트 병목)이 돈 버는 걸 방해한다고 보고, 이를 고치는 4가지 업그레이드(roast 카운슬 / 검증 루프 / 컨텍스트 관리 / 서브에이전트+/goal)를 실제 $9 SaaS 아이디어를 처음부터 끝까지 만들며 시연한 영상.
 

@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=DTCyvo6cC54"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# Every Level of a Claude Second Brain Explained — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Claude Code(또는 어떤 AI 에이전트든)와 함께 쓰는 second brain을 5단계 레벨로 분류하고, 각 레벨의 작동 방식·적합한 사용 사례·한계를 설명한다. 높은 레벨이 무조건 좋은 게 아니라 현재의 실제 고통점(pain point)에 맞는 최소 레벨을 고르는 것이 핵심이다.
 

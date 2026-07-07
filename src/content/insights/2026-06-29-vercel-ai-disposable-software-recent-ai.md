@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=aluFAmDQtms"
 source_author: "Recent AI"
 ---
 
-# Vercel 창업자가 말하는 AI 시대: 소프트웨어는 이제 일회용이 된다 — Recent AI
-
 ## 한 줄 요약
 Vercel 창업자는 AI 코딩 에이전트 시대에 소프트웨어의 가치가 코드 작성 자체에서 배포, 운영, 맞춤형 실행 경험으로 이동한다고 설명한다. 범용 SaaS UI는 더 많이 대체되지만, 시스템 오브 레코드와 API, MCP, CLI처럼 에이전트가 붙을 수 있는 기반은 더 중요해진다고 말한다.
 

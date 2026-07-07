@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=6ZtlaKrq0oE"
 source_author: "Liam Yoo"
 ---
 
-# M4 맥미니 외장 SSD 활용 가이드 — Liam Yoo 얼리엄답터
-
 ## 한 줄 요약
 M4 맥미니 기본형(256GB) 의 가성비를 지키면서 내장 SSD 부족 문제를 외장 NVMe SSD 로 해결하는 4가지 방법(OS 통째 외장 / 홈 폴더+앱 외장 / 앱과 작업파일만 외장 / 단순 외장 ExFAT)을 비교하고 각 방식의 설정 절차·장단점·치명적 버그(저장공간 표시 오류)까지 짚는 실전 튜토리얼.
 

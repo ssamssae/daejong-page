@@ -5,8 +5,6 @@ source_url: "https://youtu.be/diY71x7GUjI"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# From Zero to Head of AI in 1 Year (as a regular person) — Nate Herk | AI Automation
-
 ## 한 줄 요약
 15년차 이메일 개발자가 39세에 해고된 뒤 AI 경력 0에서 1년 만에 15개 계열사의 AI 전략을 총괄하는 Head of AI 가 된 과정을 다룬 인터뷰 — 채용을 가른 건 학위·경력이 아니라 "뭘 만들었는지 보여줄 수 있는 링크"였다.
 

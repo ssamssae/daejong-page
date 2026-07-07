@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=vq5WhoPCWQ8"
 source_author: "Sigil Wen"
 ---
 
-# 고졸 중퇴에서 OpenAI 연구원으로 — 가브리엘 페테르손 인터뷰 — Sigil Wen
-
 ## 한 줄 요약
 스웨덴 시골 출신 고졸 중퇴자가 ChatGPT로 수학·머신러닝을 독학해 OpenAI(Sora) 연구원이 된 과정과, "지식은 더 이상 대학의 독점물이 아니다"라는 톱다운(top-down) 학습법·커리어 조언을 정리한 인터뷰.
 

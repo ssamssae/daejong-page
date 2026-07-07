@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=IK6H-lcGYm8"
 source_author: "Tech Bridge"
 ---
 
-# [한글자막] Matt Pocock의 에이전틱 엔지니어링 워크플로우를 그대로 따라 해보세요 — Tech Bridge
-
 ## 한 줄 요약
 Matt Pocock은 AI 코딩의 격차가 최신 모델 추격보다 하니스, 코드베이스 구조, 스킬 설계, AFK 작업 큐, 사람의 전략 판단에서 난다고 설명한다. 전술 코딩은 AI에 위임하되, 제품 방향·아키텍처·검증 시스템은 사람이 더 강하게 쥐어야 한다는 대화다.
 

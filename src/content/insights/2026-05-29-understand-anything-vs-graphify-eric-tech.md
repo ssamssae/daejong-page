@@ -5,8 +5,6 @@ source_url: "https://youtu.be/Ynv_WYO_slw"
 source_author: "Eric Tech"
 ---
 
-# Understand-Anything vs Graphify: I Tested Both on My SaaS — Eric Tech
-
 ## 한 줄 요약
 AI 코드베이스 분석 도구 Understand-Anything 과 Graphify 를 같은 SaaS 레포에 동시 적용해 토큰 소비·시각화·AI 쿼리 응답·온보딩·stale 갱신·로컬 모델 지원 6 축으로 정면 비교한다.
 

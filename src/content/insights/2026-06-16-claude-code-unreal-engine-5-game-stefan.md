@@ -5,8 +5,6 @@ source_url: "https://youtu.be/iRcrZjOt5H8"
 source_author: "Stefan 3D AI"
 ---
 
-# Claude Code Took Over Unreal Engine 5 and Built a Game — Stefan 3D AI
-
 ## 한 줄 요약
 무료 플러그인 2개(Unreal Claude + Vibe UE)와 MCP로 Claude Code를 Unreal Engine 5에 연결해, 프롬프트만으로 endless runner 게임(무한 트랙·3레인·장애물·코인·UI·게임오버)을 실제로 플레이 가능한 수준까지 만들어 본 워크플로우 데모.
 

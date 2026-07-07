@@ -5,8 +5,6 @@ source_url: "https://youtu.be/dYrrEKXtttk"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# Claude Mythos is Finally Here. — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Anthropic 이 Opus 위 티어인 "Mythos class" 모델 두 종 — 일반 공개되는 Fable 5 와 Glasswing 파트너 한정 Mythos 5 — 을 공개한 발표를 짚으며, 가격·구독 포함 기간·벤치마크·effort 레벨·에이전트 루프 과용 경계까지 발화자가 정리한 영상.
 

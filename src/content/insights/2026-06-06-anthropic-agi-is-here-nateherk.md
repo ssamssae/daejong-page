@@ -5,8 +5,6 @@ source_url: "https://youtu.be/NDeyhGnNECc"
 source_author: "Nate Herk"
 ---
 
-# AGI는 이미 왔다 — Anthropic이 증명했다 — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Anthropic의 "When AI builds itself" 리포트(출하 코드의 80%+를 자체 AI Claude가 작성)를 근거로, 발화자는 "답이 정해지지 않은 새 문제를 스스로 풀어내는 범용 AI"라는 실용적 정의로는 AGI가 이미 조용히 도래했다고 주장하며, 그로 인한 사회 격차·멈출 수 없는 AI 레이스·인간 가치의 이동을 짚는다.
 

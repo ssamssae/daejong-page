@@ -5,8 +5,6 @@ source_url: "https://youtu.be/8QQ_INxAhRs"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# I Turned Claude Fable Into The Ultimate Second Brain — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Claude Fable 출시에 맞춰, 발화자가 수개월간 만들어 온 AI 운영체제(second brain + AI OS)를 "four C's(Context·Connections·Capabilities·Cadence)" 프레임워크로 어떻게 구축·운영·개선하는지 보여주는 실전 마인드셋 영상.
 

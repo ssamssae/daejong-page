@@ -5,8 +5,6 @@ source_url: "https://www.youtube.com/watch?v=HQEm4rBKdec"
 source_author: "Eric Tech"
 ---
 
-# Graphify — 코드베이스를 knowledge graph로 인덱싱해 LLM 토큰 절감 — Eric Tech
-
 ## 한 줄 요약
 Andrej Karpathy의 "LLM knowledge base" 아이디어에서 출발한 Graphify 레포를 소개·실연하는 영상. 코드·문서 raw 파일을 knowledge graph로 변환해 LLM이 매번 원본을 읽지 않게 만들어 토큰을 대폭 줄이고, path·explain·query·Obsidian/MCP 생성 등 코드베이스 탐색 기능을 보여준다.
 

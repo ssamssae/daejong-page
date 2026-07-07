@@ -5,8 +5,6 @@ source_url: "https://youtu.be/jZgcWCzxh1I"
 source_author: "Nate Herk | AI Automation"
 ---
 
-# Claude Code Dynamic Workflows Clearly Explained — Nate Herk | AI Automation
-
 ## 한 줄 요약
 Claude Code의 dynamic workflows가 무엇이고 skill·sub-agent·agent team과 어떻게 다른지, 언제 쓰면 좋고(독립적으로 쪼개지는 width형 병렬 작업) 언제 오버킬인지, 그리고 비용 폭증을 어떻게 통제하는지를 정리한 영상.
 

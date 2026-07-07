@@ -5,8 +5,6 @@ source_url: "https://youtu.be/IjDZP6F_efs"
 source_author: "Recent AI"
 ---
 
-# AGI는 이미 왔다, 그런데 회사들이 못 쓰는 이유 — Recent AI
-
 ## 한 줄 요약
 Databricks 창업자로 보이는 발화자가 "AGI는 이미 도달했고, 기업이 성과를 못 내는 건 모델 성능이 아니라 조직의 맥락·프로세스를 AI에 이식하지 못해서"라고 주장하며, 전기모터·PC의 40년 확산 지연과 자사 커넥터 개발 리팩토링 사례로 이를 설명하는 대담.
 
