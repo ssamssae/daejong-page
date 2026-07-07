@@ -80,6 +80,8 @@ const groups = ['운영 기록', '지식 노트', '실험'].map((label) => ({
   items: items.filter((item) => item.group === label),
 }));
 
+const heroSummary = `${items.length}개 문서 · 운영 기록/지식 노트/실험 · 공개 가능한 구조만`;
+
 const principles = [
   ['실패도 자산으로 남깁니다.', '접은 시도는 지우지 않고, 다음 작업에서 같은 비용을 다시 내지 않게 보관합니다.'],
   ['잡학은 연결될 때까지 둡니다.', '지금은 제품이 아니어도 용어, 습관, 실험은 다음 빌드의 재료가 됩니다.'],
@@ -101,19 +103,17 @@ const principles = [
         <div>
           <dt>문서</dt>
           <dd>{items.length}</dd>
-          <span>실험과 기록 링크</span>
         </div>
         <div>
           <dt>묶음</dt>
           <dd>{groups.length}</dd>
-          <span>운영 기록 · 지식 노트 · 실험</span>
         </div>
         <div>
           <dt>원칙</dt>
           <dd>공개</dd>
-          <span>내부 세부는 빼고 구조만 남깁니다.</span>
         </div>
       </dl>
+      <p class="hero-summary">{heroSummary}</p>
     </section>
 
     <section class="featured-section" aria-labelledby="featured-title">
@@ -241,9 +241,9 @@ const principles = [
     .hero-stats div {
       display: grid;
       grid-template-columns: 72px minmax(0, 1fr);
-      gap: 8px 16px;
+      gap: 16px;
       align-items: baseline;
-      min-height: 70px;
+      min-height: 58px;
       border-bottom: 1px solid var(--border);
       padding: 14px 0;
     }
@@ -257,16 +257,18 @@ const principles = [
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 32px;
+      font-size: 16px;
       font-weight: 600;
-      line-height: 1;
+      line-height: 1.45;
+      min-width: 0;
     }
 
-    .hero-stats span {
-      grid-column: 2;
+    .hero-summary {
       color: var(--fg-dim);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.45;
+      margin-top: 12px;
+      white-space: nowrap;
     }
 
     .section-head {
@@ -513,8 +515,8 @@ const principles = [
         grid-template-columns: 1fr;
       }
 
-      .hero-stats span {
-        grid-column: auto;
+      .hero-summary {
+        white-space: normal;
       }
 
       .section-head h2 {
