@@ -1,17 +1,475 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PostList from '../../components/PostList.astro';
 import { getCollection } from 'astro:content';
+
 const posts = (await getCollection('insights')).sort((a, b) =>
   b.data.date.localeCompare(a.data.date)
 );
+
+const featured = posts.slice(0, 3);
+const latestDate = posts[0]?.data.date ?? '—';
+const latestMonth = latestDate.slice(0, 7);
+const latestMonthCount = posts.filter((post) => post.data.date.startsWith(latestMonth)).length;
+
+const monthMap = new Map();
+for (const post of posts) {
+  const key = post.data.date.slice(0, 7);
+  if (!monthMap.has(key)) monthMap.set(key, []);
+  monthMap.get(key).push(post);
+}
+const monthGroups = Array.from(monthMap.entries()).map(([month, items]) => ({ month, items }));
+
+const topicRules = [
+  { label: 'AGENTIC CODING', title: '에이전트 코딩', pattern: /claude|codex|fable|agent|에이전트|코딩|code/i },
+  { label: 'AI WORK', title: 'AI 업무 전환', pattern: /AI|AX|자동화|조직|커리어|공부|학습|수익/i },
+  { label: 'LOCAL STACK', title: '로컬·하드웨어', pattern: /local|llm|gpu|vram|mac|맥|m4|m5|hardware|하드웨어/i },
+];
+
+const topics = topicRules.map((topic) => ({
+  ...topic,
+  count: posts.filter((post) => topic.pattern.test(post.data.title)).length,
+}));
+
+const formatMonth = (month) => month.replace('-', '.');
 ---
-<Layout title="인사이트 — 마이너스베타스튜디오" description="영상·아티클에서 뽑은 학습 노트 (second brain).">
-  <h1 class="accent-magenta">인사이트</h1>
-  <p class="lead">영상·아티클에서 뽑은 학습 노트 · 총 {posts.length}편</p>
-  <PostList posts={posts} base="/insights" />
+<Layout title="인사이트 — 마이너스베타스튜디오" description="영상·아티클에서 뽑은 학습 노트. AI, 자동화, 1인 앱 제작을 위한 공개 second brain.">
+  <section class="insights-hero" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <p class="eyebrow">INSIGHTS</p>
+      <h1 id="page-title">인사이트</h1>
+      <p class="lead">
+        영상과 아티클에서 건진 학습 노트를 쌓아 둡니다.
+        좋은 문장보다 다음 작업에 다시 써먹을 수 있는 구조를 남기는 페이지입니다.
+      </p>
+    </div>
+    <dl class="hero-stats" aria-label="인사이트 요약">
+      <div>
+        <dt>전체</dt>
+        <dd>{posts.length}</dd>
+      </div>
+      <div>
+        <dt>최신</dt>
+        <dd>{latestDate}</dd>
+      </div>
+      <div>
+        <dt>{latestMonth}</dt>
+        <dd>{latestMonthCount}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="featured-section" aria-labelledby="featured-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">LATEST</p>
+        <h2 id="featured-title">최근에 건진 것</h2>
+      </div>
+      <p>가장 최근 노트 3편을 먼저 보여주고, 전체 목록은 아래에서 월별로 이어집니다.</p>
+    </div>
+
+    <div class="featured-grid">
+      {featured.map((post, index) => (
+        <a class={index === 0 ? 'insight-card primary' : 'insight-card'} href={`/insights/${post.id}/`}>
+          <span class="card-topline">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <span>{post.data.date}</span>
+          </span>
+          <strong>{post.data.title}</strong>
+          {post.data.summary && <span class="summary">{post.data.summary}</span>}
+          <span class="read-more">읽기</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="topic-section" aria-labelledby="topic-title">
+    <div class="section-head compact">
+      <div>
+        <p class="eyebrow">THEMES</p>
+        <h2 id="topic-title">자주 돌아오는 주제</h2>
+      </div>
+    </div>
+
+    <ol class="topic-list">
+      {topics.map((topic) => (
+        <li>
+          <span>{topic.label}</span>
+          <strong>{topic.title}</strong>
+          <em>{topic.count}편</em>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="archive-section" aria-labelledby="archive-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">ARCHIVE</p>
+        <h2 id="archive-title">전체 노트</h2>
+      </div>
+      <p>최신순으로 월별 묶음을 유지해 빠르게 훑어볼 수 있게 정리했습니다.</p>
+    </div>
+
+    <div class="archive-list">
+      {monthGroups.map((group) => (
+        <section class="month-block" aria-labelledby={`month-${group.month}`}>
+          <header>
+            <h3 id={`month-${group.month}`}>{formatMonth(group.month)}</h3>
+            <span>{group.items.length}편</span>
+          </header>
+          <ol>
+            {group.items.map((post) => (
+              <li>
+                <a href={`/insights/${post.id}/`}>
+                  <span>{post.data.date}</span>
+                  <strong>{post.data.title}</strong>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
+    </div>
+  </section>
+
   <style>
-    h1 { font-size: 32px; margin-bottom: 8px; }
-    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin-bottom: 32px; }
+    .insights-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+      gap: 48px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0 42px;
+      margin-bottom: 58px;
+    }
+
+    .eyebrow {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      max-width: 760px;
+      color: var(--fg);
+      font-size: 64px;
+      line-height: 1.02;
+      word-break: keep-all;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin-top: 24px;
+      color: var(--fg-dim);
+      font-size: 20px;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .hero-stats {
+      display: grid;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stats div {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 12px 20px;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-stats dt {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero-stats dd {
+      color: var(--fg);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-head.compact {
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      max-width: 720px;
+      font-size: 34px;
+      line-height: 1.2;
+      word-break: keep-all;
+    }
+
+    .section-head > p {
+      color: var(--fg-dim);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .featured-section,
+    .topic-section,
+    .archive-section {
+      margin-top: 72px;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.96fr 0.96fr;
+      gap: 16px;
+    }
+
+    .insight-card {
+      display: grid;
+      align-content: start;
+      gap: 18px;
+      min-height: 292px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      background: var(--bg);
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .insight-card:hover {
+      background: var(--bg-elev);
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .insight-card.primary {
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    .insight-card.primary .card-topline,
+    .insight-card.primary .summary,
+    .insight-card.primary .read-more {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .card-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .insight-card strong {
+      font-size: 24px;
+      line-height: 1.25;
+      word-break: keep-all;
+    }
+
+    .summary {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.62;
+    }
+
+    .read-more {
+      align-self: end;
+      margin-top: auto;
+      color: var(--fg-dim);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .topic-list {
+      border-top: 1px solid var(--border);
+      list-style: none;
+    }
+
+    .topic-list li {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 84px;
+      gap: 24px;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topic-list span,
+    .topic-list em {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .topic-list strong {
+      color: var(--fg);
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .archive-list {
+      display: grid;
+      gap: 28px;
+    }
+
+    .month-block {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 32px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+
+    .month-block header {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .month-block h3 {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .month-block header span {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .month-block ol {
+      list-style: none;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .month-block li {
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .month-block a {
+      display: grid;
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 18px;
+      align-items: baseline;
+      min-height: 58px;
+      padding: 15px 0;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .month-block a:hover {
+      background: var(--bg-elev);
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .month-block a span {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .month-block a strong {
+      min-width: 0;
+      color: var(--fg);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    @media (max-width: 920px) {
+      .insights-hero,
+      .section-head,
+      .featured-grid,
+      .month-block {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      .month-block header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .insights-hero {
+        gap: 34px;
+        padding-top: 10px;
+        margin-bottom: 50px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .hero-stats div,
+      .topic-list li,
+      .month-block a {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head h2 {
+        font-size: 28px;
+      }
+
+      .featured-section,
+      .topic-section,
+      .archive-section {
+        margin-top: 56px;
+      }
+
+      .insight-card {
+        min-height: 216px;
+        padding: 20px;
+      }
+
+      .insight-card strong {
+        font-size: 21px;
+      }
+
+      .month-block {
+        gap: 16px;
+      }
+
+      .month-block a {
+        gap: 4px;
+        min-height: auto;
+        padding: 14px 0;
+      }
+    }
   </style>
 </Layout>
