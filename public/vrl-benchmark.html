@@ -45,25 +45,24 @@
 </script>
   <meta name="description" content="Claude Code와 페어로 앱을 만드는 1인 개발자 강대종의 개발 여정 페이지. 출시한 앱, 개발 지표, 첫 코드부터 App Store 심사 제출까지의 압축된 과정, 작게 만들고 빨리 고치는 방식, 베타테스터 안내를 담았습니다.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="/page-dark.css">
   <style>
-    /* ── 다크 네온 톤 토큰 (page-dark.css SoT 미러) ── */
     :root {
-      --bg:        #0a0a0a;
-      --bg-soft:   #131313;
-      --bg-band:   #191919;
-      --line:      #232323;
-      --ink:       #f5f5f5;
-      --ink-2:     #b9c0c9;
-      --ink-3:     #8b95a1;
+      --bg:        #ffffff;
+      --bg-soft:   #f7f7f7;
+      --bg-band:   #f7f7f7;
+      --line:      #dedede;
+      --ink:       #111111;
+      --ink-2:     #4f4f4f;
+      --ink-3:     #777777;
       --blue:      #3182f6;
       --blue-deep: #1b64da;
-      --radius:    20px;
-      --shadow:    0 2px 24px rgba(0,0,0,0.30);
-      --shadow-lg: 0 8px 40px rgba(0,0,0,0.45);
+      --accent-bg: #eef4ff;
+      --radius:    8px;
+      --shadow:    none;
+      --shadow-lg: none;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scrollbar-gutter: stable; }
     body {
       background: var(--bg);
       color: var(--ink);
@@ -77,21 +76,21 @@
     /* ── 이중 헤더 (vrl 패턴: 상단 브랜드 바 + 하단 섹션 내비) ── */
     .topbar {
       border-bottom: 1px solid var(--line);
-      background: rgba(15,17,21,0.85);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: saturate(180%) blur(12px);
     }
     .topbar .wrap {
       height: 56px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .brand { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand { font-size: 17px; font-weight: 800; letter-spacing: 0; }
     .topbar-links { display: flex; gap: 22px; }
     .topbar-links a { font-size: 14px; color: var(--ink-2); font-weight: 500; transition: color .15s; }
     .topbar-links a:hover { color: var(--ink); }
 
     .navbar {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(15,17,21,0.85);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: saturate(180%) blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -118,17 +117,17 @@
     .hero .eyebrow {
       display: inline-block;
       font-size: 13px; font-weight: 700; color: var(--blue);
-      background: rgba(49,130,246,0.14); padding: 6px 14px; border-radius: 999px;
-      margin-bottom: 24px; letter-spacing: -0.01em;
+      background: var(--accent-bg); padding: 6px 14px; border-radius: 999px;
+      margin-bottom: 24px; letter-spacing: 0;
     }
     .hero h1 {
-      font-size: clamp(34px, 6vw, 60px);
-      font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
+      font-size: 60px;
+      font-weight: 800; letter-spacing: 0; line-height: 1.15;
       margin-bottom: 20px;
     }
     .hero h1 .accent { color: var(--blue); }
     .hero p {
-      font-size: clamp(16px, 2.4vw, 20px); color: var(--ink-2);
+      font-size: 20px; color: var(--ink-2);
       max-width: 600px; margin: 0 auto 36px;
     }
     .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -153,8 +152,8 @@
       text-align: center; box-shadow: var(--shadow); border: 1px solid var(--line);
     }
     .stat-num {
-      font-size: clamp(36px, 5vw, 52px); font-weight: 800;
-      color: var(--ink); letter-spacing: -0.03em; line-height: 1;
+      font-size: 52px; font-weight: 800;
+      color: var(--ink); letter-spacing: 0; line-height: 1;
     }
     .stat-num .unit { font-size: 0.5em; font-weight: 700; color: var(--ink-3); margin-left: 4px; }
     .stat-label { margin-top: 12px; font-size: 14px; color: var(--ink-2); font-weight: 600; }
@@ -162,10 +161,10 @@
     /* ── 섹션 공통 ── */
     section.block { padding: 88px 0; }
     .section-head { text-align: center; margin-bottom: 48px; }
-    .section-head .tag { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 0.04em; }
+    .section-head .tag { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 0; }
     .section-head h2 {
-      font-size: clamp(26px, 4vw, 38px); font-weight: 800;
-      letter-spacing: -0.03em; margin-top: 10px;
+      font-size: 38px; font-weight: 800;
+      letter-spacing: 0; margin-top: 10px;
     }
     .section-head p { color: var(--ink-2); margin-top: 12px; font-size: 16px; }
 
@@ -178,10 +177,10 @@
     .app-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
     .app-card .pill {
       display: inline-block; font-size: 12px; font-weight: 700;
-      color: var(--blue); background: rgba(49,130,246,0.14); padding: 4px 10px; border-radius: 999px;
+      color: var(--blue); background: var(--accent-bg); padding: 4px 10px; border-radius: 999px;
       margin-bottom: 14px;
     }
-    .app-card h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+    .app-card h3 { font-size: 19px; font-weight: 800; letter-spacing: 0; }
     .app-card .status { font-size: 13px; color: var(--ink-3); margin: 6px 0 14px; font-weight: 600; }
     .app-card .desc { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
 
@@ -199,15 +198,15 @@
       box-shadow: 0 0 0 2px var(--blue);
     }
     .milestone .date { font-size: 13px; font-weight: 700; color: var(--blue); }
-    .milestone h4 { font-size: 17px; font-weight: 800; margin: 4px 0 6px; letter-spacing: -0.02em; }
+    .milestone h4 { font-size: 17px; font-weight: 800; margin: 4px 0 6px; letter-spacing: 0; }
     .milestone p { font-size: 14px; color: var(--ink-2); }
 
     /* ── CTA ── */
-    .cta-band { background: var(--accent-bg); color: #fff; padding: 80px 0; text-align: center; }
-    .cta-band h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; letter-spacing: -0.03em; }
-    .cta-band p { color: var(--ink-2); margin: 14px 0 32px; font-size: 16px; }
+    .cta-band { background: var(--ink); color: #fff; padding: 80px 0; text-align: center; }
+    .cta-band h2 { font-size: 36px; font-weight: 800; letter-spacing: 0; }
+    .cta-band p { color: rgba(255,255,255,0.72); margin: 14px 0 32px; font-size: 16px; }
     .cta-band .btn-primary { background: var(--blue); }
-    .cta-band .btn-light { background: #fff; color: var(--bg); }
+    .cta-band .btn-light { background: #fff; color: var(--ink); }
     .cta-band .btn-light:hover { background: #F2F4F6; }
 
     /* ── 푸터 ── */
@@ -224,7 +223,23 @@
     }
     @media (max-width: 560px) {
       .apps-grid { grid-template-columns: 1fr; }
+      .navbar .wrap {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        overflow: visible;
+        padding: 12px 24px;
+      }
+      .navbar .cta,
+      .navbar .nav-home {
+        margin-left: 0 !important;
+      }
       .hero { padding: 64px 0 48px; }
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 17px; }
+      .stat-num { font-size: 40px; }
+      .section-head h2 { font-size: 30px; }
+      .cta-band h2 { font-size: 30px; }
       section.block { padding: 60px 0; }
     }
   </style>
