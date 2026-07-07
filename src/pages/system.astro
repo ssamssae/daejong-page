@@ -6,10 +6,12 @@ const policies = [...policyData.policies].sort((a, b) => b.changed.localeCompare
 const latestPolicyDate = policies[0]?.changed ?? '—';
 
 const stats = [
-  { label: '물리 노드', value: '5', detail: '상주 장비가 역할별로 나뉘어 움직입니다.' },
-  { label: 'AI 레인', value: '10', detail: 'Claude 5 + Codex 5를 판단과 실행으로 분리합니다.' },
-  { label: '정책', value: policies.length, detail: `최신 변경 ${latestPolicyDate}` },
+  { label: '물리 노드', value: '5' },
+  { label: 'AI 레인', value: '10' },
+  { label: '정책', value: policies.length },
 ];
+
+const heroSummary = `5대 물리 노드 · 10개 AI 레인 · 정책 최신 ${latestPolicyDate}`;
 
 const layers = [
   {
@@ -94,15 +96,17 @@ const safeguards = [
           빠르게 만들되, 되돌리기 어려운 지점은 사람이 닫는 구조입니다.
         </p>
       </div>
-      <dl class="hero-stats" aria-label="시스템 요약">
-        {stats.map((stat) => (
-          <div>
-            <dt>{stat.label}</dt>
-            <dd>{stat.value}</dd>
-            <span>{stat.detail}</span>
-          </div>
-        ))}
-      </dl>
+      <div class="hero-side">
+        <dl class="hero-stats" aria-label="시스템 요약">
+          {stats.map((stat) => (
+            <div>
+              <dt>{stat.label}</dt>
+              <dd>{stat.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p class="hero-summary">{heroSummary}</p>
+      </div>
     </section>
 
     <section class="flow-section" aria-labelledby="flow-title">
@@ -217,9 +221,9 @@ const safeguards = [
     .hero-stats div {
       display: grid;
       grid-template-columns: 72px minmax(0, 1fr);
-      gap: 8px 16px;
+      gap: 16px;
       align-items: baseline;
-      min-height: 70px;
+      min-height: 58px;
       border-bottom: 1px solid var(--border);
       padding: 14px 0;
     }
@@ -238,11 +242,12 @@ const safeguards = [
       line-height: 1.45;
     }
 
-    .hero-stats span {
-      grid-column: 2;
+    .hero-summary {
       color: var(--fg-dim);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.45;
+      margin-top: 12px;
+      white-space: nowrap;
     }
 
     .section-head {
@@ -431,8 +436,8 @@ const safeguards = [
         grid-template-columns: 1fr;
       }
 
-      .hero-stats span {
-        grid-column: auto;
+      .hero-summary {
+        white-space: normal;
       }
 
       .section-head h2 {
