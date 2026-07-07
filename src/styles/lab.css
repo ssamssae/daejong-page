@@ -1,73 +1,354 @@
-/* lab.css — lab/system 하위 페이지 공통 톤 단일 소스 (2026-06-16 B안)
- * 구 public/lab-page.css 를 끌어올린 것. 색 토큰은 tokens.css(:root) 참조,
- * 페이지별 포인트색은 --page-accent 로 override (예: dead-ends=danger).
- * Astro 페이지가 frontmatter 에서 `import '../styles/lab.css'` → 번들로 단일 관리.
- * 톤 변경은 이 파일 1곳 (+ 토큰은 tokens.css 1곳). */
+/* lab/system child pages shared frame. */
 
-:root { --page-accent: var(--accent); } /* 기본 시안, 페이지가 덮어씀 */
+:root {
+  --page-accent: var(--fg);
+}
 
-/* ── 다크 안전망 (구 page-dark.css 의 lab 전용 폴리시) ── */
-html { color-scheme: dark; }
-::selection { background: var(--accent); color: #0a0a0a; }
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: #383838; }
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
 
-.lab-page * { box-sizing: border-box; }
+.lab-page * {
+  box-sizing: border-box;
+}
 
-/* ── Nav (구 .lab-nav — 공유 Nav.astro 로 대체됨, 미전환 잔재 대비 보존) ── */
-.lab-nav { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
-.lab-nav-inner { max-width: 760px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-.lab-nav .brand { display: inline-flex; align-items: center; font-family: var(--mono); font-weight: 600; font-size: 18px; color: var(--accent); text-decoration: none; }
-.lab-nav .brand img { height: 30px; width: 30px; display: block; }
-.lab-nav-links { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
-.lab-nav-links a { color: var(--fg-dim); text-decoration: none; }
-.lab-nav-links a:hover { color: var(--accent-2); }
+.lab-page {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
 
-/* ── main wrap ── */
-.lab-main { max-width: 760px; margin: 0 auto; padding: 40px 24px 32px; }
+.lab-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: blur(14px);
+}
 
-/* ── 중앙 모노 hero (/sorry 패턴) ── */
-.lab-hero { text-align: center; padding: 8px 0 40px; }
-.lab-hero .logo { font-family: var(--mono); font-size: 48px; font-weight: 600; color: var(--page-accent); line-height: 1.1; word-break: keep-all; }
-.lab-hero .tagline { font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px; }
-.lab-hero .intro { color: var(--fg-dim); max-width: 520px; margin: 18px auto 0; font-size: 15px; line-height: 1.7; }
+.lab-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(calc(100% - 48px), 1120px);
+  margin: 0 auto;
+  padding: 14px 0;
+}
 
-/* ── stat 카드 (옵션) ── */
-.lab-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
-.lab-stat { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; background: var(--bg-elev); }
-.lab-stat-label { font-family: var(--mono); font-size: 10px; color: var(--fg-mute); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-.lab-stat-value { font-size: 22px; color: var(--fg); font-weight: 700; }
-.lab-stat-value .unit { font-size: 13px; color: var(--fg-dim); font-weight: 500; margin-left: 4px; }
-.lab-stat-sub { font-size: 11px; color: var(--fg-mute); margin-top: 4px; }
+.lab-nav .brand {
+  display: inline-flex;
+  align-items: center;
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-/* ── 카드 리스트 (좌측 accent 라인 — /sorry so-card 패턴) ── */
-.lab-list { display: flex; flex-direction: column; gap: 14px; }
-.lab-card { display: block; border: 1px solid var(--border); border-left: 3px solid var(--page-accent); border-radius: 10px; padding: 16px 18px; background: var(--bg-elev); color: inherit; text-decoration: none; transition: border-color 0.15s, transform 0.15s; }
-.lab-card:hover { border-color: var(--page-accent); transform: translateY(-1px); }
-.lab-card-head { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-.lab-card-title { flex: 1 1 auto; min-width: 0; font-size: 16px; color: var(--fg); font-weight: 600; line-height: 1.45; word-break: keep-all; overflow-wrap: break-word; }
-.lab-cat { font-size: 10px; padding: 2px 8px; border-radius: 6px; font-weight: 700; letter-spacing: 0.3px; color: var(--bg); background: var(--page-accent); }
-.lab-meta { font-family: var(--mono); font-size: 11px; color: var(--fg-mute); margin-bottom: 8px; }
-.lab-meta .sep { color: var(--border); margin: 0 6px; }
-.lab-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
-.lab-tag { font-size: 10px; padding: 2px 8px; border-radius: 6px; font-weight: 600; color: var(--page-accent); background: var(--bg-elev2); border: 1px solid var(--border); }
-.lab-summary { font-size: 13px; color: var(--fg-dim); line-height: 1.65; margin-top: 8px; word-break: keep-all; overflow-wrap: break-word; }
+.lab-nav .brand img {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
 
-/* ── 상태 ── */
-.lab-empty, .lab-loading, .lab-error { text-align: center; color: var(--fg-mute); padding: 48px 20px; font-size: 14px; }
-.lab-empty { border: 1px solid var(--border); border-radius: 10px; background: var(--bg-elev); }
+.lab-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
 
-/* ── back 링크 ── */
-.lab-back { display: inline-block; margin-top: 28px; color: var(--fg-dim); text-decoration: none; font-family: var(--mono); font-size: 13px; }
-.lab-back:hover { color: var(--page-accent); }
+.lab-nav-links a {
+  color: var(--fg-dim);
+  text-decoration: none;
+}
 
-/* ── Footer (구 .lab-foot — 공유 Footer.astro 로 대체됨, 미전환 잔재 대비 보존) ── */
-.lab-foot { border-top: 1px solid var(--border); max-width: 760px; margin: 56px auto 0; padding: 32px 24px 64px; font-family: var(--mono); font-size: 12px; color: var(--fg-dim); }
-.lab-foot a { color: var(--accent); text-decoration: none; }
-.lab-foot a:hover { color: var(--accent-2); }
-.lab-foot .biz { display: flex; flex-direction: column; gap: 4px; margin-top: 16px; }
-.lab-foot .copy { margin-top: 16px; }
+.lab-nav-links a:hover {
+  color: var(--fg);
+}
 
-@media (max-width: 520px) { .lab-stats { grid-template-columns: 1fr; } }
+.lab-main {
+  width: min(calc(100% - 48px), 1120px);
+  margin: 0 auto;
+  padding: 48px 0 72px;
+}
+
+.lab-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0 40px;
+  text-align: left;
+}
+
+.lab-hero .logo {
+  max-width: 860px;
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.08;
+  word-break: keep-all;
+}
+
+.lab-hero .tagline {
+  max-width: 760px;
+  color: var(--fg-mute);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.lab-hero .intro {
+  max-width: 760px;
+  margin: 0;
+  color: var(--fg-dim);
+  font-size: 18px;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.lab-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.lab-stat {
+  min-width: 0;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  padding: 18px 20px;
+}
+
+.lab-stat:nth-child(2n) {
+  border-right: 0;
+}
+
+.lab-stat-label {
+  margin-bottom: 8px;
+  color: var(--fg-mute);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.lab-stat-value {
+  color: var(--fg);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.lab-stat-value .unit {
+  margin-left: 4px;
+  color: var(--fg-dim);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.lab-stat-sub {
+  margin-top: 6px;
+  color: var(--fg-mute);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.lab-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.lab-card {
+  display: block;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--bg);
+  color: inherit;
+  padding: 18px 0;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.lab-card:hover {
+  background: var(--bg-elev);
+}
+
+.lab-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.lab-card-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--fg);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  word-break: keep-all;
+}
+
+.lab-cat {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--fg-dim);
+  background: var(--bg);
+  padding: 3px 9px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.lab-meta {
+  margin-bottom: 8px;
+  color: var(--fg-mute);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.lab-meta .sep {
+  color: var(--border);
+  margin: 0 6px;
+}
+
+.lab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.lab-tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg-dim);
+  padding: 3px 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.lab-summary {
+  max-width: 820px;
+  margin-top: 8px;
+  color: var(--fg-dim);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+  word-break: keep-all;
+}
+
+.lab-empty,
+.lab-loading,
+.lab-error {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--fg-mute);
+  padding: 40px 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+.lab-back {
+  display: inline-block;
+  color: var(--fg-dim);
+  font-family: var(--mono);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.lab-back:hover {
+  color: var(--fg);
+}
+
+.lab-foot {
+  width: min(calc(100% - 48px), 1120px);
+  margin: 56px auto 0;
+  border-top: 1px solid var(--border);
+  padding: 32px 0 64px;
+  color: var(--fg-dim);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.lab-foot a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.lab-foot a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.lab-foot .biz {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.lab-foot .copy {
+  margin-top: 16px;
+}
+
+@media (max-width: 720px) {
+  .lab-page {
+    gap: 48px;
+  }
+
+  .lab-main,
+  .lab-nav-inner,
+  .lab-foot {
+    width: min(calc(100% - 32px), 1120px);
+  }
+
+  .lab-hero {
+    padding: 8px 0 32px;
+  }
+
+  .lab-hero .logo {
+    font-size: 38px;
+  }
+
+  .lab-hero .intro {
+    font-size: 16px;
+  }
+
+  .lab-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-stat {
+    border-right: 0;
+  }
+
+  .lab-card-head {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lab-card-title {
+    font-size: 17px;
+  }
+}
