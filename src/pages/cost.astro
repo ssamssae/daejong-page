@@ -1,0 +1,683 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  aiSpendSource,
+  spendCategories,
+  spendItems,
+  type SpendCategory,
+} from '../data/ai-spend';
+
+const krw = new Intl.NumberFormat('ko-KR');
+const formatKrw = (value: number) => `${krw.format(value)}원`;
+const formatCompactKrw = (value: number) => `${Math.round(value / 10000).toLocaleString('ko-KR')}만원`;
+const formatDate = (date: string) => date.replaceAll('-', '.');
+const monthLabel = (month: string) => month.replace('-', '.');
+
+const totalKrw = spendItems.reduce((sum, item) => sum + item.amountKrw, 0);
+const pureAiKrw = spendItems
+  .filter((item) => item.category === 'ai')
+  .reduce((sum, item) => sum + item.amountKrw, 0);
+const mismatchKrw = aiSpendSource.canonicalTotalKrw - totalKrw;
+const period = `${formatDate(aiSpendSource.periodStart)} ~ ${formatDate(aiSpendSource.periodEnd)}`;
+
+const categoryTotals = spendCategories.map((category) => {
+  const total = spendItems
+    .filter((item) => item.category === category.id)
+    .reduce((sum, item) => sum + item.amountKrw, 0);
+  return {
+    ...category,
+    total,
+    percent: totalKrw > 0 ? Math.round((total / totalKrw) * 1000) / 10 : 0,
+  };
+});
+
+const emptyCategoryTotals = () =>
+  Object.fromEntries(spendCategories.map((category) => [category.id, 0])) as Record<SpendCategory, number>;
+
+const monthlyMap = new Map<string, Record<SpendCategory, number>>();
+for (const item of spendItems) {
+  const month = item.date.slice(0, 7);
+  const row = monthlyMap.get(month) ?? emptyCategoryTotals();
+  row[item.category] += item.amountKrw;
+  monthlyMap.set(month, row);
+}
+
+const monthlyRows = Array.from(monthlyMap.entries())
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([month, totals]) => ({
+    month,
+    totals,
+    total: spendCategories.reduce((sum, category) => sum + totals[category.id], 0),
+  }));
+
+const chart = {
+  width: 760,
+  height: 292,
+  top: 24,
+  right: 24,
+  bottom: 58,
+  left: 76,
+};
+const plotWidth = chart.width - chart.left - chart.right;
+const plotHeight = chart.height - chart.top - chart.bottom;
+const maxMonthlyTotal = Math.max(...monthlyRows.map((row) => row.total), 1);
+const slotWidth = plotWidth / Math.max(monthlyRows.length, 1);
+const barWidth = Math.min(82, slotWidth - 24);
+const chartBaseY = chart.top + plotHeight;
+const chartTicks = [0.25, 0.5, 0.75, 1].map((ratio) => ({
+  ratio,
+  y: chartBaseY - plotHeight * ratio,
+  value: Math.round((maxMonthlyTotal * ratio) / 10000) * 10000,
+}));
+
+const monthlyChartRows = monthlyRows.map((row, index) => {
+  const x = chart.left + index * slotWidth + (slotWidth - barWidth) / 2;
+  let y = chartBaseY;
+  const segments = spendCategories
+    .map((category) => {
+      const value = row.totals[category.id];
+      const height = maxMonthlyTotal > 0 ? (value / maxMonthlyTotal) * plotHeight : 0;
+      y -= height;
+      return {
+        category: category.id,
+        label: category.label,
+        value,
+        color: category.color,
+        x,
+        y,
+        height,
+      };
+    })
+    .filter((segment) => segment.value > 0);
+  return { ...row, x, segments };
+});
+
+const sortedItems = [...spendItems].sort(
+  (a, b) => b.date.localeCompare(a.date) || b.amountKrw - a.amountKrw
+);
+const categoryById = Object.fromEntries(spendCategories.map((category) => [category.id, category]));
+const verificationNotes = sortedItems.filter((item) => item.note);
+const totalLine =
+  mismatchKrw === 0
+    ? '앱 표시 합계와 현재 항목 합계가 일치합니다.'
+    : `앱 표시 합계와 항목 합계가 ${formatKrw(Math.abs(mismatchKrw))} 차이납니다. 화면밖 누락행 가능성이 있어 아니키 검증 대기입니다.`;
+---
+<Layout
+  title="AI로 앱 만드는 데 쓴 돈 — 비용 공개"
+  description="강대종이 AI로 앱과 자동화 시스템을 만들며 지출한 구독, API, 인프라, 하드웨어, 등록 비용 공개 페이지."
+>
+  <Fragment slot="head">
+    <meta property="og:title" content="AI로 앱 만드는 데 쓴 돈 — 비용 공개" />
+    <meta property="og:description" content="2026년 4월부터 7월까지 AI 앱 개발에 들어간 실제 지출을 분류별·월별로 공개합니다." />
+    <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://work.kangdaejong.com/cost/" />
+    <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI로 앱 만드는 데 쓴 돈 — 비용 공개" />
+    <meta name="twitter:description" content="AI 구독·API, 인프라, 하드웨어, 등록 비용을 공개합니다." />
+    <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
+    <link rel="canonical" href="https://work.kangdaejong.com/cost/" />
+  </Fragment>
+
+  <div class="cost-page">
+    <section class="cost-hero" aria-labelledby="cost-title">
+      <div class="cost-hero-copy">
+        <p class="cost-kicker">open build ledger</p>
+        <h1 id="cost-title">AI로 앱 만드는 데 쓴 돈</h1>
+        <p class="cost-lead">
+          2026년 봄부터 앱, 자동화, 운영 시스템을 실제 제품으로 밀어붙이기 위해 쓴 돈을 공개합니다.
+          숫자는 아직 스크린샷 전사 기반이며, 분류와 누락 여부는 검증 대기 상태입니다.
+        </p>
+        <p class="cost-note">
+          4~5월 개인카드(취미 분류)에서 6월 신한 사업자통장(사업지출)로 넘어간 지점이 보입니다.
+        </p>
+      </div>
+      <dl class="hero-metrics" aria-label="비용 요약">
+        <div class="hero-metric total">
+          <dt>총 개발 투자</dt>
+          <dd>{formatKrw(totalKrw)}</dd>
+          <span>{period}</span>
+        </div>
+        <div class="hero-metric">
+          <dt>순수 AI 비용</dt>
+          <dd>{formatKrw(pureAiKrw)}</dd>
+          <span>{Math.round((pureAiKrw / totalKrw) * 1000) / 10}%</span>
+        </div>
+      </dl>
+    </section>
+
+    <section class="cost-section" aria-labelledby="category-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">category</p>
+          <h2 id="category-title">네 가지로 나눠 봅니다</h2>
+        </div>
+        <p>
+          AI 구독과 API가 가장 크고, 그 밖에 결제 인프라, 테스트폰, 개발자 등록과 신고 비용이 붙었습니다.
+        </p>
+      </div>
+      <div class="category-grid">
+        {categoryTotals.map((category) => (
+          <article class="category-card" style={`--cat-color: ${category.color}`}>
+            <div class="category-top">
+              <span>{category.shortLabel}</span>
+              <span>{category.percent}%</span>
+            </div>
+            <h3>{category.label}</h3>
+            <strong>{formatKrw(category.total)}</strong>
+            <p>{category.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="cost-section" aria-labelledby="monthly-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">monthly trend</p>
+          <h2 id="monthly-title">월별 지출 추이</h2>
+        </div>
+        <p>
+          막대는 월별 합계입니다. 색은 위 네 분류와 같습니다.
+        </p>
+      </div>
+      <div class="chart-panel">
+        <svg class="spend-chart" viewBox={`0 0 ${chart.width} ${chart.height}`} role="img" aria-labelledby="chart-title chart-desc">
+          <title id="chart-title">월별 AI 개발 비용 누적 막대</title>
+          <desc id="chart-desc">2026년 4월부터 7월까지 월별 개발 투자액을 분류별 누적 막대로 보여줍니다.</desc>
+          <line x1={chart.left} y1={chartBaseY} x2={chart.width - chart.right} y2={chartBaseY} stroke="var(--border)" stroke-width="1"></line>
+          {chartTicks.map((tick) => (
+            <g>
+              <line x1={chart.left} y1={tick.y} x2={chart.width - chart.right} y2={tick.y} stroke="var(--border-soft)" stroke-width="1"></line>
+              <text x={chart.left - 12} y={tick.y + 4} text-anchor="end">{formatCompactKrw(tick.value)}</text>
+            </g>
+          ))}
+          {monthlyChartRows.map((row) => (
+            <g>
+              {row.segments.map((segment) => (
+                <rect
+                  x={segment.x}
+                  y={segment.y}
+                  width={barWidth}
+                  height={segment.height}
+                  fill={segment.color}
+                >
+                  <title>{`${segment.label}: ${formatKrw(segment.value)}`}</title>
+                </rect>
+              ))}
+              <text x={row.x + barWidth / 2} y={chartBaseY + 24} text-anchor="middle">{monthLabel(row.month)}</text>
+              <text x={row.x + barWidth / 2} y={chartBaseY + 42} text-anchor="middle">{formatCompactKrw(row.total)}</text>
+            </g>
+          ))}
+        </svg>
+        <div class="chart-legend" aria-label="차트 범례">
+          {spendCategories.map((category) => (
+            <span style={`--cat-color: ${category.color}`}>
+              <i aria-hidden="true"></i>
+              {category.label}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cost-section" aria-labelledby="monthly-table-title">
+      <div class="section-head compact">
+        <div>
+          <p class="section-kicker">monthly table</p>
+          <h2 id="monthly-table-title">월별 합계표</h2>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="monthly-table">
+          <thead>
+            <tr>
+              <th>월</th>
+              {spendCategories.map((category) => <th>{category.label}</th>)}
+              <th>합계</th>
+            </tr>
+          </thead>
+          <tbody>
+            {monthlyRows.map((row) => (
+              <tr>
+                <th>{monthLabel(row.month)}</th>
+                {spendCategories.map((category) => <td>{formatKrw(row.totals[category.id])}</td>)}
+                <td><strong>{formatKrw(row.total)}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="cost-section" aria-labelledby="ledger-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">ledger</p>
+          <h2 id="ledger-title">전사 항목</h2>
+        </div>
+        <p>
+          항목은 날짜, 이름, 계정, 분류, 금액 순서로 남깁니다. 이후 매달 같은 데이터 파일에 append할 수 있습니다.
+        </p>
+      </div>
+      <div class="table-wrap">
+        <table class="ledger-table">
+          <thead>
+            <tr>
+              <th>날짜</th>
+              <th>항목</th>
+              <th>거래처</th>
+              <th>계정</th>
+              <th>분류</th>
+              <th>금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedItems.map((item) => (
+              <tr>
+                <td>{formatDate(item.date)}</td>
+                <td>
+                  <strong>{item.name}</strong>
+                  {item.note && <span>{item.note}</span>}
+                </td>
+                <td>{item.vendor}</td>
+                <td>{item.account}</td>
+                <td>{categoryById[item.category].label}</td>
+                <td><strong>{formatKrw(item.amountKrw)}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="source-note" aria-labelledby="source-title">
+      <p class="section-kicker">source status</p>
+      <h2 id="source-title">검증 상태</h2>
+      <p>
+        출처: {aiSpendSource.sourceLabel}. 앱 표시 합계 {formatKrw(aiSpendSource.canonicalTotalKrw)} 기준으로 대조했고,
+        {totalLine} 개별 항목과 임시 분류는 아니키 검증 대기입니다.
+      </p>
+      {verificationNotes.length > 0 && (
+        <ul>
+          {verificationNotes.map((item) => <li>{formatDate(item.date)} · {item.name}: {item.note}</li>)}
+        </ul>
+      )}
+    </section>
+
+    <a class="cost-back" href="/vibecoding.html">← 바이브코딩 변천사로 돌아가기</a>
+  </div>
+
+  <style>
+    .cost-page {
+      --cost-blue: #2563eb;
+      --cost-green: #127a3d;
+      --cost-amber: #9a4d00;
+    }
+
+    .cost-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
+      gap: 36px;
+      align-items: end;
+      padding: 20px 0 46px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cost-kicker,
+    .section-kicker,
+    .hero-metric dt,
+    .category-top,
+    .chart-legend,
+    .cost-back {
+      font-family: var(--mono);
+    }
+
+    .cost-kicker,
+    .section-kicker {
+      color: var(--cost-blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .cost-hero h1 {
+      max-width: 720px;
+      margin-top: 12px;
+      color: var(--fg);
+      font-size: 58px;
+      line-height: 1.04;
+    }
+
+    .cost-lead {
+      max-width: 660px;
+      margin-top: 20px;
+      color: var(--fg-dim);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .cost-note {
+      max-width: 640px;
+      margin-top: 18px;
+      border-left: 3px solid var(--cost-blue);
+      padding-left: 14px;
+      color: var(--fg);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .hero-metric {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-elev);
+      padding: 18px;
+    }
+
+    .hero-metric.total {
+      border-color: var(--cost-blue);
+    }
+
+    .hero-metric dt {
+      color: var(--fg-mute);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero-metric dd {
+      margin-top: 8px;
+      color: var(--fg);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .hero-metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--fg-dim);
+      font-size: 13px;
+    }
+
+    .cost-section {
+      padding: 42px 0 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-head.compact {
+      display: block;
+    }
+
+    .section-head h2,
+    .source-note h2 {
+      margin-top: 6px;
+      color: var(--fg);
+      font-size: 24px;
+      line-height: 1.28;
+    }
+
+    .section-head p:not(.section-kicker) {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .category-card {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--cat-color);
+      border-radius: 8px;
+      background: var(--bg-elev);
+      padding: 18px;
+      min-height: 210px;
+    }
+
+    .category-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--fg-mute);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .category-card h3 {
+      margin-top: 16px;
+      color: var(--fg);
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .category-card strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--cat-color);
+      font-size: 25px;
+      line-height: 1.18;
+    }
+
+    .category-card p {
+      margin-top: 12px;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .chart-panel {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-elev);
+      padding: 18px;
+      overflow-x: auto;
+    }
+
+    .spend-chart {
+      display: block;
+      min-width: 720px;
+      width: 100%;
+      height: auto;
+    }
+
+    .spend-chart text {
+      fill: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-top: 12px;
+      color: var(--fg-dim);
+      font-size: 12px;
+    }
+
+    .chart-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chart-legend i {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background: var(--cat-color);
+    }
+
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-elev);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    th {
+      color: var(--fg);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    thead th {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    tbody tr:last-child th,
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    td {
+      color: var(--fg-dim);
+    }
+
+    td strong {
+      color: var(--fg);
+      font-weight: 700;
+    }
+
+    .ledger-table td:nth-child(2) {
+      min-width: 240px;
+      color: var(--fg);
+    }
+
+    .ledger-table td:nth-child(6),
+    .monthly-table td {
+      white-space: nowrap;
+    }
+
+    .ledger-table td span {
+      display: block;
+      margin-top: 4px;
+      color: var(--fg-mute);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .source-note {
+      margin-top: 44px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--cost-amber);
+      border-radius: 8px;
+      background: var(--bg-elev);
+      padding: 22px;
+    }
+
+    .source-note p {
+      margin-top: 12px;
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .source-note ul {
+      margin-top: 14px;
+      padding-left: 18px;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .cost-back {
+      display: inline-block;
+      margin-top: 28px;
+      color: var(--fg-dim);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .cost-back:hover {
+      color: var(--cost-blue);
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .cost-hero,
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cost-hero {
+        padding-top: 4px;
+        gap: 24px;
+      }
+
+      .cost-hero h1 {
+        font-size: 40px;
+      }
+
+      .cost-lead {
+        font-size: 15px;
+      }
+
+      .hero-metric dd {
+        font-size: 28px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-card {
+        min-height: 0;
+      }
+
+      .chart-panel,
+      .table-wrap {
+        margin-left: -16px;
+        margin-right: -16px;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+  </style>
+</Layout>
