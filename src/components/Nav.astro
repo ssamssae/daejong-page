@@ -18,7 +18,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <nav>
   <div class="nav-inner">
     <a class="brand" href="/" aria-label="마이너스베타스튜디오 홈">
-      <img src="/minusbeta-badge.svg" alt="" width="30" height="30" />
+      <img src="/minusbeta-badge.svg" alt="" width="28" height="28" />
       <span>마이너스베타스튜디오</span>
     </a>
     <div class="nav-links">
@@ -37,6 +37,10 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       border-bottom: 1px solid var(--border);
       background: color-mix(in srgb, var(--bg) 94%, transparent);
       backdrop-filter: blur(12px);
+      /* 공유 헤더(kangdaejong.com/mb-components.js)와 동일 렌더 — 폰트 스택·행간·크기를
+         mb-header 값에 고정 (T-260707-41). 수치 바꿀 땐 mb-components.js 와 같이 바꿀 것. */
+      font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+      line-height: 1.65;
     }
     .nav-inner {
       width: min(calc(100% - 48px), 1120px);
@@ -57,7 +61,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       text-decoration: none;
       white-space: nowrap;
     }
-    .brand img { height: 30px; width: 30px; display: block; }
+    .brand img { height: 28px; width: 28px; display: block; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -66,7 +70,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       min-width: 0;
       overflow-x: auto;
       scrollbar-width: none;
-      font-size: 13px;
+      font-size: 14px;
       white-space: nowrap;
     }
     .nav-links::-webkit-scrollbar { display: none; }
@@ -74,6 +78,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     .nav-sub a {
       color: var(--fg-dim);
       text-decoration: none;
+      transition: color .15s;
     }
     .nav-links a:hover,
     .nav-sub a:hover,
@@ -94,7 +99,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       border-radius: 8px;
       background: var(--accent-cta);
       color: #ffffff;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
@@ -107,7 +112,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
-      font-size: 13px;
+      font-size: 12px;
     }
     @media (max-width: 760px) {
       .nav-inner {
@@ -117,17 +122,35 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         padding: 14px 0 10px;
         gap: 12px;
       }
+      .brand { grid-column: 1; grid-row: 1; }
       .brand span { display: none; }
       .nav-links {
         grid-column: 1 / -1;
         grid-row: 2;
         justify-content: flex-start;
-        gap: 16px;
+        align-self: start;
+        gap: 8px 16px;
+        flex-wrap: wrap;
+        overflow: visible;
+        white-space: normal;
+        font-size: 13px;
+        line-height: 1.4;
       }
-      .nav-cta { min-height: 34px; padding: 0 12px; }
+      .nav-cta {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        align-self: center;
+        width: auto;
+        min-height: 34px;
+        padding: 0 12px;
+        font-size: 13px;
+      }
       .nav-sub {
         width: min(calc(100% - 32px), 1120px);
         padding-bottom: 10px;
+        gap: 8px 18px;
+        font-size: 13px;
       }
     }
   </style>
