@@ -32,14 +32,16 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
   <section class="newsletter-hero" aria-labelledby="page-title">
     <div class="hero-copy">
       <p class="eyebrow">VIBECODING LETTER</p>
-      <h1 id="page-title">뉴스레터</h1>
+      <div class="title-row">
+        <h1 id="page-title">뉴스레터</h1>
+        <a class="subscribe-link" href="https://minusbetastudio.substack.com" target="_blank" rel="noopener">
+          Substack 구독
+        </a>
+      </div>
       <p class="lead">
         혼자 앱을 만들며 겪은 출시, 자동화, 실패 복구의 기록을 편지처럼 묶습니다.
         매회 하나의 사건을 끝까지 따라가며 다음 빌드에 남길 규칙을 정리합니다.
       </p>
-      <a class="subscribe-link" href="https://minusbetastudio.substack.com" target="_blank" rel="noopener">
-        Substack 구독
-      </a>
     </div>
     <dl class="hero-stats" aria-label="뉴스레터 요약">
       <div>
@@ -136,6 +138,18 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
       margin: 0 0 20px;
     }
 
+    .title-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .title-row h1 {
+      margin: 0;
+    }
+
     .lead {
       max-width: 660px;
       color: var(--fg-dim);
@@ -148,7 +162,7 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
       align-items: center;
       justify-content: center;
       min-height: 40px;
-      margin-top: 24px;
+      margin-bottom: 8px;
       padding: 0 18px;
       border-radius: 999px;
       background: var(--fg);
@@ -234,7 +248,7 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
       border: 1px solid var(--border);
       border-radius: 8px;
       background: var(--bg);
-      min-height: 282px;
+      min-height: 260px;
     }
 
     .issue-card.primary {
@@ -245,7 +259,7 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
 
     .issue-card a {
       display: flex;
-      min-height: 282px;
+      min-height: 260px;
       flex-direction: column;
       padding: 22px;
       color: inherit;
@@ -401,7 +415,7 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
 
       .issue-card,
       .issue-card a {
-        min-height: 232px;
+        min-height: 220px;
       }
 
       .issue-number {
