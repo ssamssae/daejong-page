@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import '../styles/lab.css';
 ---
 <Layout title="개발 타임라인 - 강대종" description="강대종 1인 개발 타임라인으로 2026년 4월 AI와 개발을 시작한 뒤 앱 출시, 뉴스레터, 인프라 구축, 주요 결정과 학습 이정표를 활동 히트맵, 통계 카드, 태그가 붙은 이벤트 목록으로 시간순으로 자세히 기록합니다.">
   <Fragment slot="head">
@@ -41,161 +40,484 @@ import '../styles/lab.css';
 }
 </script>
   <style is:global>
-    /* 타임라인 고유 레이아웃 (히트맵·마일스톤·이벤트 그리드) — 색은 page-dark 토큰 */
-    .stats {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-      margin-bottom: 28px;
-    }
-    .stat {
-      background: var(--bg-elev); border-radius: 12px; padding: 16px 12px; text-align: center;
-      border: 1px solid var(--border);
-    }
-    .stat-num { font-size: 26px; font-weight: 700; color: var(--page-accent); line-height: 1; }
-    .stat-label { font-size: 11px; color: var(--fg-mute); margin-top: 6px; letter-spacing: 0.3px; }
-    @media (max-width: 560px) {
-      .stats { grid-template-columns: repeat(2, 1fr); }
+    .timeline-page {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      min-width: 0;
     }
 
-    /* Heatmap */
+    .timeline-page > * {
+      min-width: 0;
+    }
+
+    .timeline-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: 40px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0 40px;
+    }
+
+    .eyebrow {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    .timeline-page h1 {
+      color: var(--fg);
+      font-size: 96px;
+      line-height: 0.95;
+      margin: 0 0 20px;
+    }
+
+    .lead {
+      max-width: 660px;
+      color: var(--fg-dim);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--fg);
+    }
+
+    .hero-stats div {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      min-height: 58px;
+      padding: 14px 0;
+    }
+
+    .hero-stats dt {
+      color: var(--fg-mute);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-stats dd {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      color: var(--fg);
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .section-head p:last-child {
+      max-width: 380px;
+      color: var(--fg-mute);
+      font-size: 14px;
+      line-height: 1.65;
+      text-align: right;
+    }
+
     .heatmap-card {
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px;
-      padding: 20px 20px 18px; margin-bottom: 28px; overflow-x: auto;
-    }
-    .heatmap-title {
-      font-size: 13px; color: var(--fg-dim); margin-bottom: 14px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .heatmap-title strong { color: var(--fg); font-size: 14px; }
-    .heatmap {
-      display: grid; grid-template-columns: 24px 1fr; gap: 4px;
-      min-width: 520px;
-    }
-    .heatmap-days {
-      display: grid; grid-template-rows: repeat(7, 12px); gap: 3px;
+      border-top: 1px solid var(--fg);
+      overflow-x: auto;
       padding-top: 18px;
     }
+
+    .heatmap-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: baseline;
+      color: var(--fg-mute);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .heatmap-title strong {
+      color: var(--fg);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .heatmap {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 8px;
+      min-width: 520px;
+    }
+
+    .heatmap-days {
+      display: grid;
+      grid-template-rows: repeat(7, 13px);
+      gap: 4px;
+      padding-top: 18px;
+    }
+
     .heatmap-day-label {
-      font-size: 9px; color: var(--fg-mute); line-height: 12px; text-align: right; padding-right: 4px;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 9px;
+      line-height: 13px;
+      padding-right: 4px;
+      text-align: right;
     }
+
     .heatmap-grid-wrap {
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
     }
+
     .heatmap-months {
-      display: flex; font-size: 9px; color: var(--fg-mute); height: 14px;
+      display: flex;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 9px;
+      height: 14px;
       padding-bottom: 4px;
     }
+
     .heatmap-grid {
-      display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 12px);
-      gap: 3px;
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(7, 13px);
+      gap: 4px;
     }
+
     .hm-cell {
-      width: 12px; height: 12px; border-radius: 3px; background: var(--bg-elev2);
-      border: 1px solid var(--border); cursor: default;
-      transition: transform 0.1s;
-    }
-    .hm-cell:hover { transform: scale(1.3); border-color: var(--page-accent); }
-    .hm-cell.lv1 { background: var(--accent-bg); border-color: var(--border); }
-    .hm-cell.lv2 { background: var(--accent-dim); border-color: var(--accent-dim); }
-    .hm-cell.lv3 { background: var(--page-accent); border-color: var(--page-accent); }
-    .hm-cell.lv4 { background: var(--page-accent); border-color: var(--page-accent); box-shadow: 0 0 6px rgba(255, 0, 170, 0.4); }
-    .heatmap-legend {
-      display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--fg-mute);
-      margin-top: 12px; justify-content: flex-end;
-    }
-    .heatmap-legend .hm-cell { cursor: default; }
-    .heatmap-legend .hm-cell:hover { transform: none; }
-
-    /* Milestones (major events highlight) */
-    .milestones {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px; margin-bottom: 28px;
-    }
-    .ms-card {
+      width: 13px;
+      height: 13px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
       background: var(--bg-elev);
-      border: 1px solid var(--border); border-left: 3px solid var(--page-accent); border-radius: 12px;
-      padding: 16px; position: relative;
+      cursor: default;
     }
-    .ms-num {
-      position: absolute; top: 10px; right: 12px;
-      font-size: 28px; font-weight: 800; color: var(--page-accent); opacity: 0.25; line-height: 1;
-    }
-    .ms-date { font-size: 11px; color: var(--page-accent); font-weight: 600; margin-bottom: 4px; }
-    .ms-title { font-size: 14px; color: var(--fg); font-weight: 700; line-height: 1.4; }
 
-    /* Event list */
-    .section-title {
-      font-size: 14px; color: var(--fg); font-weight: 600; margin-bottom: 14px;
-      margin-top: 8px;
+    .hm-cell.lv1 {
+      background: #d9d9d9;
+      border-color: #d9d9d9;
     }
-    .events { display: flex; flex-direction: column; gap: 4px; }
+
+    .hm-cell.lv2 {
+      background: #a8a8a8;
+      border-color: #a8a8a8;
+    }
+
+    .hm-cell.lv3 {
+      background: #5f5f5f;
+      border-color: #5f5f5f;
+    }
+
+    .hm-cell.lv4 {
+      background: var(--fg);
+      border-color: var(--fg);
+    }
+
+    .heatmap-legend {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 6px;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 10px;
+      margin-top: 12px;
+    }
+
+    .milestones {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .ms-card {
+      position: relative;
+      min-height: 148px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      padding: 16px;
+    }
+
+    .ms-num {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .ms-date {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 38px;
+    }
+
+    .ms-title {
+      color: var(--fg);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    .events {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--fg);
+      min-width: 0;
+    }
+
     .event-row {
-      display: grid; grid-template-columns: 90px 1fr auto;
-      gap: 12px; align-items: center; padding: 10px 14px;
-      background: var(--bg-elev); border: 1px solid transparent; border-radius: 10px;
-      transition: border-color 0.15s, background 0.15s;
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr) minmax(120px, auto);
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      min-width: 0;
+      padding: 14px 0;
     }
-    .event-row:hover { border-color: var(--border); background: var(--bg-elev2); }
-    .event-row.major { border-left: 3px solid var(--page-accent); }
-    .er-date { font-size: 11px; color: var(--fg-dim); font-weight: 600; }
-    .er-title { font-size: 13px; color: var(--fg); line-height: 1.5; }
-    .er-title strong { color: var(--fg); font-weight: 600; display: block; margin-bottom: 2px; }
-    .er-title span { color: var(--fg-mute); font-size: 12px; }
-    .er-tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+
+    .er-date {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .er-title {
+      min-width: 0;
+    }
+
+    .er-title strong {
+      display: block;
+      color: var(--fg);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 4px;
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    .er-title span {
+      display: block;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    .er-tags {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-width: 0;
+    }
+
     .tag {
-      font-size: 10px; padding: 2px 7px; border-radius: 8px;
-      background: var(--bg-elev2); color: var(--fg-dim); border: 1px solid var(--border);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--fg-dim);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1;
+      padding: 6px 9px;
+      white-space: nowrap;
     }
-    .tag.flutter { border-color: var(--accent); color: var(--accent); }
-    .tag.ai { border-color: var(--accent); color: var(--accent); }
-    .tag.web { border-color: var(--success); color: var(--success); }
-    .tag.infra { border-color: var(--accent-2); color: var(--accent-2); }
+
+    .tag.flutter,
+    .tag.ai,
+    .tag.web,
+    .tag.infra {
+      color: var(--fg);
+      border-color: var(--fg);
+    }
+
+    .timeline-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .timeline-footer p,
+    .timeline-footer a {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    @media (max-width: 920px) {
+      .timeline-page {
+        gap: 52px;
+      }
+
+      .timeline-hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .milestones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .event-row {
+        grid-template-columns: 96px minmax(0, 1fr);
+      }
+
+      .er-tags {
+        grid-column: 2;
+        justify-content: flex-start;
+      }
+    }
+
     @media (max-width: 640px) {
-      .event-row { grid-template-columns: 70px 1fr; }
-      .er-tags { grid-column: 2; justify-content: flex-start; margin-top: 4px; }
+      .timeline-page {
+        gap: 44px;
+      }
+
+      .timeline-page h1 {
+        font-size: 56px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .section-head,
+      .timeline-footer {
+        display: block;
+      }
+
+      .section-head p:last-child {
+        max-width: none;
+        margin-top: 8px;
+        text-align: left;
+      }
+
+      .milestones {
+        grid-template-columns: 1fr;
+      }
+
+      .event-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .er-tags {
+        grid-column: auto;
+      }
+
+      .timeline-footer a {
+        display: inline-block;
+        margin-top: 10px;
+      }
     }
   </style>
   </Fragment>
 
-  <div class="lab-page" style="--page-accent: var(--accent-2)">
-    <section class="lab-hero">
-      <h1 class="logo">개발 타임라인</h1>
-      <p class="tagline">dev timeline · 1인 개발 여정</p>
-      <p class="intro">2026년 4월, 코딩 한 줄 못 쓰던 85년생이 AI와 함께 개발을 시작했습니다. 이 페이지는 그 여정의 기록입니다.</p>
+  <article class="timeline-page">
+    <section class="timeline-hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">DEVELOPMENT TIMELINE</p>
+        <h1 id="page-title">개발 타임라인</h1>
+        <p class="lead">
+          2026년 4월, 코딩 한 줄 못 쓰던 85년생이 AI와 함께 개발을 시작했습니다.
+          앱 출시, 자동화, 인프라, 실패 복구를 날짜순으로 남긴 작업장 연대표입니다.
+        </p>
+      </div>
+      <dl class="hero-stats" id="stats" aria-label="개발 타임라인 요약"></dl>
     </section>
 
-    <div class="stats" id="stats"></div>
-
-    <div class="heatmap-card">
-      <div class="heatmap-title">
-        <strong>개발 활동 히트맵</strong>
-        <span id="activityHint">최근 이벤트 기반</span>
+    <section class="activity-section" aria-labelledby="activity-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">ACTIVITY MAP</p>
+          <h2 id="activity-title">개발 활동 밀도</h2>
+        </div>
+        <p>이벤트가 몰린 날짜를 셀 밀도로 표시합니다.</p>
       </div>
-      <div class="heatmap">
-        <div class="heatmap-days" id="heatmapDays"></div>
-        <div class="heatmap-grid-wrap">
-          <div class="heatmap-months" id="heatmapMonths"></div>
-          <div class="heatmap-grid" id="heatmapGrid"></div>
+      <div class="heatmap-card">
+        <div class="heatmap-title">
+          <strong>최근 12주 이벤트 흐름</strong>
+          <span id="activityHint">파일 내 타임라인 기준</span>
+        </div>
+        <div class="heatmap">
+          <div class="heatmap-days" id="heatmapDays"></div>
+          <div class="heatmap-grid-wrap">
+            <div class="heatmap-months" id="heatmapMonths"></div>
+            <div class="heatmap-grid" id="heatmapGrid"></div>
+          </div>
+        </div>
+        <div class="heatmap-legend">
+          <span>Less</span>
+          <span class="hm-cell"></span>
+          <span class="hm-cell lv1"></span>
+          <span class="hm-cell lv2"></span>
+          <span class="hm-cell lv3"></span>
+          <span class="hm-cell lv4"></span>
+          <span>More</span>
         </div>
       </div>
-      <div class="heatmap-legend">
-        <span>Less</span>
-        <span class="hm-cell"></span>
-        <span class="hm-cell lv1"></span>
-        <span class="hm-cell lv2"></span>
-        <span class="hm-cell lv3"></span>
-        <span class="hm-cell lv4"></span>
-        <span>More</span>
+    </section>
+
+    <section class="milestone-section" aria-labelledby="milestone-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">MILESTONES</p>
+          <h2 id="milestone-title">주요 마일스톤</h2>
+        </div>
+        <p>앱 출시, 인프라 전환, 공개 사이트 오픈처럼 흐름을 바꾼 지점을 따로 뽑았습니다.</p>
       </div>
-    </div>
+      <div class="milestones" id="milestones"></div>
+    </section>
 
-    <div class="section-title">주요 마일스톤</div>
-    <div class="milestones" id="milestones"></div>
+    <section class="event-section" aria-labelledby="event-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">ARCHIVE</p>
+          <h2 id="event-title">전체 이벤트</h2>
+        </div>
+        <p>최신순으로 훑을 수 있게 날짜, 사건, 태그를 한 줄 흐름으로 정리했습니다.</p>
+      </div>
+      <div class="events" id="events"></div>
+    </section>
 
-    <div class="section-title">전체 이벤트</div>
-    <div class="events" id="events"></div>
-
-    <a class="lab-back" href="/lab">← lab</a>
-  </div>
+    <footer class="timeline-footer">
+      <p>마지막 화면 정리 2026.07.07</p>
+      <a href="/lab/">lab으로 돌아가기</a>
+    </footer>
+  </article>
 
   <script is:inline>
     const events = [
@@ -304,19 +626,10 @@ import '../styles/lab.css';
 
     var statsEl = document.getElementById('stats');
     statsEl.innerHTML =
-      '<div class="stat"><div class="stat-num" id="dayCount">0</div><div class="stat-label">개발 일수</div></div>' +
-      '<div class="stat"><div class="stat-num">' + totalEvents + '</div><div class="stat-label">총 이벤트</div></div>' +
-      '<div class="stat"><div class="stat-num">' + longestStreak + '</div><div class="stat-label">최장 연속일</div></div>' +
-      '<div class="stat"><div class="stat-num">' + majorCount + '</div><div class="stat-label">주요 마일스톤</div></div>';
-
-    // Animate day counter
-    var dayEl = document.getElementById('dayCount');
-    var c = 0;
-    var iv = setInterval(function() {
-      c++;
-      dayEl.textContent = c;
-      if (c >= daysSinceStart) clearInterval(iv);
-    }, 60);
+      '<div class="stat"><dt>개발 일수</dt><dd>' + daysSinceStart + '</dd></div>' +
+      '<div class="stat"><dt>총 이벤트</dt><dd>' + totalEvents + '</dd></div>' +
+      '<div class="stat"><dt>최장 연속</dt><dd>' + longestStreak + '일</dd></div>' +
+      '<div class="stat"><dt>마일스톤</dt><dd>' + majorCount + '</dd></div>';
 
     // Heatmap — 12 weeks window ending on Saturday after today
     var endDate = new Date(today);
