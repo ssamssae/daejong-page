@@ -1,510 +1,581 @@
 ---
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import Layout from '../layouts/Layout.astro';
-import '../styles/lab.css';
+
+type IssueEntry = {
+  file: string;
+  date: string;
+  slug: string;
+  title: string;
+  severity?: string | null;
+  recurrence?: string | null;
+  scope?: string | null;
+  occurred_at?: string | null;
+  resolved_at?: string | null;
+  updated?: string | null;
+};
+
+const issuesIndex = JSON.parse(readFileSync(join(process.cwd(), 'public/issues/index.json'), 'utf-8')) as {
+  entries: IssueEntry[];
+};
+
+const issues = issuesIndex.entries
+  .slice()
+  .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title, 'ko'));
+
+const latestIssues = issues.slice(0, 6);
+const monthGroups = issues.reduce((groups, issue) => {
+  const month = issue.date?.slice(0, 7) || '날짜 미상';
+  if (!groups.has(month)) groups.set(month, []);
+  groups.get(month)?.push(issue);
+  return groups;
+}, new Map<string, IssueEntry[]>());
+
+const dates = Array.from(new Set(issues.map((issue) => issue.date).filter(Boolean))).sort();
+const latestUpdate =
+  issues
+    .map((issue) => issue.updated)
+    .filter((value): value is string => Boolean(value))
+    .sort()
+    .at(-1) ?? issues[0]?.date ?? '';
+
+const highSeverity = issues.filter((issue) => String(issue.severity ?? '').toLowerCase() === 'high').length;
+const highRecurrence = issues.filter((issue) => String(issue.recurrence ?? '').toLowerCase() === 'high').length;
+
+const dateLabel = (date?: string | null) => (date ? date.slice(0, 10).replaceAll('-', '.') : '-');
+const monthLabel = (month: string) => {
+  if (month === '날짜 미상') return month;
+  const [year, mm] = month.split('-');
+  return `${year}.${mm}`;
+};
+const levelText = (level?: string | null) => {
+  const value = String(level ?? '').trim();
+  if (!value || value === '?') return 'unknown';
+  const lowered = value.toLowerCase();
+  if (lowered.startsWith('high')) return 'high';
+  if (lowered.startsWith('medium') || lowered.startsWith('mid')) return 'medium';
+  if (lowered.startsWith('low')) return 'low';
+  return 'unknown';
+};
+const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
+  const value = levelText(level).toLowerCase();
+  return `${kind}-badge ${kind}-${value}`;
+};
 ---
-<Layout title="이슈 - 강대종" description="발생했다가 해결한 이슈와 혼선의 포스트모템 목록. iOS, Android, Telegram, launchd, WSL, Claude Code 운영 문제를 날짜별 타임라인으로 모아 심각도, 재발성, 증상, 원인, 조치를 추적합니다.">
+
+<Layout
+  title="이슈 — 마이너스베타스튜디오"
+  description="발생했다가 해결한 이슈와 혼선의 포스트모템 목록. 증상, 원인, 조치, 예방을 날짜별로 추적합니다."
+>
   <Fragment slot="head">
-    <!-- OG / Twitter Card (2026-05-25) -->
-  <meta property="og:title" content="이슈 - 강대종">
-  <meta property="og:description" content="발생했다가 해결한 이슈·혼선의 포스트모템 기록 — 증상/원인/조치/예방.">
-  <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://work.kangdaejong.com/issues.html">
-  <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="이슈 - 강대종">
-  <meta name="twitter:description" content="발생했다가 해결한 이슈·혼선의 포스트모템 기록 — 증상/원인/조치/예방.">
-  <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
-  <link rel="canonical" href="https://work.kangdaejong.com/issues.html">
-  <script type="application/ld+json" is:inline>
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://work.kangdaejong.com/#person",
-      "name": "강대종",
-      "jobTitle": "Solo founder / Vibe coder",
-      "url": "https://work.kangdaejong.com/",
-      "sameAs": ["https://github.com/ssamssae"],
-      "description": "1인 개발자 / Vibe coder / Solo founder"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://work.kangdaejong.com/#website",
-      "name": "강대종",
-      "url": "https://work.kangdaejong.com/",
-      "inLanguage": "ko",
-      "author": {"@id": "https://work.kangdaejong.com/#person"}
-    }
-  ]
-}
-</script>
-  <style is:global>
-    /* 이슈 타임라인 컴포넌트 — 레이아웃·hero·nav 는 lab-page.css 공용 (habits 와 동일 프레임) */
-    .hero-stats {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
-      margin-bottom: 24px;
-    }
-    .hero-card {
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
-      padding: 14px 14px;
-    }
-    .hero-card-label {
-      font-size: 10px; color: var(--fg-dim); margin-bottom: 6px;
-      text-transform: uppercase; letter-spacing: 0.5px;
-    }
-    .hero-card-value { font-size: 22px; color: var(--fg); font-weight: 700; }
-    .hero-card-value .unit {
-      font-size: 13px; color: var(--fg-dim); font-weight: 500; margin-left: 4px;
-    }
-    .hero-card-sub { font-size: 11px; color: var(--fg-mute); margin-top: 4px; }
-
-    .timeline { display: flex; flex-direction: column; gap: 26px; }
-
-    .date-group { display: flex; flex-direction: column; gap: 12px; }
-    .date-head {
-      display: flex; align-items: baseline; gap: 10px;
-      padding-bottom: 8px; border-bottom: 1px dashed var(--border);
-    }
-    .date-label { font-size: 15px; color: var(--page-accent); font-weight: 700; }
-    .date-rel { font-size: 12px; color: var(--fg-dim); }
-    .date-count { margin-left: auto; font-size: 11px; color: var(--fg-mute); }
-
-    .issue-card {
-      display: block;
-      background: var(--bg-elev); border: 1px solid var(--border);
-      border-left: 3px solid var(--page-accent);
-      border-radius: 12px; padding: 14px 16px;
-      color: inherit;
-      transition: border-color 0.15s;
-    }
-    .issue-card:hover { border-color: var(--page-accent); }
-    .issue-preview {
-      font-size: 13px; color: var(--fg-dim); line-height: 1.6;
-      margin-top: 6px;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-      overflow: hidden; word-break: keep-all; overflow-wrap: break-word;
-    }
-
-    .issue-head {
-      display: flex; align-items: flex-start; gap: 10px;
-      margin-bottom: 8px; flex-wrap: wrap;
-    }
-    .issue-title {
-      flex: 1 1 auto; min-width: 0;
-      font-size: 15px; color: var(--fg); font-weight: 600;
-      line-height: 1.45;
-      word-break: keep-all; overflow-wrap: break-word;
-    }
-    .badges {
-      display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px;
-    }
-    .badge {
-      font-size: 10px; padding: 2px 8px; border-radius: 6px;
-      font-weight: 600; letter-spacing: 0.3px;
-      border: 1px solid transparent;
-    }
-    .badge-sev-high {
-      color: var(--danger); background: rgba(240, 68, 82, 0.1);
-      border-color: rgba(240, 68, 82, 0.3);
-    }
-    .badge-sev-medium {
-      color: var(--warn); background: rgba(249, 115, 22, 0.1);
-      border-color: rgba(249, 115, 22, 0.3);
-    }
-    .badge-sev-low {
-      color: var(--success); background: rgba(34, 197, 94, 0.1);
-      border-color: rgba(34, 197, 94, 0.3);
-    }
-    .badge-rec {
-      color: var(--fg-dim); background: rgba(139, 149, 161, 0.08);
-      border-color: rgba(139, 149, 161, 0.25);
-    }
-
-    .meta-line {
-      font-size: 11px; color: var(--fg-mute);
-      margin-bottom: 10px;
-    }
-    .meta-line .sep { color: var(--fg-mute); margin: 0 6px; }
-
-    .issue-sections {
-      display: flex; flex-direction: column; gap: 10px;
-      margin-top: 4px;
-    }
-    .issue-section {
-      background: var(--bg-elev);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 12px;
-    }
-    .section-label {
-      display: inline-block; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.5px; color: var(--page-accent);
-      margin-bottom: 6px; text-transform: uppercase;
-    }
-    .section-body {
-      font-size: 13px; color: var(--fg); line-height: 1.65;
-      white-space: pre-wrap;
-      word-break: keep-all; overflow-wrap: break-word;
-    }
-    .section-body ul { padding-left: 18px; margin: 4px 0; }
-    .section-body li { margin-bottom: 4px; }
-    .section-body code {
-      background: var(--bg-elev); padding: 1px 5px; border-radius: 4px;
-      font-size: 12px; color: var(--page-accent);
-    }
-
-    .recur {
-      margin-top: 10px; padding: 8px 12px;
-      background: rgba(240, 68, 82, 0.08);
-      border: 1px solid rgba(240, 68, 82, 0.2);
-      border-radius: 8px; font-size: 12px; color: var(--warn);
-    }
-
-    .date-group.empty-day .date-label { color: var(--fg-mute); }
-    .date-group.empty-day .date-count { color: var(--fg-mute); }
-    .empty-day-note {
-      font-size: 12px; color: var(--fg-mute);
-      padding: 8px 14px;
-      background: var(--bg-elev); border: 1px dashed var(--border);
-      border-radius: 10px;
-    }
-
-    .empty {
-      color: var(--fg-mute); text-align: center; padding: 60px 20px; font-size: 14px;
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
-    }
-    .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
-    .loading { color: var(--fg-mute); text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
-    .error { color: var(--danger); text-align: center; padding: 40px 0; font-size: 14px; }
-
-    @media (max-width: 520px) {
-      .hero-stats { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+    <meta property="og:title" content="이슈 — 마이너스베타스튜디오" />
+    <meta property="og:description" content="발생했다가 해결한 이슈와 혼선의 포스트모템 기록." />
+    <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://work.kangdaejong.com/issues.html" />
+    <meta property="og:site_name" content="강대종 작업장" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="이슈 — 마이너스베타스튜디오" />
+    <meta name="twitter:description" content="발생했다가 해결한 이슈와 혼선의 포스트모템 기록." />
+    <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
+    <link rel="canonical" href="https://work.kangdaejong.com/issues.html" />
   </Fragment>
 
-  <div class="lab-page" style="--page-accent: #fb923c">
-    <section class="lab-hero">
-      <h1 class="logo">이슈</h1>
-      <p class="tagline">issues · 포스트모템 기록</p>
-      <p class="intro">발생했다가 해결한 이슈의 포스트모템. 증상·원인·조치·재발 방지 Forcing Function 을 남겨 두고 기기 간 공유합니다.</p>
+  <article class="issues-page">
+    <section class="issues-hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">POSTMORTEM LEDGER</p>
+        <h1 id="page-title">이슈</h1>
+        <p class="lead">
+          발생했다가 해결한 문제를 숨기지 않고 남깁니다. 증상, 원인, 조치, 재발 가능성을
+          날짜별로 모아 다음 작업의 안전장치로 씁니다.
+        </p>
+      </div>
+      <dl class="hero-stats" aria-label="이슈 기록 요약">
+        <div>
+          <dt>기록</dt>
+          <dd>{issues.length}</dd>
+        </div>
+        <div>
+          <dt>날짜</dt>
+          <dd>{dates.length}</dd>
+        </div>
+        <div>
+          <dt>범위</dt>
+          <dd>{dates.length ? `${dateLabel(dates[0])} - ${dateLabel(dates.at(-1))}` : '-'}</dd>
+        </div>
+      </dl>
     </section>
 
-    <div id="view">
-      <div class="loading">불러오는 중…</div>
-    </div>
+    <section class="signal-section" aria-labelledby="signal-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">CURRENT SIGNALS</p>
+          <h2 id="signal-title">지금 먼저 봐야 하는 숫자</h2>
+        </div>
+        <p>심각도와 재발 가능성이 높은 항목은 포스트모템보다 운영 규칙으로 옮겨야 합니다.</p>
+      </div>
+      <div class="signal-grid">
+        <div>
+          <span>severity high</span>
+          <strong>{highSeverity}</strong>
+          <p>사용자 영향이나 작업 중단 가능성이 컸던 기록</p>
+        </div>
+        <div>
+          <span>recurrence high</span>
+          <strong>{highRecurrence}</strong>
+          <p>기억이 아니라 강제 장치로 막아야 하는 기록</p>
+        </div>
+        <div>
+          <span>latest update</span>
+          <strong>{dateLabel(latestUpdate)}</strong>
+          <p>index 기준 마지막 최신화 날짜</p>
+        </div>
+      </div>
+    </section>
 
-    <a class="lab-back" href="/lab">← lab</a>
-    </div>
+    <section class="latest-section" aria-labelledby="latest-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">LATEST</p>
+          <h2 id="latest-title">최근 이슈</h2>
+        </div>
+        <p>가장 최근에 올라온 포스트모템을 먼저 확인합니다.</p>
+      </div>
+      <div class="latest-grid">
+        {latestIssues.map((issue, index) => (
+          <a class={index === 0 ? 'issue-card primary' : 'issue-card'} href={`/issues/${issue.file}`}>
+            <span class="card-top">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <time datetime={issue.date}>{dateLabel(issue.date)}</time>
+            </span>
+            <h3>{issue.title}</h3>
+            {issue.scope && <p>{issue.scope}</p>}
+            <span class="badge-row">
+              <span class={badgeClass('severity', issue.severity)}>심각도 {levelText(issue.severity)}</span>
+              <span class={badgeClass('recurrence', issue.recurrence)}>재발 {levelText(issue.recurrence)}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
 
-  <script is:inline>
-    const viewEl = document.getElementById('view');
+    <section class="archive-section" aria-labelledby="archive-title">
+      <div class="section-head archive-head">
+        <div>
+          <p class="eyebrow">ARCHIVE</p>
+          <h2 id="archive-title">전체 기록</h2>
+        </div>
+        <p>{monthGroups.size}개월치 이슈를 최신순으로 묶었습니다.</p>
+      </div>
 
-    function parseDate(s) {
-      const m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-      if (!m) return null;
-      return new Date(+m[1], +m[2] - 1, +m[3]);
-    }
-    function todayKST() {
-      const now = new Date();
-      const kst = new Date(now.getTime() + (now.getTimezoneOffset() + 540) * 60000);
-      kst.setHours(0, 0, 0, 0);
-      return kst;
-    }
-    function relativeDay(dateStr) {
-      const d = parseDate(dateStr);
-      if (!d) return '';
-      const diff = Math.round((todayKST() - d) / 86400000);
-      if (diff === 0) return '오늘';
-      if (diff === 1) return '어제';
-      if (diff < 7) return diff + '일 전';
-      if (diff < 30) return Math.floor(diff / 7) + '주 전';
-      if (diff < 365) return Math.floor(diff / 30) + '달 전';
-      return Math.floor(diff / 365) + '년 전';
-    }
-    function escapeHtml(s) {
-      return (s || '').replace(/[&<>"']/g, c => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[c]));
+      <div class="archive-list">
+        {Array.from(monthGroups.entries()).map(([month, items]) => (
+          <section class="month-block" aria-labelledby={`month-${month}`}>
+            <header>
+              <h3 id={`month-${month}`}>{monthLabel(month)}</h3>
+              <span>{items.length}건</span>
+            </header>
+            <ol>
+              {items.map((issue) => (
+                <li>
+                  <a href={`/issues/${issue.file}`}>
+                    <time datetime={issue.date}>{dateLabel(issue.date)}</time>
+                    <span>{issue.title}</span>
+                    <small>{levelText(issue.severity)} / {levelText(issue.recurrence)}</small>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <footer class="issues-footer">
+      <p>마지막 갱신 {dateLabel(latestUpdate)}</p>
+      <a href="/lab/">lab으로 돌아가기</a>
+    </footer>
+  </article>
+
+  <style>
+    .issues-page {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      min-width: 0;
     }
 
-    // Parse a full issue markdown file into sections.
-    // Returns { title, meta:{occurred,resolved,severity,recurrence,scope},
-    //   sections: {증상, 원인, 조치, 예방, 재발이력} }
-    function parseIssueMd(md) {
-      // Parse + strip YAML frontmatter if present (one-line key:value only)
-      const frontmatter = {};
-      if (md.startsWith('---')) {
-        const end = md.indexOf('\n---', 3);
-        if (end > 0) {
-          const fmBlock = md.slice(3, end);
-          for (const fl of fmBlock.split('\n')) {
-            const m = fl.match(/^([A-Za-z_][A-Za-z0-9_]*)\s*:\s*"?(.*?)"?\s*$/);
-            if (m) frontmatter[m[1]] = m[2];
-          }
-          md = md.slice(end + 4).trimStart();
-        }
+    .issues-page > * {
+      min-width: 0;
+    }
+
+    .issues-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: 40px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0 40px;
+    }
+
+    .eyebrow {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: var(--fg);
+      font-size: 96px;
+      line-height: 0.95;
+      margin: 0 0 20px;
+    }
+
+    .lead {
+      max-width: 640px;
+      color: var(--fg-dim);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--fg);
+    }
+
+    .hero-stats div {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      min-height: 58px;
+      padding: 14px 0;
+    }
+
+    .hero-stats dt {
+      color: var(--fg-mute);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-stats dd {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      color: var(--fg);
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .section-head p:last-child {
+      max-width: 380px;
+      color: var(--fg-mute);
+      font-size: 14px;
+      line-height: 1.65;
+      text-align: right;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--fg);
+      border-left: 1px solid var(--border);
+    }
+
+    .signal-grid div {
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      min-height: 174px;
+      padding: 18px;
+    }
+
+    .signal-grid span,
+    .card-top,
+    .archive-list time,
+    .archive-list small {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 0;
+    }
+
+    .signal-grid strong {
+      color: var(--fg);
+      display: block;
+      font-family: var(--mono);
+      font-size: 34px;
+      line-height: 1;
+      margin: 34px 0 12px;
+    }
+
+    .signal-grid p {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .latest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .issue-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 260px;
+      padding: 18px;
+      text-decoration: none;
+    }
+
+    .issue-card.primary {
+      background: var(--fg);
+      border-color: var(--fg);
+      color: var(--bg);
+    }
+
+    .issue-card:hover {
+      color: var(--fg);
+      border-color: var(--fg);
+      text-decoration: none;
+    }
+
+    .issue-card.primary:hover {
+      color: var(--bg);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 42px;
+    }
+
+    .issue-card.primary .card-top,
+    .issue-card.primary p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .issue-card h3 {
+      color: inherit;
+      font-size: 18px;
+      line-height: 1.38;
+      margin-bottom: 12px;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .issue-card p {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+
+    .badge-row span {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--fg-dim);
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1;
+      padding: 6px 9px;
+    }
+
+    .issue-card.primary .badge-row span {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .severity-high,
+    .recurrence-high {
+      color: var(--danger) !important;
+    }
+
+    .severity-medium,
+    .recurrence-medium {
+      color: var(--warn) !important;
+    }
+
+    .archive-list {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .month-block {
+      border-top: 1px solid var(--fg);
+      min-width: 0;
+      padding-top: 16px;
+    }
+
+    .month-block header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .month-block h3 {
+      color: var(--fg);
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .month-block header span {
+      color: var(--fg-mute);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .month-block ol {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      min-width: 0;
+    }
+
+    .month-block li {
+      border-bottom: 1px solid var(--border);
+      min-width: 0;
+    }
+
+    .month-block a {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr) 120px;
+      gap: 16px;
+      align-items: baseline;
+      min-height: 54px;
+      padding: 14px 0;
+      color: var(--fg);
+      min-width: 0;
+      text-decoration: none;
+    }
+
+    .month-block a:hover span {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+    }
+
+    .month-block a > span {
+      color: var(--fg);
+      font-size: 15px;
+      line-height: 1.5;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    .month-block small {
+      text-align: right;
+      overflow-wrap: anywhere;
+      white-space: normal;
+    }
+
+    .issues-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .issues-footer p,
+    .issues-footer a {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .issues-hero {
+        grid-template-columns: 1fr;
       }
-      const lines = md.split('\n');
-      let title = '';
-      const meta = {};
-      const sections = {};
-      let currentSection = null;
-      const bodyBuf = [];
 
-      const flushSection = () => {
-        if (currentSection !== null) {
-          sections[currentSection] = bodyBuf.join('\n').trim();
-          bodyBuf.length = 0;
-        }
-      };
-
-      for (const raw of lines) {
-        const line = raw.replace(/\r$/, '');
-        const trimmed = line.trim();
-
-        if (!title && trimmed.startsWith('# ')) {
-          title = trimmed.slice(2).trim();
-          continue;
-        }
-
-        // Meta bullets (- **Key:** value)
-        const metaMatch = trimmed.match(/^-\s*\*\*(.+?):\*\*\s*(.+)$/);
-        if (metaMatch && currentSection === null) {
-          const key = metaMatch[1].trim();
-          const val = metaMatch[2].trim();
-          if (key.includes('발생')) meta.occurred = val;
-          else if (key.includes('해결')) meta.resolved = val;
-          else if (key.includes('심각')) meta.severity = val;
-          else if (key.includes('재발')) meta.recurrence = val;
-          else if (key.includes('영향')) meta.scope = val;
-          continue;
-        }
-
-        // Section headings (## 증상 / ## 원인 / ...)
-        if (trimmed.startsWith('## ')) {
-          flushSection();
-          const rawLabel = trimmed.slice(3).trim();
-          // Strip trailing parenthetical notes (e.g., "예방 (Forcing function 우선)")
-          const key = rawLabel.replace(/\s*\(.*?\)\s*$/, '').replace(/\s+/g, '');
-          currentSection = key;
-          continue;
-        }
-
-        if (currentSection !== null) {
-          bodyBuf.push(line);
-        }
+      h1 {
+        font-size: 72px;
       }
-      flushSection();
-      return { title, meta, sections, frontmatter };
-    }
 
-    // Minimal inline-markdown rendering for section bodies:
-    // - bold **x**, inline `code`, list items, line breaks. No external links escape.
-    function renderBody(text) {
-      if (!text) return '';
-      const lines = text.split('\n');
-      const out = [];
-      let listBuf = [];
-      const flushList = () => {
-        if (listBuf.length) {
-          out.push('<ul>' + listBuf.map(l => '<li>' + inline(l) + '</li>').join('') + '</ul>');
-          listBuf = [];
-        }
-      };
-      const inline = (s) => {
-        let x = escapeHtml(s);
-        x = x.replace(/`([^`]+)`/g, '<code>$1</code>');
-        x = x.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-        return x;
-      };
-      for (const rawLine of lines) {
-        const line = rawLine.replace(/\s+$/, '');
-        if (/^\s*-\s+/.test(line)) {
-          listBuf.push(line.replace(/^\s*-\s+/, ''));
-          continue;
-        }
-        flushList();
-        if (line === '') { out.push(''); continue; }
-        out.push(inline(line));
+      .signal-grid,
+      .latest-grid {
+        grid-template-columns: 1fr;
       }
-      flushList();
-      // Join with linebreaks for non-list text
-      return out.map(seg => seg.startsWith('<ul>') ? seg : seg).join('\n').replace(/\n\n+/g, '\n\n');
-    }
 
-    function sevBadgeClass(sev) {
-      if (!sev) return 'badge-rec';
-      if (/high/i.test(sev)) return 'badge-sev-high';
-      if (/medium/i.test(sev)) return 'badge-sev-medium';
-      if (/low/i.test(sev)) return 'badge-sev-low';
-      return 'badge-rec';
-    }
-
-    async function init() {
-      try {
-        const idxRes = await fetch('/issues/index.json?_=' + Date.now());
-        const idxData = await idxRes.json();
-        const entries = (idxData.entries || [])
-          .slice()
-          .sort((a, b) => {
-            if (a.date !== b.date) return b.date.localeCompare(a.date);
-            return (a.slug || '').localeCompare(b.slug || '');
-          });
-
-        if (entries.length === 0) {
-          viewEl.innerHTML = renderEmpty();
-          return;
-        }
-
-        const loaded = await Promise.all(entries.map(async e => {
-          try {
-            const r = await fetch('/issues/' + e.file + '?_=' + Date.now());
-            const md = await r.text();
-            return { ...e, parsed: parseIssueMd(md) };
-          } catch (err) {
-            return { ...e, parsed: null };
-          }
-        }));
-
-        render(loaded);
-      } catch (e) {
-        viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
+      .issue-card {
+        min-height: auto;
       }
     }
 
-    function renderEmpty() {
-      return '' +
-        '<div class="empty">' +
-        '<div class="empty-emoji">🧯</div>' +
-        '<div>기록된 이슈가 없습니다.</div>' +
-        '<div style="font-size:12px;color: var(--fg-mute);margin-top:6px;">문제가 생기면 /issue 로 남겨둡시다.</div>' +
-        '</div>';
+    @media (max-width: 640px) {
+      .issues-page {
+        gap: 52px;
+      }
+
+      h1 {
+        font-size: 56px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .section-head,
+      .archive-head {
+        display: block;
+      }
+
+      .section-head h2 {
+        font-size: 24px;
+      }
+
+      .section-head p:last-child {
+        margin-top: 8px;
+        text-align: left;
+      }
+
+      .month-block a {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .month-block small {
+        text-align: left;
+      }
+
+      .issues-footer {
+        flex-direction: column;
+      }
     }
-
-    function render(items) {
-      // Group by date
-      const groups = {};
-      for (const it of items) {
-        const key = it.date || '날짜없음';
-        if (!groups[key]) groups[key] = [];
-        groups[key].push(it);
-      }
-      const sortedDates = Object.keys(groups).sort((a, b) => b.localeCompare(a));
-
-      // Stats
-      const total = items.length;
-      const highCount = items.filter(it => /high/i.test(it.severity || '')).length;
-      const recurHigh = items.filter(it => /high/i.test(it.recurrence || '')).length;
-
-      let html = '';
-      html += '<div class="hero-stats">';
-      html +=
-        '<div class="hero-card">' +
-        '<div class="hero-card-label">누적 이슈</div>' +
-        '<div class="hero-card-value">' + total + '<span class="unit">건</span></div>' +
-        '<div class="hero-card-sub">' + sortedDates.length + '일에 걸쳐</div>' +
-        '</div>';
-      html +=
-        '<div class="hero-card">' +
-        '<div class="hero-card-label">심각도 high</div>' +
-        '<div class="hero-card-value">' + highCount + '<span class="unit">건</span></div>' +
-        '<div class="hero-card-sub">전체의 ' + (total ? Math.round(highCount / total * 100) : 0) + '%</div>' +
-        '</div>';
-      html +=
-        '<div class="hero-card">' +
-        '<div class="hero-card-label">재발 가능성 high</div>' +
-        '<div class="hero-card-value">' + recurHigh + '<span class="unit">건</span></div>' +
-        '<div class="hero-card-sub">Forcing Function 필요</div>' +
-        '</div>';
-      html += '</div>';
-
-      // Build full date range (PROJECT_START ~ today KST) so empty days render as "없음".
-      // UTC anchor iteration to avoid local-TZ drift.
-      const PROJECT_START = '2026-04-11';
-      const datedOnly = sortedDates.filter(d => d !== '날짜없음');
-      const timelineDates = [];
-      {
-        const earliestWithIssue = datedOnly.length > 0 ? datedOnly[datedOnly.length - 1] : PROJECT_START;
-        const earliest = earliestWithIssue < PROJECT_START ? earliestWithIssue : PROJECT_START;
-        const nowKst = new Date(Date.now() + 9 * 3600 * 1000);
-        const todayStr = nowKst.toISOString().slice(0, 10);
-        const latestWithIssue = datedOnly.length > 0 ? datedOnly[0] : PROJECT_START;
-        const endStr = todayStr >= latestWithIssue ? todayStr : latestWithIssue;
-        const cur = new Date(earliest + 'T00:00:00Z');
-        const end = new Date(endStr + 'T00:00:00Z');
-        while (cur <= end) {
-          timelineDates.push(cur.toISOString().slice(0, 10));
-          cur.setUTCDate(cur.getUTCDate() + 1);
-        }
-        timelineDates.reverse();
-      }
-      if (groups['날짜없음']) timelineDates.push('날짜없음');
-
-      html += '<div class="timeline">';
-      for (const date of timelineDates) {
-        const group = groups[date] || [];
-        const dateLabel = (date === '날짜없음') ? '날짜 미상' : date;
-        const rel = (date === '날짜없음') ? '' : relativeDay(date);
-        const isEmpty = group.length === 0;
-        html += '<div class="date-group' + (isEmpty ? ' empty-day' : '') + '">';
-        html +=
-          '<div class="date-head">' +
-          '<span class="date-label">' + escapeHtml(dateLabel) + '</span>' +
-          (rel ? '<span class="date-rel">' + escapeHtml(rel) + '</span>' : '') +
-          '<span class="date-count">' + (isEmpty ? '없음' : group.length + '건') + '</span>' +
-          '</div>';
-        if (isEmpty) {
-          html += '<div class="empty-day-note">이 날은 기록된 이슈가 없습니다.</div>';
-        } else {
-          for (const it of group) {
-            html += renderIssueCard(it);
-          }
-        }
-        html += '</div>';
-      }
-      html += '</div>';
-
-      viewEl.innerHTML = html;
-    }
-
-    function renderIssueCard(it) {
-      const p = it.parsed || { title: it.title, meta: {}, sections: {} };
-      const title = p.title || it.title || '(제목 없음)';
-      const meta = p.meta || {};
-      const sev = it.severity || meta.severity || '';
-      const rec = it.recurrence || meta.recurrence || '';
-      const scope = it.scope || meta.scope || '';
-      let html = '<div class="issue-card">';
-      html += '<div class="issue-head">';
-      html += '<div class="issue-title">' + escapeHtml(title) + '</div>';
-      html += '<div class="badges">';
-      if (sev) html += '<span class="badge ' + sevBadgeClass(sev) + '">심각도 ' + escapeHtml(sev) + '</span>';
-      if (rec) html += '<span class="badge badge-rec">재발 ' + escapeHtml(rec) + '</span>';
-      html += '</div>';
-      html += '</div>';
-
-      const metaBits = [];
-      if (meta.occurred) metaBits.push('발생 ' + meta.occurred);
-      if (meta.resolved) metaBits.push('해결 ' + meta.resolved);
-      if (scope) metaBits.push(scope);
-      if (metaBits.length) {
-        html += '<div class="meta-line">' +
-          metaBits.map(b => '<span>' + escapeHtml(b) + '</span>').join('<span class="sep">·</span>') +
-          '</div>';
-      }
-
-      const preview = (p.frontmatter && p.frontmatter.summary || p.sections['증상'] || '').replace(/```[\s\S]*?```/g, '').replace(/\n+/g, ' ').trim();
-      if (preview) {
-        html += '<div class="issue-preview">' + escapeHtml(preview) + '</div>';
-      }
-
-      html += '</div>';
-      return html;
-    }
-
-    init();
-  </script>
+  </style>
 </Layout>
