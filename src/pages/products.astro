@@ -56,110 +56,427 @@ const saas = [
 
 const tools = [
   {
-    name: 'Codex Telegram Bridge', status: '오픈소스 · v0.3.26',
+    name: 'Codex Telegram Bridge', status: '오픈소스 · v0.5.5',
     desc: 'Codex CLI REPL을 텔레그램에서 제어하는 전용 브릿지. 텍스트·이미지·영상·음성·파일 입력, 진행보고, reasoning mirror, typing recovery를 지원합니다.',
     links: [
       { label: 'GitHub', url: 'https://github.com/ssamssae/codex-telegram-bridge' },
-      { label: 'Release', url: 'https://github.com/ssamssae/codex-telegram-bridge/releases/tag/v0.3.26' },
+      { label: 'Release', url: 'https://github.com/ssamssae/codex-telegram-bridge/releases/tag/v0.5.5' },
     ],
   },
   {
-    name: 'Claude Telegram Bridge', status: '오픈소스 · v0.1.3',
+    name: 'Claude Telegram Bridge', status: '오픈소스 · v0.4.2',
     desc: 'Claude Code live tmux 세션을 텔레그램으로 연결하는 전용 브릿지. claude -p 없이 세션 주입·transcript 추출·미디어 local_path 전달로 동작합니다.',
     links: [
       { label: 'GitHub', url: 'https://github.com/ssamssae/claude-telegram-bridge' },
-      { label: 'Release', url: 'https://github.com/ssamssae/claude-telegram-bridge/releases/tag/v0.1.3' },
+      { label: 'Release', url: 'https://github.com/ssamssae/claude-telegram-bridge/releases/tag/v0.4.2' },
     ],
   },
 ];
+
+const sections = [
+  { label: '오픈소스 툴', eyebrow: 'OPEN SOURCE', count: tools.length, items: tools, variant: 'tool' },
+  { label: '모바일 앱', eyebrow: 'MOBILE APPS', count: apps.length, items: apps, variant: 'app' },
+  { label: '웹 SaaS', eyebrow: 'WEB SAAS', count: saas.length, items: saas, variant: 'saas' },
+];
+
+const featured = [apps[0], apps[1], tools[0]];
 ---
-<Layout title="products — 마이너스베타스튜디오" description="강대종이 공개한 모바일 앱, 웹 SaaS, 오픈소스 툴 모음.">
-  <section class="hero">
-    <h1 class="logo">products</h1>
-    <p class="tagline">오픈소스 툴 &amp; 모바일 앱 &amp; 웹 SaaS</p>
-    <p class="intro">강대종이 공개한 오픈소스 툴 {tools.length}개, 모바일 앱 {apps.length}개, 준비 중인 웹 SaaS {saas.length}개.</p>
+<Layout title="제품 — 마이너스베타스튜디오" description="강대종이 공개한 모바일 앱, 웹 SaaS, 오픈소스 툴 모음.">
+  <section class="products-hero" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <p class="eyebrow">PRODUCT INDEX</p>
+      <h1 id="page-title">제품</h1>
+      <p class="lead">
+        작게 만들고 실제로 공개한 앱, 도구, 웹 서비스를 한 곳에 모았습니다.
+        오래 남길 수 있는 작은 제품을 기준으로 계속 다듬습니다.
+      </p>
+    </div>
+    <dl class="hero-stats" aria-label="제품 요약">
+      <div>
+        <dt>앱</dt>
+        <dd>{apps.length}</dd>
+      </div>
+      <div>
+        <dt>도구</dt>
+        <dd>{tools.length}</dd>
+      </div>
+      <div>
+        <dt>SaaS</dt>
+        <dd>{saas.length}</dd>
+      </div>
+    </dl>
   </section>
 
-  <section class="sec">
-    <h2 class="sec-title sec-title--tools">오픈소스 툴 <span class="sec-count">{tools.length}</span></h2>
-    <div class="grid">
-      {tools.map((a) => (
-        <div class="card card--tool">
-          <div class="card-name">{a.name}</div>
-          <div class="card-status">{a.status}</div>
-          <p class="card-desc">{a.desc}</p>
-          <div class="card-links">
-            {a.links.map((l) => l.disabled
-              ? <span class="disabled">{l.label}</span>
-              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+  <section class="featured-section" aria-labelledby="featured-title">
+    <div class="section-head">
+      <p class="eyebrow">FEATURED</p>
+      <h2 id="featured-title">대표 제품</h2>
+    </div>
+    <div class="featured-grid">
+      {featured.map((item, index) => (
+        <article class={index === 0 ? 'product-card primary' : 'product-card'}>
+          <div class="card-topline">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <span>{item.status}</span>
           </div>
-        </div>
+          <h3>{item.name}</h3>
+          <p>{item.desc}</p>
+          <div class="product-links">
+            {item.links.map((link) => link.disabled
+              ? <span class="disabled">{link.label}</span>
+              : <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
+          </div>
+        </article>
       ))}
     </div>
   </section>
 
-  <section class="sec">
-    <h2 class="sec-title">앱 <span class="sec-count">{apps.length}</span></h2>
-    <div class="grid">
-      {apps.map((a) => (
-        <div class="card card--app">
-          <div class="card-name">{a.name}</div>
-          <div class="card-status">{a.status}</div>
-          <p class="card-desc">{a.desc}</p>
-          <div class="card-links">
-            {a.links.map((l) => l.disabled
-              ? <span class="disabled">{l.label}</span>
-              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
-          </div>
-        </div>
-      ))}
+  <section class="catalog-section" aria-labelledby="catalog-title">
+    <div class="section-head catalog-head">
+      <div>
+        <p class="eyebrow">CATALOG</p>
+        <h2 id="catalog-title">전체 제품</h2>
+      </div>
+      <p>공개된 제품과 준비 중인 제품을 카테고리별로 정리했습니다.</p>
     </div>
-  </section>
 
-  <section class="sec">
-    <h2 class="sec-title sec-title--saas">SaaS <span class="sec-count">{saas.length}</span></h2>
-    <div class="grid">
-      {saas.map((a) => (
-        <div class="card card--saas">
-          <div class="card-name">{a.name}</div>
-          <div class="card-status">{a.status}</div>
-          <p class="card-desc">{a.desc}</p>
-          <div class="card-links">
-            {a.links.map((l) => l.disabled
-              ? <span class="disabled">{l.label}</span>
-              : <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
-          </div>
-        </div>
+    <div class="catalog-list">
+      {sections.map((section) => (
+        <section class="catalog-block" aria-labelledby={`section-${section.variant}`}>
+          <header>
+            <p class="eyebrow">{section.eyebrow}</p>
+            <h3 id={`section-${section.variant}`}>{section.label}</h3>
+            <span>{section.count}개</span>
+          </header>
+          <ol>
+            {section.items.map((item) => (
+              <li>
+                <div class="item-main">
+                  <strong>{item.name}</strong>
+                  <span>{item.status}</span>
+                  <p>{item.desc}</p>
+                </div>
+                <div class="item-links">
+                  {item.links.map((link) => link.disabled
+                    ? <span class="disabled">{link.label}</span>
+                    : <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
       ))}
     </div>
   </section>
 
   <style>
-    /* sorry/lab 톤 — 중앙 모노 hero + 좌측 accent 카드 */
-    .hero { text-align: center; padding: 8px 0 36px; }
-    .hero .logo { font-family: var(--mono); font-size: 52px; font-weight: 600; color: var(--magenta); line-height: 1; }
-    .hero .tagline { font-family: var(--mono); font-size: 14px; color: var(--fg-dim); margin-top: 12px; }
-    .hero .intro { color: var(--fg-dim); max-width: 520px; margin: 16px auto 0; font-size: 15px; line-height: 1.7; }
+    .products-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: 40px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0 40px;
+      margin-bottom: 44px;
+    }
 
-    .sec { margin-top: 36px; }
-    .sec-title { font-size: 15px; font-family: var(--mono); color: var(--fg); font-weight: 600; margin: 0 0 16px; display: flex; align-items: center; gap: 9px; }
-    .sec-title::before { content: ''; width: 9px; height: 9px; border-radius: 2px; background: var(--cyan); }
-    .sec-title--saas::before { background: var(--magenta); }
-    .sec-title--tools::before { background: var(--cyan); }
-    .sec-count { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); font-weight: 500; }
+    .eyebrow {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
 
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .card { border: 1px solid var(--border); border-radius: 10px; padding: 18px; background: var(--bg-elev); transition: border-color .15s; }
-    .card:nth-child(odd):hover { border-color: var(--cyan); }
-    .card:nth-child(even):hover { border-color: var(--magenta); }
-    .card-name { display: block; font-family: var(--mono); font-weight: 600; font-size: 15px; color: var(--cyan); }
-    .card:nth-child(even) .card-name { color: var(--magenta); }
-    .card-status { font-family: var(--mono); font-size: 11px; color: var(--fg-mute); margin-top: 5px; }
-    .card-desc { color: var(--fg-dim); font-size: 13px; line-height: 1.6; margin: 12px 0 10px; }
-    .card-links { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
-    .card-links a { color: var(--fg-dim); text-decoration: none; }
-    .card-links a:hover { color: var(--cyan); }
-    .card-links .disabled { color: var(--fg-mute); cursor: default; }
-    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+    h1 {
+      color: var(--fg);
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
+      margin: 0 0 20px;
+    }
+
+    .lead {
+      max-width: 640px;
+      color: var(--fg-dim);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--fg);
+    }
+
+    .hero-stats div {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      min-height: 58px;
+      padding: 14px 0;
+    }
+
+    .hero-stats dt {
+      color: var(--fg-mute);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-stats dd {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .featured-section,
+    .catalog-section {
+      margin-top: 56px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .featured-section .section-head {
+      display: block;
+    }
+
+    .section-head h2 {
+      color: var(--fg);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .section-head p:last-child {
+      max-width: 360px;
+      color: var(--fg-mute);
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .product-card {
+      min-height: 260px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card.primary {
+      background: var(--fg);
+      color: var(--bg);
+      border-color: var(--fg);
+    }
+
+    .card-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      min-height: 64px;
+    }
+
+    .primary .card-topline,
+    .primary p,
+    .primary .product-links a {
+      color: #d7d7d7;
+    }
+
+    .product-card h3 {
+      color: inherit;
+      font-size: 22px;
+      line-height: 1.32;
+      margin-bottom: 12px;
+    }
+
+    .product-card p {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .product-links,
+    .item-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .product-links a,
+    .item-links a,
+    .disabled {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      color: var(--fg);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .disabled {
+      color: var(--fg-mute);
+    }
+
+    .catalog-list {
+      display: grid;
+      gap: 28px;
+    }
+
+    .catalog-block {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .catalog-block header {
+      position: sticky;
+      top: 112px;
+      align-self: start;
+    }
+
+    .catalog-block h3 {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      word-break: keep-all;
+    }
+
+    .catalog-block header span {
+      color: var(--fg-mute);
+      font-size: 13px;
+    }
+
+    .catalog-block ol {
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+
+    .catalog-block li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(170px, auto);
+      gap: 20px;
+      align-items: start;
+      border-bottom: 1px solid var(--border-soft);
+      padding: 16px 0;
+    }
+
+    .item-main strong {
+      display: block;
+      color: var(--fg);
+      font-size: 16px;
+      line-height: 1.45;
+      margin-bottom: 6px;
+    }
+
+    .item-main span {
+      display: block;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .item-main p {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .item-links {
+      justify-content: flex-end;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    @media (max-width: 900px) {
+      .products-hero,
+      .catalog-block,
+      .catalog-block li {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        max-width: 520px;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card {
+        min-height: 220px;
+      }
+
+      .card-topline {
+        min-height: 48px;
+      }
+
+      .catalog-block header {
+        position: static;
+      }
+
+      .item-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .products-hero {
+        padding-top: 8px;
+        margin-bottom: 36px;
+      }
+
+      h1 {
+        font-size: 56px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .section-head,
+      .catalog-head {
+        display: block;
+      }
+
+      .section-head p:last-child {
+        margin-top: 10px;
+        text-align: left;
+      }
+    }
   </style>
 </Layout>
