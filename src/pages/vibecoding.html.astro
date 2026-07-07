@@ -1,985 +1,615 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import '../styles/lab.css';
+
+const stats = [
+  { label: '활성 스킬', value: '39' },
+  { label: '물리 기기', value: '5' },
+  { label: '논리 노드', value: '10' },
+  { label: '제작 기간', value: '약 7주' },
+];
+
+const timeline = [
+  {
+    period: '2026.04.27 이전',
+    stage: '01',
+    title: '첫 슬래시 커맨드',
+    summary:
+      'todo, worklog, done, goodnight 같은 반복 기록을 파일에 남기는 단계에서 시작했다. 아직은 단일 Mac 세션 안에서 돌아가는 작은 자동화였다.',
+    tags: ['todo', 'worklog', 'done', 'goodnight'],
+  },
+  {
+    period: '2026.04.29 - 05.04',
+    stage: '02',
+    title: 'Mac + WSL 2-way handoff',
+    summary:
+      'WSL을 두 번째 작업자로 붙이고 본진에서 지시, WSL에서 실행, 다시 본진으로 결과를 회수하는 양방향 운반체를 만들었다.',
+    tags: ['parallel-cycle', 'wsl-flutter-test', 'submit-app'],
+  },
+  {
+    period: '2026.05.05 - 05.07',
+    stage: '03',
+    title: '에이전트 메시',
+    summary:
+      'PLAN, EXECUTE, JUDGE, REPORT 흐름이 잡히면서 작업 분해와 검증을 에이전트 협력 구조로 넘기기 시작했다.',
+    tags: ['loop-run', 'trio-vote', 'newsletter-publish'],
+  },
+  {
+    period: '2026.05.08 - 05.09',
+    stage: '04',
+    title: 'Codex 합류와 스킬 다이어트',
+    summary:
+      'Mac mini가 세 번째 노드로 들어오고, 중복 스킬은 device-run 같은 공통 명령으로 합쳐졌다. 늘리는 것보다 줄이는 기준이 생겼다.',
+    tags: ['device-run', 'night-runner', 'merge-janitor'],
+  },
+  {
+    period: '2026.05.10 - 05.11',
+    stage: '05',
+    title: '5노드 메시',
+    summary:
+      '데스크탑 3060Ti와 노트북3060을 붙여 물리 5대 체제로 확장했다. GPU 실험, 모바일 동기화, 코드 실행 레인이 분리됐다.',
+    tags: ['mesh-vote', 'fleet-director', 'araseo'],
+  },
+  {
+    period: '2026.05.14 - 05.17',
+    stage: '06',
+    title: 'Claude Code 단일 스택과 공개 표면',
+    summary:
+      '외부 에이전트 환경을 정리하고 Claude Code 중심으로 통일했다. kangdaejong.com, work, 메일 라우팅, 큐 대시보드가 공개 표면으로 올라왔다.',
+    tags: ['5-node peer', 'domain live', 'public surface'],
+  },
+  {
+    period: '2026.05.25 - 05.28',
+    stage: '07',
+    title: 'Codex 백엔드 라이브',
+    summary:
+      'Codex REPL을 표준 실행 레인으로 세팅하고, 설계 투표와 분산 실행을 위한 Codex mesh 경로를 열었다.',
+    tags: ['codex-mesh-vote', 'codex-loop-fleet', 'YOLO mode'],
+  },
+  {
+    period: '2026.06.05 - 06.15',
+    stage: '08',
+    title: '역할 반전과 자기방어 인프라',
+    summary:
+      '본진은 거버넌스 게이트로 물러나고 자동 실행은 워커가 맡았다. 대신 증거 게이트, 원장, 가드 마커, 컨텍스트 하드클리어 같은 재발방지 장치가 들어갔다.',
+    tags: ['action-ledger', 'sot-mark', 'evidence gate'],
+  },
+];
+
+const nodes = [
+  { name: 'Mac 본진', role: '정책, 머지, 최종 승인', lane: 'governance' },
+  { name: '라이덴 WSL', role: '코드 수정, 분석, 로컬 검증', lane: 'execution' },
+  { name: 'Mac mini', role: '자동 사이클, 빌드, 오케스트레이션', lane: 'orchestration' },
+  { name: 'Desktop 3060Ti', role: 'GPU 실험, 장기 실행, 보조 워커', lane: 'compute' },
+  { name: 'Notebook3060', role: '외출용 sync head, 모바일 캡처', lane: 'mobile' },
+];
+
+const flow = [
+  { label: '입력', text: '텔레그램 한 줄 또는 tasks.md 디렉티브' },
+  { label: '판단', text: '본진이 범위, 위험도, 라우팅을 확정' },
+  { label: '실행', text: '워커가 worktree, branch, test, PR까지 수행' },
+  { label: '검증', text: 'build, test, diff-check, evidence contract' },
+  { label: '회수', text: 'mac-report, sot-mark, 수동 머지 게이트' },
+];
+
+const safeguards = [
+  '큰 작업 전 증거 기반 preflight',
+  '가드 마커와 정책 파일 보호',
+  '외부발신, 배포, 머지 R3 게이트',
+  '작업 상태는 tasks.md와 sot-mark 경유',
+  '컨텍스트 과밀 시 하드클리어와 재개 기준',
+  'stale 스킬을 감지하는 adapter scan',
+];
 ---
-<Layout title="에이전트 바이브코딩 변천사 - 강대종" description="강대종이 Claude/Codex 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 스킬 39개, 물리 5대/논리 10노드 mesh, 그리고 stale을 막는 자기방어 인프라(forcing function)의 진화를 기록합니다.">
+
+<Layout
+  title="에이전트 바이브코딩 변천사 - 강대종"
+  description="강대종이 Claude/Codex 커스텀 스킬과 다중 노드 워커로 바이브코딩 시스템을 만들어온 변천사."
+>
   <Fragment slot="head">
-    <!-- OG / Twitter Card (2026-05-25) -->
-  <meta property="og:title" content="에이전트 바이브코딩 변천사 - 강대종">
-  <meta property="og:description" content="강대종이 Claude/Codex 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서.">
-  <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://work.kangdaejong.com/vibecoding.html">
-  <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="에이전트 바이브코딩 변천사 - 강대종">
-  <meta name="twitter:description" content="강대종이 Claude/Codex 커스텀 스킬로 바이브코딩 시스템을 만들어온 변천사 보고서.">
-  <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
-  <link rel="canonical" href="https://work.kangdaejong.com/vibecoding.html">
-  <script type="application/ld+json" is:inline>
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://work.kangdaejong.com/#person",
-      "name": "강대종",
-      "jobTitle": "Solo founder / Vibe coder",
-      "url": "https://work.kangdaejong.com/",
-      "sameAs": ["https://github.com/ssamssae"],
-      "description": "1인 개발자 / Vibe coder / Solo founder"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://work.kangdaejong.com/#website",
-      "name": "강대종",
-      "url": "https://work.kangdaejong.com/",
-      "inLanguage": "ko",
-      "author": {"@id": "https://work.kangdaejong.com/#person"}
-    }
-  ]
-}
-</script>
-  <style is:global>
-    /* 페이지 고유 레이아웃 (색은 전부 page-dark 토큰 / --page-accent 참조) */
-    .vc-report { margin-top: 8px; }
+    <meta property="og:title" content="에이전트 바이브코딩 변천사 - 강대종" />
+    <meta property="og:description" content="물리 5대, 논리 10노드, 스킬 39개로 확장된 바이브코딩 시스템 기록." />
+    <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://work.kangdaejong.com/vibecoding.html" />
+    <meta property="og:site_name" content="강대종 작업장" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="에이전트 바이브코딩 변천사 - 강대종" />
+    <meta name="twitter:description" content="물리 5대, 논리 10노드, 스킬 39개로 확장된 바이브코딩 시스템 기록." />
+    <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
+    <link rel="canonical" href="https://work.kangdaejong.com/vibecoding.html" />
+  </Fragment>
 
-    /* 섹션 헤더 */
-    h2.section-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--fg);
-      margin: 48px 0 24px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--border);
-    }
-    h2.section-title span { color: var(--page-accent); }
+  <article class="vibe-page">
+    <section class="vibe-hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">AGENTIC VIBECODING REPORT</p>
+        <h1 id="page-title">에이전트 바이브코딩 변천사</h1>
+        <p class="lead">
+          반복 작업을 줄이려고 만든 작은 슬래시 커맨드가 물리 5대, 논리 10노드,
+          스킬 39개를 가진 작업 시스템으로 커졌다. 이 페이지는 기능 목록이 아니라
+          어디서 복잡해졌고, 어디서 다시 줄였는지 보는 변화 기록이다.
+        </p>
+      </div>
+      <dl class="hero-stats" aria-label="바이브코딩 시스템 요약">
+        {stats.map((stat) => (
+          <div>
+            <dt>{stat.label}</dt>
+            <dd>{stat.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
 
-    /* report 인트로 카드 */
-    .vc-hero-card {
-      background: var(--bg-elev);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--page-accent);
-      border-radius: 12px;
-      padding: 28px 26px;
-      margin-bottom: 16px;
+    <section class="system-map" aria-labelledby="map-title">
+      <div class="section-head">
+        <p class="section-number">00</p>
+        <div>
+          <p class="eyebrow">CURRENT SHAPE</p>
+          <h2 id="map-title">지금은 한 명이 아니라 작은 운영체제처럼 일한다</h2>
+        </div>
+      </div>
+      <div class="map-board" aria-label="입력부터 회수까지의 운영 흐름">
+        {flow.map((item) => (
+          <div class="map-step">
+            <span>{item.label}</span>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="vibe-section" aria-labelledby="timeline-title">
+      <div class="section-head">
+        <p class="section-number">01</p>
+        <div>
+          <p class="eyebrow">TIMELINE</p>
+          <h2 id="timeline-title">변화는 자동화보다 운영 기준을 만드는 쪽으로 갔다</h2>
+        </div>
+      </div>
+      <ol class="timeline-list">
+        {timeline.map((item) => (
+          <li>
+            <time>{item.period}</time>
+            <div>
+              <span class="stage">STEP {item.stage}</span>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+              <ul class="tag-list" aria-label={`${item.title} 관련 키워드`}>
+                {item.tags.map((tag) => <li>{tag}</li>)}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="vibe-section" aria-labelledby="node-title">
+      <div class="section-head">
+        <p class="section-number">02</p>
+        <div>
+          <p class="eyebrow">NODE MAP</p>
+          <h2 id="node-title">노드는 늘었지만 역할은 더 좁게 나눴다</h2>
+        </div>
+      </div>
+      <div class="node-table" role="table" aria-label="물리 노드 역할">
+        {nodes.map((node) => (
+          <div class="node-row" role="row">
+            <div role="cell">
+              <span>{node.lane}</span>
+              <strong>{node.name}</strong>
+            </div>
+            <p role="cell">{node.role}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="vibe-section two-column" aria-labelledby="workflow-title">
+      <div class="section-head">
+        <p class="section-number">03</p>
+        <div>
+          <p class="eyebrow">OPERATING RULE</p>
+          <h2 id="workflow-title">좋은 자동화는 더 많이 누르는 버튼이 아니라 덜 헷갈리는 절차다</h2>
+        </div>
+      </div>
+      <div class="column-grid">
+        <div class="plain-panel">
+          <h3>처음의 문제</h3>
+          <p>
+            스킬이 늘어날수록 기억해야 할 규칙도 같이 늘었다. 어디까지 자동으로 해도 되는지,
+            어떤 결과를 믿어도 되는지, 어떤 작업은 본진 승인이 필요한지 매번 흔들렸다.
+          </p>
+        </div>
+        <div class="plain-panel">
+          <h3>지금의 기준</h3>
+          <p>
+            워커는 손이다. 브랜치, 검증, PR, 보고까지 수행하지만 머지와 배포는 게이트를 통과한다.
+            자동화가 빠르게 움직이되 되돌릴 수 있는 단위에서 멈추게 만든다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="vibe-section" aria-labelledby="guard-title">
+      <div class="section-head">
+        <p class="section-number">04</p>
+        <div>
+          <p class="eyebrow">FORCING FUNCTIONS</p>
+          <h2 id="guard-title">메모가 아니라 강제 장치가 재발을 줄인다</h2>
+        </div>
+      </div>
+      <ul class="guard-list">
+        {safeguards.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <footer class="vibe-footer">
+      <p>마지막 갱신 2026.07.07</p>
+      <a href="/lab/">lab으로 돌아가기</a>
+    </footer>
+  </article>
+
+  <style>
+    .vibe-page {
+      display: flex;
+      flex-direction: column;
+      gap: 68px;
     }
-    .vc-hero-label {
+
+    .vibe-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: 42px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0 42px;
+    }
+
+    .eyebrow {
+      color: var(--fg-mute);
       font-family: var(--mono);
       font-size: 12px;
       font-weight: 600;
-      color: var(--page-accent);
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      letter-spacing: 0;
       margin-bottom: 12px;
     }
-    .vc-hero-card h2 {
-      font-size: 24px;
-      font-weight: 700;
+
+    h1 {
       color: var(--fg);
-      margin-bottom: 14px;
-      line-height: 1.35;
-      word-break: keep-all;
+      font-size: 76px;
+      line-height: 0.98;
+      margin: 0 0 22px;
+      max-width: 880px;
     }
-    .vc-hero-card p {
-      font-size: 15px;
+
+    .lead {
       color: var(--fg-dim);
-      line-height: 1.7;
-      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 760px;
     }
+
     .hero-stats {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--fg);
+    }
+
+    .hero-stats div {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 14px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      min-height: 58px;
+      padding: 14px 0;
+    }
+
+    .hero-stats dt {
+      color: var(--fg-mute);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-stats dd {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
       gap: 24px;
-      margin-top: 24px;
-      flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: var(--mono);
-      font-size: 30px;
-      font-weight: 600;
-      color: var(--page-accent);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: var(--fg-mute);
-      margin-top: 6px;
+      align-items: start;
+      border-top: 1px solid var(--fg);
+      padding-top: 22px;
+      margin-bottom: 24px;
     }
 
-    /* Timeline */
-    .timeline { position: relative; margin-bottom: 16px; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-    .tl-item {
-      position: relative;
-      padding-left: 56px;
-      margin-bottom: 32px;
-    }
-    .tl-dot {
-      position: absolute;
-      left: 12px;
-      top: 4px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--page-accent);
-      border: 3px solid var(--bg);
-      box-shadow: 0 0 0 2px var(--page-accent);
-    }
-    .tl-dot.epoch1 { background: var(--fg-mute); box-shadow: 0 0 0 2px var(--fg-mute); }
-    .tl-dot.epoch2 { background: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
-    .tl-dot.epoch3 { background: var(--success); box-shadow: 0 0 0 2px var(--success); }
-    .tl-dot.epoch4 { background: var(--warn); box-shadow: 0 0 0 2px var(--warn); }
-    .tl-dot.epoch5 { background: var(--accent-2); box-shadow: 0 0 0 2px var(--accent-2); }
-    .tl-dot.epoch6 { background: var(--accent-dim); box-shadow: 0 0 0 2px var(--accent-dim); }
-
-    .tl-date {
+    .section-number {
+      color: var(--fg);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
-      color: var(--fg-mute);
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
     }
-    .tl-card {
-      background: var(--bg-elev);
-      border-radius: 10px;
-      padding: 20px 22px;
-      border: 1px solid var(--border);
-      transition: border-color 0.15s;
+
+    h2 {
+      color: var(--fg);
+      font-size: 34px;
+      line-height: 1.2;
+      max-width: 760px;
     }
-    .tl-card:hover { border-color: var(--page-accent); }
-    .tl-epoch {
-      display: inline-block;
-      font-size: 11px;
+
+    .system-map {
+      margin-top: -18px;
+    }
+
+    .map-board {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .map-step {
+      min-height: 156px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px;
+    }
+
+    .map-step span {
+      display: block;
+      color: var(--fg);
+      font-size: 15px;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 8px;
+      margin-bottom: 38px;
+    }
+
+    .map-step p {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .timeline-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-list > li {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 32px;
+      border-bottom: 1px solid var(--border);
+      padding: 26px 0;
+    }
+
+    .timeline-list time {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .stage {
+      color: var(--fg-mute);
+      display: block;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .timeline-list h3 {
+      color: var(--fg);
+      font-size: 22px;
+      line-height: 1.3;
       margin-bottom: 10px;
     }
-    .epoch1 .tl-epoch { background: var(--bg-elev2); color: var(--fg-dim); }
-    .epoch2 .tl-epoch { background: var(--accent-bg); color: var(--accent); }
-    .epoch3 .tl-epoch { background: rgba(52,211,153,0.12); color: var(--success); }
-    .epoch4 .tl-epoch { background: rgba(251,146,60,0.12); color: var(--warn); }
-    .epoch5 .tl-epoch { background: rgba(255,0,170,0.12); color: var(--accent-2); }
-    .epoch6 .tl-epoch { background: rgba(0,184,212,0.12); color: var(--accent-dim); }
 
-    .tl-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--fg);
-      margin-bottom: 8px;
-      word-break: keep-all;
-    }
-    .tl-desc {
-      font-size: 14px;
+    .timeline-list p {
       color: var(--fg-dim);
-      line-height: 1.7;
+      font-size: 15px;
+      line-height: 1.75;
+      max-width: 760px;
     }
-    .tl-desc code {
-      font-family: var(--mono);
-      font-size: 12px;
-      background: var(--bg-elev2);
-      color: var(--fg);
-      padding: 1px 6px;
-      border-radius: 5px;
-    }
-    .tl-skills {
+
+    .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 12px;
+      list-style: none;
+      margin-top: 14px;
     }
-    .skill-badge {
+
+    .tag-list li {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--fg-dim);
+      font-family: var(--mono);
       font-size: 11px;
-      font-family: var(--mono);
-      background: var(--bg-elev2);
-      color: var(--fg-dim);
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      border: 1px solid var(--border);
+      line-height: 1;
+      padding: 6px 9px;
     }
-    .skill-badge.new { background: rgba(52,211,153,0.10); color: var(--success); border-color: rgba(52,211,153,0.25); }
-    .skill-badge.del { background: rgba(255,90,106,0.10); color: var(--danger); border-color: rgba(255,90,106,0.25); text-decoration: line-through; }
 
-    /* Architecture */
-    .arch-grid {
+    .node-table {
+      border-top: 1px solid var(--border);
+    }
+
+    .node-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    @media (max-width: 600px) { .arch-grid { grid-template-columns: 1fr; } }
-    .arch-card {
-      background: var(--bg-elev);
-      border-radius: 10px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-    .arch-icon { font-size: 32px; margin-bottom: 10px; }
-    .arch-name { font-size: 14px; font-weight: 700; color: var(--fg); margin-bottom: 6px; }
-    .arch-role { font-size: 12px; color: var(--fg-mute); line-height: 1.6; }
-
-    /* Skills count */
-    .skills-summary {
-      background: var(--bg-elev);
-      border-radius: 10px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      margin-bottom: 16px;
-    }
-    .skills-summary p { font-size: 14px; color: var(--fg-dim); margin-bottom: 16px; line-height: 1.7; }
-    .skills-summary code {
-      font-family: var(--mono);
-      font-size: 12px;
-      background: var(--bg-elev2);
-      color: var(--fg);
-      padding: 1px 6px;
-      border-radius: 5px;
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
+      gap: 28px;
+      border-bottom: 1px solid var(--border);
+      padding: 22px 0;
     }
 
-    /* Workflow */
-    .workflow-wrap { margin-bottom: 16px; display: flex; flex-direction: column; gap: 20px; }
-    .wf-block { background: var(--bg-elev); border-radius: 10px; padding: 24px; border: 1px solid var(--border); }
-    .wf-subtitle { font-size: 12px; font-weight: 700; color: var(--fg-mute); margin-bottom: 18px; letter-spacing: 0.8px; text-transform: uppercase; }
-    .routing-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: start; }
-    .routing-col { display: flex; flex-direction: column; gap: 8px; }
-    .routing-label { font-size: 11px; font-weight: 700; color: var(--fg-mute); margin-bottom: 2px; letter-spacing: 0.5px; text-transform: uppercase; }
-    .routing-node { border-radius: 10px; padding: 10px 14px; font-size: 13px; font-weight: 600; line-height: 1.5; border: 1px solid var(--border); }
-    .routing-node small { display: block; font-size: 11px; font-weight: 400; color: var(--fg-mute); margin-top: 2px; }
-    .routing-node.trigger { background: var(--accent-bg); color: var(--accent); }
-    .routing-node.mac { background: rgba(251,146,60,0.10); color: var(--warn); }
-    .routing-node.wsl { background: rgba(0,229,255,0.07); color: var(--accent); }
-    .routing-node.mini { background: rgba(52,211,153,0.08); color: var(--success); }
-    .routing-node.result { background: rgba(255,0,170,0.08); color: var(--accent-2); }
-    .routing-mid { display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--fg-mute); padding-top: 28px; }
-    .wf-pipeline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-    .wf-step { border-radius: 10px; padding: 12px 14px; text-align: center; font-size: 13px; font-weight: 700; min-width: 88px; flex: 1; border: 1px solid var(--border); }
-    .wf-step small { display: block; font-size: 11px; font-weight: 400; color: var(--fg-mute); margin-top: 3px; line-height: 1.4; }
-    .wf-step.plan { background: var(--accent-bg); color: var(--accent); }
-    .wf-step.execute { background: rgba(52,211,153,0.10); color: var(--success); }
-    .wf-step.judge { background: rgba(251,146,60,0.10); color: var(--warn); }
-    .wf-step.report { background: rgba(255,0,170,0.10); color: var(--accent-2); }
-    .wf-arr { font-size: 16px; color: var(--fg-mute); flex-shrink: 0; }
-    .wf-note { margin-top: 12px; font-size: 12px; color: var(--fg-mute); line-height: 1.6; }
-    @media (max-width: 600px) {
-      .routing-grid { grid-template-columns: 1fr; }
-      .routing-mid { padding-top: 0; transform: rotate(90deg); width: fit-content; }
-      .wf-pipeline { gap: 4px; }
-      .wf-step { min-width: 64px; padding: 10px 8px; font-size: 12px; }
-    }
-
-    /* Proposal / 콘텐츠 카드 */
-    .proposal {
-      background: var(--bg-elev);
-      border-radius: 12px;
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--page-accent);
-      margin-bottom: 16px;
-    }
-    .proposal h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--page-accent);
-      margin-bottom: 20px;
-    }
-    .proposal > p { color: var(--fg-dim); }
-    .proposal strong { color: var(--fg); }
-    .proposal-item {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 20px;
-      align-items: flex-start;
-    }
-    .proposal-num {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--page-accent);
-      color: var(--bg);
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .proposal-text h4 { font-size: 15px; font-weight: 700; color: var(--fg); margin-bottom: 4px; }
-    .proposal-text p { font-size: 13px; color: var(--fg-dim); line-height: 1.7; }
-
-    /* 에이전틱 엔지니어링 비교 박스 */
-    .ae-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
-    @media (max-width: 600px) { .ae-compare { grid-template-columns: 1fr; } }
-    .ae-col { background: var(--bg-elev2); border-radius: 10px; padding: 20px; border: 1px solid var(--border); }
-    .ae-col-vibe { border-left: 3px solid var(--warn); }
-    .ae-col-agentic { border-left: 3px solid var(--success); }
-    .ae-col-head { font-weight: 700; margin-bottom: 8px; }
-    .ae-col-vibe .ae-col-head { color: var(--warn); }
-    .ae-col-agentic .ae-col-head { color: var(--success); }
-    .ae-col ul { color: var(--fg-dim); font-size: 14px; line-height: 1.8; padding-left: 16px; margin: 0; }
-
-    /* 이미 시작했다 — 흐름 스텝 */
-    .flow-steps { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
-    .flow-step {
-      background: var(--bg-elev2);
-      border-radius: 10px;
-      padding: 14px 18px;
-      border-left: 3px solid var(--accent);
-      font-size: 14px;
-      color: var(--fg-dim);
-      line-height: 1.7;
-    }
-    .flow-step.alt { border-left-color: var(--accent-2); }
-    .flow-step strong { color: var(--fg); }
-
-    /* 어디서부터 — 축 카드 */
-    .axis-list { margin-top: 16px; display: flex; flex-direction: column; gap: 12px; }
-    .axis-card { background: var(--bg-elev2); border-radius: 10px; padding: 16px 18px; border: 1px solid var(--border); }
-    .axis-card-head { font-weight: 700; color: var(--page-accent); margin-bottom: 6px; }
-    .axis-card p { font-size: 14px; color: var(--fg-dim); line-height: 1.7; }
-
-    .vc-foot-links {
-      font-family: var(--mono);
-      font-size: 12px;
+    .node-row span {
       color: var(--fg-mute);
-      text-align: center;
-      margin-top: 8px;
+      display: block;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
     }
-    .vc-foot-links a { color: var(--accent); text-decoration: none; }
-    .vc-foot-links a:hover { color: var(--accent-2); }
+
+    .node-row strong {
+      color: var(--fg);
+      display: block;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .node-row p {
+      color: var(--fg-dim);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .column-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .plain-panel {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-height: 230px;
+      padding: 22px;
+    }
+
+    .plain-panel h3 {
+      color: var(--fg);
+      font-size: 20px;
+      line-height: 1.3;
+      margin-bottom: 34px;
+    }
+
+    .plain-panel p {
+      color: var(--fg-dim);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .guard-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      list-style: none;
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+
+    .guard-list li {
+      color: var(--fg);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.55;
+      min-height: 118px;
+      padding: 18px;
+    }
+
+    .vibe-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .vibe-footer p,
+    .vibe-footer a {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .vibe-hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      h1 {
+        font-size: 56px;
+      }
+
+      .map-board,
+      .guard-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .column-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .vibe-page {
+        gap: 52px;
+      }
+
+      .vibe-hero {
+        padding-top: 6px;
+      }
+
+      h1 {
+        font-size: 42px;
+        line-height: 1.04;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      h2 {
+        font-size: 27px;
+      }
+
+      .map-board,
+      .guard-list {
+        grid-template-columns: 1fr;
+      }
+
+      .map-step {
+        min-height: auto;
+      }
+
+      .map-step span {
+        margin-bottom: 14px;
+      }
+
+      .timeline-list > li,
+      .node-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .plain-panel {
+        min-height: auto;
+      }
+
+      .plain-panel h3 {
+        margin-bottom: 18px;
+      }
+
+      .vibe-footer {
+        flex-direction: column;
+      }
+    }
   </style>
-  </Fragment>
-
-  <div class="lab-page" style="--page-accent: var(--accent)">
-    <section class="lab-hero">
-      <h1 class="logo">에이전트 바이브코딩 변천사</h1>
-      <p class="tagline">agentic vibe coding · 물리 5대 / 논리 10노드 mesh report</p>
-      <p class="intro">Claude/Codex 커스텀 스킬(/skill)을 메인으로 반복 작업을 자동화하는 시스템. 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 바이브코딩 인프라가 어떻게 만들어졌고, stale을 막는 자기방어 레이어까지 어떻게 진화했는지 기록합니다.</p>
-    </section>
-
-    <div class="vc-report">
-
-    <div class="vc-hero-card">
-      <div class="vc-hero-label">Report · 2026-06-21 갱신</div>
-      <h2>혼자 만들고 혼자 다듬어온<br>에이전트 스킬 시스템</h2>
-      <p>Claude/Codex 커스텀 스킬(/skill)을 기반으로, 텔레그램 한 줄로 빌드·배포·할일관리·뉴스레터 발행을 처리하는 바이브코딩 인프라. 어떻게 만들어졌고, 어떻게 "스스로를 의심하는" 자기방어 인프라까지 진화했는지 기록합니다. 현재 모델/엔진 역할은 Codex 실행 레인 + Claude 리뷰/게이트 레인으로 분리합니다.</p>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">39</div>
-          <div class="stat-label">활성 스킬</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">5</div>
-          <div class="stat-label">물리 기기</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">10</div>
-          <div class="stat-label">논리 노드 (Codex 5 + Claude 5)</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">~7주</div>
-          <div class="stat-label">제작 기간</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Timeline -->
-    <h2 class="section-title"><span>01</span> 변천사 타임라인</h2>
-    <div class="timeline">
-
-      <div class="tl-item epoch1">
-        <div class="tl-dot epoch1"></div>
-        <div class="tl-date">2026-04-27 이전</div>
-        <div class="tl-card">
-          <span class="tl-epoch">1기 · 태동</span>
-          <div class="tl-title">첫 슬래시 커맨드 탄생</div>
-          <div class="tl-desc">
-            반복되는 수작업을 줄이고 싶다는 욕구에서 출발. todo · worklog · done · goodnight 같은 일상 관리 스킬이 가장 먼저 만들어졌다. 이 시기는 단일 Mac 세션에서 모든 것을 처리하는 단순한 형태.
-            <br><br>아직 기기 간 협력 개념은 없었고, 스킬은 "자동으로 파일에 기록해줘" 수준.
-          </div>
-          <div class="tl-skills">
-            <span class="skill-badge new">/todo</span>
-            <span class="skill-badge new">/worklog</span>
-            <span class="skill-badge new">/done</span>
-            <span class="skill-badge new">/goodnight</span>
-            <span class="skill-badge new">/insta-post</span>
-            <span class="skill-badge del">/morning-briefing</span>
-            <span class="skill-badge del">/evening-wrap</span>
-            <span class="skill-badge del">/trend</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item epoch2">
-        <div class="tl-dot epoch2"></div>
-        <div class="tl-date">2026-04-29 ~ 05-04</div>
-        <div class="tl-card">
-          <span class="tl-epoch">2기 · 멀티기기 확장</span>
-          <div class="tl-title">Mac + WSL 2-way 핸드오프 자동화</div>
-          <div class="tl-desc">
-            WSL(Windows 개발 환경)을 두 번째 작업자로 편입. 본진 → WSL 자동 paste 운반체 + WSL → 본진 결과 자동 회신 채널을 만들어 기기 간 작업을 zero-touch로 주고받기 시작. 브랜치 분리 원칙(mac/* · wsl/*)도 이때 확립.
-            <br><br>parallel-cycle 등장이 이 시기 핵심. 동시에 N개 작업을 각 기기에 배분하는 최초의 병렬 실행 패턴.
-          </div>
-          <div class="tl-skills">
-            <span class="skill-badge new">/parallel-cycle</span>
-            <span class="skill-badge new">/session-clear</span>
-            <span class="skill-badge new">/pull-apps</span>
-            <span class="skill-badge new">/wsl-flutter-test</span>
-            <span class="skill-badge new">/submit-app</span>
-            <span class="skill-badge del">/handoff</span>
-            <span class="skill-badge del">/sync</span>
-            <span class="skill-badge del">/land</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item epoch3">
-        <div class="tl-dot epoch3"></div>
-        <div class="tl-date">2026-05-05 ~ 05-07</div>
-        <div class="tl-card">
-          <span class="tl-epoch">3기 · 에이전트 메시</span>
-          <div class="tl-title">서브에이전트 + 3-way 기기 통신망</div>
-          <div class="tl-desc">
-            loop-run · loop-judge 추가로 PLAN→EXECUTE→JUDGE→REPORT 4단계 루프가 완성됨. Claude가 스스로 작업을 분해하고, 기기별로 배분하고, 결과를 검증하는 에이전트 협력 구조.
-            <br><br>기기 간 메시지 포맷 표준화(🍎→🏭 [명령] 형식), trio-vote 등장으로 의사결정도 에이전트화. brainstorm 스킬로 소크라테스식 요구사항 탐색도 자동화.
-          </div>
-          <div class="tl-skills">
-            <span class="skill-badge new">/loop-run</span>
-            <span class="skill-badge new">/trio-vote</span>
-            <span class="skill-badge new">/brainstorm</span>
-            <span class="skill-badge new">/naver-blog-publish</span>
-            <span class="skill-badge new">/newsletter-publish</span>
-            <span class="skill-badge new">/usage</span>
-            <span class="skill-badge new">/merge-janitor</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item epoch4">
-        <div class="tl-dot epoch4"></div>
-        <div class="tl-date">2026-05-08 ~ 05-09</div>
-        <div class="tl-card">
-          <span class="tl-epoch">4기 · 최적화·통합</span>
-          <div class="tl-title">Codex 합류 + 스킬 다이어트</div>
-          <div class="tl-desc">
-            Mac mini(Codex)가 세 번째 기기로 참여. loop-run · parallel-cycle · night-runner 에 🏭 뱃지 추가. Mac mini는 야간 repo 점검·iOS/Android 실기기 빌드 전담.
-            <br><br>동시에 스킬 포트폴리오 다이어트: irun+arun → device-run 통합, loop-judge · session-close · keybindings-help 삭제. trio-vote 동점 시 12명 확장투표 추가.
-          </div>
-          <div class="tl-skills">
-            <span class="skill-badge new">/device-run</span>
-            <span class="skill-badge new">/night-runner</span>
-            <span class="skill-badge del">/irun</span>
-            <span class="skill-badge del">/arun</span>
-            <span class="skill-badge del">/loop-judge</span>
-            <span class="skill-badge del">/session-close</span>
-            <span class="skill-badge del">/keybindings-help</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item epoch4">
-        <div class="tl-dot epoch4"></div>
-        <div class="tl-date">2026-05-10 ~ 05-11</div>
-        <div class="tl-card">
-          <span class="tl-epoch">5기 · 5노드 메시</span>
-          <div class="tl-title">데스크탑 3060Ti + 노트북3060 추가, fleet-director 등장</div>
-          <div class="tl-desc">
-            기기 5대 체제로 확장. 데스크탑 3060Ti(🖥️)가 GPU 노드 + 챗봇 노드로 합류, 노트북3060(💻)이 mobile/오프라인 캡처 sync 헤드로 편입.
-            <br><br>fleet-director v1 plan 도입(D01 시작) — 5대 노드 일과 자동 분배 + subagent-driven 실행. mesh-vote 등장으로 trio-vote의 물리기기 버전 — 3노드 병렬 브레인스토밍 + 상호 투표 — 도 가능.
-          </div>
-          <div class="tl-skills">
-            <span class="skill-badge new">/mesh-vote</span>
-            <span class="skill-badge new">/araseo</span>
-            <span class="skill-badge new">/fleet-director</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item epoch5">
-        <div class="tl-dot epoch5"></div>
-        <div class="tl-date">2026-05-14 ~ 05-15</div>
-        <div class="tl-card">
-          <span class="tl-epoch">6기 · Claude Code 단일 스택</span>
-          <div class="tl-title">외부 에이전트 환경 정리, 노트북3060 Claude Code 신규 셋업</div>
-          <div class="tl-desc">
-            Mac mini 의 외부 LLM provider 게이트웨이 폐기, 노트북 측 외부 에이전트 환경 정리 후 Claude Code 신규 셋업.
-            <br><br>5노드 mesh 구성(🍎 본진 · 🏭 Mac mini · 🪟 WSL · 🖥 데스크탑 3060Ti · 💻 노트북3060) 그대로 유지하되 외부 의존성 제거하고 Claude Code 단일 스택으로 통일.
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item epoch5">
-        <div class="tl-dot epoch5"></div>
-        <div class="tl-date">2026-05-16 ~ 05-17</div>
-        <div class="tl-card">
-          <span class="tl-epoch">7기 · 5노드 운반체 통일 + 도메인 라이브</span>
-          <div class="tl-title">5노드 동등 first-class peer + kangdaejong.com 회사 페이지 라이브</div>
-          <div class="tl-desc">
-            기존에 "직접 운반체 미등록" 이었던 데스크탑·노트북에도 운반체 등록 — 5노드 모두 Mac 본진 hub 와 양방향 자동 paste/회신 가능. tmux 세션 이름도 5노드 전부 통일.
-            <br><br>kangdaejong.com 도메인 paid 등록 + 회사 페이지(apex+www) · 작업일지(work) · 메일 라우팅 · 큐 대시보드 4개 표면 모두 라이브. 외부 공개 노출 본격 시작.
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item epoch6">
-        <div class="tl-dot epoch6"></div>
-        <div class="tl-date">2026-05-25 ~ 05-28</div>
-        <div class="tl-card">
-          <span class="tl-epoch">8기 · 코덱스 백엔드 라이브</span>
-          <div class="tl-title">Codex REPL 표준 셋업 + 자면서 앱 빌드 패턴</div>
-          <div class="tl-desc">
-            처음에는 🍎 본진 · 🪟 WSL · 🖥 데스크탑 · 💻 노트북 4노드가 Codex REPL 활성 노드로 합류했고, 🏭 맥미니는 launchd 워커(night-builder v2 + night-runner v1) 전담으로 역할을 분리했다. 이후 2026-06-20 기준을 다시 박으면서 맥미니까지 Codex 레인을 보강해 5노드 Codex 표준으로 맞췄다.
-            <br><br>표준값은 Codex CLI 2.1.150, gpt-5.5 xhigh fast, YOLO mode(<code>approval_policy="never"</code> + <code>sandbox_mode="danger-full-access"</code>), <code>features.hooks</code> 마이그레이션, Codex Mesh Mirror 그룹(chat_id -5069144185). codex-mesh-vote / codex-loop-fleet 스킬로 설계·투표·분산 실행 경로를 열었다.
-            <br><br>bapeo repo에서는 "자면서 앱 빌드 3원칙" 운영 패턴을 시작했고, PR #7~13 squash merge로 8 PoC + coordinator + finalizer + release + run_chain 흐름을 묶었다.
-            <br><br><strong>⚠️ 6월 초 재조정</strong>: Codex 요금제 다운(NICEGPTPRO5x → 저가 플랜) 직후에는 Codex를 자동 사이클·fan-out 엔진에서 빼고 <strong>codex-mesh-vote(설계 투표)</strong> 중심으로 낮췄다. 이후 2026-06-20 Codex-main / Claude-reviewer 역할 기준으로 다시 표준화했다. 아래 9기 참조.
-          </div>
-          <div class="tl-skills">
-            <span class="skill-badge new">/codex-mesh-vote</span>
-            <span class="skill-badge new">/codex-loop-fleet</span>
-            <span class="skill-badge new">/bapeo</span>
-            <span class="skill-badge new">Codex Mesh Mirror</span>
-            <span class="skill-badge new">YOLO mode</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-item epoch6">
-        <div class="tl-dot epoch6"></div>
-        <div class="tl-date">2026-06-05 ~ 06-15</div>
-        <div class="tl-card">
-          <span class="tl-epoch">9기 · 역할반전 + 자기방어 인프라</span>
-          <div class="tl-title">역할반전, 10노드 표준화, "스스로를 의심하는" 레이어</div>
-          <div class="tl-desc">
-            이 구간 초반에는 Claude 백엔드를 자동 사이클 기본 엔진으로 두고 Codex를 설계 투표(codex-mesh-vote) 중심으로 낮췄다. 이후 2026-06-20 기준을 다시 박으면서 물리 5대 위에 <strong>Codex 5 + Claude 5 = 논리 10노드</strong>를 표준으로 운용한다. Codex는 기본 실행 엔진, Claude는 planner/reviewer/gatekeeper 레인이다.
-            <br><br><strong>역할반전(6/5)</strong> — 🏭 맥미니가 제1 자동 오케스트레이터로 자동 사이클을 지휘하고, 🍎 본진은 자동 작업을 돌리지 않는 <strong>수동 거버넌스 게이트키퍼</strong>(정책·머지·최종 승인)로 분리됐다.
-            <br><br>그러나 이 시기 진짜 변화는 기능 추가가 아니라 <strong>"스스로를 의심하는" 자기방어 레이어</strong>다. 스킬이 많아질수록 정보가 낡고(stale) 어긋나기 시작했고, 메모리에 룰을 적는 것만으로는 안 지켜졌다. 그래서 메모리 대신 <strong>훅(hook)으로 강제하는 forcing function</strong>을 깔았다 — 큰 작업 전 증거 검증 게이트, 가드 마커 보호, 외부발신 사전·사후 알림, 컨텍스트 40% 하드클리어, 안티스테일 원장(ledger)·뮤텍스 마킹. (아래 05 섹션에서 자세히)
-          </div>
-          <div class="tl-skills">
-            <span class="skill-badge new">/loop-fleet</span>
-            <span class="skill-badge new">/mesh-vote (claude)</span>
-            <span class="skill-badge new">우선큐 (manual-queue)</span>
-            <span class="skill-badge new">자율워커 10논리노드</span>
-            <span class="skill-badge new">preflight-evidence-gate</span>
-            <span class="skill-badge new">action-ledger / sot-mark</span>
-            <span class="skill-badge del">Codex 야간 엔진</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Architecture -->
-    <h2 class="section-title"><span>02</span> 현재 기기 구조 — 물리 5대 / 논리 10노드 24/7</h2>
-    <div class="arch-grid">
-      <div class="arch-card">
-        <div class="arch-icon">🍎</div>
-        <div class="arch-name">Mac 본진</div>
-        <div class="arch-role">수동 거버넌스 게이트키퍼<br>SoT 정본 · 텔레그램 1차 수신<br>정책 · 머지 · 최종 승인 (자동 사이클 X)</div>
-      </div>
-      <div class="arch-card">
-        <div class="arch-icon">🪟</div>
-        <div class="arch-name">라이덴 (WSL)</div>
-        <div class="arch-role">24/7 코드 수정·분석<br>RTX 2070 SUPER · Windows 게이트<br>빌드/배포 X</div>
-      </div>
-      <div class="arch-card">
-        <div class="arch-icon">🏭</div>
-        <div class="arch-name">Mac mini</div>
-        <div class="arch-role">제1 자동 오케스트레이터<br>자동 사이클 지휘 · iOS/Android 빌드<br>launchd 워커 · main 머지권</div>
-      </div>
-      <div class="arch-card">
-        <div class="arch-icon">🖥️</div>
-        <div class="arch-name">데스크탑 3060Ti</div>
-        <div class="arch-role">24/7 GPU 노드<br>LLM/SD/Whisper 실험<br>챗봇 + 작업자 peer</div>
-      </div>
-      <div class="arch-card">
-        <div class="arch-icon">💻</div>
-        <div class="arch-name">노트북3060</div>
-        <div class="arch-role">24/7 + 외출용 sync 헤드<br>mobile/오프라인 캡처 sync<br>SSH alias 보존</div>
-      </div>
-    </div>
-
-    <!-- Workflow -->
-    <h2 class="section-title"><span>03</span> 자동화 흐름도</h2>
-    <div class="workflow-wrap">
-
-      <div class="wf-block">
-        <div class="wf-subtitle">📡 메시지 라우팅 — 기기 간 작업 배분</div>
-        <div class="routing-grid">
-          <div class="routing-col">
-            <div class="routing-label">입력</div>
-            <div class="routing-node trigger">📱 강대종 텔레그램</div>
-            <div class="routing-node mac">🍎 Mac 본진 (hub)<br><small>수신 · 판단 · 직접 처리</small></div>
-          </div>
-          <div class="routing-mid">→</div>
-          <div class="routing-col">
-            <div class="routing-label">위임 경로</div>
-            <div class="routing-node wsl">🪟 WSL · 🏭 Mac mini<br><small>자동 paste 운반 → 자율 작업자</small></div>
-            <div class="routing-node mini">🖥 데스크탑 · 💻 노트북<br><small>5노드 모두 동일 메커니즘</small></div>
-            <div class="routing-node result">↩ 결과 자동 회신 + 텔레그램<br><small>zero-touch 양방향 보고</small></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="wf-block">
-        <div class="wf-subtitle">🔄 loop-run 4단계 파이프라인</div>
-        <div class="wf-pipeline">
-          <div class="wf-step plan">PLAN<br><small>Claude/Codex가 task 배열 JSON 생성</small></div>
-          <div class="wf-arr">→</div>
-          <div class="wf-step execute">EXECUTE<br><small>5노드 mesh 기기별 실행</small></div>
-          <div class="wf-arr">→</div>
-          <div class="wf-step judge">JUDGE<br><small>3-way 에이전트 합의 검증</small></div>
-          <div class="wf-arr">→</div>
-          <div class="wf-step report">REPORT<br><small>텔레그램 알림 + 에스컬레이션</small></div>
-        </div>
-        <div class="wf-note">⟳ JUDGE FAIL 시 최대 2회 재시도 → 합의 불가 시 강대종 에스컬레이션</div>
-      </div>
-
-      <div class="wf-block">
-        <div class="wf-subtitle">🤖 함대 오케스트레이션 — 자동/수동 2레인 (2026-06 역할반전)</div>
-        <div class="routing-grid">
-          <div class="routing-col">
-            <div class="routing-label">자동 레인 (오토)</div>
-            <div class="routing-node mini">🏭 Mac mini = 제1 자동 오케스트레이터<br><small>Codex 실행 레인 / Claude 리뷰 레인 조율</small></div>
-            <div class="routing-node wsl">자율워커 10논리노드<br><small>5기기 × Claude/Codex · 머신당 단일엔진 mutex · 자연어/초소버튼 토글</small></div>
-          </div>
-          <div class="routing-mid">+</div>
-          <div class="routing-col">
-            <div class="routing-label">수동 레인</div>
-            <div class="routing-node trigger">매뉴얼 큐 "큐 &lt;할일&gt;"<br><small>idle 노드가 하나씩 claim · 처리 · 보고</small></div>
-            <div class="routing-node result">FIFO + 원자적 claim + lease/reap<br><small>노드 죽으면 자동 재큐</small></div>
-          </div>
-        </div>
-        <div class="wf-note">🍎 Mac 본진은 수동 거버넌스 게이트키퍼(정책 · main 머지 · 최종 승인), 🏭 Mac mini는 자동 사이클 지휘 — 각 기기의 Claude/Codex 레인은 머신당 단일엔진 규칙으로 충돌 차단</div>
-      </div>
-
-    </div>
-
-    <!-- Current skills -->
-    <h2 class="section-title"><span>04</span> 현재 활성 스킬 39개</h2>
-    <div class="skills-summary">
-      <p>2026-06-21 기준 <code>~/claude-skills</code>의 SKILL.md를 기준으로 정리한 활성 스킬 목록(<span style="color:var(--success)">초록 = 5/28 이후 신규</span>). 클린업을 거쳐 살아남은 스킬만 남기고, 실제 반복 사용 기록이 있는 것 중심으로 유지한다.</p>
-      <div class="skills-grid">
-        <span class="skill-badge new">/araseo</span>
-        <span class="skill-badge">/autopilot</span>
-        <span class="skill-badge">/brainstorm</span>
-        <span class="skill-badge new">/codex-fire</span>
-        <span class="skill-badge new">/codex-loop-fleet</span>
-        <span class="skill-badge">/codex-mesh-vote</span>
-        <span class="skill-badge">/context-show</span>
-        <span class="skill-badge">/create-play-app</span>
-        <span class="skill-badge">/ctx</span>
-        <span class="skill-badge">/daejong-page-sync</span>
-        <span class="skill-badge">/device-run</span>
-        <span class="skill-badge">/done</span>
-        <span class="skill-badge">/goodnight</span>
-        <span class="skill-badge">/grill-me</span>
-        <span class="skill-badge">/insight</span>
-        <span class="skill-badge new">/insta-photos</span>
-        <span class="skill-badge">/insta-post</span>
-        <span class="skill-badge">/insta-post-general</span>
-        <span class="skill-badge">/issue</span>
-        <span class="skill-badge new">/loop-fleet</span>
-        <span class="skill-badge new">/loop-run</span>
-        <span class="skill-badge">/merge-janitor</span>
-        <span class="skill-badge new">/mesh-vote</span>
-        <span class="skill-badge">/naver-blog-publish</span>
-        <span class="skill-badge">/newsletter-publish</span>
-        <span class="skill-badge new">/night-runner</span>
-        <span class="skill-badge new">/parallel-cycle</span>
-        <span class="skill-badge">/pull-apps</span>
-        <span class="skill-badge new">/secret-set</span>
-        <span class="skill-badge">/send-message</span>
-        <span class="skill-badge">/session-clear</span>
-        <span class="skill-badge">/submit-app</span>
-        <span class="skill-badge">/todo</span>
-        <span class="skill-badge">/todo-reminder</span>
-        <span class="skill-badge">/trio-vote</span>
-        <span class="skill-badge">/usage</span>
-        <span class="skill-badge new">/workflow-audit</span>
-        <span class="skill-badge">/worklog</span>
-        <span class="skill-badge">/wsl-flutter-test</span>
-      </div>
-    </div>
-
-    <!-- June self-defense infra -->
-    <h2 class="section-title"><span>05</span> 2026년 6월 — "스스로를 의심하는" 자기방어 인프라</h2>
-    <div class="proposal">
-      <h3 style="color: var(--warn);">🛡️ 메모리에 적는 것만으론 안 지켜진다</h3>
-      <p style="margin-top:12px; font-size:15px; line-height:1.8;">
-        스킬이 39개로 늘고 논리 노드가 10개로 갈라지자, 새로운 적이 생겼다 — <strong>stale(낡은 정보)</strong>다.
-        끝난 작업을 다시 집어들고, 이미 구현된 걸 "없다"고 단정하고, 한 노드의 결과가 다른 노드에 안 닿는 일이 반복됐다.
-        교훈은 단순했다: <strong>메모리·문서에 "이렇게 하자"고 적는 것만으로는 안 지켜진다.</strong>
-        그래서 6월의 작업 대부분은 새 기능이 아니라, <strong>모델 자신이 우회할 수 없도록 훅(hook)으로 강제하는 자기방어 레이어</strong>였다.
-      </p>
-      <div class="axis-list">
-        <div class="axis-card">
-          <div class="axis-card-head">1. 안티스테일 라이프사이클</div>
-          <p>
-            작업을 끝내면 <code>sot-mark.sh</code>(뮤텍스 직렬화)로 SoT에 마커·근거를 박고, 커밋 없는 외부영향(배포·발송)은 <code>action-ledger.sh</code>로 즉시 1줄 원장에 기록한다.
-            task-ID ↔ 커밋 링크, 자동 <code>[x]</code> sweep, 착수 전 중복 게이트, 픽업 시 정본 대조 — 작업이 "실제로 끝났는지"와 "기록상 끝났는지"의 드리프트를 좁히는 장치들.
-          </p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head">2. Forcing function — 훅이 모델을 막는다</div>
-          <p>
-            큰·비가역 작업은 <strong>Preflight Evidence Gate</strong>가 코드 실측 증거(git log·파일·테스트 상태)를 먼저 요구한다.
-            의도적 안전장치엔 <code>⚠️ 제거 금지(DO NOT REMOVE)</code> 가드 마커를 박아 정비 세션이 무단 제거하면 훅이 차단.
-            텔레그램에서 터미널 UI 도구(AskUserQuestion 등)를 부르면 폰에 안 보이므로 훅이 hard block.
-            "권한 거부 = 그 자체가 답, 우회 금지"가 원칙.
-          </p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head">3. 컨텍스트 40% 하드클리어</div>
-          <p>
-            세션 컨텍스트가 40%를 넘으면 Stop 훅이 강제로 진행 중 작업을 마킹하고 클리어한다. 자동 컴팩트(~55%)보다 앞에서 끊어 컨텍스트 오염을 막고,
-            다음 세션은 <strong>손0 auto-resume</strong> 포인터로 직전 작업 1건을 사람 손 없이 이어받는다. (이 페이지 작업도 그 방식으로 이어졌다.)
-          </p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head">4. 함대 토글 + 우선큐</div>
-          <p>
-            자율워커는 <strong>10논리노드</strong>(물리 5대 × Claude/Codex)를 자연어/대시보드 버튼으로 켜고 끄되, <strong>머신당 단일 엔진 mutex</strong>로 충돌을 차단한다.
-            급한 일감은 <code>큐 &lt;할일&gt;</code> 한 줄로 <strong>우선큐</strong>에 던지면 idle 노드가 FIFO + 원자적 claim으로 하나씩 처리하고, 노드가 죽으면 lease/reap이 자동 재큐한다.
-          </p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head">5. 머지 게이트 분리</div>
-          <p>
-            PR을 두 갈래로 나눴다 — 루틴·저위험 PR(의존성·문서·오타)은 풀 게이트가 GREEN이면 <strong>자동 머지</strong>로 흘려보내 "머지할까요?" 마찰을 없애고,
-            유저 데이터(인증·결제·백업)·디자인/톤·런타임 검증이 필요한 PR만 <strong>수동 게이트</strong>로 본진이 확인한다. 판단이 애매하면 수동.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Telegram triggers -->
-    <h2 class="section-title"><span>06</span> 텔레그램 한 줄 트리거 예시</h2>
-    <div class="skills-summary">
-      <p>실제로 강대종이 폰에서 던지는 자연어 한 줄과, 그 뒤에서 일어나는 일. 슬래시 명령을 외울 필요 없이 평소 말투로 트리거된다.</p>
-      <div class="axis-list">
-        <div class="axis-card">
-          <div class="axis-card-head"><code>인사이트 &lt;유튜브 URL&gt;</code></div>
-          <p>영상 자막 추출 → 발화자 인사이트 압축 발췌 → 홈페이지 insights 컬렉션에 자동 publish. (RSS 폴링으로 구독 채널 새 영상도 자동 처리)</p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head"><code>큐 메모요 아이콘 6개 다시 뽑아</code></div>
-          <p>우선큐에 일감 적재 → idle 노드가 claim → 처리 → 결과 자동 보고. 자는 동안 노드들이 하나씩 비운다.</p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head"><code>PR #13 머지</code> · <code>잘건데 다이나믹</code></div>
-          <p>전자는 merge-janitor가 게이트 확인 후 머지/닫기. 후자는 자동 사이클(loop-fleet)을 5노드에 fan-out — 자면서 앱을 빌드·점검한다.</p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head"><code>물 줘</code> · <code>에어컨</code> · <code>노트북 60%</code></div>
-          <p>코드만이 아니다 — 정수기 토출(안전가드 env), 에어컨 IR 토글, 노트북 배터리 보존모드(60% cap)까지 LAN/relay로 5노드 어디서든 발사. 못 닿는 노드는 본진 경유 자동 폴백.</p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head"><code>EpN 셋다 올려</code> · <code>굿나잇</code></div>
-          <p>뉴스레터 1편을 Substack·홈페이지·네이버 블로그 3채널에 통합 발행. "굿나잇"은 작업일지 정리 + repo 상태 점검 + 홈페이지 반영까지 하루를 마감.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Proposal -->
-    <h2 class="section-title"><span>07</span> 앞으로 이렇게 바이브코딩 하면 좋겠다</h2>
-    <div class="proposal">
-      <h3>🔮 다음 단계 제안</h3>
-
-      <div class="proposal-item">
-        <div class="proposal-num">1</div>
-        <div class="proposal-text">
-          <h4>스킬은 작게, 조합은 크게</h4>
-          <p>각 스킬은 단일 책임 원칙(SRP)을 지키고, 복잡한 워크플로우는 loop-run · parallel-cycle 로 조합한다. 모노리식 스킬보다 단순 스킬 여러 개가 유지보수하기 쉽다.</p>
-        </div>
-      </div>
-
-      <div class="proposal-item">
-        <div class="proposal-num">2</div>
-        <div class="proposal-text">
-          <h4>trio-vote로 결정, loop-fleet으로 실행</h4>
-          <p>"뭘 할지"는 trio-vote(PM·엔지니어·비판론자 3-way 토론)로 결정하고, "어떻게 할지"는 loop-fleet이 5노드 mesh에 task를 자동 분배 + 각 노드가 self-pace로 실행. 사람은 목표만 텔레그램으로 던진다.</p>
-        </div>
-      </div>
-
-      <div class="proposal-item">
-        <div class="proposal-num">3</div>
-        <div class="proposal-text">
-          <h4>fleet-director 자율 task picking 안정화</h4>
-          <p>5노드 자율 작업 분배 + lock 관리 + 상태 보고 토대는 이미 구축. 다음 단계는 task picking 알고리즘 정교화 — 노드별 부하·특기·현재 컨텍스트 기반 자동 매칭. 사람이 매번 "이건 누구한테" 정하지 않아도 되도록.</p>
-        </div>
-      </div>
-
-      <div class="proposal-item">
-        <div class="proposal-num">4</div>
-        <div class="proposal-text">
-          <h4>스킬 사용 로그 자동 수집</h4>
-          <p>어떤 스킬을 얼마나 쓰는지 자동 기록하면 "실제로 안 쓰는 스킬"을 조기에 발견할 수 있다. 지금은 삭제할 때 이미 늦게 안다.</p>
-        </div>
-      </div>
-
-      <div class="proposal-item">
-        <div class="proposal-num">5</div>
-        <div class="proposal-text">
-          <h4>외부 노출 표면 자동 stale 감지</h4>
-          <p>회사 페이지·작업일지·뉴스레터·블로그 등 외부 노출 표면이 늘어나면서 정보 stale 위험도 따라 늘어남. 페이지별 freshness + 박제 후보를 에이전트가 주기적으로 점검하고 텔레그램으로 surface 하는 패턴을 강화. 사람이 직접 발견하기 전에 먼저 알린다.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Agentic Engineering -->
-    <h2 class="section-title"><span>08</span> 바이브코딩에서 에이전틱 엔지니어링으로</h2>
-
-    <div class="proposal">
-      <h3 style="color: var(--success);">🤖 에이전틱 엔지니어링이란?</h3>
-      <p style="margin-top:12px; font-size:15px; line-height:1.8;">
-        바이브코딩이 <strong>"내가 원하는 걸 말하면 AI가 코드 초안을 써주고, 내가 감으로 고친다"</strong>라면,<br>
-        에이전틱 엔지니어링은 <strong>"AI 에이전트가 목표를 이해하고, 탐색·계획·구현·테스트·검증까지 스스로 한다"</strong>는 개념이다.<br><br>
-        특징을 비교해 보면 이렇다.
-      </p>
-      <div class="ae-compare">
-        <div class="ae-col ae-col-vibe">
-          <div class="ae-col-head">바이브코딩</div>
-          <ul>
-            <li>사람이 방향 + AI가 코드 초안</li>
-            <li>사람이 결과 검토 후 감으로 수정</li>
-            <li>단일 작업 단위</li>
-            <li>AI = 코파일럿</li>
-          </ul>
-        </div>
-        <div class="ae-col ae-col-agentic">
-          <div class="ae-col-head">에이전틱 엔지니어링</div>
-          <ul>
-            <li>사람이 목표만 설정</li>
-            <li>에이전트가 계획·실행·검증·보고</li>
-            <li>복수 에이전트 병렬 처리</li>
-            <li>AI = 자율적으로 일하는 엔지니어</li>
-          </ul>
-        </div>
-      </div>
-      <p style="margin-top:16px; color: var(--fg-dim); font-size:13px; line-height:1.7;">
-        물론 실전에선 두 방식이 한 작업 안에 섞여 있다 — binary 가 아니라 스펙트럼이다.
-      </p>
-    </div>
-
-    <div class="proposal">
-      <h3 style="color: var(--accent-dim);">📍 사실 이미 시작했다</h3>
-      <p style="margin-top:12px; font-size:15px; line-height:1.8;">
-        "에이전틱 엔지니어링 갈 수 있을까, 어디서부터 시작해야 할까"를 물었는데 — 답은 이미 시작했다는 것이다.
-        평범한 하루의 사이클을 들여다보면 이런 흐름이 자주 나온다.
-      </p>
-      <div class="flow-steps">
-        <div class="flow-step">
-          <strong>1.</strong> 텔레그램 한 줄 trigger → 에이전트가 후보 surface 또는 원인 자동 진단
-        </div>
-        <div class="flow-step">
-          <strong>2.</strong> 에이전트가 즉시 대응 + 이슈 초안 작성 → 강대종 OK 한 마디
-        </div>
-        <div class="flow-step">
-          <strong>3.</strong> 재발 방지 코드 수정 + 메모리·이슈 박제 → 여러 repo 자동 commit + push
-        </div>
-        <div class="flow-step alt">
-          <strong>동시에</strong> — 5노드 mesh 중 다른 노드가 자기 상태 자진 보고 → 본진이 디렉티브 전송 → 노드가 자율 실행
-        </div>
-      </div>
-      <p style="margin-top:16px; color: var(--fg-dim); font-size:14px; line-height:1.7;">
-        사람이 한 건 "텔레그램에서 OK 두어 번". 나머지는 에이전트들이 탐색·진단·수정·검증·보고를 스스로 한다.<br>
-        에이전트가 자율로 처리하는 영역이 늘어날수록 사람이 손대지 않는 비율도 함께 올라간다 — 이게 우리가 가는 방향이다.
-      </p>
-    </div>
-
-    <div class="proposal">
-      <h3 style="color: var(--accent-2);">🗺️ 어디서부터 시작하면 될까</h3>
-      <p style="margin-top:12px; font-size:15px; line-height:1.8;">
-        이미 하고 있다면 다음 단계는 "수준을 높이는 것"이다. 세 가지 축으로 나눌 수 있다.
-      </p>
-      <div class="axis-list">
-        <div class="axis-card">
-          <div class="axis-card-head">1. 목표 명세를 더 정밀하게</div>
-          <p>
-            "되게 만들어줘" 대신 "X 테스트 PASS / Y 화면 렌더링 / Z 커밋 push" 식으로 검증 가능한 목표를 주면 에이전트 자율도가 올라간다.
-            목표가 흐릿할수록 사람이 더 많이 개입해야 한다.
-          </p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head">2. 에이전트 간 핸드오프를 자동화</div>
-          <p>
-            본진 ↔ 각 노드 사이에 자동 paste 운반 채널 + 결과 자동 회신 채널을 두면, 에이전트끼리 결과를 주고받을 때 사람이 중간에 끼지 않아도 된다.
-            5노드 모두 동일 메커니즘으로 묶여있어 새 노드 추가도 어렵지 않다.
-          </p>
-        </div>
-        <div class="axis-card">
-          <div class="axis-card-head">3. 이슈 → 예방 → 자동화 사이클</div>
-          <p>
-            문제가 생기면 이슈 등록 → 재발 방지 코드 → 훅·스킬 자동화. 이슈/피드백을 자동 메모리로 박아두면 다음 세션이 같은 함정을 다시 밟지 않아, 사이클을 빨리 돌릴수록 에이전트 신뢰도가 올라가고 사람 개입이 줄어든다.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Retrospective -->
-    <h2 class="section-title"><span>09</span> 7주 회고 — 무엇이 진짜였나</h2>
-    <div class="proposal">
-      <h3>📓 만들면서 배운 것</h3>
-      <div class="proposal-item">
-        <div class="proposal-num">1</div>
-        <div class="proposal-text">
-          <h4>가장 큰 적은 버그가 아니라 stale였다</h4>
-          <p>5주차까지는 "기능을 더 만드는" 싸움이었지만, 노드와 스킬이 늘자 진짜 비용은 <strong>낡은 정보 위에 쌓는 작업</strong>이었다. 끝난 일을 다시 집고, 있는 걸 없다고 단정하는 사고가 반복됐다. 6월 작업의 절반이 안티스테일·증거검증으로 간 이유다.</p>
-        </div>
-      </div>
-      <div class="proposal-item">
-        <div class="proposal-num">2</div>
-        <div class="proposal-text">
-          <h4>메모리는 힌트, 훅은 강제다</h4>
-          <p>"앞으로 X 하자"를 메모리에 적어도, 모델은 매번 그럴듯하게 우회했다. 같은 룰을 <strong>PreToolUse/Stop 훅</strong>으로 옮기자 비로소 지켜졌다. forcing function이 좋은 의도보다 강하다 — 자동화 시스템에서 신뢰는 "약속"이 아니라 "구조"에서 나온다.</p>
-        </div>
-      </div>
-      <div class="proposal-item">
-        <div class="proposal-num">3</div>
-        <div class="proposal-text">
-          <h4>역할 분리가 충돌을 없앴다</h4>
-          <p>본진과 맥미니를 "둘 다 일하는 작업자"로 두자 머지·main이 자주 부딪혔다. 본진=수동 게이트키퍼 / 맥미니=자동 오케스트레이터로 <strong>역할을 반전·분리</strong>하고 머신당 단일 엔진 mutex를 걸자 병렬성은 살리면서 충돌이 사라졌다.</p>
-        </div>
-      </div>
-      <div class="proposal-item">
-        <div class="proposal-num">4</div>
-        <div class="proposal-text">
-          <h4>도구 줄이기가 늘리기만큼 중요했다</h4>
-          <p>Codex와 Claude를 같은 일을 하는 두 백엔드로 두지 않고 역할을 분리했다. Codex는 실행 엔진, Claude는 리뷰·게이트 레인으로 세우고 안 쓰는 스킬을 클린업하자 <strong>많은 노드 + 명확한 책임 경계</strong>가 운영 부채를 줄였다.</p>
-        </div>
-      </div>
-      <p style="margin-top:8px; color: var(--fg-dim); font-size:14px; line-height:1.7;">
-        결국 7주 동안 만든 건 "더 똑똑한 에이전트"가 아니라, <strong>에이전트가 틀려도 시스템이 버티도록 하는 골격</strong>이었다. 다음 7주의 목표도 같다 — 사람이 손대는 비율을 한 칸 더 낮추는 것.
-      </p>
-    </div>
-
-    <div class="vc-foot-links">
-      소스: <a href="https://github.com/ssamssae/claude-skills" target="_blank" rel="noopener">github.com/ssamssae/claude-skills</a>
-      · <a href="./skills.html">스킬 목록</a>
-      · <a href="./cost/">AI 비용공개</a>
-      · <a href="./worklog.html">작업일지</a>
-      · <a href="./index.html">홈</a>
-    </div>
-
-    </div>
-
-    <a class="lab-back" href="/lab">← lab</a>
-    </div>
 </Layout>
