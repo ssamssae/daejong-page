@@ -1,17 +1,426 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PostList from '../../components/PostList.astro';
 import { getCollection } from 'astro:content';
+
 const posts = (await getCollection('worklog')).sort((a, b) =>
   b.data.date.localeCompare(a.data.date) || (b.data.version ?? '').localeCompare(a.data.version ?? '')
 );
+
+const latestPosts = posts.slice(0, 3);
+const monthGroups = posts.reduce((groups, post) => {
+  const month = post.data.date.slice(0, 7);
+  if (!groups.has(month)) groups.set(month, []);
+  groups.get(month)?.push(post);
+  return groups;
+}, new Map());
+
+const uniqueDays = new Set(posts.map((post) => post.data.date)).size;
+const latestDate = posts[0]?.data.date ?? '';
+const firstDate = posts[posts.length - 1]?.data.date ?? '';
+
+const dateLabel = (date: string) => date.replaceAll('-', '.');
+const monthLabel = (month: string) => {
+  const [year, mm] = month.split('-');
+  return `${year}.${mm}`;
+};
 ---
+
 <Layout title="작업일지 — 마이너스베타스튜디오" description="매일의 빌드로그. AI와 함께 1인 앱을 만드는 과정 기록.">
-  <h1 class="accent-magenta">작업일지</h1>
-  <p class="lead">매일의 빌드로그 · 총 {posts.length}편</p>
-  <PostList posts={posts} base="/worklog" />
+  <section class="worklog-hero" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <p class="eyebrow">PUBLIC BUILD LOG</p>
+      <h1 id="page-title">작업일지</h1>
+      <p class="lead">
+        매일 만든 것, 고친 것, 막힌 것, 다음에 반복하지 않을 이유를 한 곳에 남깁니다.
+        긴 하루도 나중에 다시 읽을 수 있게 날짜와 버전으로 정리합니다.
+      </p>
+    </div>
+    <dl class="hero-stats" aria-label="작업일지 요약">
+      <div>
+        <dt>글</dt>
+        <dd>{posts.length}</dd>
+      </div>
+      <div>
+        <dt>날짜</dt>
+        <dd>{uniqueDays}</dd>
+      </div>
+      <div>
+        <dt>범위</dt>
+        <dd>{firstDate && latestDate ? `${dateLabel(firstDate)} - ${dateLabel(latestDate)}` : '-'}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="recent-section" aria-labelledby="recent-title">
+    <div class="section-head">
+      <p class="eyebrow">LATEST</p>
+      <h2 id="recent-title">최근 기록</h2>
+    </div>
+    <div class="recent-grid">
+      {latestPosts.map((post, index) => (
+        <article class={index === 0 ? 'recent-card primary' : 'recent-card'}>
+          <a href={`/worklog/${post.id}/`}>
+            <span class="card-index">{String(index + 1).padStart(2, '0')}</span>
+            <span class="card-date">{dateLabel(post.data.date)}</span>
+            <h3>{post.data.title}</h3>
+            {post.data.summary && <p>{post.data.summary}</p>}
+            <span class="read-more">읽기</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="archive-section" aria-labelledby="archive-title">
+    <div class="section-head archive-head">
+      <div>
+        <p class="eyebrow">ARCHIVE</p>
+        <h2 id="archive-title">전체 기록</h2>
+      </div>
+      <p>{monthGroups.size}개월치 기록을 최신순으로 묶었습니다.</p>
+    </div>
+
+    <div class="archive-list">
+      {Array.from(monthGroups.entries()).map(([month, items]) => (
+        <section class="month-block" aria-labelledby={`month-${month}`}>
+          <header>
+            <h3 id={`month-${month}`}>{monthLabel(month)}</h3>
+            <span>{items.length}편</span>
+          </header>
+          <ol>
+            {items.map((post) => (
+              <li>
+                <a href={`/worklog/${post.id}/`}>
+                  <time datetime={post.data.date}>{dateLabel(post.data.date)}</time>
+                  <span>{post.data.title}</span>
+                  {post.data.version && <small>v{post.data.version}</small>}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
+    </div>
+  </section>
+
   <style>
-    h1 { font-size: 32px; margin-bottom: 8px; }
-    .lead { color: var(--fg-dim); font-family: var(--mono); font-size: 13px; margin-bottom: 32px; }
+    .worklog-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: 40px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0 40px;
+      margin-bottom: 44px;
+    }
+
+    .eyebrow {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: var(--fg);
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
+      margin: 0 0 20px;
+    }
+
+    .lead {
+      max-width: 640px;
+      color: var(--fg-dim);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--fg);
+    }
+
+    .hero-stats div {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      min-height: 58px;
+      padding: 14px 0;
+    }
+
+    .hero-stats dt {
+      color: var(--fg-mute);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-stats dd {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .recent-section,
+    .archive-section {
+      margin-top: 56px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      color: var(--fg);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .section-head p:last-child {
+      max-width: 360px;
+      color: var(--fg-mute);
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .recent-section .section-head {
+      display: block;
+    }
+
+    .recent-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .recent-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      min-height: 260px;
+    }
+
+    .recent-card.primary {
+      background: var(--fg);
+      color: var(--bg);
+      border-color: var(--fg);
+    }
+
+    .recent-card a {
+      display: flex;
+      min-height: 260px;
+      flex-direction: column;
+      padding: 22px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .recent-card a:hover {
+      color: inherit;
+      background: var(--bg-elev);
+    }
+
+    .recent-card.primary a:hover {
+      background: #1c1c1c;
+    }
+
+    .card-index {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 52px;
+    }
+
+    .primary .card-index,
+    .primary .card-date,
+    .primary p {
+      color: #d7d7d7;
+    }
+
+    .card-date {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .recent-card h3 {
+      color: inherit;
+      font-size: 22px;
+      line-height: 1.32;
+      margin-bottom: 12px;
+    }
+
+    .recent-card p {
+      color: var(--fg-dim);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .recent-card.primary p {
+      color: #d7d7d7;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 34px;
+      margin-top: auto;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      color: inherit;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .archive-list {
+      display: grid;
+      gap: 28px;
+    }
+
+    .month-block {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 24px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    .month-block header {
+      position: sticky;
+      top: 112px;
+      align-self: start;
+    }
+
+    .month-block h3 {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .month-block header span {
+      color: var(--fg-mute);
+      font-size: 13px;
+    }
+
+    .month-block ol {
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+
+    .month-block li {
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .month-block a {
+      display: grid;
+      grid-template-columns: 116px minmax(0, 1fr) 72px;
+      gap: 16px;
+      align-items: baseline;
+      min-height: 56px;
+      padding: 14px 0;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .month-block a:hover {
+      color: var(--fg);
+      background: var(--bg-elev);
+    }
+
+    .month-block time,
+    .month-block small {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .month-block a > span {
+      min-width: 0;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .worklog-hero,
+      .month-block {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        max-width: 520px;
+      }
+
+      .recent-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .recent-card,
+      .recent-card a {
+        min-height: 220px;
+      }
+
+      .card-index {
+        margin-bottom: 36px;
+      }
+
+      .month-block header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .worklog-hero {
+        padding-top: 8px;
+        margin-bottom: 36px;
+      }
+
+      h1 {
+        font-size: 56px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .section-head,
+      .archive-head {
+        display: block;
+      }
+
+      .section-head p:last-child {
+        margin-top: 10px;
+        text-align: left;
+      }
+
+      .month-block a {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        min-height: auto;
+        padding: 14px 0;
+      }
+
+      .month-block small {
+        display: none;
+      }
+    }
   </style>
 </Layout>
