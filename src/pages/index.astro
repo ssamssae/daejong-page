@@ -292,9 +292,11 @@ const bridgeProjects = [
 
     .hero-stats dd {
       color: var(--fg);
-      font-size: 38px;
+      font-family: var(--mono);
+      font-size: 16px;
       font-weight: 700;
-      line-height: 1;
+      line-height: 1.45;
+      min-width: 0;
     }
 
     .hero-stats span {
@@ -302,6 +304,7 @@ const bridgeProjects = [
       color: var(--fg-dim);
       font-size: 13px;
       line-height: 1.45;
+      white-space: nowrap;
     }
 
     .section-head {
@@ -569,6 +572,7 @@ const bridgeProjects = [
 
       .hero-stats span {
         grid-column: auto;
+        white-space: normal;
       }
 
       .section-head h2 {
