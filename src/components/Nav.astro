@@ -27,7 +27,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     <a class="nav-cta" href="mailto:minusbetastudio@gmail.com">문의</a>
   </div>
   <div class="nav-sub">
-    {secondary.map(l => <a href={l.href}>{l.label}</a>)}
+    {secondary.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
   </div>
   <style>
     nav {
@@ -77,10 +77,12 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     }
     .nav-links a:hover,
     .nav-sub a:hover,
-    .nav-links a[aria-current="page"] {
+    .nav-links a[aria-current="page"],
+    .nav-sub a[aria-current="page"] {
       color: var(--fg);
     }
-    .nav-links a[aria-current="page"] {
+    .nav-links a[aria-current="page"],
+    .nav-sub a[aria-current="page"] {
       font-weight: 700;
     }
     .nav-cta {
@@ -107,7 +109,6 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       flex-wrap: wrap;
       font-size: 13px;
     }
-    .nav-sub a { font-weight: 700; }
     @media (max-width: 760px) {
       .nav-inner {
         width: min(calc(100% - 32px), 1120px);
