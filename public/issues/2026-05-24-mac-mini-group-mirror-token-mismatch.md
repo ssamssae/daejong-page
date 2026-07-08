@@ -48,10 +48,10 @@
 
 ## Root Cause
 
-맥미니 `.env` 안에 같은 봇(@ssamssae_claw_bot, id 8618050273) 토큰이 **두 키로 박혀 있는데 secret 값이 어긋남**:
+맥미니 `.env` 안에 같은 봇(@ssamssae_claw_bot, id <TELEGRAM_BOT_ID>) 토큰이 **두 키로 박혀 있는데 secret 값이 어긋남**:
 
-- `TELEGRAM_BOT_TOKEN=8618050273:AAFt...SPx0` → ✅ valid, 텔레그램 플러그인 폴링/reply 용
-- `TELEGRAM_BOT_TOKEN_MACMINI=8618050273:AAGY...ygYE` → ❌ 401 Unauthorized, forward-to-group.sh sender 별 routing 용
+- `TELEGRAM_BOT_TOKEN=<TELEGRAM_BOT_TOKEN>` → ✅ valid, 텔레그램 플러그인 폴링/reply 용
+- `TELEGRAM_BOT_TOKEN_MACMINI=<TELEGRAM_BOT_TOKEN>` → ❌ 401 Unauthorized, forward-to-group.sh sender 별 routing 용
 
 `forward-to-group.sh` 가 "macmini" sender 일 때 `TELEGRAM_BOT_TOKEN_MACMINI` 를 읽고 POST sendMessage 호출 → Telegram API 401 → python3 내부에서 `or exit 0` 처리 → **silent fail**.
 

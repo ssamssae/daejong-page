@@ -7,7 +7,7 @@ tags: [codex, mirror, helper, bash, awk]
 
 # 사고 요약
 
-2026-05-25 KST 20:21~21:40 codex 5노드 셋업 후 Codex Mesh Mirror 그룹 (chat_id -5069144185) 으로 codex 응답을 자동 forward 하는 `codex-mirror-forward.sh` 작성. v1~v4 까지 진화하면서 2 카테고리 사고 발생.
+2026-05-25 KST 20:21~21:40 codex 5노드 셋업 후 Codex Mesh Mirror 그룹 (chat_id <GROUP_CHAT_ID>) 으로 codex 응답을 자동 forward 하는 `codex-mirror-forward.sh` 작성. v1~v4 까지 진화하면서 2 카테고리 사고 발생.
 
 ## 사고 1: background fork race (v1 → v2)
 

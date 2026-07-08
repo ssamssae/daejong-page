@@ -16,10 +16,10 @@ const __dirname = dirname(__filename);
 
 const SCRIPT_ID = 'AKfycbzAdwQvLm5c3veXrm-OnZ3hAwYqxq0gBnhxgk9TFmFRtrjPmKTd56SCa6Nf-zZaX3lDGA';
 const APPS_SCRIPT_URL = `https://script.google.com/macros/s/${SCRIPT_ID}/exec`;
-const ADMIN_SECRET = 'memoyo2026';
+const ADMIN_SECRET = '<ADMIN_SECRET>';
 
 const TELEGRAM_BOT_TOKEN = '[REDACTED]';
-const TELEGRAM_CHAT_ID = '538806975';
+const TELEGRAM_CHAT_ID = '<CHAT_ID>';
 
 const GROUP_URL = 'https://groups.google.com/g/memoyo-beta-testers/members';
 const USER_DATA_DIR = resolve(__dirname, '.chromium-profile');

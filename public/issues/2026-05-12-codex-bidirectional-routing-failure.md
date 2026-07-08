@@ -20,7 +20,7 @@ summary: "본진→Codex(맥미니) 명령은 가는데 회수 자동 경로 부
 2. `@ssamssae_claw_bot` Telegram chat 에 `[🍎→🏭] [명령] ping...` 메시지 박힘 (스크린샷 확인)
 3. mac-mini gateway.log: `11:18:08 [ws] message.action 1036ms channel=telegram` ← 수신 ok
 4. mac-mini agent-mesh.log: `11:18 [inbox-watcher] from=macbook body=ping...` → `inject OK: 1778552328-952739C4.json` → Codex 응답 출력 `mac-mini / 2026-05-12 11:19:04 KST`
-5. **그러나** gateway.log 에 `[telegram] sendMessage ok chat=538806975` 0건 (= Codex 응답이 Telegram 으로 송신되지 않음)
+5. **그러나** gateway.log 에 `[telegram] sendMessage ok chat=<CHAT_ID>` 0건 (= Codex 응답이 Telegram 으로 송신되지 않음)
 6. 강대종 폰의 `@ssamssae_claw_bot` chat 에도 응답 안 옴 → 강대종이 다른 어디선가(미상) Codex 응답을 보고 본진 채팅에 paste 로 운반
 
 ## 원인
