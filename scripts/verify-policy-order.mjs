@@ -11,8 +11,8 @@ const expectedIds = policyData.policies
   })
   .map((policy) => policy.id);
 
-const tableIds = [...html.matchAll(/<td class="pid"[^>]*><a href="#([^"]+)"/g)].map((match) => match[1]);
-const cardIds = [...html.matchAll(/<div class="card" id="([^"]+)"[^>]*>/g)].map((match) => match[1]);
+const railIds = [...html.matchAll(/<article class="recent-policy" id="([^"]+)"[^>]*>/g)].map((match) => match[1]);
+const registryIds = [...html.matchAll(/<article class="policy-row" id="registry-([^"]+)"[^>]*>/g)].map((match) => match[1]);
 
 function assertOrder(label, actualIds) {
   const actual = actualIds.join('\n');
@@ -22,6 +22,24 @@ function assertOrder(label, actualIds) {
   }
 }
 
-assertOrder('policy table', tableIds);
-assertOrder('policy cards', cardIds);
+const requiredSnippets = [
+  'class="policy-page"',
+  'aria-label="정책 요약"',
+  'class="policy-stat-grid"',
+  'class="recent-rail"',
+  'class="policy-registry"',
+];
+
+for (const snippet of requiredSnippets) {
+  if (!html.includes(snippet)) {
+    throw new Error(`policy renewal structure missing: ${snippet}`);
+  }
+}
+
+if (html.includes('class="ptable"')) {
+  throw new Error('old policy table should not be rendered after renewal');
+}
+
+assertOrder('policy recent rail', railIds);
+assertOrder('policy registry', registryIds);
 console.log(`policy order OK (${expectedIds.length} policies)`);
