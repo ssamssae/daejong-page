@@ -19,7 +19,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <nav>
   <div class="nav-inner">
     <a class="brand" href="/" aria-label="마이너스베타스튜디오 홈">
-      <img src="/minusbeta-badge.svg" alt="" width="28" height="28" />
+      <img src="/minusbeta-badge.svg" alt="" width="30" height="30" />
       <span>마이너스베타스튜디오</span>
     </a>
     <div class="nav-links">
@@ -62,7 +62,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       text-decoration: none;
       white-space: nowrap;
     }
-    .brand img { height: 28px; width: 28px; display: block; }
+    .brand img { height: 30px; width: 30px; display: block; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -71,7 +71,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       min-width: 0;
       overflow-x: auto;
       scrollbar-width: none;
-      font-size: 14px;
+      font-size: 13px;
       white-space: nowrap;
     }
     .nav-links::-webkit-scrollbar { display: none; }
@@ -113,7 +113,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
-      font-size: 12px;
+      font-size: 13px;
     }
     @media (max-width: 760px) {
       .nav-inner {
@@ -123,35 +123,20 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         padding: 14px 0 10px;
         gap: 12px;
       }
-      .brand { grid-column: 1; grid-row: 1; }
       .brand span { display: none; }
       .nav-links {
         grid-column: 1 / -1;
         grid-row: 2;
         justify-content: flex-start;
-        align-self: start;
-        gap: 8px 16px;
-        flex-wrap: wrap;
-        overflow: visible;
-        white-space: normal;
-        font-size: 13px;
-        line-height: 1.4;
+        gap: 16px;
       }
       .nav-cta {
-        grid-column: 2;
-        grid-row: 1;
-        justify-self: end;
-        align-self: center;
-        width: auto;
         min-height: 34px;
         padding: 0 12px;
-        font-size: 13px;
       }
       .nav-sub {
         width: min(calc(100% - 32px), 1120px);
         padding-bottom: 10px;
-        gap: 8px 18px;
-        font-size: 13px;
       }
     }
   </style>
