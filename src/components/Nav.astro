@@ -38,10 +38,12 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       border-bottom: 1px solid var(--border);
       background: color-mix(in srgb, var(--bg) 94%, transparent);
       backdrop-filter: blur(12px);
-      /* 공유 헤더(kangdaejong.com/mb-components.js)와 동일 렌더 — 폰트 스택·행간·크기를
+      /* 공유 헤더(kangdaejong.com/mb-components.js)와 동일 렌더 — 폰트 스택·행간·글자 간격·크기를
          mb-header 값에 고정 (T-260707-41). 수치 바꿀 땐 mb-components.js 와 같이 바꿀 것. */
       font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
       line-height: 1.65;
+      letter-spacing: normal;
+      font-style: normal;
     }
     .nav-inner {
       width: min(calc(100% - 48px), 1120px);

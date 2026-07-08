@@ -9,6 +9,7 @@ const cssBlock = (selector, from = 0) => {
   return end === -1 ? source.slice(start) : source.slice(start, end + 7);
 };
 
+const nav = cssBlock("nav");
 const desktopLinks = cssBlock(".nav-links");
 const desktopSub = cssBlock(".nav-sub");
 const mobileStart = source.indexOf("@media (max-width: 760px)");
@@ -38,6 +39,13 @@ const checks = [
     ok:
       /font-size: 13px;/.test(desktopLinks) &&
       /font-size: 13px;/.test(desktopSub),
+  },
+  {
+    label: "nav blocks host typography inheritance like shared mb-header",
+    ok:
+      /line-height: 1\.65;/.test(nav) &&
+      /letter-spacing: normal;/.test(nav) &&
+      /font-style: normal;/.test(nav),
   },
   {
     label: "mobile primary nav preserves shared mb-header horizontal row behavior",
