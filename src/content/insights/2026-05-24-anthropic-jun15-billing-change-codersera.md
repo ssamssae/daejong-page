@@ -55,8 +55,8 @@ source_author: "Codersera"
 - credit 월말 expire 룰 = 미소비 절약 인센티브 X (월말 몰아 쓰기 또는 평소 풍족 사용 두 패턴). 자동화 운영자에겐 평소 풍족 사용이 자연스러움.
 
 ## 관련 메모리/인사이트
-- [Anthropic OAuth 토큰 정책 — 도구 재사용 금지 (2026-05-21)](../insights/) — 옵션 2 의 "자체 API 키" = Console API 키 별도 발급 의미.
-- [프롬프트 말고 하네스 — 안드레 카파시 코덱스 6원칙 (2026-05-23 바이브랩스)](2026-05-23-harness-not-prompt-codex-vibelabs.md) — "모델 자체 < 하니스 설계" 신호와 정합.
+- [Anthropic OAuth 토큰 정책 — 도구 재사용 금지 (2026-05-21)](/insights/) — 옵션 2 의 "자체 API 키" = Console API 키 별도 발급 의미.
+- [프롬프트 말고 하네스 — 안드레 카파시 코덱스 6원칙 (2026-05-23 바이브랩스)](/insights/2026-05-23-harness-not-prompt-codex-vibelabs/) — "모델 자체 < 하니스 설계" 신호와 정합.
 - 본진 박제 메모리: `reference_anthropic_billing_2026_06_15.md` (5노드 자동 sync).
 
 ## 용어
