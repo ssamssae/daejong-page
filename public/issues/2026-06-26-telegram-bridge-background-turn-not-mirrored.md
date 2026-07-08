@@ -12,7 +12,7 @@
 긴 폴링을 `run_in_background` 로 돌리면, 완료 시 `<task-notification>` 으로 턴이 재진입한다. 이 턴은 텔레그램 user 메시지가 트리거가 아니라 **내부 이벤트** 트리거라, 브릿지가 "이 턴의 최종 텍스트를 어느 텔레그램 메시지의 답으로 보낼지" 매핑을 못 해 미러를 건너뛴다. 결과적으로 사용자-facing 보고가 터미널에만 남고 폰엔 안 감.
 
 ## 임시 복구 (2026-06-26 적용)
-누락된 토론 결론을 **Bot API sendMessage 직접 발송**(봇 토큰 + chat_id 538806975)으로 재전송 → ok:true 확인.
+누락된 토론 결론을 **Bot API sendMessage 직접 발송**(봇 토큰 + chat_id <CHAT_ID>)으로 재전송 → ok:true 확인.
 
 ## 재발방지
 1. **행동 룰(즉시)**: 텔레그램-origin 작업 중에는 긴 대기/폴링을 `run_in_background` 로 돌려 task-notification 턴에 보고를 의존하지 말 것. 폴링은 foreground 의 bounded 턴으로 짧게 끊고, 백그라운드를 썼으면 **핵심 보고는 텔레그램-origin 턴에서 다시 내거나 Bot API sendMessage 직접 발송**으로 확정.

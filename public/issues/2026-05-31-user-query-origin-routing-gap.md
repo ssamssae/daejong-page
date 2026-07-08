@@ -13,7 +13,7 @@
 아니키가 노드(예: 💻 노트북) 봇 챗에서 질문 → 노드가 본진에 포워딩(mac-report / mac-directive) → 본진이 처리·답변. 그런데 답이 **발신 노드 챗(💻, 아니키가 물어본 곳)이 아니라 본진 챗(🍎)으로 빠짐**. 아니키 입장에서 자기가 물어본 챗에 답이 안 와서 "답 어디갔냐" 혼선.
 
 ## 근본 원인
-1. **노드→본진 포워딩 페이로드에 발신 origin chat_id/노드가 동봉 안 됨** — 본진은 "이 보고가 어느 챗에서 시작된 유저질문인지" 알 방법이 없어 디폴트로 자기 챗(🍎 538806975)에 답함.
+1. **노드→본진 포워딩 페이로드에 발신 origin chat_id/노드가 동봉 안 됨** — 본진은 "이 보고가 어느 챗에서 시작된 유저질문인지" 알 방법이 없어 디폴트로 자기 챗(🍎 <CHAT_ID>)에 답함.
 2. reverse-reply 자체는 기존 hook(`mac-report-reverse-reply-check.sh`)이 mac-report paste 에 대해 강제하나, "**어느 챗으로**" 라우팅하라는 신호가 없었음.
 3. 인터럽트(작업 중 새 메시지 도착)가 Stop 훅을 우회할 수 있어 reverse-reply 타이밍도 늦어짐.
 
@@ -21,7 +21,7 @@
 ### 픽스A — mac-report.sh USER-QUERY 마커 (코드, LIVE)
 - `mac-report.sh` 에 env-gated 마커 추가: `MAC_REPORT_ORIGIN_CHAT` + `MAC_REPORT_ORIGIN_NODE` 둘 다 set 시 페이로드 title 줄 뒤에 `[USER-QUERY origin_chat=<id> origin_node=<emoji>]` 1줄 삽입.
 - title 줄 **뒤**에 삽입 → reverse-reply hook 정규식(`^(\[[^]]*\])?\[Mac report title:`) 및 mirror chain 무영향. env 없으면 출력 0 변화(바이트 동일, isolation 테스트로 검증).
-- 노드가 유저질문 포워딩 시 호출 예: `MAC_REPORT_ORIGIN_CHAT=538806975 MAC_REPORT_ORIGIN_NODE=💻 mac-report.sh report.md "질문 포워딩"`.
+- 노드가 유저질문 포워딩 시 호출 예: `MAC_REPORT_ORIGIN_CHAT=<CHAT_ID> MAC_REPORT_ORIGIN_NODE=💻 mac-report.sh report.md "질문 포워딩"`.
 - 2026-05-31 결혼식 IG 캐러셀 건에서 수동 실증된 흐름을 코드화.
 
 ### 픽스B — 본진 reverse-reply FIRST (행동 룰)

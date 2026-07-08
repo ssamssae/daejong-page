@@ -14,7 +14,7 @@ const CONFIG = {
   ADMIN_EMAIL: 'ssamssae@naver.com',
   OPT_IN_URL: 'https://play.google.com/apps/testing/com.daejongkang.simple_memo_app',
   TELEGRAM_BOT_TOKEN: '[REDACTED]',
-  TELEGRAM_CHAT_ID: '538806975',
+  TELEGRAM_CHAT_ID: '<CHAT_ID>',
   PACKAGE_NAME: 'com.daejongkang.simple_memo_app',
   PLAY_CONSOLE_TESTERS_URL: 'https://play.google.com/console/u/0/developers/6983298419309965737/app/4974914968969003912/closed-testing/tracks/4702694961281498549/testers',
   REMIND_EVERY_N: 5,  // N명 등록될 때마다 Play Console 추가 리마인더
@@ -108,7 +108,7 @@ function doGet(e) {
     var params = e.parameter || {};
     var action = params.action;
     var secret = params.secret;
-    var ADMIN_SECRET = 'memoyo2026';
+    var ADMIN_SECRET = '<ADMIN_SECRET>';
 
     var sheet = getOrCreateSheet();
 

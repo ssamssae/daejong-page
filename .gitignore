@@ -12,6 +12,7 @@ scripts/package-lock.json
 node_modules/
 dist/
 .astro/
+test-results/
 
 # beta-signup worker runtime artifacts (Claude 3-pass review, 2026-06-21)
 beta-signup/
