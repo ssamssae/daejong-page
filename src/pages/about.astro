@@ -70,7 +70,7 @@ const faqs = [
         <a class="button" href="/worklog">작업일지</a>
       </div>
     </div>
-    <figure class="portrait">
+    <a class="portrait" href="https://founder.kangdaejong.com/" aria-label="강대종 대표소개 페이지로 이동">
       <img
         src="/daejong-profile-suit.jpg"
         width="960"
@@ -80,7 +80,7 @@ const faqs = [
         decoding="async"
         fetchpriority="high"
       />
-    </figure>
+    </a>
   </section>
 
   <section class="summary" aria-labelledby="summary-title">
@@ -227,11 +227,17 @@ const faqs = [
       color: var(--cyan);
     }
     .portrait {
+      display: block;
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
       background: var(--bg-elev);
       aspect-ratio: 3 / 4;
+      transition: border-color .15s;
+    }
+    .portrait:hover,
+    .portrait:focus-visible {
+      border-color: var(--cyan);
     }
     .portrait img {
       display: block;
