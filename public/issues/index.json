@@ -313,6 +313,18 @@
       "updated": "2026-06-27T23:51:37+09:00"
     },
     {
+      "file": "2026-06-08-directive-submit-stuck.md",
+      "date": "2026-06-08",
+      "slug": "directive-submit-stuck",
+      "title": "디렉티브 주입 묵음 stuck — carry#1-v3 미포팅 + bracketed-paste lock",
+      "severity": "high",
+      "recurrence": "high",
+      "scope": "5노드 *-directive.sh 전체 (본진→노드 디렉티브 발신 경로)",
+      "occurred_at": "2026-06-08 13:30 KST",
+      "resolved_at": "2026-06-08 23:22 KST",
+      "updated": "2026-06-08T23:22:00+09:00"
+    },
+    {
       "file": "2026-06-08-codex-night-cycle-partial-failure-and-demote.md",
       "date": "2026-06-08",
       "slug": "codex-night-cycle-partial-failure-and-demote",
