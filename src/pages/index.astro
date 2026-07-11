@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PostList from '../components/PostList.astro';
+import ActivityCard from '../components/ActivityCard.astro';
 import { getCollection } from 'astro:content';
 
 const allWorklog = (await getCollection('worklog')).sort((a, b) =>
@@ -130,6 +131,8 @@ const bridgeProjects = [
         ))}
       </ol>
     </section>
+
+    <ActivityCard />
 
     <section class="bridge-section" aria-labelledby="bridge-title">
       <div class="section-head">
