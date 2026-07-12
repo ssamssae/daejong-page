@@ -1,244 +1,289 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const profileChips = [
-  '마이너스베타스튜디오',
-  '1인 앱 제작',
-  'AI 작업장 운영',
-  '기록형 빌더',
+const facts = [
+  { label: 'ROLE', value: '마이너스베타스튜디오 대표' },
+  { label: 'WORK', value: '모바일 앱 · 웹 · 오픈소스 자동화' },
+  { label: 'BASE', value: '대한민국 · 1인 제작과 운영' },
 ];
 
-const focusItems = [
+const principles = [
   {
-    title: '작게 만들고 공개하기',
-    body: '큰 선언보다 바로 써볼 수 있는 작은 앱과 도구를 먼저 만듭니다.',
+    number: '01',
+    title: '작게 만들고 실제로 공개합니다.',
+    body: '완벽한 계획보다 직접 써볼 수 있는 작은 제품을 먼저 만듭니다. 공개한 뒤에야 보이는 문제를 다음 작업의 출발점으로 삼습니다.',
   },
   {
-    title: '기록으로 검증하기',
-    body: '작업일지, 뉴스레터, 인사이트로 시도와 실패를 남겨 다음 판단의 재료로 씁니다.',
+    number: '02',
+    title: '운영에서 반복되는 일은 줄입니다.',
+    body: '앱을 만드는 일과 운영하는 일을 따로 보지 않습니다. 반복되는 확인과 전달은 자동화하고, 사람이 판단해야 하는 일에 시간을 씁니다.',
   },
   {
-    title: '자동화로 반복 줄이기',
-    body: '폰, 노트북, 데스크탑, 맥을 묶어 작업 흐름을 계속 손보는 편입니다.',
-  },
-  {
-    title: '사용자 손끝 보기',
-    body: '설명보다 입력, 삭제, 복구, 결제 직전의 작은 마찰을 먼저 봅니다.',
+    number: '03',
+    title: '결과와 과정을 함께 남깁니다.',
+    body: '작업일지, 커밋, 뉴스레터로 선택과 실패를 기록합니다. 기록은 보여주기 위한 장식보다 다음 결정을 빠르게 만드는 작업 도구에 가깝습니다.',
   },
 ];
 
-const notes = [
-  '정확한 보고를 좋아합니다.',
-  '작동하는 작은 개선을 선호합니다.',
-  '혼자 해도 기록은 팀처럼 남깁니다.',
-  '앱, 자동화, 글을 같은 작업장 안에서 굴립니다.',
-];
-
-const faqs = [
+const workshopRoutes = [
   {
-    q: '무슨 일을 하나요?',
-    a: '마이너스베타스튜디오 이름으로 모바일 앱, 웹 서비스, 오픈소스 자동화 도구를 만들고 운영합니다.',
+    label: 'PRODUCTS',
+    title: '만든 것',
+    body: '모바일 앱, 웹 서비스, 공개 자동화 도구를 한곳에서 봅니다.',
+    href: '/products/',
   },
   {
-    q: '요즘 집중하는 것은요?',
-    a: 'AI 에이전트가 실제 제품 제작과 운영에 섞일 때 어디까지 손을 덜어주는지 계속 실험하고 있습니다.',
+    label: 'WORKLOG',
+    title: '일한 기록',
+    body: '무엇을 만들고 고쳤는지 하루 단위의 빌드 로그로 남깁니다.',
+    href: '/worklog/',
   },
   {
-    q: '어떤 톤으로 일하나요?',
-    a: '빠르게 만들되 검증은 남깁니다. 애매한 말보다 파일, 커밋, 빌드 결과로 확인하는 방식을 좋아합니다.',
-  },
-  {
-    q: '어디서 더 볼 수 있나요?',
-    a: '제품 목록, 작업일지, 뉴스레터에 공개 가능한 작업 기록을 모아두고 있습니다.',
+    label: 'SYSTEM',
+    title: '굴리는 방식',
+    body: '여러 기기와 AI 에이전트를 묶어 1인 작업장을 운영하는 구조입니다.',
+    href: '/system/',
   },
 ];
 ---
-<Layout title="강대종 소개서 — 마이너스베타스튜디오" description="강대종의 제품, 기록, 자동화 작업 방식을 소개하는 개인 프로필 페이지.">
-  <section class="hero" aria-labelledby="about-title">
-    <div class="hero-copy">
-      <p class="kicker">profile note</p>
-      <h1 id="about-title">강대종 소개서</h1>
-      <p class="lead">
-        앱을 만들고, 자동화를 굴리고, 그 과정을 기록으로 남깁니다.
-        혼자 일하지만 작업 방식은 작게 나누고 계속 검증하는 쪽에 가깝습니다.
-      </p>
-      <div class="chip-row" aria-label="프로필 키워드">
-        {profileChips.map((chip) => <span>{chip}</span>)}
+<Layout
+  title="강대종 소개 — 마이너스베타스튜디오"
+  description="마이너스베타스튜디오 대표 강대종의 소개와 제품 제작, 기록, 자동화 작업 방식."
+>
+  <div class="about-page">
+    <section class="about-hero" aria-labelledby="about-title">
+      <div class="hero-copy">
+        <p class="eyebrow">FOUNDER · BUILDER · OPERATOR</p>
+        <h1 id="about-title">혼자 만들지만,<br />시스템으로 운영합니다.</h1>
+        <p class="lead">
+          강대종입니다. 비개발자로 시작해 작은 앱과 웹 서비스를 직접 만들고,
+          AI와 자동화를 붙여 오래 운영할 수 있는 1인 작업장을 만들고 있습니다.
+        </p>
+        <div class="hero-actions" aria-label="주요 이동">
+          <a class="button primary" href="/products/">제품 보기</a>
+          <a class="button secondary" href="/worklog/">작업 기록 보기</a>
+        </div>
       </div>
-      <div class="hero-actions" aria-label="주요 링크">
-        <a class="button button--primary" href="/products/">제품 보기</a>
-        <a class="button" href="/worklog">작업일지</a>
+
+      <figure class="portrait">
+        <img
+          src="/daejong-profile-suit.jpg"
+          width="960"
+          height="1280"
+          alt="정장을 입은 강대종 프로필 사진"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <figcaption>
+          <span>강대종</span>
+          <span>MINUS BETA STUDIO</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="profile-section" aria-labelledby="profile-title">
+      <div class="section-label">
+        <span>01</span>
+        <span>ABOUT</span>
       </div>
-    </div>
-    <a class="portrait" href="https://founder.kangdaejong.com/" aria-label="강대종 대표소개 페이지로 이동">
-      <img
-        src="/daejong-profile-suit.jpg"
-        width="960"
-        height="1280"
-        alt="정장을 입은 강대종 전신 프로필 사진"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
-    </a>
-  </section>
+      <div class="profile-copy">
+        <h2 id="profile-title">제품을 만들고,<br />운영 방식을 함께 다듬습니다.</h2>
+        <p>
+          마이너스베타스튜디오 이름으로 생활에 가까운 모바일 앱과 짧게 쓰는 웹 서비스,
+          AI 작업 도구를 만듭니다. 아이디어를 제품으로 옮기는 일부터 출시 뒤의 수정과
+          기록까지 한 흐름으로 다룹니다.
+        </p>
+        <p>
+          코딩을 전공하지 않았기 때문에 어려운 기술을 늘어놓기보다 실제로 작동하는지,
+          혼자서도 계속 관리할 수 있는지를 먼저 봅니다. 빠르게 만들되 검증 가능한 흔적을
+          남기는 것이 제 작업 방식의 중심입니다.
+        </p>
+      </div>
+      <dl class="facts" aria-label="강대종 프로필 요약">
+        {facts.map((fact) => (
+          <div>
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
 
-  <section class="summary" aria-labelledby="summary-title">
-    <p class="section-kicker">one line</p>
-    <h2 id="summary-title">만드는 사람의 자기소개</h2>
-    <p>
-      강대종은 마이너스베타스튜디오에서 작은 모바일 앱, 웹 SaaS, 텔레그램 브릿지 같은 작업 도구를 만듭니다.
-      제품은 작게 공개하고, 운영에서 생기는 문제는 자동화와 기록으로 다시 작업장에 반영합니다.
-    </p>
-  </section>
+    <section class="principles-section" aria-labelledby="principles-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">WORKING PRINCIPLES</p>
+          <h2 id="principles-title">일하는 세 가지 원칙</h2>
+        </div>
+        <p>혼자 일할수록 작은 단위, 자동화, 기록이 필요하다고 믿습니다.</p>
+      </div>
 
-  <section class="section-block" aria-labelledby="focus-title">
-    <div class="section-head">
-      <p class="section-kicker">work style</p>
-      <h2 id="focus-title">일하는 방식</h2>
-    </div>
-    <div class="card-grid">
-      {focusItems.map((item) => (
-        <article class="info-card">
-          <h3>{item.title}</h3>
-          <p>{item.body}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+      <ol class="principle-list">
+        {principles.map((principle) => (
+          <li>
+            <span>{principle.number}</span>
+            <strong>{principle.title}</strong>
+            <p>{principle.body}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
 
-  <section class="section-block" aria-labelledby="notes-title">
-    <div class="section-head">
-      <p class="section-kicker">daily notes</p>
-      <h2 id="notes-title">성격과 일상</h2>
-    </div>
-    <ul class="note-list">
-      {notes.map((note) => <li>{note}</li>)}
-    </ul>
-  </section>
+    <section class="workshop-section" aria-labelledby="workshop-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">PUBLIC WORKSHOP</p>
+          <h2 id="workshop-title">말보다 작업장을 보여드립니다.</h2>
+        </div>
+        <p>공개 가능한 제품, 과정, 시스템을 실제 페이지에서 확인할 수 있습니다.</p>
+      </div>
 
-  <section class="section-block" aria-labelledby="faq-title">
-    <div class="section-head">
-      <p class="section-kicker">faq</p>
-      <h2 id="faq-title">자주 묻는 말</h2>
-    </div>
-    <div class="faq-list">
-      {faqs.map((item) => (
-        <details>
-          <summary>{item.q}</summary>
-          <p>{item.a}</p>
-        </details>
-      ))}
-    </div>
-  </section>
+      <div class="route-grid">
+        {workshopRoutes.map((route, index) => (
+          <a class="route-card" href={route.href}>
+            <span class="route-top">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <span>{route.label}</span>
+            </span>
+            <strong>{route.title}</strong>
+            <span class="route-body">{route.body}</span>
+            <span class="route-link">둘러보기 →</span>
+          </a>
+        ))}
+      </div>
+    </section>
 
-  <section class="contact" aria-labelledby="contact-title">
-    <p class="section-kicker">contact</p>
-    <h2 id="contact-title">작업장으로 이어지는 링크</h2>
-    <p>제품, 기록, 연락 채널은 공개 페이지 안에서만 정리합니다.</p>
-    <div class="contact-actions">
-      <a class="button button--primary" href="mailto:ssamssae@naver.com">메일 보내기</a>
-      <a class="button" href="/newsletter">뉴스레터</a>
-      <a class="button" href="/insights">인사이트</a>
-    </div>
-  </section>
+    <section class="story-section" aria-labelledby="story-title">
+      <div class="section-label">
+        <span>02</span>
+        <span>NOW</span>
+      </div>
+      <div class="story-copy">
+        <h2 id="story-title">지금은 AI와 함께 일하는<br />1인 제작 방식을 실험합니다.</h2>
+        <p>
+          폰, 노트북, 데스크탑, 맥에서 이어지는 작업 흐름에 AI 에이전트를 연결하고 있습니다.
+          목표는 사람을 흉내 내는 거대한 자동화가 아니라, 반복 업무를 덜어내고 판단과 제작에
+          더 오래 집중할 수 있는 현실적인 작업장을 만드는 것입니다.
+        </p>
+      </div>
+      <aside class="now-note" aria-label="현재 관심사">
+        <p class="eyebrow">CURRENT FOCUS</p>
+        <strong>1인 회사의 제작·운영 자동화</strong>
+        <span>앱 제작 · AI 브릿지 · 작업 기록 · 실전 가이드</span>
+      </aside>
+    </section>
+
+    <section class="contact-section" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">CONTACT</p>
+        <h2 id="contact-title">작은 제품과 운영 이야기를 나눕니다.</h2>
+        <p>협업, 제품, 자동화에 관한 이야기는 메일로 보내주세요.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="button primary" href="mailto:ssamssae@naver.com">메일 보내기</a>
+        <a class="text-link" href="/newsletter/">뉴스레터 읽기 →</a>
+      </div>
+    </section>
+  </div>
 
   <style>
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 276px;
-      gap: 28px;
-      align-items: center;
-      padding: 8px 0 38px;
-    }
-    .hero-copy { min-width: 0; }
-    .kicker,
-    .section-kicker {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-    .hero h1 {
-      font-size: 44px;
-      line-height: 1.08;
-      margin-top: 8px;
-      letter-spacing: 0;
-    }
-    .lead {
-      color: var(--fg-dim);
-      font-size: 16px;
-      line-height: 1.75;
-      margin-top: 18px;
-      max-width: 430px;
-    }
-    .chip-row {
+    .about-page {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
+      flex-direction: column;
+      gap: 88px;
     }
-    .chip-row span {
-      min-height: 30px;
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 5px 10px;
-      color: var(--fg-dim);
-      background: var(--bg-elev);
+
+    .about-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
+      gap: 56px;
+      align-items: end;
+      padding: 18px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      color: var(--fg-mute);
       font-family: var(--mono);
       font-size: 12px;
-      line-height: 1.35;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 12px;
     }
-    .hero-actions,
-    .contact-actions {
+
+    .hero-copy h1 {
+      max-width: 780px;
+      font-size: clamp(50px, 7vw, 82px);
+      line-height: 1.02;
+      word-break: keep-all;
+    }
+
+    .lead {
+      max-width: 700px;
+      margin-top: 26px;
+      color: var(--fg-dim);
+      font-size: 20px;
+      line-height: 1.72;
+      word-break: keep-all;
+    }
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 22px;
+      margin-top: 34px;
     }
+
     .button {
-      min-height: 40px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--border);
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--fg);
       border-radius: 8px;
-      padding: 8px 14px;
-      background: var(--bg-elev);
       color: var(--fg);
-      font-family: var(--mono);
-      font-size: 13px;
-      line-height: 1.3;
-      transition: border-color .15s, color .15s;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
     }
+
     .button:hover {
-      border-color: var(--magenta);
-      color: var(--magenta);
+      color: var(--fg);
+      text-decoration: none;
     }
-    .button--primary {
-      border-color: rgba(0, 229, 255, .55);
-      color: var(--cyan);
+
+    .button.primary {
+      border-color: var(--accent-cta);
+      background: var(--accent-cta);
+      color: #fff;
     }
-    .button--primary:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
+
+    .button.primary:hover {
+      border-color: var(--accent-dim);
+      background: var(--accent-dim);
+      color: #fff;
     }
+
+    .button.secondary {
+      background: var(--bg);
+    }
+
+    .button.secondary:hover {
+      background: var(--bg-elev);
+    }
+
     .portrait {
-      display: block;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      margin: 0;
       border: 1px solid var(--border);
       border-radius: 8px;
-      overflow: hidden;
       background: var(--bg-elev);
-      aspect-ratio: 3 / 4;
-      transition: border-color .15s;
     }
-    .portrait:hover,
-    .portrait:focus-visible {
-      border-color: var(--cyan);
-    }
+
     .portrait img {
       display: block;
       width: 100%;
@@ -246,135 +291,371 @@ const faqs = [
       object-fit: cover;
       object-position: center top;
     }
-    .summary {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 28px 0;
-      margin-bottom: 42px;
-    }
-    .summary h2,
-    .section-head h2,
-    .contact h2 {
-      margin-top: 6px;
-      font-size: 21px;
-      line-height: 1.3;
-      letter-spacing: 0;
-    }
-    .summary p:not(.section-kicker),
-    .contact p:not(.section-kicker) {
-      color: var(--fg-dim);
-      margin-top: 12px;
-      font-size: 15px;
-      line-height: 1.75;
-    }
-    .section-block { margin-bottom: 44px; }
-    .section-head { margin-bottom: 14px; }
-    .section-head .section-kicker:nth-child(1) { color: var(--magenta); }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    .portrait figcaption {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      display: flex;
+      justify-content: space-between;
       gap: 12px;
-    }
-    .info-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 17px;
-      background: var(--bg-elev);
-      transition: border-color .15s;
-    }
-    .info-card:nth-child(odd):hover { border-color: var(--cyan); }
-    .info-card:nth-child(even):hover { border-color: var(--magenta); }
-    .info-card h3 {
-      font-family: var(--mono);
-      color: var(--cyan);
-      font-size: 14px;
-      line-height: 1.4;
-      letter-spacing: 0;
-    }
-    .info-card:nth-child(even) h3 { color: var(--magenta); }
-    .info-card p {
-      color: var(--fg-dim);
-      font-size: 13px;
-      line-height: 1.62;
-      margin-top: 9px;
-    }
-    .note-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-    .note-list li {
-      min-height: 48px;
-      border-left: 3px solid var(--cyan);
-      border-radius: 8px;
-      padding: 12px 14px;
-      background: var(--bg-elev);
-      color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-    .note-list li:nth-child(even) { border-left-color: var(--magenta); }
-    .faq-list {
-      display: grid;
-      gap: 10px;
-    }
-    details {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg-elev);
-      padding: 0;
-    }
-    summary {
-      cursor: pointer;
-      min-height: 46px;
-      padding: 12px 16px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(12px);
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 13px;
-      line-height: 1.4;
+      font-size: 11px;
+      font-weight: 600;
     }
-    details[open] { border-color: rgba(255, 0, 170, .45); }
-    details p {
-      border-top: 1px solid var(--border-soft);
+
+    .profile-section,
+    .story-section {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr) minmax(260px, 340px);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .section-label {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .profile-copy h2,
+    .story-copy h2 {
+      max-width: 650px;
+      font-size: 38px;
+      line-height: 1.18;
+      word-break: keep-all;
+    }
+
+    .profile-copy p,
+    .story-copy p {
+      max-width: 680px;
+      margin-top: 20px;
+      color: var(--fg-dim);
+      font-size: 16px;
+      line-height: 1.82;
+      word-break: keep-all;
+    }
+
+    .facts {
+      border-top: 1px solid var(--fg);
+    }
+
+    .facts div {
+      padding: 16px 0 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .facts dt {
+      margin-bottom: 7px;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .facts dd {
+      color: var(--fg);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      max-width: 720px;
+      font-size: 36px;
+      line-height: 1.2;
+      word-break: keep-all;
+    }
+
+    .section-head > p {
+      color: var(--fg-dim);
+      font-size: 15px;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    .principle-list {
+      border-top: 1px solid var(--border);
+      list-style: none;
+    }
+
+    .principle-list li {
+      display: grid;
+      grid-template-columns: 80px minmax(240px, 330px) minmax(0, 1fr);
+      gap: 28px;
+      align-items: baseline;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .principle-list span {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .principle-list strong {
+      color: var(--fg);
+      font-size: 21px;
+      line-height: 1.35;
+      word-break: keep-all;
+    }
+
+    .principle-list p {
+      color: var(--fg-dim);
+      font-size: 15px;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+
+    .route-card {
+      display: flex;
+      min-height: 260px;
+      flex-direction: column;
+      padding: 24px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .route-card:hover {
+      background: var(--bg-elev);
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .route-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .route-card strong {
+      margin-top: 40px;
+      font-size: 25px;
+      line-height: 1.25;
+    }
+
+    .route-body {
+      margin-top: 14px;
       color: var(--fg-dim);
       font-size: 14px;
-      line-height: 1.7;
-      padding: 12px 16px 16px;
+      line-height: 1.65;
+      word-break: keep-all;
     }
-    .contact {
+
+    .route-link {
+      margin-top: auto;
+      padding-top: 30px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .now-note {
+      padding: 22px;
       border: 1px solid var(--border);
       border-radius: 8px;
       background: var(--bg-elev);
-      padding: 22px;
     }
-    .contact .section-kicker { color: var(--cyan); }
 
-    @media (max-width: 680px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding-top: 0;
+    .now-note strong,
+    .now-note span {
+      display: block;
+    }
+
+    .now-note strong {
+      color: var(--fg);
+      font-size: 20px;
+      line-height: 1.35;
+      word-break: keep-all;
+    }
+
+    .now-note span {
+      margin-top: 18px;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .contact-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: end;
+      padding: 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    .contact-section .eyebrow,
+    .contact-section p {
+      color: rgba(255, 255, 255, .68);
+    }
+
+    .contact-section h2 {
+      max-width: 640px;
+      font-size: 34px;
+      line-height: 1.2;
+      word-break: keep-all;
+    }
+
+    .contact-section p:not(.eyebrow) {
+      margin-top: 12px;
+      font-size: 15px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex: 0 0 auto;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .contact-section .button.primary {
+      border-color: #fff;
+      background: #fff;
+      color: var(--fg);
+    }
+
+    .contact-section .button.primary:hover {
+      background: var(--bg-elev2);
+      color: var(--fg);
+    }
+
+    .text-link {
+      color: rgba(255, 255, 255, .82);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .text-link:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 920px) {
+      .about-page {
+        gap: 72px;
       }
+
+      .about-hero,
+      .profile-section,
+      .story-section,
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
       .portrait {
-        width: min(100%, 330px);
-        margin: 0 auto;
-        order: -1;
+        width: min(100%, 420px);
       }
-      .hero h1 { font-size: 34px; }
-      .lead { font-size: 15px; }
-      .card-grid,
-      .note-list {
-        grid-template-columns: 1fr;
+
+      .section-label {
+        flex-direction: row;
+        gap: 12px;
+      }
+
+      .facts {
+        margin-top: 8px;
+      }
+
+      .route-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 640px) {
+      .about-page {
+        gap: 58px;
+      }
+
+      .about-hero {
+        gap: 34px;
+        padding-top: 10px;
+      }
+
+      .hero-copy h1 {
+        font-size: 40px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
       .hero-actions,
       .contact-actions {
         flex-direction: column;
+        align-items: stretch;
       }
-      .button { width: 100%; }
+
+      .button {
+        width: 100%;
+      }
+
+      .profile-copy h2,
+      .story-copy h2,
+      .section-head h2,
+      .contact-section h2 {
+        font-size: 29px;
+      }
+
+      .principle-list li,
+      .route-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .principle-list li {
+        gap: 10px;
+      }
+
+      .principle-list p {
+        margin-top: 4px;
+      }
+
+      .route-card {
+        min-height: 220px;
+      }
+
+      .contact-section {
+        display: grid;
+        padding: 24px;
+      }
     }
   </style>
 </Layout>
