@@ -5,8 +5,8 @@
 #
 # Principles:
 # - Claude/Anthropic action calls: 0.
-# - Only node prefix branches are eligible: wsl/, macmini/, desktop/,
-#   desktop3060ti/, notebook/, notebook3060/, mac/.
+# - Only node prefix branches are eligible: wsl/, macmini/,
+#   desktop3060ti/, notebook3060/, mac/.
 # - Draft PRs and PRs with no-auto-merge/manual gate labels or body markers are skipped.
 # - Sensitive app/payment/design paths are held with a PR comment.
 # - Non-sensitive PRs use GitHub native squash auto-merge when the repo supports
@@ -33,9 +33,7 @@ jobs:
       github.event.pull_request.draft == false &&
       (startsWith(github.event.pull_request.head.ref, 'wsl/') ||
        startsWith(github.event.pull_request.head.ref, 'macmini/') ||
-       startsWith(github.event.pull_request.head.ref, 'desktop/') ||
        startsWith(github.event.pull_request.head.ref, 'desktop3060ti/') ||
-       startsWith(github.event.pull_request.head.ref, 'notebook/') ||
        startsWith(github.event.pull_request.head.ref, 'notebook3060/') ||
        startsWith(github.event.pull_request.head.ref, 'mac/')) &&
       !contains(github.event.pull_request.labels.*.name, 'no-auto-merge') &&
