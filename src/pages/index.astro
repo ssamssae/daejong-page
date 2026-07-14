@@ -4,9 +4,15 @@ import PostList from '../components/PostList.astro';
 import ActivityCard from '../components/ActivityCard.astro';
 import { getCollection } from 'astro:content';
 
-const allWorklog = (await getCollection('worklog')).sort((a, b) =>
+const sortedWorklog = (await getCollection('worklog')).sort((a, b) =>
   b.data.date.localeCompare(a.data.date) || (b.data.version ?? '').localeCompare(a.data.version ?? '')
 );
+const seenWorklogDates = new Set<string>();
+const allWorklog = sortedWorklog.filter((post) => {
+  if (seenWorklogDates.has(post.data.date)) return false;
+  seenWorklogDates.add(post.data.date);
+  return true;
+});
 const recentWorklog = allWorklog.slice(0, 5);
 
 const epNum = (entry) => parseInt(String(entry.id).replace(/\D/g, ''), 10) || 0;
