@@ -1,270 +1,1212 @@
 ---
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import Layout from '../layouts/Layout.astro';
-import '../styles/lab.css';
----
-<Layout title="노하우 - 강대종" description="다음 작업에서 다시 꺼내 쓰기 위한 재사용 노하우 모음. 우회 방법, 트릭, 일반화된 패턴을 카테고리와 태그, 최초 발견일, 재발견 기록, GitHub 원문 링크로 정리해 반복 시행착오를 줄이는 개인 작업 지식 베이스입니다.">
-  <Fragment slot="head">
-    <!-- OG / Twitter Card (2026-05-25) -->
-  <meta property="og:title" content="노하우 - 강대종">
-  <meta property="og:description" content="다음 작업에서 다시 꺼내쓸 수 있는 재사용 가능 노하우 — 우회·트릭·일반화된 패턴.">
-  <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://work.kangdaejong.com/knowhow.html">
-  <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="노하우 - 강대종">
-  <meta name="twitter:description" content="다음 작업에서 다시 꺼내쓸 수 있는 재사용 가능 노하우 — 우회·트릭·일반화된 패턴.">
-  <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
-  <link rel="canonical" href="https://work.kangdaejong.com/knowhow.html">
-  <script type="application/ld+json" is:inline>
-{
-  "@context": "https://schema.org",
-  "@graph": [
+
+type KnowhowEntry = {
+  file: string;
+  date: string;
+  slug: string;
+  title: string;
+  category?: string;
+  tags?: string[];
+  summary?: string;
+  first_discovered?: string;
+  rediscovered?: string;
+};
+
+const knowhowIndex = JSON.parse(
+  readFileSync(join(process.cwd(), 'public/knowhow/index.json'), 'utf-8'),
+) as { entries?: KnowhowEntry[] };
+
+const entries = (knowhowIndex.entries ?? [])
+  .slice()
+  .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title, 'ko'));
+
+const categories = Array.from(
+  entries.reduce((counts, entry) => {
+    const category = entry.category?.trim();
+    if (category) counts.set(category, (counts.get(category) ?? 0) + 1);
+    return counts;
+  }, new Map<string, number>()),
+)
+  .map(([name, count]) => ({ name, count }))
+  .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ko'));
+
+const dates = entries.map((entry) => entry.date).filter(Boolean).sort();
+const latestDate = dates.at(-1) ?? '';
+const earliestDate = dates[0] ?? '';
+const featuredEntries = entries.slice(0, 3);
+const topCategories = categories.slice(0, 7);
+
+const dateLabel = (value?: string) => (value ? value.replaceAll('-', '.') : '—');
+const sourceFile = (entry: KnowhowEntry) => entry.file?.trim() || entry.slug + '.md';
+const githubHref = (entry: KnowhowEntry) =>
+  'https://github.com/ssamssae/daejong-page/blob/main/public/knowhow/' +
+  encodeURIComponent(sourceFile(entry));
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
     {
-      "@type": "Person",
-      "@id": "https://work.kangdaejong.com/#person",
-      "name": "강대종",
-      "jobTitle": "Solo founder / Vibe coder",
-      "url": "https://work.kangdaejong.com/",
-      "sameAs": ["https://github.com/ssamssae"],
-      "description": "1인 개발자 / Vibe coder / Solo founder"
+      '@type': 'Person',
+      '@id': 'https://work.kangdaejong.com/#person',
+      name: '강대종',
+      jobTitle: 'Solo founder / Vibe coder',
+      url: 'https://work.kangdaejong.com/',
+      sameAs: ['https://github.com/ssamssae'],
     },
     {
-      "@type": "WebSite",
-      "@id": "https://work.kangdaejong.com/#website",
-      "name": "강대종",
-      "url": "https://work.kangdaejong.com/",
-      "inLanguage": "ko",
-      "author": {"@id": "https://work.kangdaejong.com/#person"}
-    }
-  ]
-}
-</script>
-  <style is:global>
-    /* 노하우 — 컴포넌트 (틀은 lab-page.css 공용, 테마색: 핑크) */
-    .recent-change {
-      font-size: 12px; color: var(--fg-mute); line-height: 1.5;
-      margin-bottom: 20px; padding: 2px 0 2px 11px;
-      border-left: 3px solid var(--page-accent);
-      word-break: keep-all; overflow-wrap: break-word;
-    }
-    .recent-change b { color: var(--fg-dim); font-weight: 600; }
+      '@type': 'CollectionPage',
+      '@id': 'https://work.kangdaejong.com/knowhow.html#page',
+      url: 'https://work.kangdaejong.com/knowhow.html',
+      name: '노하우 — 강대종',
+      description: '다음 작업에서 다시 꺼내 쓰기 위한 재사용 노하우 아카이브.',
+      inLanguage: 'ko',
+      author: { '@id': 'https://work.kangdaejong.com/#person' },
+      mainEntity: {
+        '@type': 'ItemList',
+        numberOfItems: entries.length,
+        itemListElement: entries.map((entry, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: entry.title,
+          url: githubHref(entry),
+        })),
+      },
+    },
+  ],
+};
+---
 
-    .hero-stats {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
-      margin-bottom: 24px;
-    }
-    .hero-card {
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
-      padding: 14px 14px;
-    }
-    .hero-card-label {
-      font-size: 10px; color: var(--fg-dim); margin-bottom: 6px;
-      text-transform: uppercase; letter-spacing: 0.5px;
-    }
-    .hero-card-value { font-size: 22px; color: var(--fg); font-weight: 700; }
-    .hero-card-value .unit {
-      font-size: 13px; color: var(--fg-dim); font-weight: 500; margin-left: 4px;
-    }
-    .hero-card-sub { font-size: 11px; color: var(--fg-mute); margin-top: 4px; }
-
-    .list { display: flex; flex-direction: column; gap: 14px; }
-
-    .knowhow-card {
-      display: block;
-      background: var(--bg-elev); border: 1px solid var(--border);
-      border-radius: 12px; padding: 16px 18px;
-      text-decoration: none; color: inherit;
-      transition: border-color 0.15s, background 0.15s, transform 0.15s;
-      cursor: pointer;
-    }
-    .knowhow-card:hover {
-      border-color: var(--page-accent);
-      background: var(--bg);
-      transform: translateY(-1px);
-    }
-    .knowhow-card:active { transform: translateY(0); }
-
-    .kh-head {
-      display: flex; align-items: flex-start; gap: 10px;
-      margin-bottom: 8px; flex-wrap: wrap;
-    }
-    .kh-title {
-      flex: 1 1 auto; min-width: 0;
-      font-size: 16px; color: var(--fg); font-weight: 600;
-      line-height: 1.45;
-      word-break: keep-all; overflow-wrap: break-word;
-    }
-    .kh-tags {
-      display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;
-    }
-    .kh-tag {
-      font-size: 10px; padding: 2px 8px; border-radius: 6px;
-      font-weight: 600; letter-spacing: 0.3px;
-      color: var(--page-accent); background: rgba(244,114,182, 0.08);
-      border: 1px solid rgba(244,114,182, 0.2);
-    }
-    .kh-cat {
-      font-size: 10px; padding: 2px 8px; border-radius: 6px;
-      font-weight: 700; letter-spacing: 0.3px;
-      color:#ffffff; background: var(--page-accent);
-    }
-
-    .kh-meta {
-      font-size: 11px; color: var(--fg-mute);
-      margin-bottom: 10px;
-    }
-    .kh-meta .sep { color: var(--border); margin: 0 6px; }
-
-    .kh-summary {
-      font-size: 13px; color: var(--fg-dim); line-height: 1.65;
-      word-break: keep-all; overflow-wrap: break-word;
-    }
-
-    .detail-hint {
-      font-size: 11px; color: var(--page-accent); margin-top: 10px;
-      font-weight: 600; letter-spacing: 0.3px;
-    }
-
-    .empty {
-      color: var(--fg-mute); text-align: center; padding: 60px 20px; font-size: 14px;
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
-    }
-    .empty-emoji { font-size: 32px; margin-bottom: 12px; opacity: 0.5; }
-    .loading { color: var(--fg-mute); text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
-    .error { color: var(--danger); text-align: center; padding: 40px 0; font-size: 14px; }
-
-  </style>
+<Layout
+  title="노하우 — 마이너스베타스튜디오"
+  description="1인 개발과 AI 협업에서 발견한 우회 방법, 트릭, 운영 패턴을 다시 꺼내 쓰기 좋게 정리한 노하우 아카이브."
+>
+  <Fragment slot="head">
+    <meta property="og:title" content="노하우 — 마이너스베타스튜디오" />
+    <meta
+      property="og:description"
+      content="한 번 해결한 문제를 다음 작업의 시작점으로 바꾸는 재사용 노하우 아카이브."
+    />
+    <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://work.kangdaejong.com/knowhow.html" />
+    <meta property="og:site_name" content="강대종 작업장" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="노하우 — 마이너스베타스튜디오" />
+    <meta
+      name="twitter:description"
+      content="한 번 해결한 문제를 다음 작업의 시작점으로 바꾸는 재사용 노하우 아카이브."
+    />
+    <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
+    <link rel="canonical" href="https://work.kangdaejong.com/knowhow.html" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
 
-  <div class="lab-page" style="--page-accent: #f472b6">
-    <section class="lab-hero">
-      <h1 class="logo">노하우</h1>
-      <p class="tagline">knowhow · 재사용 노하우</p>
-      <p class="intro">다음 작업에서 다시 꺼내쓸 수 있는 재사용 노하우. 한 번 발견하면 정리해서 비슷한 작업에 0차 reflex 로 쓸 수 있게 만듭니다. 이슈(포스트모템)와 분리되어 사건·시점에 묶이지 않는 일반화된 knowledge 만 모읍니다.</p>
+  <article class="knowhow-page">
+    <header class="knowhow-hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">REUSABLE FIELD NOTES</p>
+        <h1 id="page-title">노하우</h1>
+        <p class="lead">
+          한 번 해결한 문제를 다음 작업의 시작점으로 바꿉니다. 사건 자체보다 다시 쓸 수 있는
+          판단 기준, 우회 방법, 운영 패턴만 골라 기록합니다.
+        </p>
+      </div>
+
+      <dl class="hero-stats" aria-label="노하우 아카이브 요약">
+        <div>
+          <dt>기록</dt>
+          <dd>{entries.length}<small>notes</small></dd>
+        </div>
+        <div>
+          <dt>분류</dt>
+          <dd>{categories.length}<small>topics</small></dd>
+        </div>
+        <div>
+          <dt>범위</dt>
+          <dd class="date-range">{dateLabel(earliestDate)} — {dateLabel(latestDate)}</dd>
+        </div>
+      </dl>
+    </header>
+
+    <aside class="update-note" aria-label="최근 변경">
+      <span class="update-label">RECENT UPDATE</span>
+      <p>
+        <time datetime="2026-07-07">2026.07.07</time>
+        <span>노하우 3편 추가</span>
+        <span>durable 스케줄러 · detached HEAD push 실패 · 이중디스패치 claim 게이트</span>
+      </p>
+    </aside>
+
+    <section class="featured-section" data-featured-section aria-labelledby="featured-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">LATEST NOTES</p>
+          <h2 id="featured-title">최근에 꺼내 쓴 노하우</h2>
+        </div>
+        <p>가장 최근에 일반화한 세 가지 패턴입니다. 전체 본문은 GitHub에서 이어집니다.</p>
+      </div>
+
+      <div class="featured-grid">
+        {
+          featuredEntries.map((entry, index) => {
+            const tags = entry.tags ?? [];
+            return (
+              <a
+                class={index === 0 ? 'featured-card featured-primary' : 'featured-card'}
+                href={githubHref(entry)}
+                target="_blank"
+                rel="noopener"
+                aria-label={entry.title + ' 원문을 GitHub에서 열기'}
+              >
+                <span class="card-index">{String(index + 1).padStart(2, '0')}</span>
+                <span class="featured-meta">
+                  <time datetime={entry.date}>{dateLabel(entry.date)}</time>
+                  <span>{entry.category || '미분류'}</span>
+                </span>
+                <h3>{entry.title}</h3>
+                {entry.summary && <p>{entry.summary}</p>}
+                <span class="featured-foot">
+                  <span>{tags.slice(0, index === 0 ? 3 : 2).join(' · ')}</span>
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            );
+          })
+        }
+      </div>
     </section>
 
-    <!-- 최근 변경: 노하우가 추가/수정되면 이 줄만 갱신 (누적 X, 최신 1건만, 정식 버전번호 X) -->
-    <div class="recent-change"><b>최근 변경</b> · 2026-07-07 · 노하우 3편 추가 (durable 스케줄러 · detached HEAD push 실패 · 이중디스패치 claim 게이트)</div>
+    <section class="archive-section" aria-labelledby="archive-title">
+      <div class="section-head archive-head">
+        <div>
+          <p class="eyebrow">KNOWLEDGE INDEX</p>
+          <h2 id="archive-title">전체 아카이브</h2>
+        </div>
+        <p>제목, 요약, 태그를 함께 검색하거나 카테고리로 범위를 좁힐 수 있습니다.</p>
+      </div>
 
-    <div id="view">
-      <div class="loading">불러오는 중…</div>
-    </div>
+      <form class="filter-panel" data-filter-form role="search">
+        <div class="filter-field search-field">
+          <label for="knowhow-search">키워드 검색</label>
+          <div class="input-shell">
+            <span aria-hidden="true">⌕</span>
+            <input
+              id="knowhow-search"
+              data-search-input
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              placeholder="예: launchd, Flutter, 검증"
+              aria-describedby="filter-status"
+            />
+            <kbd aria-hidden="true">/</kbd>
+          </div>
+        </div>
 
-    <a class="lab-back" href="/system">← system</a>
-  </div>
+        <div class="filter-field category-field">
+          <label for="knowhow-category">카테고리</label>
+          <select id="knowhow-category" data-category-select aria-describedby="filter-status">
+            <option value="">전체 카테고리</option>
+            {categories.map((category) => (
+              <option value={category.name}>{category.name} · {category.count}</option>
+            ))}
+          </select>
+        </div>
+
+        <button class="reset-button" type="reset">초기화</button>
+      </form>
+
+      <div class="category-rail" aria-label="주요 카테고리 바로가기">
+        <button class="category-chip is-active" type="button" data-category-chip="" aria-pressed="true">
+          전체 <span>{entries.length}</span>
+        </button>
+        {
+          topCategories.map((category) => (
+            <button
+              class="category-chip"
+              type="button"
+              data-category-chip={category.name}
+              aria-pressed="false"
+            >
+              {category.name} <span>{category.count}</span>
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="archive-toolbar">
+        <p id="filter-status" data-filter-status aria-live="polite">전체 {entries.length}건</p>
+        <span>최신순</span>
+      </div>
+
+      <div class="entry-grid" data-entry-grid>
+        {
+          entries.map((entry, index) => {
+            const tags = entry.tags ?? [];
+            const searchText = [
+              entry.title,
+              entry.summary,
+              entry.category,
+              ...tags,
+            ]
+              .filter(Boolean)
+              .join(' ')
+              .toLocaleLowerCase('ko-KR');
+            const discovered = entry.first_discovered || entry.date;
+            const rediscovered =
+              entry.rediscovered && entry.rediscovered !== discovered ? entry.rediscovered : '';
+
+            return (
+              <article
+                class="entry-card"
+                data-knowhow-entry
+                data-category={entry.category || ''}
+                data-search={searchText}
+              >
+                <a
+                  href={githubHref(entry)}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={entry.title + ' 원문을 GitHub에서 열기'}
+                >
+                  <span class="entry-topline">
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <span>{entry.category || '미분류'}</span>
+                  </span>
+                  <h3>{entry.title}</h3>
+                  {entry.summary && <p class="entry-summary">{entry.summary}</p>}
+                  <span class="entry-meta">
+                    <span>첫 발견 {dateLabel(discovered)}</span>
+                    {rediscovered && <span>재발견 {dateLabel(rediscovered)}</span>}
+                  </span>
+                  {tags.length > 0 && (
+                    <span class="entry-tags" aria-label="태그">
+                      {tags.slice(0, 4).map((tag) => <span>#{tag}</span>)}
+                      {tags.length > 4 && <span>+{tags.length - 4}</span>}
+                    </span>
+                  )}
+                  <span class="entry-link">
+                    원문 보기
+                    <span aria-hidden="true">↗</span>
+                  </span>
+                </a>
+              </article>
+            );
+          })
+        }
+      </div>
+
+      <div class="empty-state" data-empty-state hidden>
+        <strong>일치하는 노하우가 없습니다.</strong>
+        <p>검색어를 줄이거나 카테고리를 전체로 바꿔보세요.</p>
+        <button type="button" data-empty-reset>필터 초기화</button>
+      </div>
+    </section>
+
+    <footer class="knowhow-footer">
+      <p>마지막 갱신 {dateLabel(latestDate)} · 원문 저장소 기준</p>
+      <a href="/system">system으로 돌아가기</a>
+    </footer>
+  </article>
 
   <script is:inline>
-    const viewEl = document.getElementById('view');
+    (() => {
+      const form = document.querySelector('[data-filter-form]');
+      const searchInput = document.querySelector('[data-search-input]');
+      const categorySelect = document.querySelector('[data-category-select]');
+      const status = document.querySelector('[data-filter-status]');
+      const cards = Array.from(document.querySelectorAll('[data-knowhow-entry]'));
+      const chips = Array.from(document.querySelectorAll('[data-category-chip]'));
+      const emptyState = document.querySelector('[data-empty-state]');
+      const emptyReset = document.querySelector('[data-empty-reset]');
+      const featuredSection = document.querySelector('[data-featured-section]');
 
-    function escapeHtml(s) {
-      return (s || '').replace(/[&<>"']/g, c => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[c]));
-    }
+      if (
+        !(form instanceof HTMLFormElement) ||
+        !(searchInput instanceof HTMLInputElement) ||
+        !(categorySelect instanceof HTMLSelectElement) ||
+        !(status instanceof HTMLElement)
+      ) {
+        return;
+      }
 
-    async function init() {
-      try {
-        const idxRes = await fetch('/knowhow/index.json?_=' + Date.now());
-        const idxData = await idxRes.json();
-        const entries = (idxData.entries || [])
-          .slice()
-          .sort((a, b) => {
-            if (a.date !== b.date) return b.date.localeCompare(a.date);
-            return (a.slug || '').localeCompare(b.slug || '');
+      const normalize = (value) =>
+        String(value || '').normalize('NFKC').toLocaleLowerCase('ko-KR').trim();
+
+      const setChipState = (category) => {
+        chips.forEach((chip) => {
+          const isActive = (chip.getAttribute('data-category-chip') || '') === category;
+          chip.classList.toggle('is-active', isActive);
+          chip.setAttribute('aria-pressed', String(isActive));
+        });
+      };
+
+      const updateUrl = (query, category) => {
+        const params = new URLSearchParams(window.location.search);
+        if (query) params.set('q', query);
+        else params.delete('q');
+        if (category) params.set('category', category);
+        else params.delete('category');
+        const next = params.toString();
+        window.history.replaceState(null, '', window.location.pathname + (next ? '?' + next : ''));
+      };
+
+      const applyFilters = (syncUrl = true) => {
+        const query = normalize(searchInput.value);
+        const category = categorySelect.value;
+        const tokens = query.split(/\s+/).filter(Boolean);
+        let visible = 0;
+
+        cards.forEach((card) => {
+          const haystack = normalize(card.getAttribute('data-search'));
+          const cardCategory = card.getAttribute('data-category') || '';
+          const matchesQuery = tokens.every((token) => haystack.includes(token));
+          const matchesCategory = !category || cardCategory === category;
+          const matches = matchesQuery && matchesCategory;
+          card.hidden = !matches;
+          if (matches) visible += 1;
+        });
+
+        const labelBits = [];
+        if (category) labelBits.push(category);
+        if (query) labelBits.push('“' + searchInput.value.trim() + '”');
+        status.textContent = (labelBits.length ? labelBits.join(' · ') : '전체') + ' ' + visible + '건';
+        if (emptyState instanceof HTMLElement) emptyState.hidden = visible !== 0;
+        if (featuredSection instanceof HTMLElement) featuredSection.hidden = Boolean(query || category);
+        setChipState(category);
+        if (syncUrl) updateUrl(searchInput.value.trim(), category);
+      };
+
+      const resetFilters = (focusSearch = false) => {
+        searchInput.value = '';
+        categorySelect.value = '';
+        applyFilters();
+        if (focusSearch) searchInput.focus();
+      };
+
+      const syncFromUrl = () => {
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get('category') || '';
+        searchInput.value = params.get('q') || '';
+        categorySelect.value = Array.from(categorySelect.options).some(
+          (option) => option.value === category,
+        )
+          ? category
+          : '';
+        applyFilters(false);
+      };
+
+      searchInput.addEventListener('input', () => applyFilters());
+      categorySelect.addEventListener('change', () => applyFilters());
+      form.addEventListener('submit', (event) => event.preventDefault());
+      form.addEventListener('reset', (event) => {
+        event.preventDefault();
+        resetFilters(true);
+      });
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          categorySelect.value = chip.getAttribute('data-category-chip') || '';
+          applyFilters();
+          document.querySelector('[data-entry-grid]')?.scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+            block: 'start',
           });
+        });
+      });
 
-        if (entries.length === 0) {
-          viewEl.innerHTML = renderEmpty();
-          return;
+      emptyReset?.addEventListener('click', () => resetFilters(true));
+      window.addEventListener('popstate', syncFromUrl);
+      document.addEventListener('keydown', (event) => {
+        if (
+          event.key === '/' &&
+          !event.metaKey &&
+          !event.ctrlKey &&
+          !event.altKey &&
+          !(event.target instanceof HTMLInputElement) &&
+          !(event.target instanceof HTMLTextAreaElement) &&
+          !(event.target instanceof HTMLSelectElement)
+        ) {
+          event.preventDefault();
+          searchInput.focus();
         }
+        if (event.key === 'Escape' && document.activeElement === searchInput && searchInput.value) {
+          searchInput.value = '';
+          applyFilters();
+        }
+      });
 
-        render(entries);
-      } catch (e) {
-        viewEl.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
-      }
-    }
-
-    function renderEmpty() {
-      return '' +
-        '<div class="empty">' +
-        '<div class="empty-emoji">💡</div>' +
-        '<div>아직 누적된 노하우가 없습니다.</div>' +
-        '<div style="font-size:12px;color: var(--fg-mute);margin-top:6px;">재사용 가능 우회·트릭이 발견되면 여기 모입니다.</div>' +
-        '</div>';
-    }
-
-    function render(items) {
-      const total = items.length;
-      const categories = new Set(items.map(it => it.category).filter(Boolean));
-
-      let html = '';
-      html += '<div class="hero-stats">';
-      html +=
-        '<div class="hero-card">' +
-        '<div class="hero-card-label">누적 노하우</div>' +
-        '<div class="hero-card-value">' + total + '<span class="unit">건</span></div>' +
-        '<div class="hero-card-sub">다시 꺼내쓰는 knowledge</div>' +
-        '</div>';
-      html +=
-        '<div class="hero-card">' +
-        '<div class="hero-card-label">카테고리</div>' +
-        '<div class="hero-card-value">' + categories.size + '<span class="unit">개</span></div>' +
-        '<div class="hero-card-sub">' + Array.from(categories).join(' · ') + '</div>' +
-        '</div>';
-      html += '</div>';
-
-      html += '<div class="list">';
-      for (const it of items) {
-        html += renderCard(it);
-      }
-      html += '</div>';
-
-      viewEl.innerHTML = html;
-    }
-
-    function renderCard(it) {
-      const title = it.title || '(제목 없음)';
-      const cat = it.category || '';
-      const tags = it.tags || [];
-      const slug = it.slug || '';
-      const date = it.date || '';
-      const summary = it.summary || '';
-      const firstDiscovered = it.first_discovered || '';
-      const rediscovered = it.rediscovered || '';
-
-      // detail link → markdown 파일 직접 (GitHub raw 가 아니라 GitHub Pages 로 .md 는 안 보이니 GitHub blob 링크)
-      const ghHref = 'https://github.com/ssamssae/daejong-page/blob/main/public/knowhow/' + encodeURIComponent(it.file);
-
-      let html = '<a class="knowhow-card" href="' + ghHref + '" target="_blank" rel="noopener">';
-      html += '<div class="kh-head">';
-      html += '<div class="kh-title">' + escapeHtml(title) + '</div>';
-      html += '<div class="kh-tags">';
-      if (cat) html += '<span class="kh-cat">' + escapeHtml(cat) + '</span>';
-      for (const t of tags) html += '<span class="kh-tag">' + escapeHtml(t) + '</span>';
-      html += '</div>';
-      html += '</div>';
-
-      const metaBits = [];
-      if (firstDiscovered) metaBits.push('첫 발견 ' + firstDiscovered);
-      if (rediscovered && rediscovered !== firstDiscovered) metaBits.push('재발견 ' + rediscovered);
-      if (!firstDiscovered && date) metaBits.push('등록 ' + date);
-      if (metaBits.length) {
-        html += '<div class="kh-meta">' +
-          metaBits.map(b => '<span>' + escapeHtml(b) + '</span>').join('<span class="sep">·</span>') +
-          '</div>';
-      }
-
-      if (summary) {
-        html += '<div class="kh-summary">' + escapeHtml(summary) + '</div>';
-      }
-
-      html += '<div class="detail-hint">전체 본문 보기 (GitHub) →</div>';
-
-      html += '</a>';
-      return html;
-    }
-
-    init();
+      syncFromUrl();
+    })();
   </script>
+
+  <style>
+    .knowhow-page {
+      --knowhow-accent: var(--accent);
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 72px;
+    }
+
+    .knowhow-page > * {
+      min-width: 0;
+    }
+
+    .knowhow-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+      gap: 48px;
+      align-items: end;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0 40px;
+    }
+
+    .eyebrow,
+    .card-index,
+    .featured-meta,
+    .featured-foot,
+    .entry-topline,
+    .entry-meta,
+    .entry-tags,
+    .entry-link,
+    .archive-toolbar,
+    .update-label,
+    .filter-field label,
+    .category-chip,
+    .knowhow-footer {
+      font-family: var(--mono);
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: var(--fg-mute);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      color: var(--fg);
+      font-size: clamp(64px, 9vw, 108px);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      max-width: 660px;
+      color: var(--fg-dim);
+      font-size: 18px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .hero-stats {
+      display: grid;
+      border-top: 1px solid var(--fg);
+    }
+
+    .hero-stats > div {
+      display: grid;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      min-height: 62px;
+      border-bottom: 1px solid var(--border);
+      padding: 15px 0;
+    }
+
+    .hero-stats dt {
+      color: var(--fg-mute);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-stats dd {
+      display: flex;
+      min-width: 0;
+      align-items: baseline;
+      gap: 8px;
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .hero-stats dd small {
+      color: var(--fg-mute);
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .hero-stats .date-range {
+      font-size: 14px;
+      letter-spacing: -0.025em;
+      white-space: nowrap;
+    }
+
+    .update-note {
+      display: grid;
+      grid-template-columns: 148px minmax(0, 1fr);
+      gap: 24px;
+      align-items: baseline;
+      margin-top: -44px;
+      border-bottom: 1px solid var(--border);
+      padding: 0 0 24px;
+    }
+
+    .update-label {
+      color: var(--knowhow-accent);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .update-note p {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .update-note time {
+      color: var(--fg);
+      font-family: var(--mono);
+      font-weight: 600;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 390px);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      color: var(--fg);
+      font-size: 34px;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      word-break: keep-all;
+    }
+
+    .section-head > p {
+      color: var(--fg-mute);
+      font-size: 14px;
+      line-height: 1.7;
+      text-align: right;
+      word-break: keep-all;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      grid-template-rows: repeat(2, minmax(190px, auto));
+      border-top: 1px solid var(--fg);
+      border-left: 1px solid var(--border);
+    }
+
+    .featured-card {
+      position: relative;
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+      padding: 22px;
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .featured-card:hover {
+      background: var(--bg-elev);
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .featured-card:focus-visible,
+    .entry-card > a:focus-visible,
+    .category-chip:focus-visible,
+    .reset-button:focus-visible,
+    .empty-state button:focus-visible,
+    .input-shell:focus-within,
+    select:focus-visible {
+      outline: 2px solid var(--knowhow-accent);
+      outline-offset: 3px;
+    }
+
+    .featured-primary {
+      grid-row: 1 / span 2;
+      min-height: 430px;
+      padding: 28px;
+    }
+
+    .card-index {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      color: var(--fg-mute);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .featured-primary .card-index {
+      top: 28px;
+      right: 28px;
+    }
+
+    .featured-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      padding-right: 40px;
+      color: var(--fg-mute);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .featured-meta span {
+      color: var(--knowhow-accent);
+    }
+
+    .featured-card h3 {
+      max-width: 580px;
+      margin-top: 42px;
+      color: var(--fg);
+      font-size: 20px;
+      line-height: 1.4;
+      letter-spacing: -0.018em;
+      word-break: keep-all;
+    }
+
+    .featured-primary h3 {
+      margin-top: 72px;
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.22;
+    }
+
+    .featured-card p {
+      display: -webkit-box;
+      margin-top: 14px;
+      overflow: hidden;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.65;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+
+    .featured-primary p {
+      max-width: 620px;
+      margin-top: 22px;
+      font-size: 15px;
+      line-height: 1.75;
+      -webkit-line-clamp: 4;
+    }
+
+    .featured-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-top: auto;
+      padding-top: 20px;
+      color: var(--fg-mute);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .featured-foot > span:last-child {
+      color: var(--fg);
+      font-size: 18px;
+    }
+
+    .archive-section {
+      scroll-margin-top: 32px;
+    }
+
+    .filter-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(220px, 0.8fr) auto;
+      gap: 12px;
+      align-items: end;
+      border-top: 1px solid var(--fg);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-elev);
+      padding: 18px;
+    }
+
+    .filter-field {
+      min-width: 0;
+    }
+
+    .filter-field label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--fg-mute);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .input-shell {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 46px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 0 13px;
+    }
+
+    .input-shell > span {
+      color: var(--fg-mute);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .input-shell input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--fg);
+      font: inherit;
+      font-size: 15px;
+    }
+
+    .input-shell input::placeholder {
+      color: var(--fg-mute);
+      opacity: 0.9;
+    }
+
+    .input-shell kbd {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg-elev);
+      color: var(--fg-mute);
+      padding: 1px 7px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .category-field select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      background: var(--bg);
+      color: var(--fg);
+      padding: 0 38px 0 13px;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .reset-button,
+    .empty-state button {
+      min-height: 46px;
+      border: 1px solid var(--fg);
+      background: var(--fg);
+      color: var(--bg);
+      padding: 0 18px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .reset-button:hover,
+    .empty-state button:hover {
+      background: var(--knowhow-accent);
+      border-color: var(--knowhow-accent);
+      color: #fff;
+    }
+
+    .category-rail {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      scrollbar-width: thin;
+    }
+
+    .category-chip {
+      flex: 0 0 auto;
+      min-height: 32px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg);
+      color: var(--fg-dim);
+      padding: 0 11px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .category-chip span {
+      margin-left: 4px;
+      color: var(--fg-mute);
+    }
+
+    .category-chip:hover,
+    .category-chip.is-active {
+      border-color: var(--fg);
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    .category-chip.is-active span,
+    .category-chip:hover span {
+      color: inherit;
+      opacity: 0.7;
+    }
+
+    .archive-toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0 12px;
+      color: var(--fg-mute);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .archive-toolbar p {
+      color: var(--fg);
+    }
+
+    .entry-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--fg);
+      border-left: 1px solid var(--border);
+      scroll-margin-top: 24px;
+    }
+
+    .entry-card {
+      min-width: 0;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .entry-card[hidden] {
+      display: none;
+    }
+
+    .entry-card > a {
+      display: flex;
+      min-height: 310px;
+      height: 100%;
+      min-width: 0;
+      flex-direction: column;
+      color: var(--fg);
+      padding: 22px;
+      text-decoration: none;
+      transition: background 160ms ease;
+    }
+
+    .entry-card > a:hover {
+      background: var(--bg-elev);
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .entry-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+      color: var(--fg-mute);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .entry-topline span:last-child {
+      color: var(--knowhow-accent);
+      text-align: right;
+    }
+
+    .entry-card h3 {
+      color: var(--fg);
+      font-size: 20px;
+      line-height: 1.42;
+      letter-spacing: -0.015em;
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    .entry-summary {
+      display: -webkit-box;
+      margin-top: 12px;
+      overflow: hidden;
+      color: var(--fg-dim);
+      font-size: 13px;
+      line-height: 1.68;
+      word-break: keep-all;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    .entry-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin-top: 18px;
+      color: var(--fg-mute);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .entry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 9px;
+      margin-top: 10px;
+      color: var(--fg-mute);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .entry-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 20px;
+      color: var(--fg);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .entry-link span {
+      font-size: 17px;
+    }
+
+    .empty-state {
+      border-top: 1px solid var(--fg);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 20px;
+      text-align: center;
+    }
+
+    .empty-state[hidden] {
+      display: none;
+    }
+
+    .empty-state strong {
+      display: block;
+      color: var(--fg);
+      font-size: 22px;
+    }
+
+    .empty-state p {
+      margin: 8px 0 20px;
+      color: var(--fg-mute);
+      font-size: 14px;
+    }
+
+    .knowhow-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: baseline;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      color: var(--fg-mute);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .knowhow-footer a {
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .knowhow-footer a:hover {
+      text-decoration: underline;
+    }
+
+    [data-featured-section][hidden] {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .knowhow-page {
+        gap: 60px;
+      }
+
+      .knowhow-hero {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .hero-stats > div {
+        display: block;
+        min-height: 94px;
+        border-right: 1px solid var(--border);
+        padding: 14px;
+      }
+
+      .hero-stats > div:first-child {
+        border-left: 1px solid var(--border);
+      }
+
+      .hero-stats dd {
+        margin-top: 9px;
+      }
+
+      .hero-stats .date-range {
+        white-space: normal;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+
+      .featured-primary {
+        grid-row: auto;
+        min-height: 380px;
+      }
+
+      .featured-card:not(.featured-primary) {
+        min-height: 240px;
+      }
+
+      .filter-panel {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
+      }
+
+      .reset-button {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .knowhow-page {
+        gap: 52px;
+      }
+
+      .knowhow-hero {
+        padding-top: 8px;
+      }
+
+      h1 {
+        font-size: 58px;
+        letter-spacing: -0.045em;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats > div {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        min-height: 58px;
+        border-right: 0;
+        padding: 13px 0;
+      }
+
+      .hero-stats > div:first-child {
+        border-left: 0;
+      }
+
+      .hero-stats dd {
+        margin-top: 0;
+        font-size: 20px;
+      }
+
+      .update-note {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: -28px;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .section-head h2 {
+        font-size: 28px;
+      }
+
+      .section-head > p {
+        text-align: left;
+      }
+
+      .featured-primary {
+        min-height: 390px;
+        padding: 22px;
+      }
+
+      .featured-primary .card-index {
+        top: 22px;
+        right: 22px;
+      }
+
+      .featured-primary h3 {
+        margin-top: 58px;
+        font-size: 28px;
+      }
+
+      .featured-card:not(.featured-primary) {
+        min-height: 260px;
+      }
+
+      .filter-panel {
+        grid-template-columns: 1fr;
+        padding: 14px;
+      }
+
+      .reset-button {
+        grid-column: auto;
+      }
+
+      .entry-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-card > a {
+        min-height: 290px;
+        padding: 20px;
+      }
+
+      .entry-card h3 {
+        font-size: 19px;
+      }
+
+      .knowhow-footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .featured-card,
+      .entry-card > a {
+        transition: none;
+      }
+    }
+  </style>
 </Layout>
