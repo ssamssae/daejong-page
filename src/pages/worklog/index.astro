@@ -2,9 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('worklog')).sort((a, b) =>
+const sortedPosts = (await getCollection('worklog')).sort((a, b) =>
   b.data.date.localeCompare(a.data.date) || (b.data.version ?? '').localeCompare(a.data.version ?? '')
 );
+const seenDates = new Set<string>();
+const posts = sortedPosts.filter((post) => {
+  if (seenDates.has(post.data.date)) return false;
+  seenDates.add(post.data.date);
+  return true;
+});
 
 const latestPosts = posts.slice(0, 3);
 const monthGroups = posts.reduce((groups, post) => {
