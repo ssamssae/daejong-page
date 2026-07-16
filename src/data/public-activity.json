@@ -2,15 +2,29 @@
   "schema_version": 1,
   "source": "public_content_frontmatter",
   "privacy": "aggregate_and_allowlisted_titles_only",
-  "as_of": "2026-07-14",
+  "as_of": "2026-07-16",
   "totals": {
-    "last_7_days": 13,
-    "last_30_days": 74,
-    "worklog": 136,
+    "last_7_days": 15,
+    "last_30_days": 76,
+    "worklog": 138,
     "newsletter": 69,
     "insights": 75
   },
   "recent": [
+    {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-07-16",
+      "title": "2026.07.16 작업일지 v1.0.0",
+      "href": "/worklog/2026-07-16_v100/"
+    },
+    {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-07-15",
+      "title": "2026.07.15 작업일지 v1.0.0",
+      "href": "/worklog/2026-07-15_v100/"
+    },
     {
       "kind": "worklog",
       "label": "작업일지",
@@ -38,20 +52,6 @@
       "date": "2026-07-12",
       "title": "2026.07.12 작업일지 v1.0.1",
       "href": "/worklog/2026-07-12_v101/"
-    },
-    {
-      "kind": "worklog",
-      "label": "작업일지",
-      "date": "2026-07-12",
-      "title": "2026.07.12 작업일지 v1.0.0",
-      "href": "/worklog/2026-07-12_v100/"
-    },
-    {
-      "kind": "newsletter",
-      "label": "뉴스레터",
-      "date": "2026-07-12",
-      "title": "확인 창이 없으면 승인된 걸로 치던 코드",
-      "href": "/newsletter/ep69/"
     }
   ]
 }
