@@ -2,56 +2,56 @@
   "schema_version": 1,
   "source": "public_content_frontmatter",
   "privacy": "aggregate_and_allowlisted_titles_only",
-  "as_of": "2026-07-11",
+  "as_of": "2026-07-14",
   "totals": {
-    "last_7_days": 20,
-    "last_30_days": 90,
-    "worklog": 128,
-    "newsletter": 65,
-    "insights": 74
+    "last_7_days": 13,
+    "last_30_days": 74,
+    "worklog": 136,
+    "newsletter": 69,
+    "insights": 75
   },
   "recent": [
     {
-      "kind": "insights",
-      "label": "인사이트",
-      "date": "2026-07-11",
-      "title": "클로드 페이블5 토큰 90% 아끼는 궁극의 세팅법 (한도 벌써 다 썼다면 잘못 쓰는 겁니다..)",
-      "href": "/insights/2026-07-11-fable5-token-saving-orchestration-seonggongjisik/"
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-07-14",
+      "title": "2026.07.14 작업일지 v1.0.0",
+      "href": "/worklog/2026-07-14_v100/"
+    },
+    {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-07-13",
+      "title": "2026.07.13 작업일지 v1.0.1",
+      "href": "/worklog/2026-07-13_v101/"
+    },
+    {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-07-13",
+      "title": "2026.07.13 작업일지 v1.0.0",
+      "href": "/worklog/2026-07-13_v100/"
+    },
+    {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-07-12",
+      "title": "2026.07.12 작업일지 v1.0.1",
+      "href": "/worklog/2026-07-12_v101/"
+    },
+    {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-07-12",
+      "title": "2026.07.12 작업일지 v1.0.0",
+      "href": "/worklog/2026-07-12_v100/"
     },
     {
       "kind": "newsletter",
       "label": "뉴스레터",
-      "date": "2026-07-09",
-      "title": "완료 보고가 다른 문으로 들어갔다",
-      "href": "/newsletter/ep65/"
-    },
-    {
-      "kind": "newsletter",
-      "label": "뉴스레터",
-      "date": "2026-07-09",
-      "title": "창고에는 고쳤는데 현장은 옛날 버전이었다",
-      "href": "/newsletter/ep64/"
-    },
-    {
-      "kind": "newsletter",
-      "label": "뉴스레터",
-      "date": "2026-07-09",
-      "title": "계기판이 거짓말을 했다",
-      "href": "/newsletter/ep63/"
-    },
-    {
-      "kind": "insights",
-      "label": "인사이트",
-      "date": "2026-07-09",
-      "title": "언제 사라질지 모르는 클로드 토큰 절약법",
-      "href": "/insights/2026-07-09-claude-image-token-savings-jocoding/"
-    },
-    {
-      "kind": "insights",
-      "label": "인사이트",
-      "date": "2026-07-09",
-      "title": "한 분이라도 더 보셨으면 좋겠습니다 (앤트로픽 풀다큐 번역)",
-      "href": "/insights/2026-07-09-anthropic-full-documentary-bzcf/"
+      "date": "2026-07-12",
+      "title": "확인 창이 없으면 승인된 걸로 치던 코드",
+      "href": "/newsletter/ep69/"
     }
   ]
 }
