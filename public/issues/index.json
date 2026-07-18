@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-07-18-autopilot-false-busy.md",
+      "date": "2026-07-18",
+      "slug": "autopilot-false-busy",
+      "title": "오토파일럿 5일 무발사 — Fable5 프로모 배너 \"keep working\" busy 오탐",
+      "severity": "medium — 야간 자율 생산 5일 전면 정지, 데이터 손실·외부 피해 0",
+      "recurrence": "medium — Claude Code UI 문구·스피너는 버전마다 바뀜",
+      "scope": "맥미니 claude 야간 워커(무발사) + tmux-repl-busy.sh 소비 레일 전반(bonjin/macmini 워커 4종·리뷰 라우터 2종·idle-auto-resume·chatbot-monitor·workflow-audit)",
+      "occurred_at": "2026-07-13 23:05 KST (첫 무발사 틱) — 인지 2026-07-18 오전 (아니키 \"어제 오토파일럿 왜 작동안했는지 원인 찾아줘\")",
+      "resolved_at": "2026-07-18 10:23 KST (#882 머지) / 역방향 갭 10:54 (#884)",
+      "updated": "2026-07-18T12:01:25+09:00"
+    },
+    {
       "file": "2026-07-11-clb-unit-loss.md",
       "date": "2026-07-11",
       "slug": "clb-unit-loss",
@@ -10,7 +22,7 @@
       "scope": "데스크탑 노드 claude 텔레그램 봇 (다운 17분, 사용자 메시지 1건 배달 지연 1012초). codex 봇·타 노드 무영향.",
       "occurred_at": "2026-07-11 22:35 KST",
       "resolved_at": "2026-07-11 22:52 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-07-10-bridge-merged-turn.md",
@@ -22,7 +34,7 @@
       "scope": "맥미니 claude 세션 / `claude-telegram-bridge.py` busy-inject promote 경로 / 고착 구간 인바운드 지연 + 오귀속 답장 1건",
       "occurred_at": "2026-07-09 23:33 KST",
       "resolved_at": "2026-07-09 23:45 KST (watchdog 재시작 + 후속 인바운드로 외형상 해소 — 구조 수리는 T-260710-27 진행 중)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-07-07-bridge-active-turn-ghost-10min-outage.md",
@@ -34,7 +46,7 @@
       "scope": "노트북 claude 세션 / `claude-telegram-bridge.py` 인바운드 주입 경로 / watchdog 회복 전까지 텔레그램 메시지 미주입",
       "occurred_at": "2026-07-07 20:28 KST",
       "resolved_at": "2026-07-07 21:12 KST (코드 fix PR merge)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-07-05-macmini-misroute.md",
@@ -46,7 +58,7 @@
       "scope": "맥미니(🏭, codex+claude 2세션 공존) / cross-node directive 라우팅",
       "occurred_at": "2026-07-05 20:55 KST",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-07-05-coord-detached-head.md",
@@ -58,7 +70,7 @@
       "scope": "맥미니 claude-coord 미러 / action-ledger.sh 전 노드 공용",
       "occurred_at": "2026-07-03 21:45 KST",
       "resolved_at": "2026-07-05 16:11 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-07-03-macmini-double-dispatch-duplicate-build.md",
@@ -70,7 +82,7 @@
       "scope": "맥미니(🏭) 노드, 스토어 배포(hanjul T-260703-20), ASC 빌드 파이프라인",
       "occurred_at": "2026-07-03 21:30~21:41 KST",
       "resolved_at": "2026-07-03 21:58 KST (정리·surface 완료)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-28-codex-bridge-typing-stuck-on-interrupt.md",
@@ -82,7 +94,7 @@
       "scope": "라이덴(🪟 WSL) codex 노드 / `codex-repl-telegram-bridge.py` (`codex-bridge.service`) — codex 브릿지를 쓰는 전 노드 잠재 공통",
       "occurred_at": "2026-06-28 12:3x KST",
       "resolved_at": "2026-06-28 12:4x KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-27-squash-merge-cherry-pick-test-regression.md",
@@ -94,7 +106,7 @@
       "scope": "squash-merge 된 PR 위에 쌓인 후속 prefix 브랜치를 main 에 반영하는 머지 워크플로우",
       "occurred_at": "2026-06-27 ~20:45 KST (첫이름 모바일 QA E2E 머지 처리 중)",
       "resolved_at": "2026-06-27 21:00 KST (머지 중단으로 회귀 방지, 재작업 과제로 분리)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-27-codex-inject-slash-command-mangle.md",
@@ -106,7 +118,7 @@
       "scope": "본진/맥미니 Claude가 codex tmux 세션에 directive 를 주입하는 모든 경로",
       "occurred_at": "2026-06-27 ~08:50 KST (첫이름 작업을 맥미니 codex에 위임 inject 중)",
       "resolved_at": "2026-06-27 09:00 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-27-bridge-flow-mirror-final-report-missed.md",
@@ -118,7 +130,7 @@
       "scope": "본진→노드 directive 등 **비-텔레그램-origin turn** 으로 들어온 작업의 최종 보고 → 노드 봇챗(아니키 관전 창)",
       "occurred_at": "2026-06-27 ~19:25 KST (본진→맥미니 CF 토큰 수색 directive 처리 중)",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-26-telegram-bridge-background-turn-not-mirrored.md",
@@ -130,7 +142,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-26-notebook-claude-install-destroyed-by-autoupdater.md",
@@ -142,7 +154,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-26-node-report-missed-trigger-chat.md",
@@ -154,7 +166,7 @@
       "scope": "모든 노드(🪟🏭🖥💻)의 작업·디렉티브 완료 보고 → 아니키가 트리거하고 지켜보는 봇챗",
       "occurred_at": "2026-06-26 ~10:00 KST (deploy/T-260626-07 작업 중)",
       "resolved_at": "2026-06-26 16:00 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-26-codex-bridge-stale-pid-loop.md",
@@ -166,7 +178,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-20-plan-downgrade-cli-oauth-logout.md",
@@ -178,7 +190,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-20-codex-fast-session-kill.md",
@@ -190,7 +202,7 @@
       "scope": "Codex TUI, Telegram relay, tmux supervisor",
       "occurred_at": "2026-06-20 18:45 KST",
       "resolved_at": "2026-06-20 19:53 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-18-codex-main-cx-tmux-routing.md",
@@ -202,7 +214,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-17-stale-redo-loop-session-reentry.md",
@@ -214,7 +226,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-17-codex-mesh-vote-directive-f-flag.md",
@@ -226,7 +238,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-16-delayed-appliance-action-no-durable-scheduler.md",
@@ -238,7 +250,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-16-bonjin-comms-card-and-telegram.md",
@@ -250,7 +262,7 @@
       "scope": "본진(🍎) 외부발신 — iMessage 첨부 / 텔레그램 봇 발신",
       "occurred_at": "2026-06-16 15:54 KST (명함) / 17:2x KST (텔레그램)",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-15-worker-tokens-false-busy.md",
@@ -262,7 +274,7 @@
       "scope": "자율 워커 전체 (bonjin-worker / macmini-claude-worker / pull-worker) — claude 백엔드 세션 대상",
       "occurred_at": "2026-06-15 (밤새, 03:30~10:35 KST 전 틱)",
       "resolved_at": "2026-06-15 11:00 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-12-claw-bot-token-rotation.md",
@@ -274,7 +286,7 @@
       "scope": "맥미니 텔레그램 봇, 스킬 repo",
       "occurred_at": "2026-05-24 (최초 발견)",
       "resolved_at": "2026-06-12 19:43 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-10-watchdog-macos-pattern-blind-verification.md",
@@ -286,7 +298,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-10-notebook-chatbot-busyloop-poll-drop.md",
@@ -298,7 +310,7 @@
       "scope": "💻 노트북(노트북 노드) 텔레그램 챗봇 — 5노드 동형 구조라 다른 노드도 잠재 위험",
       "occurred_at": "2026-06-10 ~10:22 KST (spin 시작 추정) / 증상 노출 10:38~10:45",
       "resolved_at": "2026-06-10 10:46 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-09-task-mark-no-taskid.md",
@@ -310,7 +322,7 @@
       "scope": "tasks.md 마킹 라이프사이클 / 수동큐→노드 디스패치 / `stale-reconcile.py` 자동 sweep",
       "occurred_at": "2026-06-09 10:43 KST (PR #22 머지) ~ 21:57 KST (아니키 발견)",
       "resolved_at": "2026-06-09 21:57 KST (본진 수동 [x] 마킹)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-09-graphify-install-shared-globals-pollution.md",
@@ -322,7 +334,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-09-ep32-dup-naver-publish.md",
@@ -334,7 +346,7 @@
       "scope": "newsletter-publish / naver-blog-publish 스킬, 본진(🍎)+맥미니(🏭) dual-orchestrator 외부발행",
       "occurred_at": "2026-06-09 21:54~22:04 KST",
       "resolved_at": "2026-06-09 22:18 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-08-naver-paste-infinite-retry-loop.md",
@@ -346,7 +358,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-08-directive-submit-stuck.md",
@@ -358,7 +370,7 @@
       "scope": "5노드 `*-directive.sh` 전체 (본진→노드 디렉티브 발신 경로)",
       "occurred_at": "2026-06-08 13:30 KST (반복 패턴, 당일 표면화)",
       "resolved_at": "2026-06-08 23:22 KST (PR #113 머지)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-08-codex-night-cycle-partial-failure-and-demote.md",
@@ -370,7 +382,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-07-premature-credential-not-found.md",
@@ -382,7 +394,7 @@
       "scope": "5노드 전체 / 자격증명·시크릿 조회 / 보고 단정",
       "occurred_at": "2026-06-07 19:08 KST",
       "resolved_at": "2026-06-07 19:26 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-07-mac-codex-dup-install-infinite-update.md",
@@ -394,7 +406,7 @@
       "scope": "🍎 본진 Mac codex CLI (codex 세션 사용 흐름)",
       "occurred_at": "2026-06-07 21:49 KST",
       "resolved_at": "2026-06-07 22:00 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-07-araseo-voice-home-self-target-dispatch.md",
@@ -406,7 +418,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-06-dispatcher-staleness-gate-design.md",
@@ -418,7 +430,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-06-codex-report-chaining-cutoff.md",
@@ -430,7 +442,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-06-codex-nodes-idle-pick-stdin.md",
@@ -442,7 +454,7 @@
       "scope": "자동 사이클 — codex 워커 노드(라이덴/데스크탑/노트북) dispatch 경로(routing-lib A게이트, codex-night-cycle)",
       "occurred_at": "2026-06-06 22:0x KST",
       "resolved_at": "2026-06-06 23:48 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-06-cc-autoupdate-disable-noop-enotempty.md",
@@ -454,7 +466,7 @@
       "scope": "macOS 2대 (🍎 본진 + 🏭 맥미니), launchd로 뜬 claude 의 in-process 자동업뎃",
       "occurred_at": "2026-06-05 23:17 KST (아니키 인지 — 매일 아침 구버전 경고는 그 전부터)",
       "resolved_at": "2026-06-06 09:25 KST (잔재 제거 + 2.1.165 업뎃) / 예방 A+B 09:5x KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-05-memory-index-topic-drift.md",
@@ -466,7 +478,7 @@
       "scope": "전 세션(본진) — 메모리 recall 기반 모든 판단/디렉티브",
       "occurred_at": "2026-06-05 (누적: 2026-06-03 ~ 06-05)",
       "resolved_at": "2026-06-05 12:30 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-05-clawd-on-desk-setup-and-mirrored-recovery.md",
@@ -478,7 +490,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-04-stale-orphan-task-redispatch.md",
@@ -490,7 +502,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-04-hardclear-forcing-function-leak.md",
@@ -502,7 +514,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-04-automations-sync-origin-trigger-gap.md",
@@ -514,7 +526,7 @@
       "scope": "",
       "occurred_at": "2026-06-04 ~01:19 KST (PR #80 본진 squash 머지 직후 미전파로 표면화)",
       "resolved_at": "2026-06-04 ~01:50 KST (3중 결함 수정 + 5노드 라이브 검증 PASS, origin/main f195f69)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-03-memoyo-reorder-sdk-skew-merged-regression.md",
@@ -526,7 +538,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-01-session-clear-notify-silent-miss.md",
@@ -538,7 +550,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-01-laiden-reply-tool-verbatim-double-send.md",
@@ -550,7 +562,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-01-directive-mirror-utf8-400-cut-bytes.md",
@@ -562,7 +574,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-06-01-cc-nightly-falsealarm-bare-claude-path.md",
@@ -574,7 +586,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-31-user-query-origin-routing-gap.md",
@@ -586,7 +598,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-31-stop-ping-replyforget-double-send.md",
@@ -598,7 +610,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-31-sessionstart-pull-multiple-branches-race.md",
@@ -610,7 +622,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-31-env-healthcheck-false-positive.md",
@@ -622,7 +634,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-31-bonjin-report-main-chat-miss.md",
@@ -634,7 +646,7 @@
       "scope": "🍎 본진 — 텔레그램 origin 이 아닌 turn(SessionStart auto-resume / 노드 mac-report 자동 paste / 시스템·cron 트리거 skill)에서의 모든 본진→아니키 완료·진행 보고",
       "occurred_at": "2026-05-31 16:00 KST (추정 — 첫 그룹 전용 발사 시점)",
       "resolved_at": "2026-05-31 16:13 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-30-macmini-tmux-liveness-false-negative.md",
@@ -646,7 +658,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-29-master-alive-ping-miss-and-delegate-intent-misread.md",
@@ -658,7 +670,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-29-mac-zshrc-claude-empty-session-race.md",
@@ -670,7 +682,7 @@
       "scope": "🍎 본진 `cc` 진입 동선 + `~/.zshrc` line 16 의 fail-deadly 자동 생성",
       "occurred_at": "2026-05-29 07:28 KST 직전 (형님 cc 안 붙는 증상 발견)",
       "resolved_at": "미정 (이슈 박는 시점 ack 대기, .zshrc line 16 제거 fix 후보)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-29-mac-claude-update-stale-staging-enotempty-loop.md",
@@ -682,7 +694,7 @@
       "scope": "macOS 2대 (🍎 본진 Mac + 🏭 맥미니) 동시 발생. Linux/WSL 3대(🪟 WSL·🖥 데스크탑·💻 노트북, 전부 nvm 기반)는 멀쩡 — 사고 후 5노드 전수 스윕으로 확인.",
       "occurred_at": "2026-05-29 07:01 KST (방치 시작) / 10:34 KST (아니키 인지)",
       "resolved_at": "2026-05-29 19:50 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-29-desktop-cycle9-stale-main-prediction.md",
@@ -694,7 +706,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-29-cycle-trigger-infinite-clear-loop.md",
@@ -706,7 +718,7 @@
       "scope": "",
       "occurred_at": "2026-05-29 07:17 KST 부터 (cycle-trigger.log 첫 fire) ~ 21:56 KST 까지 종일",
       "resolved_at": "2026-05-29 ~22:00 KST (본진 자율 fix, 가역)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-29-autopilot-schedulewakeup-leak.md",
@@ -718,7 +730,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-29-autopilot-oauth-directive-stale-assumption.md",
@@ -730,7 +742,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-29-autopilot-cycle3-cascade-regression.md",
@@ -742,7 +754,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-28-mac-telegram-plugin-enoent.md",
@@ -754,7 +766,7 @@
       "scope": "🍎 본진 텔레그램 채널 (mcp__plugin_telegram_telegram__reply 툴 부재)",
       "occurred_at": "2026-05-28 16:08 KST 직후 (decrypt-run.sh wrap 적용 재기동 시점)",
       "resolved_at": "2026-05-28 17:14:58 KST (본진 자력 v3 restart 성공, 새 daemon pid 68182 정상 plugin 로드)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-28-codex-ssh-attach-detached-loss.md",
@@ -766,7 +778,7 @@
       "scope": "WSL / 노트북 codex REPL, SSH attach 경유 세션",
       "occurred_at": "2026-05-28 KST",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-28-choso-heartbeat-wrong-endpoint.md",
@@ -778,7 +790,7 @@
       "scope": "queue.kangdaejong.com 맥미니(🏭) 노드 alive/DEATH 타일",
       "occurred_at": "2026-05-27 23:46 KST (오진단 박힌 시점) ~ 2026-05-28 00:00 KST (재발견 + 정정)",
       "resolved_at": "2026-05-28 00:01 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-27-stale-handoff-scrape-disable-statusline-regression.md",
@@ -790,7 +802,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-27-codex-directive-enter-fix-v2-fails-on-linux-tmux.md",
@@ -802,7 +814,7 @@
       "scope": "4 codex-directive 스크립트 (wsl/desktop3060ti/notebook3060/mac-mini) 중 Linux ssh+tmux 3 노드 (WSL/desktop/notebook)",
       "occurred_at": "2026-05-27 00:32 KST (codex-mesh-vote Phase 1 fan-out 시 3노드 silent submit 실패로 발견)",
       "resolved_at": "2026-05-27 00:38 KST (수동 추가 Enter 3회로 즉시 복구) → 2026-05-27 02:00 KST (v3 패치 4 SSH 스크립트 적용, 자연 검증 사이클 대기)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-27-claude-automations-no-github-to-local-sync.md",
@@ -814,7 +826,7 @@
       "scope": "5 노드 ~/claude-automations 의 hook / scripts 새 코드 적용 지연. choso 라이브 UI / agent-msg-notify 패턴 변경 / cross-device script 업데이트 등 광범위 영향",
       "occurred_at": "2026-05-27 08:11 KST (PR #46/#47/#48 본진 squash 머지)",
       "resolved_at": "2026-05-27 08:18 KST (본진 SSH 으로 3 노드 수동 `git pull --ff-only` + diverging prefix branch -D)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-26-hook-archive-refs-gap.md",
@@ -826,7 +838,7 @@
       "scope": "5노드 settings.json Stop hook 체인 일관성",
       "occurred_at": "2026-05-25 09:15 KST (archive 시점) → 2026-05-26 23:48 KST 노트북 시각 노이즈로 발견",
       "resolved_at": "2026-05-26 23:55 KST (3노드 cleanup directive PASS)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-26-five-node-cascade-failure.md",
@@ -838,7 +850,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-26-choso-live-task-ttl.md",
@@ -850,7 +862,7 @@
       "scope": "queue.kangdaejong.com 5노드 시각 동기화 채널",
       "occurred_at": "2026-05-23 (1차 발견, msg23018), 2026-05-26 23:11 KST 재현",
       "resolved_at": "2026-05-26 23:30 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-typing-daemon-paused-on-idle-mismatch.md",
@@ -862,7 +874,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-toml-config-root-vs-subkey-trap.md",
@@ -874,7 +886,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-notebook-sdxl-oom-cascade-x2.md",
@@ -886,7 +898,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-master-silence-on-next-cycle-handoff-causes-suspicion.md",
@@ -898,7 +910,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-master-ack-surface-rule-violation-x2.md",
@@ -910,7 +922,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-mac-report-nomatch-skips-mirror.md",
@@ -922,7 +934,7 @@
       "scope": "mac-report.sh (4 노드 → 본진 보고 전 경로), 본진 봇 chat + Agent Mesh Mirror 그룹 양쪽 mirror",
       "occurred_at": "2026-05-25 18:37 KST (본 사이클 codex 정리 보고 누락 시점)",
       "resolved_at": "2026-05-25 19:04 KST (commit 90d9192 fix push)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-codex-video-path-blocked-reentry-gate.md",
@@ -934,7 +946,7 @@
       "scope": "codex 노드의 영상 제작 task, 뉴스레터/콘텐츠 B 트랙",
       "occurred_at": "2026-05-25 KST",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-codex-mirror-helper-evolution-v1-v4.md",
@@ -946,7 +958,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-25-claude-cyber-verification-block.md",
@@ -958,7 +970,7 @@
       "scope": "본진 → 4 노드 directive 본문 어휘. Claude API Usage Policy 분류기.",
       "occurred_at": "2026-05-25 19:04 KST (4 노드 audit fan-out 직후)",
       "resolved_at": "2026-05-25 19:18 KST (Escape 시퀀스 + sanitized PROBE)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-24-wsl-ack-missing-after-cross-routing.md",
@@ -970,7 +982,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-24-notebook-to-mac-ssh-kex-mismatch.md",
@@ -982,7 +994,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-24-notebook-stop-hook-reply-tool-skip.md",
@@ -994,7 +1006,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-24-notebook-autologin-wake-unlock.md",
@@ -1006,7 +1018,7 @@
       "scope": "노트북(💻) 부팅/wake 워크플로우 — SSH 헤드 노드 무인 운영 가능 여부",
       "occurred_at": "2026-05-24 09:17 KST",
       "resolved_at": "2026-05-24 10:29 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-24-master-node-idle-deadlock.md",
@@ -1018,7 +1030,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-24-mac-mini-group-mirror-token-mismatch.md",
@@ -1030,7 +1042,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-24-context-percent-mis-estimation.md",
@@ -1042,7 +1054,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-23-notebook-balanced-sleep-5h-cuts-remote-access.md",
@@ -1054,7 +1066,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-23-noninteractive-ssh-claude-binary-misdiagnosis.md",
@@ -1066,7 +1078,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-23-naver-smart-editor-paste-requires-os-click.md",
@@ -1078,7 +1090,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-23-macos-system-settings-fullauto-pass.md",
@@ -1090,7 +1102,7 @@
       "scope": "macOS GUI 자동화 전반. macOS Sequoia(15+) 의 시스템 설정 풀자동화 채널 확보.",
       "occurred_at": "2026-05-23 ~02:00 KST (형님 \"토글 켜\" 명령 + 본진 1차 시도 5번 실패)",
       "resolved_at": "2026-05-23 ~02:36 KST (cliclick + osascript UI scripting hybrid 5단계 캘리브레이션으로 풀자동 PASS)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-23-linux-trust-prompt-autostart-gate.md",
@@ -1102,7 +1114,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-23-hook-misdiagnosis-symlink.md",
@@ -1114,7 +1126,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-23-exitplanmode-globals-gap.md",
@@ -1126,7 +1138,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-23-anthropic-cyber-content-block.md",
@@ -1138,7 +1150,7 @@
       "scope": "🍎 본진 Claude Code TUI 세션 단위. Anthropic API 차단이므로 로컬 우회 불가.",
       "occurred_at": "2026-05-23 ~04:43 KST 이후 (autopilot standby 핸드오프 직후, 정확 시각 본진 transcript 기준)",
       "resolved_at": "2026-05-23 ~08:57 KST (노트북 ssh→mac tmux send-keys \"Escape /clear\" 후 응답 복귀, msg22688 응답 가능 시점 기준)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-22-loop-reschedules-without-clear.md",
@@ -1150,7 +1162,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-22-autopilot-sessionclear-directive-race.md",
@@ -1162,7 +1174,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-22-autopilot-macmini-liveness-false-negative.md",
@@ -1174,7 +1186,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-21-typing-indicator-drops-during-bg-work.md",
@@ -1186,7 +1198,7 @@
       "scope": "텔레그램 세션에서 1분+ 백그라운드 작업(ffmpeg/빌드/배포) 진행 중 형님 체감",
       "occurred_at": "2026-05-21 19:08~19:20 KST (엘리헤어 리뷰 쇼츠 ffmpeg 빌드 중)",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-21-stuck-loop-session-side-effects.md",
@@ -1198,7 +1210,7 @@
       "scope": "🍎 본진 — 자율 loop/directive 세션, Clawd on Desk 활동 표시, 텔레그램 입력중(typing) 인디케이터",
       "occurred_at": "2026-05-20 19:27 KST (memoyo-loop 세션 stuck 시작)",
       "resolved_at": "2026-05-21 00:35 KST (stuck 세션 종료)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-21-hook-matching-too-loose-2x.md",
@@ -1210,7 +1222,7 @@
       "scope": "5노드 claude-automations 훅 2개(telegram-stop-ping.sh, mac-report-reverse-reply-check.sh) + 본진 진단 워크플로우",
       "occurred_at": "2026-05-20 ~23:40 KST",
       "resolved_at": "2026-05-21 00:10 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-21-autopilot-idle-nodes-token-saving.md",
@@ -1222,7 +1234,7 @@
       "scope": "autopilot / 5노드 야간 자율 운영 throughput",
       "occurred_at": "2026-05-21 02:18~07:30 KST (1차 완료 후 2차 미배정 구간)",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-20-wsl-telegram-terminal-mirror-duplicate.md",
@@ -1234,7 +1246,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-20-wsl-bot-bare-path-no-poll.md",
@@ -1246,7 +1258,7 @@
       "scope": "모든 노드(WSL/맥미니/데스크탑/노트북)의 claude tmux 세션을 본진에서 원격 재기동할 때. 텔레그램 채널 플러그인(node 기반) 전반.",
       "occurred_at": "2026-05-20 11:59 KST",
       "resolved_at": "2026-05-20 12:10 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-20-memoyo-drive-oauth-dup-gcp-project.md",
@@ -1258,7 +1270,7 @@
       "scope": "메모요 Drive 1버튼 백업(1.0.7), 향후 OAuth/Google API 쓰는 모든 앱",
       "occurred_at": "2026-05-17 ~ 2026-05-19 KST (사흘 막힘)",
       "resolved_at": "2026-05-19 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-20-mac-report-binary-image-paste.md",
@@ -1270,7 +1282,7 @@
       "scope": "mac-report.sh · 본진 컨텍스트 윈도우 · 5노드 보고 채널 전체",
       "occurred_at": "2026-05-20 20:22 KST",
       "resolved_at": "2026-05-20 20:48 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-20-context-show-self-trigger-stuck.md",
@@ -1282,7 +1294,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-20-choso-css-cache-stale-render.md",
@@ -1294,7 +1306,7 @@
       "scope": "초소(choso) 정적자산 배포 · Cloudflare/브라우저 캐시 · queue.kangdaejong.com",
       "occurred_at": "2026-05-20 20:30 KST",
       "resolved_at": "2026-05-20 20:50 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-20-cc-version-stale-always-on-node.md",
@@ -1306,7 +1318,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-19-wsl-telegram-reply-only-sync-report-missed.md",
@@ -1318,7 +1330,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-19-stop-chain-fail-stop-analysis.md",
@@ -1330,7 +1342,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-19-share-plus-ios26-silent-fail.md",
@@ -1342,7 +1354,7 @@
       "scope": "메모요 (1.0.5+23 production) + share_plus 패키지 쓰는 모든 Flutter 앱 (약먹자/더치페이/한줄일기/한컵/포모도로 등 — 호출부 점검 필요)",
       "occurred_at": "2026-05-19 09:00 KST",
       "resolved_at": "2026-05-19 09:54 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-19-sessionstart-pull-rebase-race.md",
@@ -1354,7 +1366,7 @@
       "scope": "🏭 맥미니 SessionStart 훅 / claude-skills / claude-automations / daejong-page (5노드 모두 잠재 영향)",
       "occurred_at": "2026-05-19 01:29 KST",
       "resolved_at": "2026-05-19 08:50 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-19-mac-report-telegram-reply-missed.md",
@@ -1366,7 +1378,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-19-fleet-clear-rescue-pane-mismatch.md",
@@ -1378,7 +1390,7 @@
       "scope": "🍎 본진 fleet-clear 자동 /clear 단계 / session-clear-rescue.sh v0.8 / grouped client 가 main 세션에 attached 된 모든 시점",
       "occurred_at": "2026-05-19 14:17 KST",
       "resolved_at": "2026-05-19 14:18 KST (수동 우회 — 본진 챗봇 pane %44 에 직접 detached send-keys)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-19-desktop3060ti-icm-hook-trace.md",
@@ -1390,7 +1402,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-19-desktop3060ti-fabrication-cross-routing.md",
@@ -1402,7 +1414,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-wsl-cc-nightly-update-zombie.md",
@@ -1414,7 +1426,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-tmux-wheel-scroll.md",
@@ -1426,7 +1438,7 @@
       "scope": "💻 notebook3060, 🖥 desktop3060ti — Linux tmux 노드 신규 셋업 시",
       "occurred_at": "2026-05-18 07:49 KST",
       "resolved_at": "2026-05-18 08:00 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-notebook-stale-sync.md",
@@ -1438,7 +1450,7 @@
       "scope": "notebook3060 챗봇 / claude-skills repo 5노드 sync 흐름 / 가전 트리거 룰 + 2026-05-18 hard rule 다수",
       "occurred_at": "2026-05-17 ~ 2026-05-18 사이 KST (본진이 b685645 이후 4 commit push, 노트북 sync 실패)",
       "resolved_at": "2026-05-19 00:25 KST (🖥 ssh polling 으로 노트북 HEAD b81b0f3 + 가전 라인 reload + 환경 OK 3 항목 검증)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-mac-zshrc-mcc-broken.md",
@@ -1450,7 +1462,7 @@
       "scope": "본진(🍎) ~/.zshrc — m/cc 분리 + m1/w/d/r 다른 노드 main 진입 표준",
       "occurred_at": "2026-05-18 19:29~19:37 KST",
       "resolved_at": "2026-05-18 19:57 KST (형님 본인 수동 복구)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-find-bfs-inventory-false-alarm.md",
@@ -1462,7 +1474,7 @@
       "scope": "mac-mini Claude Code 세션의 모든 인벤토리/credential 점검 보고",
       "occurred_at": "2026-05-18 07:15 KST",
       "resolved_at": "2026-05-18 07:27 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-fastlane-supply-aab-already-used-on-promote.md",
@@ -1474,7 +1486,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-cocoapods-utf8-encoding-bug.md",
@@ -1486,7 +1498,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-askuser-globals-gap.md",
@@ -1498,7 +1510,7 @@
       "scope": "5노드 챗봇 전반 (특히 본진 외 4 노드), 텔레그램 전용 사용 시간대",
       "occurred_at": "2026-05-18 07:52 KST",
       "resolved_at": "2026-05-18 진행 중 (조치 1~5 중 1,3,4 완료; 2,5는 본진 응답 후 머지)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-asc-deliver-whatsnew-required.md",
@@ -1510,7 +1522,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-18-android-applicationid-snake-case.md",
@@ -1522,7 +1534,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-17-tuya-memory-concurrent-write-conflict.md",
@@ -1534,7 +1546,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-17-stop-hook-mac-mini-directive-not-detected.md",
@@ -1546,7 +1558,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-17-mac-report-sender-id-missing.md",
@@ -1558,7 +1570,7 @@
       "scope": "mac-report.sh 운반체, 5노드 cross-device 보고 chain",
       "occurred_at": "2026-05-17 23:32 KST (🖥 데스크탑3060Ti 노드의 daejong-page habits/issues 편집 보고 수신 시)",
       "resolved_at": "2026-05-17 23:38 KST (mac-report.sh 자동 prepend 패치)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-17-lotto-calc-pr16-stale-base-mismatch.md",
@@ -1570,7 +1582,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-17-gh-pages-cert-provisioning-stuck.md",
@@ -1582,7 +1594,7 @@
       "scope": "GH Pages custom domain, daejong-page repo, work.kangdaejong.com",
       "occurred_at": "2026-05-17 17:32 KST (CNAME 추가 시점)",
       "resolved_at": "2026-05-17 21:47 KST (cert approved + https_enforced)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-16-stale-recover-loss.md",
@@ -1594,7 +1606,7 @@
       "scope": "fleet-state repo + 본진/Mac mini launchd 가 동작 중인 모든 작업자 워크플로우",
       "occurred_at": "2026-05-16 11:48 KST (commit dd69be8 직후, 본진 launchd 다음 fire)",
       "resolved_at": "2026-05-16 11:55 KST (launchctl bootout + reset --hard dd69be8 + force-free push + PR #5)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-16-ssh-alias-mismatch.md",
@@ -1606,7 +1618,7 @@
       "scope": "본진(🍎) → 다른 노드 직접 ssh 명령 / cross-device probe / 진단 사이클",
       "occurred_at": "2026-05-15 14:28 KST",
       "resolved_at": "2026-05-16 00:58 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-16-desktop3060ti-tmux-session-name-unify.md",
@@ -1618,7 +1630,7 @@
       "scope": "desktop3060Ti 로컬 — `~/bin/cc`, `~/.bashrc` SSH 자동 attach 분기",
       "occurred_at": "2026-05-16 (CLAUDE.md \"5노드 tmux 세션 이름 통일 (2026-05-16)\" 변경 후 desktop3060Ti 측 SoT 미반영 잔존이 드러남)",
       "resolved_at": "2026-05-16 16:00 KST (~/bin/cc + ~/.bashrc 패치 + 백업)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-16-d07-install-launchd-smoke-self-load.md",
@@ -1630,7 +1642,7 @@
       "scope": "Mac 본진 `~/Library/LaunchAgents/` (rollback 완료), agent-fleet-state D07 게이트 청소 사이클, D0N strict trigger 룰 위반 사례 1건",
       "occurred_at": "2026-05-16 16:55 KST (즈음)",
       "resolved_at": "2026-05-16 17:00 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-15-notebook-hook-path-macos-node.md",
@@ -1642,7 +1654,7 @@
       "scope": "💻 노트북 Claude Code 시작 시 SessionStart hook + Auto-update",
       "occurred_at": "2026-05-15 (발견 시점)",
       "resolved_at": "2026-05-15 13:35 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-15-macmini-reverse-asym.md",
@@ -1654,7 +1666,7 @@
       "scope": "mac-report.sh / cross-device fleet directive 양방향 / mac mini 노드 결과 회수",
       "occurred_at": "2026-05-15 20:42 KST (mac-mini-directive.sh smoke test 회신 받았으나 본진 자동 회수 0)",
       "resolved_at": "2026-05-15 20:55 KST (mac mini ~/.ssh/config 에 Host mac alias 4줄 추가)",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-15-codex-directive-routing-stale.md",
@@ -1666,7 +1678,7 @@
       "scope": "`codex-directive.sh` / `agent-msg-notify.sh` macmini 케이스 / `loop-fleet` 매핑 (mac-mini 슬롯) / cross-device directive 송신 일반",
       "occurred_at": "2026-05-15 10:13 KST (loop-fleet 사이클 1 paste 시점)",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-14-rotate-token-channel-mode-dead.md",
@@ -1678,7 +1690,7 @@
       "scope": "`~/.claude/channels/telegram/rotate-token.sh`, mac mini ~/.claude/channels/telegram/.env, @ssamssae_claw_bot polling",
       "occurred_at": "2026-05-14 00:55 KST",
       "resolved_at": "2026-05-14 01:01 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-14-macmini-self-identity-default-mac-bonjin.md",
@@ -1690,7 +1702,7 @@
       "scope": "mac mini Claude Code 노드, @ssamssae_claw_bot 챗 응답 전반 + directive 발사 흐름 (자기-SSH 함정 + 본진 권한 흉내)",
       "occurred_at": "2026-05-14 (오늘 mac mini Codex→Claude Code 전환 후 첫 사용 turn, 강대종 surface 23:36 KST)",
       "resolved_at": "2026-05-14 23:41 KST",
-      "updated": "2026-07-11T23:13:44+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-14-macmini-plugin-cache.md",
@@ -1702,7 +1714,7 @@
       "scope": "mac mini `@MyClaude4` 봇 (Codex → Claude Code 전환 후 새 봇), Claude Code `plugin:telegram` MCP server spawn",
       "occurred_at": "2026-05-14 09:04 KST",
       "resolved_at": "2026-05-14 11:26 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-14-macmini-launchd-claude-channels-flag-missing.md",
@@ -1714,7 +1726,7 @@
       "scope": "mac mini Claude Code 노드 (Codex→Claude Code 전환 후 신규), `@ssamssae_claw_bot` 봇 incoming 수신 경로",
       "occurred_at": "2026-05-14 (재부팅 후 매번 재발, 강대종 surface 23:30 KST)",
       "resolved_at": "2026-05-14 23:34 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-14-macmini-bot-token-grep-leak.md",
@@ -1726,7 +1738,7 @@
       "scope": "@ssamssae_claw_bot (mac mini), 본진+맥미니 ~/.claude/channels/telegram/.env",
       "occurred_at": "2026-05-13 23:38 KST",
       "resolved_at": "2026-05-14 01:01 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-14-launchd-plist-path.md",
@@ -1738,7 +1750,7 @@
       "scope": "mac-mini Claude Code 의 텔레그램 봇 `@MyClaude4`. 잠재적으로 본진의 동일 plist 잡",
       "occurred_at": "2026-05-14 09:04 KST (mac-mini 자동 재기동 시점부터 재발 패턴)",
       "resolved_at": "2026-05-14 19:23 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-13-mac-report-reverse-reply-missed.md",
@@ -1750,7 +1762,7 @@
       "scope": "Mac 본진 챗봇 / WSL→Mac mac-report 흐름 / 양방향 cross-device communication",
       "occurred_at": "2026-05-12 23:56 KST",
       "resolved_at": "2026-05-13 00:01 KST (지적 받고 즉시 wsl-directive.sh 송신)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-13-fleet-state-mac-mini-divergence.md",
@@ -1762,7 +1774,7 @@
       "scope": "Mac mini `~/agent-fleet-state` local main, reviewer parity bats 검증, mac-mini bats 4 PASS 검증 가능성",
       "occurred_at": "2026-05-13 KST (D09 reviewer parity bats 실행 시점)",
       "resolved_at": "2026-05-13 11:14 KST (`git reset --hard origin/main` 적용)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-13-desktop3060ti-claude-automations-absent.md",
@@ -1774,7 +1786,7 @@
       "scope": "desktop3060ti 챗봇 노드 자동화 호환성, WSL 디렉티브 회수 가정 (\"타 OS 는 코드만 박힘 no-op\")",
       "occurred_at": "2026-05-13 11:02 KST (WSL 디렉티브 회수 phase 2 desktop3060ti reverse reply)",
       "resolved_at": "2026-05-14 00:12 KST — case B 확정 (chatbot-only 노드, hooks 불필요, 현 상태 유지)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-13-d09-fleet-sweep-family-4-rounds.md",
@@ -1786,7 +1798,7 @@
       "scope": "~/agent-fleet-state origin/main (24 noise commit + 24 audit-trail revert), D09 implementer/reviewer subagent flow, 강대종 룰 \"main 직접 push 금지 · PR 없이 main 반영 금지\"",
       "occurred_at": "2026-05-13 08:36 KST (D09 implementer 시작) ~ 11:00 KST (4차 revert push)",
       "resolved_at": "2026-05-13 11:15 KST (P1 fix-now plan §9.8 sync 완료)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-12-fleet-state-tests-auto-push-leak.md",
@@ -1798,7 +1810,7 @@
       "scope": "agent-fleet-state private repo, fleet-director 모든 Day implementer 워크플로우",
       "occurred_at": "2026-05-12 (D07-prereq triad 작업 중)",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-12-dutchpay-gad-application-identifier-missing.md",
@@ -1810,7 +1822,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-12-codex-bidirectional-routing-failure.md",
@@ -1822,7 +1834,7 @@
       "scope": "agent-mesh 6방향 소통, fleet-director Day implementer 결과 회수, 모든 macbook↔macmini 자동 워크플로우",
       "occurred_at": "2026-05-12 (11:18 KST A 경로 ping 테스트 + 11:30 KST 경 B 경로 paste 운반)",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-11-routine-todos-collision-pat-leak.md",
@@ -1834,7 +1846,7 @@
       "scope": "Anthropic Cloud routines, daejong-page/todos, /todo 스킬, GitHub OAuth 토큰",
       "occurred_at": "2026-05-10 05:04 KST (첫 가시 충돌, 매일 새벽 5시 반복)",
       "resolved_at": "2026-05-11 09:35 KST (routine #1 disabled + prompt redacted + 오늘 todos 봉합 + 4기기 sync)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-11-launchd-clear-trigger-abort-loop.md",
@@ -1846,7 +1858,7 @@
       "scope": "Mac 본진 launchd `com.daejongkang.session-clear-watcher` → `~/.claude/hooks/session-clear-trigger.sh` (v2.2 → v2.6), 자동 /clear 파이프라인",
       "occurred_at": "2026-05-11 00:52 KST",
       "resolved_at": "2026-05-16 08:37 KST (trigger.sh v2.6 / rescue.sh v2.3 / SKILL.md v2.1 영구 fix — polling 우회 + 1-touch 모드, 예방 5번 참고). 2026-05-11 00:57 의 \"자연 idle 1회 발화\" 는 구조적 fix 아님.",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-10-session-clear-marker-race.md",
@@ -1858,7 +1870,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-10-session-clear-full-investigation.md",
@@ -1870,7 +1882,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-10-session-clear-buffer-polling-bug.md",
@@ -1882,7 +1894,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-10-placeholder-paste-loss.md",
@@ -1894,7 +1906,7 @@
       "scope": "모든 cross-device paste 셋업 안내 (Mac→WSL, Mac→3060Ti, Mac→Mac mini)",
       "occurred_at": "2026-05-10 20:46 KST",
       "resolved_at": "2026-05-10 21:01 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-10-mini-agent-inbox-bot-bridge.md",
@@ -1906,7 +1918,7 @@
       "scope": "mini 의 process-agent-inbox.sh / 6방향 mesh 통신 중 mini 양방향(🍎↔🏭, 🪟↔🏭)",
       "occurred_at": "2026-05-07 ~ 2026-05-10 (5/7 첫 stuck JSON, 5/10 17:30 KST 진단)",
       "resolved_at": "2026-05-10 18:08 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-10-loop-run-92771-failure-analysis.md",
@@ -1918,7 +1930,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-10-claude-code-terminal-stdin-lag.md",
@@ -1930,7 +1942,7 @@
       "scope": "Mac 본진 Claude Code 터미널 세션 전반 (강대종 직접 입력 UX)",
       "occurred_at": "2026-05-10 (이전 세션, 정확 시각 불명)",
       "resolved_at": "2026-05-10 17:08 KST (새 세션 / 현재 세션에서 정상 확인)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-09-wsl-agent-msg-notify-bot-blocked.md",
@@ -1942,7 +1954,7 @@
       "scope": "WSL이 Mac에 명령/결과 전달 시도할 때마다 사일런트 실패",
       "occurred_at": "2026-05-09 21:06 KST",
       "resolved_at": "미완 (WSL 수정 필요)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-09-typing-indicator-stop-on-midtask-wait.md",
@@ -1954,7 +1966,7 @@
       "scope": "Telegram typing indicator, 작업 중간 사용자 확인 대기 상황",
       "occurred_at": "2026-05-09 23:45 KST",
       "resolved_at": "2026-05-09 23:50 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-09-telegram-typing-zombie-after-clear.md",
@@ -1966,7 +1978,7 @@
       "scope": "Telegram typing heartbeat daemon, session-clear 전후",
       "occurred_at": "2026-05-09 16:10 KST (/clear 시점)",
       "resolved_at": "2026-05-09 16:27 KST (수동 kill)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-09-play-managed-publishing-on.md",
@@ -1978,7 +1990,7 @@
       "scope": "Android Play Store 출시 앱 전체 (계정 단위 설정)",
       "occurred_at": "2026-05-09 06:49 KST",
       "resolved_at": "2026-05-09 06:51 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-09-loop-run-wsl-abort-flutter-path.md",
@@ -1990,7 +2002,7 @@
       "scope": "loop-run WSL/macmini device 태스크",
       "occurred_at": "2026-05-09 18:16 KST",
       "resolved_at": "2026-05-09 19:03 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-09-clear-queued-during-processing.md",
@@ -2002,7 +2014,7 @@
       "scope": "Claude Code CLI, 처리 중 슬래시 커맨드 입력 상황",
       "occurred_at": "2026-05-09 22:48 KST",
       "resolved_at": "2026-05-09 22:51 KST (자동 실행)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-08-mac-report-fake-result-notify.md",
@@ -2014,7 +2026,7 @@
       "scope": "mac-mini → MacBook 왕복 테스트 워크플로우 / agent-msg-notify.sh 기반 기기 간 메시지",
       "occurred_at": "2026-05-08 01:40 KST",
       "resolved_at": "2026-05-08 01:40 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-08-codex-session-relay-telegram-mirror.md",
@@ -2026,7 +2038,7 @@
       "scope": "본진(@MyClaude) 텔레그램 채팅",
       "occurred_at": "2026-05-07 21:58 KST (최초) / **2026-05-08 19:20 KST (재발)**",
       "resolved_at": "2026-05-08 00:55 KST (1차) / **2026-05-08 20:22 KST (2차)**",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-08-codex-inject-websocket-silent-fail.md",
@@ -2038,7 +2050,7 @@
       "scope": "codex-directive.sh → Mac mini Codex 연동",
       "occurred_at": "2026-05-08 14:13 KST",
       "resolved_at": "2026-05-08 14:21 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-08-clawd-openclaw-codex-pid-unreachable.md",
@@ -2050,7 +2062,7 @@
       "scope": "Mac mini Clawd on Desk ↔ OpenClaw Codex 세션 추적",
       "occurred_at": "2026-05-08 21:11 KST",
       "resolved_at": "2026-05-08 22:51 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-06-hanjul-openai-org-member-removed.md",
@@ -2062,7 +2074,7 @@
       "scope": "한줄일기 iOS/Android — AI 응원 버튼 (Cloudflare Worker → OpenAI GPT-4o-mini)",
       "occurred_at": "2026-05-06 (정확한 중단 시점 불명, 20:47 KST 최초 발견)",
       "resolved_at": "2026-05-06 20:50 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-05-session-clear-triggered-goodnight.md",
@@ -2074,7 +2086,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-04-lottocalc-irun-white-screen.md",
@@ -2086,7 +2098,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-02-policy-race-mac-wsl.md",
@@ -2098,7 +2110,7 @@
       "scope": "claude-skills repo `globals/CLAUDE.md` + `globals/AGENT.md`, 본진/WSL 룰 자체",
       "occurred_at": "2026-05-02 01:27 KST (WSL eedef42 직접 push) → 01:58 KST (본진 PR #4 1405ad1 squash 머지)",
       "resolved_at": "2026-05-02 01:58 KST (본진 PR #4 안에서 의도적으로 8항 풀 정책으로 통합)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-02-playwright-mcp-cwd-output-dir.md",
@@ -2110,7 +2122,7 @@
       "scope": "Track D Substack republish (Ep.1 / Ep.2 IMAGE N 노출 패치 사이클), `/create-play-app`, save-google-session, naver-blog-publish 등 Playwright MCP 의존 모든 흐름",
       "occurred_at": "2026-05-02",
       "resolved_at": "2026-05-02",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-02-google-oauth-playwright-stealth-bypass.md",
@@ -2122,7 +2134,7 @@
       "scope": "`/create-play-app` 스킬, PHASE-B-SETUP.md §3 (Google 세션 쿠키 export), 향후 Play Console / ASC / Google Cloud Console / Gmail OAuth Playwright 자동화 전부",
       "occurred_at": "2026-05-02 12:53 KST (1차 차단 화면)",
       "resolved_at": "2026-05-02 13:00 KST (3차 stealth args 우회 통과)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-01-wsl-mac-race-skill-edit.md",
@@ -2134,7 +2146,7 @@
       "scope": "claude-skills repo, Mac↔WSL handoff 흐름",
       "occurred_at": "2026-05-01 13:49 KST (본진 push) → 13:52 KST (WSL merge, race 인지)",
       "resolved_at": "2026-05-01 13:52 KST (3-way merge 자동)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-05-01-ep5-backfill-overwrite.md",
@@ -2146,7 +2158,7 @@
       "scope": "daejong-page newsletter 파이프라인 / naver-blog-publish / ep<N> 원본 prose 보존",
       "occurred_at": "2026-04-30 23:45 KST (50c5ad4 커밋 시점)",
       "resolved_at": "2026-05-01 20:50 KST (이슈 등록 시점, 데이터 원복 X)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-28-cf-colo-region-block.md",
@@ -2158,7 +2170,7 @@
       "scope": "hanjul worker, 향후 LLM 연동 신규 앱 전체",
       "occurred_at": "2026-04-28 (친구 카톡 알림 17시 전)",
       "resolved_at": "2026-04-28 17:20 KST (친구 카톡 \"와파로도 이제 된다!!\")",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-27-wsl-hanjul-push-classifier-block.md",
@@ -2170,7 +2182,7 @@
       "scope": "모든 기기의 main 브랜치 push 자동 워크플로우",
       "occurred_at": "2026-04-27 22:08 ~ 22:14 KST",
       "resolved_at": "2026-04-27 22:14 KST 진행 중 (WSL settings.json allow 룰 영구 추가로 해소 예정)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-27-telegram-msg-id-leak.md",
@@ -2182,7 +2194,7 @@
       "scope": "텔레그램 reply 워크플로우 전체 (모든 기기)",
       "occurred_at": "2026-04-27 17:09 KST",
       "resolved_at": "2026-04-27 17:14 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-27-same-turn-commit-fp.md",
@@ -2194,7 +2206,7 @@
       "scope": "Mac/WSL 양방향 핸드오프 자동 발사 (handoffs/ git push 단계)",
       "occurred_at": "2026-04-27 20:36 KST",
       "resolved_at": "2026-04-27 20:50 KST (진행 중 — 강대종님 컨펌 후 settings rule + docs 박기)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-27-paste-block-mixed-r6.md",
@@ -2206,7 +2218,7 @@
       "scope": "모든 텔레그램 reply 워크플로우 (Mac/WSL 양 기기)",
       "occurred_at": "2026-04-27 19:34 ~ 21:01 KST (한 세션 내 4회 연속)",
       "resolved_at": "2026-04-27 21:05 KST (hook 보강 + 메모리 갱신)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-27-harness-default-branch-push-block.md",
@@ -2218,7 +2230,7 @@
       "scope": "모든 default branch 직접 push 워크플로우 (hanjul 등 앱 repo)",
       "occurred_at": "2026-04-27 22:04 KST",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-26-tahoe-ssh-cli-block.md",
@@ -2230,7 +2242,7 @@
       "scope": "24/7 자동화 허브 셋업, macOS 26.x 헤드리스 SSH 활성화",
       "occurred_at": "2026-04-26 23:46 KST",
       "resolved_at": "2026-04-26 23:54 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-26-review-status-disabled-blind-spot.md",
@@ -2242,7 +2254,7 @@
       "scope": "Mac 본진 launchd `com.claude.review-status-check`, 약먹자 1.0.1 (iOS), 더치페이 계산기 1.0.2 (iOS)",
       "occurred_at": "2026-04-25 00:44 KST (Apple 메일 도착) ~ 2026-04-26 17:55 KST (Mac Claude 가 Gmail 검색으로 발견)",
       "resolved_at": "2026-04-26 17:55 KST (발견·강대종님 알림). 실제 fix(ASC 사유 확인 + 재제출) 는 강대종님 ASC 콘솔 확인 후 별건",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-26-paste-block-label-leak.md",
@@ -2254,7 +2266,7 @@
       "scope": "텔레그램 reply 워크플로우 전체 (모든 기기)",
       "occurred_at": "2026-04-26 09:46 KST",
       "resolved_at": "2026-04-26 09:48 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-26-heartbeat-rule-soft-enforcement.md",
@@ -2266,7 +2278,7 @@
       "scope": "모든 장시간 텔레그램 inbound 작업 세션. 이번엔 Substack 마크다운 fix 작업.",
       "occurred_at": "2026-04-26 09:58~10:10 KST",
       "resolved_at": "2026-04-26 10:15 KST (이슈 등록 + nudge hook 설계 결정)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-26-handoff-method-a-fallback-regression.md",
@@ -2278,7 +2290,7 @@
       "scope": "handoff 스킬, 크로스 디바이스 워크플로우",
       "occurred_at": "2026-04-26 08:38 KST",
       "resolved_at": "2026-04-26 08:43 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-26-handoff-claude-main-empty-shell.md",
@@ -2290,7 +2302,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-26-handoff-active-session-marker-mismatch.md",
@@ -2302,7 +2314,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-25-wsl-playwright-mcp-install-blocked.md",
@@ -2314,7 +2326,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-24-ios-ipad13-screenshot-mandatory.md",
@@ -2326,7 +2338,7 @@
       "scope": "iOS 앱 전체. iPhone Only 로 빌드해도 App Store Connect 는 \"13 iPad 디스플레이\" 스크린샷을 여전히 요구.",
       "occurred_at": "2026-04-24 23:27 KST (약먹자) / 23:53 KST (더치페이)",
       "resolved_at": "2026-04-24 23:39 KST / 23:57 KST (각각 iPad 업로드 후)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-24-insta-autopost-mac-mirror-missing.md",
@@ -2338,7 +2350,7 @@
       "scope": "",
       "occurred_at": "",
       "resolved_at": null,
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-23-ios-gidclientid-missing.md",
@@ -2350,7 +2362,7 @@
       "scope": "심사레이더(review_radar) iOS 빌드. 확대 리스크: flutter-factory 로 찍어내는 모든 앱 중 google_sign_in 의존하는 것 전체.",
       "occurred_at": "2026-04-23 23:40 KST",
       "resolved_at": "2026-04-24 00:05 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-21-orphan-skill-file-after-interrupt.md",
@@ -2362,7 +2374,7 @@
       "scope": "`~/.claude/skills/**` 의 신규 파일 모두 (특히 `lessons/`, `issues/`, `SKILL.md` 수정)",
       "occurred_at": "2026-04-21 14:32 KST (세션 중단), 2026-04-21 23:42 KST (9시간 10분 뒤 사용자 체감 보고)",
       "resolved_at": "2026-04-21 23:46 KST (다음 세션에서 `git add + commit + push`)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-21-memoyo-signup-ghost-form.md",
@@ -2374,7 +2386,7 @@
       "scope": "daejong-page portfolio.html, 메모요 Apps Script endpoint, 사전예약자 기대치",
       "occurred_at": "2026-04-07 전후 (사전예약 폼이 의미 없어진 시점, 추정). 실제로는 2026-04-19 스토어 드롭 결정 이후 최소 2일.",
       "resolved_at": "2026-04-21 18:30 KST (`e80d213` 커밋, portfolio.html showSignup 제거)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-21-memory-skill-duplication.md",
@@ -2386,7 +2398,7 @@
       "scope": "auto-memory 시스템 전체 (모든 기기)",
       "occurred_at": "2026-04-21 09:56 KST",
       "resolved_at": "2026-04-21 09:58 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-21-mac-wsl-todos-desync.md",
@@ -2398,7 +2410,7 @@
       "scope": "todo 스킬, daejong-page/todos, Mac/WSL 멀티기기 자동화 전체",
       "occurred_at": "2026-04-21 10:17 KST (증상 최초 가시화 — Mac 이 stale todos 로 오추천)",
       "resolved_at": "2026-04-21 13:10 KST (todos 정정 + 프리플라이트 체크 도입 후)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-21-launchd-silent-job-dropout.md",
@@ -2410,7 +2422,7 @@
       "scope": "Mac 본진 launchd (`com.claude.morning-briefing`, `com.claude.daily-sync-and-learn`), 아침 루틴 전반",
       "occurred_at": "불명 (2026-04-21 15:30 KST 에 우연히 가시화). 실제 유실 시점은 추정 불가.",
       "resolved_at": "2026-04-21 15:39 KST (`launchctl load` 로 두 잡 복구)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-20-terminal-only-reply-missed-telegram.md",
@@ -2422,7 +2434,7 @@
       "scope": "WSL Claude Code 세션 전반 (telegram-origin 대화 시)",
       "occurred_at": "2026-04-20 09:10 KST (추정)",
       "resolved_at": "2026-04-20 09:13 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-20-telegram-typing-midsession-drop.md",
@@ -2434,7 +2446,7 @@
       "scope": "플러그인 telegram typing 데몬, 병렬 Claude 세션 전체",
       "occurred_at": "2026-04-20 23:30 KST",
       "resolved_at": "2026-04-21 00:28 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-20-telegram-client-delivery-lag.md",
@@ -2446,7 +2458,7 @@
       "scope": "모든 텔레그램 양방향 대화 (WSL ↔ 사용자)",
       "occurred_at": "2026-04-20 08:38 KST",
       "resolved_at": "2026-04-20 08:47 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-20-irun-locked-iphone.md",
@@ -2458,7 +2470,7 @@
       "scope": "`/irun` · `/land` 연쇄 호출 시 아이폰이 잠긴 상태로 책상에 있을 때 전부 재현됨.",
       "occurred_at": "2026-04-20 20:48 KST",
       "resolved_at": "2026-04-20 20:51 KST",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-19-android-text-selection-twotone.md",
@@ -2470,7 +2482,7 @@
       "scope": "메모요 Android 빌드 텍스트 선택 UX",
       "occurred_at": "2026-04-19",
       "resolved_at": "2026-04-19",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-16-playwright-chrome-google-login-blocked.md",
@@ -2482,7 +2494,7 @@
       "scope": "메모요 사전예약 자동 등록용 Playwright 워크플로우",
       "occurred_at": "2026-04-16",
       "resolved_at": "2026-04-16",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-16-play-console-testers-google-group.md",
@@ -2494,7 +2506,7 @@
       "scope": "메모요 사전예약 자동 등록 파이프라인",
       "occurred_at": "2026-04-16",
       "resolved_at": "2026-04-16",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     },
     {
       "file": "2026-04-12-ios-relaunch-crash.md",
@@ -2506,7 +2518,7 @@
       "scope": "메모요(simple_memo_app) iOS 빌드",
       "occurred_at": "2026-04-11 (첫 증상 관측)",
       "resolved_at": "2026-04-12 (근본 원인 제거 완료)",
-      "updated": "2026-07-11T23:13:45+09:00"
+      "updated": "2026-07-18T12:01:25+09:00"
     }
   ]
 }
