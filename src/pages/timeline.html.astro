@@ -589,7 +589,8 @@ import Layout from '../layouts/Layout.astro';
       { date: '2026-06-11', title: '앱 지원 이메일 회사 메일로 통일', desc: '8개 앱의 지원 이메일을 회사 메일로 통일 — 저장소·웹·플레이 콘솔 전 채널 반영. Preflight Evidence Gate 규칙을 관찰 모드에서 좁은 차단으로 승격.', tags: [['infra','자동화'],['web','브랜딩']] },
       { date: '2026-06-12', title: '드리프트 추적·자가점검 강화', desc: '깃 히스토리 토큰 노출 처리, 야간 워커 자가 점검 강화(done-task 재발사 갭 차단), PR free-text 리컨실러 머지로 종료된 작업의 stale 마킹을 자동화.', tags: [['infra','자동화'],['infra','5노드']] },
       { date: '2026-06-13', title: '증거 기반 픽업 게이트 LIVE + Fable 5 배포', desc: '5노드 회의로 Evidence-Gated Pickup 확정, 산출물 키로 중복 작업 충돌 감지, SoT 뮤텍스 안전 마킹(sot-mark.sh) 병합. Fable 5 전체 배포 및 한줄일기 ASA 캠페인 런치.', tags: [['ai','Claude AI'],['infra','자동화'],['flutter','Flutter']] },
-      { date: '2026-06-14', title: '강제 아키텍처로 규칙 박기', desc: '메모리만으로 안 지켜지는 정책을 코드 훅으로 강제 — 컨텍스트 40% 단일 임계값 정정, 추천 증거 게이트, 마킹 블록 훅, 유료 이미지 API 차단 훅(무료 직구 강제). 메모요 google_sign_in v7 마이그레이션.', tags: [['flutter','Flutter'],['infra','자동화'],['web','SaaS']] }
+      { date: '2026-06-14', title: '강제 아키텍처로 규칙 박기', desc: '메모리만으로 안 지켜지는 정책을 코드 훅으로 강제 — 컨텍스트 40% 단일 임계값 정정, 추천 증거 게이트, 마킹 블록 훅, 유료 이미지 API 차단 훅(무료 직구 강제). 메모요 google_sign_in v7 마이그레이션.', tags: [['flutter','Flutter'],['infra','자동화'],['web','SaaS']] },
+      { date: '2026-07-17', title: '노트북3060 은퇴 · 4노드 체제 전환', desc: '외출용 sync head였던 노트북3060(Legion 5)을 포맷·매각하고 영구 오프라인 처리했다. 물리 함대가 5노드에서 🍎 본진 · 🪟 라이덴 · 🏭 맥미니 · 🖥 데스크탑 4노드 체제로 정리됐고, 노트북으로 가던 라우팅·위임·헬스체크·버전 스윕을 4노드 기준으로 재편했다.', tags: [['infra','4노드'],['infra','함대 정리']] }
     ];
 
     function parseDate(s) {

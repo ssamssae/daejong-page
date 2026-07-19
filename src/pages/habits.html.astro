@@ -253,10 +253,10 @@ import '../styles/lab.css';
       <div class="lab-card habit-card">
         <div class="lab-card-head hb-head">
           <div class="hb-num">16</div>
-          <div class="lab-card-title hb-title">5노드 prefix + main 직접 push 정책</div>
+          <div class="lab-card-title hb-title">4노드 prefix + main 직접 push 정책</div>
         </div>
         <div class="hb-body">
-          작업 브랜치는 노드별 prefix 고정 — 🍎 본진 <code>mac/*</code> · 🏭 맥미니 <code>macmini/*</code> · 🪟 라이덴 <code>wsl/*</code> · 🖥 데스크탑 <code>desktop/*</code> · 💻 노트북 <code>notebook/*</code>. <strong>main 직접 push 는 본진+맥미니 허용</strong> (듀얼 오케스트레이터 / SoT). 나머지 3노드는 PR 통한 머지 흐름 필수. 다른 노드가 본진 mac/* 위에 commit 박는 prefix 충돌 사고 방지.
+          작업 브랜치는 노드별 prefix 고정 — 🍎 본진 <code>mac/*</code> · 🏭 맥미니 <code>macmini/*</code> · 🪟 라이덴 <code>wsl/*</code> · 🖥 데스크탑 <code>desktop/*</code>. <strong>main 직접 push 는 본진+맥미니 허용</strong> (듀얼 오케스트레이터 / SoT). 나머지 2노드는 PR 통한 머지 흐름 필수. 다른 노드가 본진 mac/* 위에 commit 박는 prefix 충돌 사고 방지.
         </div>
         <div class="hb-source">2026-05-17 trio-vote [B] 표준화 결정 · 2026-05-28 듀얼 오케스트레이터(본진+맥미니) 갱신</div>
       </div>
@@ -278,7 +278,7 @@ import '../styles/lab.css';
           <div class="lab-card-title hb-title">노드 라벨 = 이모지 + 한글 짧은 별칭</div>
         </div>
         <div class="hb-body">
-          채팅 · 터미널 · 디렉티브 본문에서 5노드 지칭은 <strong>이모지 + 한글 짧은 별칭</strong> 통일 — 🍎 본진 / 🪟 라이덴 / 🏭 맥미니 / 🖥 데스크탑 / 💻 노트북. "Mac mini" · "Desktop3060Ti" · "Notebook3060" 영문 표기 X. hostname · 봇 username · 사양 (RTX 3060Ti · Legion 5) 은 운영/식별 정보 — 형님 향 메시지에 박지 X.
+          채팅 · 터미널 · 디렉티브 본문에서 4노드 지칭은 <strong>이모지 + 한글 짧은 별칭</strong> 통일 — 🍎 본진 / 🪟 라이덴 / 🏭 맥미니 / 🖥 데스크탑. "Mac mini" · "Desktop3060Ti" 영문 표기 X. hostname · 봇 username · 사양 (RTX 3060Ti) 은 운영/식별 정보 — 형님 향 메시지에 박지 X.
         </div>
         <div class="hb-source">AGENT.md §7.1 · 2026-05-17 도입</div>
       </div>
@@ -355,7 +355,7 @@ import '../styles/lab.css';
           <div class="lab-card-title hb-title">cross-device 보고는 3-channel</div>
         </div>
         <div class="hb-body">
-          작업 결과 보고는 세 채널 모두 — <strong>1차</strong> mac-report.sh 본진 tmux paste · <strong>1.5차</strong> 본진 처리 후 reverse reply (wsl-/desktop3060ti-/notebook3060-/mac-mini-directive.sh) · <strong>2차</strong> 형님 텔레그램 reply 1통. 어느 하나 빠지면 채널 누락. mac-report 가 닿지 않을 때 (SSH 다운 · 본진 tmux 부재) 만 1차+1.5차 스킵하고 2차만 송신.
+          작업 결과 보고는 세 채널 모두 — <strong>1차</strong> mac-report.sh 본진 tmux paste · <strong>1.5차</strong> 본진 처리 후 reverse reply (wsl-/desktop3060ti-/mac-mini-directive.sh) · <strong>2차</strong> 형님 텔레그램 reply 1통. 어느 하나 빠지면 채널 누락. mac-report 가 닿지 않을 때 (SSH 다운 · 본진 tmux 부재) 만 1차+1.5차 스킵하고 2차만 송신.
         </div>
         <div class="hb-source">2026-04-29 도입 · 2026-05-13 issue 후 강화</div>
       </div>
@@ -377,7 +377,7 @@ import '../styles/lab.css';
           <div class="lab-card-title hb-title">자기 정체성은 봇 username PRIMARY</div>
         </div>
         <div class="hb-body">
-          텔레그램 reply 첫 줄 이모지는 <strong>~/.claude/channels/telegram/.env 의 TELEGRAM_BOT_USERNAME</strong> 으로 PRIMARY 결정 — @MyClaude_ssamssae_bot → 🍎 · @Myclaude2_ssamssae_bot → 🪟 · @ssamssae_claw_bot → 🏭 · @jarvice_ssamssae_bot → 🖥 · @ssamssae_codex_bot → 💻. hostname 은 fallback (DESKTOP-* 이라고 무조건 🪟 X — 데스크탑/노트북도 WSL2 위라 prefix 같음).
+          텔레그램 reply 첫 줄 이모지는 <strong>~/.claude/channels/telegram/.env 의 TELEGRAM_BOT_USERNAME</strong> 으로 PRIMARY 결정 — @MyClaude_ssamssae_bot → 🍎 · @Myclaude2_ssamssae_bot → 🪟 · @ssamssae_claw_bot → 🏭 · @jarvice_ssamssae_bot → 🖥. hostname 은 fallback (DESKTOP-* 이라고 무조건 🪟 X — 데스크탑도 WSL2 위라 prefix 같음).
         </div>
         <div class="hb-source">CLAUDE.md 텔레그램 답변 철칙 · 봇 username 식별</div>
       </div>
@@ -388,7 +388,7 @@ import '../styles/lab.css';
           <div class="lab-card-title hb-title">텔레그램 입력엔 reply 툴 강제</div>
         </div>
         <div class="hb-body">
-          텔레그램에서 온 메시지 답변은 <strong>반드시 reply 툴</strong> 로 전송. 터미널 평문은 강대종 폰에 안 보임. 답변 톤이 "짧은 2-3 문장" 일 때도 예외 X. 짧든 길든 reply 툴 경유. 답변 첫 줄은 기기 prefix 이모지 1자 (🍎 / 🪟 / 🏭 / 🖥 / 💻).
+          텔레그램에서 온 메시지 답변은 <strong>반드시 reply 툴</strong> 로 전송. 터미널 평문은 강대종 폰에 안 보임. 답변 톤이 "짧은 2-3 문장" 일 때도 예외 X. 짧든 길든 reply 툴 경유. 답변 첫 줄은 기기 prefix 이모지 1자 (🍎 / 🪟 / 🏭 / 🖥).
         </div>
         <div class="hb-source">CLAUDE.md 텔레그램 답변 철칙 · Stop hook 강제</div>
       </div>
