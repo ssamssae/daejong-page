@@ -1,7 +1,7 @@
 {
   "name": "daejong-page",
   "type": "module",
-  "scripts": { "dev": "astro dev", "build": "astro build", "preview": "astro preview", "verify:stack-page": "node scripts/verify-stack-page.mjs", "verify:knowhow-refresh": "node scripts/verify-knowhow-refresh.mjs", "verify:public-secrets": "node scripts/verify-public-secrets.mjs" },
+  "scripts": { "dev": "astro dev", "build": "astro build", "preview": "astro preview", "verify:stack-page": "node scripts/verify-stack-page.mjs", "verify:knowhow-refresh": "node scripts/verify-knowhow-refresh.mjs", "verify:public-secrets": "node scripts/verify-public-secrets.mjs", "verify:canonical-company": "node scripts/verify-canonical-company.mjs", "sync:canonical": "node scripts/sync-canonical-vendored.mjs" },
   "dependencies": { "astro": "^6.3.3" },
   "devDependencies": { "@playwright/test": "^1.61.1" }
 }

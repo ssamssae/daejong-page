@@ -1,0 +1,14 @@
+{
+  "_comment": "크로스레포 정본 회사정보의 vendored 스냅샷. 정본 = kangdaejong.com/mb-components.js 의 <mb-footer>. CI 드리프트 가드(scripts/verify-canonical-company.mjs)가 src/data/site.ts 의 company 를 이 스냅샷과 대조한다(불일치 = fail-closed, kangdaejong-com #30 / founder #11 대칭). 본진 결정 (b) vendored: CI 는 라이브 fetch 하지 않는다(네트워크/보안 표면 0). 정본이 바뀌면 `npm run sync:canonical` 로 이 파일 갱신 후 site.ts 도 맞춰야 GREEN.",
+  "_source": "kangdaejong-com/public/mb-components.js",
+  "_task": "T-260720-030",
+  "company": {
+    "name": "마이너스베타스튜디오",
+    "representative": "강대종",
+    "bizNumber": "878-21-02478",
+    "mailOrderNumber": "제 2026-서울마포-1177 호",
+    "address": "서울특별시 마포구 만리재로10길 4 (공덕동)",
+    "category": "정보통신업 / 응용 소프트웨어 개발 및 공급업",
+    "email": "minusbetastudio@gmail.com"
+  }
+}

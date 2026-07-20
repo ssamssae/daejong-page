@@ -27,8 +27,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # ⚠️ 제거 금지 (DO NOT REMOVE) — canonical company drift guard (T-260720-030, 2026-07-20).
+  # daejong-page 회사정보 정본(src/data/site.ts 의 company)이 크로스레포 canonical
+  # (kangdaejong.com/mb-components.js)의 vendored 스냅샷(src/data/_vendored/...)과 어긋나면 fail.
+  # auto-merge 가 needs: 로 의존 → 드리프트 PR 은 auto-merge 되지 않는다(fail-closed,
+  # kangdaejong-com #30 / founder #11 헤더·푸터 가드와 대칭). 본진 결정 (b): CI 라이브 fetch
+  # 금지, vendored copy 대조만. pull_request_target 에서 PR 코드 실행 → secrets 참조 금지 +
+  # permissions contents:read 고정. 이 격리를 약화하지 말 것.
+  verify-shared-sources:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.draft == false &&
+      (startsWith(github.event.pull_request.head.ref, 'wsl/') ||
+       startsWith(github.event.pull_request.head.ref, 'macmini/') ||
+       startsWith(github.event.pull_request.head.ref, 'desktop3060ti/') ||
+       startsWith(github.event.pull_request.head.ref, 'notebook3060/') ||
+       startsWith(github.event.pull_request.head.ref, 'mac/'))
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout PR merge result
+        uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+      - name: Verify canonical company drift guard
+        run: node scripts/verify-canonical-company.mjs
+
   auto-merge:
     runs-on: ubuntu-latest
+    needs: verify-shared-sources
     if: >-
       github.event.pull_request.draft == false &&
       (startsWith(github.event.pull_request.head.ref, 'wsl/') ||
