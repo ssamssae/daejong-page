@@ -1,31 +1,18 @@
 ---
-const primary = [
-  { href: '/', label: '작업장' },
-  { href: '/products/', label: '제품' },
-  { href: '/worklog', label: '작업일지' },
-  { href: '/newsletter', label: '뉴스레터' },
-  { href: '/insights', label: '인사이트' },
-  { href: '/system', label: '시스템' },
-];
-const secondary = [
-  { href: 'https://kangdaejong.com', label: '회사소개' },
-  { href: 'https://founder.kangdaejong.com', label: '대표소개' },
-  { href: '/cost/', label: '비용공개' },
-  { href: '/lab', label: 'lab' },
-];
+import { company, navPrimary as primary, navSecondary as secondary } from '../data/site';
 const path = Astro.url.pathname;
 const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href.replace(/\/$/, ''));
 ---
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="/" aria-label="마이너스베타스튜디오 홈">
+    <a class="brand" href="/" aria-label={`${company.name} 홈`}>
       <img src="/minusbeta-badge.svg" alt="" width="30" height="30" />
-      <span>마이너스베타스튜디오</span>
+      <span>{company.name}</span>
     </a>
     <div class="nav-links">
       {primary.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
     </div>
-    <a class="nav-cta" href="mailto:minusbetastudio@gmail.com">문의</a>
+    <a class="nav-cta" href={`mailto:${company.email}`}>문의</a>
   </div>
   <div class="nav-sub">
     {secondary.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
