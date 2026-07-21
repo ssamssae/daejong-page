@@ -19,21 +19,21 @@ export const company = {
   email: "minusbetastudio@gmail.com",
 };
 
-// 헤더 메뉴 — daejong-page 로컬 구조(상대경로 섹션). 크로스레포 정본과 라벨은 같으나
-// href 는 이 사이트 기준(상대경로)이라 드리프트 가드 대상 아님 — 정본은 절대경로/트레일링
-// 슬래시가 달라 대조 시 오탐. 네비 "구성" 재편(파운더 기본+작업장 3개)은 T-260720-029 별건.
-// 여기서는 현행 값을 그대로 이관한다(렌더 diff 0).
+// 헤더 메뉴 — A안(콘텐츠 축, 2026-07-20 아니키 픽 · T-260720-029). 상단은 '작업장 3개'
+// (제품/작업일지/뉴스레터)만 노출하고, 나머지는 '더보기' 드롭다운으로 강등해 헤더를 슬림하게
+// 유지한다. 크로스레포 공유헤더(kangdaejong.com/mb-components.js)와 동형 구성. href 는 이
+// 사이트 기준(상대경로)이라 회사정보 드리프트 가드 대상 아님.
 export const navPrimary = [
-  { href: '/', label: '작업장' },
   { href: '/products/', label: '제품' },
   { href: '/worklog', label: '작업일지' },
   { href: '/newsletter', label: '뉴스레터' },
+];
+export const navMore = [
+  { href: '/', label: '작업장' },
   { href: '/insights', label: '인사이트' },
   { href: '/system', label: '시스템' },
-];
-export const navSecondary = [
-  { href: 'https://kangdaejong.com', label: '회사소개' },
-  { href: 'https://founder.kangdaejong.com', label: '대표소개' },
   { href: '/cost/', label: '비용공개' },
   { href: '/lab', label: 'lab' },
+  { href: 'https://kangdaejong.com', label: '회사소개' },
+  { href: 'https://founder.kangdaejong.com', label: '대표소개' },
 ];

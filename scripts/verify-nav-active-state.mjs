@@ -11,22 +11,22 @@ const cssBlock = (selector, from = 0) => {
 
 const nav = cssBlock("nav");
 const desktopLinks = cssBlock(".nav-links");
-const desktopSub = cssBlock(".nav-sub");
+const dropdownLink = cssBlock(".nav-more-panel a");
 const mobileStart = source.indexOf("@media (max-width: 760px)");
 const mobileLinks = cssBlock(".nav-links", mobileStart);
 
 const checks = [
   {
-    label: "secondary nav links receive aria-current from isActive",
-    ok: /secondary\.map\(\s*\(?l\)?\s*=>\s*<a href=\{l\.href\} aria-current=\{isActive\(l\.href\) \? 'page' : undefined\}>/.test(source),
+    label: "dropdown nav links receive aria-current from isActive",
+    ok: /more\.map\(\s*\(?l\)?\s*=>\s*<a href=\{l\.href\} aria-current=\{isActive\(l\.href\) \? 'page' : undefined\}>/.test(source),
   },
   {
-    label: "secondary nav active link gets the bold weight",
-    ok: /\.nav-sub a\[aria-current="page"\]\s*\{[^}]*font-weight:\s*700;[^}]*\}/.test(source),
+    label: "dropdown nav active link gets the bold weight",
+    ok: /\.nav-more-panel a\[aria-current="page"\]\s*\{[^}]*font-weight:\s*700;[^}]*\}/.test(source),
   },
   {
-    label: "secondary nav links are not all bold by default",
-    ok: !/\.nav-sub a\s*\{\s*font-weight:\s*700;\s*\}/.test(source),
+    label: "dropdown nav links are not all bold by default",
+    ok: !/\.nav-more-panel a\s*\{\s*font-weight:\s*700;\s*\}/.test(source),
   },
   {
     label: "nav badge keeps shared mb-header 30px sizing",
@@ -35,10 +35,10 @@ const checks = [
       /\.brand img \{ height: 30px; width: 30px; display: block; \}/.test(source),
   },
   {
-    label: "primary and secondary nav typography matches shared mb-header",
+    label: "primary and dropdown nav typography matches shared mb-header",
     ok:
       /font-size: 13px;/.test(desktopLinks) &&
-      /font-size: 13px;/.test(desktopSub),
+      /font-size: 13px;/.test(dropdownLink),
   },
   {
     label: "nav blocks host typography inheritance like shared mb-header",

@@ -1,21 +1,27 @@
 ---
-import { company, navPrimary as primary, navSecondary as secondary } from '../data/site';
+import { company, navPrimary as primary, navMore as more } from '../data/site';
 const path = Astro.url.pathname;
 const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href.replace(/\/$/, ''));
+const moreActive = more.some(l => isActive(l.href));
 ---
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="/" aria-label={`${company.name} 홈`}>
+    <a class="brand" href="https://kangdaejong.com/" aria-label={`${company.name} 홈`}>
       <img src="/minusbeta-badge.svg" alt="" width="30" height="30" />
       <span>{company.name}</span>
     </a>
     <div class="nav-links">
       {primary.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
     </div>
-    <a class="nav-cta" href={`mailto:${company.email}`}>문의</a>
-  </div>
-  <div class="nav-sub">
-    {secondary.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
+    <div class="nav-actions">
+      <div class="nav-more" data-nav-more>
+        <button class:list={["nav-more-btn", moreActive && "is-active"]} type="button" aria-haspopup="true" aria-expanded="false">더보기<span class="chev">▾</span></button>
+        <div class="nav-more-panel" role="menu">
+          {more.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
+        </div>
+      </div>
+      <a class="nav-cta" href={`mailto:${company.email}`}>문의</a>
+    </div>
   </div>
   <style>
     nav {
@@ -58,27 +64,77 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       justify-content: center;
       gap: 22px;
       min-width: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
       font-size: 13px;
       white-space: nowrap;
     }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a,
-    .nav-sub a {
+    .nav-links a {
       color: var(--fg-dim);
       text-decoration: none;
       transition: color .15s;
     }
     .nav-links a:hover,
-    .nav-sub a:hover,
-    .nav-links a[aria-current="page"],
-    .nav-sub a[aria-current="page"] {
+    .nav-links a[aria-current="page"] {
       color: var(--fg);
     }
-    .nav-links a[aria-current="page"],
-    .nav-sub a[aria-current="page"] {
+    .nav-links a[aria-current="page"] {
       font-weight: 700;
+    }
+    .nav-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+    .nav-more { position: relative; display: inline-flex; }
+    .nav-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 34px;
+      padding: 0 6px;
+      border: 0;
+      background: none;
+      cursor: pointer;
+      color: var(--fg-dim);
+      font-family: inherit;
+      font-size: 13px;
+      transition: color .15s;
+    }
+    .nav-more-btn:hover,
+    .nav-more-btn.is-active,
+    .nav-more.open .nav-more-btn { color: var(--fg); }
+    .nav-more-btn.is-active { font-weight: 700; }
+    .nav-more-btn .chev { font-size: 10px; transition: transform .15s; }
+    .nav-more.open .nav-more-btn .chev { transform: rotate(180deg); }
+    .nav-more-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      z-index: 20;
+      display: none;
+      flex-direction: column;
+      min-width: 168px;
+      padding: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+    }
+    .nav-more.open .nav-more-panel { display: flex; }
+    .nav-more-panel a {
+      padding: 9px 10px;
+      border-radius: 7px;
+      color: var(--fg-dim);
+      text-decoration: none;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: background .12s, color .12s;
+    }
+    .nav-more-panel a:hover { background: color-mix(in srgb, var(--fg) 7%, transparent); color: var(--fg); }
+    .nav-more-panel a[aria-current="page"] {
+      color: var(--fg);
+      font-weight: 700;
+      background: color-mix(in srgb, var(--fg) 7%, transparent);
     }
     .nav-cta {
       display: inline-flex;
@@ -95,15 +151,6 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       white-space: nowrap;
     }
     .nav-cta:hover { color: #ffffff; text-decoration: none; background: var(--accent-dim); }
-    .nav-sub {
-      width: min(calc(100% - 48px), 1120px);
-      margin: 0 auto;
-      padding: 0 0 12px;
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: 13px;
-    }
     @media (max-width: 760px) {
       .nav-inner {
         width: min(calc(100% - 32px), 1120px);
@@ -118,15 +165,33 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         grid-row: 2;
         justify-content: flex-start;
         gap: 16px;
+        overflow-x: auto;
+        scrollbar-width: none;
       }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-actions { grid-column: 2; grid-row: 1; }
       .nav-cta {
         min-height: 34px;
         padding: 0 12px;
       }
-      .nav-sub {
-        width: min(calc(100% - 32px), 1120px);
-        padding-bottom: 10px;
-      }
     }
   </style>
+  <script>
+    document.querySelectorAll('[data-nav-more]').forEach((root) => {
+      const btn = root.querySelector('.nav-more-btn');
+      const panel = root.querySelector('.nav-more-panel');
+      if (!btn || !panel) return;
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = root.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      panel.addEventListener('click', (e) => e.stopPropagation());
+      document.addEventListener('click', () => {
+        if (!root.classList.contains('open')) return;
+        root.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </nav>
