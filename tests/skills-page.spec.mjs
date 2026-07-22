@@ -10,7 +10,8 @@ test('AI skills page renders and filters the full public catalog', async ({ page
   const html = fs.readFileSync(htmlPath, 'utf8');
   const renderedSkills = html.match(/<article[^>]*data-skill-entry/g) ?? [];
 
-  expect(renderedSkills).toHaveLength(40);
+  // 카탈로그 등재 수 = 50 (PR#337 로 40→50 등재, T-260722-019 에서 상수 동반 갱신)
+  expect(renderedSkills).toHaveLength(50);
   expect(html).toContain('REUSABLE AI WORKFLOWS');
   expect(html).toContain('WORKFLOW MAP');
   expect(html).toContain('data-search-input');
@@ -25,7 +26,7 @@ test('AI skills page renders and filters the full public catalog', async ({ page
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(pathToFileURL(htmlPath).href);
-  await expect(page.locator('[data-skill-entry]')).toHaveCount(40);
+  await expect(page.locator('[data-skill-entry]')).toHaveCount(50);
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
   ).toBe(true);
@@ -35,7 +36,7 @@ test('AI skills page renders and filters the full public catalog', async ({ page
   await expect(page.locator('[data-lane-section]')).toBeHidden();
 
   await page.locator('.reset-button').click();
-  await expect(page.locator('[data-filter-status]')).toHaveText('전체 40개');
+  await expect(page.locator('[data-filter-status]')).toHaveText('전체 50개');
   await expect(page.locator('[data-lane-section]')).toBeVisible();
 
   await page.locator('[data-surface-select]').selectOption('codex');
@@ -51,5 +52,5 @@ test('AI skills page renders and filters the full public catalog', async ({ page
   await expect(page.locator('#skill-changelog')).toHaveAttribute('open', '');
   expect(pageErrors).toEqual([]);
 
-  console.log('skills_static_catalog_check:ok entries=40 codex=11 think=3');
+  console.log('skills_static_catalog_check:ok entries=50 codex=11 think=3');
 });
