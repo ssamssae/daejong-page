@@ -65,7 +65,6 @@ const skills: Skill[] = [
     lane: 'build',
     surfaces: ['mac', 'wsl', 'codex'],
     description: '앱 아이콘 후보 생성부터 텔레그램 선택, 확정본 적용까지 이어지는 아이콘 제작 루틴.',
-    isNew: true,
   },
   {
     name: 'app-revenue',
@@ -73,7 +72,6 @@ const skills: Skill[] = [
     lane: 'build',
     surfaces: ['mac', 'wsl'],
     description: 'Play Console 설치수·매출과 AdMob 광고수익을 사용자 2FA 확인 뒤 요약합니다.',
-    isNew: true,
   },
   {
     name: 'brainstorm',
@@ -102,7 +100,6 @@ const skills: Skill[] = [
     lane: 'build',
     surfaces: ['mac', 'wsl', 'codex'],
     description: 'mac mini USB 실기기에 iOS·Android 앱을 clean 빌드하고 실행하는 통합 루틴입니다.',
-    isNew: true,
   },
   {
     name: 'design-skill',
@@ -110,7 +107,6 @@ const skills: Skill[] = [
     lane: 'build',
     surfaces: ['mac', 'wsl', 'codex'],
     description: '공개 웹 페이지를 바꾸기 전 기존 디자인 톤, 카피, 시각 검증 게이트를 맞춥니다.',
-    isNew: true,
   },
   {
     name: 'goodnight',
@@ -167,7 +163,6 @@ const skills: Skill[] = [
     lane: 'operate',
     surfaces: ['mac', 'wsl', 'codex'],
     description: '선풍기·에어컨·조명·정수기를 로컬 우선 경로와 안전 확인 규칙으로 제어합니다.',
-    isNew: true,
   },
   {
     name: 'parallel-cycle',
@@ -337,9 +332,104 @@ const skills: Skill[] = [
     surfaces: ['mac'],
     description: '최근 Claude Code 사용 패턴을 분석해 반복 작업, 토큰 낭비, 비효율을 찾습니다.',
   },
+  {
+    name: 'claude-fleet-update',
+    tag: '버전 통일',
+    lane: 'operate',
+    surfaces: ['mac', 'wsl'],
+    description: 'fleet 전체 노드의 Claude Code 버전을 지정 버전이나 최신으로 맞추는 수동 정렬 루틴.',
+    isNew: true,
+  },
+  {
+    name: 'flutter-ad-stack',
+    tag: 'Flutter',
+    lane: 'build',
+    surfaces: ['mac', 'wsl'],
+    description: 'AdMob 배너·전면, 광고제거 IAP, 구매 복원, 버전 표시를 한 묶음으로 이식하고 스토어 신고 내용과의 모순까지 점검합니다.',
+    isNew: true,
+  },
+  {
+    name: 'flutter-add-widget-preview',
+    tag: 'Flutter',
+    lane: 'build',
+    surfaces: ['mac', 'wsl'],
+    description: 'previews.dart 로 위젯을 격리해 보는 미리보기를 붙이고, 네이티브 의존성을 미리 걸러냅니다.',
+    isNew: true,
+  },
+  {
+    name: 'flutter-add-widget-test',
+    tag: 'Flutter',
+    lane: 'build',
+    surfaces: ['mac', 'wsl'],
+    description: 'WidgetTester 로 렌더 결과와 탭·스크롤·입력 같은 상호작용을 검증하는 컴포넌트 테스트를 만듭니다.',
+    isNew: true,
+  },
+  {
+    name: 'flutter-build-responsive-layout',
+    tag: 'Flutter',
+    lane: 'build',
+    surfaces: ['mac', 'wsl'],
+    description: 'LayoutBuilder·MediaQuery·Expanded 로 폰과 태블릿·데스크탑에서 함께 견디는 레이아웃을 짭니다.',
+    isNew: true,
+  },
+  {
+    name: 'flutter-fix-layout-issues',
+    tag: 'Flutter',
+    lane: 'build',
+    surfaces: ['mac', 'wsl'],
+    description: 'RenderFlex 오버플로우, 무제한 제약 같은 Flutter 레이아웃 에러를 진단하고 고칩니다.',
+    isNew: true,
+  },
+  {
+    name: 'playwright-login-session',
+    tag: '로그인 세션',
+    lane: 'publish',
+    surfaces: ['mac'],
+    description: '발행 계정과 App Store Connect 로그인 세션을 자동화 브라우저에 재사용 가능하게 붙여둡니다.',
+    isNew: true,
+  },
+  {
+    name: 'verify-automations-change',
+    tag: '검증',
+    lane: 'operate',
+    surfaces: ['mac', 'wsl'],
+    description: 'claude-automations 의 셸·브릿지·훅·워처 변경을 PR 전에 정해진 순서로 검증합니다.',
+    isNew: true,
+  },
+  {
+    name: 'verify-public-page',
+    tag: '검증',
+    lane: 'operate',
+    surfaces: ['mac', 'wsl'],
+    description: '공개 페이지 변경을 빌드·깨진 링크·디자인 게이트까지 확인한 뒤에야 완료로 인정합니다.',
+    isNew: true,
+  },
+  {
+    name: 'verify-skills-change',
+    tag: '검증',
+    lane: 'operate',
+    surfaces: ['mac', 'wsl'],
+    description: 'claude-skills 의 SKILL.md·어댑터·스크립트 변경을 PR 전에 정해진 순서로 검증합니다.',
+    isNew: true,
+  },
 ];
 
 const changelog = [
+  {
+    date: '2026-07-22',
+    items: [
+      ['new', 'claude-fleet-update', 'fleet 노드의 Claude Code 버전을 지정 버전·최신으로 맞추는 정렬 루틴 추가.'],
+      ['new', 'flutter-ad-stack', '광고·광고제거 IAP·버전 표시를 한 묶음으로 이식하는 루틴 추가.'],
+      ['new', 'flutter-add-widget-preview', '위젯 미리보기 시스템과 네이티브 의존성 사전 점검 루틴 추가.'],
+      ['new', 'flutter-add-widget-test', 'WidgetTester 기반 컴포넌트 테스트 작성 루틴 추가.'],
+      ['new', 'flutter-build-responsive-layout', '폰·태블릿을 함께 견디는 반응형 레이아웃 루틴 추가.'],
+      ['new', 'flutter-fix-layout-issues', 'Flutter 레이아웃 에러 진단·수리 루틴 추가.'],
+      ['new', 'playwright-login-session', '발행 계정·App Store Connect 로그인 세션 확립 루틴 추가.'],
+      ['new', 'verify-automations-change', '자동화 repo 변경의 PR 전 검증 절차를 공개 목록에 추가.'],
+      ['new', 'verify-public-page', '공개 페이지 변경의 빌드·링크·디자인 게이트 검증 절차 추가.'],
+      ['new', 'verify-skills-change', '스킬 repo 변경의 PR 전 검증 절차 추가.'],
+    ],
+  },
   {
     date: '2026-07-07',
     items: [
@@ -439,7 +529,7 @@ const schema = {
 
 <Layout
   title="AI 스킬 — 마이너스베타스튜디오"
-  description="Claude와 Codex에서 반복 업무를 재사용하는 40개 AI 스킬. 구상, 제작, 배차, 운영, 발행 흐름과 실행 환경별로 탐색합니다."
+  description={`Claude와 Codex에서 반복 업무를 재사용하는 ${skills.length}개 AI 스킬. 구상, 제작, 배차, 운영, 발행 흐름과 실행 환경별로 탐색합니다.`}
 >
   <Fragment slot="head">
     <meta property="og:title" content="AI 스킬 — 마이너스베타스튜디오" />
@@ -497,9 +587,9 @@ const schema = {
     <aside class="update-note" aria-label="최근 변경">
       <span class="update-label">RECENT UPDATE</span>
       <p>
-        <time datetime="2026-07-07">2026.07.07</time>
+        <time datetime="2026-07-22">2026.07.22</time>
         <span>공개 스킬 목록 현행화</span>
-        <span>app-icon · app-revenue · design-skill · tuya 추가</span>
+        <span>Flutter 5종 · verify 3종 · claude-fleet-update · playwright-login-session 추가</span>
       </p>
     </aside>
 
@@ -674,7 +764,7 @@ const schema = {
           <span class="eyebrow">CHANGELOG</span>
           <strong>스킬 변동사항</strong>
         </span>
-        <span>2026.07.07 latest <b aria-hidden="true">＋</b></span>
+        <span>2026.07.22 latest <b aria-hidden="true">＋</b></span>
       </summary>
       <div class="changelog-body">
         {changelog.map((group) => (
@@ -700,7 +790,7 @@ const schema = {
     </details>
 
     <footer class="skills-footer">
-      <p>공개 목록 마지막 갱신 2026.07.07 · 활성 스킬 {skills.length}개</p>
+      <p>공개 목록 마지막 갱신 2026.07.22 · 활성 스킬 {skills.length}개</p>
       <a href="/system">system으로 돌아가기</a>
     </footer>
   </article>
