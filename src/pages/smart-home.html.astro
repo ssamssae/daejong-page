@@ -2,27 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 
 const metrics = [
-  { label: 'controllable devices', value: '18', detail: 'Tuya · IR · local scene' },
+  { label: 'controllable devices', value: '9', detail: 'Tuya · IR · local scene' },
   { label: 'natural commands', value: '36+', detail: 'Korean aliases and routines' },
   { label: 'primary rooms', value: '4', detail: 'living · room · bath · hall' },
   { label: 'safe fallback', value: 'manual', detail: 'voice and app remain available' },
 ];
 
 const zones = [
-  { id: 'living', name: '거실', devices: 9, routines: ['게임', '업라이트', '일괄소등'] },
-  { id: 'room', name: '내방', devices: 2, routines: ['수면', '온수매트'] },
-  { id: 'bath', name: '화장실', devices: 3, routines: ['물', '정수기'] },
+  { id: 'living', name: '거실', devices: 5, routines: ['게임', '업라이트', '일괄소등'] },
+  { id: 'room', name: '내방', devices: 1, routines: ['수면'] },
+  { id: 'bath', name: '화장실', devices: 2, routines: ['물', '정수기'] },
   { id: 'hall', name: '복도', devices: 1, routines: ['외출', '귀가'] },
 ];
 
 const devices = [
   { zone: 'living', name: '거실 조명', type: 'Tuya', command: '거실 조명 켜', state: 'direct' },
   { zone: 'living', name: '에어컨', type: 'IR', command: '에어컨 꺼', state: 'routine' },
-  { zone: 'living', name: '공기청정기', type: 'IR', command: '공기청정기 켜', state: 'routine' },
+  { zone: 'living', name: '선풍기', type: 'IR', command: '선풍기 꺼', state: 'routine' },
   { zone: 'living', name: '스피커 플러그', type: 'Tuya', command: '스피커 켜', state: 'direct' },
   { zone: 'living', name: '이케아 조명 (거실 별칭)', type: 'Tuya', command: '이케아 켜', state: 'alias' },
   { zone: 'room', name: '내방 조명', type: 'Tuya', command: '내방 조명 꺼', state: 'direct' },
-  { zone: 'room', name: '온수매트', type: 'IR', command: '온수매트 켜', state: 'routine' },
   { zone: 'bath', name: '화장실 조명', type: 'Tuya', command: '화장실 off', state: 'direct' },
   { zone: 'bath', name: '정수기 급수', type: 'Scene', command: '물 줘', state: 'guarded' },
   { zone: 'hall', name: '복도 조명', type: 'Tuya', command: '복도 off', state: 'direct' },
@@ -37,7 +36,7 @@ const routines = [
   {
     name: '수면 모드',
     command: '나 잘 거야',
-    steps: ['스피커 끄기', '공기청정기 끄기', '조명 일괄 off', '수면 응답'],
+    steps: ['조명 일괄 off', '스피커 끄기', '수면 응답'],
   },
   {
     name: '외출 모드',
