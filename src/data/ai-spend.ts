@@ -49,12 +49,36 @@ export const spendCategories: Array<{
 
 export const aiSpendSource = {
   periodStart: '2026-04-11',
-  periodEnd: '2026-07-07',
-  canonicalTotalKrw: 2838376,
+  periodEnd: '2026-07-23',
+  canonicalTotalKrw: 6328019,
   sourceLabel: '아니키 미검증 임시값(스크린샷 전사)',
 };
 
 export const spendItems: SpendItem[] = [
+  {
+    date: '2026-07-23',
+    name: '맥북 프로 14 M5 24GB/1TB(쿠팡)',
+    vendor: 'Apple',
+    account: '토스사업자통장',
+    category: 'hardware',
+    amountKrw: 3301000,
+  },
+  {
+    date: '2026-07-18',
+    name: 'OpenAI gpt Plus',
+    vendor: 'OpenAI',
+    account: '신한사업자통장',
+    category: 'ai',
+    amountKrw: 27194,
+  },
+  {
+    date: '2026-07-09',
+    name: 'CLAUDE맥스20x',
+    vendor: 'Anthropic',
+    account: '신한사업자통장',
+    category: 'ai',
+    amountKrw: 161449,
+  },
   {
     date: '2026-07-07',
     name: 'CLAUDE맥스5x',
