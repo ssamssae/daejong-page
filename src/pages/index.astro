@@ -20,7 +20,7 @@ const allNewsletter = (await getCollection('newsletter')).sort((a, b) => epNum(b
 const recentNewsletter = allNewsletter.slice(0, 4);
 
 const stats = [
-  { label: '제품', value: '10', detail: '앱 7 · 도구 2 · SaaS 1' },
+  { label: '제품', value: '12', detail: '앱 7 · 도구 2 · SaaS 1 · 전자책 2' },
   { label: '작업일지', value: allWorklog.length, detail: '매일의 빌드 로그' },
   { label: '뉴스레터', value: `Ep.${epNum(allNewsletter[0])}`, detail: `총 ${allNewsletter.length}편` },
 ];
@@ -55,17 +55,17 @@ const loop = [
 const bridgeProjects = [
   {
     name: 'Codex Telegram Bridge',
-    status: 'PUBLIC · v0.5.5',
+    status: 'PUBLIC · v0.9.2',
     desc: 'Codex CLI REPL을 텔레그램에서 제어하는 전용 브릿지. 텍스트·이미지·영상·음성·파일 입력과 진행 미러를 지원합니다.',
     repo: 'https://github.com/ssamssae/codex-telegram-bridge',
-    release: 'https://github.com/ssamssae/codex-telegram-bridge/releases/tag/v0.5.5',
+    release: 'https://github.com/ssamssae/codex-telegram-bridge/releases/tag/v0.9.2',
   },
   {
     name: 'Claude Telegram Bridge',
-    status: 'PUBLIC · v0.4.2',
+    status: 'PUBLIC · v0.10.1',
     desc: 'Claude Code live tmux 세션을 텔레그램으로 연결하는 전용 브릿지. 세션 주입, transcript 추출, 미디어 local_path 전달로 동작합니다.',
     repo: 'https://github.com/ssamssae/claude-telegram-bridge',
-    release: 'https://github.com/ssamssae/claude-telegram-bridge/releases/tag/v0.4.2',
+    release: 'https://github.com/ssamssae/claude-telegram-bridge/releases/tag/v0.10.1',
   },
 ];
 ---
