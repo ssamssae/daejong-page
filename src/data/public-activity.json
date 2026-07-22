@@ -2,15 +2,43 @@
   "schema_version": 1,
   "source": "public_content_frontmatter",
   "privacy": "aggregate_and_allowlisted_titles_only",
-  "as_of": "2026-07-17",
+  "as_of": "2026-07-22",
   "totals": {
-    "last_7_days": 13,
-    "last_30_days": 72,
-    "worklog": 139,
-    "newsletter": 69,
-    "insights": 75
+    "last_7_days": 6,
+    "last_30_days": 66,
+    "worklog": 140,
+    "newsletter": 72,
+    "insights": 78
   },
   "recent": [
+    {
+      "kind": "newsletter",
+      "label": "뉴스레터",
+      "date": "2026-07-19",
+      "title": "쪽지 한 장만 남기고 기억을 통째로 지웠다",
+      "href": "/newsletter/ep72/"
+    },
+    {
+      "kind": "newsletter",
+      "label": "뉴스레터",
+      "date": "2026-07-19",
+      "title": "엔진을 하나 껐지만 요금은 줄지 않았다",
+      "href": "/newsletter/ep71/"
+    },
+    {
+      "kind": "newsletter",
+      "label": "뉴스레터",
+      "date": "2026-07-19",
+      "title": "노드를 하나 줄이자 숨어 있던 기다림이 보였다",
+      "href": "/newsletter/ep70/"
+    },
+    {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-07-18",
+      "title": "2026.07.18 작업일지 v1.0.0",
+      "href": "/worklog/2026-07-18_v100/"
+    },
     {
       "kind": "worklog",
       "label": "작업일지",
@@ -24,34 +52,6 @@
       "date": "2026-07-16",
       "title": "2026.07.16 작업일지 v1.0.0",
       "href": "/worklog/2026-07-16_v100/"
-    },
-    {
-      "kind": "worklog",
-      "label": "작업일지",
-      "date": "2026-07-15",
-      "title": "2026.07.15 작업일지 v1.0.0",
-      "href": "/worklog/2026-07-15_v100/"
-    },
-    {
-      "kind": "worklog",
-      "label": "작업일지",
-      "date": "2026-07-14",
-      "title": "2026.07.14 작업일지 v1.0.0",
-      "href": "/worklog/2026-07-14_v100/"
-    },
-    {
-      "kind": "worklog",
-      "label": "작업일지",
-      "date": "2026-07-13",
-      "title": "2026.07.13 작업일지 v1.0.1",
-      "href": "/worklog/2026-07-13_v101/"
-    },
-    {
-      "kind": "worklog",
-      "label": "작업일지",
-      "date": "2026-07-13",
-      "title": "2026.07.13 작업일지 v1.0.0",
-      "href": "/worklog/2026-07-13_v100/"
     }
   ]
 }
