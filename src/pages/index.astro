@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import PostList from '../components/PostList.astro';
 import ActivityCard from '../components/ActivityCard.astro';
 import { getCollection } from 'astro:content';
+import { apps, saas, tools, ebooks, bridges } from '../data/products';
 
 const sortedWorklog = (await getCollection('worklog')).sort((a, b) =>
   b.data.date.localeCompare(a.data.date) || (b.data.version ?? '').localeCompare(a.data.version ?? '')
@@ -20,7 +21,7 @@ const allNewsletter = (await getCollection('newsletter')).sort((a, b) => epNum(b
 const recentNewsletter = allNewsletter.slice(0, 4);
 
 const stats = [
-  { label: '제품', value: '12', detail: '앱 7 · 도구 2 · SaaS 1 · 전자책 2' },
+  { label: '제품', value: apps.length + tools.length + saas.length + ebooks.length, detail: `앱 ${apps.length} · 도구 ${tools.length} · SaaS ${saas.length} · 전자책 ${ebooks.length}` },
   { label: '작업일지', value: allWorklog.length, detail: '매일의 빌드 로그' },
   { label: '뉴스레터', value: `Ep.${epNum(allNewsletter[0])}`, detail: `총 ${allNewsletter.length}편` },
 ];
@@ -52,20 +53,21 @@ const loop = [
   },
 ];
 
+// 버전·repo 는 src/data/products.ts 의 bridges 단일 소스에서 파생(하드코딩 상수 스테일 재발방지).
 const bridgeProjects = [
   {
     name: 'Codex Telegram Bridge',
-    status: 'PUBLIC · v0.9.2',
+    status: `PUBLIC · v${bridges.codex.version}`,
     desc: 'Codex CLI REPL을 텔레그램에서 제어하는 전용 브릿지. 텍스트·이미지·영상·음성·파일 입력과 진행 미러를 지원합니다.',
-    repo: 'https://github.com/ssamssae/codex-telegram-bridge',
-    release: 'https://github.com/ssamssae/codex-telegram-bridge/releases/tag/v0.9.2',
+    repo: bridges.codex.repo,
+    release: `${bridges.codex.repo}/releases/tag/v${bridges.codex.version}`,
   },
   {
     name: 'Claude Telegram Bridge',
-    status: 'PUBLIC · v0.10.1',
+    status: `PUBLIC · v${bridges.claude.version}`,
     desc: 'Claude Code live tmux 세션을 텔레그램으로 연결하는 전용 브릿지. 세션 주입, transcript 추출, 미디어 local_path 전달로 동작합니다.',
-    repo: 'https://github.com/ssamssae/claude-telegram-bridge',
-    release: 'https://github.com/ssamssae/claude-telegram-bridge/releases/tag/v0.10.1',
+    repo: bridges.claude.repo,
+    release: `${bridges.claude.repo}/releases/tag/v${bridges.claude.version}`,
   },
 ];
 ---
