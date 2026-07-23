@@ -41,4 +41,4 @@ date: 2026-05-24
 
 ## 비고
 
-자세한 빌링 변경 사실·출처는 [[reference_anthropic_billing_2026_06_15]] 메모리에 박혀 있고, OAuth 토큰 외부 도구 재사용 금지 정책은 [[reference_anthropic_oauth_token_policy]]. BrowserMCP 의 개념 정리는 [정보 탭](../info.html) "BrowserMCP — 본인 Chrome 에 붙어 회색지대 사이트 자동화" 카드 참고.
+자세한 빌링 변경 사실·출처는 [[reference_anthropic_billing_2026_06_15]] 메모리에 박혀 있고, OAuth 토큰 외부 도구 재사용 금지 정책은 [[reference_anthropic_oauth_token_policy]]. BrowserMCP 의 개념 정리는 정보 탭(2026-07 보관 이관)의 "BrowserMCP — 본인 Chrome 에 붙어 회색지대 사이트 자동화" 카드에 있었다.
