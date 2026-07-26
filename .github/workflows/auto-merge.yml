@@ -78,6 +78,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
           PR_HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
           PR_BODY: ${{ github.event.pull_request.body }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           set -euo pipefail
 
@@ -169,6 +170,22 @@ jobs:
             reasons+=("firing-path/control script (directive/fire/lease/worker-toggle/dispatch)")
           fi
 
+          # ⚠️ 제거 금지 (DO NOT REMOVE) — PR **제목** manual-gate marker honored (T-260727-005, 2026-07-27).
+          # 종전엔 job if(라벨)와 PR body 만 봤고 제목은 어느 경로도 안 봤다. claude-skills PR#342 가
+          # 제목에만 [no-auto-merge] 를 달고 2026-07-26 23:36 KST 자동머지돼 머지 펀넬을 통째로
+          # 건너뛰었다(도장 0·broadcast 0·ledger 0). 이 repo 는 아직 그 형태로 샌 적이 없지만
+          # **같은 구멍이 그대로 열려 있었다**(제목만 마커 → sensitive=false 실측).
+          # 동종 4회째이고 앞의 3회는 문장 룰로 막으려다 실패했다 — 다음은 코드다 (원칙 10).
+          # ⚠️ 아래 정규식은 body 검사(바로 다음 블록)와 **반드시 같은 문자열**이어야 한다.
+          #    갈라지면 그 틈이 5번째 사고다. 동일성 강제는 claude-automations·claude-skills 의
+          #    scripts/tests/test_auto_merge_title_marker.sh 가 담당한다(이 repo 는 shell 테스트 레인 없음).
+          title_marker=false
+          if printf '%s' "${PR_TITLE:-}" | grep -qiE 'no-auto-merge|머지게이트[[:space:]]*[:：=＝]?[[:space:]]*수동|manual[-[:space:]]merge'; then
+            title_marker=true
+            sensitive=true
+            reasons+=("no-auto-merge requested in PR title")
+          fi
+
           # ⚠️ 제거 금지 (DO NOT REMOVE) — PR body manual-gate marker honored (T-260629, 2026-06-29).
           # 게이트는 draft 상태/no-auto-merge 라벨만 봤고 PR body 의 'no-auto-merge' 텍스트는
           # 무시 → 라벨/draft 를 못 붙인 PR 이 의도와 달리 auto-merge 되던 사고(PR#228 persona
@@ -182,6 +199,8 @@ jobs:
             sensitive=true
             reasons+=("no-auto-merge requested in PR body")
           fi
+
+          echo "title_marker=$title_marker" >> "$GITHUB_OUTPUT"
 
           if [ "$sensitive" = true ]; then
             echo "sensitive=true" >> "$GITHUB_OUTPUT"
@@ -283,6 +302,26 @@ jobs:
           if [ "$existing" = "0" ]; then
             gh pr comment "$PR_NUMBER" --repo "$GH_REPO" \
               --body "🔒 auto-merge 보류(${hold_reason}) — 수동 검토 후 머지하세요. no-auto-merge 라벨을 붙이면 계속 제외됩니다. 게이트=T-260627-24."
+          fi
+
+      # ⚠️ 제거 금지 (DO NOT REMOVE) — 제목 마커를 라벨로 영속화 (T-260727-005).
+      # 제목 검사만으로는 이번 이벤트만 hold 된다. 라벨로 박아야 이후 synchronize·labeled 에서도
+      # job if(가장 바깥 게이트)가 계속 걸러낸다.
+      # ⚠️ best-effort — 부착 실패가 hold 판정을 절대 뒤집지 않는다. 다만 조용히 실패하지 않는다.
+      - name: Persist title marker as label
+        if: steps.sensitive.outputs.title_marker == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail   # -e 없음: 이 스텝은 실패해도 job 을 깨지 않는다
+          if gh pr edit "$PR_NUMBER" --repo "$GH_REPO" --add-label no-auto-merge; then
+            echo "✅ no-auto-merge 라벨 부착 — 이후 이벤트에서도 hold 유지"
+          else
+            rc=$?
+            echo "⚠️ no-auto-merge 라벨 부착 실패 (rc=$rc) — hold 자체는 유효하다(앞 스텝에서 확정)." >&2
+            echo "   이번 PR 은 보류되지만 다음 이벤트에서 다시 판정된다. 라벨을 손으로 붙여라." >&2
           fi
 
       - name: Merge non-sensitive PR
