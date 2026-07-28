@@ -356,7 +356,7 @@ import '../styles/lab.css';
         <dl class="hero-stats" aria-label="AI 용어집 요약">
           <div>
             <dt>누적 용어</dt>
-            <dd><!--AUTO-HERO-TERMS-START-->511<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
+            <dd><!--AUTO-HERO-TERMS-START-->520<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
           </div>
           <div>
             <dt>카테고리</dt>
@@ -761,6 +761,12 @@ import '../styles/lab.css';
       <h3>Sweep Marathon · Deep Sweep · Frontier Code</h3>
       <p>400시간급 대형 과제, 학습셋에 없는 저장소, 멀티 PR 과제로 유지보수성까지 재보려는 차세대 벤치마크들.</p>
       <span class="src">영상: 2026-07-26-harness-not-enough-software-factory-dex.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Fable</h3>
+      <p>이 대담 시점에 막 공개된 Anthropic 프런티어 모델. 시스템 프롬프트 감축의 전제가 된 모델 세대.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
     </div>
 
     <h2>하니스 · 패턴</h2>
@@ -1569,6 +1575,24 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-07-26-harness-not-enough-software-factory-dex.md</span>
     </div>
 
+    <div class="term">
+      <h3>Claude Tag</h3>
+      <p>팀 협업 도구(Slack) 안에 상주하는 Claude. 채널 단위 멀티플레이어이며 선제적으로 동작한다.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
+    </div>
+
+    <div class="term">
+      <h3>auto mode</h3>
+      <p>매 도구 호출을 Sonnet 분류기가 대화 맥락과 함께 심사해 허용·차단하는 실행 모드. 정적 허용목록이 아니라 발화 기반 동적 권한.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
+    </div>
+
+    <div class="term">
+      <h3>prompt injection</h3>
+      <p>외부 입력에 섞인 지시를 에이전트가 진짜 명령으로 오인해 실행하게 만드는 공격.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -1834,7 +1858,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>remote control</h3>
       <p>폰/웹에서 로컬 Claude Code 세션을 동기 제어하는 기능.</p>
-      <span class="src">영상: 2026-06-04-claude-code-12-best-features-nateherk.md</span>
+      <span class="src">영상: 2026-06-04-claude-code-12-best-features-nateherk.md, 2026-07-28-claude-code-year-fireside-anthropic.md</span>
     </div>
 
     <div class="term">
@@ -1973,6 +1997,12 @@ import '../styles/lab.css';
       <h3>Cursor</h3>
       <p>기업들이 AI 개발·바이브 코딩 교육에서 함께 도입하려는 코드 편집기형 AI 도구.</p>
       <span class="src">영상: 2026-07-07-enterprise-ai-agent-adoption-kodingnuna.md</span>
+    </div>
+
+    <div class="term">
+      <h3>credential injection</h3>
+      <p>에이전트가 자격증명을 **보유하지 않고 사용만** 하게 하는 방식. 요청 시점에 프록시가 실제 토큰으로 바꿔치기한다.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
     </div>
 
     <h2>지식 · 컨텍스트 자산</h2>
@@ -2825,6 +2855,24 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-07-26-harness-not-enough-software-factory-dex.md</span>
     </div>
 
+    <div class="term">
+      <h3>eval set</h3>
+      <p>모델·프롬프트 변경이 성능을 떨어뜨리지 않는지 재는 평가 묶음. 장애 재발 방지 장치로도 쓰인다.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
+    </div>
+
+    <div class="term">
+      <h3>behavioral eval</h3>
+      <p>정답률이 아니라 "사용자가 그 행동을 싫어하는가"를 재는 평가. 중간에 멈춰 물어보는 습관 같은 것.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
+    </div>
+
+    <div class="term">
+      <h3>dogfooding (ant-fooding)</h3>
+      <p>외부 출시 전 사내 전원이 먼저 쓰는 문화. 내부 활성 사용자 수·리텐션 기준선을 넘겨야 출시한다.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
+    </div>
+
     <h2>커리어 · 조직</h2>
 
     <div class="term">
@@ -3017,6 +3065,12 @@ import '../styles/lab.css';
       <h3>SI (System Integration)</h3>
       <p>발주처 요구에 맞춰 시스템을 하나씩 구축하던 옛 소프트웨어 사업 방식. 영상은 업무별 에이전트 구축을 'SI식 안티패턴'으로 비판한다.</p>
       <span class="src">영상: 2026-07-08-agent-maintenance-hell-kkachilai.md</span>
+    </div>
+
+    <div class="term">
+      <h3>code owner</h3>
+      <p>특정 코드 영역의 품질 책임자. 그 영역을 건드리는 PR 은 이 사람의 승인이 필요하다.</p>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
     </div>
 
     <h2>빌링 · 운영</h2>
