@@ -61,9 +61,9 @@ export const apps = [
 
 export const saas = [
   {
-    name: '첫이름 — AI 사주 작명', status: '웹 SaaS · ₩19,900 · 결제 연동 준비중',
+    name: '첫이름 — AI 사주 작명', status: '웹 SaaS · ₩19,900',
     desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스.',
-    links: [{ label: '결제 연동 준비중', disabled: true }],
+    links: [{ label: '첫이름 바로가기', url: 'https://cheotireum.kangdaejong.com/' }],
   },
 ];
 
