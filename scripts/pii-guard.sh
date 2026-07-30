@@ -35,7 +35,12 @@ RE='01[016789][- ]?[0-9]{3,4}[- ]?[0-9]{4}|\+82[- ]?1[0-9][- ]?[0-9]{3,4}[- ]?[0
 #   config/public-sensitive-ref-allowlist.json safe_value_sha256. 두 게이트는 같은
 #   "아니키 본인 공개 의도 주소" 집합을 봐야 하는데 실측상 서로 다른 2개씩만 담고 있었다
 #   (양쪽 공통 = ssamssae@naver.com 하나뿐). 한쪽만 고치면 다른 쪽에서 다시 막힌다.
-WHITELIST_PII='ssamssae@naver.com gayoremix@gmail.com minusbetastudio@gmail.com ssamssae@me.com'
+#
+# 2026-07-30 (T-260730-077, 아니키 GO 22:11) — 개발자 개인 구글계정 1건을 목록에서 ★뺐다.
+#   법정 고지 연락처가 아니라 로그인 계정 참조였고 공개면 잔존을 같은 티켓에서 0 으로 만들어
+#   명단에 둘 이유가 사라졌다. 다시 등장하면 ★막히는 것이 설계 의도다 (주소는 여기 안 적는다 —
+#   리터럴을 쓰면 대응 게이트의 developer-handle 룰이 이 파일을 RED 로 잡는다, 실측 1회).
+WHITELIST_PII='ssamssae@naver.com minusbetastudio@gmail.com ssamssae@me.com'
 
 # === 스캔 대상 파일 수집 ===
 files=()
