@@ -7,17 +7,17 @@
   <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <title>가계부 개인정보 처리방침</title>
-  <meta name="description" content="가계부(Mini Expense) 앱 개인정보 처리방침으로 지출 금액, 메모, 카테고리는 기기 내부 로컬 저장소에만 보관되며, 회원가입·로그인·서버 동기화·광고·분석 SDK·제3자 공유 없이 외부 전송이 없습니다.">
+  <meta name="description" content="가계부(Mini Expense) 앱 개인정보 처리방침으로 지출 금액, 메모, 카테고리는 기기 내부 로컬 저장소에만 보관되며 서버로 전송되지 않습니다. 앱에는 Google AdMob 광고 SDK 가 포함돼 있습니다.">
   <!-- OG / Twitter Card -->
   <meta property="og:title" content="가계부 개인정보 처리방침">
-  <meta property="og:description" content="가계부(Mini Expense) 앱 개인정보 처리방침 — 사용자 기기 내부 저장, 외부 전송 없음.">
+  <meta property="og:description" content="가계부(Mini Expense) 앱 개인정보 처리방침 — 지출 기록은 기기 내부 저장, 광고는 Google AdMob.">
   <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://work.kangdaejong.com/privacy-miniexpense.html">
   <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="가계부 개인정보 처리방침">
-  <meta name="twitter:description" content="가계부(Mini Expense) 앱 개인정보 처리방침 — 사용자 기기 내부 저장, 외부 전송 없음.">
+  <meta name="twitter:description" content="가계부(Mini Expense) 앱 개인정보 처리방침 — 지출 기록은 기기 내부 저장, 광고는 Google AdMob.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/privacy-miniexpense.html">
   <script type="application/ld+json">
@@ -71,13 +71,13 @@
 <body>
   <div class="wrap">
     <h1>가계부 개인정보 처리방침</h1>
-    <div class="sub">최종 업데이트: 2026년 6월 7일</div>
+    <div class="sub">최종 업데이트: 2026년 7월 30일</div>
 
     <h2>개요</h2>
-    <p>가계부(Mini Expense)는 지출을 빠르게 기록하는 심플한 가계부 앱입니다. 회원가입·로그인·서버 동기화·광고·분석 SDK 가 없으며, 어떤 개인 식별 정보(이름·이메일·전화번호 등) 도 수집하지 않습니다.</p>
+    <p>가계부(Mini Expense)는 지출을 빠르게 기록하는 심플한 가계부 앱입니다. 회원가입·로그인·서버 동기화가 없고, 이름·이메일·전화번호 같은 개인 식별 정보를 수집하지 않습니다. 다만 앱에는 <strong>Google AdMob 광고 SDK 가 포함돼 있습니다</strong>. 광고를 위해 처리되는 정보는 아래 &quot;광고&quot; 항목에 적었습니다.</p>
 
     <h2>수집·처리하는 정보</h2>
-    <p>가계부는 어떠한 개인정보도 수집하거나 외부로 전송하지 않습니다. 사용자가 앱에서 입력하는 정보는 다음과 같이 처리됩니다:</p>
+    <p>가계부 자체는 사용자가 앱에서 입력하는 정보를 서버로 보내지 않습니다. 각 항목은 다음과 같이 처리됩니다:</p>
     <ul>
       <li><strong>지출 금액</strong> — 사용자가 직접 입력한 금액.</li>
       <li><strong>메모</strong> — 지출에 대해 사용자가 작성한 설명 텍스트.</li>
@@ -85,26 +85,31 @@
     </ul>
     <p>위 항목은 모두 사용자 <strong>기기 내부 로컬 저장소</strong>(iOS / Android 의 SharedPreferences) 에만 저장되며, 외부 서버나 제3자에게 전송되지 않습니다.</p>
 
-    <h2>수집하지 않는 정보</h2>
+    <h2>가계부가 직접 수집하지 않는 정보</h2>
+    <p>아래 항목은 가계부 앱이 직접 요청하거나 수집하지 않습니다. 다만 광고 SDK 가 처리하는 정보는 별도이며 아래 &quot;광고&quot; 항목을 참고해 주세요.</p>
     <ul>
       <li>이름·이메일·전화번호·생년월일</li>
-      <li>위치·연락처·사진·마이크·카메라 접근 권한</li>
-      <li>광고 식별자(IDFA/AAID)·기기 식별자</li>
-      <li>네트워크 사용 기록·크래시 로그</li>
+      <li>연락처·사진·마이크·카메라 접근 권한</li>
+      <li>지출 기록의 서버 전송·계정 동기화</li>
       <li>계좌·카드 등 금융 계정 정보(앱은 금융기관에 연결되지 않습니다)</li>
     </ul>
 
+    <h2>광고</h2>
+    <p>가계부은 <strong>Google AdMob</strong> 광고 SDK(google_mobile_ads) 를 포함합니다. 광고가 게재될 때 AdMob 은 <strong>광고 식별자, 대략적인 위치, 기기 식별자, 앱 이용 상호작용</strong> 등을 수집·이용할 수 있으며, 이 처리는 Google 의 정책을 따릅니다. 자세한 내용은 <a href="https://policies.google.com/technologies/partner-sites">Google 파트너 사이트·앱에서의 데이터 이용</a> 을 확인해 주세요.</p>
+    <p>Google Play 스토어의 &quot;데이터 보안&quot; 항목에도 같은 내용이 선언돼 있습니다. 이 문서와 스토어 선언이 다르면 스토어 선언이 최신입니다.</p>
+    <p>사용자가 입력한 지출 금액·메모·카테고리 자체는 광고 SDK 로 전달되지 않습니다.</p>
+
     <h2>제3자 제공 및 공유</h2>
-    <p>가계부는 광고·분석 SDK·크래시 리포팅 도구 등 어떠한 외부 추적 서비스도 포함하지 않으며, 어느 제3자에게도 사용자의 데이터를 제공하거나 공유하지 않습니다.</p>
+    <p>가계부는 광고 게재를 위해 <strong>Google(AdMob)</strong> 을 이용합니다. 그 밖의 제3자에게 사용자의 데이터를 제공하거나 판매하지 않습니다.</p>
 
     <h2>네트워크 통신</h2>
-    <p>가계부 앱은 외부 서버와 통신하지 않습니다. 인터넷 연결 없이도 모든 기능이 정상 동작합니다.</p>
+    <p>지출 기록 기능 자체는 인터넷 없이도 동작합니다. 다만 <strong>광고를 불러오기 위해 광고 SDK 가 Google 서버와 통신</strong>합니다. 따라서 앱이 외부와 전혀 통신하지 않는 것은 아닙니다.</p>
 
     <h2>어린이 개인정보 보호</h2>
-    <p>가계부는 모든 연령대가 사용할 수 있는 앱이지만, 만 13세 미만 어린이의 개인정보를 수집하지 않습니다(애초에 어떠한 개인정보도 수집하지 않습니다).</p>
+    <p>가계부는 모든 연령대가 사용할 수 있는 앱이지만, 만 13세 미만 어린이를 대상으로 하지 않으며 어린이의 개인정보를 의도적으로 수집하지 않습니다.</p>
 
     <h2>사용자 권리 및 데이터 삭제</h2>
-    <p>가계부는 서버에 사용자 데이터를 보관하지 않으므로 별도의 계정 삭제 절차가 없습니다. 앱을 기기에서 삭제하면 모든 데이터(지출 금액, 메모, 카테고리) 가 함께 즉시 제거됩니다.</p>
+    <p>가계부는 서버에 사용자 데이터를 보관하지 않으므로 별도의 계정 삭제 절차가 없습니다. 앱을 기기에서 삭제하면 앱이 저장한 모든 데이터(지출 금액, 메모, 카테고리) 가 함께 즉시 제거됩니다. 광고 식별자 초기화는 기기 설정(iOS: 설정 → 개인정보 보호, Android: 설정 → Google → 광고) 에서 하실 수 있습니다.</p>
 
     <h2>정책 변경</h2>
     <p>이 개인정보 처리방침은 앱의 기능 변경에 따라 업데이트될 수 있습니다. 변경 사항이 있을 경우 이 페이지에 반영되며, 최종 업데이트 날짜가 갱신됩니다.</p>
