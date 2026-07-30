@@ -1,37 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Astro 새 라우트 (P4) -->
-  <url><loc>https://work.kangdaejong.com/</loc></url>
-  <url><loc>https://work.kangdaejong.com/about</loc></url>
-  <url><loc>https://work.kangdaejong.com/worklog</loc></url>
-  <url><loc>https://work.kangdaejong.com/newsletter</loc></url>
-  <url><loc>https://work.kangdaejong.com/insights</loc></url>
-  <url><loc>https://work.kangdaejong.com/products/</loc></url>
-  <url><loc>https://work.kangdaejong.com/system</loc></url>
-  <url><loc>https://work.kangdaejong.com/lab</loc></url>
-  <!-- KEEP-STANDALONE 15 -->
-  <url><loc>https://work.kangdaejong.com/ai-glossary.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/automations.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/dead-ends.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/habits.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/issues.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/knowhow.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/sise.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/skills.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/smart-home.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/stack.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/stock.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/timeline.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/vibecoding.html</loc></url>
-  <!-- 앱 개인정보처리방침 (스토어 listing URL) 9 -->
-  <url><loc>https://work.kangdaejong.com/privacy-dutchpay.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy-hanjul.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy-hankeup.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy-memoyo.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy-miniexpense.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy-pomodoro.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy-randompick.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy-wordyo.html</loc></url>
-  <url><loc>https://work.kangdaejong.com/privacy-yakmukja.html</loc></url>
-</urlset>
+<!--
+  T-260728-093 축2 — 레거시 URL 호환 stub.
+
+  왜 있나: 이 사이트는 GitHub Pages 로 배포된다(.github/workflows/deploy.yml). GitHub Pages 는
+  Cloudflare/Netlify 식 `_redirects` 를 지원하지 않으므로 /sitemap.xml → /sitemap-index.xml 301 을
+  만들 방법이 없다. 그런데 GSC 에 제출된 주소는 /sitemap.xml 이라, 자동생성으로 넘어가면서
+  이 경로를 없애면 콘솔에 sitemap 오류가 뜨고 색인 경로가 한동안 끊긴다.
+  → 이 파일은 그 주소를 살려두는 sitemapindex 다. 실제 URL 목록은 @astrojs/sitemap 이 만드는
+  sitemap-0.xml 이 갖고 있고, 여기는 그것을 가리키기만 한다. 페이지별 수기 관리는 없다.
+
+  ⚠️ 유지보수 한 곳: @astrojs/sitemap 은 URL 45,000건마다 sitemap-1.xml, -2.xml … 을 추가한다.
+     현재 337건이라 여유가 크지만, 그 문턱을 넘으면 이 파일에도 자식을 추가해야 한다.
+     정본 인덱스는 항상 /sitemap-index.xml 이다.
+
+  구 수기본(31 URL, 2026-07-23)은 삭제하지 않고 _retired/sitemap-manual-31url-2026-07-23.xml 로
+  보관했다(원칙7).
+-->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://work.kangdaejong.com/sitemap-0.xml</loc>
+  </sitemap>
+</sitemapindex>
