@@ -7,7 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <title>한줄일기 개인정보 처리방침</title>
-  <meta name="description" content="한줄일기 앱 개인정보 처리방침으로 일기와 AI 답글은 기기 로컬에 저장되고, 답글 생성 시 일기 텍스트만 HTTPS 프록시와 OpenAI API로 전달되며 이름·이메일·전화번호 등 개인 식별 정보와 광고 식별자는 수집하지 않습니다.">
+  <meta name="description" content="한줄일기 앱 개인정보 처리방침으로 일기와 AI 답글은 기기 로컬에 저장되고, 답글 생성 시 일기 텍스트가 HTTPS 프록시와 Cloudflare AI Gateway 를 거쳐 OpenAI API 로 전달됩니다. 이름·이메일 등 개인 식별 정보는 수집하지 않으며, 앱에는 Google AdMob 광고 SDK 가 포함돼 있습니다.">
   <!-- OG / Twitter Card (2026-05-25) -->
   <meta property="og:title" content="한줄일기 개인정보 처리방침">
   <meta property="og:description" content="한줄일기 앱 개인정보 처리방침 — 최소 데이터 처리, 개인 식별 정보 미수집.">
@@ -71,7 +71,7 @@
 <body>
   <div class="wrap">
     <h1>한줄일기 개인정보 처리방침</h1>
-    <div class="sub">최종 업데이트: 2026년 7월 11일</div>
+    <div class="sub">최종 업데이트: 2026년 7월 30일</div>
 
     <h2>개요</h2>
     <p>한줄일기(Hanjul)는 사용자가 하루 한 줄의 일기를 남기면 AI 가 따뜻한 답글을 보내주는 앱입니다. 서비스를 제공하기 위해 필요한 최소한의 데이터만을 처리하며, 개인 식별 정보(이름·이메일·전화번호·로그인 계정 등)는 일체 수집하지 않습니다.</p>
@@ -79,16 +79,16 @@
     <h2>수집·처리하는 정보</h2>
     <p>한줄일기는 다음 정보를 처리합니다:</p>
     <ul>
-      <li><strong>사용자가 직접 입력한 일기 텍스트</strong> — 한 항목당 최대 100자. AI 답글 생성을 위해 일시적으로 서버를 거쳐 OpenAI 에 전달됩니다(아래 "데이터 흐름" 참고).</li>
+      <li><strong>사용자가 직접 입력한 일기 텍스트</strong> — 한 항목당 최대 200자. AI 답글을 요청하면 그 텍스트가 서버를 거쳐 OpenAI 에 전달됩니다(아래 "데이터 흐름" 참고).</li>
       <li><strong>익명 기기 식별자</strong> — 앱이 최초 실행될 때 무작위 문자열을 생성해 기기 내부에만 저장합니다. 사용량 제한(rate limit) 에만 사용되며, 개인 식별 불가능합니다. 앱을 삭제하면 함께 사라집니다.</li>
     </ul>
-    <p>이름·이메일·전화번호·위치·광고 식별자·연락처·사진·마이크 접근 권한 등은 일체 수집하지 않으며, 앱은 회원가입·로그인 절차가 없습니다.</p>
+    <p>한줄일기 앱 자체는 이름·이메일·전화번호·연락처·사진·마이크 접근 권한을 수집하지 않으며, 회원가입·로그인 절차가 없습니다. 광고 SDK 가 처리하는 광고 식별자·대략적인 위치 등은 아래 "광고" 항목을 참고해 주세요.</p>
 
     <h2>데이터 흐름 (AI 답글)</h2>
     <p>사용자가 일기를 작성하고 "답글 받기" 버튼을 누르면 다음 순서로 처리됩니다:</p>
     <ul>
       <li>① 앱 → Cloudflare Workers 프록시(<code>hanjul-proxy.ssamssae.workers.dev</code>): 일기 텍스트와 익명 기기 식별자가 HTTPS 로 전송됩니다.</li>
-      <li>② 프록시 → OpenAI API(GPT-4o-mini): 일기 텍스트와 답글 생성용 시스템 프롬프트만 전달됩니다. 기기 식별자는 전달되지 않습니다.</li>
+      <li>② 프록시 → <strong>Cloudflare AI Gateway</strong> → OpenAI API(GPT-4o-mini): 일기 텍스트와 답글 생성용 시스템 프롬프트만 전달됩니다. 기기 식별자는 전달되지 않습니다. 요청은 Cloudflare 가 제공하는 AI Gateway 를 한 번 거쳐 OpenAI 로 전달됩니다.</li>
       <li>③ OpenAI 가 생성한 답글이 프록시를 거쳐 앱으로 돌아와 화면에 표시됩니다.</li>
     </ul>
     <p>프록시는 일기 내용을 저장하지 않습니다. 기기 식별자 기준 요청 카운트(rate limit) 만 일시적으로 보관합니다.</p>
@@ -97,13 +97,18 @@
     <h2>데이터 저장</h2>
     <p>사용자가 작성한 일기와 AI 답글은 사용자 <strong>기기 로컬 저장소</strong>(Android: SharedPreferences, iOS: UserDefaults)에만 영구 보관됩니다. 한줄일기 앱 자체는 사용자별 데이터를 서버에 저장하지 않으며, 어떤 계정에도 동기화되지 않습니다. 앱을 삭제하면 기기 내부의 모든 일기·답글 데이터가 함께 삭제됩니다.</p>
 
+    <h2>광고</h2>
+    <p>한줄일기는 <strong>Google AdMob</strong> 광고 SDK(google_mobile_ads) 를 포함합니다. 광고가 게재될 때 AdMob 은 <strong>광고 식별자, 대략적인 위치, 기기 식별자, 앱 이용 상호작용</strong> 등을 수집·이용할 수 있으며, 이 처리는 Google 의 정책을 따릅니다. 자세한 내용은 <a href="https://policies.google.com/technologies/partner-sites">Google 파트너 사이트·앱에서의 데이터 이용</a> 을 확인해 주세요.</p>
+    <p>Google Play 스토어의 &quot;데이터 보안&quot; 항목에도 같은 내용이 선언돼 있습니다. 이 문서와 스토어 선언이 다르면 스토어 선언이 최신입니다.</p>
+    <p>사용자가 작성한 일기 본문 자체는 광고 SDK 로 전달되지 않습니다.</p>
+
     <h2>제3자 제공 및 공유</h2>
-    <p>한줄일기는 광고·분석 SDK·크래시 리포팅 도구 등 어떠한 외부 추적 서비스도 포함하지 않습니다. 다만 AI 답글 생성을 위해 아래 서비스를 이용합니다:</p>
+    <p>한줄일기는 광고 게재를 위해 <strong>Google(AdMob)</strong> 을 이용하며, AI 답글 생성을 위해 아래 서비스를 이용합니다:</p>
     <ul>
-      <li><strong>Cloudflare, Inc.</strong> — 프록시 인프라 제공. 요청 전송 과정에서 표준 HTTP 로그(IP·요청 시각·응답 코드) 가 최대 30일간 보관될 수 있습니다.</li>
+      <li><strong>Cloudflare, Inc.</strong> — 프록시 인프라 및 AI Gateway 제공. 요청 전송 과정에서 표준 HTTP 로그(IP·요청 시각·응답 코드) 가 최대 30일간 보관될 수 있습니다.</li>
       <li><strong>OpenAI, L.L.C.</strong> — AI 답글 생성 모델(GPT-4o-mini) 제공. 위 "데이터 흐름" 항목 참고.</li>
     </ul>
-    <p>이 두 서비스 외에는 어느 제3자에게도 사용자의 데이터를 제공하거나 공유하지 않습니다.</p>
+    <p>위에 적은 서비스(Google·Cloudflare·OpenAI) 외에는 어느 제3자에게도 사용자의 데이터를 제공하거나 판매하지 않습니다.</p>
 
     <h2>사용량 제한 및 예산</h2>
     <p>서비스의 지속 가능한 운영과 남용 방지를 위해 다음 제한을 두고 있습니다:</p>
