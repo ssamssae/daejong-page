@@ -24,7 +24,8 @@ RE='01[016789][- ]?[0-9]{3,4}[- ]?[0-9]{4}|\+82[- ]?1[0-9][- ]?[0-9]{3,4}[- ]?[0
 # 아니키 본인 연락처 화이트리스트 (T-260531-21). 본인 공개 게시 의도(포트폴리오 연락처·
 # 언론 제보 회신처 등)라 3rd-party PII 와 구분해 위반에서 제외. 정확히 일치하는 매치만 통과 —
 # 전화번호/주민번호/타인 이메일은 그대로 차단. 공개룰 "본명 강대종 = 아니키 본인 한정" 와 동일 정신.
-WHITELIST_PII='ssamssae@naver.com gayoremix@gmail.com'
+# 2026-07-30 T-260730-077 아니키 GO: privacy-*.html 법정 필수 연락처 2건 추가 (라이브 공개 중인 값).
+WHITELIST_PII='ssamssae@naver.com gayoremix@gmail.com minusbetastudio@gmail.com ssamssae@me.com'
 
 # === 스캔 대상 파일 수집 ===
 files=()
