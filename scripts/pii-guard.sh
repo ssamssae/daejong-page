@@ -24,7 +24,18 @@ RE='01[016789][- ]?[0-9]{3,4}[- ]?[0-9]{4}|\+82[- ]?1[0-9][- ]?[0-9]{3,4}[- ]?[0
 # 아니키 본인 연락처 화이트리스트 (T-260531-21). 본인 공개 게시 의도(포트폴리오 연락처·
 # 언론 제보 회신처 등)라 3rd-party PII 와 구분해 위반에서 제외. 정확히 일치하는 매치만 통과 —
 # 전화번호/주민번호/타인 이메일은 그대로 차단. 공개룰 "본명 강대종 = 아니키 본인 한정" 와 동일 정신.
-WHITELIST_PII='ssamssae@naver.com gayoremix@gmail.com'
+#
+# ⚠️ 이 목록은 "아니키 본인 주소"만 담는다. 제3자 주소는 절대 넣지 않는다 — 넣는 순간
+#    이 가드가 막으려던 바로 그것(3rd-party PII 공개)을 통과시킨다.
+#
+# 2026-07-30 (T-260730-077, 아니키 ack) — minusbetastudio@gmail.com · ssamssae@me.com 추가.
+#   둘 다 public/privacy-*.html 의 개인정보처리방침 법정 필수 연락처로 이미 라이브 공개 중인
+#   값이고, 누락 탓에 그 페이지를 스치는 브랜치가 전부 push 벽을 맞았다(PR#373 실차단).
+#   ★대응 게이트 = scripts/public-sensitive-ref-scan.py (claude-automations) 의
+#   config/public-sensitive-ref-allowlist.json safe_value_sha256. 두 게이트는 같은
+#   "아니키 본인 공개 의도 주소" 집합을 봐야 하는데 실측상 서로 다른 2개씩만 담고 있었다
+#   (양쪽 공통 = ssamssae@naver.com 하나뿐). 한쪽만 고치면 다른 쪽에서 다시 막힌다.
+WHITELIST_PII='ssamssae@naver.com gayoremix@gmail.com minusbetastudio@gmail.com ssamssae@me.com'
 
 # === 스캔 대상 파일 수집 ===
 files=()
