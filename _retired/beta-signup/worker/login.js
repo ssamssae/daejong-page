@@ -27,7 +27,7 @@ await ctx.addInitScript(() => {
 const page = ctx.pages()[0] ?? await ctx.newPage();
 await page.goto('https://groups.google.com/g/memoyo-beta-testers/members');
 
-console.log('Sign in to Google with the owner account in the opened window.');
+console.log('Sign in to Google in the opened window.');
 console.log('When you can see the members list, close the browser.');
 
 await new Promise((resolve) => {
