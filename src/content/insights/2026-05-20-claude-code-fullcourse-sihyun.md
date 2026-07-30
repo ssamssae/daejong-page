@@ -30,7 +30,7 @@ source_author: "시현의 모험 Sihyun Adventure"
 ### 이미 적용 중
 - **컨텍스트 30~40% 기록 후 이월**: night-auto-mode 가 30~35% 임계에서 자동 session-clear → 핸드오프 inject. 영상 권고를 forcing function 으로 구현.
 - **스킬 = 작업 매뉴얼 + 4역할(지식보관/자동호출/일관성/가드레일)**: `~/claude-skills` repo 5노드 symlink 로 동일 구조.
-- **사스포칼립스(직접 만들어 쓰기)**: daejong-page / choso 대시보드 / 약먹자·메모요 등 — 이미 SaaS 대체 자체 제작 중.
+- **사스포칼립스(직접 만들어 쓰기)**: daejong-page / choso 대시보드 / 약먹자·[메모요](https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app) 등 — 이미 SaaS 대체 자체 제작 중.
 
 ### 새 인사이트 / 적용 가치
 1. **'팀 에이전트'는 토큰을 엄청 먹는다 → 웬만하면 서브에이전트**: 형님 mesh-vote / trio-vote 가 정확히 '서로 소통하는 팀 에이전트'. Anthropic 비용 hard rule(시간당 100+ 호출 사전 ack)과 직결 — 투표 류는 비용 큰 작업에만 선택적으로.
