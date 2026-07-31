@@ -10,7 +10,10 @@ const sections = [
   { label: '웹 SaaS', eyebrow: 'WEB SAAS', count: saas.length, items: saas, variant: 'saas' },
 ];
 
-const featured = [apps[0], apps[1], tools[0]];
+// 유일한 유료 상품(첫이름 ₩19,900)을 대표 자리 맨 앞에 둔다 — T-260731-044.
+// 근거 = 2026-07-31 GSC 실측: 첫이름 28일 노출 4·클릭 0인데 평균 게재순위 2.3위.
+// 순위가 아니라 유입 경로가 없는 상태라, 이미 노출을 만드는 이 사이트에서 흘려보낸다.
+const featured = [saas[0], apps[0], apps[1]];
 ---
 <Layout title="제품 — 마이너스베타스튜디오" description="강대종이 공개한 전자책, 모바일 앱, 웹 SaaS, 오픈소스 툴 모음.">
   <section class="products-hero" aria-labelledby="page-title">
