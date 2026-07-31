@@ -10,7 +10,10 @@ const sections = [
   { label: '웹 SaaS', eyebrow: 'WEB SAAS', count: saas.length, items: saas, variant: 'saas' },
 ];
 
-const featured = [apps[0], apps[1], tools[0]];
+// 유일한 유료 상품(첫이름 ₩19,900)을 대표 자리 맨 앞에 둔다 — T-260731-044.
+// 근거 = 2026-07-31 GSC 실측: 첫이름 28일 노출 4·클릭 0인데 평균 게재순위 2.3위.
+// 순위가 아니라 유입 경로가 없는 상태라, 이미 노출을 만드는 이 사이트에서 흘려보낸다.
+const featured = [saas[0], apps[0], apps[1]];
 ---
 <Layout title="제품 — 마이너스베타스튜디오" description="강대종이 공개한 전자책, 모바일 앱, 웹 SaaS, 오픈소스 툴 모음.">
   <section class="products-hero" aria-labelledby="page-title">
@@ -66,27 +69,20 @@ const featured = [apps[0], apps[1], tools[0]];
     </div>
   </section>
 
-  <section class="featured-section" aria-labelledby="ebook-title">
-    <div class="section-head">
-      <p class="eyebrow">KMONG E-BOOKS</p>
-      <h2 id="ebook-title">전자책</h2>
-    </div>
-    <div class="featured-grid ebook-grid">
-      {ebooks.map((item, index) => (
-        <article class="product-card">
-          <div class="card-topline">
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            <span>{item.status}</span>
-          </div>
-          <h3>{item.name}</h3>
-          <p>{item.desc}</p>
-          <div class="product-links">
-            {item.links.map((link) => <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
+  {/*
+    ★전자책 전용 섹션을 제거했다 — 같은 2권이 이 페이지에 두 번 나왔다 (T-260801-003).
+    여기(KMONG E-BOOKS 카드)와 아래 CATALOG「전체 제품」의 sections[0] 이 같은 `ebooks`
+    배열을 각각 렌더했다. 데이터 중복이 아니라 템플릿 이중 렌더였으므로
+    data/products.ts 의 ebooks(2권)는 건드리지 않았다.
+
+    카탈로그가 아니라 이쪽을 지운 이유 3가지:
+      1. 「전체 제품」이 이름값을 지킨다. 반대로 지우면 전체 제품이 전체가 아니게 되는데,
+         그건 공개 페이지에 사실과 다른 라벨을 남기는 것이라 시각 비중보다 무겁다.
+      2. 비대칭 해소 — 앱·SaaS·툴 어느 카테고리도 전용 섹션이 없다. 전자책만 있었다.
+      3. `featured-section` 이 「대표 제품」 하나만 가리키게 된다. 직전 T-260731-044 가
+         첫이름을 대표 자리에 올렸는데, 같은 클래스를 쓰는 블록이 둘이면 그 의미가 흐려진다.
+    전자책 2권은 카탈로그에 링크까지 그대로 남는다 — 사라지는 정보는 없다.
+  */}
 
   <section class="catalog-section" aria-labelledby="catalog-title">
     <div class="section-head catalog-head">
