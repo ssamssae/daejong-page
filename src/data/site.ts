@@ -32,7 +32,6 @@ export const navMore = [
   { href: '/', label: '작업장' },
   { href: '/insights', label: '인사이트' },
   { href: '/system', label: '시스템' },
-  { href: '/cost/', label: '비용공개' },
   { href: '/lab', label: 'lab' },
   { href: 'https://kangdaejong.com', label: '회사소개' },
   { href: 'https://founder.kangdaejong.com', label: '대표소개' },
