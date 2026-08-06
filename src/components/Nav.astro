@@ -118,7 +118,7 @@ const moreActive = more.some(l => isActive(l.href));
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+      box-shadow: 0 10px 30px var(--shadow-pop);
     }
     .nav-more.open .nav-more-panel { display: flex; }
     .nav-more-panel a {
@@ -144,13 +144,13 @@ const moreActive = more.some(l => isActive(l.href));
       padding: 0 14px;
       border-radius: 8px;
       background: var(--accent-cta);
-      color: #ffffff;
+      color: var(--cta-fg);
       font-size: 14px;
       font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
     }
-    .nav-cta:hover { color: #ffffff; text-decoration: none; background: var(--accent-dim); }
+    .nav-cta:hover { color: var(--cta-fg); text-decoration: none; background: var(--accent-dim); }
     @media (max-width: 760px) {
       .nav-inner {
         width: min(calc(100% - 32px), 1120px);

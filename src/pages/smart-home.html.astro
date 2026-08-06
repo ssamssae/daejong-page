@@ -226,15 +226,23 @@ const pipeline = [
   </div>
 
   <style>
+    /* 페이지 전용 색은 전역 상태색 토큰을 참조해 다크에서 같이 뒤집히게 한다
+       (2026-08-06 T-260806-060 — 종전 하드코딩 값은 밝은 배경 전용이라 다크에서 안 읽혔다). */
     .smart-home-shell {
-      --blue: #2563eb;
-      --green: #127a3d;
-      --amber: #9a4d00;
-      --coral: #b42318;
+      --blue: var(--accent);
+      --green: var(--success);
+      --amber: var(--warn);
+      --coral: var(--danger);
       --ink-soft: #333333;
       display: flex;
       flex-direction: column;
       gap: 30px;
+    }
+
+    /* --ink-soft 만 전역 토큰으로 못 넘긴다 — 밝은 모드 값(#333)이 --fg-dim(#4f4f4f)과 달라
+       그대로 바꾸면 밝은 화면이 미세하게 밝아진다. 값은 두고 다크 짝만 따로 준다. */
+    @media (prefers-color-scheme: dark) {
+      .smart-home-shell { --ink-soft: #c8c8ce; }
     }
 
     .smart-hero {
@@ -288,8 +296,8 @@ const pipeline = [
       border: 1px solid var(--border);
       border-radius: 8px;
       background:
-        linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 38%),
-        linear-gradient(315deg, rgba(18, 122, 61, 0.1), transparent 40%),
+        linear-gradient(135deg, color-mix(in srgb, var(--blue) 7.843%, transparent), transparent 38%),
+        linear-gradient(315deg, color-mix(in srgb, var(--green) 10%, transparent), transparent 40%),
         var(--bg-elev);
       padding: 18px;
     }
@@ -308,7 +316,7 @@ const pipeline = [
       height: 10px;
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 0 6px rgba(18, 122, 61, 0.12);
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--green) 12.157%, transparent);
     }
 
     .panel-time {
@@ -328,7 +336,7 @@ const pipeline = [
       align-items: center;
       border: 1px solid var(--border-soft);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.72);
+      background: color-mix(in srgb, var(--bg) 72.157%, transparent);
       color: var(--fg);
       font-family: var(--mono);
       font-size: 13px;
@@ -420,9 +428,9 @@ const pipeline = [
       border: 1px solid var(--border);
       border-radius: 8px;
       background:
-        linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
-        #ffffff;
+        linear-gradient(90deg, color-mix(in srgb, var(--fg) 4%, transparent) 1px, transparent 1px),
+        linear-gradient(0deg, color-mix(in srgb, var(--fg) 4%, transparent) 1px, transparent 1px),
+        var(--bg);
       background-size: 28px 28px;
       padding: 10px;
       overflow: hidden;
@@ -436,7 +444,7 @@ const pipeline = [
       min-width: 0;
       border: 1px solid var(--border);
       border-radius: 8px;
-      background: rgba(247, 247, 247, 0.92);
+      background: color-mix(in srgb, var(--bg-elev) 92.157%, transparent);
       color: var(--fg);
       font: inherit;
       padding: 16px;
@@ -448,7 +456,7 @@ const pipeline = [
     .room-cell:hover,
     .room-cell.is-active {
       border-color: var(--blue);
-      background: #ffffff;
+      background: var(--bg);
       transform: translateY(-1px);
     }
 
@@ -477,10 +485,10 @@ const pipeline = [
       position: absolute;
       width: 13px;
       height: 13px;
-      border: 2px solid #ffffff;
+      border: 2px solid var(--bg);
       border-radius: 50%;
       background: var(--blue);
-      box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.14);
+      box-shadow: 0 0 0 5px color-mix(in srgb, var(--blue) 14.118%, transparent);
       transition: opacity 0.16s ease, transform 0.16s ease;
     }
 
@@ -508,7 +516,7 @@ const pipeline = [
       min-height: 78px;
       border: 1px solid var(--border);
       border-radius: 8px;
-      background: #ffffff;
+      background: var(--bg);
       color: var(--fg);
       font: inherit;
       padding: 14px;
@@ -565,7 +573,7 @@ const pipeline = [
       margin-top: 10px;
       border: 1px solid var(--border);
       border-radius: 8px;
-      background: #ffffff;
+      background: var(--bg);
       color: var(--blue);
       font-family: var(--mono);
       font-size: 12px;
@@ -612,7 +620,7 @@ const pipeline = [
       grid-template-columns: 0.8fr 1.1fr 0.7fr 1.35fr;
       gap: 12px;
       align-items: center;
-      background: #ffffff;
+      background: var(--bg);
       color: var(--fg-dim);
       font-size: 13px;
       line-height: 1.45;
@@ -639,7 +647,7 @@ const pipeline = [
     .route-badge {
       width: fit-content;
       border-radius: 6px;
-      color: #ffffff;
+      color: var(--cta-fg);
       font-family: var(--mono);
       font-size: 11px;
       padding: 4px 8px;
@@ -668,7 +676,7 @@ const pipeline = [
       min-height: 118px;
       border: 1px solid var(--border);
       border-radius: 8px;
-      background: #ffffff;
+      background: var(--bg);
       padding: 14px;
     }
 

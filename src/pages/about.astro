@@ -257,13 +257,13 @@ const workshopRoutes = [
     .button.primary {
       border-color: var(--accent-cta);
       background: var(--accent-cta);
-      color: #fff;
+      color: var(--cta-fg);
     }
 
     .button.primary:hover {
       border-color: var(--accent-dim);
       background: var(--accent-dim);
-      color: #fff;
+      color: var(--cta-fg);
     }
 
     .button.secondary {
@@ -301,9 +301,11 @@ const workshopRoutes = [
       justify-content: space-between;
       gap: 12px;
       padding: 10px 12px;
-      border: 1px solid rgba(255, 255, 255, .7);
+      /* 사진 위 글라스 칩. 글자는 var(--fg) 라 배경도 페이지와 같이 뒤집어야
+         다크에서 밝은 유리 위 밝은 글자로 사라지지 않는다. */
+      border: 1px solid color-mix(in srgb, var(--bg) 70%, transparent);
       border-radius: 7px;
-      background: rgba(255, 255, 255, .88);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
       backdrop-filter: blur(12px);
       color: var(--fg);
       font-family: var(--mono);
@@ -522,9 +524,11 @@ const workshopRoutes = [
       color: var(--bg);
     }
 
+    /* 이 섹션은 background:var(--fg) / color:var(--bg) 로 페이지를 뒤집은 면이다.
+       따라서 내부 보조 글자도 흰색 고정이 아니라 var(--bg) 기준이어야 같이 뒤집힌다. */
     .contact-section .eyebrow,
     .contact-section p {
-      color: rgba(255, 255, 255, .68);
+      color: color-mix(in srgb, var(--bg) 68%, transparent);
     }
 
     .contact-section h2 {
@@ -548,8 +552,8 @@ const workshopRoutes = [
     }
 
     .contact-section .button.primary {
-      border-color: #fff;
-      background: #fff;
+      border-color: var(--bg);
+      background: var(--bg);
       color: var(--fg);
     }
 
@@ -559,14 +563,14 @@ const workshopRoutes = [
     }
 
     .text-link {
-      color: rgba(255, 255, 255, .82);
+      color: color-mix(in srgb, var(--bg) 82%, transparent);
       font-size: 14px;
       font-weight: 700;
       text-decoration: none;
     }
 
     .text-link:hover {
-      color: #fff;
+      color: var(--bg);
       text-decoration: underline;
     }
 
