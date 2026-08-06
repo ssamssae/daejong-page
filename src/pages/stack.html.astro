@@ -145,7 +145,29 @@ const stackItems = [
         --stack-red: #b42318;
         --stack-amber: #9a4d00;
         --stack-line: #d8dee8;
+        --stack-dash: #a9b2c0;
+        --stack-cta-fg: #ffffff;
       }
+
+      /* 다크 대응 (2026-08-06 T-260806-060) — 이 페이지 전용 색은 밝은 배경용 저명도
+         값이라 어두운 배경에서 안 읽힌다. 명도를 올린 짝으로 바꾸고, 채운 버튼 글자는
+         밝은 파랑 위 흰 글자가 되지 않게 어둡게 돌린다. */
+      @media (prefers-color-scheme: dark) {
+        .stack-page {
+          --stack-blue: #7aa2ff;
+          --stack-green: #5bd08a;
+          --stack-red: #ff8b80;
+          --stack-amber: #f0b25a;
+          --stack-line: #34343a;
+          --stack-dash: #4a4a52;
+          --stack-cta-fg: #0f0f10;
+        }
+      }
+
+      /* 시스템 맵 SVG — 색을 속성이 아니라 CSS 로 준다(다크에서 같이 뒤집히도록). */
+      .map-link { stroke: var(--stack-blue); }
+      .map-link.is-warn { stroke: var(--stack-amber); }
+      .map-arrowhead { fill: var(--stack-blue); }
 
       .stack-hero {
         display: grid;
@@ -228,11 +250,11 @@ const stackItems = [
       .stack-button.primary {
         border-color: var(--stack-blue);
         background: var(--stack-blue);
-        color: #ffffff;
+        color: var(--stack-cta-fg);
       }
 
       .stack-button.primary:hover {
-        color: #ffffff;
+        color: var(--stack-cta-fg);
         background: var(--accent-dim);
       }
 
@@ -288,7 +310,7 @@ const stackItems = [
         content: "";
         position: absolute;
         inset: 42px;
-        border: 1px dashed #a9b2c0;
+        border: 1px dashed var(--stack-dash);
         border-radius: 8px;
         pointer-events: none;
       }
@@ -326,15 +348,15 @@ const stackItems = [
         border: 1px solid var(--border);
         border-radius: 8px;
         padding: 10px 12px;
-        background: #ffffff;
-        box-shadow: 0 14px 28px rgba(17, 17, 17, 0.06);
+        background: var(--bg);
+        box-shadow: 0 14px 28px var(--shadow);
       }
 
       .map-node.hub {
         width: 162px;
         min-height: 88px;
         border-color: var(--stack-blue);
-        background: #eef4ff;
+        background: var(--accent-bg);
       }
 
       .map-node .map-icon {
@@ -461,7 +483,7 @@ const stackItems = [
         justify-content: center;
         border: 1px solid var(--border);
         border-radius: 8px;
-        background: #ffffff;
+        background: var(--bg);
         font-size: 20px;
         flex: 0 0 auto;
       }
@@ -513,7 +535,7 @@ const stackItems = [
         padding: 4px 8px;
         border: 1px solid var(--border);
         border-radius: 6px;
-        background: #ffffff;
+        background: var(--bg);
         color: var(--fg-dim);
         font-family: var(--mono);
         font-size: 10px;
@@ -608,7 +630,7 @@ const stackItems = [
         padding: 0 10px;
         border: 1px solid var(--border);
         border-radius: 6px;
-        background: #ffffff;
+        background: var(--bg);
         color: var(--fg);
         font-size: 11px;
       }
@@ -739,13 +761,13 @@ const stackItems = [
         <svg class="map-svg" viewBox="0 0 600 560" aria-hidden="true">
           <defs>
             <marker id="stack-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"></path>
+              <path class="map-arrowhead" d="M0,0 L0,6 L9,3 z"></path>
             </marker>
           </defs>
-          <line x1="300" y1="278" x2="116" y2="186" stroke="#2563eb" stroke-width="2" marker-end="url(#stack-arrow)"></line>
-          <line x1="300" y1="278" x2="484" y2="186" stroke="#2563eb" stroke-width="2" marker-end="url(#stack-arrow)"></line>
-          <line x1="300" y1="318" x2="116" y2="372" stroke="#2563eb" stroke-width="2" marker-end="url(#stack-arrow)"></line>
-          <line x1="300" y1="330" x2="300" y2="472" stroke="#9a4d00" stroke-width="2" stroke-dasharray="6 5"></line>
+          <line class="map-link" x1="300" y1="278" x2="116" y2="186" stroke-width="2" marker-end="url(#stack-arrow)"></line>
+          <line class="map-link" x1="300" y1="278" x2="484" y2="186" stroke-width="2" marker-end="url(#stack-arrow)"></line>
+          <line class="map-link" x1="300" y1="318" x2="116" y2="372" stroke-width="2" marker-end="url(#stack-arrow)"></line>
+          <line class="map-link is-warn" x1="300" y1="330" x2="300" y2="472" stroke-width="2" stroke-dasharray="6 5"></line>
         </svg>
         <div class="map-node mac"><span class="map-icon">🏭</span><strong>맥미니</strong><span>build node</span></div>
         <div class="map-node raiden"><span class="map-icon">🪟</span><strong>라이덴</strong><span>wsl worker</span></div>

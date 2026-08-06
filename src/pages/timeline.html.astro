@@ -212,19 +212,22 @@ import Layout from '../layouts/Layout.astro';
       cursor: default;
     }
 
+    /* 활동량 계단 — 밝은 모드는 '진할수록 많이', 다크는 '밝을수록 많이' 가 돼야 한다.
+       고정 회색 3개 대신 --fg 를 --bg 에 섞은 비율로 두면 두 모드에서 자동으로 뒤집힌다. */
+    /* 비율은 종전 고정값(#d9d9d9 / #a8a8a8 / #5f5f5f)을 밝은 모드에서 그대로 재현하도록 뽑았다. */
     .hm-cell.lv1 {
-      background: #d9d9d9;
-      border-color: #d9d9d9;
+      background: color-mix(in srgb, var(--fg) 16%, var(--bg));
+      border-color: color-mix(in srgb, var(--fg) 16%, var(--bg));
     }
 
     .hm-cell.lv2 {
-      background: #a8a8a8;
-      border-color: #a8a8a8;
+      background: color-mix(in srgb, var(--fg) 36.5%, var(--bg));
+      border-color: color-mix(in srgb, var(--fg) 36.5%, var(--bg));
     }
 
     .hm-cell.lv3 {
-      background: #5f5f5f;
-      border-color: #5f5f5f;
+      background: color-mix(in srgb, var(--fg) 67.2%, var(--bg));
+      border-color: color-mix(in srgb, var(--fg) 67.2%, var(--bg));
     }
 
     .hm-cell.lv4 {

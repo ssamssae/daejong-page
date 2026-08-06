@@ -174,7 +174,7 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
 
     .subscribe-link:hover {
       color: var(--bg);
-      background: #1c1c1c;
+      background: color-mix(in srgb, var(--fg) 95.4%, var(--bg));
     }
 
     .hero-stats {
@@ -272,7 +272,7 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
     }
 
     .issue-card.primary a:hover {
-      background: #1c1c1c;
+      background: color-mix(in srgb, var(--fg) 95.4%, var(--bg));
     }
 
     .issue-number {
@@ -286,7 +286,7 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
     .primary .issue-number,
     .primary .issue-date,
     .primary p {
-      color: #d7d7d7;
+      color: color-mix(in srgb, var(--bg) 83.2%, var(--fg));
     }
 
     .issue-date {
@@ -310,7 +310,7 @@ const episodeLabel = (post: { id: string; data: { version?: string } }) =>
     }
 
     .issue-card.primary p {
-      color: #d7d7d7;
+      color: color-mix(in srgb, var(--bg) 83.2%, var(--fg));
     }
 
     .read-more {

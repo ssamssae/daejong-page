@@ -377,7 +377,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .issue-card.primary .card-top,
     .issue-card.primary p {
-      color: rgba(255, 255, 255, 0.7);
+      color: color-mix(in srgb, var(--bg) 70%, transparent);
     }
 
     .issue-card h3 {
@@ -413,8 +413,8 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     }
 
     .issue-card.primary .badge-row span {
-      border-color: rgba(255, 255, 255, 0.3);
-      color: rgba(255, 255, 255, 0.82);
+      border-color: color-mix(in srgb, var(--bg) 30%, transparent);
+      color: color-mix(in srgb, var(--bg) 82%, transparent);
     }
 
     .severity-high,

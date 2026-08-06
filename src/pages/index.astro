@@ -276,13 +276,13 @@ const bridgeProjects = [
     .button.primary {
       border-color: var(--accent-cta);
       background: var(--accent-cta);
-      color: #ffffff;
+      color: var(--cta-fg);
     }
 
     .button.primary:hover {
       border-color: var(--accent-dim);
       background: var(--accent-dim);
-      color: #ffffff;
+      color: var(--cta-fg);
     }
 
     .button.secondary {
@@ -463,7 +463,7 @@ const bridgeProjects = [
     .bridge-card.primary p,
     .bridge-card.primary .bridge-card-top span,
     .bridge-card.primary a {
-      color: rgba(255, 255, 255, 0.74);
+      color: color-mix(in srgb, var(--bg) 74%, transparent);
     }
 
     .bridge-card-top {
