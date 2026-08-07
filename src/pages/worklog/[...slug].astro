@@ -20,10 +20,35 @@ const { Content } = await render(post);
     </header>
     <div class="prose"><Content /></div>
   </article>
+
+  <aside class="store-footer">
+    <p class="store-footer__line">
+      이 작업장에서 만든 앱 —
+      <a href="https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app">메모요</a>
+      (<a href="https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app">Play</a>·<a href="https://apps.apple.com/kr/app/id6762068073">App Store</a>)
+      ·
+      <a href="https://play.google.com/store/apps/details?id=com.daejongkang.hanjul">한줄일기</a>
+      (<a href="https://play.google.com/store/apps/details?id=com.daejongkang.hanjul">Play</a>·<a href="https://apps.apple.com/kr/app/id6764308678">App Store</a>)
+    </p>
+  </aside>
+
   <style>
     .back { font-family: var(--mono); font-size: var(--text-desc); color: var(--fg-dim); }
     article { margin-top: 24px; }
     .meta { font-family: var(--mono); font-size: var(--text-meta); color: var(--fg-dim); margin-bottom: 8px; }
     article h1 { font-size: var(--text-h2); margin-bottom: 32px; line-height: 1.35; }
+
+    .store-footer {
+      margin-top: var(--pad-section-sm);
+      padding-top: var(--gap-card);
+      border-top: 1px solid var(--border);
+    }
+    .store-footer a { color: var(--accent); text-decoration-thickness: 1px; }
+    .store-footer a:hover { color: var(--accent-dim); }
+    .store-footer__line {
+      font-size: var(--text-desc);
+      color: var(--fg-dim);
+      line-height: var(--leading-desc);
+    }
   </style>
 </Layout>
