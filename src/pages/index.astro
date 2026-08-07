@@ -227,16 +227,16 @@ const bridgeProjects = [
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
-      letter-spacing: 0;
+      letter-spacing: var(--track-eyebrow);
       margin-bottom: 12px;
     }
 
     .hero-copy h1 {
       max-width: 760px;
-      font-size: 64px;
-      line-height: 1.02;
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
@@ -244,8 +244,8 @@ const bridgeProjects = [
       max-width: 680px;
       margin-top: 24px;
       color: var(--fg-dim);
-      font-size: 20px;
-      line-height: 1.7;
+      font-size: var(--text-lead);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -263,8 +263,8 @@ const bridgeProjects = [
       min-height: 44px;
       padding: 0 18px;
       border: 1px solid var(--fg);
-      border-radius: 8px;
-      font-size: 14px;
+      border-radius: var(--radius-btn);
+      font-size: var(--text-desc);
       font-weight: 700;
       text-decoration: none;
     }
@@ -312,14 +312,14 @@ const bridgeProjects = [
     .hero-stats dt {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 700;
       line-height: 1.45;
       min-width: 0;
@@ -328,7 +328,7 @@ const bridgeProjects = [
     .hero-stats span {
       grid-column: 2;
       color: var(--fg-dim);
-      font-size: 13px;
+      font-size: var(--text-desc);
       line-height: 1.45;
       white-space: nowrap;
     }
@@ -348,15 +348,15 @@ const bridgeProjects = [
 
     .section-head h2 {
       max-width: 720px;
-      font-size: 34px;
-      line-height: 1.2;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
     .section-head > p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: var(--text-body);
+      line-height: var(--leading-desc);
     }
 
     .route-grid {
@@ -389,20 +389,20 @@ const bridgeProjects = [
       gap: 16px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .route-card strong {
-      font-size: 24px;
-      line-height: 1.2;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
     }
 
     .route-card > span:last-child {
       align-self: end;
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
     }
 
     .loop-list {
@@ -422,20 +422,20 @@ const bridgeProjects = [
     .loop-list span {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .loop-list strong {
       color: var(--fg);
-      font-size: 22px;
-      line-height: 1.25;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
     }
 
     .loop-list p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
     }
 
     .bridge-grid {
@@ -450,7 +450,7 @@ const bridgeProjects = [
       gap: 20px;
       min-height: 260px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-card);
       padding: 24px;
       background: var(--bg);
     }
@@ -474,23 +474,23 @@ const bridgeProjects = [
     }
 
     .bridge-card h3 {
-      font-size: 25px;
-      line-height: 1.18;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
     }
 
     .bridge-card-top span {
       flex: 0 0 auto;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       white-space: nowrap;
     }
 
     .bridge-card p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.68;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
     }
 
     .bridge-links {
@@ -498,7 +498,7 @@ const bridgeProjects = [
       flex-wrap: wrap;
       gap: 14px;
       margin-top: auto;
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 700;
     }
 
@@ -531,14 +531,14 @@ const bridgeProjects = [
     }
 
     .recent-head h2 {
-      font-size: 28px;
-      line-height: 1.18;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .recent-head a {
       flex: 0 0 auto;
       margin-top: 4px;
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 700;
       text-decoration: none;
     }
@@ -559,13 +559,9 @@ const bridgeProjects = [
         grid-template-columns: 1fr;
       }
 
-      .hero-copy h1 {
-        font-size: 48px;
-      }
-
-      .lead {
-        font-size: 18px;
-      }
+      /* h1·lead 의 폭별 크기 재지정은 걷었다 — --text-h1 이 clamp 라
+         뷰포트에 따라 스스로 줄어든다. 남겨두면 토큰을 덮어써서
+         이 페이지만 스케일에서 이탈한다. (T-260807-019) */
 
       .route-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -580,14 +576,6 @@ const bridgeProjects = [
       .home-hero {
         gap: 34px;
         padding-top: 10px;
-      }
-
-      .hero-copy h1 {
-        font-size: 38px;
-      }
-
-      .lead {
-        font-size: 16px;
       }
 
       .hero-actions {
@@ -607,10 +595,6 @@ const bridgeProjects = [
       .hero-stats span {
         grid-column: auto;
         white-space: normal;
-      }
-
-      .section-head h2 {
-        font-size: 28px;
       }
 
       .route-card {
