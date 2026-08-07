@@ -195,7 +195,7 @@ const principles = [
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
       margin-bottom: 12px;
@@ -204,7 +204,7 @@ const principles = [
     h1 {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 96px;
+      font-size: var(--text-h1);
       font-weight: 600;
       line-height: 0.95;
       margin: 0 0 20px;
@@ -213,7 +213,7 @@ const principles = [
     .lead {
       max-width: 680px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
       word-break: keep-all;
     }
@@ -236,14 +236,14 @@ const principles = [
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 600;
       line-height: 1.45;
       min-width: 0;
@@ -251,7 +251,7 @@ const principles = [
 
     .hero-summary {
       color: var(--fg-dim);
-      font-size: 13px;
+      font-size: var(--text-desc);
       line-height: 1.45;
       margin-top: 12px;
       white-space: nowrap;
@@ -272,15 +272,15 @@ const principles = [
 
     .section-head h2 {
       color: var(--fg);
-      font-size: 34px;
-      line-height: 1.2;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
     .section-head > p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -295,7 +295,7 @@ const principles = [
       min-height: 260px;
       flex-direction: column;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg);
       color: var(--fg);
       padding: 22px;
@@ -324,14 +324,14 @@ const principles = [
       gap: 52px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       margin-bottom: 14px;
     }
 
     .feature-card strong {
       color: inherit;
-      font-size: 24px;
+      font-size: var(--text-h2);
       line-height: 1.22;
       margin-bottom: 12px;
       word-break: keep-all;
@@ -339,8 +339,8 @@ const principles = [
 
     .feature-card > span:last-child {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       margin-top: auto;
       word-break: keep-all;
     }
@@ -366,14 +366,14 @@ const principles = [
 
     .group-block h3 {
       color: var(--fg);
-      font-size: 22px;
-      line-height: 1.25;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       margin-bottom: 6px;
     }
 
     .group-block header span {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
     }
 
     .group-block ol {
@@ -405,22 +405,22 @@ const principles = [
     .group-block a span {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .group-block a strong {
       color: var(--fg);
-      font-size: 17px;
+      font-size: var(--text-lead);
       line-height: 1.32;
       word-break: keep-all;
     }
 
     .group-block a em {
       color: var(--fg-dim);
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-style: normal;
-      line-height: 1.6;
+      line-height: var(--leading-desc);
       word-break: keep-all;
     }
 
@@ -440,15 +440,15 @@ const principles = [
 
     .principle-list dt {
       color: var(--fg);
-      font-size: 18px;
+      font-size: var(--text-lead);
       font-weight: 700;
       line-height: 1.3;
     }
 
     .principle-list dd {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -460,10 +460,6 @@ const principles = [
       .group-block a,
       .principle-list div {
         grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 64px;
       }
 
       .lead {
@@ -493,20 +489,12 @@ const principles = [
         padding-top: 8px;
       }
 
-      h1 {
-        font-size: 56px;
-      }
-
       .hero-stats div {
         grid-template-columns: 1fr;
       }
 
       .hero-summary {
         white-space: normal;
-      }
-
-      .section-head h2 {
-        font-size: 28px;
       }
 
       .feature-card {

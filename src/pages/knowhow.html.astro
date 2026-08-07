@@ -484,14 +484,14 @@ const schema = {
     .eyebrow {
       margin-bottom: 12px;
       color: var(--fg-mute);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     h1 {
       margin: 0 0 22px;
       color: var(--fg);
-      font-size: clamp(64px, 9vw, 108px);
+      font-size: var(--text-h1);
       line-height: 0.9;
       letter-spacing: -0.055em;
     }
@@ -499,7 +499,7 @@ const schema = {
     .lead {
       max-width: 660px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
       word-break: keep-all;
     }
@@ -521,7 +521,7 @@ const schema = {
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
@@ -532,19 +532,19 @@ const schema = {
       gap: 8px;
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 23px;
+      font-size: var(--text-h3);
       font-weight: 600;
       line-height: 1.35;
     }
 
     .hero-stats dd small {
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 500;
     }
 
     .hero-stats .date-range {
-      font-size: 14px;
+      font-size: var(--text-desc);
       letter-spacing: -0.025em;
       white-space: nowrap;
     }
@@ -561,7 +561,7 @@ const schema = {
 
     .update-label {
       color: var(--knowhow-accent);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 700;
     }
 
@@ -570,8 +570,8 @@ const schema = {
       flex-wrap: wrap;
       gap: 8px 18px;
       color: var(--fg-dim);
-      font-size: 13px;
-      line-height: 1.6;
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
     }
 
     .update-note time {
@@ -590,16 +590,16 @@ const schema = {
 
     .section-head h2 {
       color: var(--fg);
-      font-size: 34px;
-      line-height: 1.2;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       letter-spacing: -0.025em;
       word-break: keep-all;
     }
 
     .section-head > p {
       color: var(--fg-mute);
-      font-size: 14px;
-      line-height: 1.7;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       text-align: right;
       word-break: keep-all;
     }
@@ -653,7 +653,7 @@ const schema = {
       top: 22px;
       right: 22px;
       color: var(--fg-mute);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
@@ -668,7 +668,7 @@ const schema = {
       gap: 8px 14px;
       padding-right: 40px;
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
@@ -680,7 +680,7 @@ const schema = {
       max-width: 580px;
       margin-top: 42px;
       color: var(--fg);
-      font-size: 20px;
+      font-size: var(--text-h3);
       line-height: 1.4;
       letter-spacing: -0.018em;
       word-break: keep-all;
@@ -688,7 +688,7 @@ const schema = {
 
     .featured-primary h3 {
       margin-top: 72px;
-      font-size: clamp(28px, 3.2vw, 40px);
+      font-size: var(--text-h2);
       line-height: 1.22;
     }
 
@@ -697,8 +697,8 @@ const schema = {
       margin-top: 14px;
       overflow: hidden;
       color: var(--fg-dim);
-      font-size: 13px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
     }
@@ -706,7 +706,7 @@ const schema = {
     .featured-primary p {
       max-width: 620px;
       margin-top: 22px;
-      font-size: 15px;
+      font-size: var(--text-body);
       line-height: 1.75;
       -webkit-line-clamp: 4;
     }
@@ -719,13 +719,13 @@ const schema = {
       margin-top: auto;
       padding-top: 20px;
       color: var(--fg-mute);
-      font-size: 10px;
+      font-size: var(--text-badge);
       line-height: 1.5;
     }
 
     .featured-foot > span:last-child {
       color: var(--fg);
-      font-size: 18px;
+      font-size: var(--text-lead);
     }
 
     .archive-section {
@@ -751,7 +751,7 @@ const schema = {
       display: block;
       margin-bottom: 8px;
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
@@ -768,7 +768,7 @@ const schema = {
 
     .input-shell > span {
       color: var(--fg-mute);
-      font-size: 20px;
+      font-size: var(--text-h3);
       line-height: 1;
     }
 
@@ -780,7 +780,7 @@ const schema = {
       background: transparent;
       color: var(--fg);
       font: inherit;
-      font-size: 15px;
+      font-size: var(--text-body);
     }
 
     .input-shell input::placeholder {
@@ -795,7 +795,7 @@ const schema = {
       color: var(--fg-mute);
       padding: 1px 7px;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
@@ -808,7 +808,7 @@ const schema = {
       color: var(--fg);
       padding: 0 38px 0 13px;
       font: inherit;
-      font-size: 14px;
+      font-size: var(--text-desc);
     }
 
     .reset-button,
@@ -819,7 +819,7 @@ const schema = {
       color: var(--bg);
       padding: 0 18px;
       font: inherit;
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 700;
       cursor: pointer;
     }
@@ -848,7 +848,7 @@ const schema = {
       background: var(--bg);
       color: var(--fg-dim);
       padding: 0 11px;
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
       cursor: pointer;
     }
@@ -877,7 +877,7 @@ const schema = {
       gap: 20px;
       padding: 18px 0 12px;
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
@@ -927,7 +927,7 @@ const schema = {
       gap: 16px;
       margin-bottom: 28px;
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
@@ -938,7 +938,7 @@ const schema = {
 
     .entry-card h3 {
       color: var(--fg);
-      font-size: 20px;
+      font-size: var(--text-h3);
       line-height: 1.42;
       letter-spacing: -0.015em;
       overflow-wrap: anywhere;
@@ -950,8 +950,8 @@ const schema = {
       margin-top: 12px;
       overflow: hidden;
       color: var(--fg-dim);
-      font-size: 13px;
-      line-height: 1.68;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       word-break: keep-all;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
@@ -963,7 +963,7 @@ const schema = {
       gap: 6px 14px;
       margin-top: 18px;
       color: var(--fg-mute);
-      font-size: 10px;
+      font-size: var(--text-badge);
       line-height: 1.5;
     }
 
@@ -973,7 +973,7 @@ const schema = {
       gap: 5px 9px;
       margin-top: 10px;
       color: var(--fg-mute);
-      font-size: 10px;
+      font-size: var(--text-badge);
       line-height: 1.5;
     }
 
@@ -985,12 +985,12 @@ const schema = {
       margin-top: auto;
       padding-top: 20px;
       color: var(--fg);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
     .entry-link span {
-      font-size: 17px;
+      font-size: var(--text-lead);
     }
 
     .empty-state {
@@ -1007,13 +1007,13 @@ const schema = {
     .empty-state strong {
       display: block;
       color: var(--fg);
-      font-size: 22px;
+      font-size: var(--text-h2);
     }
 
     .empty-state p {
       margin: 8px 0 20px;
       color: var(--fg-mute);
-      font-size: 14px;
+      font-size: var(--text-desc);
     }
 
     .knowhow-footer {
@@ -1024,7 +1024,7 @@ const schema = {
       border-top: 1px solid var(--border);
       padding-top: 24px;
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--text-badge);
       line-height: 1.6;
     }
 
@@ -1106,11 +1106,6 @@ const schema = {
         padding-top: 8px;
       }
 
-      h1 {
-        font-size: 58px;
-        letter-spacing: -0.045em;
-      }
-
       .lead {
         font-size: 16px;
       }
@@ -1133,7 +1128,6 @@ const schema = {
 
       .hero-stats dd {
         margin-top: 0;
-        font-size: 20px;
       }
 
       .update-note {
@@ -1145,10 +1139,6 @@ const schema = {
       .section-head {
         grid-template-columns: 1fr;
         gap: 12px;
-      }
-
-      .section-head h2 {
-        font-size: 28px;
       }
 
       .section-head > p {
@@ -1167,7 +1157,6 @@ const schema = {
 
       .featured-primary h3 {
         margin-top: 58px;
-        font-size: 28px;
       }
 
       .featured-card:not(.featured-primary) {
@@ -1193,7 +1182,7 @@ const schema = {
       }
 
       .entry-card h3 {
-        font-size: 19px;
+        font-size: var(--text-h3);
       }
 
       .knowhow-footer {

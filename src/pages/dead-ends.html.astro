@@ -211,7 +211,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
       margin-bottom: 12px;
@@ -219,7 +219,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
 
     h1 {
       color: var(--fg);
-      font-size: clamp(48px, 8vw, 96px);
+      font-size: var(--text-h1);
       line-height: 0.95;
       margin: 0 0 20px;
     }
@@ -227,7 +227,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .lead {
       max-width: 640px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
       word-break: keep-all;
     }
@@ -250,7 +250,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
@@ -258,7 +258,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
       min-width: 0;
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 600;
       line-height: 1.45;
     }
@@ -277,16 +277,16 @@ const formatMonth = (month: string) => month.replace('-', '.');
 
     .section-head h2 {
       color: var(--fg);
-      font-size: 24px;
-      line-height: 1.25;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
     .section-head > p {
       max-width: 380px;
       color: var(--fg-mute);
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
       text-align: right;
       word-break: keep-all;
     }
@@ -302,7 +302,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
       min-height: 258px;
       flex-direction: column;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg);
       color: var(--fg);
       padding: 22px;
@@ -334,13 +334,13 @@ const formatMonth = (month: string) => month.replace('-', '.');
       margin-bottom: 14px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .dead-card strong {
       color: inherit;
-      font-size: 22px;
+      font-size: var(--text-h2);
       line-height: 1.32;
       margin-bottom: 12px;
       word-break: keep-all;
@@ -348,8 +348,8 @@ const formatMonth = (month: string) => month.replace('-', '.');
 
     .summary {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.7;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -363,7 +363,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
       border: 1px solid currentColor;
       border-radius: 999px;
       color: inherit;
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 700;
     }
 
@@ -387,14 +387,14 @@ const formatMonth = (month: string) => month.replace('-', '.');
       margin-bottom: 16px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .category-list strong {
       color: var(--fg);
-      font-size: 20px;
-      line-height: 1.25;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
     }
 
     .archive-list {
@@ -419,14 +419,14 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .month-block h3 {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 20px;
-      line-height: 1.25;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
       margin-bottom: 6px;
     }
 
     .month-block header span {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
     }
 
     .month-block ol {
@@ -458,7 +458,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .archive-date {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
     }
 
     .archive-body {
@@ -469,7 +469,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
 
     .archive-body strong {
       color: var(--fg);
-      font-size: 16px;
+      font-size: var(--text-lead);
       line-height: 1.45;
       word-break: keep-all;
     }
@@ -485,7 +485,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
       border: 1px solid var(--border);
       border-radius: 999px;
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-style: normal;
       line-height: 1.4;
       padding: 2px 8px;
@@ -499,7 +499,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .back-link {
       align-self: flex-start;
       color: var(--fg-mute);
-      font-size: 14px;
+      font-size: var(--text-desc);
       text-decoration: none;
     }
 
@@ -512,10 +512,6 @@ const formatMonth = (month: string) => month.replace('-', '.');
       .featured-grid,
       .month-block {
         grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 64px;
       }
 
       .lead {
@@ -543,10 +539,6 @@ const formatMonth = (month: string) => month.replace('-', '.');
       .dead-hero {
         gap: 34px;
         padding-top: 8px;
-      }
-
-      h1 {
-        font-size: 56px;
       }
 
       .hero-stats div,

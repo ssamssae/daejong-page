@@ -337,7 +337,7 @@ const totalLine =
     .cost-kicker,
     .section-kicker {
       color: var(--cost-blue);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 700;
       letter-spacing: 0;
       text-transform: uppercase;
@@ -347,7 +347,7 @@ const totalLine =
       max-width: 720px;
       margin-top: 12px;
       color: var(--fg);
-      font-size: 58px;
+      font-size: var(--text-h1);
       line-height: 1.04;
     }
 
@@ -355,7 +355,7 @@ const totalLine =
       max-width: 660px;
       margin-top: 20px;
       color: var(--fg-dim);
-      font-size: 17px;
+      font-size: var(--text-lead);
       line-height: 1.75;
     }
 
@@ -365,8 +365,8 @@ const totalLine =
       border-left: 3px solid var(--cost-blue);
       padding-left: 14px;
       color: var(--fg);
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .hero-metrics {
@@ -377,7 +377,7 @@ const totalLine =
 
     .hero-metric {
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg-elev);
       padding: 18px;
     }
@@ -388,7 +388,7 @@ const totalLine =
 
     .hero-metric dt {
       color: var(--fg-mute);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -396,7 +396,7 @@ const totalLine =
     .hero-metric dd {
       margin-top: 8px;
       color: var(--fg);
-      font-size: 34px;
+      font-size: var(--text-h2);
       font-weight: 700;
       line-height: 1.1;
     }
@@ -405,7 +405,7 @@ const totalLine =
       display: block;
       margin-top: 8px;
       color: var(--fg-dim);
-      font-size: 13px;
+      font-size: var(--text-desc);
     }
 
     .cost-section {
@@ -428,14 +428,14 @@ const totalLine =
     .source-note h2 {
       margin-top: 6px;
       color: var(--fg);
-      font-size: 24px;
-      line-height: 1.28;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .section-head p:not(.section-kicker) {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.7;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .category-grid {
@@ -447,7 +447,7 @@ const totalLine =
     .category-card {
       border: 1px solid var(--border);
       border-left: 3px solid var(--cat-color);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg-elev);
       padding: 18px;
       min-height: 210px;
@@ -458,7 +458,7 @@ const totalLine =
       justify-content: space-between;
       gap: 12px;
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -466,7 +466,7 @@ const totalLine =
     .category-card h3 {
       margin-top: 16px;
       color: var(--fg);
-      font-size: 17px;
+      font-size: var(--text-lead);
       line-height: 1.35;
     }
 
@@ -474,20 +474,20 @@ const totalLine =
       display: block;
       margin-top: 10px;
       color: var(--cat-color);
-      font-size: 25px;
+      font-size: var(--text-h2);
       line-height: 1.18;
     }
 
     .category-card p {
       margin-top: 12px;
       color: var(--fg-dim);
-      font-size: 13px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .chart-panel {
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg-elev);
       padding: 18px;
       overflow-x: auto;
@@ -503,7 +503,7 @@ const totalLine =
     .spend-chart text {
       fill: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
     }
 
     .chart-legend {
@@ -512,7 +512,7 @@ const totalLine =
       gap: 10px 16px;
       margin-top: 12px;
       color: var(--fg-dim);
-      font-size: 12px;
+      font-size: var(--text-meta);
     }
 
     .chart-legend span {
@@ -530,7 +530,7 @@ const totalLine =
 
     .table-wrap {
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg-elev);
       overflow-x: auto;
     }
@@ -547,8 +547,8 @@ const totalLine =
       padding: 12px 14px;
       text-align: left;
       vertical-align: top;
-      font-size: 13px;
-      line-height: 1.55;
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
     }
 
     th {
@@ -560,7 +560,7 @@ const totalLine =
     thead th {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--text-badge);
       text-transform: uppercase;
     }
 
@@ -592,7 +592,7 @@ const totalLine =
       display: block;
       margin-top: 4px;
       color: var(--fg-mute);
-      font-size: 12px;
+      font-size: var(--text-meta);
       line-height: 1.5;
     }
 
@@ -600,7 +600,7 @@ const totalLine =
       margin-top: 44px;
       border: 1px solid var(--border);
       border-left: 3px solid var(--cost-amber);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg-elev);
       padding: 22px;
     }
@@ -608,7 +608,7 @@ const totalLine =
     .source-note p {
       margin-top: 12px;
       color: var(--fg-dim);
-      font-size: 14px;
+      font-size: var(--text-desc);
       line-height: 1.72;
     }
 
@@ -616,8 +616,8 @@ const totalLine =
       margin-top: 14px;
       padding-left: 18px;
       color: var(--fg-dim);
-      font-size: 13px;
-      line-height: 1.7;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .cost-back {
@@ -625,7 +625,7 @@ const totalLine =
       margin-top: 28px;
       color: var(--fg-dim);
       text-decoration: none;
-      font-size: 13px;
+      font-size: var(--text-desc);
     }
 
     .cost-back:hover {
@@ -650,16 +650,8 @@ const totalLine =
         gap: 24px;
       }
 
-      .cost-hero h1 {
-        font-size: 40px;
-      }
-
       .cost-lead {
-        font-size: 15px;
-      }
-
-      .hero-metric dd {
-        font-size: 28px;
+        font-size: var(--text-body);
       }
 
       .category-grid {

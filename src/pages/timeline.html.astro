@@ -63,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
       margin-bottom: 12px;
@@ -71,7 +71,7 @@ import Layout from '../layouts/Layout.astro';
 
     .timeline-page h1 {
       color: var(--fg);
-      font-size: 96px;
+      font-size: var(--text-h1);
       line-height: 0.95;
       margin: 0 0 20px;
     }
@@ -79,7 +79,7 @@ import Layout from '../layouts/Layout.astro';
     .lead {
       max-width: 660px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
     }
 
@@ -101,14 +101,14 @@ import Layout from '../layouts/Layout.astro';
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 600;
       line-height: 1.45;
       min-width: 0;
@@ -124,15 +124,15 @@ import Layout from '../layouts/Layout.astro';
 
     .section-head h2 {
       color: var(--fg);
-      font-size: 28px;
-      line-height: 1.25;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .section-head p:last-child {
       max-width: 380px;
       color: var(--fg-mute);
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       text-align: right;
     }
 
@@ -148,13 +148,13 @@ import Layout from '../layouts/Layout.astro';
       gap: 18px;
       align-items: baseline;
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       margin-bottom: 16px;
     }
 
     .heatmap-title strong {
       color: var(--fg);
-      font-size: 15px;
+      font-size: var(--text-body);
       line-height: 1.4;
     }
 
@@ -242,7 +242,7 @@ import Layout from '../layouts/Layout.astro';
       gap: 6px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: var(--text-badge);
       margin-top: 12px;
     }
 
@@ -256,7 +256,7 @@ import Layout from '../layouts/Layout.astro';
       position: relative;
       min-height: 148px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg);
       padding: 16px;
     }
@@ -267,7 +267,7 @@ import Layout from '../layouts/Layout.astro';
       right: 14px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 600;
       line-height: 1;
     }
@@ -275,14 +275,14 @@ import Layout from '../layouts/Layout.astro';
     .ms-date {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       margin-bottom: 38px;
     }
 
     .ms-title {
       color: var(--fg);
-      font-size: 15px;
+      font-size: var(--text-body);
       font-weight: 700;
       line-height: 1.45;
       overflow-wrap: anywhere;
@@ -309,7 +309,7 @@ import Layout from '../layouts/Layout.astro';
     .er-date {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
@@ -320,7 +320,7 @@ import Layout from '../layouts/Layout.astro';
     .er-title strong {
       display: block;
       color: var(--fg);
-      font-size: 15px;
+      font-size: var(--text-body);
       font-weight: 700;
       line-height: 1.45;
       margin-bottom: 4px;
@@ -331,8 +331,8 @@ import Layout from '../layouts/Layout.astro';
     .er-title span {
       display: block;
       color: var(--fg-dim);
-      font-size: 13px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       overflow-wrap: anywhere;
       word-break: keep-all;
     }
@@ -350,7 +350,7 @@ import Layout from '../layouts/Layout.astro';
       border-radius: 999px;
       color: var(--fg-dim);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
       line-height: 1;
       padding: 6px 9px;
@@ -377,7 +377,7 @@ import Layout from '../layouts/Layout.astro';
     .timeline-footer a {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
     }
 
     @media (max-width: 920px) {
@@ -407,10 +407,6 @@ import Layout from '../layouts/Layout.astro';
     @media (max-width: 640px) {
       .timeline-page {
         gap: 44px;
-      }
-
-      .timeline-page h1 {
-        font-size: 56px;
       }
 
       .lead {

@@ -61,7 +61,7 @@ const sectionCount = sectionTitles.length;
     .back {
       color: var(--fg-dim);
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
       text-decoration: none;
     }
@@ -89,7 +89,7 @@ const sectionCount = sectionTitles.length;
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
       margin-bottom: 12px;
@@ -98,7 +98,7 @@ const sectionCount = sectionTitles.length;
     h1 {
       max-width: 860px;
       color: var(--fg);
-      font-size: 56px;
+      font-size: var(--text-h1);
       line-height: 1.08;
       margin: 0;
       word-break: keep-all;
@@ -107,7 +107,7 @@ const sectionCount = sectionTitles.length;
     .lead {
       max-width: 680px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
       margin-top: 22px;
       word-break: keep-all;
@@ -130,14 +130,14 @@ const sectionCount = sectionTitles.length;
 
     .detail-facts dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
     .detail-facts dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 15px;
+      font-size: var(--text-body);
       font-weight: 600;
       line-height: 1.45;
       min-width: 0;
@@ -160,7 +160,7 @@ const sectionCount = sectionTitles.length;
     .section-rail p {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       margin-bottom: 14px;
     }
@@ -181,13 +181,13 @@ const sectionCount = sectionTitles.length;
     .section-rail span {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .section-rail strong {
       color: var(--fg);
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 600;
       line-height: 1.45;
       word-break: keep-all;
@@ -196,15 +196,15 @@ const sectionCount = sectionTitles.length;
     .detail-prose {
       min-width: 0;
       max-width: 760px;
-      font-size: 16px;
+      font-size: var(--text-body);
       line-height: 1.85;
     }
 
     .detail-prose :global(h2) {
       border-top: 1px solid var(--border-soft);
       color: var(--fg);
-      font-size: 24px;
-      line-height: 1.3;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       margin: 52px 0 14px;
       padding-top: 24px;
     }
@@ -215,7 +215,7 @@ const sectionCount = sectionTitles.length;
 
     .detail-prose :global(h3) {
       color: var(--fg);
-      font-size: 18px;
+      font-size: var(--text-h3);
       line-height: 1.35;
       margin-top: 34px;
     }
@@ -252,10 +252,6 @@ const sectionCount = sectionTitles.length;
         grid-template-columns: 1fr;
       }
 
-      h1 {
-        font-size: 42px;
-      }
-
       .lead {
         font-size: 16px;
       }
@@ -284,10 +280,6 @@ const sectionCount = sectionTitles.length;
         margin-bottom: 36px;
       }
 
-      h1 {
-        font-size: 32px;
-      }
-
       .detail-facts div {
         grid-template-columns: 1fr;
       }
@@ -300,12 +292,7 @@ const sectionCount = sectionTitles.length;
         display: none;
       }
 
-      .detail-prose {
-        font-size: 15px;
-      }
-
       .detail-prose :global(h2) {
-        font-size: 22px;
         margin-top: 44px;
       }
     }

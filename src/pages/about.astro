@@ -206,7 +206,7 @@ const workshopRoutes = [
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       line-height: 1.4;
       margin-bottom: 12px;
@@ -214,7 +214,7 @@ const workshopRoutes = [
 
     .hero-copy h1 {
       max-width: 780px;
-      font-size: clamp(50px, 7vw, 82px);
+      font-size: var(--text-h1);
       line-height: 1.02;
       word-break: keep-all;
     }
@@ -223,7 +223,7 @@ const workshopRoutes = [
       max-width: 700px;
       margin-top: 26px;
       color: var(--fg-dim);
-      font-size: 20px;
+      font-size: var(--text-lead);
       line-height: 1.72;
       word-break: keep-all;
     }
@@ -242,9 +242,9 @@ const workshopRoutes = [
       min-height: 44px;
       padding: 0 18px;
       border: 1px solid var(--fg);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       color: var(--fg);
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 700;
       text-decoration: none;
     }
@@ -280,7 +280,7 @@ const workshopRoutes = [
       aspect-ratio: 3 / 4;
       margin: 0;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg-elev);
     }
 
@@ -304,12 +304,12 @@ const workshopRoutes = [
       /* 사진 위 글라스 칩. 글자는 var(--fg) 라 배경도 페이지와 같이 뒤집어야
          다크에서 밝은 유리 위 밝은 글자로 사라지지 않는다. */
       border: 1px solid color-mix(in srgb, var(--bg) 70%, transparent);
-      border-radius: 7px;
+      border-radius: var(--radius-btn);
       background: color-mix(in srgb, var(--bg) 88%, transparent);
       backdrop-filter: blur(12px);
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
@@ -327,14 +327,14 @@ const workshopRoutes = [
       gap: 4px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .profile-copy h2,
     .story-copy h2 {
       max-width: 650px;
-      font-size: 38px;
+      font-size: var(--text-h2);
       line-height: 1.18;
       word-break: keep-all;
     }
@@ -344,7 +344,7 @@ const workshopRoutes = [
       max-width: 680px;
       margin-top: 20px;
       color: var(--fg-dim);
-      font-size: 16px;
+      font-size: var(--text-body);
       line-height: 1.82;
       word-break: keep-all;
     }
@@ -362,15 +362,15 @@ const workshopRoutes = [
       margin-bottom: 7px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
     .facts dd {
       color: var(--fg);
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 700;
-      line-height: 1.55;
+      line-height: var(--leading-desc);
       word-break: keep-all;
     }
 
@@ -384,15 +384,15 @@ const workshopRoutes = [
 
     .section-head h2 {
       max-width: 720px;
-      font-size: 36px;
-      line-height: 1.2;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
     .section-head > p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -413,21 +413,21 @@ const workshopRoutes = [
     .principle-list span {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .principle-list strong {
       color: var(--fg);
-      font-size: 21px;
+      font-size: var(--text-h3);
       line-height: 1.35;
       word-break: keep-all;
     }
 
     .principle-list p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.7;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -461,35 +461,35 @@ const workshopRoutes = [
       gap: 16px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .route-card strong {
       margin-top: 40px;
-      font-size: 25px;
-      line-height: 1.25;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .route-body {
       margin-top: 14px;
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
     .route-link {
       margin-top: auto;
       padding-top: 30px;
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 700;
     }
 
     .now-note {
       padding: 22px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg-elev);
     }
 
@@ -500,7 +500,7 @@ const workshopRoutes = [
 
     .now-note strong {
       color: var(--fg);
-      font-size: 20px;
+      font-size: var(--text-h3);
       line-height: 1.35;
       word-break: keep-all;
     }
@@ -508,8 +508,8 @@ const workshopRoutes = [
     .now-note span {
       margin-top: 18px;
       color: var(--fg-dim);
-      font-size: 13px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .contact-section {
@@ -519,7 +519,7 @@ const workshopRoutes = [
       align-items: end;
       padding: 36px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--fg);
       color: var(--bg);
     }
@@ -533,14 +533,14 @@ const workshopRoutes = [
 
     .contact-section h2 {
       max-width: 640px;
-      font-size: 34px;
-      line-height: 1.2;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
     .contact-section p:not(.eyebrow) {
       margin-top: 12px;
-      font-size: 15px;
+      font-size: var(--text-body);
     }
 
     .contact-actions {
@@ -564,7 +564,7 @@ const workshopRoutes = [
 
     .text-link {
       color: color-mix(in srgb, var(--bg) 82%, transparent);
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 700;
       text-decoration: none;
     }
@@ -614,14 +614,6 @@ const workshopRoutes = [
         padding-top: 10px;
       }
 
-      .hero-copy h1 {
-        font-size: 40px;
-      }
-
-      .lead {
-        font-size: 17px;
-      }
-
       .hero-actions,
       .contact-actions {
         flex-direction: column;
@@ -630,13 +622,6 @@ const workshopRoutes = [
 
       .button {
         width: 100%;
-      }
-
-      .profile-copy h2,
-      .story-copy h2,
-      .section-head h2,
-      .contact-section h2 {
-        font-size: 29px;
       }
 
       .principle-list li,
