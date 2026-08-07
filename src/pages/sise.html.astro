@@ -49,20 +49,20 @@ import '../styles/lab.css';
   }
 
   /* ── 패널 (JS 렌더 컨테이너 — 다크 카드) ── */
-  .panel { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .panel { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 20px; margin-bottom: 16px; }
   .panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-  .panel-head h2 { font-size: 16px; font-weight: 700; color: var(--fg); }
-  .panel-head .meta { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); }
+  .panel-head h2 { font-size: var(--text-lead); font-weight: 700; color: var(--fg); }
+  .panel-head .meta { font-family: var(--mono); font-size: var(--text-meta); color: var(--fg-mute); }
 
   .search { display: flex; gap: 8px; margin-bottom: 14px; }
   .search input {
-    flex: 1; min-width: 0; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px;
-    font-size: 14px; font-family: inherit; background: var(--bg); color: var(--fg);
+    flex: 1; min-width: 0; border: 1px solid var(--border); border-radius: var(--radius-btn); padding: 12px 14px;
+    font-size: var(--text-desc); font-family: inherit; background: var(--bg); color: var(--fg);
   }
   .search input::placeholder { color: var(--fg-mute); }
   .search input:focus { outline: none; border-color: var(--page-accent); background: var(--bg-elev2); }
   .search button {
-    border: none; border-radius: 8px; padding: 0 18px; font-size: 14px; font-weight: 600;
+    border: none; border-radius: var(--radius-btn); padding: 0 18px; font-size: var(--text-desc); font-weight: 600;
     background: var(--page-accent); color: var(--bg); cursor: pointer; font-family: inherit;
   }
   .search button:active { background: var(--page-accent); filter: brightness(0.85); }
@@ -71,35 +71,35 @@ import '../styles/lab.css';
   .results.show { display: flex; }
   .result-row {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; cursor: pointer;
+    padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-btn); cursor: pointer;
   }
   .result-row:hover { background: var(--bg-elev2); }
-  .result-row .nm { font-size: 14px; font-weight: 600; color: var(--fg); }
-  .result-row .cd { font-size: 12px; color: var(--fg-mute); margin-left: 6px; font-weight: 400; }
-  .result-row .add { font-size: 12px; color: var(--page-accent); font-weight: 600; }
+  .result-row .nm { font-size: var(--text-desc); font-weight: 600; color: var(--fg); }
+  .result-row .cd { font-size: var(--text-meta); color: var(--fg-mute); margin-left: 6px; font-weight: 400; }
+  .result-row .add { font-size: var(--text-meta); color: var(--page-accent); font-weight: 600; }
 
   .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   @media (max-width: 480px) { .cards { grid-template-columns: 1fr; } }
   .card {
     position: relative; background: var(--bg); border: 1px solid var(--border);
-    border-left: 3px solid var(--page-accent); border-radius: 10px; padding: 14px;
+    border-left: 3px solid var(--page-accent); border-radius: var(--radius-card); padding: 14px;
   }
-  .card .nm { font-size: 14px; font-weight: 600; color: var(--fg); }
-  .card .cd { font-size: 11px; color: var(--fg-mute); margin-top: 1px; }
-  .card .price { font-size: 20px; font-weight: 700; color: var(--fg); margin-top: 10px; font-variant-numeric: tabular-nums; }
-  .card .chg { font-size: 13px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .card .nm { font-size: var(--text-desc); font-weight: 600; color: var(--fg); }
+  .card .cd { font-size: var(--text-badge); color: var(--fg-mute); margin-top: 1px; }
+  .card .price { font-size: var(--text-h3); font-weight: 700; color: var(--fg); margin-top: 10px; font-variant-numeric: tabular-nums; }
+  .card .chg { font-size: var(--text-desc); font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
   .card .chg.up { color: var(--up); }
   .card .chg.down { color: var(--down); }
   .card .chg.flat { color: var(--fg-mute); }
   .card .rm {
     position: absolute; top: 10px; right: 12px; width: 22px; height: 22px; border: none;
-    border-radius: 50%; background: var(--bg-elev2); color: var(--fg-mute); cursor: pointer; font-size: 14px; line-height: 1;
+    border-radius: 50%; background: var(--bg-elev2); color: var(--fg-mute); cursor: pointer; font-size: var(--text-desc); line-height: 1;
   }
   .card .rm:hover { background: var(--border); color: var(--fg-dim); }
 
-  .count { font-size: 12px; color: var(--fg-mute); }
-  .soon { color: var(--fg-mute); font-size: 13px; padding: 20px 0; text-align: center; }
-  .footnote { font-size: 11px; color: var(--fg-mute); text-align: center; margin-top: 20px; line-height: 1.6; }
+  .count { font-size: var(--text-meta); color: var(--fg-mute); }
+  .soon { color: var(--fg-mute); font-size: var(--text-desc); padding: 20px 0; text-align: center; }
+  .footnote { font-size: var(--text-badge); color: var(--fg-mute); text-align: center; margin-top: 20px; line-height: var(--leading-desc); }
   .footnote a { color: var(--fg-dim); }
     </style>
   </Fragment>

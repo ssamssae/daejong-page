@@ -223,7 +223,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
       margin-bottom: 12px;
@@ -231,7 +231,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     h1 {
       color: var(--fg);
-      font-size: 96px;
+      font-size: var(--text-h1);
       line-height: 0.95;
       margin: 0 0 20px;
     }
@@ -239,7 +239,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .lead {
       max-width: 640px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
     }
 
@@ -261,14 +261,14 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 600;
       line-height: 1.45;
       min-width: 0;
@@ -284,15 +284,15 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .section-head h2 {
       color: var(--fg);
-      font-size: 28px;
-      line-height: 1.25;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .section-head p:last-child {
       max-width: 380px;
       color: var(--fg-mute);
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       text-align: right;
     }
 
@@ -316,7 +316,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .archive-list small {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       min-width: 0;
     }
@@ -325,15 +325,15 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       color: var(--fg);
       display: block;
       font-family: var(--mono);
-      font-size: 34px;
+      font-size: var(--text-h2);
       line-height: 1;
       margin: 34px 0 12px;
     }
 
     .signal-grid p {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .latest-grid {
@@ -344,7 +344,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .issue-card {
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg);
       color: var(--fg);
       min-height: 260px;
@@ -382,7 +382,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .issue-card h3 {
       color: inherit;
-      font-size: 18px;
+      font-size: var(--text-h3);
       line-height: 1.38;
       margin-bottom: 12px;
       word-break: keep-all;
@@ -391,8 +391,8 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .issue-card p {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .badge-row {
@@ -407,7 +407,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       border-radius: 999px;
       color: var(--fg-dim);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: var(--text-badge);
       line-height: 1;
       padding: 6px 9px;
     }
@@ -449,13 +449,13 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .month-block h3 {
       color: var(--fg);
-      font-size: 22px;
-      line-height: 1.25;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .month-block header span {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
@@ -490,7 +490,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .month-block a > span {
       color: var(--fg);
-      font-size: 15px;
+      font-size: var(--text-body);
       line-height: 1.5;
       min-width: 0;
       overflow-wrap: anywhere;
@@ -515,16 +515,12 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .issues-footer a {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
     }
 
     @media (max-width: 900px) {
       .issues-hero {
         grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 72px;
       }
 
       .signal-grid,
@@ -542,10 +538,6 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
         gap: 52px;
       }
 
-      h1 {
-        font-size: 56px;
-      }
-
       .lead {
         font-size: 16px;
       }
@@ -553,10 +545,6 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       .section-head,
       .archive-head {
         display: block;
-      }
-
-      .section-head h2 {
-        font-size: 24px;
       }
 
       .section-head p:last-child {
