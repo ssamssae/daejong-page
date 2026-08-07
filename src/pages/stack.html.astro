@@ -719,7 +719,7 @@ const stackItems = [
         }
 
         .system-map {
-          min-height: 600px;
+          min-height: 660px;
         }
 
         .map-node,
@@ -728,12 +728,14 @@ const stackItems = [
           min-height: 70px;
         }
 
+        /* 실렌더 높이(아이콘+이름+서브텍스트 3줄)는 min-height:70px 가 아니라 ~95px —
+           행 간격을 그 실측치 기준으로 다시 잡는다(390px, T-260808-005). */
         .map-node.mac { left: 18px; top: 130px; }
         .map-node.raiden { right: 18px; top: 130px; }
-        .map-node.desktop { left: 18px; top: 318px; }
-        .map-node.notebook { right: 18px; top: 318px; }
-        .map-node.hub { top: 226px; }
-        .map-node.phone { bottom: 94px; }
+        .map-node.hub { top: 240px; }
+        .map-node.desktop { left: 18px; top: 350px; }
+        .map-node.notebook { right: 18px; top: 350px; }
+        .map-node.phone { bottom: 105px; }
         .map-caption { right: 18px; max-width: none; }
       }
     </style>
