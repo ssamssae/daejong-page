@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 const metrics = [
-  { value: '4', unit: 'stationary nodes', label: '상주 물리 노드' },
+  { value: '5', unit: 'stationary nodes', label: '상주 물리 노드' },
   { value: '4', unit: 'AI lanes', label: 'Claude 4 · Codex 대기' },
   { value: '2', unit: 'local GPUs', label: '2070S · 3060Ti' },
   { value: '24/7', unit: 'ready', label: '폰 한 줄로 기동' },
@@ -69,6 +69,15 @@ const nodes = [
     tags: ['RTX 3060Ti', 'LLM', 'voice', 'smart home'],
   },
   {
+    icon: '💻',
+    name: '노트북',
+    type: 'work',
+    hardware: 'MacBook Pro 14 · M5 · arm64 · macOS',
+    handle: '@hermes_ssamssae_bot',
+    role: '리뷰 레인 워커. 정책 변경 검토와 코드 작업을 함께 맡는 macOS 노드.',
+    tags: ['macOS', 'review lane', 'worker'],
+  },
+  {
     icon: '📱',
     name: 'iPhone',
     type: 'entry',
@@ -101,17 +110,17 @@ const stackItems = [
   'local GPU tools',
 ];
 ---
-<Layout title="STACK - 강대종" description="강대종이 실제로 굴리는 4노드 AI 작업장 시스템. 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름을 한 화면에 정리합니다.">
+<Layout title="STACK - 강대종" description="강대종이 실제로 굴리는 5노드 AI 작업장 시스템. 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름을 한 화면에 정리합니다.">
   <Fragment slot="head">
     <meta property="og:title" content="STACK - 강대종">
-    <meta property="og:description" content="4노드 AI 작업장 시스템 — 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
+    <meta property="og:description" content="5노드 AI 작업장 시스템 — 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://work.kangdaejong.com/stack.html">
     <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="STACK - 강대종">
-    <meta name="twitter:description" content="4노드 AI 작업장 시스템 — 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
+    <meta name="twitter:description" content="5노드 AI 작업장 시스템 — 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
     <link rel="canonical" href="https://work.kangdaejong.com/stack.html">
     <script type="application/ld+json" is:inline>
@@ -383,6 +392,7 @@ const stackItems = [
       .map-node.mac { left: 34px; top: 148px; }
       .map-node.raiden { right: 34px; top: 148px; }
       .map-node.desktop { left: 34px; top: 326px; }
+      .map-node.notebook { right: 34px; top: 326px; }
       .map-node.phone { left: 50%; bottom: 82px; transform: translateX(-50%); }
       .map-node.hub { left: 50%; top: 236px; transform: translateX(-50%); }
 
@@ -721,6 +731,7 @@ const stackItems = [
         .map-node.mac { left: 18px; top: 130px; }
         .map-node.raiden { right: 18px; top: 130px; }
         .map-node.desktop { left: 18px; top: 318px; }
+        .map-node.notebook { right: 18px; top: 318px; }
         .map-node.hub { top: 226px; }
         .map-node.phone { bottom: 94px; }
         .map-caption { right: 18px; max-width: none; }
@@ -732,7 +743,7 @@ const stackItems = [
     <section class="stack-hero">
       <div>
         <div class="stack-kicker">OPERATING STACK</div>
-        <h1>혼자 굴리는 4노드 AI 작업장</h1>
+        <h1>혼자 굴리는 5노드 AI 작업장</h1>
         <p class="stack-lead">
           앱, 글, 배포, 자동화를 한 사람이 처리하기 위해 만든 실제 운영 시스템입니다.
           판단은 본진에 남기고, 손이 필요한 일은 Claude 레인과 물리 노드로 흘립니다.
@@ -752,7 +763,7 @@ const stackItems = [
         </div>
       </div>
 
-      <div class="system-map" role="img" aria-label="4노드 작업장 시스템 맵">
+      <div class="system-map" role="img" aria-label="5노드 작업장 시스템 맵">
         <div class="map-title">hub-and-spoke mesh · tailscale boundary</div>
         <svg class="map-svg" viewBox="0 0 600 560" aria-hidden="true">
           <defs>
@@ -763,12 +774,14 @@ const stackItems = [
           <line class="map-link" x1="300" y1="278" x2="116" y2="186" stroke-width="2" marker-end="url(#stack-arrow)"></line>
           <line class="map-link" x1="300" y1="278" x2="484" y2="186" stroke-width="2" marker-end="url(#stack-arrow)"></line>
           <line class="map-link" x1="300" y1="318" x2="116" y2="372" stroke-width="2" marker-end="url(#stack-arrow)"></line>
+          <line class="map-link" x1="300" y1="318" x2="484" y2="372" stroke-width="2" marker-end="url(#stack-arrow)"></line>
           <line class="map-link is-warn" x1="300" y1="330" x2="300" y2="472" stroke-width="2" stroke-dasharray="6 5"></line>
         </svg>
         <div class="map-node mac"><span class="map-icon">🏭</span><strong>맥미니</strong><span>build node</span></div>
         <div class="map-node raiden"><span class="map-icon">🪟</span><strong>라이덴</strong><span>wsl worker</span></div>
         <div class="map-node hub"><span class="map-icon">🍎</span><strong>본진</strong><span>control plane</span></div>
         <div class="map-node desktop"><span class="map-icon">🖥</span><strong>데스크탑</strong><span>gpu lab</span></div>
+        <div class="map-node notebook"><span class="map-icon">💻</span><strong>노트북</strong><span>review lane</span></div>
         <div class="map-node phone"><span class="map-icon">📱</span><strong>iPhone</strong><span>command surface</span></div>
         <p class="map-caption">
           실선은 본진이 노드로 작업을 배차하는 경로, 점선은 모바일 입력면입니다.
