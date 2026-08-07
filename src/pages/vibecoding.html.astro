@@ -2,12 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 
 // '활성 스킬' 기준 = 사이트 skills 카탈로그(src/pages/skills.html.astro)의 등재 수.
-// 숫자를 바꿀 때는 그 카탈로그를 기준으로 맞춘다 (T-260722-019).
+// '물리 기기'/'논리 노드' 기준 = claude-automations/policy/routes.yaml nodes: 선언 수
+// (물리 = 노드 항목 수, 논리 = 노드당 claude_tmux+codex_tmux 2레인 선언 수). retired 레인
+// (예: powershell_claude)은 세지 않는다.
+// '제작 기간' 기준 = claude-automations 최초 커밋일(2026-04-20, git log --reverse) ~ 갱신일.
+// 숫자를 바꿀 때는 위 1차 소스를 기준으로 맞춘다 (T-260722-019, T-260807-030).
 const stats = [
   { label: '활성 스킬', value: '50' },
-  { label: '물리 기기', value: '4' },
-  { label: '논리 노드', value: '8' },
-  { label: '제작 기간', value: '약 7주' },
+  { label: '물리 기기', value: '5' },
+  { label: '논리 노드', value: '10' },
+  { label: '제작 기간', value: '약 16주' },
 ];
 
 const timeline = [
@@ -75,13 +79,30 @@ const timeline = [
       '본진은 거버넌스 게이트로 물러나고 자동 실행은 워커가 맡았다. 대신 증거 게이트, 원장, 가드 마커, 컨텍스트 하드클리어 같은 재발방지 장치가 들어갔다.',
     tags: ['action-ledger', 'sot-mark', 'evidence gate'],
   },
+  {
+    period: '2026.07.17 - 07.23',
+    stage: '09',
+    title: '하드웨어 세대교체와 실행 엔진 단일화',
+    summary:
+      '오래된 노트북이 물리적으로 은퇴했지만 노드 슬롯과 이력은 새 맥북이 그대로 승계해 5노드 체제를 유지했다. 같은 시기 보조로 쓰던 두 번째 실행 엔진은 자동 배차를 끄고 휴면 채널로만 남겼다.',
+    tags: ['node succession', 'single execution engine', '5-node roster'],
+  },
+  {
+    period: '2026.07.26 - 08.07',
+    stage: '10',
+    title: '2오케 팀 분할 실험과 자기교정',
+    summary:
+      '배차 권한을 팀 단위로 쪼개 오케 2명 체제를 시도했지만, 산출량은 그대로인 채 사고만 늘었다는 실측 근거로 13일 만에 단일팀으로 되돌렸다. 대신 머지 게이트는 작성자와 승인자를 분리하는 규칙으로 못박아 되돌린 자리에 남겼다.',
+    tags: ['team split retro', 'author-not-merger', 'single team'],
+  },
 ];
 
 const nodes = [
-  { name: 'Mac 본진', role: '정책, 머지, 최종 승인', lane: 'governance' },
-  { name: '라이덴 WSL', role: '코드 수정, 분석, 로컬 검증', lane: 'execution' },
-  { name: 'Mac mini', role: '자동 사이클, 빌드, 오케스트레이션', lane: 'orchestration' },
-  { name: 'Desktop 3060Ti', role: 'GPU 실험, 장기 실행, 보조 워커', lane: 'compute' },
+  { name: 'Mac 본진 (아테나)', role: '정책, 배차, 머지 게이트, 최종 승인', lane: 'governance' },
+  { name: '맥북프로14 (헤르메스)', role: '코드 작업, 브랜치·PR, 머지 승인(로스터 3노드 중 1)', lane: 'execution' },
+  { name: 'Desktop 3060Ti (테미스)', role: '코드 작업, 리뷰 레인, 머지 승인(로스터 3노드 중 1)', lane: 'execution' },
+  { name: 'WSL (라이덴)', role: 'CPU 집약 작업(대량 테스트·컴파일) 우선 배정', lane: 'compute' },
+  { name: 'Mac mini (볼칸)', role: '빌드, 배포, 스토어 제출 전담 손', lane: 'orchestration' },
 ];
 
 const flow = [
@@ -108,14 +129,14 @@ const safeguards = [
 >
   <Fragment slot="head">
     <meta property="og:title" content="에이전트 바이브코딩 변천사 - 강대종" />
-    <meta property="og:description" content="물리 4대, 논리 8노드, 스킬 50개로 확장된 바이브코딩 시스템 기록." />
+    <meta property="og:description" content="물리 5대, 논리 10노드, 스킬 50개로 확장된 바이브코딩 시스템 기록." />
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://work.kangdaejong.com/vibecoding.html" />
     <meta property="og:site_name" content="강대종 작업장" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="에이전트 바이브코딩 변천사 - 강대종" />
-    <meta name="twitter:description" content="물리 4대, 논리 8노드, 스킬 50개로 확장된 바이브코딩 시스템 기록." />
+    <meta name="twitter:description" content="물리 5대, 논리 10노드, 스킬 50개로 확장된 바이브코딩 시스템 기록." />
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
     <link rel="canonical" href="https://work.kangdaejong.com/vibecoding.html" />
   </Fragment>
@@ -126,7 +147,7 @@ const safeguards = [
         <p class="eyebrow">AGENTIC VIBECODING REPORT</p>
         <h1 id="page-title">에이전트 바이브코딩 변천사</h1>
         <p class="lead">
-          반복 작업을 줄이려고 만든 작은 슬래시 커맨드가 물리 4대, 논리 8노드,
+          반복 작업을 줄이려고 만든 작은 슬래시 커맨드가 물리 5대, 논리 10노드,
           스킬 50개를 가진 작업 시스템으로 커졌다. 이 페이지는 기능 목록이 아니라
           어디서 복잡해졌고, 어디서 다시 줄였는지 보는 변화 기록이다.
         </p>
@@ -245,7 +266,7 @@ const safeguards = [
     </section>
 
     <footer class="vibe-footer">
-      <p>마지막 갱신 2026.07.22</p>
+      <p>마지막 갱신 2026.08.07</p>
       <a href="/lab/">lab으로 돌아가기</a>
     </footer>
   </article>
