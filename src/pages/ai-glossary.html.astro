@@ -352,7 +352,7 @@ import '../styles/lab.css';
         <dl class="hero-stats" aria-label="AI 용어집 요약">
           <div>
             <dt>누적 용어</dt>
-            <dd><!--AUTO-HERO-TERMS-START-->607<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
+            <dd><!--AUTO-HERO-TERMS-START-->619<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
           </div>
           <div>
             <dt>카테고리</dt>
@@ -1769,6 +1769,18 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-05-sam-altman-startup-exponentials-bzcf.md</span>
     </div>
 
+    <div class="term">
+      <h3>소프트웨어 아키텍처</h3>
+      <p>비즈니스 요구사항과 품질 속성을 만족시키기 위한 시스템 전체 구조와 설계 결정.</p>
+      <span class="src">영상: 2026-08-07-chatgpt-gemini-claude-nondev-vibecoding.md</span>
+    </div>
+
+    <div class="term">
+      <h3>RAG (검색 증강 생성)</h3>
+      <p>질문이 들어오면 관련 자료를 검색해 모델 입력에 붙여 주는 표준 패턴 — 검색 방법이 벡터 검색 하나로 정해진 것은 아니다.</p>
+      <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -1943,6 +1955,12 @@ import '../styles/lab.css';
       <h3>토큰</h3>
       <p>LLM 이 입출력을 세는 단위이자 과금·컨텍스트 윈도우의 기준.</p>
       <span class="src">영상: 2026-07-09-claude-image-token-savings-jocoding.md</span>
+    </div>
+
+    <div class="term">
+      <h3>컨텍스트 윈도우</h3>
+      <p>모델이 한 번에 읽을 수 있는 입력 한도. 100만 토큰까지 커져도 실제로 정확히 쓸 수 있는 양이 그만큼 늘어난 건 아니다.</p>
+      <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
     </div>
 
     <h2>도구 통신 (MCP · CLI · API)</h2>
@@ -2185,6 +2203,24 @@ import '../styles/lab.css';
       <h3>HTML blocks (Notion)</h3>
       <p>노션 페이지 안에 에이전트가 인터랙티브 시뮬레이션을 직접 심을 수 있게 한 기능.</p>
       <span class="src">영상: 2026-08-04-explain-diff-microworld-understanding-agentos.md</span>
+    </div>
+
+    <div class="term">
+      <h3>API</h3>
+      <p>프론트엔드·백엔드·외부 서비스가 데이터를 주고받는 통신 규격.</p>
+      <span class="src">영상: 2026-08-07-chatgpt-gemini-claude-nondev-vibecoding.md</span>
+    </div>
+
+    <div class="term">
+      <h3>인증(Authentication)</h3>
+      <p>사용자가 본인임을 확인시키는 로그인·보안 절차.</p>
+      <span class="src">영상: 2026-08-07-chatgpt-gemini-claude-nondev-vibecoding.md</span>
+    </div>
+
+    <div class="term">
+      <h3>벡터 데이터베이스 · 임베딩</h3>
+      <p>문장을 수치 벡터로 바꿔 유사도로 찾게 하는 검색 인프라 — RAG의 여러 구현 수단 중 하나일 뿐.</p>
+      <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
     </div>
 
     <h2>지식 · 컨텍스트 자산</h2>
@@ -2477,6 +2513,18 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-04-radical-ai-materials-agi-krause.md</span>
     </div>
 
+    <div class="term">
+      <h3>LLM 위키</h3>
+      <p>원본은 그대로 두고 자주 쓰는 설명만 미리 편집해 둔 파생 레이어. 카파시의 개인 지식 베이스 아이디어 기반으로 이 영상이 붙인 이름(업계 표준 용어 아님).</p>
+      <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
+    </div>
+
+    <div class="term">
+      <h3>스키마.md</h3>
+      <p>AI의 기억 자체가 아니라 그 기억을 어떻게 관리할지 적어두는 규칙 문서 — 스킬.md가 에이전트의 업무 매뉴얼이라면 이건 데이터 설계도.</p>
+      <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
+    </div>
+
     <h2>워크플로우 · 문화</h2>
 
     <div class="term">
@@ -2572,7 +2620,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>바이브 코딩</h3>
       <p>사람이 매 줄 짚지 않고 AI 에게 의도·분위기만 주고 코딩을 흘려보내는 협업 스타일.</p>
-      <span class="src">영상: 2026-05-27-vibe-coding-3-principles-baeper.md, 2026-07-07-enterprise-ai-agent-adoption-kodingnuna.md</span>
+      <span class="src">영상: 2026-05-27-vibe-coding-3-principles-baeper.md, 2026-07-07-enterprise-ai-agent-adoption-kodingnuna.md, 2026-08-07-chatgpt-gemini-claude-nondev-vibecoding.md</span>
     </div>
 
     <div class="term">
@@ -3265,6 +3313,18 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-05-sam-altman-startup-exponentials-bzcf.md</span>
     </div>
 
+    <div class="term">
+      <h3>프롬프트 능력</h3>
+      <p>AI에게 원하는 결과를 구체적으로 요청해 결과 품질을 끌어올리는 능력.</p>
+      <span class="src">영상: 2026-08-07-chatgpt-gemini-claude-nondev-vibecoding.md</span>
+    </div>
+
+    <div class="term">
+      <h3>승격</h3>
+      <p>원문을 정리본으로(회사에선 개인 지식을 팀 지식으로) 올릴지 사람이 검토·승인하는 관문. 이 한 단계를 빼면 지식 베이스는 곧바로 쓰레기장이 된다.</p>
+      <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
+    </div>
+
     <h2>커리어 · 조직</h2>
 
     <div class="term">
@@ -3735,6 +3795,18 @@ import '../styles/lab.css';
       <h3>pre-seed round (프리시드 라운드)</h3>
       <p>시드 투자 이전 단계의 초기 자금 조달. 이 회사는 이 라운드를 45분 만에, 단일 투자자에게서 마쳤다고 말한다.</p>
       <span class="src">영상: 2026-08-04-radical-ai-materials-agi-krause.md</span>
+    </div>
+
+    <div class="term">
+      <h3>결제 연동</h3>
+      <p>앱에 실제 과금 기능을 붙이는 작업 — 보안·세무·사업자 등록까지 포함.</p>
+      <span class="src">영상: 2026-08-07-chatgpt-gemini-claude-nondev-vibecoding.md</span>
+    </div>
+
+    <div class="term">
+      <h3>호스팅 · 배포</h3>
+      <p>만든 앱을 실제 서버에 올려 사용자가 쓸 수 있게 만드는 과정.</p>
+      <span class="src">영상: 2026-08-07-chatgpt-gemini-claude-nondev-vibecoding.md</span>
     </div>
 
     <h2>기타</h2>
