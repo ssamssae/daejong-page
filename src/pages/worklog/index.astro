@@ -123,7 +123,7 @@ const monthLabel = (month: string) => {
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
       margin-bottom: 12px;
@@ -131,7 +131,7 @@ const monthLabel = (month: string) => {
 
     h1 {
       color: var(--fg);
-      font-size: clamp(48px, 8vw, 96px);
+      font-size: var(--text-h1);
       line-height: 0.95;
       margin: 0 0 20px;
     }
@@ -139,7 +139,7 @@ const monthLabel = (month: string) => {
     .lead {
       max-width: 640px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
     }
 
@@ -161,14 +161,14 @@ const monthLabel = (month: string) => {
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 600;
       line-height: 1.45;
       min-width: 0;
@@ -189,14 +189,14 @@ const monthLabel = (month: string) => {
 
     .section-head h2 {
       color: var(--fg);
-      font-size: 24px;
-      line-height: 1.25;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .section-head p:last-child {
       max-width: 360px;
       color: var(--fg-mute);
-      font-size: 14px;
+      font-size: var(--text-desc);
       text-align: right;
     }
 
@@ -212,7 +212,7 @@ const monthLabel = (month: string) => {
 
     .recent-card {
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg);
       min-height: 260px;
     }
@@ -238,13 +238,13 @@ const monthLabel = (month: string) => {
     }
 
     .recent-card.primary a:hover {
-      background: #1c1c1c;
+      background: color-mix(in srgb, var(--fg) 95.4%, var(--bg));
     }
 
     .card-index {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       margin-bottom: 52px;
     }
@@ -252,31 +252,31 @@ const monthLabel = (month: string) => {
     .primary .card-index,
     .primary .card-date,
     .primary p {
-      color: #d7d7d7;
+      color: color-mix(in srgb, var(--bg) 83.2%, var(--fg));
     }
 
     .card-date {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       margin-bottom: 14px;
     }
 
     .recent-card h3 {
       color: inherit;
-      font-size: 22px;
+      font-size: var(--text-h2);
       line-height: 1.32;
       margin-bottom: 12px;
     }
 
     .recent-card p {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.7;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .recent-card.primary p {
-      color: #d7d7d7;
+      color: color-mix(in srgb, var(--bg) 83.2%, var(--fg));
     }
 
     .read-more {
@@ -289,7 +289,7 @@ const monthLabel = (month: string) => {
       border: 1px solid currentColor;
       border-radius: 999px;
       color: inherit;
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 700;
     }
 
@@ -315,14 +315,14 @@ const monthLabel = (month: string) => {
     .month-block h3 {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 20px;
-      line-height: 1.25;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
       margin-bottom: 6px;
     }
 
     .month-block header span {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
     }
 
     .month-block ol {
@@ -355,12 +355,12 @@ const monthLabel = (month: string) => {
     .month-block small {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
     }
 
     .month-block a > span {
       min-width: 0;
-      font-size: 15px;
+      font-size: var(--text-body);
       font-weight: 600;
       line-height: 1.5;
     }
@@ -397,10 +397,6 @@ const monthLabel = (month: string) => {
       .worklog-hero {
         padding-top: 8px;
         margin-bottom: 36px;
-      }
-
-      h1 {
-        font-size: 56px;
       }
 
       .lead {

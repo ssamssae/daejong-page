@@ -191,7 +191,7 @@ const safeguards = [
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
       margin-bottom: 12px;
@@ -199,7 +199,7 @@ const safeguards = [
 
     h1 {
       color: var(--fg);
-      font-size: 96px;
+      font-size: var(--text-h1);
       line-height: 0.95;
       margin: 0 0 20px;
     }
@@ -207,7 +207,7 @@ const safeguards = [
     .lead {
       max-width: 680px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
       word-break: keep-all;
     }
@@ -230,21 +230,21 @@ const safeguards = [
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 600;
       line-height: 1.45;
     }
 
     .hero-summary {
       color: var(--fg-dim);
-      font-size: 13px;
+      font-size: var(--text-desc);
       line-height: 1.45;
       margin-top: 12px;
       white-space: nowrap;
@@ -265,15 +265,15 @@ const safeguards = [
 
     .section-head h2 {
       color: var(--fg);
-      font-size: 34px;
-      line-height: 1.2;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
     .section-head > p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -296,21 +296,21 @@ const safeguards = [
     .label {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .flow-list strong {
       color: var(--fg);
-      font-size: 20px;
-      line-height: 1.28;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
     .flow-list p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -344,22 +344,22 @@ const safeguards = [
       gap: 16px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       margin-bottom: 42px;
     }
 
     .module-card strong {
       color: var(--fg);
-      font-size: 24px;
+      font-size: var(--text-h2);
       line-height: 1.22;
       margin-bottom: 12px;
     }
 
     .module-card > span:last-child {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
       margin-top: auto;
       word-break: keep-all;
     }
@@ -380,15 +380,15 @@ const safeguards = [
 
     .safeguard-list dt {
       color: var(--fg);
-      font-size: 18px;
+      font-size: var(--text-lead);
       font-weight: 700;
       line-height: 1.3;
     }
 
     .safeguard-list dd {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -399,10 +399,6 @@ const safeguards = [
       .module-grid,
       .safeguard-list div {
         grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 64px;
       }
 
       .lead {
@@ -428,20 +424,12 @@ const safeguards = [
         padding-top: 8px;
       }
 
-      h1 {
-        font-size: 56px;
-      }
-
       .hero-stats div {
         grid-template-columns: 1fr;
       }
 
       .hero-summary {
         white-space: normal;
-      }
-
-      .section-head h2 {
-        font-size: 28px;
       }
 
       .module-card {

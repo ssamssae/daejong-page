@@ -134,22 +134,22 @@ const rules = [
       .auto-section-head { margin-bottom: 14px; }
       .auto-kicker {
         font-family: var(--mono);
-        font-size: 11px;
+        font-size: var(--text-badge);
         color: var(--page-accent);
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: var(--track-eyebrow);
         margin-bottom: 5px;
       }
       .auto-section h2 {
-        font-size: 21px;
+        font-size: var(--text-h3);
         line-height: 1.35;
         color: var(--fg);
       }
       .auto-section-head p {
         max-width: 680px;
         margin-top: 8px;
-        font-size: 14px;
-        line-height: 1.7;
+        font-size: var(--text-desc);
+        line-height: var(--leading-body);
       }
       .auto-layer-grid {
         display: grid;
@@ -161,7 +161,7 @@ const rules = [
       .auto-retired,
       .auto-rule {
         border: 1px solid var(--border);
-        border-radius: 10px;
+        border-radius: var(--radius-card);
         background: var(--bg-elev);
       }
       .auto-layer {
@@ -181,18 +181,18 @@ const rules = [
       }
       .auto-layer-num {
         font-family: var(--mono);
-        font-size: 12px;
+        font-size: var(--text-meta);
         color: var(--fg-mute);
       }
       .auto-layer h3 {
-        font-size: 16px;
+        font-size: var(--text-h3);
         line-height: 1.45;
         color: var(--fg);
       }
       .auto-layer p {
         margin-top: 8px;
-        font-size: 13px;
-        line-height: 1.7;
+        font-size: var(--text-desc);
+        line-height: var(--leading-body);
       }
       .auto-tags {
         display: flex;
@@ -202,10 +202,10 @@ const rules = [
       }
       .auto-tags span {
         font-family: var(--mono);
-        font-size: 10px;
+        font-size: var(--text-badge);
         color: var(--fg-dim);
         border: 1px solid var(--border);
-        border-radius: 6px;
+        border-radius: var(--radius-btn);
         background: var(--bg-elev2);
         padding: 2px 7px;
       }
@@ -221,12 +221,12 @@ const rules = [
       .auto-pipeline b {
         display: block;
         color: var(--fg);
-        font-size: 14px;
+        font-size: var(--text-desc);
         margin-bottom: 6px;
       }
       .auto-pipeline p {
-        font-size: 12.5px;
-        line-height: 1.65;
+        font-size: var(--text-meta);
+        line-height: var(--leading-body);
       }
       .auto-retired-list {
         display: flex;
@@ -247,19 +247,19 @@ const rules = [
       }
       .auto-retired b {
         color: var(--fg);
-        font-size: 13px;
+        font-size: var(--text-desc);
         line-height: 1.45;
       }
       .auto-retired span {
         color: var(--fg-dim);
-        font-size: 12.5px;
-        line-height: 1.55;
+        font-size: var(--text-meta);
+        line-height: var(--leading-desc);
       }
       .auto-retired em {
         color: var(--danger);
         font-family: var(--mono);
         font-style: normal;
-        font-size: 11px;
+        font-size: var(--text-badge);
         white-space: nowrap;
       }
       .auto-rules {
@@ -270,8 +270,8 @@ const rules = [
       .auto-rule {
         padding: 13px 15px;
         color: var(--fg-dim);
-        font-size: 13px;
-        line-height: 1.65;
+        font-size: var(--text-desc);
+        line-height: var(--leading-body);
       }
       .auto-link-row {
         display: flex;
@@ -285,11 +285,11 @@ const rules = [
         min-height: 36px;
         padding: 0 12px;
         border: 1px solid var(--border);
-        border-radius: 8px;
+        border-radius: var(--radius-btn);
         color: var(--fg);
         background: var(--bg-elev);
         text-decoration: none;
-        font-size: 13px;
+        font-size: var(--text-desc);
       }
       .auto-link-row a:hover {
         border-color: var(--page-accent);

@@ -136,7 +136,7 @@ const featured = [saas[0], apps[0], apps[1]];
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
       margin-bottom: 12px;
@@ -144,7 +144,7 @@ const featured = [saas[0], apps[0], apps[1]];
 
     h1 {
       color: var(--fg);
-      font-size: clamp(48px, 8vw, 96px);
+      font-size: var(--text-h1);
       line-height: 0.95;
       margin: 0 0 20px;
     }
@@ -152,7 +152,7 @@ const featured = [saas[0], apps[0], apps[1]];
     .lead {
       max-width: 640px;
       color: var(--fg-dim);
-      font-size: 18px;
+      font-size: var(--text-lead);
       line-height: 1.75;
     }
 
@@ -174,14 +174,14 @@ const featured = [saas[0], apps[0], apps[1]];
 
     .hero-stats dt {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 600;
       line-height: 1.45;
       min-width: 0;
@@ -206,14 +206,14 @@ const featured = [saas[0], apps[0], apps[1]];
 
     .section-head h2 {
       color: var(--fg);
-      font-size: 24px;
-      line-height: 1.25;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .section-head p:last-child {
       max-width: 360px;
       color: var(--fg-mute);
-      font-size: 14px;
+      font-size: var(--text-desc);
       text-align: right;
     }
 
@@ -231,7 +231,7 @@ const featured = [saas[0], apps[0], apps[1]];
       min-height: 260px;
       padding: 22px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--bg);
       display: flex;
       flex-direction: column;
@@ -249,7 +249,7 @@ const featured = [saas[0], apps[0], apps[1]];
       gap: 16px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       min-height: 64px;
     }
@@ -257,20 +257,20 @@ const featured = [saas[0], apps[0], apps[1]];
     .primary .card-topline,
     .primary p,
     .primary .product-links a {
-      color: #d7d7d7;
+      color: color-mix(in srgb, var(--bg) 83.2%, var(--fg));
     }
 
     .product-card h3 {
       color: inherit;
-      font-size: 22px;
+      font-size: var(--text-h2);
       line-height: 1.32;
       margin-bottom: 12px;
     }
 
     .product-card p {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.7;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
     }
 
     .product-links,
@@ -293,7 +293,7 @@ const featured = [saas[0], apps[0], apps[1]];
       border: 1px solid currentColor;
       border-radius: 999px;
       color: var(--fg);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 700;
       text-decoration: none;
     }
@@ -324,15 +324,15 @@ const featured = [saas[0], apps[0], apps[1]];
     .catalog-block h3 {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 20px;
-      line-height: 1.25;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
       margin-bottom: 6px;
       word-break: keep-all;
     }
 
     .catalog-block header span {
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--text-desc);
     }
 
     .catalog-block ol {
@@ -353,7 +353,7 @@ const featured = [saas[0], apps[0], apps[1]];
     .item-main strong {
       display: block;
       color: var(--fg);
-      font-size: 16px;
+      font-size: var(--text-lead);
       line-height: 1.45;
       margin-bottom: 6px;
     }
@@ -362,14 +362,14 @@ const featured = [saas[0], apps[0], apps[1]];
       display: block;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       margin-bottom: 10px;
     }
 
     .item-main p {
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.7;
+      font-size: var(--text-desc);
+      line-height: var(--leading-body);
       max-width: 680px;
     }
 
@@ -415,10 +415,6 @@ const featured = [saas[0], apps[0], apps[1]];
       .products-hero {
         padding-top: 8px;
         margin-bottom: 36px;
-      }
-
-      h1 {
-        font-size: 56px;
       }
 
       .lead {

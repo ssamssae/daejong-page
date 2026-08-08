@@ -20,6 +20,9 @@ const epNum = (entry) => parseInt(String(entry.id).replace(/\D/g, ''), 10) || 0;
 const allNewsletter = (await getCollection('newsletter')).sort((a, b) => epNum(b) - epNum(a));
 const recentNewsletter = allNewsletter.slice(0, 4);
 
+const allInsights = (await getCollection('insights')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+const recentInsights = allInsights.slice(0, 4);
+
 const stats = [
   { label: '제품', value: apps.length + tools.length + saas.length + ebooks.length, detail: `앱 ${apps.length} · 도구 ${tools.length} · SaaS ${saas.length} · 전자책 ${ebooks.length}` },
   { label: '작업일지', value: allWorklog.length, detail: '매일의 빌드 로그' },
@@ -29,10 +32,11 @@ const stats = [
 const routes = [
   { href: '/products/', label: '01', kicker: 'PRODUCTS', title: '제품', desc: '공개한 모바일 앱, 오픈소스 도구, 준비 중인 웹 SaaS를 한 화면에서 봅니다.' },
   { href: '/worklog/', label: '02', kicker: 'WORKLOG', title: '작업일지', desc: '하루 단위로 무엇을 만들고 고쳤는지 남긴 빌드 로그입니다.' },
-  { href: '/newsletter/', label: '03', kicker: 'NEWSLETTER', title: '뉴스레터', desc: '바이브코딩과 1인 앱 제작 과정을 에피소드로 정리합니다.' },
-  { href: '/insights/', label: '04', kicker: 'INSIGHTS', title: '인사이트', desc: '영상과 아티클에서 뽑은 학습 노트를 모아둡니다.' },
-  { href: '/system/', label: '05', kicker: 'SYSTEM', title: '시스템', desc: '물리 노드와 자동화 스택의 구조를 기록합니다.' },
-  { href: '/lab/', label: '06', kicker: 'LAB', title: 'lab', desc: '실험, 잡학, 접은 시도까지 작업의 주변부를 보관합니다.' },
+  { href: '/timeline.html/', label: '03', kicker: 'TIMELINE', title: '개발 타임라인', desc: '첫 코드부터 지금까지의 출시, 인프라, 큰 결정을 시간순으로 훑습니다.' },
+  { href: '/newsletter/', label: '04', kicker: 'NEWSLETTER', title: '뉴스레터', desc: '바이브코딩과 1인 앱 제작 과정을 에피소드로 정리합니다.' },
+  { href: '/insights/', label: '05', kicker: 'INSIGHTS', title: '인사이트', desc: '영상과 아티클에서 뽑은 학습 노트를 모아둡니다.' },
+  { href: '/system/', label: '06', kicker: 'SYSTEM', title: '시스템', desc: '물리 노드와 자동화 스택의 구조를 기록합니다.' },
+  { href: '/lab/', label: '07', kicker: 'LAB', title: 'lab', desc: '실험, 잡학, 접은 시도까지 작업의 주변부를 보관합니다.' },
 ];
 
 const loop = [
@@ -190,6 +194,17 @@ const bridgeProjects = [
         </div>
         <PostList posts={recentNewsletter} base="/newsletter" />
       </article>
+
+      <article class="recent-panel">
+        <div class="recent-head">
+          <div>
+            <p class="eyebrow">INSIGHTS</p>
+            <h2>최근 인사이트</h2>
+          </div>
+          <a href="/insights/">전체 보기</a>
+        </div>
+        <PostList posts={recentInsights} base="/insights" />
+      </article>
     </section>
   </div>
 
@@ -212,16 +227,16 @@ const bridgeProjects = [
     .eyebrow {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
-      letter-spacing: 0;
+      letter-spacing: var(--track-eyebrow);
       margin-bottom: 12px;
     }
 
     .hero-copy h1 {
       max-width: 760px;
-      font-size: 64px;
-      line-height: 1.02;
+      font-size: var(--text-h1);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
@@ -229,8 +244,8 @@ const bridgeProjects = [
       max-width: 680px;
       margin-top: 24px;
       color: var(--fg-dim);
-      font-size: 20px;
-      line-height: 1.7;
+      font-size: var(--text-lead);
+      line-height: var(--leading-body);
       word-break: keep-all;
     }
 
@@ -248,8 +263,8 @@ const bridgeProjects = [
       min-height: 44px;
       padding: 0 18px;
       border: 1px solid var(--fg);
-      border-radius: 8px;
-      font-size: 14px;
+      border-radius: var(--radius-btn);
+      font-size: var(--text-desc);
       font-weight: 700;
       text-decoration: none;
     }
@@ -261,13 +276,13 @@ const bridgeProjects = [
     .button.primary {
       border-color: var(--accent-cta);
       background: var(--accent-cta);
-      color: #ffffff;
+      color: var(--cta-fg);
     }
 
     .button.primary:hover {
       border-color: var(--accent-dim);
       background: var(--accent-dim);
-      color: #ffffff;
+      color: var(--cta-fg);
     }
 
     .button.secondary {
@@ -297,14 +312,14 @@ const bridgeProjects = [
     .hero-stats dt {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .hero-stats dd {
       color: var(--fg);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: var(--text-lead);
       font-weight: 700;
       line-height: 1.45;
       min-width: 0;
@@ -313,7 +328,7 @@ const bridgeProjects = [
     .hero-stats span {
       grid-column: 2;
       color: var(--fg-dim);
-      font-size: 13px;
+      font-size: var(--text-desc);
       line-height: 1.45;
       white-space: nowrap;
     }
@@ -333,15 +348,15 @@ const bridgeProjects = [
 
     .section-head h2 {
       max-width: 720px;
-      font-size: 34px;
-      line-height: 1.2;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
       word-break: keep-all;
     }
 
     .section-head > p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: var(--text-body);
+      line-height: var(--leading-desc);
     }
 
     .route-grid {
@@ -374,20 +389,20 @@ const bridgeProjects = [
       gap: 16px;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .route-card strong {
-      font-size: 24px;
-      line-height: 1.2;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
     }
 
     .route-card > span:last-child {
       align-self: end;
       color: var(--fg-dim);
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
     }
 
     .loop-list {
@@ -407,20 +422,20 @@ const bridgeProjects = [
     .loop-list span {
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
     }
 
     .loop-list strong {
       color: var(--fg);
-      font-size: 22px;
-      line-height: 1.25;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
     }
 
     .loop-list p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
     }
 
     .bridge-grid {
@@ -435,7 +450,7 @@ const bridgeProjects = [
       gap: 20px;
       min-height: 260px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-card);
       padding: 24px;
       background: var(--bg);
     }
@@ -448,7 +463,7 @@ const bridgeProjects = [
     .bridge-card.primary p,
     .bridge-card.primary .bridge-card-top span,
     .bridge-card.primary a {
-      color: rgba(255, 255, 255, 0.74);
+      color: color-mix(in srgb, var(--bg) 74%, transparent);
     }
 
     .bridge-card-top {
@@ -459,23 +474,23 @@ const bridgeProjects = [
     }
 
     .bridge-card h3 {
-      font-size: 25px;
-      line-height: 1.18;
+      font-size: var(--text-h3);
+      line-height: var(--leading-h1);
     }
 
     .bridge-card-top span {
       flex: 0 0 auto;
       color: var(--fg-mute);
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--text-meta);
       font-weight: 600;
       white-space: nowrap;
     }
 
     .bridge-card p {
       color: var(--fg-dim);
-      font-size: 15px;
-      line-height: 1.68;
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
     }
 
     .bridge-links {
@@ -483,16 +498,24 @@ const bridgeProjects = [
       flex-wrap: wrap;
       gap: 14px;
       margin-top: auto;
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 700;
     }
 
+    /* 3패널(작업일지·뉴스레터·인사이트). 좁은 폭에서 3열은 제목이 뭉개져 2열 → 1열로 내린다. */
     .recent-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 48px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px;
       padding-top: 32px;
       border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 1180px) {
+      .recent-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 48px;
+      }
     }
 
     .recent-panel {
@@ -508,14 +531,14 @@ const bridgeProjects = [
     }
 
     .recent-head h2 {
-      font-size: 28px;
-      line-height: 1.18;
+      font-size: var(--text-h2);
+      line-height: var(--leading-h1);
     }
 
     .recent-head a {
       flex: 0 0 auto;
       margin-top: 4px;
-      font-size: 14px;
+      font-size: var(--text-desc);
       font-weight: 700;
       text-decoration: none;
     }
@@ -536,13 +559,9 @@ const bridgeProjects = [
         grid-template-columns: 1fr;
       }
 
-      .hero-copy h1 {
-        font-size: 48px;
-      }
-
-      .lead {
-        font-size: 18px;
-      }
+      /* h1·lead 의 폭별 크기 재지정은 걷었다 — --text-h1 이 clamp 라
+         뷰포트에 따라 스스로 줄어든다. 남겨두면 토큰을 덮어써서
+         이 페이지만 스케일에서 이탈한다. (T-260807-019) */
 
       .route-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -557,14 +576,6 @@ const bridgeProjects = [
       .home-hero {
         gap: 34px;
         padding-top: 10px;
-      }
-
-      .hero-copy h1 {
-        font-size: 38px;
-      }
-
-      .lead {
-        font-size: 16px;
       }
 
       .hero-actions {
@@ -584,10 +595,6 @@ const bridgeProjects = [
       .hero-stats span {
         grid-column: auto;
         white-space: normal;
-      }
-
-      .section-head h2 {
-        font-size: 28px;
       }
 
       .route-card {

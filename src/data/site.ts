@@ -23,16 +23,18 @@ export const company = {
 // (제품/작업일지/뉴스레터)만 노출하고, 나머지는 '더보기' 드롭다운으로 강등해 헤더를 슬림하게
 // 유지한다. 크로스레포 공유헤더(kangdaejong.com/mb-components.js)와 동형 구성. href 는 이
 // 사이트 기준(상대경로)이라 회사정보 드리프트 가드 대상 아님.
+// 2026-08-06 T-260806-060: 조직도를 더보기가 아니라 1행에 올린다(아니키 「헤더에서 바로」).
+// mb-components.js NAV_PRIMARY 와 같은 순서·같은 대상으로 유지할 것.
 export const navPrimary = [
   { href: '/products/', label: '제품' },
   { href: '/worklog', label: '작업일지' },
   { href: '/newsletter', label: '뉴스레터' },
+  { href: 'https://kangdaejong.com/organization/', label: '조직도' },
 ];
 export const navMore = [
   { href: '/', label: '작업장' },
   { href: '/insights', label: '인사이트' },
   { href: '/system', label: '시스템' },
-  { href: '/cost/', label: '비용공개' },
   { href: '/lab', label: 'lab' },
   { href: 'https://kangdaejong.com', label: '회사소개' },
   { href: 'https://founder.kangdaejong.com', label: '대표소개' },
