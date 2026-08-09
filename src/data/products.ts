@@ -5,8 +5,8 @@
 
 export const apps = [
   {
-    name: '한줄일기 + AI 응원', status: 'iOS LIVE · Android LIVE · ₩1,900',
-    desc: '하루 한 줄 일기를 쓰면 AI가 공감+응원 한 줄 답글을 남겨줍니다. 53주 감정 히트맵, 로컬 저장, 계정 가입 0.',
+    name: '한줄일기', status: 'iOS LIVE · Android LIVE',
+    desc: '하루 한 줄, 부담 없는 일기. 53주 감정 히트맵, 로컬 저장, 계정 가입 0 — 거창한 일기 대신 한 줄이면 충분합니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6764308678' },
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.hanjul' },
