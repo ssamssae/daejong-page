@@ -72,8 +72,8 @@ export const saas = [
 const codexRepo = 'https://github.com/ssamssae/codex-telegram-bridge';
 const claudeRepo = 'https://github.com/ssamssae/claude-telegram-bridge';
 export const bridges = {
-  codex: { version: '0.9.2', repo: codexRepo },
-  claude: { version: '0.10.1', repo: claudeRepo },
+  codex: { version: '0.9.7', repo: codexRepo },
+  claude: { version: '0.13.0', repo: claudeRepo },
 } as const;
 
 export const tools = [
