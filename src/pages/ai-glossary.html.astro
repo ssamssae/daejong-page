@@ -352,7 +352,7 @@ import '../styles/lab.css';
         <dl class="hero-stats" aria-label="AI 용어집 요약">
           <div>
             <dt>누적 용어</dt>
-            <dd><!--AUTO-HERO-TERMS-START-->636<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
+            <dd><!--AUTO-HERO-TERMS-START-->644<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
           </div>
           <div>
             <dt>카테고리</dt>
@@ -1841,6 +1841,24 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
     </div>
 
+    <div class="term">
+      <h3>Stop reason</h3>
+      <p>Claude가 응답을 멈춘 이유를 알려주는 필드 — tool_use(도구 호출 필요)인지 토큰 소진(max_tokens)인지 등을 구분해 다음 행동을 결정하는 신호.</p>
+      <span class="src">영상: 2026-08-10-claude-architect-exam-antipatterns-frankcoyle.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Subtask isolation</h3>
+      <p>멀티스레드 프로그래밍의 동기화 문제에 빗대어, 서브태스크(에이전트)를 서로 독립된 "우주"로 유지해 컨텍스트 공유로 인한 충돌을 막는 설계 원칙.</p>
+      <span class="src">영상: 2026-08-10-claude-architect-exam-antipatterns-frankcoyle.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Hub and spoke (멀티에이전트 오케스트레이션)</h3>
+      <p>하나의 오케스트레이터가 중심(hub)이 되어 여러 전문화된 서브에이전트(spoke)에 작업을 분배하는 멀티에이전트 구조.</p>
+      <span class="src">영상: 2026-08-10-claude-architect-exam-antipatterns-frankcoyle.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -2021,6 +2039,18 @@ import '../styles/lab.css';
       <h3>컨텍스트 윈도우</h3>
       <p>모델이 한 번에 읽을 수 있는 입력 한도. 100만 토큰까지 커져도 실제로 정확히 쓸 수 있는 양이 그만큼 늘어난 건 아니다.</p>
       <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Context fork</h3>
+      <p>서브태스크를 별도 컨텍스트에서 실행시켜 그 사고 과정이 메인 컨텍스트를 오염시키지 않게 분리하는 패턴 — 끝나면 요약만 상위로 합류시킨다.</p>
+      <span class="src">영상: 2026-08-10-claude-architect-exam-antipatterns-frankcoyle.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Compaction</h3>
+      <p>누적된 작업 컨텍스트가 일정 토큰(예: 15만)을 넘으면 압축해 컨텍스트 창을 절약하는 알고리즘·기능.</p>
+      <span class="src">영상: 2026-08-10-claude-architect-exam-antipatterns-frankcoyle.md</span>
     </div>
 
     <h2>도구 통신 (MCP · CLI · API)</h2>
@@ -3409,6 +3439,12 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
     </div>
 
+    <div class="term">
+      <h3>Groupthink (에이전트 집단사고)</h3>
+      <p>여러 에이전트가 서로의 사고 과정까지 공유하면 의견이 하나로 수렴해버리는 현상 — 서브에이전트에 claim/evidence만 주고 사고과정은 숨겨서 예방한다.</p>
+      <span class="src">영상: 2026-08-10-claude-architect-exam-antipatterns-frankcoyle.md</span>
+    </div>
+
     <h2>커리어 · 조직</h2>
 
     <div class="term">
@@ -3681,6 +3717,12 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-05-sam-altman-startup-exponentials-bzcf.md</span>
     </div>
 
+    <div class="term">
+      <h3>Claude Certified Architect exam</h3>
+      <p>앤트로픽이 2026년 3월 출시한 에이전틱 AI 아키텍처 자격 시험 — 시나리오 기반 객관식, 개인은 $99에 6개월마다 1회 응시 가능.</p>
+      <span class="src">영상: 2026-08-10-claude-architect-exam-antipatterns-frankcoyle.md</span>
+    </div>
+
     <h2>빌링 · 운영</h2>
 
     <div class="term">
@@ -3909,6 +3951,12 @@ import '../styles/lab.css';
       <h3>호스팅 · 배포</h3>
       <p>만든 앱을 실제 서버에 올려 사용자가 쓸 수 있게 만드는 과정.</p>
       <span class="src">영상: 2026-08-07-chatgpt-gemini-claude-nondev-vibecoding.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Batch mode</h3>
+      <p>프롬프트를 배치로 묶어 처리하면 토큰 비용이 50% 절감되지만 결과 수령까지 최대 24시간 걸리는 실행 모드.</p>
+      <span class="src">영상: 2026-08-10-claude-architect-exam-antipatterns-frankcoyle.md</span>
     </div>
 
     <h2>기타</h2>
