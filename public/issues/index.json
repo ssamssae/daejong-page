@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-08-13-kakao-gate-room-gap.md",
+      "date": "2026-08-13",
+      "slug": "kakao-gate-room-gap",
+      "title": "카톡봇 화이트리스트 게이트 라이브 시 기존 서비스 방 누락 — 전방 침묵",
+      "severity": "medium",
+      "recurrence": "low",
+      "scope": "카톡봇 방 응답 전체 (맥미니 라이브 루프) — 사용자 신고 4회, 반나절 침묵",
+      "occurred_at": "2026-08-13 00:01 KST (첫 사용자 신고 11:15)",
+      "resolved_at": "2026-08-13 15:55 KST (전방개방 스위치 라이브)",
+      "updated": "2026-08-13T20:37:04+09:00"
+    },
+    {
       "file": "2026-08-08-landing-scope-miss.md",
       "date": "2026-08-08",
       "slug": "landing-scope-miss",
