@@ -352,7 +352,7 @@ import '../styles/lab.css';
         <dl class="hero-stats" aria-label="AI 용어집 요약">
           <div>
             <dt>누적 용어</dt>
-            <dd><!--AUTO-HERO-TERMS-START-->676<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
+            <dd><!--AUTO-HERO-TERMS-START-->682<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
           </div>
           <div>
             <dt>카테고리</dt>
@@ -474,7 +474,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>effort level</h3>
       <p>Opus 모델의 reasoning 강도 설정(low / medium / high / extra high / max).</p>
-      <span class="src">영상: 2026-05-31-claude-dynamic-workflows-nateherk.md</span>
+      <span class="src">영상: 2026-05-31-claude-dynamic-workflows-nateherk.md, 2026-08-14-graph-not-loop-borischerny.md</span>
     </div>
 
     <div class="term">
@@ -829,6 +829,18 @@ import '../styles/lab.css';
       <h3>토큰 라우팅</h3>
       <p>작업 난이도에 맞춰 저가/고가 모델을 나눠 배정해 비용을 최적화하는 전략.</p>
       <span class="src">영상: 2026-08-14-ai-coding-cost-waste-ethancho.md</span>
+    </div>
+
+    <div class="term">
+      <h3>test-time compute</h3>
+      <p>문제를 풀 때 모델이 실제로 소비하는 연산(토큰)량. 많이 쓸수록 결과가 좋아지도록 만드는 것이 제품 설계의 관건이다.</p>
+      <span class="src">영상: 2026-08-14-graph-not-loop-borischerny.md</span>
+    </div>
+
+    <div class="term">
+      <h3>scaling laws</h3>
+      <p>모델 크기·데이터·연산량이 늘수록 지능이 향상된다는 경험적 법칙. 최근엔 test-time compute도 이 함수에 포함된다.</p>
+      <span class="src">영상: 2026-08-14-graph-not-loop-borischerny.md</span>
     </div>
 
     <div class="term">
@@ -1442,7 +1454,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>서브에이전트 (Sub-agent)</h3>
       <p>메인 에이전트가 띄우는 병렬·검증용 보조 에이전트.</p>
-      <span class="src">영상: 2026-07-01-loop-engineering-dalbi.md</span>
+      <span class="src">영상: 2026-07-01-loop-engineering-dalbi.md, 2026-08-14-graph-not-loop-borischerny.md</span>
     </div>
 
     <div class="term">
@@ -1943,6 +1955,12 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-14-ai-coding-cost-waste-ethancho.md</span>
     </div>
 
+    <div class="term">
+      <h3>다이나믹 워크플로우 (Dynamic Workflows)</h3>
+      <p>Claude가 대규모 에이전트 팀을 클라우드에서 오케스트레이션해 대형 마이그레이션 같은 복잡한 작업을 나눠 처리하게 하는 방식.</p>
+      <span class="src">영상: 2026-08-14-graph-not-loop-borischerny.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -2407,6 +2425,12 @@ import '../styles/lab.css';
       <h3>벡터 데이터베이스 · 임베딩</h3>
       <p>문장을 수치 벡터로 바꿔 유사도로 찾게 하는 검색 인프라 — RAG의 여러 구현 수단 중 하나일 뿐.</p>
       <span class="src">영상: 2026-08-08-rag-llm-wiki-3-criteria-samhotman.md</span>
+    </div>
+
+    <div class="term">
+      <h3>auto 모드 (승인 자동화 classifier)</h3>
+      <p>매 작업 승인을 사람이 일일이 누르는 대신, 별도 분류기가 안전 여부를 판단해 자동 승인하게 하는 런타임 안전장치.</p>
+      <span class="src">영상: 2026-08-14-graph-not-loop-borischerny.md</span>
     </div>
 
     <h2>지식 · 컨텍스트 자산</h2>
@@ -3577,6 +3601,12 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-14-ai-coding-cost-waste-ethancho.md</span>
     </div>
 
+    <div class="term">
+      <h3>Evals vs Vibes</h3>
+      <p>반복되는 워크플로우는 정량적 평가(Evals)로, 일회성 제품 경험 판단은 직관(Vibes)으로 나눠 쓰는 두 가지 판단 도구.</p>
+      <span class="src">영상: 2026-08-14-graph-not-loop-borischerny.md</span>
+    </div>
+
     <h2>커리어 · 조직</h2>
 
     <div class="term">
@@ -4125,6 +4155,12 @@ import '../styles/lab.css';
       <h3>프리미엄 티어</h3>
       <p>가장 비싼 상위 모델 등급. 모든 작업에 기본 적용하면 비용이 과다해지는 원인으로 지목된다.</p>
       <span class="src">영상: 2026-08-14-ai-coding-cost-waste-ethancho.md</span>
+    </div>
+
+    <div class="term">
+      <h3>anti-prompt injection 훈련</h3>
+      <p>모델이 프롬프트 삽입 공격에 저항하도록 학습 단계에서 훈련시키는 것.</p>
+      <span class="src">영상: 2026-08-14-graph-not-loop-borischerny.md</span>
     </div>
 
     <div class="term">
