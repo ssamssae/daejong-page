@@ -862,6 +862,12 @@ import '../styles/lab.css';
     </div>
 
     <div class="term">
+      <h3>LLM-as-judge</h3>
+      <p>LLM 자신을 평가자로 써서 다른 LLM 출력의 품질을 판정하게 하는 기법. 에러 분석이 어느 정도 끝난 뒤 도입해도 늦지 않다고 언급됨.</p>
+      <span class="src">영상: 2026-08-15-llm-eval-error-analysis.md</span>
+    </div>
+
+    <div class="term">
       <h3>온디바이스 AI (On-device AI)</h3>
       <p>기기 자체에서 연산을 수행하는 AI. 세컨드 브레인 노트는 이 방식이 아니라 녹음만 기기에서 하고 분석은 클라우드로 전송해 처리한다.</p>
       <span class="src">영상: 2026-08-15-second-brain-genspark-patch.md</span>
@@ -2198,6 +2204,12 @@ import '../styles/lab.css';
     </div>
 
     <div class="term">
+      <h3>트레이스 (Trace)</h3>
+      <p>파이프라인 실행의 전체 기록 — 사용자 쿼리·입력·추론·툴콜·출력을 포함.</p>
+      <span class="src">영상: 2026-08-15-llm-eval-error-analysis.md</span>
+    </div>
+
+    <div class="term">
       <h3>에이전틱 메모리 (Agentic Memory)</h3>
       <p>단순 저장이 아니라 에이전트가 다음 업무 수행 시 스스로 검색해 반영하는 형태의 기억. 일반 위키·자료보관 서비스와의 핵심 차이로 언급됨.</p>
       <span class="src">영상: 2026-08-15-second-brain-genspark-patch.md</span>
@@ -2473,6 +2485,12 @@ import '../styles/lab.css';
       <h3>auto 모드 (승인 자동화 classifier)</h3>
       <p>매 작업 승인을 사람이 일일이 누르는 대신, 별도 분류기가 안전 여부를 판단해 자동 승인하게 하는 런타임 안전장치.</p>
       <span class="src">영상: 2026-08-14-graph-not-loop-borischerny.md</span>
+    </div>
+
+    <div class="term">
+      <h3>커스텀 어노테이션 툴 (Custom Annotation Tool)</h3>
+      <p>자사 제품의 실제 실패 기준에 맞춰 직접 세팅하는 평가·라벨링 도구. 범용 기성 툴보다 빠르다고 언급됨.</p>
+      <span class="src">영상: 2026-08-15-llm-eval-error-analysis.md</span>
     </div>
 
     <div class="term">
@@ -3707,6 +3725,30 @@ import '../styles/lab.css';
       <h3>Evals vs Vibes</h3>
       <p>반복되는 워크플로우는 정량적 평가(Evals)로, 일회성 제품 경험 판단은 직관(Vibes)으로 나눠 쓰는 두 가지 판단 도구.</p>
       <span class="src">영상: 2026-08-14-graph-not-loop-borischerny.md</span>
+    </div>
+
+    <div class="term">
+      <h3>에러 분석 (Error Analysis)</h3>
+      <p>실제 실행 트레이스를 직접 읽고 실패 유형을 분류해가는, ROI가 가장 높다고 소개된 LLM/AI 엔지니어링 활동.</p>
+      <span class="src">영상: 2026-08-15-llm-eval-error-analysis.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Open Coding</h3>
+      <p>트레이스를 읽으며 문제·특이사항·잘못된 행동에 대해 짧고 서술적인 메모를 남기는 1단계 작업.</p>
+      <span class="src">영상: 2026-08-15-llm-eval-error-analysis.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Axial Coding</h3>
+      <p>비슷한 메모들을 클러스터링해 실패 유형(failure mode)을 도출하는 2단계 작업.</p>
+      <span class="src">영상: 2026-08-15-llm-eval-error-analysis.md</span>
+    </div>
+
+    <div class="term">
+      <h3>failure mode (실패 유형)</h3>
+      <p>Axial Coding으로 도출되는, 반복되는 오류 카테고리.</p>
+      <span class="src">영상: 2026-08-15-llm-eval-error-analysis.md</span>
     </div>
 
     <div class="term">
