@@ -52,7 +52,7 @@ const moreActive = more.some(l => isActive(l.href));
       align-items: center;
       gap: 10px;
       color: var(--fg);
-      font-size: 15px;
+      font-size: var(--text-body);
       font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
@@ -118,7 +118,7 @@ const moreActive = more.some(l => isActive(l.href));
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+      box-shadow: 0 10px 30px var(--shadow-pop);
     }
     .nav-more.open .nav-more-panel { display: flex; }
     .nav-more-panel a {
@@ -142,15 +142,15 @@ const moreActive = more.some(l => isActive(l.href));
       justify-content: center;
       min-height: 38px;
       padding: 0 14px;
-      border-radius: 8px;
+      border-radius: var(--radius-btn);
       background: var(--accent-cta);
-      color: #ffffff;
-      font-size: 14px;
+      color: var(--cta-fg);
+      font-size: var(--text-desc);
       font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
     }
-    .nav-cta:hover { color: #ffffff; text-decoration: none; background: var(--accent-dim); }
+    .nav-cta:hover { color: var(--cta-fg); text-decoration: none; background: var(--accent-dim); }
     @media (max-width: 760px) {
       .nav-inner {
         width: min(calc(100% - 32px), 1120px);

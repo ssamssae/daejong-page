@@ -5,8 +5,8 @@
 
 export const apps = [
   {
-    name: '한줄일기 + AI 응원', status: 'iOS LIVE · Android LIVE · ₩1,900',
-    desc: '하루 한 줄 일기를 쓰면 AI가 공감+응원 한 줄 답글을 남겨줍니다. 53주 감정 히트맵, 로컬 저장, 계정 가입 0.',
+    name: '한줄일기', status: 'iOS LIVE · Android LIVE',
+    desc: '하루 한 줄, 부담 없는 일기. 53주 감정 히트맵, 로컬 저장, 계정 가입 0 — 거창한 일기 대신 한 줄이면 충분합니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6764308678' },
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.hanjul' },
@@ -72,8 +72,8 @@ export const saas = [
 const codexRepo = 'https://github.com/ssamssae/codex-telegram-bridge';
 const claudeRepo = 'https://github.com/ssamssae/claude-telegram-bridge';
 export const bridges = {
-  codex: { version: '0.9.2', repo: codexRepo },
-  claude: { version: '0.10.1', repo: claudeRepo },
+  codex: { version: '0.9.7', repo: codexRepo },
+  claude: { version: '0.13.0', repo: claudeRepo },
 } as const;
 
 export const tools = [
@@ -105,6 +105,11 @@ export const ebooks = [
     name: '혼자서 AI팀', status: '마이너스베타스튜디오(mβ) · ₩15,000',
     desc: '혼자 일하면서 여러 AI 역할을 팀처럼 구성하고 운영하는 방법을 정리한 전자책.',
     links: [{ label: '크몽에서 구매', url: 'https://kmong.com/gig/786749' }],
+  },
+  {
+    name: '폰으로 내 컴퓨터 AI 부리기', status: '마이너스베타스튜디오(mβ) · ₩10,000',
+    desc: 'Claude Code·Codex 를 텔레그램에 연결해 폰에서 내 컴퓨터의 AI 를 부리는 방법을 정리한 전자책. 비개발자를 위한 따라하기 안내서.',
+    links: [{ label: '크몽에서 구매', url: 'https://kmong.com/gig/798202' }],
   },
 ];
 

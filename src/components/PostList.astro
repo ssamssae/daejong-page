@@ -35,9 +35,9 @@ const { posts, base } = Astro.props as { posts: Post[]; base: string };
     text-decoration: none;
   }
   .post-list a:hover { color: var(--fg); background: var(--bg-elev); }
-  .date { font-size: 12px; color: var(--fg-mute); }
-  .ep { font-size: 12px; color: var(--fg-mute); }
-  .title { min-width: 0; font-size: 15px; font-weight: 600; }
+  .date { font-size: var(--text-meta); color: var(--fg-mute); }
+  .ep { font-size: var(--text-meta); color: var(--fg-mute); }
+  .title { min-width: 0; font-size: var(--text-body); font-weight: 600; }
   @media (max-width: 520px) {
     .post-list a {
       grid-template-columns: 1fr;

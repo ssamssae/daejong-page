@@ -22,7 +22,7 @@ const label = typeof index === 'number' ? String(index).padStart(2, '0') : '→'
     gap: 12px;
     position: relative;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--radius-btn);
     padding: 22px;
     background: var(--bg);
     color: var(--fg);
@@ -40,14 +40,13 @@ const label = typeof index === 'number' ? String(index).padStart(2, '0') : '→'
     align-items: center;
     justify-content: space-between;
     color: var(--fg-mute);
-    font-size: 12px;
+    font-size: var(--text-meta);
     font-weight: 700;
   }
-  .sc-title { font-weight: 700; font-size: 22px; line-height: 1.25; }
-  .sc-desc { max-width: 28ch; font-size: 14px; color: var(--fg-dim); line-height: 1.58; }
-  .sc-arrow { margin-top: auto; font-size: 18px; }
+  .sc-title { font-weight: 700; font-size: var(--text-h2); line-height: var(--leading-h1); }
+  .sc-desc { max-width: 28ch; font-size: var(--text-desc); color: var(--fg-dim); line-height: var(--leading-desc); }
+  .sc-arrow { margin-top: auto; font-size: var(--text-lead); }
   @media (max-width: 640px) {
     .section-card { min-height: 156px; padding: 18px; }
-    .sc-title { font-size: 20px; }
   }
 </style>
