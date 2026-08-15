@@ -85,6 +85,29 @@ jobs:
           files="$(gh pr diff "$PR_NUMBER" --name-only --repo "$GH_REPO")"
           printf '%s\n' "$files" > changed-files.txt
 
+          # ⚠️ 제거 금지 (DO NOT REMOVE) — 훅 파생 파일 예외 (T-260805-019, 2026-08-05).
+          # 뿌리: 이 repo 의 hooks/post-commit(:21-38)이 insights 변경을 감지하면
+          #   scripts/regen-ai-glossary.py 로 src/pages/ai-glossary.html.astro 를 재생성해
+          #   ★별도 커밋으로 얹는다. 그래서 insight PR 은 항상 파일 2개가 되고,
+          #   아래 웹 게이트가 (a) `\.astro$` 를 'web design/content path' 로 (b) 승인 컬렉션
+          #   밖 파일이 섞였다고 'mixed PR' 로 잡아 ★기계가 만든 파일이 기계 게이트를 막았다.
+          #   실측 = PR#399 run=30929724199 SUCCESS 인데 머지 0, HOLD_REASON 2건 동시 발화.
+          # ★예외는 좁다 — 아래 세 조건을 전부 만족할 때만 파생 파일을 판정에서 뺀다:
+          #   (1) PR 에 승인 컬렉션(insights|worklog|newsletter) 파일이 실제로 있다
+          #   (2) 승인 컬렉션·파생 파일 ★외의 파일이 하나도 없다
+          #   (3) 뺀 결과는 ★웹 게이트 판정에만 쓴다. 정책/인프라·firing-path·앱/결제 게이트는
+          #       그대로 changed-files.txt 전체를 본다(파생 파일 이름으로 다른 게이트를 못 연다).
+          # ⇒ 사람이 src/pages/ 나 .css/.svg 를 직접 손댄 PR 은 (2)에서 탈락해 종전대로 HOLD 다.
+          DERIVED_RE='^src/pages/ai-glossary\.html\.astro$'
+          APPROVED_RE='^src/content/(insights|worklog|newsletter)/'
+          web_scan=changed-files.txt
+          if grep -qE "$APPROVED_RE" changed-files.txt \
+             && ! grep -qEv "$APPROVED_RE|$DERIVED_RE" changed-files.txt; then
+            grep -Ev "$DERIVED_RE" changed-files.txt > changed-files.web.txt || true
+            web_scan=changed-files.web.txt
+          fi
+          echo "web_scan=$web_scan (derived-exception $([ "$web_scan" = changed-files.txt ] && echo off || echo on))"
+
           is_app_repo=false
           is_payment_repo=false
           is_web_repo=false
@@ -135,12 +158,14 @@ jobs:
           # T-260710-62: only PRs made entirely of insights/worklog/newsletter
           # collection files may proceed to the build + zero-broken-link gate.
           if [ "$is_web_repo" = true ]; then
-            if grep -qiE '\.(css|scss|svg|astro)$|^public/.*\.html$|^src/data/' changed-files.txt; then
+            # ★$web_scan = 훅 파생 파일 예외가 적용된 목록(위 T-260805-019 블록). 예외 조건을
+            #   못 채우면 changed-files.txt 그대로라 종전 동작과 동일하다.
+            if grep -qiE '\.(css|scss|svg|astro)$|^public/.*\.html$|^src/data/' "$web_scan"; then
               sensitive=true
               reasons+=("web design/content path")
             fi
-            if grep -qE '^src/content/' changed-files.txt; then
-              if grep -qEv '^src/content/(insights|worklog|newsletter)/' changed-files.txt; then
+            if grep -qE '^src/content/' "$web_scan"; then
+              if grep -qEv '^src/content/(insights|worklog|newsletter)/' "$web_scan"; then
                 sensitive=true
                 reasons+=("web content path outside approved collections or mixed PR")
               fi
