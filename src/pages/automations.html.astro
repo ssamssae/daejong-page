@@ -2,12 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/lab.css';
 
-const updatedAt = '2026-07-22';
+const updatedAt = '2026-08-17';
 
 const stats = [
-  { label: 'physical fleet', value: '4대', sub: 'Mac · WSL · GPU 데스크탑 · 맥미니' },
-  { label: 'logical agents', value: '8노드', sub: 'Claude 4 + Codex 4 역할 분리' },
-  { label: 'delivery', value: '보고 보증', sub: 'mac-report · queue · mirror · retry' },
+  { label: 'physical fleet', value: '5대', sub: '아테나 · 볼칸 · 라이덴 · 테미스 · 헤르메스' },
+  { label: 'engine', value: 'Claude 단일', sub: 'Claude 5노드 · Codex 휴면(의견 채널만)' },
+  { label: 'delivery', value: '보고 보증', sub: 'report · queue · mirror · retry' },
   { label: 'last refresh', value: updatedAt, sub: '공개 페이지 기준 최신 정리' },
 ];
 
@@ -16,22 +16,22 @@ const liveLayers = [
     key: '01',
     title: 'Directive 배차 레일',
     tone: 'green',
-    desc: '본진에서 작업을 쪼개 노드에 전달하고, 각 노드는 브랜치·검증·PR·보고까지 닫는다. 대화가 아니라 “작업 계약” 단위로 움직인다.',
+    desc: '본진 아테나에서 작업을 쪼개 노드에 전달하고, 각 노드는 브랜치·검증·PR·보고까지 닫는다. 대화가 아니라 “작업 계약” 단위로 움직인다.',
     tags: ['task id', 'branch', 'PR gate'],
   },
   {
     key: '02',
     title: '텔레그램 브릿지와 보고 보증',
     tone: 'cyan',
-    desc: 'Claude/Codex 세션 입력·출력·진행상태를 폰에서 볼 수 있게 하고, 완료 보고가 누락되면 재전송 큐로 표면화한다.',
-    tags: ['bridge', 'mac-report', 'must-deliver'],
+    desc: 'Claude 세션 입력·출력·진행상태를 폰에서 볼 수 있게 하고, 완료 보고가 누락되면 재전송 큐로 표면화한다.',
+    tags: ['bridge', 'report', 'must-deliver'],
   },
   {
     key: '03',
-    title: 'Claude/Codex 역할 분리',
+    title: 'Claude 단일 엔진, Codex는 휴면',
     tone: 'magenta',
-    desc: 'Codex는 실행 워커, Claude는 고비용 판단·리뷰·게이트 역할로 둔다. 자동 fan-out은 비용 토글과 시간/iter 봉투 안에서만 열린다.',
-    tags: ['executor', 'reviewer', 'cost guard'],
+    desc: '판단은 본진 아테나, 실행은 워커 노드 — 전부 Claude 한 엔진으로 돌린다. Codex는 자동 배차 없는 휴면 런타임으로 의견 채널만 남겼다. 자동 fan-out은 비용 토글과 시간/iter 봉투 안에서만 열린다.',
+    tags: ['single engine', 'dormant codex', 'cost guard'],
   },
   {
     key: '04',
@@ -115,17 +115,17 @@ const rules = [
   '작업 완료는 말로 끝내지 않고 검증 결과, PR, 보고, SoT 근거까지 남긴다.',
 ];
 ---
-<Layout title="자동화 - 강대종" description="강대종이 실제 운영하는 4대 노드 자동화 시스템. Claude/Codex 배차, 텔레그램 브릿지, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프까지 현재 살아있는 구조와 폐기한 길을 정리합니다.">
+<Layout title="자동화 - 강대종" description="강대종이 실제 운영하는 5노드 자동화 시스템. Claude 배차, 텔레그램 브릿지, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프까지 현재 살아있는 구조와 폐기한 길을 정리합니다.">
   <Fragment slot="head">
     <meta property="og:title" content="자동화 - 강대종">
-    <meta property="og:description" content="4대 노드 자동화 시스템: 배차, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프.">
+    <meta property="og:description" content="5노드 자동화 시스템: 배차, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프.">
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://work.kangdaejong.com/automations.html">
     <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="자동화 - 강대종">
-    <meta name="twitter:description" content="4대 노드 자동화 시스템: 배차, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프.">
+    <meta name="twitter:description" content="5노드 자동화 시스템: 배차, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프.">
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
     <link rel="canonical" href="https://work.kangdaejong.com/automations.html">
     <style is:global>

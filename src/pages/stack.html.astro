@@ -11,8 +11,8 @@ const metrics = [
 const layers = [
   {
     eyebrow: 'Control plane',
-    title: '본진이 판단을 잡는다',
-    body: '정책, 머지, 외부영향, 최종 승인 같은 판단 계층은 본진이 붙잡고, 나머지는 노드로 흘린다.',
+    title: '아테나가 판단을 잡는다',
+    body: '정책, 머지, 외부영향, 최종 승인 같은 판단 계층은 본진 아테나가 붙잡고, 나머지는 노드로 흘린다.',
   },
   {
     eyebrow: 'Execution layer',
@@ -33,49 +33,49 @@ const layers = [
 
 const nodes = [
   {
-    icon: '🍎',
-    name: '본진',
+    icon: '🦉',
+    name: '아테나',
     type: 'hub',
     hardware: 'MacBook Pro · arm64 · macOS',
-    handle: '@MyClaude_ssamssae_bot',
-    role: '정책·머지·외부영향 게이트. 작업을 각 노드로 보내고 보고를 회수하는 중심 노드.',
+    handle: '@athena_ssamssae_bot',
+    role: '본진. 정책·머지·외부영향 게이트. 작업을 각 노드로 보내고 보고를 회수하는 중심 노드.',
     tags: ['SoT', 'gate', 'merge', 'mesh hub'],
   },
   {
-    icon: '🏭',
-    name: '맥미니',
+    icon: '🌋',
+    name: '볼칸',
     type: 'build',
     hardware: 'Mac mini M1 · arm64 · macOS',
-    handle: '@ssamssae_claw_bot',
+    handle: '@vulcan_ssamssae_bot',
     role: 'iOS/Android 빌드, 서명, 업로드와 launchd 상주 워커를 맡는 실무 생산 노드.',
     tags: ['build', 'release', 'launchd', 'worker'],
   },
   {
-    icon: '🪟',
+    icon: '⚡',
     name: '라이덴',
     type: 'work',
     hardware: 'Ryzen 3900X · Ubuntu 24.04 WSL2',
-    handle: '@Myclaude2_ssamssae_bot',
+    handle: '@raiden_ssamssae_bot',
     role: '낮 시간 즉응 작업자. 코드 수정, 분석, WSL 경로 검증을 빠르게 맡긴다.',
     tags: ['WSL', 'RTX 2070S', 'analysis', 'patch'],
   },
   {
-    icon: '🖥',
-    name: '데스크탑',
+    icon: '⚖️',
+    name: '테미스',
     type: 'gpu',
     hardware: 'Ubuntu 24.04 WSL2 · x86_64',
-    handle: '@jarvice_ssamssae_bot',
-    role: '로컬 LLM, 이미지, 음성, 스마트홈 실험이 붙는 GPU 실험 노드.',
-    tags: ['RTX 3060Ti', 'LLM', 'voice', 'smart home'],
+    handle: '@themis_ssamssae_bot',
+    role: '리뷰 레인. 정책 변경 검토와 로컬 LLM·음성·스마트홈 실험이 함께 붙는 GPU 노드.',
+    tags: ['RTX 3060Ti', 'review lane', 'LLM', 'smart home'],
   },
   {
-    icon: '💻',
-    name: '노트북',
+    icon: '🪽',
+    name: '헤르메스',
     type: 'work',
     hardware: 'MacBook Pro 14 · M5 · arm64 · macOS',
     handle: '@hermes_ssamssae_bot',
-    role: '리뷰 레인 워커. 정책 변경 검토와 코드 작업을 함께 맡는 macOS 노드.',
-    tags: ['macOS', 'review lane', 'worker'],
+    role: '코드 작업과 검증을 맡는 macOS 워커. 아테나·테미스와 함께 머지 자격을 가진 노드.',
+    tags: ['macOS', 'worker', 'merge'],
   },
   {
     icon: '📱',
@@ -89,10 +89,10 @@ const nodes = [
 ];
 
 const routes = [
-  { from: '아니키', verb: 'Telegram', to: '본진', body: '자연어 요청을 작업 큐로 바꾼다.' },
-  { from: '본진', verb: '*-directive.sh', to: '노드', body: '브랜치와 범위를 지정해 실제 손을 배차한다.' },
-  { from: '노드', verb: 'mac-report.sh', to: '본진', body: '검증 결과, PR, 막힌 지점을 되돌려 보낸다.' },
-  { from: '본진', verb: 'manual gate', to: '외부', body: '머지·배포·제출 같은 외부영향은 사람이 닫는다.' },
+  { from: '아니키', verb: 'Telegram', to: '아테나', body: '자연어 요청을 작업 큐로 바꾼다.' },
+  { from: '아테나', verb: '*-directive.sh', to: '노드', body: '브랜치와 범위를 지정해 실제 손을 배차한다.' },
+  { from: '노드', verb: 'report.sh', to: '아테나', body: '검증 결과, PR, 막힌 지점을 되돌려 보낸다.' },
+  { from: '아테나', verb: 'manual gate', to: '외부', body: '머지·배포·제출 같은 외부영향은 사람이 닫는다.' },
 ];
 
 const stackItems = [
@@ -748,7 +748,7 @@ const stackItems = [
         <h1>혼자 굴리는 5노드 AI 작업장</h1>
         <p class="stack-lead">
           앱, 글, 배포, 자동화를 한 사람이 처리하기 위해 만든 실제 운영 시스템입니다.
-          판단은 본진에 남기고, 손이 필요한 일은 Claude 레인과 물리 노드로 흘립니다.
+          판단은 본진 아테나에 남기고, 손이 필요한 일은 Claude 레인과 물리 노드로 흘립니다.
         </p>
         <div class="stack-actions">
           <a class="stack-button primary" href="/system">시스템 보기</a>
@@ -779,14 +779,14 @@ const stackItems = [
           <line class="map-link" x1="300" y1="318" x2="484" y2="372" stroke-width="2" marker-end="url(#stack-arrow)"></line>
           <line class="map-link is-warn" x1="300" y1="330" x2="300" y2="472" stroke-width="2" stroke-dasharray="6 5"></line>
         </svg>
-        <div class="map-node mac"><span class="map-icon">🏭</span><strong>맥미니</strong><span>build node</span></div>
-        <div class="map-node raiden"><span class="map-icon">🪟</span><strong>라이덴</strong><span>wsl worker</span></div>
-        <div class="map-node hub"><span class="map-icon">🍎</span><strong>본진</strong><span>control plane</span></div>
-        <div class="map-node desktop"><span class="map-icon">🖥</span><strong>데스크탑</strong><span>gpu lab</span></div>
-        <div class="map-node notebook"><span class="map-icon">💻</span><strong>노트북</strong><span>review lane</span></div>
+        <div class="map-node mac"><span class="map-icon">🌋</span><strong>볼칸</strong><span>build node</span></div>
+        <div class="map-node raiden"><span class="map-icon">⚡</span><strong>라이덴</strong><span>wsl worker</span></div>
+        <div class="map-node hub"><span class="map-icon">🦉</span><strong>아테나</strong><span>control plane</span></div>
+        <div class="map-node desktop"><span class="map-icon">⚖️</span><strong>테미스</strong><span>review lane</span></div>
+        <div class="map-node notebook"><span class="map-icon">🪽</span><strong>헤르메스</strong><span>macos worker</span></div>
         <div class="map-node phone"><span class="map-icon">📱</span><strong>iPhone</strong><span>command surface</span></div>
         <p class="map-caption">
-          실선은 본진이 노드로 작업을 배차하는 경로, 점선은 모바일 입력면입니다.
+          실선은 아테나가 노드로 작업을 배차하는 경로, 점선은 모바일 입력면입니다.
           외부영향이 생기면 자동으로 멈추고 사람이 게이트를 닫습니다.
         </p>
       </div>
@@ -822,7 +822,7 @@ const stackItems = [
         </div>
         <p>
           각 노드는 역할이 다릅니다. 하나가 막히면 다른 노드가 이어받고,
-          배포나 계정 같은 위험 작업은 본진 게이트로 되돌립니다.
+          배포나 계정 같은 위험 작업은 아테나 게이트로 되돌립니다.
         </p>
       </div>
       <div class="node-roster">
@@ -855,8 +855,8 @@ const stackItems = [
           <h2>작업은 이렇게 움직입니다</h2>
         </div>
         <p>
-          자연어 요청이 들어오면 본진이 범위와 위험도를 정하고, 노드는 작업과 검증을 수행합니다.
-          결과는 다시 본진으로 모여 PR, 보고, 다음 행동으로 정리됩니다.
+          자연어 요청이 들어오면 아테나가 범위와 위험도를 정하고, 노드는 작업과 검증을 수행합니다.
+          결과는 다시 아테나로 모여 PR, 보고, 다음 행동으로 정리됩니다.
         </p>
       </div>
       <div class="route-board">
