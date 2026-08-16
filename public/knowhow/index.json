@@ -1437,6 +1437,85 @@
         "false-positive"
       ],
       "summary": "코드베이스를 AST 그래프로 인덱싱해 AI 가 원본을 안 읽고 질의→토큰 대폭 절감(무료 AST tier). 그런데 설치 서브커맨드가 ~/.claude(=claude-skills 심링크, 5노드 공유) 의 globals 글로벌룰을 오염시켜 어제·오늘 2회 재발. 교훈 — (1) 안1 결정 후에도 다른 노드서 재발했듯 정책만으론 안 막힌다, 차단 훅(forcing function) 필요 (2) 공유 심링크 SoT 를 install 이 건드리는 구조는 도입 전 1회 점검 (3) auto-use 같은 좋은 설계도 노드 세션 home cwd 제약에 막혀 수동 운용으로 후퇴 (4) 차단 훅은 명령 실행뿐 아니라 텍스트 인용까지 over-match 하니 전달 텍스트 sanitize 필요."
+    },
+    {
+      "file": "2026-08-17-bash32-source-failure-pierces-set-e.md",
+      "date": "2026-08-17",
+      "slug": "bash32-source-failure-pierces-set-e",
+      "title": "macOS 빨강을 \"OS 탓\"으로 적기 전에 — bash 3.2는 source 실패가 || true를 뚫는다",
+      "category": "환경 설정",
+      "tags": [
+        "bash",
+        "macos",
+        "set-e",
+        "source",
+        "portability",
+        "shell"
+      ],
+      "summary": "macOS 기본 bash 3.2에서는 source 실패가 || true 가드를 무시하고 스크립트를 즉사시킨다. 같은 관용구가 리포지토리 13곳에 깔려 'macOS라서 실패'라는 오진을 낳았다. 선택적 source는 존재 확인을 앞에 두고, 보고서에는 OS 이름 대신 결함 항목의 이름을 적어야 전수 수리가 가능해진다."
+    },
+    {
+      "file": "2026-08-17-git-identity-node-dependent-commit.md",
+      "date": "2026-08-17",
+      "slug": "git-identity-node-dependent-commit",
+      "title": "신원 없는 git commit은 어떤 기계에선 되고 어떤 기계에선 rc=128 — 픽스처의 숨은 노드 의존",
+      "category": "인프라",
+      "tags": [
+        "git",
+        "fixture",
+        "portability",
+        "identity",
+        "sandbox",
+        "ci"
+      ],
+      "summary": "user.email 미설정 시 git은 사용자명@호스트명으로 신원을 지어내는데 macOS는 성공하고 일부 리눅스는 rc=128로 죽는다. 픽스처를 만든 노드에서만 초록인 숨은 노드 의존이 생긴다. 픽스처 커밋마다 -c 로 신원을 명시하고 격리 축에는 useConfigOnly 를 깔아 모든 노드가 같은 시험을 치게 한다."
+    },
+    {
+      "file": "2026-08-17-deploy-workflow-red-but-site-landed.md",
+      "date": "2026-08-17",
+      "slug": "deploy-workflow-red-but-site-landed",
+      "title": "배포 워크플로우가 빨간데 사이트는 갱신돼 있다 — 판정은 색이 아니라 라이브 아티팩트로",
+      "category": "인프라",
+      "tags": [
+        "github-pages",
+        "deploy",
+        "verification",
+        "ci",
+        "cdn"
+      ],
+      "summary": "deploy 단계가 반영 확인 폴링 타임아웃으로 빨갛게 죽어도 사이트는 몇 분 뒤 갱신돼 있을 수 있다. 워크플로우 색은 계기판이지 배포 사실이 아니다. 판정은 해시 박힌 라이브 번들·본문 마커를 N회 연속 fetch 로 하고, 복수 리포지토리 동시 증상이면 플랫폼 장애부터 의심한다."
+    },
+    {
+      "file": "2026-08-17-playwright-hash-goto-no-reload.md",
+      "date": "2026-08-17",
+      "slug": "playwright-hash-goto-no-reload",
+      "title": "해시만 다른 URL로 goto하면 페이지는 다시 뜨지 않는다 — 이전 화면을 새 부트 결과로 오인한다",
+      "category": "자동화",
+      "tags": [
+        "playwright",
+        "e2e",
+        "spa",
+        "hash-routing",
+        "verification",
+        "false-alarm"
+      ],
+      "summary": "해시(#)만 다른 URL 로의 goto 는 문서를 다시 로드하지 않아, 검증 스크립트가 이전 화면을 새 화면의 부트 결과로 찍어 '라우팅 파손' 오보를 낸다. 탐침 사이에 about:blank 리셋을 넣고, 판정 근거는 URL·타이틀이 아니라 그 화면에만 있는 렌더 마커·스크린샷으로 삼는다."
+    },
+    {
+      "file": "2026-08-17-macos-iconv-1kb-false-red.md",
+      "date": "2026-08-17",
+      "slug": "macos-iconv-1kb-false-red",
+      "title": "macOS iconv는 1KB를 넘으면 멀쩡한 UTF-8에도 실패를 돌려준다 — 유효성 판정기로 쓰지 마라",
+      "category": "환경 설정",
+      "tags": [
+        "iconv",
+        "macos",
+        "utf-8",
+        "fixture",
+        "false-negative",
+        "bsd"
+      ],
+      "summary": "BSD iconv 는 입력이 약 1024바이트를 넘으면 유효한 UTF-8 에도 rc=1 을 낼 수 있어, 작은 픽스처로는 영원히 안 보이다가 실전 입력에서 터진다. iconv 종료코드를 유효성 정본으로 쓰지 말고 iconv -c 출력 대조나 python3 디코더를 쓰며, 픽스처에 경계보다 큰 케이스를 포함한다."
     }
   ]
 }
