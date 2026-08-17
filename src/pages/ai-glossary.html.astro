@@ -352,7 +352,7 @@ import '../styles/lab.css';
         <dl class="hero-stats" aria-label="AI 용어집 요약">
           <div>
             <dt>누적 용어</dt>
-            <dd><!--AUTO-HERO-TERMS-START-->762<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
+            <dd><!--AUTO-HERO-TERMS-START-->771<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
           </div>
           <div>
             <dt>카테고리</dt>
@@ -949,6 +949,12 @@ import '../styles/lab.css';
       <h3>쿠엔 TTS / QN3 TTS</h3>
       <p>영상에서 사용한 오픈소스 음성 생성 AI 모델. 프리트레인된 버전을 그대로 불러와 바로 쓴다.</p>
       <span class="src">영상: 2026-08-17-voice-clone-free-colab-connectailab.md</span>
+    </div>
+
+    <div class="term">
+      <h3>로컬 모델</h3>
+      <p>자기 컴퓨터에서 도는 모델. 토큰 요금이 없어 출력이 긴 생성 작업을 내리기 좋지만, 신뢰 장치 없이는 결과를 믿을 수 없다는 것이 영상의 전제.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
     </div>
 
     <h2>하니스 · 패턴</h2>
@@ -2085,6 +2091,36 @@ import '../styles/lab.css';
       <h3>PyTorch(톨치)</h3>
       <p>메타(Meta)가 만든 딥러닝 라이브러리로, GPU 사용 여부 확인 등 모델 실행의 기반이 된다.</p>
       <span class="src">영상: 2026-08-17-voice-clone-free-colab-connectailab.md</span>
+    </div>
+
+    <div class="term">
+      <h3>파일 잠금(file lock)</h3>
+      <p>작업 전에 "이 파일을 지금부터 N분간 내가 쓴다"고 선언해 다른 에이전트의 동시 편집을 막는 장치.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
+    </div>
+
+    <div class="term">
+      <h3>TTL(유효 시간)</h3>
+      <p>잠금이 자동으로 풀리는 제한 시간. 영상에서는 기본 30분. 조용히 죽는 에이전트가 만든 유령 잠금을 자동 회수하는 목적.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
+    </div>
+
+    <div class="term">
+      <h3>유령 잠금(stale lock)</h3>
+      <p>잡은 주체가 이미 죽었는데 해제되지 않고 남은 잠금. 강제 해제를 습관화시켜 잠금 체계 전체를 무력화한다.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
+    </div>
+
+    <div class="term">
+      <h3>강제 해제(force unlock)</h3>
+      <p>남의 잠금을 관리자 권한으로 뺏는 조작. 습관이 되면 잠금이 방어력을 잃는다.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
+    </div>
+
+    <div class="term">
+      <h3>판단 위임(escalation)</h3>
+      <p>구현 담당이 판단이 필요한 지점에서 혼자 결정하지 않고 검수 담당에게 메시지로 넘겨 답을 받는 규약.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
     </div>
 
     <h2>컨텍스트 · 캐시</h2>
@@ -3925,6 +3961,18 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-08-17-grok-bot-agentic-automation-codefactory.md</span>
     </div>
 
+    <div class="term">
+      <h3>git hook 커밋 차단</h3>
+      <p>커밋 시점에 훅을 걸어 남이 잡은 파일이 섞이면 커밋 자체를 중단시키는 사람 실수 방어선.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
+    </div>
+
+    <div class="term">
+      <h3>완료 보고 검증</h3>
+      <p>검증하지 못한 항목을 비운 채 "완료"라고 쓰면 보고가 거부되는 게이트. 확인한 것과 못 한 것을 구분해 적게 강제한다.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
+    </div>
+
     <h2>커리어 · 조직</h2>
 
     <div class="term">
@@ -4539,6 +4587,12 @@ import '../styles/lab.css';
       <h3>클라우드 컴퓨터(Open Computer)</h3>
       <p>사용자 자신의 PC가 아니라 서비스 제공사(X)의 인프라에서 돌아가는 가상 컴퓨터. 사용자가 컴퓨터를 꺼둬도 자동화가 계속 실행된다.</p>
       <span class="src">영상: 2026-08-17-grok-bot-agentic-automation-codefactory.md</span>
+    </div>
+
+    <div class="term">
+      <h3>생성/검수 비용 비대칭</h3>
+      <p>코드를 쓰는 쪽은 출력이 길어 비싸고, 읽고 지적하는 검수는 출력이 짧아 싸다는 구조. 로컬/메인 모델 배분의 근거.</p>
+      <span class="src">영상: 2026-08-18-multi-agent-file-lock-cost-wity.md</span>
     </div>
 
     <h2>기타</h2>
