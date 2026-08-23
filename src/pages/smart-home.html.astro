@@ -233,16 +233,10 @@ const pipeline = [
       --green: var(--success);
       --amber: var(--warn);
       --coral: var(--danger);
-      --ink-soft: #333333;
+      --ink-soft: var(--fg-dim);
       display: flex;
       flex-direction: column;
       gap: 30px;
-    }
-
-    /* --ink-soft 만 전역 토큰으로 못 넘긴다 — 밝은 모드 값(#333)이 --fg-dim(#4f4f4f)과 달라
-       그대로 바꾸면 밝은 화면이 미세하게 밝아진다. 값은 두고 다크 짝만 따로 준다. */
-    @media (prefers-color-scheme: dark) {
-      .smart-home-shell { --ink-soft: #c8c8ce; }
     }
 
     .smart-hero {

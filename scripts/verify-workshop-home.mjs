@@ -51,11 +51,20 @@ const checks = [
     ok: !hasLocalHeaderMirror,
   },
   {
-    label: "design tokens are monochrome with CTA-only color",
+    label: "design tokens are grok black canvas with inverted CTA",
     ok:
-      /--bg:\s*#ffffff;/.test(tokens) &&
-      /--accent-cta:\s*#2563eb;/.test(tokens) &&
-      !/--bg:\s*#0a0a0a;/.test(tokens),
+      /--bg:\s*#000000;/.test(tokens) &&
+      /--accent-cta:\s*#f2f2f2;/.test(tokens) &&
+      /--cta-fg:\s*#000000;/.test(tokens) &&
+      /--radius-card:\s*0;/.test(tokens) &&
+      /--serif:/.test(tokens),
+  },
+  {
+    label: "layout loads Noto Serif KR and pins dark theme-color",
+    ok:
+      /Noto\+Serif\+KR/.test(layout) &&
+      /theme-color" content="#000000"/.test(layout) &&
+      /color-scheme: dark/.test(layout),
   },
   {
     label: "nav preserves key work-site routes",

@@ -149,28 +149,13 @@ const stackItems = [
 </script>
     <style is:global>
       .stack-page {
-        --stack-blue: #2563eb;
-        --stack-green: #127a3d;
-        --stack-red: #b42318;
-        --stack-amber: #9a4d00;
-        --stack-line: #d8dee8;
-        --stack-dash: #a9b2c0;
-        --stack-cta-fg: #ffffff;
-      }
-
-      /* 다크 대응 (2026-08-06 T-260806-060) — 이 페이지 전용 색은 밝은 배경용 저명도
-         값이라 어두운 배경에서 안 읽힌다. 명도를 올린 짝으로 바꾸고, 채운 버튼 글자는
-         밝은 파랑 위 흰 글자가 되지 않게 어둡게 돌린다. */
-      @media (prefers-color-scheme: dark) {
-        .stack-page {
-          --stack-blue: #7aa2ff;
-          --stack-green: #5bd08a;
-          --stack-red: #ff8b80;
-          --stack-amber: #f0b25a;
-          --stack-line: #34343a;
-          --stack-dash: #4a4a52;
-          --stack-cta-fg: #0f0f10;
-        }
+        --stack-blue: #f2f2f2;
+        --stack-green: #c8c8c8;
+        --stack-red: #FF6B6B;
+        --stack-amber: #c8c8c8;
+        --stack-line: rgba(255, 255, 255, 0.16);
+        --stack-dash: rgba(255, 255, 255, 0.28);
+        --stack-cta-fg: #000000;
       }
 
       /* 시스템 맵 SVG — 색을 속성이 아니라 CSS 로 준다(다크에서 같이 뒤집히도록). */
