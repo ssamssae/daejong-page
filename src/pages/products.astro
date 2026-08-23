@@ -4,10 +4,10 @@ import Layout from '../layouts/Layout.astro';
 import { apps, saas, tools, ebooks } from '../data/products';
 
 const sections = [
-  { label: '전자책', eyebrow: 'E-BOOKS', count: ebooks.length, items: ebooks, variant: 'ebook' },
-  { label: '오픈소스 툴', eyebrow: 'OPEN SOURCE', count: tools.length, items: tools, variant: 'tool' },
-  { label: '모바일 앱', eyebrow: 'MOBILE APPS', count: apps.length, items: apps, variant: 'app' },
-  { label: '웹 SaaS', eyebrow: 'WEB SAAS', count: saas.length, items: saas, variant: 'saas' },
+  { label: '전자책', eyebrow: '전자책', count: ebooks.length, items: ebooks, variant: 'ebook' },
+  { label: '오픈소스 툴', eyebrow: '공개 도구', count: tools.length, items: tools, variant: 'tool' },
+  { label: '모바일 앱', eyebrow: '모바일 앱', count: apps.length, items: apps, variant: 'app' },
+  { label: '웹 SaaS', eyebrow: '웹 서비스', count: saas.length, items: saas, variant: 'saas' },
 ];
 
 // 유일한 유료 상품(첫이름 ₩19,900)을 대표 자리 맨 앞에 둔다 — T-260731-044.
@@ -18,7 +18,7 @@ const featured = [saas[0], apps[0], apps[1]];
 <Layout title="제품 — 마이너스베타스튜디오" description="강대종이 공개한 전자책, 모바일 앱, 웹 SaaS, 오픈소스 툴 모음.">
   <section class="products-hero" aria-labelledby="page-title">
     <div class="hero-copy">
-      <p class="eyebrow">PRODUCT INDEX</p>
+      <p class="eyebrow">제품</p>
       <h1 id="page-title">제품</h1>
       <p class="lead">
         작게 만들고 실제로 공개한 전자책, 앱, 도구, 웹 서비스를 한 곳에 모았습니다.
@@ -47,7 +47,7 @@ const featured = [saas[0], apps[0], apps[1]];
 
   <section class="featured-section" aria-labelledby="featured-title">
     <div class="section-head">
-      <p class="eyebrow">FEATURED</p>
+      <p class="eyebrow">대표</p>
       <h2 id="featured-title">대표 제품</h2>
     </div>
     <div class="featured-grid">
@@ -87,7 +87,7 @@ const featured = [saas[0], apps[0], apps[1]];
   <section class="catalog-section" aria-labelledby="catalog-title">
     <div class="section-head catalog-head">
       <div>
-        <p class="eyebrow">CATALOG</p>
+        <p class="eyebrow">목록</p>
         <h2 id="catalog-title">전체 제품</h2>
       </div>
       <p>공개된 제품과 준비 중인 제품을 카테고리별로 정리했습니다.</p>
