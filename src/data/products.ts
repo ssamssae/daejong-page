@@ -69,14 +69,24 @@ export const saas = [
 
 // 공개 브릿지 버전 단일 소스 — status 문구·release URL 을 여기서 파생해 페이지 간 drift 를 없앤다.
 // (버전 자체의 실 릴리스 대조는 별도 게이트 몫 — 잔여, PR 본문 참조.)
+const grokRepo = 'https://github.com/ssamssae/grok-telegram-bridge';
 const codexRepo = 'https://github.com/ssamssae/codex-telegram-bridge';
 const claudeRepo = 'https://github.com/ssamssae/claude-telegram-bridge';
 export const bridges = {
+  grok: { version: '0.3.0', repo: grokRepo },
   codex: { version: '0.9.7', repo: codexRepo },
   claude: { version: '0.13.0', repo: claudeRepo },
 } as const;
 
 export const tools = [
+  {
+    name: 'Grok Telegram Bridge', status: `오픈소스 · v${bridges.grok.version}`,
+    desc: '텔레그램으로 자기 컴퓨터의 Grok 세션을 부리는 브릿지. Claude·Codex 브릿지의 형제 도구입니다.',
+    links: [
+      { label: 'GitHub', url: bridges.grok.repo },
+      { label: 'Release', url: `${bridges.grok.repo}/releases/tag/v${bridges.grok.version}` },
+    ],
+  },
   {
     name: 'Codex Telegram Bridge', status: `오픈소스 · v${bridges.codex.version}`,
     desc: 'Codex CLI REPL을 텔레그램에서 제어하는 전용 브릿지. 텍스트·이미지·영상·음성·파일 입력, 진행보고, reasoning mirror, typing recovery를 지원합니다.',
