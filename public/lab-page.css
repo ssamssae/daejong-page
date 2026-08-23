@@ -35,7 +35,7 @@ body {
 
 /* ── stat 카드 (옵션) ── */
 .lab-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
-.lab-stat { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; background: var(--bg-elev); }
+.lab-stat { border: 1px solid var(--border); border-radius: 0; padding: 14px 16px; background: var(--bg-elev); }
 .lab-stat-label { font-family: var(--mono); font-size: 10px; color: var(--fg-mute); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
 .lab-stat-value { font-size: 22px; color: var(--fg); font-weight: 700; }
 .lab-stat-value .unit { font-size: 13px; color: var(--fg-dim); font-weight: 500; margin-left: 4px; }
