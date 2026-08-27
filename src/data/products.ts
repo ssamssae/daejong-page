@@ -73,7 +73,7 @@ const grokRepo = 'https://github.com/ssamssae/grok-telegram-bridge';
 const codexRepo = 'https://github.com/ssamssae/codex-telegram-bridge';
 const claudeRepo = 'https://github.com/ssamssae/claude-telegram-bridge';
 export const bridges = {
-  grok: { version: '0.4.0', repo: grokRepo },
+  grok: { version: '0.5.0', repo: grokRepo },
   codex: { version: '0.9.7', repo: codexRepo },
   claude: { version: '0.13.0', repo: claudeRepo },
 } as const;
