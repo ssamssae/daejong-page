@@ -33,15 +33,15 @@ const moreActive = more.some(l => isActive(l.href));
       backdrop-filter: blur(12px);
       /* 공유 헤더(kangdaejong.com/mb-components.js)와 동일 렌더 — 폰트 스택·행간·글자 간격·크기를
          mb-header 값에 고정 (T-260707-41). 수치 바꿀 땐 mb-components.js 와 같이 바꿀 것. */
-      font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
-      line-height: 1.65;
+      font-family: var(--sans);
+      line-height: 1.50;
       letter-spacing: normal;
       font-style: normal;
     }
     .nav-inner {
-      width: min(calc(100% - 48px), 1120px);
+      width: min(calc(100% - 92px), 1250px);
       margin: 0 auto;
-      min-height: 66px;
+      min-height: 72px;
       display: grid;
       grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
@@ -53,9 +53,9 @@ const moreActive = more.some(l => isActive(l.href));
       gap: 10px;
       color: var(--fg);
       font-family: var(--sans);
-      font-size: var(--text-body);
-      font-weight: 600;
-      letter-spacing: -0.03em;
+      font-size: 15px;
+      font-weight: 510;
+      letter-spacing: -0.02em;
       text-decoration: none;
       white-space: nowrap;
     }
@@ -70,7 +70,7 @@ const moreActive = more.some(l => isActive(l.href));
       white-space: nowrap;
     }
     .nav-links a {
-      color: var(--fg-dim);
+      color: var(--fg-mute);
       text-decoration: none;
       transition: color .15s;
     }
@@ -79,7 +79,7 @@ const moreActive = more.some(l => isActive(l.href));
       color: var(--fg);
     }
     .nav-links a[aria-current="page"] {
-      font-weight: 700;
+      font-weight: 510;
     }
     .nav-actions {
       display: inline-flex;
@@ -105,7 +105,7 @@ const moreActive = more.some(l => isActive(l.href));
     .nav-more-btn:hover,
     .nav-more-btn.is-active,
     .nav-more.open .nav-more-btn { color: var(--fg); }
-    .nav-more-btn.is-active { font-weight: 700; }
+    .nav-more-btn.is-active { font-weight: 510; }
     .nav-more-btn .chev { font-size: 10px; transition: transform .15s; }
     .nav-more.open .nav-more-btn .chev { transform: rotate(180deg); }
     .nav-more-panel {
@@ -135,27 +135,27 @@ const moreActive = more.some(l => isActive(l.href));
     .nav-more-panel a:hover { background: color-mix(in srgb, var(--fg) 7%, transparent); color: var(--fg); }
     .nav-more-panel a[aria-current="page"] {
       color: var(--fg);
-      font-weight: 700;
+      font-weight: 510;
       background: color-mix(in srgb, var(--fg) 7%, transparent);
     }
     .nav-cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: var(--radius-btn);
-      background: var(--accent-cta);
+      min-height: 32px;
+      padding: 0 12px;
+      border-radius: var(--radius-pill);
+      background: var(--cta-bg);
       color: var(--cta-fg);
-      font-size: var(--text-desc);
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 510;
       text-decoration: none;
       white-space: nowrap;
     }
-    .nav-cta:hover { color: var(--cta-fg); text-decoration: none; background: var(--accent-dim); }
+    .nav-cta:hover { color: var(--cta-fg); text-decoration: none; background: var(--cta-bg); filter: brightness(1.06); }
     @media (max-width: 760px) {
       .nav-inner {
-        width: min(calc(100% - 32px), 1120px);
+        width: min(calc(100% - 48px), 1250px);
         grid-template-columns: 1fr auto;
         min-height: auto;
         padding: 14px 0 10px;

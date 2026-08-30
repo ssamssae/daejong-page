@@ -54,11 +54,13 @@ const checks = [
     label: "design tokens match Linear chrome (not company navy+copper)",
     ok:
       /--bg:\s*#08090A;/.test(tokens) &&
-      /--accent:\s*#8FA4FF;/.test(tokens) &&
+      /--accent:\s*#7170FF;/.test(tokens) &&
       /--cta-fg:\s*#08090A;/.test(tokens) &&
-      /--radius-card:\s*10px;/.test(tokens) &&
+      /--radius-card:\s*12px;/.test(tokens) &&
+      /--pad-section:\s*128px;/.test(tokens) &&
       !/#10161f/.test(tokens) &&
-      !/#d4a574/.test(tokens),
+      !/#d4a574/.test(tokens) &&
+      !/#8FA4FF/.test(tokens),
   },
   {
     label: "layout pins Linear theme-color and stays dark sans",

@@ -180,7 +180,7 @@ const surfaces = ['제품', '작업일지', '뉴스레터', '인사이트', '시
     .home {
       display: flex;
       flex-direction: column;
-      gap: 96px;
+      gap: 128px;
     }
 
     .home-hero {
@@ -201,8 +201,8 @@ const surfaces = ['제품', '작업일지', '뉴스레터', '인사이트', '시
       max-width: 18ch;
       font-size: var(--text-h1);
       line-height: var(--leading-h1);
-      font-weight: 600;
-      letter-spacing: -0.05em;
+      font-weight: 510;
+      letter-spacing: -0.022em;
       word-break: keep-all;
     }
 
@@ -245,27 +245,27 @@ const surfaces = ['제품', '작업일지', '뉴스레터', '인사이트', '시
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
+      min-height: 32px;
+      padding: 0 12px;
       border: 1px solid var(--border);
-      border-radius: var(--radius-btn);
-      font-size: var(--text-desc);
-      font-weight: 600;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 510;
       text-decoration: none;
     }
 
     .button:hover { text-decoration: none; }
 
     .button.primary {
-      border-color: var(--accent-cta);
-      background: var(--accent-cta);
-      color: var(--cta-fg);
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--fg);
     }
 
     .button.primary:hover {
       border-color: var(--accent-dim);
       background: var(--accent-dim);
-      color: var(--cta-fg);
+      color: var(--fg);
     }
 
     .button.secondary {
@@ -376,7 +376,7 @@ const surfaces = ['제품', '작업일지', '뉴스레터', '인사이트', '시
     .section-head {
       display: grid;
       gap: 12px;
-      margin-bottom: 40px;
+      margin-bottom: var(--pad-head-bottom);
     }
 
     .section-head h2 {
@@ -519,7 +519,7 @@ const surfaces = ['제품', '작업일지', '뉴스레터', '인사이트', '시
     }
 
     @media (max-width: 920px) {
-      .home { gap: 72px; }
+      .home { gap: 96px; }
 
       .hero-stats,
       .bridge-grid,
@@ -530,7 +530,7 @@ const surfaces = ['제품', '작업일지', '뉴스레터', '인사이트', '시
     }
 
     @media (max-width: 640px) {
-      .home { gap: 56px; }
+      .home { gap: 64px; }
 
       .home-hero { padding-top: 8px; }
 
