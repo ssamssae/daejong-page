@@ -1,102 +1,100 @@
 /* tokens.css — daejong-page 디자인 토큰 단일 소스 (SoT)
- * Layout.astro 가 전역 import → 모든 페이지가 이 :root 1곳을 참조.
- * T-260831-005: Linear.app 크롬 + Stripe.com 섹션 리듬.
- * 회사홈 남색+코퍼(T-260830-054)를 따라가지 않는다. */
+ * T-260831-005 2단계: 채팅 기준점(Linear 라이브 크롬 + Stripe 리듬).
+ * 회사홈 남색+코퍼와 근사 인디고는 폐기. */
 :root {
   color-scheme: dark;
 
   --bg:         #08090A;
-  --bg-elev:    #121316;
-  --bg-elev2:   #1A1B1F;
+  --bg-elev:    #0F1011;
+  --bg-elev2:   #1C1C1F;
+  --bg-tint:    #141516;
 
-  --border:     rgba(226, 228, 231, 0.10);
-  --border-soft: rgba(226, 228, 231, 0.06);
+  --border:     rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.05);
 
-  --fg:         #E2E4E7;
-  --fg-dim:     #B0B3B8;
-  --fg-mute:    #8A8D93;
+  --fg:         #F7F8F8;
+  --fg-dim:     #D0D6E0;
+  --fg-mute:    #8A8F98;
+  --fg-faint:   #62666D;
 
-  /* 옛 --cyan/--magenta 클래스 호환은 Linear 인디고 계열로 접는다. */
-  --cyan:       #8FA4FF;
-  --magenta:    #A8B8FF;
-  --accent:     #8FA4FF;
-  --accent-cta: #8FA4FF;
-  --accent-2:   #A8B8FF;
-  --accent-dim: #A8B8FF;
+  --cyan:       #7170FF;
+  --magenta:    #828FFF;
+  --accent:     #7170FF;
+  --accent-cta: #7170FF;
+  --accent-2:   #828FFF;
+  --accent-dim: #828FFF;
+  --cta-bg:     #E5E5E6;
   --cta-fg:     #08090A;
 
   --danger:     #FF6B6B;
-  --success:    #A8B8FF;
-  --warn:       #A8B8FF;
+  --success:    #828FFF;
+  --warn:       #828FFF;
 
   --danger-bg:  #1a0a0a;
-  --accent-bg:  #15171C;
-  --code-bg:    #15171C;
+  --accent-bg:  #141516;
+  --code-bg:    #141516;
 
-  --invert-bg:  #E2E4E7;
+  --invert-bg:  #F7F8F8;
   --invert-fg:  #08090A;
-  --invert-dim: #4A4D52;
-  --invert-border: #8FA4FF;
+  --invert-dim: #62666D;
+  --invert-border: #7170FF;
 
   --shadow:     transparent;
   --shadow-pop: transparent;
 
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
-  --serif: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  --serif: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
 
-  --text-h1: clamp(40px, 7vw, 72px);
-  --text-h2: clamp(26px, 3.4vw, 40px);
-  --text-h3: 18px;
-  --text-lead: 18px;
-  --text-body: 15px;
+  --text-h1: clamp(38px, 6vw, 64px);
+  --text-h2: clamp(28px, 4vw, 48px);
+  --text-h3: 20px;
+  --text-lead: 16px;
+  --text-body: 16px;
   --text-desc: 14px;
-  --text-meta: 12px;
-  --text-badge: 11px;
+  --text-meta: 13px;
+  --text-badge: 12px;
 
   --track-eyebrow: 0.12em;
   --track-badge: 0.08em;
-  --leading-body: 1.65;
-  --leading-h1: 1.04;
+  --leading-body: 1.50;
+  --leading-h1: 1.00;
   --leading-desc: 1.6;
 
   --measure: 62ch;
-  --radius-card: 10px;
+  --radius-card: 12px;
   --radius-btn: 8px;
+  --radius-pill: 9999px;
   --gap-card: 16px;
-  --pad-section: 96px;
+  --pad-section: 128px;
   --pad-section-sm: 64px;
+  --pad-head-bottom: 96px;
+  --header-h: 72px;
+  --page-gutter: 46px;
+  --page-max: 1250px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg:         #08090A;
-    --bg-elev:    #121316;
-    --bg-elev2:   #1A1B1F;
-    --border:     rgba(226, 228, 231, 0.10);
-    --border-soft: rgba(226, 228, 231, 0.06);
-    --fg:         #E2E4E7;
-    --fg-dim:     #B0B3B8;
-    --fg-mute:    #8A8D93;
-    --cyan:       #8FA4FF;
-    --magenta:    #A8B8FF;
-    --accent:     #8FA4FF;
-    --accent-cta: #8FA4FF;
-    --accent-2:   #A8B8FF;
-    --accent-dim: #A8B8FF;
+    --bg-elev:    #0F1011;
+    --bg-elev2:   #1C1C1F;
+    --border:     rgba(255, 255, 255, 0.08);
+    --border-soft: rgba(255, 255, 255, 0.05);
+    --fg:         #F7F8F8;
+    --fg-dim:     #D0D6E0;
+    --fg-mute:    #8A8F98;
+    --cyan:       #7170FF;
+    --magenta:    #828FFF;
+    --accent:     #7170FF;
+    --accent-cta: #7170FF;
+    --accent-2:   #828FFF;
+    --accent-dim: #828FFF;
+    --cta-bg:     #E5E5E6;
     --cta-fg:     #08090A;
-    --danger:     #FF6B6B;
-    --success:    #A8B8FF;
-    --warn:       #A8B8FF;
-    --danger-bg:  #1a0a0a;
-    --accent-bg:  #15171C;
-    --code-bg:    #15171C;
-    --invert-bg:  #E2E4E7;
+    --invert-bg:  #F7F8F8;
     --invert-fg:  #08090A;
-    --invert-dim: #4A4D52;
-    --invert-border: #8FA4FF;
-    --shadow:     transparent;
-    --shadow-pop: transparent;
+    --invert-border: #7170FF;
   }
 }
 .accent-cyan { color: var(--cyan); }

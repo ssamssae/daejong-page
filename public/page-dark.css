@@ -1,25 +1,26 @@
-/* page-dark.css — 정적 페이지 공통 Linear 크롬 (T-260831-005)
- * SoT: src/styles/tokens.css 미러. */
+/* page-dark.css — 정적 페이지 공통 Linear 크롬 (T-260831-005 기준점) */
 
 :root {
   color-scheme: dark;
   --bg:        #08090A;
-  --bg-elev:   #121316;
-  --bg-elev2:  #1A1B1F;
-  --border:    rgba(226, 228, 231, 0.10);
-  --border-soft: rgba(226, 228, 231, 0.06);
-  --fg:        #E2E4E7;
-  --fg-dim:    #B0B3B8;
-  --fg-mute:   #8A8D93;
-  --accent:    #8FA4FF;
-  --accent-2:  #A8B8FF;
-  --accent-dim:#A8B8FF;
+  --bg-elev:   #0F1011;
+  --bg-elev2:  #1C1C1F;
+  --border:    rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.05);
+  --fg:        #F7F8F8;
+  --fg-dim:    #D0D6E0;
+  --fg-mute:   #8A8F98;
+  --accent:    #7170FF;
+  --accent-2:  #828FFF;
+  --accent-dim:#828FFF;
+  --cta-bg:    #E5E5E6;
+  --cta-fg:    #08090A;
   --danger:    #FF6B6B;
-  --success:   #A8B8FF;
-  --warn:      #A8B8FF;
+  --success:   #828FFF;
+  --warn:      #828FFF;
   --danger-bg: #1a0a0a;
-  --accent-bg: #15171C;
-  --sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  --accent-bg: #141516;
+  --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
@@ -29,5 +30,5 @@ body { background-color: var(--bg); color: var(--fg); }
 footer { border-color: var(--border) !important; }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #1A1B1F; border: 1px solid rgba(226,228,231,0.10); }
-::-webkit-scrollbar-thumb:hover { background: #24262C; }
+::-webkit-scrollbar-thumb { background: #1C1C1F; border: 1px solid rgba(255,255,255,0.08); }
+::-webkit-scrollbar-thumb:hover { background: #232326; }
