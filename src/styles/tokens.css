@@ -1,108 +1,100 @@
 /* tokens.css — daejong-page 디자인 토큰 단일 소스 (SoT)
  * Layout.astro 가 전역 import → 모든 페이지가 이 :root 1곳을 참조.
- * T-260831-005: 회사홈(kangdaejong.com T-260830-054) 남색+코퍼와 맞춘다.
- * 라이브 실측 SoT = kangdaejong.com /_astro/index CSS :root. */
+ * T-260831-005: Linear.app 크롬 + Stripe.com 섹션 리듬.
+ * 회사홈 남색+코퍼(T-260830-054)를 따라가지 않는다. */
 :root {
   color-scheme: dark;
 
-  /* 배경 계층 — 남색 캔버스 */
-  --bg:         #10161f;
-  --bg-elev:    #182030;
-  --bg-elev2:   #1e2736;
+  --bg:         #08090A;
+  --bg-elev:    #121316;
+  --bg-elev2:   #1A1B1F;
 
-  /* 경계선 — 코퍼 헤어라인 */
-  --border:     rgba(212, 165, 116, 0.22);
-  --border-soft: rgba(243, 239, 230, 0.08);
+  --border:     rgba(226, 228, 231, 0.10);
+  --border-soft: rgba(226, 228, 231, 0.06);
 
-  /* 텍스트 — 크림 */
-  --fg:         #f3efe6;
-  --fg-dim:     #c5c0b5;
-  --fg-mute:    #8e8a82;
+  --fg:         #E2E4E7;
+  --fg-dim:     #B0B3B8;
+  --fg-mute:    #8A8D93;
 
-  /* 액센트 — 코퍼. 옛 --cyan/--magenta 클래스 호환은 같은 계열로 접는다. */
-  --cyan:       #d4a574;
-  --magenta:    #e0b98a;
-  --accent:     #d4a574;
-  --accent-cta: #d4a574;
-  --accent-2:   #e0b98a;
-  --accent-dim: #e0b98a;
-  --cta-fg:     #10161f;
+  /* 옛 --cyan/--magenta 클래스 호환은 Linear 인디고 계열로 접는다. */
+  --cyan:       #8FA4FF;
+  --magenta:    #A8B8FF;
+  --accent:     #8FA4FF;
+  --accent-cta: #8FA4FF;
+  --accent-2:   #A8B8FF;
+  --accent-dim: #A8B8FF;
+  --cta-fg:     #08090A;
 
-  /* 상태색 — 빨강만 남기고 성공/경고는 코퍼 계열 */
   --danger:     #FF6B6B;
-  --success:    #e0b98a;
-  --warn:       #e0b98a;
+  --success:    #A8B8FF;
+  --warn:       #A8B8FF;
 
   --danger-bg:  #1a0a0a;
-  --accent-bg:  #1e2736;
-  --code-bg:    #1e2736;
+  --accent-bg:  #15171C;
+  --code-bg:    #15171C;
 
-  /* 반전 패널 = 크림 카드 */
-  --invert-bg:  #f3efe6;
-  --invert-fg:  #10161f;
-  --invert-dim: #4a453c;
-  --invert-border: #d4a574;
+  --invert-bg:  #E2E4E7;
+  --invert-fg:  #08090A;
+  --invert-dim: #4A4D52;
+  --invert-border: #8FA4FF;
 
   --shadow:     transparent;
   --shadow-pop: transparent;
 
-  /* 폰트 */
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
-  --serif: "Noto Serif KR", "Iowan Old Style", Palatino, "Times New Roman", "Apple SD Gothic Neo", serif;
+  --serif: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
 
-  /* 타입 스케일 (T-260807-019 리듬 유지) */
-  --text-h1: clamp(30px, 5vw, 46px);
-  --text-h2: clamp(22px, 3vw, 28px);
-  --text-h3: 19px;
-  --text-lead: 17px;
+  --text-h1: clamp(40px, 7vw, 72px);
+  --text-h2: clamp(26px, 3.4vw, 40px);
+  --text-h3: 18px;
+  --text-lead: 18px;
   --text-body: 15px;
   --text-desc: 14px;
   --text-meta: 12px;
   --text-badge: 11px;
 
-  --track-eyebrow: 0.14em;
+  --track-eyebrow: 0.12em;
   --track-badge: 0.08em;
   --leading-body: 1.65;
-  --leading-h1: 1.25;
+  --leading-h1: 1.04;
   --leading-desc: 1.6;
 
   --measure: 62ch;
-  --radius-card: 12px;
+  --radius-card: 10px;
   --radius-btn: 8px;
   --gap-card: 16px;
-  --pad-section: 56px;
-  --pad-section-sm: 40px;
+  --pad-section: 96px;
+  --pad-section-sm: 64px;
 }
 
-/* OS 다크/라이트 모두 회사홈과 같은 남색+코퍼. 페이지 로컬 분기가 있어도 값이 갈라지지 않게 한 번 더 박는다. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg:         #10161f;
-    --bg-elev:    #182030;
-    --bg-elev2:   #1e2736;
-    --border:     rgba(212, 165, 116, 0.22);
-    --border-soft: rgba(243, 239, 230, 0.08);
-    --fg:         #f3efe6;
-    --fg-dim:     #c5c0b5;
-    --fg-mute:    #8e8a82;
-    --cyan:       #d4a574;
-    --magenta:    #e0b98a;
-    --accent:     #d4a574;
-    --accent-cta: #d4a574;
-    --accent-2:   #e0b98a;
-    --accent-dim: #e0b98a;
-    --cta-fg:     #10161f;
+    --bg:         #08090A;
+    --bg-elev:    #121316;
+    --bg-elev2:   #1A1B1F;
+    --border:     rgba(226, 228, 231, 0.10);
+    --border-soft: rgba(226, 228, 231, 0.06);
+    --fg:         #E2E4E7;
+    --fg-dim:     #B0B3B8;
+    --fg-mute:    #8A8D93;
+    --cyan:       #8FA4FF;
+    --magenta:    #A8B8FF;
+    --accent:     #8FA4FF;
+    --accent-cta: #8FA4FF;
+    --accent-2:   #A8B8FF;
+    --accent-dim: #A8B8FF;
+    --cta-fg:     #08090A;
     --danger:     #FF6B6B;
-    --success:    #e0b98a;
-    --warn:       #e0b98a;
+    --success:    #A8B8FF;
+    --warn:       #A8B8FF;
     --danger-bg:  #1a0a0a;
-    --accent-bg:  #1e2736;
-    --code-bg:    #1e2736;
-    --invert-bg:  #f3efe6;
-    --invert-fg:  #10161f;
-    --invert-dim: #4a453c;
-    --invert-border: #d4a574;
+    --accent-bg:  #15171C;
+    --code-bg:    #15171C;
+    --invert-bg:  #E2E4E7;
+    --invert-fg:  #08090A;
+    --invert-dim: #4A4D52;
+    --invert-border: #8FA4FF;
     --shadow:     transparent;
     --shadow-pop: transparent;
   }

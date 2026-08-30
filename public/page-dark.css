@@ -1,24 +1,24 @@
-/* page-dark.css — 정적 페이지 공통 남색+코퍼 (T-260831-005)
- * SoT: src/styles/tokens.css 미러. 회사홈 kangdaejong.com T-260830-054 과 맞출 것. */
+/* page-dark.css — 정적 페이지 공통 Linear 크롬 (T-260831-005)
+ * SoT: src/styles/tokens.css 미러. */
 
 :root {
   color-scheme: dark;
-  --bg:        #10161f;
-  --bg-elev:   #182030;
-  --bg-elev2:  #1e2736;
-  --border:    rgba(212, 165, 116, 0.22);
-  --border-soft: rgba(243, 239, 230, 0.08);
-  --fg:        #f3efe6;
-  --fg-dim:    #c5c0b5;
-  --fg-mute:   #8e8a82;
-  --accent:    #d4a574;
-  --accent-2:  #e0b98a;
-  --accent-dim:#e0b98a;
+  --bg:        #08090A;
+  --bg-elev:   #121316;
+  --bg-elev2:  #1A1B1F;
+  --border:    rgba(226, 228, 231, 0.10);
+  --border-soft: rgba(226, 228, 231, 0.06);
+  --fg:        #E2E4E7;
+  --fg-dim:    #B0B3B8;
+  --fg-mute:   #8A8D93;
+  --accent:    #8FA4FF;
+  --accent-2:  #A8B8FF;
+  --accent-dim:#A8B8FF;
   --danger:    #FF6B6B;
-  --success:   #e0b98a;
-  --warn:      #e0b98a;
+  --success:   #A8B8FF;
+  --warn:      #A8B8FF;
   --danger-bg: #1a0a0a;
-  --accent-bg: #1e2736;
+  --accent-bg: #15171C;
   --sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
@@ -29,5 +29,5 @@ body { background-color: var(--bg); color: var(--fg); }
 footer { border-color: var(--border) !important; }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #1e2736; border: 1px solid rgba(212,165,116,0.22); }
-::-webkit-scrollbar-thumb:hover { background: #243044; }
+::-webkit-scrollbar-thumb { background: #1A1B1F; border: 1px solid rgba(226,228,231,0.10); }
+::-webkit-scrollbar-thumb:hover { background: #24262C; }

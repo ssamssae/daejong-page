@@ -51,19 +51,20 @@ const checks = [
     ok: !hasLocalHeaderMirror,
   },
   {
-    label: "design tokens match company navy+copper (kangdaejong.com)",
+    label: "design tokens match Linear chrome (not company navy+copper)",
     ok:
-      /--bg:\s*#10161f;/.test(tokens) &&
-      /--accent:\s*#d4a574;/.test(tokens) &&
-      /--cta-fg:\s*#10161f;/.test(tokens) &&
-      /--radius-card:\s*12px;/.test(tokens) &&
-      /--serif:/.test(tokens),
+      /--bg:\s*#08090A;/.test(tokens) &&
+      /--accent:\s*#8FA4FF;/.test(tokens) &&
+      /--cta-fg:\s*#08090A;/.test(tokens) &&
+      /--radius-card:\s*10px;/.test(tokens) &&
+      !/#10161f/.test(tokens) &&
+      !/#d4a574/.test(tokens),
   },
   {
-    label: "layout loads Noto Serif KR and pins navy theme-color",
+    label: "layout pins Linear theme-color and stays dark sans",
     ok:
-      /Noto\+Serif\+KR/.test(layout) &&
-      /theme-color" content="#10161f"/.test(layout) &&
+      !/Noto\+Serif\+KR/.test(layout) &&
+      /theme-color" content="#08090A"/.test(layout) &&
       /color-scheme: dark/.test(layout),
   },
   {
