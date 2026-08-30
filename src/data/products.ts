@@ -65,6 +65,17 @@ export const saas = [
     desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스.',
     links: [{ label: '첫이름 바로가기', url: 'https://cheotireum.kangdaejong.com/' }],
   },
+  // 대표 자리(products.astro 의 featured = [saas[0], ...])는 건드리지 않고 뒤에 붙인다.
+  // 첫이름을 대표로 올린 것은 T-260731-044 의 명시 결정이라, 순서를 바꾸려면 그 결정을
+  // 다시 여는 것이 맞다 — 상품이 하나 늘었다는 이유만으로 조용히 뒤집지 않는다.
+  {
+    name: '한장궁합 — 결혼 궁합 한 장', status: '웹 SaaS · ₩19,900',
+    desc: '결혼을 앞둔 두 사람의 사주로 궁합 점수와 해설을 A4 한 장에 담아 메일로 보냅니다. 시댁·본가에 그대로 내밀 수 있는 형식이고, 결제 전에 예시 한 장을 가려둔 곳 없이 볼 수 있습니다.',
+    links: [
+      { label: '한장궁합 바로가기', url: 'https://hanjang.kangdaejong.com/' },
+      { label: '예시 한 장 보기', url: 'https://hanjang.kangdaejong.com/sample' },
+    ],
+  },
 ];
 
 // 공개 브릿지 버전 단일 소스 — status 문구·release URL 을 여기서 파생해 페이지 간 drift 를 없앤다.
