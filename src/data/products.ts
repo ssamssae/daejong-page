@@ -76,6 +76,15 @@ export const saas = [
       { label: '예시 한 장 보기', url: 'https://hanjang.kangdaejong.com/sample' },
     ],
   },
+  // 링크가 하나뿐인 것은 누락이 아니다 — 택일에는 아직 궁합 같은 예시 페이지(/sample)가
+  // 없다. 생기면 여기에 「예시 한 장 보기」를 같은 모양으로 붙인다.
+  {
+    name: '한장택일 — 결혼·이사·개업 날짜', status: '웹 SaaS · ₩19,900',
+    desc: '이름과 생일로 결혼·이사·개업에 좋은 날을 고르고, 고른 이유까지 한 장에 담아 메일로 보냅니다.',
+    links: [
+      { label: '한장택일 바로가기', url: 'https://taekil.kangdaejong.com/' },
+    ],
+  },
 ];
 
 // 공개 브릿지 버전 단일 소스 — status 문구·release URL 을 여기서 파생해 페이지 간 drift 를 없앤다.
