@@ -51,19 +51,19 @@ const checks = [
     ok: !hasLocalHeaderMirror,
   },
   {
-    label: "design tokens are grok black canvas with inverted CTA",
+    label: "design tokens match company navy+copper (kangdaejong.com)",
     ok:
-      /--bg:\s*#000000;/.test(tokens) &&
-      /--accent-cta:\s*#f2f2f2;/.test(tokens) &&
-      /--cta-fg:\s*#000000;/.test(tokens) &&
-      /--radius-card:\s*0;/.test(tokens) &&
+      /--bg:\s*#10161f;/.test(tokens) &&
+      /--accent:\s*#d4a574;/.test(tokens) &&
+      /--cta-fg:\s*#10161f;/.test(tokens) &&
+      /--radius-card:\s*12px;/.test(tokens) &&
       /--serif:/.test(tokens),
   },
   {
-    label: "layout loads Noto Serif KR and pins dark theme-color",
+    label: "layout loads Noto Serif KR and pins navy theme-color",
     ok:
       /Noto\+Serif\+KR/.test(layout) &&
-      /theme-color" content="#000000"/.test(layout) &&
+      /theme-color" content="#10161f"/.test(layout) &&
       /color-scheme: dark/.test(layout),
   },
   {

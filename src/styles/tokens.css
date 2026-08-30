@@ -1,46 +1,47 @@
 /* tokens.css — daejong-page 디자인 토큰 단일 소스 (SoT)
  * Layout.astro 가 전역 import → 모든 페이지가 이 :root 1곳을 참조.
- * 2026-08-24 T-260824-014: 작업장 전체를 그록 톤(검정 캔버스·흰 글자·가는 선)으로 고정.
- * 레퍼런스 = 첫이름 라이브(cheotireum.kangdaejong.com) 결제/입력면 토큰. */
+ * T-260831-005: 회사홈(kangdaejong.com T-260830-054) 남색+코퍼와 맞춘다.
+ * 라이브 실측 SoT = kangdaejong.com /_astro/index CSS :root. */
 :root {
   color-scheme: dark;
 
-  /* 배경 계층 — 검정 캔버스 */
-  --bg:         #000000;
-  --bg-elev:    #0d0d0d;
-  --bg-elev2:   #141414;
+  /* 배경 계층 — 남색 캔버스 */
+  --bg:         #10161f;
+  --bg-elev:    #182030;
+  --bg-elev2:   #1e2736;
 
-  /* 경계선 — 헤어라인 */
-  --border:     rgba(255, 255, 255, 0.08);
-  --border-soft: rgba(255, 255, 255, 0.06);
+  /* 경계선 — 코퍼 헤어라인 */
+  --border:     rgba(212, 165, 116, 0.22);
+  --border-soft: rgba(243, 239, 230, 0.08);
 
-  /* 텍스트 */
-  --fg:         #f2f2f2;
-  --fg-dim:     #b0b0b0;
-  --fg-mute:    #8a8a8a;
+  /* 텍스트 — 크림 */
+  --fg:         #f3efe6;
+  --fg-dim:     #c5c0b5;
+  --fg-mute:    #8e8a82;
 
-  /* 액센트 — 그록은 모노크롬. CTA 는 흰 바탕 + 검정 글자. */
-  --cyan:       #f2f2f2;
-  --magenta:    #c8c8c8;
-  --accent:     #f2f2f2;
-  --accent-cta: #f2f2f2;
-  --accent-2:   #c8c8c8;
-  --accent-dim: #c8c8c8;
-  --cta-fg:     #000000;
+  /* 액센트 — 코퍼. 옛 --cyan/--magenta 클래스 호환은 같은 계열로 접는다. */
+  --cyan:       #d4a574;
+  --magenta:    #e0b98a;
+  --accent:     #d4a574;
+  --accent-cta: #d4a574;
+  --accent-2:   #e0b98a;
+  --accent-dim: #e0b98a;
+  --cta-fg:     #10161f;
 
-  /* 상태색 — 빨강만 남기고 나머지는 회색 계열 */
+  /* 상태색 — 빨강만 남기고 성공/경고는 코퍼 계열 */
   --danger:     #FF6B6B;
-  --success:    #c8c8c8;
-  --warn:       #c8c8c8;
+  --success:    #e0b98a;
+  --warn:       #e0b98a;
 
   --danger-bg:  #1a0a0a;
-  --accent-bg:  #141414;
+  --accent-bg:  #1e2736;
+  --code-bg:    #1e2736;
 
-  /* 반전 패널 = 흰 카드 */
-  --invert-bg:  #f2f2f2;
-  --invert-fg:  #000000;
-  --invert-dim: #4a4a4a;
-  --invert-border: #f2f2f2;
+  /* 반전 패널 = 크림 카드 */
+  --invert-bg:  #f3efe6;
+  --invert-fg:  #10161f;
+  --invert-dim: #4a453c;
+  --invert-border: #d4a574;
 
   --shadow:     transparent;
   --shadow-pop: transparent;
@@ -67,41 +68,41 @@
   --leading-desc: 1.6;
 
   --measure: 62ch;
-  --radius-card: 0;
-  --radius-btn: 0;
+  --radius-card: 12px;
+  --radius-btn: 8px;
   --gap-card: 16px;
   --pad-section: 56px;
   --pad-section-sm: 40px;
 }
 
-/* OS 다크/라이트 모두 그록 톤. 페이지 로컬 @media (prefers-color-scheme: dark)
- * 분기가 있어도 값이 갈라지지 않게 같은 세트를 한 번 더 박는다. */
+/* OS 다크/라이트 모두 회사홈과 같은 남색+코퍼. 페이지 로컬 분기가 있어도 값이 갈라지지 않게 한 번 더 박는다. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg:         #000000;
-    --bg-elev:    #0d0d0d;
-    --bg-elev2:   #141414;
-    --border:     rgba(255, 255, 255, 0.08);
-    --border-soft: rgba(255, 255, 255, 0.06);
-    --fg:         #f2f2f2;
-    --fg-dim:     #b0b0b0;
-    --fg-mute:    #8a8a8a;
-    --cyan:       #f2f2f2;
-    --magenta:    #c8c8c8;
-    --accent:     #f2f2f2;
-    --accent-cta: #f2f2f2;
-    --accent-2:   #c8c8c8;
-    --accent-dim: #c8c8c8;
-    --cta-fg:     #000000;
+    --bg:         #10161f;
+    --bg-elev:    #182030;
+    --bg-elev2:   #1e2736;
+    --border:     rgba(212, 165, 116, 0.22);
+    --border-soft: rgba(243, 239, 230, 0.08);
+    --fg:         #f3efe6;
+    --fg-dim:     #c5c0b5;
+    --fg-mute:    #8e8a82;
+    --cyan:       #d4a574;
+    --magenta:    #e0b98a;
+    --accent:     #d4a574;
+    --accent-cta: #d4a574;
+    --accent-2:   #e0b98a;
+    --accent-dim: #e0b98a;
+    --cta-fg:     #10161f;
     --danger:     #FF6B6B;
-    --success:    #c8c8c8;
-    --warn:       #c8c8c8;
+    --success:    #e0b98a;
+    --warn:       #e0b98a;
     --danger-bg:  #1a0a0a;
-    --accent-bg:  #141414;
-    --invert-bg:  #f2f2f2;
-    --invert-fg:  #000000;
-    --invert-dim: #4a4a4a;
-    --invert-border: #f2f2f2;
+    --accent-bg:  #1e2736;
+    --code-bg:    #1e2736;
+    --invert-bg:  #f3efe6;
+    --invert-fg:  #10161f;
+    --invert-dim: #4a453c;
+    --invert-border: #d4a574;
     --shadow:     transparent;
     --shadow-pop: transparent;
   }

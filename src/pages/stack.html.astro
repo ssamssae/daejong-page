@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 
 const metrics = [
   { value: '5', unit: 'stationary nodes', label: '상주 물리 노드' },
-  { value: '4', unit: 'AI lanes', label: 'Claude 4 · Codex 대기' },
+  { value: '3', unit: 'bridges', label: 'Grok · Claude · Codex' },
   { value: '2', unit: 'local GPUs', label: '2070S · 3060Ti' },
   { value: '24/7', unit: 'ready', label: '폰 한 줄로 기동' },
 ];
@@ -16,13 +16,13 @@ const layers = [
   },
   {
     eyebrow: 'Execution layer',
-    title: 'Claude 캐리어가 손을 움직인다',
-    body: '코드 수정, 반복 검증, 로그 스캔, 작은 PR은 Claude 캐리어 노드가 빠르게 처리한다.',
+    title: 'Grok 캐리어가 손을 움직인다',
+    body: '코드 수정, 반복 검증, 로그 스캔, 작은 PR은 Grok 캐리어 노드가 빠르게 처리한다.',
   },
   {
     eyebrow: 'Review layer',
-    title: 'Claude는 게이트와 리뷰',
-    body: '계획, 리스크 판정, 리뷰, 배포 직전 확인처럼 실패 비용이 큰 지점에 Claude를 배치한다.',
+    title: '게이트와 리뷰는 규칙으로',
+    body: '계획, 리스크 판정, 리뷰, 배포 직전 확인처럼 실패 비용이 큰 지점은 사람 승인과 머지 규칙이 닫는다.',
   },
   {
     eyebrow: 'Ingress',
@@ -100,6 +100,7 @@ const stackItems = [
   'Flutter apps',
   'Cloudflare Workers',
   'Telegram bridges',
+  'Grok',
   'Claude Code',
   'Codex CLI',
   'tmux',
@@ -110,17 +111,17 @@ const stackItems = [
   'local GPU tools',
 ];
 ---
-<Layout title="STACK - 강대종" description="강대종이 실제로 굴리는 5노드 AI 작업장 시스템. 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름을 한 화면에 정리합니다.">
+<Layout title="STACK - 강대종" description="강대종이 실제로 굴리는 5노드 AI 작업장 시스템. 물리 노드, Grok 작업 레인, GPU, 모바일 입력면, 배차와 보고 흐름을 한 화면에 정리합니다.">
   <Fragment slot="head">
     <meta property="og:title" content="STACK - 강대종">
-    <meta property="og:description" content="5노드 AI 작업장 시스템 — 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
+    <meta property="og:description" content="5노드 AI 작업장 시스템 — 물리 노드, Grok 작업 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://work.kangdaejong.com/stack.html">
     <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="STACK - 강대종">
-    <meta name="twitter:description" content="5노드 AI 작업장 시스템 — 물리 노드, Claude 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
+    <meta name="twitter:description" content="5노드 AI 작업장 시스템 — 물리 노드, Grok 작업 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
     <link rel="canonical" href="https://work.kangdaejong.com/stack.html">
     <script type="application/ld+json" is:inline>
@@ -149,13 +150,13 @@ const stackItems = [
 </script>
     <style is:global>
       .stack-page {
-        --stack-blue: #f2f2f2;
-        --stack-green: #c8c8c8;
+        --stack-blue: #d4a574;
+        --stack-green: #e0b98a;
         --stack-red: #FF6B6B;
-        --stack-amber: #c8c8c8;
-        --stack-line: rgba(255, 255, 255, 0.16);
-        --stack-dash: rgba(255, 255, 255, 0.28);
-        --stack-cta-fg: #000000;
+        --stack-amber: #e0b98a;
+        --stack-line: rgba(212, 165, 116, 0.28);
+        --stack-dash: rgba(212, 165, 116, 0.40);
+        --stack-cta-fg: #10161f;
       }
 
       /* 시스템 맵 SVG — 색을 속성이 아니라 CSS 로 준다(다크에서 같이 뒤집히도록). */
@@ -733,7 +734,7 @@ const stackItems = [
         <h1>혼자 굴리는 5노드 AI 작업장</h1>
         <p class="stack-lead">
           앱, 글, 배포, 자동화를 한 사람이 처리하기 위해 만든 실제 운영 시스템입니다.
-          판단은 본진 아테나에 남기고, 손이 필요한 일은 Claude 레인과 물리 노드로 흘립니다.
+          판단은 본진 아테나에 남기고, 손이 필요한 일은 Grok 레인과 물리 노드로 흘립니다.
         </p>
         <div class="stack-actions">
           <a class="stack-button primary" href="/system">시스템 보기</a>

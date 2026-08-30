@@ -6,7 +6,7 @@ const updatedAt = '2026-08-17';
 
 const stats = [
   { label: 'physical fleet', value: '5대', sub: '아테나 · 볼칸 · 라이덴 · 테미스 · 헤르메스' },
-  { label: 'engine', value: 'Claude 단일', sub: 'Claude 5노드 · Codex 휴면(의견 채널만)' },
+  { label: 'engine', value: 'Grok 작업', sub: 'Grok 실행 · Claude 잔여 대화 · Codex 휴면(의견 채널만)' },
   { label: 'delivery', value: '보고 보증', sub: 'report · queue · mirror · retry' },
   { label: 'last refresh', value: updatedAt, sub: '공개 페이지 기준 최신 정리' },
 ];
@@ -23,14 +23,14 @@ const liveLayers = [
     key: '02',
     title: '텔레그램 브릿지와 보고 보증',
     tone: 'cyan',
-    desc: 'Claude 세션 입력·출력·진행상태를 폰에서 볼 수 있게 하고, 완료 보고가 누락되면 재전송 큐로 표면화한다.',
+    desc: 'Grok·Claude·Codex 세션 입력·출력·진행상태를 폰에서 볼 수 있게 하고, 완료 보고가 누락되면 재전송 큐로 표면화한다.',
     tags: ['bridge', 'report', 'must-deliver'],
   },
   {
     key: '03',
-    title: 'Claude 단일 엔진, Codex는 휴면',
+    title: 'Grok 실행, Codex는 휴면',
     tone: 'magenta',
-    desc: '판단은 본진 아테나, 실행은 워커 노드 — 전부 Claude 한 엔진으로 돌린다. Codex는 자동 배차 없는 휴면 런타임으로 의견 채널만 남겼다. 자동 fan-out은 비용 토글과 시간/iter 봉투 안에서만 열린다.',
+    desc: '판단은 본진 아테나, 실행은 워커 노드의 Grok 레인이다. Codex는 자동 배차 없는 휴면 런타임으로 의견 채널만 남겼다. 자동 fan-out은 비용 토글과 시간/iter 봉투 안에서만 열린다.',
     tags: ['single engine', 'dormant codex', 'cost guard'],
   },
   {
@@ -115,7 +115,7 @@ const rules = [
   '작업 완료는 말로 끝내지 않고 검증 결과, PR, 보고, SoT 근거까지 남긴다.',
 ];
 ---
-<Layout title="자동화 - 강대종" description="강대종이 실제 운영하는 5노드 자동화 시스템. Claude 배차, 텔레그램 브릿지, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프까지 현재 살아있는 구조와 폐기한 길을 정리합니다.">
+<Layout title="자동화 - 강대종" description="강대종이 실제 운영하는 5노드 자동화 시스템. Grok 작업 레인, 텔레그램 브릿지 3종, 보고 보증, 스킬 감사, 출시 레일까지 현재 살아있는 구조와 폐기한 길을 정리합니다.">
   <Fragment slot="head">
     <meta property="og:title" content="자동화 - 강대종">
     <meta property="og:description" content="5노드 자동화 시스템: 배차, 보고 보증, 스킬 감사, 출시 레일, 자비스 음성 루프.">

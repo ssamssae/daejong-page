@@ -2,56 +2,42 @@
   "schema_version": 1,
   "source": "public_content_frontmatter",
   "privacy": "aggregate_and_allowlisted_titles_only",
-  "as_of": "2026-08-18",
+  "as_of": "2026-08-30",
   "totals": {
-    "last_7_days": 22,
-    "last_30_days": 90,
-    "worklog": 171,
-    "newsletter": 96,
-    "insights": 112
+    "last_7_days": 14,
+    "last_30_days": 100,
+    "worklog": 185,
+    "newsletter": 108,
+    "insights": 120
   },
   "recent": [
     {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-08-30",
+      "title": "2026.08.30 작업일지 v1.0.0",
+      "href": "/worklog/2026-08-30_v100/"
+    },
+    {
       "kind": "insights",
       "label": "인사이트",
-      "date": "2026-08-17",
-      "title": "사용료 0원! 10초 녹음으로 내 목소리 복제하기 (나만의 음성 AI)",
-      "href": "/insights/2026-08-17-voice-clone-free-colab-connectailab/"
+      "date": "2026-08-30",
+      "title": "\"AI 생각 바뀌었다\" (빌 게이츠)",
+      "href": "/insights/2026-08-30-bill-gates-ai-tone-change-bzcf/"
+    },
+    {
+      "kind": "worklog",
+      "label": "작업일지",
+      "date": "2026-08-29",
+      "title": "2026.08.29 작업일지 v1.0.0",
+      "href": "/worklog/2026-08-29_v100/"
     },
     {
       "kind": "insights",
       "label": "인사이트",
-      "date": "2026-08-17",
-      "title": "Grok Bot 너무 좋습니다. Hermes, Openclaw 다 지웠어요.",
-      "href": "/insights/2026-08-17-grok-bot-agentic-automation-codefactory/"
-    },
-    {
-      "kind": "worklog",
-      "label": "작업일지",
-      "date": "2026-08-16",
-      "title": "2026.08.16 작업일지 v1.0.0",
-      "href": "/worklog/2026-08-16_v100/"
-    },
-    {
-      "kind": "worklog",
-      "label": "작업일지",
-      "date": "2026-08-15",
-      "title": "2026.08.15 작업일지 v1.0.0",
-      "href": "/worklog/2026-08-15_v100/"
-    },
-    {
-      "kind": "worklog",
-      "label": "작업일지",
-      "date": "2026-08-14",
-      "title": "2026.08.14 작업일지 v1.0.0",
-      "href": "/worklog/2026-08-14_v100/"
-    },
-    {
-      "kind": "newsletter",
-      "label": "뉴스레터",
-      "date": "2026-08-14",
-      "title": "결재방 카드가 승인부터 라이브까지 처음으로 완주한 날",
-      "href": "/newsletter/ep96/"
+      "date": "2026-08-29",
+      "title": "클로드 코드 실전 팁 시리즈 — HoYeon Lee",
+      "href": "/insights/2026-08-29-claude-code-tips-series-hoyeonlee/"
     }
   ]
 }
