@@ -6,12 +6,12 @@ const policies = [...policyData.policies].sort((a, b) => b.changed.localeCompare
 const latestPolicyDate = policies[0]?.changed ?? '—';
 
 const stats = [
-  { label: '물리 노드', value: '4' },
-  { label: 'AI 레인', value: '8' },
+  { label: '물리 노드', value: '5' },
+  { label: '브릿지', value: '3' },
   { label: '정책', value: policies.length },
 ];
 
-const heroSummary = `4대 물리 노드 · 8개 AI 레인 · 정책 최신 ${latestPolicyDate}`;
+const heroSummary = `5대 물리 노드 · Grok 작업 레인 · 정책 최신 ${latestPolicyDate}`;
 
 const layers = [
   {
@@ -57,13 +57,13 @@ const modules = [
     href: '/stack.html',
     kicker: 'STACK',
     title: '기술 스택',
-    desc: '4노드 작업장, Claude/Codex 레인, GPU, 모바일 입력면의 전체 구조입니다.',
+    desc: '5노드 작업장, Grok 작업 레인, GPU, 모바일 입력면의 전체 구조입니다.',
   },
   {
     href: '/skills.html',
     kicker: 'SKILLS',
     title: 'AI 스킬',
-    desc: '반복 업무를 Claude와 Codex에서 재사용하는 작업 루틴으로 묶습니다.',
+    desc: '반복 업무를 Grok·Claude·Codex 브릿지에서 재사용하는 작업 루틴으로 묶습니다.',
   },
   {
     href: '/smart-home.html',
@@ -85,14 +85,14 @@ const safeguards = [
   ['공개 범위 제한', '사이트에는 내부 경로, 토큰, 실시간 제어 세부, 개인식별정보를 싣지 않습니다.'],
 ];
 ---
-<Layout title="시스템 — 마이너스베타스튜디오" description="자동화 메시, Claude/Codex 운영 스택, 정책과 AI 스킬 시스템을 묶은 공개 시스템 허브.">
+<Layout title="시스템 — 마이너스베타스튜디오" description="자동화 메시, Grok 작업 레인, 정책과 AI 스킬 시스템을 묶은 공개 시스템 허브.">
   <div class="system-page">
     <section class="system-hero" aria-labelledby="page-title">
       <div class="hero-copy">
         <p class="eyebrow">SYSTEM MAP</p>
         <h1 id="page-title">시스템</h1>
         <p class="lead">
-          작업장 뒤에서 굴러가는 자동화 메시, Claude/Codex 운영 스택, 정책과 스킬을 한곳에 모았습니다.
+          작업장 뒤에서 굴러가는 자동화 메시, Grok 작업 레인, 정책과 스킬을 한곳에 모았습니다.
           빠르게 만들되, 되돌리기 어려운 지점은 사람이 닫는 구조입니다.
         </p>
       </div>
