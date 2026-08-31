@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 const metrics = [
-  { value: '5', unit: 'stationary nodes', label: '상주 물리 노드' },
+  { value: '3', unit: 'AI nodes', label: '아테나 · 헤르메스 · 볼칸' },
+  { value: '2', unit: 'workers', label: '구현 · 빌드' },
   { value: '3', unit: 'bridges', label: 'Grok · Claude · Codex' },
-  { value: '2', unit: 'local GPUs', label: '2070S · 3060Ti' },
   { value: '24/7', unit: 'ready', label: '폰 한 줄로 기동' },
 ];
 
@@ -42,6 +42,15 @@ const nodes = [
     tags: ['SoT', 'gate', 'merge', 'mesh hub'],
   },
   {
+    icon: '🪽',
+    name: '헤르메스',
+    type: 'work',
+    hardware: 'MacBook Pro 14 · M5 · arm64 · macOS',
+    handle: '@hermes_ssamssae_bot',
+    role: '코드 작업과 검증을 맡는 macOS 워커. 아테나·볼칸과 함께 반영 자격을 가진 노드.',
+    tags: ['macOS', 'worker', 'merge'],
+  },
+  {
     icon: '🌋',
     name: '볼칸',
     type: 'build',
@@ -49,33 +58,6 @@ const nodes = [
     handle: '@vulcan_ssamssae_bot',
     role: 'iOS/Android 빌드, 서명, 업로드와 launchd 상주 워커를 맡는 실무 생산 노드.',
     tags: ['build', 'release', 'launchd', 'worker'],
-  },
-  {
-    icon: '⚡',
-    name: '라이덴',
-    type: 'work',
-    hardware: 'Ryzen 3900X · Ubuntu 24.04 WSL2',
-    handle: '@raiden_ssamssae_bot',
-    role: '낮 시간 즉응 작업자. 코드 수정, 분석, WSL 경로 검증을 빠르게 맡긴다.',
-    tags: ['WSL', 'RTX 2070S', 'analysis', 'patch'],
-  },
-  {
-    icon: '⚖️',
-    name: '테미스',
-    type: 'gpu',
-    hardware: 'Ubuntu 24.04 WSL2 · x86_64',
-    handle: '@themis_ssamssae_bot',
-    role: '리뷰 레인. 정책 변경 검토와 로컬 LLM·음성·스마트홈 실험이 함께 붙는 GPU 노드.',
-    tags: ['RTX 3060Ti', 'review lane', 'LLM', 'smart home'],
-  },
-  {
-    icon: '🪽',
-    name: '헤르메스',
-    type: 'work',
-    hardware: 'MacBook Pro 14 · M5 · arm64 · macOS',
-    handle: '@hermes_ssamssae_bot',
-    role: '코드 작업과 검증을 맡는 macOS 워커. 아테나·테미스와 함께 머지 자격을 가진 노드.',
-    tags: ['macOS', 'worker', 'merge'],
   },
   {
     icon: '📱',
@@ -107,21 +89,19 @@ const stackItems = [
   'Tailscale',
   'Chrome Remote Desktop',
   'launchd',
-  'WSL2',
-  'local GPU tools',
 ];
 ---
-<Layout title="STACK - 강대종" description="강대종이 실제로 굴리는 5노드 AI 작업장 시스템. 물리 노드, Grok 작업 레인, GPU, 모바일 입력면, 배차와 보고 흐름을 한 화면에 정리합니다.">
+<Layout title="STACK - 강대종" description="강대종이 실제로 굴리는 3노드 AI 작업장 시스템. 물리 노드, Grok 작업 레인, 모바일 입력면, 배차와 보고 흐름을 한 화면에 정리합니다.">
   <Fragment slot="head">
     <meta property="og:title" content="STACK - 강대종">
-    <meta property="og:description" content="5노드 AI 작업장 시스템 — 물리 노드, Grok 작업 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
+    <meta property="og:description" content="3노드 AI 작업장 시스템 — 아테나·헤르메스·볼칸, Grok 작업 레인, 모바일 입력면, 배차와 보고 흐름.">
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://work.kangdaejong.com/stack.html">
     <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="STACK - 강대종">
-    <meta name="twitter:description" content="5노드 AI 작업장 시스템 — 물리 노드, Grok 작업 레인, GPU, 모바일 입력면, 배차와 보고 흐름.">
+    <meta name="twitter:description" content="3노드 AI 작업장 시스템 — 아테나·헤르메스·볼칸, Grok 작업 레인, 모바일 입력면, 배차와 보고 흐름.">
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
     <link rel="canonical" href="https://work.kangdaejong.com/stack.html">
     <script type="application/ld+json" is:inline>
@@ -376,9 +356,7 @@ const stackItems = [
       }
 
       .map-node.mac { left: 34px; top: 148px; }
-      .map-node.raiden { right: 34px; top: 148px; }
-      .map-node.desktop { left: 34px; top: 326px; }
-      .map-node.notebook { right: 34px; top: 326px; }
+      .map-node.notebook { right: 34px; top: 148px; }
       .map-node.phone { left: 50%; bottom: 82px; transform: translateX(-50%); }
       .map-node.hub { left: 50%; top: 236px; transform: translateX(-50%); }
 
@@ -717,10 +695,8 @@ const stackItems = [
         /* 실렌더 높이(아이콘+이름+서브텍스트 3줄)는 min-height:70px 가 아니라 ~95px —
            행 간격을 그 실측치 기준으로 다시 잡는다(390px, T-260808-005). */
         .map-node.mac { left: 18px; top: 130px; }
-        .map-node.raiden { right: 18px; top: 130px; }
+        .map-node.notebook { right: 18px; top: 130px; }
         .map-node.hub { top: 240px; }
-        .map-node.desktop { left: 18px; top: 350px; }
-        .map-node.notebook { right: 18px; top: 350px; }
         .map-node.phone { bottom: 105px; }
         .map-caption { right: 18px; max-width: none; }
       }
@@ -731,7 +707,7 @@ const stackItems = [
     <section class="stack-hero">
       <div>
         <div class="stack-kicker">OPERATING STACK</div>
-        <h1>혼자 굴리는 5노드 AI 작업장</h1>
+        <h1>혼자 굴리는 3노드 AI 작업장</h1>
         <p class="stack-lead">
           앱, 글, 배포, 자동화를 한 사람이 처리하기 위해 만든 실제 운영 시스템입니다.
           판단은 본진 아테나에 남기고, 손이 필요한 일은 Grok 레인과 물리 노드로 흘립니다.
@@ -751,7 +727,7 @@ const stackItems = [
         </div>
       </div>
 
-      <div class="system-map" role="img" aria-label="5노드 작업장 시스템 맵">
+      <div class="system-map" role="img" aria-label="3노드 작업장 시스템 맵">
         <div class="map-title">hub-and-spoke mesh · tailscale boundary</div>
         <svg class="map-svg" viewBox="0 0 600 560" aria-hidden="true">
           <defs>
@@ -761,15 +737,11 @@ const stackItems = [
           </defs>
           <line class="map-link" x1="300" y1="278" x2="116" y2="186" stroke-width="2" marker-end="url(#stack-arrow)"></line>
           <line class="map-link" x1="300" y1="278" x2="484" y2="186" stroke-width="2" marker-end="url(#stack-arrow)"></line>
-          <line class="map-link" x1="300" y1="318" x2="116" y2="372" stroke-width="2" marker-end="url(#stack-arrow)"></line>
-          <line class="map-link" x1="300" y1="318" x2="484" y2="372" stroke-width="2" marker-end="url(#stack-arrow)"></line>
           <line class="map-link is-warn" x1="300" y1="330" x2="300" y2="472" stroke-width="2" stroke-dasharray="6 5"></line>
         </svg>
         <div class="map-node mac"><span class="map-icon">🌋</span><strong>볼칸</strong><span>build node</span></div>
-        <div class="map-node raiden"><span class="map-icon">⚡</span><strong>라이덴</strong><span>wsl worker</span></div>
-        <div class="map-node hub"><span class="map-icon">🦉</span><strong>아테나</strong><span>control plane</span></div>
-        <div class="map-node desktop"><span class="map-icon">⚖️</span><strong>테미스</strong><span>review lane</span></div>
         <div class="map-node notebook"><span class="map-icon">🪽</span><strong>헤르메스</strong><span>macos worker</span></div>
+        <div class="map-node hub"><span class="map-icon">🦉</span><strong>아테나</strong><span>control plane</span></div>
         <div class="map-node phone"><span class="map-icon">📱</span><strong>iPhone</strong><span>command surface</span></div>
         <p class="map-caption">
           실선은 아테나가 노드로 작업을 배차하는 경로, 점선은 모바일 입력면입니다.
@@ -807,8 +779,8 @@ const stackItems = [
           <h2>물리 노드 로스터</h2>
         </div>
         <p>
-          각 노드는 역할이 다릅니다. 하나가 막히면 다른 노드가 이어받고,
-          배포나 계정 같은 위험 작업은 아테나 게이트로 되돌립니다.
+          현재 로스터는 아테나·헤르메스·볼칸입니다. 라이덴·테미스는 퇴사했고 복직이 아닙니다.
+          하나가 막히면 다른 노드가 이어받고, 배포나 계정 같은 위험 작업은 아테나 게이트로 되돌립니다.
         </p>
       </div>
       <div class="node-roster">
@@ -866,7 +838,7 @@ const stackItems = [
           <div class="section-kicker">TOOLCHAIN</div>
           <h2>제품과 운영을 같은 작업장 안에 둡니다</h2>
           <p>
-            공개 사이트, 모바일 앱, 자동화 브릿지, 로컬 GPU 실험이 같은 운영 레이어를 공유합니다.
+            공개 사이트, 모바일 앱, 자동화 브릿지가 같은 운영 레이어를 공유합니다.
             그래서 작은 수정도 빌드, 검증, PR, 보고 흐름으로 남습니다.
           </p>
         </div>

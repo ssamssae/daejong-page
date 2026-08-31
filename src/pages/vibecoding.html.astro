@@ -2,16 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 
 // '활성 스킬' 기준 = 사이트 skills 카탈로그(src/pages/skills.html.astro)의 등재 수.
-// '물리 기기'/'논리 노드' 기준 = claude-automations/policy/routes.yaml nodes: 선언 수
-// (물리 = 노드 항목 수, 논리 = 노드당 claude_tmux+codex_tmux 2레인 선언 수). retired 레인
-// (예: powershell_claude)은 세지 않는다.
-// '제작 기간' 기준 = claude-automations 최초 커밋일(2026-04-20, git log --reverse) ~ 갱신일.
-// 숫자를 바꿀 때는 위 1차 소스를 기준으로 맞춘다 (T-260722-019, T-260807-030).
+// 공개 현재 로스터 = 아테나·헤르메스·볼칸 3. 라이덴·테미스는 퇴사(복직 아님).
+// '제작 기간' 기준 = claude-automations 최초 커밋일(2026-04-20) ~ 이 페이지 갱신일.
 const stats = [
-  { label: '활성 스킬', value: '50' },
-  { label: '물리 기기', value: '5' },
-  { label: '논리 노드', value: '10' },
-  { label: '제작 기간', value: '약 16주' },
+  { label: '활성 스킬', value: '52' },
+  { label: '물리 기기', value: '3' },
+  { label: '워커', value: '2' },
+  { label: '제작 기간', value: '약 19주' },
 ];
 
 const timeline = [
@@ -95,13 +92,19 @@ const timeline = [
       '배차 권한을 팀 단위로 쪼개 오케 2명 체제를 시도했지만, 산출량은 그대로인 채 사고만 늘었다는 실측 근거로 13일 만에 단일팀으로 되돌렸다. 대신 머지 게이트는 작성자와 승인자를 분리하는 규칙으로 못박아 되돌린 자리에 남겼다.',
     tags: ['team split retro', 'author-not-merger', 'single team'],
   },
+  {
+    period: '2026.08.18 - 08.31',
+    stage: '11',
+    title: 'Grok 함대와 3노드 확정',
+    summary:
+      '실행 엔진을 Grok으로 옮기고, 라이덴·테미스는 퇴사했다. 복직이 아니다. 남은 AI는 아테나(운영 대표)·헤르메스·볼칸(워커 2)이다. Claude는 잔여 대화, Codex는 휴면 의견 채널로만 남았다.',
+    tags: ['Grok fleet', '3-node roster', 'resigned workers'],
+  },
 ];
 
 const nodes = [
   { name: 'Mac 본진 (아테나)', role: '정책, 배차, 머지 게이트, 최종 승인', lane: 'governance' },
-  { name: '맥북프로14 (헤르메스)', role: '코드 작업, 브랜치·PR, 머지 승인(로스터 3노드 중 1)', lane: 'execution' },
-  { name: 'Desktop 3060Ti (테미스)', role: '코드 작업, 리뷰 레인, 머지 승인(로스터 3노드 중 1)', lane: 'execution' },
-  { name: 'WSL (라이덴)', role: 'CPU 집약 작업(대량 테스트·컴파일) 우선 배정', lane: 'compute' },
+  { name: '맥북프로14 (헤르메스)', role: '코드 작업, 브랜치·PR, 반영 자격', lane: 'execution' },
   { name: 'Mac mini (볼칸)', role: '빌드, 배포, 스토어 제출 전담 손', lane: 'orchestration' },
 ];
 
@@ -125,18 +128,18 @@ const safeguards = [
 
 <Layout
   title="에이전트 바이브코딩 변천사 - 강대종"
-  description="강대종이 Claude/Codex 커스텀 스킬과 다중 노드 워커로 바이브코딩 시스템을 만들어온 변천사."
+  description="강대종이 Grok 함대와 커스텀 스킬, 3노드 워커로 바이브코딩 시스템을 만들어온 변천사."
 >
   <Fragment slot="head">
     <meta property="og:title" content="에이전트 바이브코딩 변천사 - 강대종" />
-    <meta property="og:description" content="물리 5대, 논리 10노드, 스킬 50개로 확장된 바이브코딩 시스템 기록." />
+    <meta property="og:description" content="물리 3대, 워커 2, 스킬 50개로 정리된 Grok 함대 바이브코딩 시스템 기록." />
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://work.kangdaejong.com/vibecoding.html" />
     <meta property="og:site_name" content="강대종 작업장" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="에이전트 바이브코딩 변천사 - 강대종" />
-    <meta name="twitter:description" content="물리 5대, 논리 10노드, 스킬 50개로 확장된 바이브코딩 시스템 기록." />
+    <meta name="twitter:description" content="물리 3대, 워커 2, 스킬 50개로 정리된 Grok 함대 바이브코딩 시스템 기록." />
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
     <link rel="canonical" href="https://work.kangdaejong.com/vibecoding.html" />
   </Fragment>
@@ -147,9 +150,9 @@ const safeguards = [
         <p class="eyebrow">AGENTIC VIBECODING REPORT</p>
         <h1 id="page-title">에이전트 바이브코딩 변천사</h1>
         <p class="lead">
-          반복 작업을 줄이려고 만든 작은 슬래시 커맨드가 물리 5대, 논리 10노드,
-          스킬 50개를 가진 작업 시스템으로 커졌다. 이 페이지는 기능 목록이 아니라
-          어디서 복잡해졌고, 어디서 다시 줄였는지 보는 변화 기록이다.
+          반복 작업을 줄이려고 만든 작은 슬래시 커맨드가 물리 5대까지 커졌다가,
+          지금은 아테나·헤르메스·볼칸 3대와 Grok 실행 레인으로 다시 줄었다.
+          이 페이지는 기능 목록이 아니라 어디서 복잡해졌고, 어디서 다시 줄였는지 보는 변화 기록이다.
         </p>
       </div>
       <dl class="hero-stats" aria-label="바이브코딩 시스템 요약">
@@ -210,7 +213,7 @@ const safeguards = [
         <p class="section-number">02</p>
         <div>
           <p class="eyebrow">NODE MAP</p>
-          <h2 id="node-title">노드는 늘었지만 역할은 더 좁게 나눴다</h2>
+          <h2 id="node-title">지금은 3노드로 줄이고 역할을 나눈다</h2>
         </div>
       </div>
       <div class="node-table" role="table" aria-label="물리 노드 역할">
@@ -266,7 +269,7 @@ const safeguards = [
     </section>
 
     <footer class="vibe-footer">
-      <p>마지막 갱신 2026.08.07</p>
+      <p>마지막 갱신 2026.08.31</p>
       <a href="/lab/">lab으로 돌아가기</a>
     </footer>
   </article>
