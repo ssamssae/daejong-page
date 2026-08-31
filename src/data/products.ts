@@ -138,7 +138,7 @@ export const ebooks = [
   },
   {
     name: '폰으로 내 컴퓨터 AI 부리기', status: '마이너스베타스튜디오(mβ) · ₩10,000',
-    desc: 'Claude Code·Codex 를 텔레그램에 연결해 폰에서 내 컴퓨터의 AI 를 부리는 방법을 정리한 전자책. 비개발자를 위한 따라하기 안내서.',
+    desc: 'Grok Telegram Bridge와 Claude Code·Codex 브릿지를 텔레그램에 연결해 폰에서 내 컴퓨터의 AI 를 부리는 방법을 정리한 전자책. 비개발자를 위한 따라하기 안내서.',
     links: [{ label: '크몽에서 구매', url: 'https://kmong.com/gig/798202' }],
   },
 ];

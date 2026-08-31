@@ -40,7 +40,7 @@ const laneDefinitions = [
 ] as const;
 
 type LaneId = (typeof laneDefinitions)[number]['id'];
-type SurfaceId = 'mac' | 'wsl' | 'codex';
+type SurfaceId = 'grok' | 'mac' | 'wsl' | 'codex';
 
 type Skill = {
   name: string;
@@ -253,7 +253,7 @@ const skills: Skill[] = [
     tag: '장시간 자동',
     lane: 'orchestrate',
     surfaces: ['mac', 'wsl'],
-    description: '한 번의 트리거로 4워커를 길게 굴리고 본진 아테나가 관리감독·검증·통합합니다.',
+    description: '한 번의 트리거로 워커 2(헤르메스·볼칸)를 길게 굴리고 본진 아테나가 관리감독·검증·통합합니다.',
   },
   {
     name: 'codex-mesh-vote',
@@ -424,6 +424,13 @@ const skills: Skill[] = [
 
 const changelog = [
   {
+    date: '2026-08-31',
+    items: [
+      ['edit', '여러 스킬', '라이덴·테미스 퇴사 반영. 현재 실행면은 Grok 함대(아테나·헤르메스·볼칸), Claude는 잔여 대화, Codex는 휴면 의견 채널.'],
+      ['edit', 'autopilot', '4워커 표현을 워커 2로 고침.'],
+    ],
+  },
+  {
     date: '2026-08-17',
     items: [
       ['new', 'bot-profile', '텔레그램 봇 표시명·아바타를 신화명 체계로 정리하는 루틴 추가.'],
@@ -505,8 +512,15 @@ const changelog = [
   },
 ] as const;
 
+const catalog: Skill[] = skills.map((skill) =>
+  skill.surfaces.includes('mac') && !skill.surfaces.includes('grok')
+    ? { ...skill, surfaces: ['grok', ...skill.surfaces] }
+    : skill,
+);
+
 const laneMap = new Map(laneDefinitions.map((lane) => [lane.id, lane]));
 const surfaceDefinitions = [
+  { id: 'grok', label: 'Grok', mark: 'G' },
   { id: 'mac', label: 'Mac', mark: 'M' },
   { id: 'wsl', label: 'WSL', mark: 'W' },
   { id: 'codex', label: 'Codex', mark: 'C' },
@@ -514,12 +528,12 @@ const surfaceDefinitions = [
 const surfaceMap = new Map(surfaceDefinitions.map((surface) => [surface.id, surface]));
 
 const laneCounts = new Map(
-  laneDefinitions.map((lane) => [lane.id, skills.filter((skill) => skill.lane === lane.id).length]),
+  laneDefinitions.map((lane) => [lane.id, catalog.filter((skill) => skill.lane === lane.id).length]),
 );
 const surfaceCounts = new Map(
   surfaceDefinitions.map((surface) => [
     surface.id,
-    skills.filter((skill) => skill.surfaces.includes(surface.id)).length,
+    catalog.filter((skill) => skill.surfaces.includes(surface.id)).length,
   ]),
 );
 
@@ -532,12 +546,12 @@ const schema = {
   '@id': 'https://work.kangdaejong.com/skills.html#page',
   url: 'https://work.kangdaejong.com/skills.html',
   name: 'AI 스킬 — 마이너스베타스튜디오',
-  description: 'Claude에서 반복 업무를 재사용하는 AI 작업 루틴 모음.',
+  description: 'Grok 함대에서 반복 업무를 재사용하는 AI 작업 루틴 모음. Claude 잔여 대화, Codex 휴면 의견 채널.',
   inLanguage: 'ko',
   mainEntity: {
     '@type': 'ItemList',
     numberOfItems: skills.length,
-    itemListElement: skills.map((skill, index) => ({
+    itemListElement: catalog.map((skill, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: '/' + skill.name,
@@ -549,13 +563,13 @@ const schema = {
 
 <Layout
   title="AI 스킬 — 마이너스베타스튜디오"
-  description={`Claude에서 반복 업무를 재사용하는 ${skills.length}개 AI 스킬. 구상, 제작, 배차, 운영, 발행 흐름과 실행 환경별로 탐색합니다.`}
+  description={`Grok 함대에서 반복 업무를 재사용하는 ${skills.length}개 AI 스킬. 구상, 제작, 배차, 운영, 발행 흐름과 실행 환경별로 탐색합니다.`}
 >
   <Fragment slot="head">
     <meta property="og:title" content="AI 스킬 — 마이너스베타스튜디오" />
     <meta
       property="og:description"
-      content="구상부터 제작, 배차, 운영, 발행까지 반복 업무를 재사용하는 Claude 스킬 아카이브."
+      content="구상부터 제작, 배차, 운영, 발행까지 반복 업무를 재사용하는 Grok 함대 스킬 아카이브."
     />
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
     <meta property="og:type" content="website" />
@@ -565,7 +579,7 @@ const schema = {
     <meta name="twitter:title" content="AI 스킬 — 마이너스베타스튜디오" />
     <meta
       name="twitter:description"
-      content="구상부터 제작, 배차, 운영, 발행까지 반복 업무를 재사용하는 Claude 스킬 아카이브."
+      content="구상부터 제작, 배차, 운영, 발행까지 반복 업무를 재사용하는 Grok 함대 스킬 아카이브."
     />
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
     <link rel="canonical" href="https://work.kangdaejong.com/skills.html" />
@@ -578,8 +592,9 @@ const schema = {
         <p class="eyebrow">REUSABLE AI WORKFLOWS</p>
         <h1 id="page-title">AI 스킬</h1>
         <p class="lead">
-          반복 업무를 한 번의 명령으로 다시 쓰는 작업 루틴입니다. 아이디어를 다듬는 순간부터
-          여러 노드에 일을 나누고, 결과를 발행하고, 하루를 닫는 순간까지 이어집니다.
+          반복 업무를 한 번의 명령으로 다시 쓰는 작업 루틴입니다. 지금 실행 엔진은 Grok 함대이고,
+          Claude는 잔여 대화, Codex는 휴면 의견 채널입니다. 아이디어를 다듬는 순간부터
+          아테나·헤르메스·볼칸에 일을 나누고, 결과를 발행하고, 하루를 닫는 순간까지 이어집니다.
         </p>
       </div>
 
@@ -599,7 +614,7 @@ const schema = {
           </div>
         </dl>
         <p class="surface-summary">
-          Mac {surfaceCounts.get('mac')} · WSL {surfaceCounts.get('wsl')} · Codex {surfaceCounts.get('codex')}
+          Grok {surfaceCounts.get('grok')} · Mac {surfaceCounts.get('mac')} · WSL {surfaceCounts.get('wsl')} · Codex {surfaceCounts.get('codex')}
         </p>
       </div>
     </header>
@@ -607,9 +622,9 @@ const schema = {
     <aside class="update-note" aria-label="최근 변경">
       <span class="update-label">RECENT UPDATE</span>
       <p>
-        <time datetime="2026-08-17">2026.08.17</time>
-        <span>공개 스킬 목록 현행화</span>
-        <span>Flutter 5종 · verify 3종 · claude-fleet-update · playwright-login-session 추가</span>
+        <time datetime="2026-08-31">2026.08.31</time>
+        <span>Grok 함대·워커 2 현행화</span>
+        <span>라이덴·테미스 퇴사 반영. 실행면 Grok 추가, autopilot 워커 2.</span>
       </p>
     </aside>
 
@@ -713,7 +728,7 @@ const schema = {
 
       <div class="skill-grid" data-skill-grid>
         {
-          skills.map((skill, index) => {
+          catalog.map((skill, index) => {
             const lane = laneMap.get(skill.lane);
             const searchText = [
               skill.name,
@@ -810,7 +825,7 @@ const schema = {
     </details>
 
     <footer class="skills-footer">
-      <p>공개 목록 마지막 갱신 2026.08.17 · 활성 스킬 {skills.length}개</p>
+      <p>공개 목록 마지막 갱신 2026.08.31 · 활성 스킬 {skills.length}개</p>
       <a href="/system">system으로 돌아가기</a>
     </footer>
   </article>

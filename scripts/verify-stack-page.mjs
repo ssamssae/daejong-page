@@ -9,22 +9,26 @@ const checks = [
   },
   {
     label: "has the system map visual",
-    ok: /class="system-map"/.test(source) && /aria-label="5노드 작업장 시스템 맵"/.test(source),
+    ok: /class="system-map"/.test(source) && /aria-label="3노드 작업장 시스템 맵"/.test(source),
   },
   {
     label: "surfaces the operating layers",
     ok: /const layers = \[/.test(source) && /Control plane/.test(source) && /Execution layer/.test(source),
   },
   {
-    label: "keeps the five stationary nodes plus mobile entry",
+    label: "keeps the three AI nodes plus mobile entry",
     ok:
       /const nodes = \[/.test(source) &&
-      /name: '본진'/.test(source) &&
-      /name: '맥미니'/.test(source) &&
-      /name: '라이덴'/.test(source) &&
-      /name: '데스크탑'/.test(source) &&
-      /name: '노트북'/.test(source) &&
-      /name: 'iPhone'/.test(source),
+      /name: '아테나'/.test(source) &&
+      /name: '헤르메스'/.test(source) &&
+      /name: '볼칸'/.test(source) &&
+      /name: 'iPhone'/.test(source) &&
+      !/name: '라이덴'/.test(source) &&
+      !/name: '테미스'/.test(source),
+  },
+  {
+    label: "does not present resigned nodes as employed",
+    ok: !/map-node raiden/.test(source) && !/map-node desktop/.test(source) && /퇴사/.test(source),
   },
   {
     label: "drops the old lab-page skin",

@@ -72,16 +72,11 @@ if (entries.indexOf(firstExisting) > 2) {
   fail('new knowhow entries should be at the top of index.json');
 }
 
-if (!page.includes('2026-07-07')) {
+if (!page.includes('2026-08-31')) {
   fail('knowhow recent-change date was not updated');
 }
-if (!page.includes('노하우 3편 추가')) {
-  fail('knowhow recent-change count was not updated');
-}
-for (const keyword of ['durable 스케줄러', 'detached HEAD push 실패', '이중디스패치 claim 게이트']) {
-  if (!page.includes(keyword)) {
-    fail(`knowhow recent-change is missing keyword: ${keyword}`);
-  }
+if (!page.includes('Grok 함대')) {
+  fail('knowhow page must mention current Grok fleet');
 }
 
 if (failures.length) {

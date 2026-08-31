@@ -2,18 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/lab.css';
 ---
-<Layout title="습관 - 강대종" description="강대종과 Claude 협업에서 굳어진 운영 습관 모음. 자연어 답변, 명령어 복붙 방식, 완료 마킹, KST 시간 표기, 텔레그램 reply 규칙, 멀티 노드 보고와 SoT 메모 쓰기까지 실제 세션 운영 원칙을 정리합니다.">
+<Layout title="습관 - 강대종" description="강대종과 Grok 함대 협업에서 굳어진 운영 습관 모음. 자연어 답변, 명령어 복붙 방식, 완료 마킹, KST 시간 표기, 텔레그램 reply 규칙, 멀티 노드 보고와 SoT 메모 쓰기까지 실제 세션 운영 원칙을 정리합니다.">
   <Fragment slot="head">
     <!-- OG / Twitter Card (2026-05-25) -->
   <meta property="og:title" content="습관 - 강대종">
-  <meta property="og:description" content="강대종 + Claude 협업의 운영 습관 — 자연어 디폴트, 명령어 끊어서, 작업 끝나면 마킹 등.">
+  <meta property="og:description" content="강대종 + Grok 함대 협업의 운영 습관 — 자연어 디폴트, 명령어 끊어서, 작업 끝나면 마킹 등.">
   <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://work.kangdaejong.com/habits.html">
   <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="습관 - 강대종">
-  <meta name="twitter:description" content="강대종 + Claude 협업의 운영 습관 — 자연어 디폴트, 명령어 끊어서, 작업 끝나면 마킹 등.">
+  <meta name="twitter:description" content="강대종 + Grok 함대 협업의 운영 습관 — 자연어 디폴트, 명령어 끊어서, 작업 끝나면 마킹 등.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/habits.html">
   <script type="application/ld+json" is:inline>
@@ -84,7 +84,7 @@ import '../styles/lab.css';
     <section class="lab-hero">
       <h1 class="logo">습관</h1>
       <p class="tagline">habits · 운영 습관</p>
-      <p class="intro">강대종과 Claude 협업의 운영 습관. CLAUDE.md / AGENT.md 의 hard rule 중 매일 적용되는 핵심을 노출합니다. 새 사고가 박힐 때마다 갱신.</p>
+      <p class="intro">강대종과 Grok 함대 협업의 운영 습관. 실행 엔진은 Grok이고 Claude는 잔여 대화, Codex는 휴면 의견 채널입니다. 매일 적용되는 핵심만 노출하고, 새 사고가 박힐 때마다 갱신합니다.</p>
     </section>
 
     <div class="habits-toolbar">
@@ -92,7 +92,7 @@ import '../styles/lab.css';
     </div>
 
     <!-- 최근 변경: 규칙이 바뀌면 이 줄만 갱신 (누적 X, 최신 1건만, 정식 버전번호 X) -->
-    <div class="recent-change"><b>최근 변경</b> · 2026-06-15 · 카드 추가 "안 되면 되게 하라"(30번, 강대종 모토) · 도입 날짜순 재배열(최근이 맨앞, 번호=시간순 인덱스) · 날짜 없는 기본 원칙 5장은 맨 뒤</div>
+    <div class="recent-change"><b>최근 변경</b> · 2026-08-31 · 라이덴·테미스 퇴사 반영. 현재 노드 지칭은 🍎 본진(아테나) / 🪽 헤르메스 / 🌋 볼칸. 실행 엔진은 Grok 함대. 카드 16·14의 재직 표현을 과거형에서 현재 3노드로 고침.</div>
 
     <div class="list lab-list">
 
@@ -253,12 +253,12 @@ import '../styles/lab.css';
       <div class="lab-card habit-card">
         <div class="lab-card-head hb-head">
           <div class="hb-num">16</div>
-          <div class="lab-card-title hb-title">4노드 prefix + main 직접 push 정책</div>
+          <div class="lab-card-title hb-title">3노드 prefix + main 직접 push 정책</div>
         </div>
         <div class="hb-body">
-          작업 브랜치는 노드별 prefix 고정 — 🍎 본진 <code>mac/*</code> · 🏭 맥미니 <code>macmini/*</code> · 🪟 라이덴 <code>wsl/*</code> · 🖥 데스크탑 <code>desktop/*</code>. <strong>main 직접 push 는 본진+맥미니 허용</strong> (듀얼 오케스트레이터 / SoT). 나머지 2노드는 PR 통한 머지 흐름 필수. 다른 노드가 본진 mac/* 위에 commit 박는 prefix 충돌 사고 방지.
+          작업 브랜치는 노드별 prefix 고정 — 🍎 본진 <code>mac/*</code> · 🪽 헤르메스 <code>notebook/*</code> · 🌋 볼칸 <code>macmini/*</code>. <strong>main 직접 push 는 본진+볼칸 허용</strong>. 헤르메스는 PR 통한 머지 흐름. 라이덴(<code>wsl/*</code>)·테미스(<code>desktop/*</code>) prefix는 퇴사 전 이력이다. 다른 노드가 본진 mac/* 위에 commit 박는 prefix 충돌 사고 방지.
         </div>
-        <div class="hb-source">2026-05-17 trio-vote [B] 표준화 결정 · 2026-05-28 듀얼 오케스트레이터(본진+맥미니) 갱신</div>
+        <div class="hb-source">2026-05-17 도입 · 2026-08-31 3노드 로스터로 갱신</div>
       </div>
 
       <div class="lab-card habit-card">
@@ -278,9 +278,9 @@ import '../styles/lab.css';
           <div class="lab-card-title hb-title">노드 라벨 = 이모지 + 한글 짧은 별칭</div>
         </div>
         <div class="hb-body">
-          채팅 · 터미널 · 디렉티브 본문에서 4노드 지칭은 <strong>이모지 + 한글 짧은 별칭</strong> 통일 — 🍎 본진 / 🪟 라이덴 / 🏭 맥미니 / 🖥 데스크탑. "Mac mini" · "Desktop3060Ti" 영문 표기 X. hostname · 봇 username · 사양 (RTX 3060Ti) 은 운영/식별 정보 — 형님 향 메시지에 박지 X.
+          채팅 · 터미널 · 디렉티브 본문에서 현재 3노드 지칭은 <strong>이모지 + 한글 짧은 별칭</strong> 통일 — 🍎 본진(아테나) / 🪽 헤르메스 / 🌋 볼칸. 라이덴·테미스는 퇴사. hostname · 봇 username · 사양 은 운영/식별 정보 — 공개 문장에 박지 X.
         </div>
-        <div class="hb-source">AGENT.md §7.1 · 2026-05-17 도입</div>
+        <div class="hb-source">2026-05-17 도입 · 2026-08-31 3노드로 갱신</div>
       </div>
 
       <div class="lab-card habit-card">
