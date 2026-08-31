@@ -39,7 +39,7 @@ const moreActive = more.some(l => isActive(l.href));
       font-style: normal;
     }
     .nav-inner {
-      width: min(calc(100% - 92px), 1250px);
+      width: var(--page-shell);
       margin: 0 auto;
       min-height: 72px;
       display: grid;
@@ -155,7 +155,7 @@ const moreActive = more.some(l => isActive(l.href));
     .nav-cta:hover { color: var(--cta-fg); text-decoration: none; background: var(--cta-bg); filter: brightness(1.06); }
     @media (max-width: 760px) {
       .nav-inner {
-        width: min(calc(100% - 48px), 1250px);
+        width: var(--page-shell-sm);
         grid-template-columns: 1fr auto;
         min-height: auto;
         padding: 14px 0 10px;

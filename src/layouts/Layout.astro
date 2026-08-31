@@ -28,16 +28,22 @@ const { title, description } = Astro.props;
     <Footer />
     <style is:global>
       * { box-sizing: border-box; margin: 0; padding: 0; }
-      html { background: var(--bg); scrollbar-gutter: stable; color-scheme: dark; }
+      html {
+        background: var(--bg);
+        scrollbar-gutter: stable;
+        color-scheme: dark;
+        min-height: 100dvh;
+      }
       body {
         background: var(--bg);
         color: var(--fg);
         font-family: var(--sans);
         line-height: 1.50;
         text-rendering: geometricPrecision;
+        min-height: 100dvh;
       }
       main {
-        width: min(calc(100% - 92px), 1250px);
+        width: var(--page-shell);
         margin: 0 auto;
         padding: 64px 0 96px;
       }
@@ -54,7 +60,7 @@ const { title, description } = Astro.props;
       p { color: var(--fg-dim); }
       ::selection { background: var(--fg); color: var(--bg); }
       @media (max-width: 640px) {
-        main { width: min(calc(100% - 48px), 1250px); padding: 48px 0 64px; }
+        main { width: var(--page-shell-sm); padding: 48px 0 64px; }
       }
     </style>
   </body>

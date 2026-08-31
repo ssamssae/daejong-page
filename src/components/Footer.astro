@@ -16,7 +16,7 @@ import { company } from '../data/site';
   <div class="copy">© 2026 {company.name}. All rights reserved.</div>
   <style>
     footer {
-      width: min(calc(100% - 92px), 1250px);
+      width: var(--page-shell);
       margin: 0 auto;
       padding: 34px 0 56px;
       border-top: 1px solid var(--border);
@@ -36,7 +36,7 @@ import { company } from '../data/site';
     .biz { display: flex; flex-wrap: wrap; gap: 6px 14px; }
     .copy { margin-top: 16px; color: var(--fg-mute); }
     @media (max-width: 640px) {
-      footer { width: min(calc(100% - 48px), 1250px); padding-bottom: 42px; }
+      footer { width: var(--page-shell-sm); padding-bottom: 42px; }
       .foot-head { display: block; }
       .foot-head a { display: inline-block; margin-top: 6px; }
       .biz { flex-direction: column; gap: 4px; }

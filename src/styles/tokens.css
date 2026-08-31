@@ -71,7 +71,9 @@
   --pad-head-bottom: 96px;
   --header-h: 72px;
   --page-gutter: 46px;
-  --page-max: 1250px;
+  --page-gutter-sm: 24px;
+  --page-shell: calc(100% - 2 * var(--page-gutter));
+  --page-shell-sm: calc(100% - 2 * var(--page-gutter-sm));
 }
 
 @media (prefers-color-scheme: dark) {
