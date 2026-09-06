@@ -255,9 +255,8 @@ const featured = [saas[0], apps[0], apps[1]];
     }
 
     .primary .card-topline,
-    .primary p,
     .primary .product-links a {
-      color: color-mix(in srgb, var(--bg) 83.2%, var(--fg));
+      color: var(--invert-dim);
     }
 
     .product-card h3 {
@@ -271,6 +270,11 @@ const featured = [saas[0], apps[0], apps[1]];
       color: var(--fg-dim);
       font-size: var(--text-desc);
       line-height: var(--leading-body);
+    }
+
+    /* 대표 카드는 밝은 배경(--fg)이라 --fg-dim(#D0D6E0)을 쓰면 글자가 사라진다. */
+    .product-card.primary p {
+      color: var(--invert-fg);
     }
 
     .product-links,

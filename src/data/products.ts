@@ -57,13 +57,33 @@ export const apps = [
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ssamssae.pomodoro' },
     ],
   },
+  {
+    name: '심플 가계부', status: 'iOS LIVE · Android LIVE',
+    desc: '하루 지출을 빠르게 적는 미니멀 가계부. 가입 없이 기기 안에서만 기록합니다.',
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6769037337' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ssamssae.mini_expense' },
+    ],
+  },
+  {
+    name: '행운번호 생성기', status: 'iOS LIVE · Android LIVE',
+    desc: '1부터 45까지 중복 없는 숫자 6개를 한 번에 5세트 만드는 오프라인 도구.',
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6766077265' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.lottocalc' },
+    ],
+  },
 ];
 
 export const saas = [
   {
-    name: '첫이름 — AI 사주 작명', status: '웹 SaaS · ₩19,900',
-    desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스.',
-    links: [{ label: '첫이름 바로가기', url: 'https://cheotireum.kangdaejong.com/' }],
+    name: '첫이름 — AI 사주 작명', status: '웹 SaaS · iOS · Android · ₩19,900',
+    desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스. 웹과 스토어에서 쓸 수 있습니다.',
+    links: [
+      { label: '첫이름 바로가기', url: 'https://cheotireum.kangdaejong.com/' },
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6791480413' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.cheotireum' },
+    ],
   },
   // 대표 자리(products.astro 의 featured = [saas[0], ...])는 건드리지 않고 뒤에 붙인다.
   // 첫이름을 대표로 올린 것은 T-260731-044 의 명시 결정이라, 순서를 바꾸려면 그 결정을
@@ -92,10 +112,12 @@ export const saas = [
 const grokRepo = 'https://github.com/ssamssae/grok-telegram-bridge';
 const codexRepo = 'https://github.com/ssamssae/codex-telegram-bridge';
 const claudeRepo = 'https://github.com/ssamssae/claude-telegram-bridge';
+const cursorRepo = 'https://github.com/ssamssae/cursor-telegram-bridge';
 export const bridges = {
-  grok: { version: '0.5.0', repo: grokRepo },
+  grok: { version: '0.5.1', repo: grokRepo },
   codex: { version: '0.9.7', repo: codexRepo },
-  claude: { version: '0.13.0', repo: claudeRepo },
+  claude: { version: '0.14.1', repo: claudeRepo },
+  cursor: { version: '0.4.0', repo: cursorRepo },
 } as const;
 
 export const tools = [
@@ -121,6 +143,14 @@ export const tools = [
     links: [
       { label: 'GitHub', url: bridges.claude.repo },
       { label: 'Release', url: `${bridges.claude.repo}/releases/tag/v${bridges.claude.version}` },
+    ],
+  },
+  {
+    name: 'Cursor Telegram Bridge', status: `오픈소스 · v${bridges.cursor.version}`,
+    desc: '이미 떠 있는 Cursor TUI 세션을 텔레그램으로 연결하는 전용 브릿지. 긴 턴 대기, 모델 선택, 승인 버튼을 폰에서 다룹니다.',
+    links: [
+      { label: 'GitHub', url: bridges.cursor.repo },
+      { label: 'Release', url: `${bridges.cursor.repo}/releases/tag/v${bridges.cursor.version}` },
     ],
   },
 ];
