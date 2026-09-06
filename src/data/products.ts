@@ -78,7 +78,7 @@ export const apps = [
 export const saas = [
   {
     name: '첫이름 — AI 사주 작명', status: '웹 SaaS · iOS · Android · ₩19,900',
-    desc: '사주·획수·인명용한자 결정론 분석 + AI 뜻풀이 하이브리드 작명 서비스. 웹과 스토어에서 쓸 수 있습니다.',
+    desc: '생년월일을 넣으면 부족한 오행까지 무료로 확인하고, 이름 후보·한자 뜻풀이·점수표·PDF는 결제 후 받는 작명 서비스.',
     links: [
       { label: '첫이름 바로가기', url: 'https://cheotireum.kangdaejong.com/' },
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6791480413' },
@@ -89,7 +89,7 @@ export const saas = [
   // 첫이름을 대표로 올린 것은 T-260731-044 의 명시 결정이라, 순서를 바꾸려면 그 결정을
   // 다시 여는 것이 맞다 — 상품이 하나 늘었다는 이유만으로 조용히 뒤집지 않는다.
   {
-    name: '한장궁합 — 결혼 궁합 한 장', status: '웹 SaaS · ₩19,900',
+    name: '한장궁합 가족 리포트', status: '웹 SaaS · ₩19,900',
     desc: '결혼을 앞둔 두 사람의 사주로 궁합 점수와 해설을 A4 한 장에 담아 메일로 보냅니다. 시댁·본가에 그대로 내밀 수 있는 형식이고, 결제 전에 예시 한 장을 가려둔 곳 없이 볼 수 있습니다.',
     links: [
       { label: '한장궁합 바로가기', url: 'https://hanjang.kangdaejong.com/' },
@@ -113,11 +113,13 @@ const grokRepo = 'https://github.com/ssamssae/grok-telegram-bridge';
 const codexRepo = 'https://github.com/ssamssae/codex-telegram-bridge';
 const claudeRepo = 'https://github.com/ssamssae/claude-telegram-bridge';
 const cursorRepo = 'https://github.com/ssamssae/cursor-telegram-bridge';
+const localRepo = 'https://github.com/ssamssae/local-telegram-bridge';
 export const bridges = {
   grok: { version: '0.5.1', repo: grokRepo },
   codex: { version: '0.9.7', repo: codexRepo },
   claude: { version: '0.14.1', repo: claudeRepo },
   cursor: { version: '0.4.0', repo: cursorRepo },
+  local: { version: '0.2.0', repo: localRepo },
 } as const;
 
 export const tools = [
@@ -151,6 +153,14 @@ export const tools = [
     links: [
       { label: 'GitHub', url: bridges.cursor.repo },
       { label: 'Release', url: `${bridges.cursor.repo}/releases/tag/v${bridges.cursor.version}` },
+    ],
+  },
+  {
+    name: 'Local Telegram Bridge', status: `오픈소스 · v${bridges.local.version}`,
+    desc: '로컬 Ollama·LM Studio 모델을 텔레그램과 터미널의 같은 대화로 연결하는 브릿지. 모델별 기록·clear·재시작 복구를 지원합니다.',
+    links: [
+      { label: 'GitHub', url: bridges.local.repo },
+      { label: 'Release', url: `${bridges.local.repo}/releases/tag/v${bridges.local.version}` },
     ],
   },
 ];
