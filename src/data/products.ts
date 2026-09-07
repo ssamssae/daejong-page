@@ -105,6 +105,15 @@ export const saas = [
       { label: '한장택일 바로가기', url: 'https://taekil.kangdaejong.com/' },
     ],
   },
+  {
+    name: '밥먹자 — 함께 먹는 한 끼', status: '웹 SaaS · Android · 무료 이용',
+    desc: '2인분부터 주문하는 메뉴도 함께라면. 공덕·마포에서 식당과 시간, 대화 성향이 맞는 사람을 찾아 설치 없이 모집하고 참여하세요.',
+    links: [
+      { label: '밥먹자 웹 바로가기', url: 'https://babmeokja.kangdaejong.com/' },
+      { label: '한 끼 가이드', url: 'https://babmeokja.kangdaejong.com/guides/' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.minusbeta.babmeokja' },
+    ],
+  },
 ];
 
 // 공개 브릿지 버전 단일 소스 — status 문구·release URL 을 여기서 파생해 페이지 간 drift 를 없앤다.
