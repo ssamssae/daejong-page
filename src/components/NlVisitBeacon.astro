@@ -1,25 +1,27 @@
 ---
 import { EVENTS } from '../lib/nl-events.mjs';
+import { nlCollectorOrigin } from '../lib/nl-collector.mjs';
 
-const collector = 'https://daejong-nl-events.ssamssae.workers.dev';
+const collector = nlCollectorOrigin();
+const visitEvent = EVENTS.visit;
 ---
-<script is:inline define:vars={{ collector, visitEvent: EVENTS.visit }}>
+<script is:inline define:vars={{ collector, visitEvent }}>
   (function () {
     var params = new URLSearchParams(window.location.search);
     if (params.get('from') !== 'nl') return;
     var clickId = params.get('nlc') || '';
     var product = params.get('p') || 'products';
     var campaign = params.get('utm_campaign') || params.get('c') || '';
-    var source = params.get('utm_source') || 'web_newsletter';
+    var source = 'web_newsletter';
     if (!clickId || !campaign) return;
     if (params.get('nl_test') === '1') return;
-    if (/bot|crawler|spider|preview|nl-fixture/i.test(navigator.userAgent || '')) return;
+    if (/googlebot|bingbot|applebot|crawler|spider|preview|nl-fixture|\bbot\b/i.test(navigator.userAgent || '')) return;
     var key = 'nl-visit:' + clickId;
     try {
-      if (sessionStorage.getItem(key)) return;
-      sessionStorage.setItem(key, '1');
+      if (sessionStorage.getItem(key) === 'ok') return;
     } catch (e) {}
-    var payload = JSON.stringify({
+    if (!collector) return;
+    var payload = {
       event: visitEvent,
       source: source,
       campaign: campaign,
@@ -27,17 +29,27 @@ const collector = 'https://daejong-nl-events.ssamssae.workers.dev';
       click_id: clickId,
       occurred_at: new Date().toISOString(),
       dest_kind: 'first_party',
-    });
-    try {
-      navigator.sendBeacon(collector + '/v1/events', new Blob([payload], { type: 'application/json' }));
-    } catch (e) {
-      fetch(collector + '/v1/events', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: payload,
-        keepalive: true,
-        mode: 'cors',
-      }).catch(function () {});
+    };
+    var url = String(collector).replace(/\/$/, '') + '/v1/events';
+    var body = JSON.stringify(payload);
+    function mark(ok) {
+      if (!ok) return;
+      try { sessionStorage.setItem(key, 'ok'); } catch (e) {}
     }
+    var sent = false;
+    try {
+      sent = navigator.sendBeacon(url, new Blob([body], { type: 'application/json' }));
+    } catch (e) {}
+    if (sent) {
+      mark(true);
+      return;
+    }
+    fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: body,
+      keepalive: true,
+      mode: 'cors',
+    }).then(function (r) { mark(!!r.ok); }).catch(function () { mark(false); });
   })();
 </script>

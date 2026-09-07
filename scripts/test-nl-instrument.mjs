@@ -23,10 +23,14 @@ import {
   isBotUa,
   isTestRequest,
   parseEvent,
+  serverDestKind,
   SOURCES,
   toCsv,
+  visitMatchesClick,
 } from '../src/lib/nl-events.mjs';
 import { handleRequest } from '../nl-events-worker/src/index.js';
+import { nlCollectorOrigin } from '../src/lib/nl-collector.mjs';
+import { postNlEvent, shouldMarkVisitSent, visitStorageKey } from '../src/lib/nl-client-send.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -83,6 +87,7 @@ test('owned /products hop is first_party; kmong is visit=NA', () => {
 
 test('bot and nl_test traffic is excluded', () => {
   assert.equal(isBotUa('Mozilla/5.0 Googlebot/2.1'), true);
+  assert.equal(isBotUa('Mozilla/5.0 (compatible; Bingbot/2.0)'), true);
   assert.equal(isBotUa('NL-FIXTURE'), true);
   assert.equal(isBotUa('Mozilla/5.0 Chrome/120'), false);
   assert.equal(isTestRequest({ search: 'nl_test=1' }), true);
@@ -126,8 +131,10 @@ test('CSV contract and T017 name projection', () => {
   assert.match(csv, /^occurred_at,event,source,campaign,product,click_id,dest_kind\n/);
   assert.match(csv, /newsletter_product_click/);
   const t017 = toCsv([row], { projection: 't017' });
-  assert.match(t017, /^ts,event,object_id,actor_id\n/);
+  assert.match(t017, /^ts,event,object_id,actor_id,source,campaign,dest_kind\n/);
   assert.match(t017, /nl_click/);
+  assert.match(t017, /web_newsletter/);
+  assert.match(t017, /first_party/);
   assert.equal(t017.includes('newsletter_product_click'), false);
 });
 
@@ -141,7 +148,7 @@ test('parseEvent rejects PII-shaped extras by ignoring them and bad ids', () => 
 
 test('worker fixture: click then visit, reject bad dest via allowlist, bot excluded, duplicate', async () => {
   const store = createEventStore();
-  const env = { store };
+  const env = { store, NL_EVENTS_READ_KEY: 'fixture-read' };
   const clickId = '22222222-2222-4222-8222-222222222222';
   const post = (body, headers = {}, url = 'https://daejong-nl-events.test/v1/events') =>
     handleRequest(new Request(url, {
@@ -151,19 +158,19 @@ test('worker fixture: click then visit, reject bad dest via allowlist, bot exclu
     }), env);
 
   const clickRes = await post({
-    ...event({ click_id: clickId }),
-    dest_kind: 'first_party',
+    ...event({ click_id: clickId, product: 'products' }),
+    dest_kind: 'external',
   });
   assert.equal(clickRes.status, 201);
 
   const visitRes = await post({
-    ...event({ event: EVENTS.visit, click_id: clickId }),
+    ...event({ event: EVENTS.visit, click_id: clickId, product: 'products' }),
     dest_kind: 'first_party',
   });
   assert.equal(visitRes.status, 201);
 
   const dup = await post({
-    ...event({ click_id: clickId }),
+    ...event({ click_id: clickId, product: 'products' }),
     dest_kind: 'first_party',
   });
   const dupJson = await dup.json();
@@ -185,7 +192,9 @@ test('worker fixture: click then visit, reject bad dest via allowlist, bot exclu
   );
   assert.equal((await testHit.json()).reason, 'excluded');
 
-  const csvRes = await handleRequest(new Request('https://daejong-nl-events.test/v1/events.csv'), env);
+  const csvRes = await handleRequest(new Request('https://daejong-nl-events.test/v1/events.csv', {
+    headers: { 'X-NL-Read-Key': 'fixture-read' },
+  }), env);
   const csv = await csvRes.text();
   assert.match(csv, /newsletter_product_click/);
   assert.match(csv, /newsletter_product_visit/);
@@ -194,8 +203,150 @@ test('worker fixture: click then visit, reject bad dest via allowlist, bot exclu
 });
 
 test('worker GET health and unknown route', async () => {
-  const health = await handleRequest(new Request('https://daejong-nl-events.test/v1/health'));
+  const down = await handleRequest(new Request('https://daejong-nl-events.test/v1/health'));
+  assert.equal(down.status, 503);
+  const downJson = await down.json();
+  assert.equal(downJson.ok, false);
+  assert.equal(downJson.storage, 'unavailable');
+  assert.equal(downJson.coverage, 'NA');
+  const health = await handleRequest(
+    new Request('https://daejong-nl-events.test/v1/health'),
+    { store: createEventStore() },
+  );
   assert.equal(health.status, 200);
+  assert.equal((await health.json()).storage, 'memory');
   const miss = await handleRequest(new Request('https://daejong-nl-events.test/v1/nope'));
   assert.equal(miss.status, 404);
+});
+
+test('production D1 missing does not store via hidden memory', async () => {
+  const posted = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(event({ product: 'products' })),
+  }));
+  assert.equal(posted.status, 503);
+  assert.equal((await posted.json()).ok, false);
+});
+
+test('D1 bind error is unavailable not ok true', async () => {
+  const env = {
+    NL_EVENTS: {
+      prepare() {
+        throw new Error('D1 missing binding');
+      },
+    },
+  };
+  const posted = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(event({ product: 'products' })),
+  }), env);
+  assert.equal(posted.status, 503);
+  assert.equal((await posted.json()).ok, false);
+  const health = await handleRequest(new Request('https://daejong-nl-events.test/v1/health'), env);
+  assert.equal(health.status, 503);
+  const healthJson = await health.json();
+  assert.equal(healthJson.ok, false);
+  assert.equal(healthJson.coverage, 'NA');
+});
+
+test('server dest_kind ignores client first_party on external product', () => {
+  assert.equal(serverDestKind('hanjul'), 'external');
+  assert.equal(serverDestKind('products'), 'first_party');
+});
+
+test('visit joins only same click_id product source campaign', () => {
+  const click = { ...event({ product: 'products', dest_kind: 'first_party' }), event: EVENTS.click };
+  const visit = { ...click, event: EVENTS.visit };
+  assert.equal(visitMatchesClick(visit, click), true);
+  assert.equal(visitMatchesClick({ ...visit, product: 'hanjul' }, click), false);
+  assert.equal(visitMatchesClick({ ...visit, campaign: 'ep8' }, click), false);
+});
+
+test('substack_email is NA on the collector', async () => {
+  const env = { store: createEventStore(), NL_EVENTS_READ_KEY: 'fixture-read' };
+  const res = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(event({ source: SOURCES.substack, product: 'products' })),
+  }), env);
+  assert.equal(res.status, 202);
+  assert.equal((await res.json()).reason, 'source_na');
+});
+
+test('client first_party visit for kmong product is visit_na', async () => {
+  const env = { store: createEventStore() };
+  const res = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(event({
+      event: EVENTS.visit,
+      product: 'ebook-786557',
+      dest_kind: 'first_party',
+    })),
+  }), env);
+  assert.equal((await res.json()).reason, 'visit_na');
+});
+
+test('mismatched visit product is not stored', async () => {
+  const store = createEventStore();
+  const env = { store };
+  const clickId = '55555555-5555-4555-8555-555555555555';
+  await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(event({ click_id: clickId, product: 'products' })),
+  }), env);
+  const visit = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(event({
+      event: EVENTS.visit,
+      click_id: clickId,
+      product: 'products',
+      campaign: 'ep99',
+    })),
+  }), env);
+  assert.equal((await visit.json()).reason, 'visit_mismatch');
+});
+
+test('CSV is not public without read key', async () => {
+  const env = { store: createEventStore(), NL_EVENTS_READ_KEY: 'fixture-read' };
+  const open = await handleRequest(new Request('https://daejong-nl-events.test/v1/events.csv'), env);
+  assert.equal(open.status, 401);
+});
+
+test('collector origin is not guessed', () => {
+  assert.equal(nlCollectorOrigin({}), '');
+  assert.equal(nlCollectorOrigin({ PUBLIC_NL_EVENTS_ORIGIN: 'https://daejong-nl-events.example.workers.dev' }), 'https://daejong-nl-events.example.workers.dev');
+  const hop = fs.readFileSync(path.join(root, 'src/pages/nl-go/[product].astro'), 'utf8');
+  const beacon = fs.readFileSync(path.join(root, 'src/components/NlVisitBeacon.astro'), 'utf8');
+  assert.equal(hop.includes('ssamssae.workers.dev'), false);
+  assert.equal(beacon.includes('ssamssae.workers.dev'), false);
+});
+
+test('unknown product is rejected by server allowlist', async () => {
+  const env = { store: createEventStore() };
+  const res = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(event({ product: 'not-a-product' })),
+  }), env);
+  assert.equal(res.status, 400);
+  assert.equal((await res.json()).error, 'unknown_product');
+});
+
+test('sendBeacon false retries and does not mark storage first', async () => {
+  assert.equal(shouldMarkVisitSent({ beaconOk: false, fetchOk: false }), false);
+  assert.equal(shouldMarkVisitSent({ beaconOk: true, fetchOk: false }), true);
+  assert.equal(visitStorageKey('abc'), 'nl-visit:abc');
+  let stored = false;
+  const result = await postNlEvent('https://collector.test', { event: 'x' }, {
+    sendBeacon: () => false,
+    fetchImpl: async () => ({ ok: true, status: 201 }),
+  });
+  if (result.ok) stored = true;
+  assert.equal(result.via, 'fetch');
+  assert.equal(stored, true);
 });

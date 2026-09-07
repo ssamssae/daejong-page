@@ -3,9 +3,9 @@
  * No PII, IP, or UA stored. click_id is an opaque correlation token.
  */
 
-import { EVENTS, SOURCES } from './nl-allowlist.mjs';
+import { EVENTS, SOURCES, isKnownProduct, serverDestKindForProduct } from './nl-allowlist.mjs';
 
-export { EVENTS, SOURCES };
+export { EVENTS, SOURCES, isKnownProduct };
 
 export const CSV_COLUMNS = [
   'occurred_at',
@@ -17,7 +17,43 @@ export const CSV_COLUMNS = [
   'dest_kind',
 ];
 
-const BOT_UA = /bot|crawler|spider|preview|slurp|facebookexternalhit|whatsapp|telegram|discord|nl-fixture/i;
+/** T017 projection keeps source/campaign/dest_kind so web vs NA mail and external vs first_party stay joinable. */
+export const T017_CSV_COLUMNS = [
+  'ts',
+  'event',
+  'object_id',
+  'actor_id',
+  'source',
+  'campaign',
+  'dest_kind',
+];
+
+/**
+ * Googlebot/Bingbot do not contain a standalone word "bot".
+ * Word-boundary \\bbot\\b alone would miss them.
+ */
+const BOT_UA = /googlebot|bingbot|applebot|yandexbot|duckduckbot|baiduspider|slurp|crawler|spider|preview|facebookexternalhit|whatsapp|telegram|discord|nl-fixture|\bbot\b/i;
+
+/** Owned /products landing is the only first_party visit surface. Client dest_kind is not trusted. */
+export function serverDestKind(product) {
+  return serverDestKindForProduct(product);
+}
+
+export function visitMatchesClick(visit, click) {
+  if (!visit || !click) return false;
+  return click.event === EVENTS.click
+    && visit.event === EVENTS.visit
+    && click.click_id === visit.click_id
+    && click.product === visit.product
+    && click.source === visit.source
+    && click.campaign === visit.campaign
+    && click.dest_kind === 'first_party'
+    && visit.dest_kind === 'first_party';
+}
+
+export function serverOccurredAt(now = new Date()) {
+  return now.toISOString();
+}
 
 export function isBotUa(ua) {
   return BOT_UA.test(String(ua || ''));
@@ -98,10 +134,18 @@ export function csvEscape(value) {
 
 export function toCsv(rows, { projection = 't019' } = {}) {
   if (projection === 't017') {
-    const header = 'ts,event,object_id,actor_id';
+    const header = T017_CSV_COLUMNS.join(',');
     const body = rows.map((r) => {
       const event = r.event === EVENTS.click ? 'nl_click' : 'nl_visit';
-      return [r.occurred_at, event, r.product, r.click_id].map(csvEscape).join(',');
+      return [
+        r.occurred_at,
+        event,
+        r.product,
+        r.click_id,
+        r.source,
+        r.campaign,
+        r.dest_kind,
+      ].map(csvEscape).join(',');
     });
     return [header, ...body].join('\n') + '\n';
   }
@@ -122,6 +166,9 @@ export function createEventStore() {
       rows.push({ ...row });
       return { stored: true };
     },
+    findClick(clickId) {
+      return rows.find((r) => r.event === EVENTS.click && r.click_id === clickId) || null;
+    },
     all() {
       return rows.slice();
     },
@@ -131,11 +178,18 @@ export function createEventStore() {
   };
 }
 
-export function decideRecord({ row, destKind, ua, search, headers }) {
+export function decideRecord({ row, destKind, ua, search, headers, collectSource = SOURCES.web }) {
   if (isBotUa(ua) || isTestRequest({ search, headers })) {
     return { record: false, reason: 'excluded' };
   }
-  if (row.event === EVENTS.visit && destKind !== 'first_party') {
+  if (row.source !== collectSource) {
+    return { record: false, reason: 'source_na' };
+  }
+  if (row.source === SOURCES.substack) {
+    return { record: false, reason: 'source_na' };
+  }
+  const kind = destKind || row.dest_kind;
+  if (row.event === EVENTS.visit && kind !== 'first_party') {
     return { record: false, reason: 'visit_na' };
   }
   return { record: true };

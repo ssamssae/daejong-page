@@ -83,6 +83,21 @@ export function destKindFor(url) {
   return 'external';
 }
 
+/** Reverse of slugForUrl: worker checks this instead of trusting client dest_kind. */
+export function isKnownProduct(product) {
+  const p = String(product || '');
+  if (p === 'products') return true;
+  if (Object.values(APPLE_IDS).includes(p)) return true;
+  if (Object.values(PLAY_IDS).includes(p)) return true;
+  if (Object.values(HOST_SLUGS).includes(p)) return true;
+  if (Object.values(GITHUB_REPOS).includes(p)) return true;
+  return /^ebook-\d+$/.test(p);
+}
+
+export function serverDestKindForProduct(product) {
+  return String(product) === 'products' ? 'first_party' : 'external';
+}
+
 export function slugForUrl(raw) {
   const url = typeof raw === 'string' ? normalizeDest(raw) : raw;
   if (!url) return null;

@@ -3,9 +3,14 @@ main = "src/index.js"
 compatibility_date = "2026-09-08"
 workers_dev = true
 
-# D1 database_id is filled after `wrangler d1 create daejong-nl-events` (free).
-# Until then local tests use the in-memory store in src/index.js.
+# Production storage is D1. Without this binding the worker reports
+# storage=unavailable (HTTP 503) and does not pretend memory succeeded.
+# After `wrangler d1 create daejong-nl-events`, uncomment and set database_id.
 # [[d1_databases]]
 # binding = "NL_EVENTS"
 # database_name = "daejong-nl-events"
-# database_id = "REPLACE_AFTER_CREATE"
+# database_id = ""
+
+# CSV read: wrangler secret put NL_EVENTS_READ_KEY  (do not commit the value)
+# Frontend origin: set PUBLIC_NL_EVENTS_ORIGIN to the URL wrangler deploy prints.
+# Do not invent *.ssamssae.workers.dev.
