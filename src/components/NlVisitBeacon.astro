@@ -1,0 +1,43 @@
+---
+import { EVENTS } from '../lib/nl-events.mjs';
+
+const collector = 'https://daejong-nl-events.ssamssae.workers.dev';
+---
+<script is:inline define:vars={{ collector, visitEvent: EVENTS.visit }}>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('from') !== 'nl') return;
+    var clickId = params.get('nlc') || '';
+    var product = params.get('p') || 'products';
+    var campaign = params.get('utm_campaign') || params.get('c') || '';
+    var source = params.get('utm_source') || 'web_newsletter';
+    if (!clickId || !campaign) return;
+    if (params.get('nl_test') === '1') return;
+    if (/bot|crawler|spider|preview|nl-fixture/i.test(navigator.userAgent || '')) return;
+    var key = 'nl-visit:' + clickId;
+    try {
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, '1');
+    } catch (e) {}
+    var payload = JSON.stringify({
+      event: visitEvent,
+      source: source,
+      campaign: campaign,
+      product: product,
+      click_id: clickId,
+      occurred_at: new Date().toISOString(),
+      dest_kind: 'first_party',
+    });
+    try {
+      navigator.sendBeacon(collector + '/v1/events', new Blob([payload], { type: 'application/json' }));
+    } catch (e) {
+      fetch(collector + '/v1/events', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: payload,
+        keepalive: true,
+        mode: 'cors',
+      }).catch(function () {});
+    }
+  })();
+</script>

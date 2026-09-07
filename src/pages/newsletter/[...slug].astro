@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
+import NlNewsletterHops from '../../components/NlNewsletterHops.astro';
+import { campaignFromPath } from '../../lib/nl-allowlist.mjs';
 import '../../styles/prose.css';
 
 export async function getStaticPaths() {
@@ -10,6 +12,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const campaign = String(post.data.version || campaignFromPath(post.id) || post.id).toLowerCase();
 ---
 <Layout title={`${post.data.title} — 뉴스레터`} description={post.data.summary ?? post.data.title}>
   <a class="back" href="/newsletter">← 뉴스레터</a>
@@ -20,6 +23,7 @@ const { Content } = await render(post);
     </header>
     <div class="prose"><Content /></div>
   </article>
+  <NlNewsletterHops campaign={campaign} />
   <style>
     .back { font-family: var(--mono); font-size: var(--text-desc); color: var(--fg-dim); }
     article { margin-top: 24px; }

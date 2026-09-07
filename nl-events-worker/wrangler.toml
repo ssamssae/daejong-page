@@ -1,0 +1,11 @@
+name = "daejong-nl-events"
+main = "src/index.js"
+compatibility_date = "2026-09-08"
+workers_dev = true
+
+# D1 database_id is filled after `wrangler d1 create daejong-nl-events` (free).
+# Until then local tests use the in-memory store in src/index.js.
+# [[d1_databases]]
+# binding = "NL_EVENTS"
+# database_name = "daejong-nl-events"
+# database_id = "REPLACE_AFTER_CREATE"
