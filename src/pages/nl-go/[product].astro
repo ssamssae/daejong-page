@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { hopEntry, nlAllowlist } from '../../lib/nl-product-links';
+import { EVENTS, SOURCES } from '../../lib/nl-events.mjs';
+import { nlCollectorOrigin } from '../../lib/nl-collector.mjs';
+
+export function getStaticPaths() {
+  const slugs = [...new Set(nlAllowlist.map((e) => e.hop))];
+  return slugs.map((product) => ({ params: { product } }));
+}
+
+const hop = Astro.params.product ?? '';
+const entry = hopEntry(hop);
+const dest = entry?.dest ?? '';
+const destKind = entry?.dest_kind ?? 'external';
+const product = entry?.product ?? '';
+const collector = nlCollectorOrigin();
+const clickEvent = EVENTS.click;
+const webSource = SOURCES.web;
+---
+<Layout title="제품으로 이동" description="뉴스레터 제품 링크 이동">
+  {entry && <meta slot="head" http-equiv="refresh" content={`1;url=${dest}`} />}
+  {!entry ? (
+    <p data-nl-hop="rejected">이 주소로는 이동하지 않습니다.</p>
+  ) : (
+    <>
+      <p
+        data-nl-hop="ok"
+        data-nl-hop-id={hop}
+        data-nl-product={product}
+        data-nl-dest={dest}
+        data-nl-dest-kind={destKind}
+      >
+        <a id="nl-fallback" href={dest}>제품 페이지로 이동</a>
+      </p>
+      {destKind === 'external' && (
+        <p data-nl-visit="na">이 목적지는 우리 사이트 밖이라 도착 계측은 NA입니다.</p>
+      )}
+    </>
+  )}
+</Layout>
+
+{entry && (
+  <script
+    is:inline
+    define:vars={{ dest, destKind, product, hop, collector, clickEvent, webSource }}
+  >
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (!dest) return;
+      var campaign = params.get('c') || '';
+      var source = webSource;
+      var clickId = params.get('nlc') || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + '-' + Math.random().toString(16).slice(2));
+      var landing = new URL(dest);
+      landing.searchParams.set('from', 'nl');
+      landing.searchParams.set('nlc', clickId);
+      landing.searchParams.set('p', product);
+      if (campaign) landing.searchParams.set('utm_campaign', campaign);
+      landing.searchParams.set('utm_source', source);
+      landing.searchParams.set('utm_medium', 'newsletter');
+      var fallback = document.getElementById('nl-fallback');
+      if (fallback) fallback.setAttribute('href', landing.toString());
+
+      var excluded = params.get('nl_test') === '1'
+        || /googlebot|bingbot|applebot|crawler|spider|preview|nl-fixture|\bbot\b/i.test(navigator.userAgent || '');
+      var payload = {
+        event: clickEvent,
+        source: source,
+        campaign: campaign,
+        product: product,
+        click_id: clickId,
+        occurred_at: new Date().toISOString(),
+        dest_kind: destKind,
+      };
+      function go() {
+        window.location.replace(landing.toString());
+      }
+      if (excluded || !campaign) {
+        go();
+        return;
+      }
+      if (!collector) {
+        go();
+        return;
+      }
+      var url = String(collector).replace(/\/$/, '') + '/v1/events';
+      var body = JSON.stringify(payload);
+      var sent = false;
+      try {
+        sent = navigator.sendBeacon(url, new Blob([body], { type: 'application/json' }));
+      } catch (e) {}
+      if (!sent) {
+        fetch(url, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: body,
+          keepalive: true,
+          mode: 'cors',
+        }).catch(function () {}).finally(go);
+        setTimeout(go, 400);
+        return;
+      }
+      go();
+    })();
+  </script>
+)}

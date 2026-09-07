@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NlVisitBeacon from '../components/NlVisitBeacon.astro';
 
 import { apps, saas, tools, ebooks } from '../data/products';
 
@@ -16,6 +17,7 @@ const sections = [
 const featured = [saas[0], apps[0], apps[1]];
 ---
 <Layout title="제품 — 마이너스베타스튜디오" description="강대종이 공개한 전자책, 모바일 앱, 웹 SaaS, 오픈소스 툴 모음.">
+  <NlVisitBeacon />
   <section class="products-hero" aria-labelledby="page-title">
     <div class="hero-copy">
       <p class="eyebrow">제품</p>
