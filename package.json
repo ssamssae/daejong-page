@@ -10,6 +10,7 @@
     "verify:public-secrets": "node scripts/verify-public-secrets.mjs",
     "verify:canonical-company": "node scripts/verify-canonical-company.mjs",
     "verify:glossary-counts": "node scripts/verify-glossary-counts.mjs",
+    "verify:nl-origin": "node scripts/verify-nl-origin.mjs",
     "verify:nl-instrument": "node scripts/verify-nl-instrument.mjs",
     "test:nl-instrument": "node --test scripts/test-nl-instrument.mjs",
     "sync:canonical": "node scripts/sync-canonical-vendored.mjs"

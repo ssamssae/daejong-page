@@ -33,6 +33,10 @@ function corsHeaders(request) {
   };
 }
 
+function requestOriginAllowed(request) {
+  return ALLOWED_ORIGINS.has(request.headers.get('Origin') || '');
+}
+
 function json(body, status, request) {
   return new Response(JSON.stringify(body), {
     status,
@@ -46,8 +50,13 @@ export function storageMode(env = {}) {
   return 'unavailable';
 }
 
-function healthBody(env, storageOverride) {
-  const storage = storageOverride || storageMode(env);
+function healthBody(env, probeOverride) {
+  const mode = storageMode(env);
+  const probe = probeOverride || {
+    storage: mode,
+    diagnostic: mode === 'unavailable' ? 'storage_unconfigured' : 'fixture_memory',
+  };
+  const storage = probe.storage;
   return {
     ok: storage !== 'unavailable',
     service: 'daejong-nl-events',
@@ -58,6 +67,7 @@ function healthBody(env, storageOverride) {
     substack: 'NA',
     conversion: 'visit/click',
     coverage: storage === 'unavailable' ? 'NA' : 'collecting',
+    diagnostic: probe.diagnostic,
   };
 }
 
@@ -65,13 +75,14 @@ async function probeStorage(env) {
   const mode = storageMode(env);
   if (mode === 'd1') {
     try {
-      await env.NL_EVENTS.prepare('SELECT 1').first();
-      return mode;
+      await env.NL_EVENTS.prepare('SELECT 1 AS ready FROM nl_events LIMIT 1').first();
+      return { storage: mode, diagnostic: 'schema_ready' };
     } catch {
-      return 'unavailable';
+      return { storage: 'unavailable', diagnostic: 'd1_schema_unavailable' };
     }
   }
-  return mode;
+  if (mode === 'memory') return { storage: mode, diagnostic: 'fixture_memory' };
+  return { storage: 'unavailable', diagnostic: 'storage_unconfigured' };
 }
 
 function readKeyOk(env, request) {
@@ -148,8 +159,8 @@ export async function handleRequest(request, env = {}) {
     return new Response(null, { status: 204, headers: corsHeaders(request) });
   }
   if (request.method === 'GET' && url.pathname === '/v1/health') {
-    const storage = await probeStorage(env);
-    const body = healthBody(env, storage);
+    const probe = await probeStorage(env);
+    const body = healthBody(env, probe);
     return json(body, body.ok ? 200 : 503, request);
   }
   if (request.method === 'GET' && url.pathname === '/v1/events.csv') {
@@ -178,8 +189,11 @@ export async function handleRequest(request, env = {}) {
     });
   }
   if (request.method === 'POST' && url.pathname === '/v1/events') {
+    if (!requestOriginAllowed(request)) {
+      return json({ ok: false, error: 'origin_forbidden' }, 403, request);
+    }
     if (storageMode(env) === 'unavailable') {
-      return json({ ok: false, error: 'storage_unavailable', coverage: 'NA' }, 503, request);
+      return json({ ok: false, error: 'storage_unavailable', coverage: 'NA', diagnostic: 'storage_unconfigured' }, 503, request);
     }
     let body;
     try {
@@ -210,14 +224,19 @@ export async function handleRequest(request, env = {}) {
       return json({ ok: true, stored: false, reason: decision.reason }, 202, request);
     }
     if (row.event === EVENTS.visit) {
-      const click = await findClick(env, row.click_id);
+      let click;
+      try {
+        click = await findClick(env, row.click_id);
+      } catch {
+        return json({ ok: false, error: 'storage_unavailable', coverage: 'NA', diagnostic: 'd1_read_unavailable' }, 503, request);
+      }
       if (click && !visitMatchesClick(row, click)) {
         return json({ ok: true, stored: false, reason: 'visit_mismatch' }, 202, request);
       }
     }
     const result = await persist(env, row);
     if (result.error === 'storage_unavailable') {
-      return json({ ok: false, error: 'storage_unavailable', coverage: 'NA' }, 503, request);
+      return json({ ok: false, error: 'storage_unavailable', coverage: 'NA', diagnostic: 'd1_write_unavailable' }, 503, request);
     }
     return json({ ok: true, stored: Boolean(result.stored), reason: result.reason || undefined }, result.stored ? 201 : 200, request);
   }

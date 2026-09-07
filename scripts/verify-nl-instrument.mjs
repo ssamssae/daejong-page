@@ -1,5 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { validateNlCollectorOrigin } from '../src/lib/nl-collector.mjs';
+
+const collector = validateNlCollectorOrigin(process.env.PUBLIC_NL_EVENTS_ORIGIN, {
+  requireWorkersDev: true,
+});
+if (!collector.ok) {
+  console.error(`nl instrument verification failed: collector origin ${collector.reason}`);
+  process.exit(1);
+}
 
 const dist = path.resolve('dist');
 if (!fs.existsSync(dist)) {
@@ -62,6 +71,10 @@ if (!fs.existsSync(ownedHop)) {
 const ownedHtml = fs.readFileSync(ownedHop, 'utf8');
 if (ownedHtml.includes('data-nl-visit="na"')) {
   console.error('nl instrument verification failed: owned products hop should be visitable');
+  process.exit(1);
+}
+if (!hopHtml.includes(collector.origin) || !ownedHtml.includes(collector.origin)) {
+  console.error('nl instrument verification failed: configured collector origin was not embedded');
   process.exit(1);
 }
 

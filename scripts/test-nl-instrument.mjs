@@ -29,7 +29,7 @@ import {
   visitMatchesClick,
 } from '../src/lib/nl-events.mjs';
 import { handleRequest } from '../nl-events-worker/src/index.js';
-import { nlCollectorOrigin } from '../src/lib/nl-collector.mjs';
+import { nlCollectorOrigin, validateNlCollectorOrigin } from '../src/lib/nl-collector.mjs';
 import { postNlEvent, shouldMarkVisitSent, visitStorageKey } from '../src/lib/nl-client-send.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -153,7 +153,7 @@ test('worker fixture: click then visit, reject bad dest via allowlist, bot exclu
   const post = (body, headers = {}, url = 'https://daejong-nl-events.test/v1/events') =>
     handleRequest(new Request(url, {
       method: 'POST',
-      headers: { 'content-type': 'application/json', ...headers },
+      headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com', ...headers },
       body: JSON.stringify(body),
     }), env);
 
@@ -222,7 +222,7 @@ test('worker GET health and unknown route', async () => {
 test('production D1 missing does not store via hidden memory', async () => {
   const posted = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com' },
     body: JSON.stringify(event({ product: 'products' })),
   }));
   assert.equal(posted.status, 503);
@@ -239,16 +239,62 @@ test('D1 bind error is unavailable not ok true', async () => {
   };
   const posted = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com' },
     body: JSON.stringify(event({ product: 'products' })),
   }), env);
   assert.equal(posted.status, 503);
-  assert.equal((await posted.json()).ok, false);
+  const postedJson = await posted.json();
+  assert.equal(postedJson.ok, false);
+  assert.equal(postedJson.diagnostic, 'd1_write_unavailable');
   const health = await handleRequest(new Request('https://daejong-nl-events.test/v1/health'), env);
   assert.equal(health.status, 503);
   const healthJson = await health.json();
   assert.equal(healthJson.ok, false);
   assert.equal(healthJson.coverage, 'NA');
+  assert.equal(healthJson.diagnostic, 'd1_schema_unavailable');
+});
+
+test('health verifies the nl_events table instead of SELECT 1 only', async () => {
+  let observedSql = '';
+  const env = {
+    NL_EVENTS: {
+      prepare(sql) {
+        observedSql = sql;
+        return { first: async () => ({ row_count: 0 }) };
+      },
+    },
+  };
+  const health = await handleRequest(new Request('https://daejong-nl-events.test/v1/health'), env);
+  assert.equal(health.status, 200);
+  assert.match(observedSql, /FROM nl_events/);
+  assert.equal((await health.json()).diagnostic, 'schema_ready');
+});
+
+test('D1 visit lookup error is a secret-free 503', async () => {
+  const env = {
+    NL_EVENTS: {
+      prepare() {
+        return {
+          bind() {
+            return { first: async () => { throw new Error('private provider detail'); } };
+          },
+        };
+      },
+    },
+  };
+  const res = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com' },
+    body: JSON.stringify(event({ event: EVENTS.visit, product: 'products' })),
+  }), env);
+  assert.equal(res.status, 503);
+  const body = await res.json();
+  assert.deepEqual(body, {
+    ok: false,
+    error: 'storage_unavailable',
+    coverage: 'NA',
+    diagnostic: 'd1_read_unavailable',
+  });
 });
 
 test('server dest_kind ignores client first_party on external product', () => {
@@ -268,7 +314,7 @@ test('substack_email is NA on the collector', async () => {
   const env = { store: createEventStore(), NL_EVENTS_READ_KEY: 'fixture-read' };
   const res = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com' },
     body: JSON.stringify(event({ source: SOURCES.substack, product: 'products' })),
   }), env);
   assert.equal(res.status, 202);
@@ -279,7 +325,7 @@ test('client first_party visit for kmong product is visit_na', async () => {
   const env = { store: createEventStore() };
   const res = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com' },
     body: JSON.stringify(event({
       event: EVENTS.visit,
       product: 'ebook-786557',
@@ -295,12 +341,12 @@ test('mismatched visit product is not stored', async () => {
   const clickId = '55555555-5555-4555-8555-555555555555';
   await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com' },
     body: JSON.stringify(event({ click_id: clickId, product: 'products' })),
   }), env);
   const visit = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com' },
     body: JSON.stringify(event({
       event: EVENTS.visit,
       click_id: clickId,
@@ -320,6 +366,10 @@ test('CSV is not public without read key', async () => {
 test('collector origin is not guessed', () => {
   assert.equal(nlCollectorOrigin({}), '');
   assert.equal(nlCollectorOrigin({ PUBLIC_NL_EVENTS_ORIGIN: 'https://daejong-nl-events.example.workers.dev' }), 'https://daejong-nl-events.example.workers.dev');
+  assert.equal(validateNlCollectorOrigin('', { requireWorkersDev: true }).reason, 'missing');
+  assert.equal(validateNlCollectorOrigin('http://collector.example.workers.dev', { requireWorkersDev: true }).reason, 'https_required');
+  assert.equal(validateNlCollectorOrigin('https://collector.example.workers.dev/path', { requireWorkersDev: true }).reason, 'origin_only');
+  assert.equal(validateNlCollectorOrigin('https://collector.example.com', { requireWorkersDev: true }).reason, 'workers_dev_required');
   const hop = fs.readFileSync(path.join(root, 'src/pages/nl-go/[product].astro'), 'utf8');
   const beacon = fs.readFileSync(path.join(root, 'src/components/NlVisitBeacon.astro'), 'utf8');
   assert.equal(hop.includes('ssamssae.workers.dev'), false);
@@ -330,11 +380,28 @@ test('unknown product is rejected by server allowlist', async () => {
   const env = { store: createEventStore() };
   const res = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: { 'content-type': 'application/json', origin: 'https://work.kangdaejong.com' },
     body: JSON.stringify(event({ product: 'not-a-product' })),
   }), env);
   assert.equal(res.status, 400);
   assert.equal((await res.json()).error, 'unknown_product');
+});
+
+test('POST rejects a missing or untrusted browser Origin', async () => {
+  const store = createEventStore();
+  const body = JSON.stringify(event({ product: 'products' }));
+  for (const origin of ['', 'https://evil.example']) {
+    const headers = { 'content-type': 'application/json' };
+    if (origin) headers.origin = origin;
+    const res = await handleRequest(new Request('https://daejong-nl-events.test/v1/events', {
+      method: 'POST',
+      headers,
+      body,
+    }), { store });
+    assert.equal(res.status, 403);
+    assert.equal((await res.json()).error, 'origin_forbidden');
+  }
+  assert.equal(store.all().length, 0);
 });
 
 test('sendBeacon false retries and does not mark storage first', async () => {
