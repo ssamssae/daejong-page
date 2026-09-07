@@ -1,6 +1,6 @@
 name = "daejong-nl-events"
 main = "src/index.js"
-compatibility_date = "2026-09-08"
+compatibility_date = "2026-09-07"
 workers_dev = true
 
 # Production storage is D1. Without this binding the worker reports

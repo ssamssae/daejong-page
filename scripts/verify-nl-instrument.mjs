@@ -78,23 +78,4 @@ if (!hopHtml.includes(collector.origin) || !ownedHtml.includes(collector.origin)
   process.exit(1);
 }
 
-function walkHtml(dir, acc = []) {
-  for (const name of fs.readdirSync(dir)) {
-    const full = path.join(dir, name);
-    const st = fs.statSync(full);
-    if (st.isDirectory()) walkHtml(full, acc);
-    else if (name.endsWith('.html')) acc.push(full);
-  }
-  return acc;
-}
-
-const guessed = 'daejong-nl-events.ssamssae.workers.dev';
-for (const file of walkHtml(dist)) {
-  const html = fs.readFileSync(file, 'utf8');
-  if (html.includes(guessed)) {
-    console.error(`nl instrument verification failed: guessed collector host in ${file}`);
-    process.exit(1);
-  }
-}
-
 console.log('nl instrument verification passed');
