@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS nl_events (
   campaign TEXT NOT NULL,
   product TEXT NOT NULL,
   click_id TEXT NOT NULL,
+  dest_kind TEXT NOT NULL,
   occurred_at TEXT NOT NULL,
   PRIMARY KEY (event, click_id)
 );

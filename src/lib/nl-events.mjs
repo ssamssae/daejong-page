@@ -14,6 +14,7 @@ export const CSV_COLUMNS = [
   'campaign',
   'product',
   'click_id',
+  'dest_kind',
 ];
 
 const BOT_UA = /bot|crawler|spider|preview|slurp|facebookexternalhit|whatsapp|telegram|discord|nl-fixture/i;
@@ -76,12 +77,16 @@ export function parseEvent(input) {
   if (!click_id || !/^[a-z0-9-]{8,80}$/i.test(click_id)) {
     return { ok: false, error: 'bad_click_id' };
   }
+  const dest_kind = String(input?.dest_kind || '').trim();
+  if (dest_kind !== 'first_party' && dest_kind !== 'external') {
+    return { ok: false, error: 'bad_dest_kind' };
+  }
   if (!occurred_at || Number.isNaN(Date.parse(occurred_at))) {
     return { ok: false, error: 'bad_occurred_at' };
   }
   return {
     ok: true,
-    row: { occurred_at, event, source, campaign, product, click_id },
+    row: { occurred_at, event, source, campaign, product, click_id, dest_kind },
   };
 }
 

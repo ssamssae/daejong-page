@@ -43,6 +43,7 @@ function event(overrides = {}) {
     product: 'hanjul',
     click_id: '11111111-1111-4111-8111-111111111111',
     occurred_at: '2026-09-08T07:20:00+09:00',
+    dest_kind: 'first_party',
     ...overrides,
   };
 }
@@ -122,7 +123,7 @@ test('visit on external dest is NA (not stored)', () => {
 test('CSV contract and T017 name projection', () => {
   const row = event();
   const csv = toCsv([row]);
-  assert.match(csv, /^occurred_at,event,source,campaign,product,click_id\n/);
+  assert.match(csv, /^occurred_at,event,source,campaign,product,click_id,dest_kind\n/);
   assert.match(csv, /newsletter_product_click/);
   const t017 = toCsv([row], { projection: 't017' });
   assert.match(t017, /^ts,event,object_id,actor_id\n/);

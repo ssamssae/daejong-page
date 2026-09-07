@@ -41,14 +41,15 @@ async function persist(env, row) {
     try {
       await env.NL_EVENTS.prepare(
         `INSERT OR IGNORE INTO nl_events
-         (event, source, campaign, product, click_id, occurred_at)
-         VALUES (?, ?, ?, ?, ?, ?)`,
+         (event, source, campaign, product, click_id, dest_kind, occurred_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?)`,
       ).bind(
         row.event,
         row.source,
         row.campaign,
         row.product,
         row.click_id,
+        row.dest_kind,
         row.occurred_at,
       ).run();
       return { stored: true };
@@ -63,7 +64,7 @@ async function persist(env, row) {
 async function readAll(env) {
   if (env?.NL_EVENTS) {
     const res = await env.NL_EVENTS.prepare(
-      'SELECT occurred_at, event, source, campaign, product, click_id FROM nl_events ORDER BY occurred_at',
+      'SELECT occurred_at, event, source, campaign, product, click_id, dest_kind FROM nl_events ORDER BY occurred_at',
     ).all();
     return res.results || [];
   }
