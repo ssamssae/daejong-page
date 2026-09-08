@@ -14,6 +14,8 @@ const must = [
   'HTTPS',
   '카메라',
   '알림',
+  'Google 백업',
+  '원본은 이 앱이 지우지 않습니다',
 ];
 const leakedDevMeta = [
   'T-260908',
