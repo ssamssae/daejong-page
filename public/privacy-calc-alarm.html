@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>계산기알람 개인정보 처리방침</title>
+  <meta name="description" content="계산기알람 앱 개인정보 처리방침 초안. 알람 설정은 기기 안에 두고, 자체 서버로 올리지 않습니다. 광고·결제 SDK는 소스에 자리표시로 남아 있으며 최종 바이너리 확인 전에는 무수집을 단정하지 않습니다.">
+  <meta property="og:title" content="계산기알람 개인정보 처리방침">
+  <meta property="og:description" content="계산기알람 개인정보 처리방침 초안 — 알람 설정은 기기 저장, 자체 서버 없음.">
+  <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://work.kangdaejong.com/privacy-calc-alarm.html">
+  <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="계산기알람 개인정보 처리방침">
+  <meta name="twitter:description" content="계산기알람 개인정보 처리방침 초안 — 알람 설정은 기기 저장, 자체 서버 없음.">
+  <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
+  <link rel="canonical" href="https://work.kangdaejong.com/privacy-calc-alarm.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://work.kangdaejong.com/#person",
+      "name": "강대종",
+      "jobTitle": "Solo founder / Vibe coder",
+      "url": "https://work.kangdaejong.com/",
+      "sameAs": ["https://github.com/ssamssae"],
+      "description": "1인 개발자 / Vibe coder / Solo founder"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://work.kangdaejong.com/#website",
+      "name": "강대종",
+      "url": "https://work.kangdaejong.com/",
+      "inLanguage": "ko",
+      "author": {"@id": "https://work.kangdaejong.com/#person"}
+    }
+  ]
+}
+</script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color:#ffffff;
+      color: var(--fg);
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', sans-serif;
+      line-height: 1.7;
+      padding: 32px 20px;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 28px; margin-bottom: 8px; color: var(--accent); }
+    .sub { color: var(--fg-dim); margin-bottom: 16px; font-size: 14px; }
+    .draft {
+      border: 1px solid #E5E8EB;
+      padding: 12px 14px;
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+    h2 { font-size: 18px; color: var(--accent); margin: 28px 0 10px; }
+    p { margin-bottom: 12px; color: var(--fg); font-size: 15px; }
+    ul { margin: 0 0 12px 20px; color: var(--fg); font-size: 15px; }
+    ul li { margin-bottom: 6px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #E5E8EB; font-size: 13px; color: var(--fg-mute); text-align: center; }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="/page-dark.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>계산기알람 개인정보 처리방침</h1>
+    <div class="sub">초안 날짜: 2026년 9월 8일 · 패키지 com.daejongkang.ireonayo · 문서 상태: 출시 초안</div>
+
+    <p class="draft">이 페이지는 Play 등록용 초안입니다. 최종 Android App Bundle의 SDK·권한·실제 동작이 확인되고, 총괄이 같은 커밋을 승인한 뒤에만 스토어 URL로 확정합니다. 지금은 “데이터를 전혀 수집하지 않는다”, “삭제를 보장한다”, “관련 법을 모두 지킨다”고 쓰지 않습니다.</p>
+
+    <h2>개요</h2>
+    <p>계산기알람은 예약 시각에 알람을 울리고, 계산·QR·사진·걸음·흔들기 같은 미션을 마친 뒤에 끄도록 만든 Android 앱입니다. 회원가입·로그인·자체 서버 동기화는 소스에서 확인되지 않았습니다. 운영자 연락처는 아래 이메일이며, 앱이 사용자 계정을 만들지 않습니다.</p>
+
+    <h2>기기 안에 두는 정보</h2>
+    <p>앱이 직접 다루는 알람 정보는 기기 안의 저장소에 둡니다. 2026-09-08 소스 검토(T-260908-033, 커밋 1425c8e) 기준으로 자체 HTTP 업로드 경로는 없었습니다.</p>
+    <ul>
+      <li><strong>알람 정의</strong> — 이름, 시각, 요일, 미션 종류와 설정. SharedPreferences 키 motjayo.alarms.v1.</li>
+      <li><strong>QR 목표</strong> — 알람 JSON 안에 함께 저장.</li>
+      <li><strong>사진 미션 기준 파일</strong> — 앱 문서 폴더 photo_missions에 복사하고 경로를 SharedPreferences에 둡니다. 후보 사진은 기기 선택기 로컬 경로입니다. 이 파일들이 앱 삭제 때 반드시 함께 지워지는지는 이번 검토에서 검증하지 않았습니다.</li>
+      <li><strong>걸음·가속도 샘플</strong> — 미션이 진행되는 동안 메모리에서만 다룹니다.</li>
+      <li><strong>이용권 표시 값</strong> — SharedPreferences의 불리언. 실제 결제 연동은 아래 광고·결제 항목을 보세요.</li>
+    </ul>
+    <p>이름, 이메일, 전화번호, 위치, 연락처를 앱이 직접 요청하거나 자체 서버로 보내는 코드는 확인되지 않았습니다.</p>
+
+    <h2>권한과 목적</h2>
+    <p>현재 매니페스트에 선언된 권한과, 소스에서 읽은 목적은 다음과 같습니다.</p>
+    <ul>
+      <li>알림 — 예약한 알람 알림을 보여 주기 위함.</li>
+      <li>정확한 알람 — 예약한 시각에 울리기 위함. 잠금 화면을 켜는 전체화면 인텐트는 후속 앱 수정 작업에서 보강 중입니다.</li>
+      <li>카메라 — QR 스캔과 사진 미션.</li>
+      <li>신체 활동 인식 — 걸음 미션.</li>
+      <li>부팅 완료 수신, 깨우기 잠금, 진동 — 재시작 후 알림 재예약과 알람 전달.</li>
+      <li>인터넷 — 아래 광고·결제 SDK가 쓸 수 있는 권한. 자체 백엔드 호출은 확인되지 않았습니다.</li>
+    </ul>
+
+    <h2>광고와 인앱 결제 — 자리표시</h2>
+    <p>소스에는 Google Mobile Ads(google_mobile_ads 9.0.0)와 Google Play Billing(in_app_purchase 3.3.0) 패키지가 들어 있습니다. 2026-09-08 기준으로 광고는 Google 샘플 앱/유닛 ID이고, 배너 실사용 스위치는 기본 꺼짐이며 AdsService.init 호출처가 없었습니다. 결제 버튼은 “준비중”으로 비활성화되어 있고 BillingService 호출처가 없었습니다.</p>
+    <p>그래서 이 초안은 “실제 광고를 켠다”, “구독을 판다”, “광고 SDK가 없다”, “데이터를 전혀 모으지 않는다”고 쓰지 않습니다. Google Mobile Ads 공개 자료는 IP 주소, 앱 이용 상호작용, 진단 정보, 기기·계정 식별자를 자동 수집·공유할 수 있다고 안내합니다. 최종 AAB에 이 SDK가 남는지, AD_ID가 합쳐지는지는 바이너리를 보기 전에는 확정하지 않습니다. 참고: <a href="https://policies.google.com/technologies/partner-sites">Google 파트너 사이트·앱에서의 데이터 이용</a>.</p>
+    <p>첫 출시 기본안은 무료 핵심 기능만 열고, 미연결 광고·결제 자리표시를 정리하는 것입니다. 그 정리가 끝난 바이너리가 확인되면 이 페이지의 광고·결제 문장을 그에 맞게 고칩니다.</p>
+
+    <h2>제3자</h2>
+    <p>앱 운영자가 사용자 알람·사진·걸음 기록을 다른 회사에 팔거나 자체 서버로 넘기는 경로는 소스에서 확인되지 않았습니다. 광고·결제 패키지가 최종 바이너리에 남으면 Google이 해당 SDK 정책에 따라 기기 정보를 처리할 수 있습니다. Firebase Analytics, Firebase Crashlytics, 자체 HTTP 클라이언트는 소스에서 확인되지 않았습니다.</p>
+
+    <h2>네트워크</h2>
+    <p>알람 설정과 미션 판정 자체는 기기 안에서 동작하도록 작성되어 있습니다. 인터넷 권한이 있고 광고·결제 SDK가 패키지에 있으므로, “외부와 전혀 통신하지 않는다”고 쓰지 않습니다.</p>
+
+    <h2>삭제</h2>
+    <p>자체 서버 계정이 없으므로 운영자에게 계정 삭제를 요청하는 절차는 없습니다. 앱을 지우면 운영체제가 앱 저장 공간을 제거하는 것이 일반적입니다. 다만 사진 미션 파일의 실제 삭제 수명은 이번 검토에서 검증하지 않았으므로, 삭제를 보장한다고 쓰지 않습니다.</p>
+
+    <h2>어린이</h2>
+    <p>계산기알람은 만 13세 미만 어린이를 대상으로 만들지 않았습니다. 어린이 개인정보를 의도적으로 모으는 기능은 확인되지 않았습니다.</p>
+
+    <h2>정책 변경</h2>
+    <p>최종 바이너리·권한·SDK가 바뀌면 이 페이지를 같은 사실에 맞춰 고치고 초안 날짜를 갱신합니다. 스토어의 데이터 보안 답변과 이 문서가 다르면, 확인된 바이너리와 스토어 답변을 우선 맞춥니다.</p>
+
+    <h2>연락처</h2>
+    <p>이 문서에 관한 문의는 아래 이메일로 보내 주세요.</p>
+    <p>이메일: <a href="mailto:minusbetastudio@gmail.com">minusbetastudio@gmail.com</a></p>
+    <p>개인 홈페이지: <a href="https://work.kangdaejong.com/">https://work.kangdaejong.com/</a></p>
+
+    <footer>
+      © 2026 강대종 · 계산기알람(com.daejongkang.ireonayo) · 출시 초안
+    </footer>
+  </div>
+</body>
+</html>
