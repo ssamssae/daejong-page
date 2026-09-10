@@ -7,16 +7,16 @@
   <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <title>계산기알람 개인정보 처리방침</title>
-  <meta name="description" content="계산기알람은 알람과 미션 설정을 기기에 저장합니다. QR 인식은 기기에서 처리되며, Google ML Kit가 진단·사용 통계를 받을 수 있습니다. 계정과 운영자 서버는 없습니다.">
+  <meta name="description" content="계산기알람 Android·iOS 앱은 알람과 미션 설정을 기기에 저장합니다. QR·사진·동작 데이터는 기기에서 처리되며, 계정과 운영자 서버는 없습니다.">
   <meta property="og:title" content="계산기알람 개인정보 처리방침">
-  <meta property="og:description" content="계산기알람 개인정보 처리방침 — 알람은 기기 저장, QR은 기기 처리, Google ML Kit 진단 정보.">
+  <meta property="og:description" content="계산기알람 개인정보 처리방침 — Android·iOS 알람과 미션 데이터의 기기 내 처리 및 플랫폼별 제3자 SDK 정보.">
   <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://work.kangdaejong.com/privacy-calc-alarm.html">
   <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="계산기알람 개인정보 처리방침">
-  <meta name="twitter:description" content="계산기알람 개인정보 처리방침 — 알람은 기기 저장, QR은 기기 처리, Google ML Kit 진단 정보.">
+  <meta name="twitter:description" content="계산기알람 개인정보 처리방침 — Android·iOS 알람과 미션 데이터의 기기 내 처리 및 플랫폼별 제3자 SDK 정보.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/privacy-calc-alarm.html">
   <script type="application/ld+json">
@@ -70,10 +70,10 @@
 <body>
   <div class="wrap">
     <h1>계산기알람 개인정보 처리방침</h1>
-    <div class="sub">시행일: 2026년 9월 8일</div>
+    <div class="sub">시행일: 2026년 9월 10일</div>
 
     <h2>개요</h2>
-    <p>계산기알람은 예약한 시각에 알람을 울리고, 계산·QR·사진·걸음·흔들기 미션을 마친 뒤에 끄는 Android 앱입니다. 회원가입과 로그인이 없고, 운영자가 운영하는 서버에 계정을 만들지 않습니다.</p>
+    <p>계산기알람은 예약한 시각에 알림을 받고, 계산·QR·사진·걸음·흔들기 미션을 마치는 Android·iOS 앱입니다. 회원가입과 로그인이 없고, 운영자가 운영하는 서버에 계정을 만들지 않습니다.</p>
 
     <h2>앱이 기기에 두는 정보</h2>
     <p>아래 정보는 이 기기의 앱 저장 공간에 두며, 운영자 서버로 올리지 않습니다.</p>
@@ -85,26 +85,27 @@
     </ul>
     <p>이름, 이메일, 전화번호, 위치, 연락처를 앱이 직접 요청하지 않습니다.</p>
 
-    <h2>QR 인식과 Google ML Kit</h2>
+    <h2>QR 인식과 플랫폼별 처리</h2>
     <p>QR 미션은 카메라로 찍은 이미지와 인식 결과를 기기 안에서 처리합니다. 그 이미지나 인식 문자열을 Google 서버로 보내지 않습니다.</p>
-    <p>QR 기능에는 Google ML Kit 바코드 인식 라이브러리가 들어 있습니다. Google은 진단과 사용 통계를 위해 기기 정보(제조사, 모델, OS), 앱 패키지 이름과 버전, 설치 단위 식별자, 성능·오류 지표를 받을 수 있습니다. 이 전송은 HTTPS로 암호화되며, Google이 이 항목을 다른 회사에 넘기지 않는다고 안내합니다. 자세한 내용은 <a href="https://developers.google.com/ml-kit/android-data-disclosure">ML Kit Android 데이터 공개</a>, <a href="https://developers.google.com/ml-kit/terms">ML Kit 약관</a>, <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>을 보세요.</p>
+    <p><strong>Android</strong>의 QR 기능에는 Google ML Kit 바코드 인식 라이브러리가 들어 있습니다. Google은 진단과 사용 통계를 위해 기기 정보(제조사, 모델, OS), 앱 패키지 이름과 버전, 설치 단위 식별자, 성능·오류 지표를 받을 수 있습니다. 이 전송은 HTTPS로 암호화되며, Google이 이 항목을 다른 회사에 넘기지 않는다고 안내합니다. 자세한 내용은 <a href="https://developers.google.com/ml-kit/android-data-disclosure">ML Kit Android 데이터 공개</a>, <a href="https://developers.google.com/ml-kit/terms">ML Kit 약관</a>, <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>을 보세요.</p>
+    <p><strong>iOS</strong>의 QR 기능은 Apple의 AVFoundation·Vision 등 기기 프레임워크를 사용하는 라이브러리로 처리합니다. iOS 배포본에 포함된 해당 라이브러리의 개인정보 매니페스트는 추적하지 않고 수집 데이터 유형과 추적 도메인이 없다고 선언합니다.</p>
 
     <h2>권한</h2>
     <ul>
-      <li><strong>알림</strong> — 예약한 알람을 보여 주기 위함.</li>
-      <li><strong>정확한 알람·전체 화면 알림</strong> — 예약한 시각에 화면을 켜고 미션을 열기 위함.</li>
+      <li><strong>알림</strong> — 예약한 알람을 보여 주기 위함. iOS는 일반 로컬 알림을 사용하며 무음 모드·집중 모드·알림 설정의 영향을 받습니다.</li>
+      <li><strong>정확한 알람·전체 화면 알림(Android)</strong> — 예약한 시각에 화면을 켜고 미션을 열기 위함.</li>
       <li><strong>카메라</strong> — QR 스캔과 사진 미션.</li>
-      <li><strong>신체 활동 인식</strong> — 걸음 미션.</li>
-      <li><strong>부팅 완료, 깨우기, 진동</strong> — 다시 켠 뒤 알람을 맞추고 울림을 전달하기 위함.</li>
-      <li><strong>인터넷</strong> — 위 ML Kit 진단·사용 통계 전송에 쓰일 수 있습니다. 운영자 서버와 통신하지 않습니다.</li>
+      <li><strong>신체 활동·동작</strong> — 걸음과 흔들기 미션.</li>
+      <li><strong>부팅 완료, 깨우기, 진동(Android)</strong> — 다시 켠 뒤 알람을 맞추고 울림을 전달하기 위함.</li>
+      <li><strong>인터넷(Android)</strong> — 위 ML Kit 진단·사용 통계 전송에 쓰일 수 있습니다. 운영자 서버와 통신하지 않습니다.</li>
     </ul>
 
     <h2>제3자</h2>
-    <p>운영자는 알람·사진·걸음 기록을 다른 회사에 팔거나 넘기지 않습니다. QR 기능의 진단·사용 통계는 Google(ML Kit)이 처리합니다.</p>
+    <p>운영자는 알람·QR·사진·걸음 기록을 다른 회사에 팔거나 넘기지 않습니다. Android QR 기능의 진단·사용 통계는 위 설명처럼 Google(ML Kit)이 처리할 수 있습니다. iOS 배포본에는 광고·분석 SDK가 없고, 포함된 제3자 라이브러리의 개인정보 매니페스트에는 추적이나 수집 데이터 유형이 선언되어 있지 않습니다.</p>
 
     <h2>보관과 삭제</h2>
     <p>운영자 서버 계정이 없으므로 별도 회원 탈퇴 절차는 없습니다. 앱을 지우면 이 기기의 앱 저장 공간(알람 설정, 앱이 복사해 둔 사진)은 함께 지워집니다. 사진 앱이나 갤러리에 있는 원본은 이 앱이 지우지 않습니다.</p>
-    <p>운영자가 서버에 복사본을 두지는 않습니다. 기기에서 Google 백업이나 다른 기기로 옮기기를 켜 두었다면, 알람 설정과 앱이 복사한 사진이 그 백업에 들어갈 수 있습니다. 백업을 끄거나 지우는 방법은 기기 설정과 Google 계정에서 합니다. 앱을 지워도 그 백업이 바로 사라지지는 않을 수 있습니다.</p>
+    <p>운영자가 서버에 복사본을 두지는 않습니다. 기기에서 운영체제 백업이나 다른 기기로 옮기기를 켜 두었다면 알람 설정과 앱이 복사한 사진이 Apple iCloud 또는 Google 백업에 포함될 수 있습니다. 백업을 끄거나 지우는 방법은 기기 설정과 해당 Apple·Google 계정에서 확인할 수 있습니다. 앱을 지워도 운영체제 백업이 바로 사라지지는 않을 수 있습니다.</p>
 
     <h2>어린이</h2>
     <p>계산기알람은 만 13세 미만 어린이를 대상으로 하지 않습니다.</p>
