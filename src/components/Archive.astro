@@ -1,0 +1,439 @@
+---
+interface Post {
+  id: string;
+  data: { title: string; date: string; summary?: string; version?: string };
+}
+const {
+  posts,
+  base,
+  title,
+  eyebrow,
+  description,
+  unit = "편",
+} = Astro.props as {
+  posts: Post[];
+  base: string;
+  title: string;
+  eyebrow: string;
+  description: string;
+  unit?: string;
+};
+const months = new Map<string, Post[]>();
+posts.forEach((post) => {
+  const month = post.data.date.slice(0, 7);
+  months.set(month, [...(months.get(month) ?? []), post]);
+});
+const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
+---
+
+<section class="archive-intro" aria-labelledby="page-title">
+  <div>
+    <p class="eyebrow">{eyebrow}</p><h1 id="page-title">
+      {title}<span>.</span>
+    </h1><p class="lead">{description}</p>
+  </div><div class="archive-total">
+    <strong>{posts.length}</strong><span
+      >{unit}의 기록,<br />그리고 다음 이야기.</span>
+  </div>
+</section>
+<section class="latest-stories" aria-labelledby="latest-title">
+  <div class="section-head">
+    <h2 id="latest-title">가장 최근의 이야기</h2><p>
+      오늘의 작업은 어제의 기록에서 시작됩니다.
+    </p>
+  </div><div class="story-grid">
+    {
+      posts.slice(0, 3).map((post, index) => (
+        <a class={`story-card story-${index}`} href={`${base}/${post.id}/`}>
+          <span class="story-top" data-story-meta>
+            <time datetime={post.data.date}>{post.data.date.replaceAll('-', '.')}</time>
+            <span>{ep(post) ? `EP.${ep(post)}` : `0${index + 1}`}</span>
+          </span>
+          <h3>{post.data.title}</h3>
+          {post.data.summary && <p>{post.data.summary}</p>}
+          <span class="story-read">
+            이야기 읽기 <b aria-hidden="true">↗</b>
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</section>
+<section class="archive-browse" data-archive aria-labelledby="archive-title">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">THE COMPLETE ARCHIVE</p><h2 id="archive-title">
+        차곡차곡 쌓인 기록
+      </h2>
+    </div><label class="archive-search" data-archive-controls hidden
+      ><span class="sr-only">{title} 검색</span><input
+        type="search"
+        placeholder="제목으로 기록 찾기"
+        data-archive-search
+      /><span aria-hidden="true">⌕</span></label>
+  </div><p
+    class="search-count"
+    data-archive-count
+    role="status"
+    aria-live="polite"
+  >
+    전체 {posts.length}{unit}
+  </p>
+  {
+    Array.from(months.entries()).map(([month, entries]) => (
+      <section class="archive-month" data-archive-month aria-label={month}>
+        <>
+          <header>
+            <h3>
+              {month.replace("-", ".")}
+              <span>
+                {entries.length}
+                {unit}
+              </span>
+            </h3>
+          </header>
+          <ol>
+            {entries.map((post) => (
+              <li data-archive-item data-search={post.data.title}>
+                <a href={`${base}/${post.id}/`}>
+                  <time datetime={post.data.date}>
+                    {post.data.date.slice(5).replace("-", ".")}
+                  </time>
+                  <span>{post.data.title}</span>
+                  {ep(post) && <small>EP.{ep(post)}</small>}
+                  <b aria-hidden="true">↗</b>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </>
+      </section>
+    ))
+  }
+  <div class="archive-empty" data-archive-empty hidden>
+    <h3>일치하는 기록이 없어요.</h3><p>
+      짧은 검색어나 다른 제목으로 다시 찾아보세요.
+    </p><button class="button" type="button" data-archive-reset
+      >전체 기록 보기</button>
+  </div>
+</section>
+<script>
+  import { matchesSearch } from "../lib/workshop-search.mjs";
+  document.querySelectorAll<HTMLElement>("[data-archive]").forEach((root) => {
+    const controls = root.querySelector<HTMLElement>("[data-archive-controls]");
+    if (controls) controls.hidden = false;
+    const input = root.querySelector<HTMLInputElement>("[data-archive-search]");
+    const rows = [...root.querySelectorAll<HTMLElement>("[data-archive-item]")];
+    const groups = [
+      ...root.querySelectorAll<HTMLElement>("[data-archive-month]"),
+    ];
+    const count = root.querySelector("[data-archive-count]");
+    const empty = root.querySelector<HTMLElement>("[data-archive-empty]");
+    const update = () => {
+      const query = input?.value ?? "";
+      let visible = 0;
+      rows.forEach((row) => {
+        row.hidden = !matchesSearch(row.dataset.search ?? "", query);
+        if (!row.hidden) visible++;
+      });
+      groups.forEach((group) => {
+        group.hidden = ![
+          ...group.querySelectorAll<HTMLElement>("[data-archive-item]"),
+        ].some((row) => !row.hidden);
+      });
+      if (count) count.textContent = `${visible}개의 기록`;
+      if (empty) empty.hidden = visible !== 0;
+    };
+    input?.addEventListener("input", update);
+    root
+      .querySelector("[data-archive-reset]")
+      ?.addEventListener("click", () => {
+        if (input) input.value = "";
+        update();
+        input?.focus();
+      });
+  });
+</script>
+<style>
+  .archive-intro {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: end;
+    padding: 20px 0 54px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .archive-intro h1 {
+    font-size: clamp(44px, 6vw, 78px);
+    letter-spacing: -0.055em;
+  }
+  .archive-intro h1 span {
+    color: var(--accent);
+  }
+  .archive-intro .lead {
+    font-size: 16px;
+    max-width: 56ch;
+    margin-top: 24px;
+  }
+  .archive-total {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--bg-elev);
+    padding: 24px 28px;
+    border-radius: 12px;
+  }
+  .archive-total strong {
+    font:
+      54px/1 Georgia,
+      serif;
+    color: var(--accent);
+  }
+  .archive-total span {
+    font-size: 11px;
+    color: var(--fg-mute);
+    line-height: 1.8;
+  }
+  .latest-stories {
+    margin-bottom: 70px;
+  }
+  .latest-stories h2 {
+    font-size: 25px;
+  }
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .story-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 275px;
+    padding: 26px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #ece7db;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  .story-card:hover {
+    transform: translateY(-4px);
+  }
+  .story-1 {
+    background: #e6ebdf;
+  }
+  .story-2 {
+    background: #e6e9e9;
+  }
+  .story-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font: 10px var(--mono);
+    color: var(--fg-dim);
+    margin-bottom: 34px;
+  }
+  .story-card h3 {
+    font-size: 22px;
+    line-height: 1.5;
+    letter-spacing: -0.035em;
+  }
+  .story-card p {
+    font-size: 13px;
+    margin-top: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .story-read {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 27px;
+    font-size: 11px;
+    color: var(--fg-dim);
+  }
+  .story-read b {
+    font-size: 22px;
+    font-weight: 400;
+  }
+  .archive-browse > .section-head {
+    align-items: center;
+  }
+  .archive-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: #fdfcf8;
+    padding: 10px 14px;
+    gap: 14px;
+  }
+  .archive-search input {
+    width: 225px;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    font-size: 13px;
+    outline: none;
+    color: var(--fg);
+  }
+  .archive-search:focus-within {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .search-count {
+    font: 11px var(--mono);
+    margin: 0 0 18px;
+    color: var(--fg-mute);
+  }
+  .archive-month {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 35px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: 24px;
+  }
+  .archive-month h3 {
+    font:
+      23px/1.5 Georgia,
+      serif;
+    padding: 14px 0;
+  }
+  .archive-month h3 span {
+    display: block;
+    font: 10px var(--mono);
+    color: var(--fg-mute);
+    margin-top: 10px;
+  }
+  .archive-month ol {
+    list-style: none;
+  }
+  .archive-month li {
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .archive-month a {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+    padding: 20px 0;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .archive-month time {
+    font: 11px var(--mono);
+    color: var(--fg-mute);
+    flex: 0 0 42px;
+  }
+  .archive-month a > span {
+    flex: 1;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .archive-month small {
+    font: 10px var(--mono);
+    color: var(--fg-mute);
+  }
+  .archive-month b {
+    font-weight: 400;
+  }
+  .archive-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--bg-elev);
+    border-radius: 12px;
+  }
+  .archive-empty p {
+    margin: 14px 0 24px;
+    font-size: 14px;
+  }
+  @media (max-width: 1000px) {
+    .archive-intro {
+      grid-template-columns: 1fr;
+    }
+    .archive-total {
+      justify-self: start;
+      padding: 18px 25px;
+    }
+    .archive-total strong {
+      font-size: 40px;
+    }
+    .story-grid {
+      gap: 14px;
+    }
+    .story-card {
+      padding: 22px;
+    }
+    .story-card h3 {
+      font-size: 19px;
+    }
+    .archive-month {
+      grid-template-columns: 110px 1fr;
+      gap: 24px;
+    }
+  }
+  @media (max-width: 600px) {
+    .archive-intro {
+      padding-top: 8px;
+      gap: 24px;
+      margin-bottom: 32px;
+      padding-bottom: 30px;
+    }
+    .archive-intro .lead {
+      font-size: 14px;
+    }
+    .archive-total {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .archive-total span {
+      font-size: 11px;
+    }
+    .story-grid {
+      grid-template-columns: 1fr;
+    }
+    .story-card {
+      min-height: 220px;
+    }
+    .story-card h3 {
+      font-size: 22px;
+    }
+    .latest-stories {
+      margin-bottom: 48px;
+    }
+    .archive-search {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .archive-search input {
+      width: 100%;
+    }
+    .archive-browse > .section-head {
+      align-items: start;
+    }
+    .archive-month {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 20px;
+    }
+    .archive-month h3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .archive-month h3 span {
+      margin: 0;
+    }
+    .archive-month a {
+      gap: 12px;
+      font-size: 14px;
+    }
+    .archive-month small {
+      display: none;
+    }
+  }
+</style>

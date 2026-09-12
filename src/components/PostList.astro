@@ -6,44 +6,57 @@ interface Post {
 }
 const { posts, base } = Astro.props as { posts: Post[]; base: string };
 ---
+
 <ul class="post-list">
-  {posts.map((p) => {
-    // 뉴스레터는 version 이 "ep6" 형태 — "Ep.6" 배지로 노출. worklog(v1.0.1)·insights(없음)는 미표시.
-    const epMatch = p.data.version?.match(/^ep(\d+)$/i);
-    return (
-      <li>
-        <a href={`${base}/${p.id}/`}>
-          <span class="date">{p.data.date}</span>
-          <span class="ep" aria-hidden={epMatch ? undefined : 'true'}>{epMatch ? `Ep.${epMatch[1]}` : ''}</span>
-          <span class="title">{p.data.title}</span>
-        </a>
-      </li>
-    );
-  })}
+  {
+    posts.map((p) => {
+      // 뉴스레터는 version 이 "ep6" 형태 — "Ep.6" 배지로 노출. worklog(v1.0.1)·insights(없음)는 미표시.
+      const epMatch = p.data.version?.match(/^ep(\d+)$/i);
+      return (
+        <li>
+          <a href={`${base}/${p.id}/`}>
+            <span class="date">{p.data.date}</span>
+            <span class="ep" aria-hidden={epMatch ? undefined : "true"}>
+              {epMatch ? `Ep.${epMatch[1]}` : ""}
+            </span>
+            <span class="title">{p.data.title}</span>
+          </a>
+        </li>
+      );
+    })
+  }
 </ul>
 <style>
-  .post-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
-  .post-list li { border-bottom: 1px solid var(--border); }
+  .post-list {
+    list-style: none;
+  }
+  .post-list li {
+    border-bottom: 1px solid var(--border-soft);
+  }
   .post-list a {
     display: grid;
-    grid-template-columns: 96px 56px minmax(0, 1fr);
-    gap: 12px;
-    align-items: baseline;
-    min-height: 58px;
-    padding: 16px 0;
-    color: var(--fg);
+    grid-template-columns: 1fr auto;
+    gap: 7px 14px;
+    padding: 20px 0;
     text-decoration: none;
   }
-  .post-list a:hover { color: var(--fg); background: var(--bg-elev); }
-  .date { font-size: var(--text-meta); color: var(--fg-mute); }
-  .ep { font-size: var(--text-meta); color: var(--fg-mute); }
-  .title { min-width: 0; font-size: var(--text-body); font-weight: 600; }
-  @media (max-width: 520px) {
-    .post-list a {
-      grid-template-columns: 1fr;
-      gap: 4px;
-      min-height: auto;
-      padding: 14px 0;
-    }
+  .post-list a:hover .title {
+    color: var(--accent);
+  }
+  .date,
+  .ep {
+    font: 10px var(--mono);
+    color: var(--fg-mute);
+  }
+  .title {
+    grid-column: 1/-1;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 550;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .ep[aria-hidden="true"] {
+    display: none;
   }
 </style>

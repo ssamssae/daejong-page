@@ -1,0 +1,310 @@
+---
+const { kind = "name" } = Astro.props;
+---
+
+<div class={`product-art art-${kind}`} aria-hidden="true">
+  {
+    kind === "name" && (
+      <>
+        <span class="art-caption">A NAME. A NEW BEGINNING.</span>
+        <div class="name-paper">
+          <>
+            <span class="paper-caption">당신의 첫 번째 선물</span>
+            <strong>
+              첫<span>이름</span>
+            </strong>
+            <span class="name-seal">
+              처음
+              <br />
+              마음
+            </span>
+            <div class="elements">
+              <>
+                <i />
+                <i />
+                <i />
+                <i />
+                <i />
+              </>
+            </div>
+          </>
+        </div>
+        <span class="art-foot">첫이름 · 의미를 담은 이름</span>
+      </>
+    )
+  }
+  {
+    kind === "diary" && (
+      <>
+        <span class="art-caption">ONE LINE IS ENOUGH.</span>
+        <div class="diary-paper">
+          <>
+            <span class="diary-date">나의 작은 하루</span>
+            <strong>오늘도, 잘 보냈다.</strong>
+            <div class="ruled-lines" />
+            <div class="heatmap">
+              {Array.from({ length: 70 }, (_, i) => (
+                <i
+                  style={`--cell:${["#dce2cf", "#aebd94", "#7f986c", "#546d43", "#e5e9dc"][(i * 7 + (i % 3)) % 5]}`}
+                />
+              ))}
+            </div>
+            <span class="diary-note">한 줄씩 쌓이는 나의 날들.</span>
+          </>
+        </div>
+        <span class="art-foot">한줄일기 · 하루를 남기는 가장 작은 방법</span>
+      </>
+    )
+  }
+  {
+    kind === "memo" && (
+      <>
+        <span class="art-caption">MAKE ROOM FOR AN IDEA.</span>
+        <>
+          <div class="memo-note back-note" />
+          <div class="memo-note front-note">
+            <>
+              <span>잊기 전에, 메모요</span>
+              <strong>
+                문득 떠오른
+                <br />
+                좋은 생각 하나.
+              </strong>
+              <span class="memo-scribble">idea → something</span>
+              <i>＋</i>
+            </>
+          </div>
+        </>
+        <span class="art-foot">메모요 · 생각을 가볍게 모으다</span>
+      </>
+    )
+  }
+</div>
+<style>
+  .product-art {
+    position: relative;
+    height: 310px;
+    overflow: hidden;
+    border-radius: 12px;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .art-caption {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    z-index: 2;
+    font: 9px var(--mono);
+    letter-spacing: 0.1em;
+    color: #545647;
+  }
+  .art-foot {
+    position: absolute;
+    bottom: 18px;
+    left: 24px;
+    right: 20px;
+    color: #545647;
+    font-size: 10px;
+  }
+  .art-name {
+    background: #eadfce;
+  }
+  .art-name::before {
+    content: "";
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    right: -80px;
+    top: 30px;
+    border: 1px solid #d0c1aa;
+    border-radius: 50%;
+  }
+  .art-name::after {
+    content: "";
+    position: absolute;
+    left: -80px;
+    bottom: -140px;
+    width: 280px;
+    height: 280px;
+    border: 1px solid #d0c1aa;
+    border-radius: 50%;
+  }
+  .name-paper {
+    position: relative;
+    width: 195px;
+    height: 220px;
+    background: #faf4e8;
+    box-shadow: 6px 12px 20px #59442d14;
+    transform: rotate(-8deg);
+    padding: 20px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #d8ceba;
+  }
+  .paper-caption {
+    font-size: 9px;
+    letter-spacing: 0.07em;
+    color: #756a56;
+  }
+  .name-paper strong {
+    font: 56px/1.1 var(--serif);
+    letter-spacing: -0.1em;
+    color: #373b2e;
+  }
+  .name-paper strong span {
+    display: block;
+    margin-left: 40px;
+  }
+  .name-seal {
+    position: absolute;
+    right: 20px;
+    top: 45px;
+    writing-mode: vertical-rl;
+    font: 11px var(--serif);
+    border: 1px solid #ad482e;
+    color: #ad482e;
+    padding: 4px;
+    line-height: 1.4;
+  }
+  .elements {
+    display: flex;
+    gap: 8px;
+  }
+  .elements i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #7d8d6b;
+  }
+  .elements i:nth-child(2) {
+    background: #b8694a;
+  }
+  .elements i:nth-child(3) {
+    background: #c5a257;
+  }
+  .elements i:nth-child(4) {
+    background: #c4c2af;
+  }
+  .elements i:nth-child(5) {
+    background: #7e9193;
+  }
+  .art-diary {
+    background: #e1e8d5;
+  }
+  .diary-paper {
+    width: 236px;
+    background: #fcfdf4;
+    border: 1px solid #d0d8c1;
+    border-radius: 7px;
+    padding: 20px;
+    transform: rotate(6deg);
+    box-shadow: 8px 12px 20px #35442c12;
+  }
+  .diary-date {
+    font-size: 9px;
+    color: #737d64;
+  }
+  .diary-paper strong {
+    font-family: var(--serif);
+    font-size: 16px;
+    display: block;
+    margin: 10px 0;
+    color: #394732;
+  }
+  .ruled-lines {
+    height: 20px;
+    border-top: 1px solid #e3e6db;
+    border-bottom: 1px solid #e3e6db;
+    margin-bottom: 17px;
+  }
+  .heatmap {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 3px;
+  }
+  .heatmap i {
+    height: 10px;
+    background: var(--cell);
+    border-radius: 2px;
+  }
+  .diary-note {
+    display: block;
+    font-size: 9px;
+    color: #737d64;
+    margin-top: 14px;
+  }
+  .art-memo {
+    background: #dde4e9;
+  }
+  .memo-note {
+    position: absolute;
+    width: 214px;
+    height: 205px;
+    border-radius: 7px;
+  }
+  .back-note {
+    background: #bbc9d3;
+    transform: rotate(-10deg);
+    left: calc(50% - 96px);
+    top: 56px;
+  }
+  .front-note {
+    padding: 24px;
+    background: #f8fafb;
+    transform: rotate(5deg);
+    box-shadow: 8px 12px 20px #20374314;
+  }
+  .front-note > span:first-child {
+    font-size: 9px;
+    color: #73828e;
+  }
+  .front-note strong {
+    display: block;
+    margin: 15px 0;
+    font-size: 22px;
+    line-height: 1.4;
+    color: #354958;
+    letter-spacing: -1px;
+  }
+  .memo-scribble {
+    font:
+      italic 14px Georgia,
+      serif;
+    color: #738995;
+  }
+  .front-note i {
+    position: absolute;
+    bottom: 17px;
+    right: 20px;
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    background: #354958;
+    border-radius: 50%;
+    color: white;
+    font: 18px var(--sans);
+  }
+  @media (max-width: 1000px) {
+    .product-art {
+      height: 285px;
+    }
+    .name-paper {
+      transform: rotate(-8deg) scale(0.9);
+    }
+    .diary-paper {
+      transform: rotate(6deg) scale(0.85);
+    }
+    .memo-note {
+      scale: 0.85;
+    }
+  }
+  @media (max-width: 600px) {
+    .product-art {
+      height: 290px;
+    }
+  }
+</style>

@@ -1,440 +1,600 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import NlVisitBeacon from '../components/NlVisitBeacon.astro';
-
-import { apps, saas, tools, ebooks } from '../data/products';
-
-const sections = [
-  { label: '전자책', eyebrow: '전자책', count: ebooks.length, items: ebooks, variant: 'ebook' },
-  { label: '오픈소스 툴', eyebrow: '공개 도구', count: tools.length, items: tools, variant: 'tool' },
-  { label: '모바일 앱', eyebrow: '모바일 앱', count: apps.length, items: apps, variant: 'app' },
-  { label: '웹 SaaS', eyebrow: '웹 서비스', count: saas.length, items: saas, variant: 'saas' },
+import Layout from "../layouts/Layout.astro";
+import ProductArt from "../components/ProductArt.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { apps, saas, tools, ebooks, productCounts } from "../data/products";
+const categories = [
+  { kind: "saas", label: "웹 서비스", items: saas },
+  { kind: "app", label: "모바일 앱", items: apps },
+  { kind: "tool", label: "오픈소스", items: tools },
+  { kind: "ebook", label: "전자책", items: ebooks },
 ];
-
-// 유일한 유료 상품(첫이름 ₩19,900)을 대표 자리 맨 앞에 둔다 — T-260731-044.
-// 근거 = 2026-07-31 GSC 실측: 첫이름 28일 노출 4·클릭 0인데 평균 게재순위 2.3위.
-// 순위가 아니라 유입 경로가 없는 상태라, 이미 노출을 만드는 이 사이트에서 흘려보낸다.
-const featured = [saas[0], apps[0], apps[1]];
+const featured = [
+  {
+    item: saas[0],
+    kind: "name",
+    tag: "새로운 시작을 위해",
+    title: "첫이름",
+    desc: "처음 부를 이름에, 오래 간직할 의미를.",
+  },
+  {
+    item: apps[0],
+    kind: "diary",
+    tag: "기록하는 일상을 위해",
+    title: "한줄일기",
+    desc: "거창하지 않아도 괜찮은, 하루 한 줄.",
+  },
+  {
+    item: apps[1],
+    kind: "memo",
+    tag: "떠오르는 생각을 위해",
+    title: "메모요",
+    desc: "스치는 생각이 사라지기 전에.",
+  },
+];
 ---
-<Layout title="제품 — 마이너스베타스튜디오" description="강대종이 공개한 전자책, 모바일 앱, 웹 SaaS, 오픈소스 툴 모음.">
-  <NlVisitBeacon />
-  <section class="products-hero" aria-labelledby="page-title">
-    <div class="hero-copy">
-      <p class="eyebrow">제품</p>
-      <h1 id="page-title">제품</h1>
-      <p class="lead">
-        작게 만들고 실제로 공개한 전자책, 앱, 도구, 웹 서비스를 한 곳에 모았습니다.
-        오래 남길 수 있는 작은 제품을 기준으로 계속 다듬습니다.
+
+<Layout
+  title="제품 — 마이너스베타스튜디오"
+  description="일상의 작은 불편에서 시작한 마이너스베타스튜디오의 앱, 웹 서비스, 오픈소스 도구와 전자책을 만나보세요."
+>
+  <section class="collection-hero" aria-labelledby="page-title">
+    <div>
+      <p class="eyebrow">THE PRODUCT COLLECTION · MINUS BETA</p><h1
+        id="page-title"
+      >
+        작은 제품,<br />쓸모 있는 일상<span class="title-dot">.</span>
+      </h1><p class="hero-description">
+        일상의 작은 불편에서 시작했습니다.<br />기록하고, 연결하고, 새로운
+        시작을 돕는 것들을 만듭니다.
       </p>
     </div>
-    <dl class="hero-stats" aria-label="제품 요약">
-      <div>
-        <dt>앱</dt>
-        <dd>{apps.length}</dd>
-      </div>
-      <div>
-        <dt>도구</dt>
-        <dd>{tools.length}</dd>
-      </div>
-      <div>
-        <dt>SaaS</dt>
-        <dd>{saas.length}</dd>
-      </div>
-      <div>
-        <dt>전자책</dt>
-        <dd>{ebooks.length}</dd>
-      </div>
-    </dl>
+    <div class="hero-note">
+      <span class="edition">INDEPENDENTLY MADE / SEOUL</span><div
+        class="collection-mark"
+        aria-hidden="true"
+      >
+        <span>mβ</span><i>작지만, 쓸모 있게.</i>
+      </div><p>
+        하나의 작업장에서 시작된<br /><strong
+          >{productCounts.total}개의 작은 가능성.</strong>
+      </p><a href="#catalog" class="hero-jump"
+        >나에게 필요한 제품 찾기 <span aria-hidden="true">↓</span></a>
+    </div>
   </section>
-
-  <section class="featured-section" aria-labelledby="featured-title">
+  <section class="selected" aria-labelledby="selected-title">
     <div class="section-head">
-      <p class="eyebrow">대표</p>
-      <h2 id="featured-title">대표 제품</h2>
-    </div>
-    <div class="featured-grid">
-      {featured.map((item, index) => (
-        <article class={index === 0 ? 'product-card primary' : 'product-card'}>
-          <div class="card-topline">
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            <span>{item.status}</span>
-          </div>
-          <h3>{item.name}</h3>
-          <p>{item.desc}</p>
-          <div class="product-links">
-            {item.links.map((link) => link.disabled
-              ? <span class="disabled">{link.label}</span>
-              : <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  {/*
-    ★전자책 전용 섹션을 제거했다 — 같은 2권이 이 페이지에 두 번 나왔다 (T-260801-003).
-    여기(KMONG E-BOOKS 카드)와 아래 CATALOG「전체 제품」의 sections[0] 이 같은 `ebooks`
-    배열을 각각 렌더했다. 데이터 중복이 아니라 템플릿 이중 렌더였으므로
-    data/products.ts 의 ebooks(2권)는 건드리지 않았다.
-
-    카탈로그가 아니라 이쪽을 지운 이유 3가지:
-      1. 「전체 제품」이 이름값을 지킨다. 반대로 지우면 전체 제품이 전체가 아니게 되는데,
-         그건 공개 페이지에 사실과 다른 라벨을 남기는 것이라 시각 비중보다 무겁다.
-      2. 비대칭 해소 — 앱·SaaS·툴 어느 카테고리도 전용 섹션이 없다. 전자책만 있었다.
-      3. `featured-section` 이 「대표 제품」 하나만 가리키게 된다. 직전 T-260731-044 가
-         첫이름을 대표 자리에 올렸는데, 같은 클래스를 쓰는 블록이 둘이면 그 의미가 흐려진다.
-    전자책 2권은 카탈로그에 링크까지 그대로 남는다 — 사라지는 정보는 없다.
-  */}
-
-  <section class="catalog-section" aria-labelledby="catalog-title">
-    <div class="section-head catalog-head">
       <div>
-        <p class="eyebrow">목록</p>
-        <h2 id="catalog-title">전체 제품</h2>
-      </div>
-      <p>공개된 제품과 준비 중인 제품을 카테고리별로 정리했습니다.</p>
+        <p class="eyebrow">A FEW GOOD PLACES TO START</p><h2
+          id="selected-title"
+        >
+          이런 것들을 만들고 있어요.
+        </h2>
+      </div><span class="section-index">SELECTED 01 — 03</span>
     </div>
-
-    <div class="catalog-list">
-      {sections.map((section) => (
-        <section class="catalog-block" aria-labelledby={`section-${section.variant}`}>
-          <header>
-            <p class="eyebrow">{section.eyebrow}</p>
-            <h3 id={`section-${section.variant}`}>{section.label}</h3>
-            <span>{section.count}개</span>
-          </header>
-          <ol>
-            {section.items.map((item) => (
-              <li>
-                <div class="item-main">
-                  <strong>{item.name}</strong>
-                  <span>{item.status}</span>
-                  <p>{item.desc}</p>
-                </div>
-                <div class="item-links">
-                  {item.links.map((link) => link.disabled
-                    ? <span class="disabled">{link.label}</span>
-                    : <a href={link.url} target="_blank" rel="noopener">{link.label}</a>)}
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-      ))}
+    <div class="selected-grid">
+      {
+        featured.map((f, index) => (
+          <article class="selected-card">
+            <>
+              <a
+                class="art-link"
+                href={f.item.links[0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${f.title} 바로가기 (새 창)`}
+              >
+                <ProductArt kind={f.kind} />
+              </a>
+              <div class="selected-info">
+                <>
+                  <span class="selected-tag">{f.tag}</span>
+                  <h3>
+                    <a
+                      href={f.item.links[0].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {f.title}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </h3>
+                  <p>{f.desc}</p>
+                  <div class="selected-links">
+                    {f.item.links.map((link) => (
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${f.title} — ${link.label} (새 창)`}
+                      >
+                        {link.label} <span aria-hidden="true">↗</span>
+                      </a>
+                    ))}
+                  </div>
+                </>
+              </div>
+            </>
+          </article>
+        ))
+      }
     </div>
   </section>
-
+  <section
+    id="catalog"
+    class="catalog"
+    aria-labelledby="catalog-title"
+    data-catalog
+  >
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">FIND YOUR EVERYDAY COMPANION</p><h2
+          id="catalog-title"
+        >
+          모든 제품
+        </h2>
+      </div><p>필요한 순간에, 가볍게 꺼내 쓰세요.</p>
+    </div>
+    <div class="catalog-toolbar" data-catalog-controls hidden>
+      <div class="filters" role="group" aria-label="제품 종류">
+        <button type="button" data-filter="all" aria-pressed="true"
+          >전체 <span>{productCounts.total}</span></button
+        >{
+          categories.map((c) => (
+            <button type="button" data-filter={c.kind} aria-pressed="false">
+              {c.label} <span>{c.items.length}</span>
+            </button>
+          ))
+        }
+      </div><label class="search-box"
+        ><svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          aria-hidden="true"
+          ><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4 4"
+          ></path></svg
+        ><span class="sr-only">제품 검색</span><input
+          type="search"
+          placeholder="어떤 제품을 찾으세요?"
+          data-catalog-search
+          autocomplete="off"
+        /></label>
+    </div>
+    <div class="catalog-meta">
+      <p data-catalog-count role="status" aria-live="polite">
+        {productCounts.total}개의 제품
+      </p><span>작게 시작해, 꾸준히 다듬는 중</span>
+    </div>
+    <div class="catalog-grid">
+      {
+        categories.flatMap((category) =>
+          category.items.map((item, index) => (
+            <ProductCard
+              item={item}
+              index={index}
+              kind={category.kind}
+              label={category.label}
+            />
+          )),
+        )
+      }
+    </div>
+    <div class="empty-state" data-catalog-empty hidden>
+      <span aria-hidden="true">⌕</span><h3>아직 찾는 제품이 없네요.</h3><p>
+        다른 검색어를 입력하거나 전체 제품을 둘러보세요.
+      </p><button type="button" class="button" data-catalog-reset
+        >전체 제품 보기</button>
+    </div>
+    <noscript
+      ><p class="no-script">
+        전체 제품을 표시했습니다. 검색과 분류 기능은 JavaScript를
+        켜면 이용할 수 있습니다.
+      </p></noscript
+    >
+  </section>
+  <aside class="making-note">
+    <span class="note-star" aria-hidden="true">✳</span><div>
+      <h2>완성보다, 계속 만드는 마음.</h2><p>
+        제품이 만들어지는 과정과 시행착오도 함께 남깁니다.
+      </p>
+    </div><a href="/worklog/" class="text-link"
+      >작업 기록 읽기 <span aria-hidden="true">↗</span></a>
+  </aside>
+  <script>
+    import { initCatalog } from "../scripts/catalog";
+    document
+      .querySelectorAll<HTMLElement>("[data-catalog]")
+      .forEach(initCatalog);
+  </script>
   <style>
-    .products-hero {
+    .collection-hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-      gap: 40px;
-      align-items: end;
-      border-bottom: 1px solid var(--border);
-      padding: 18px 0 40px;
-      margin-bottom: 44px;
-    }
-
-    .eyebrow {
-      color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      font-weight: 600;
-      letter-spacing: 0;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      color: var(--fg);
-      font-size: var(--text-h1);
-      line-height: 0.95;
-      margin: 0 0 20px;
-    }
-
-    .lead {
-      max-width: 640px;
-      color: var(--fg-dim);
-      font-size: var(--text-lead);
-      line-height: 1.75;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr;
-      border-top: 1px solid var(--fg);
-    }
-
-    .hero-stats div {
-      display: grid;
-      grid-template-columns: 72px minmax(0, 1fr);
-      gap: 16px;
-      align-items: baseline;
-      border-bottom: 1px solid var(--border);
-      min-height: 58px;
-      padding: 14px 0;
-    }
-
-    .hero-stats dt {
-      color: var(--fg-mute);
-      font-size: var(--text-desc);
-      font-weight: 600;
-    }
-
-    .hero-stats dd {
-      color: var(--fg);
-      font-family: var(--mono);
-      font-size: var(--text-lead);
-      font-weight: 600;
-      line-height: 1.45;
-      min-width: 0;
-    }
-
-    .featured-section,
-    .catalog-section {
-      margin-top: 56px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 20px;
-    }
-
-    .featured-section .section-head {
-      display: block;
-    }
-
-    .section-head h2 {
-      color: var(--fg);
-      font-size: var(--text-h2);
-      line-height: var(--leading-h1);
-    }
-
-    .section-head p:last-child {
-      max-width: 360px;
-      color: var(--fg-mute);
-      font-size: var(--text-desc);
-      text-align: right;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 16px;
-    }
-
-    .ebook-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .product-card {
-      min-height: 260px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-btn);
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-card.primary {
-      background: var(--fg);
-      color: var(--bg);
-      border-color: var(--fg);
-    }
-
-    .card-topline {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      font-weight: 600;
-      min-height: 64px;
-    }
-
-    .primary .card-topline,
-    .primary .product-links a {
-      color: var(--invert-dim);
-    }
-
-    .product-card h3 {
-      color: inherit;
-      font-size: var(--text-h2);
-      line-height: 1.32;
-      margin-bottom: 12px;
-    }
-
-    .product-card p {
-      color: var(--fg-dim);
-      font-size: var(--text-desc);
-      line-height: var(--leading-body);
-    }
-
-    /* 대표 카드는 밝은 배경(--fg)이라 --fg-dim(#D0D6E0)을 쓰면 글자가 사라진다. */
-    .product-card.primary p {
-      color: var(--invert-fg);
-    }
-
-    .product-links,
-    .item-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: auto;
-      padding-top: 18px;
-    }
-
-    .product-links a,
-    .item-links a,
-    .disabled {
-      display: inline-flex;
+      grid-template-columns: 1.65fr 1fr;
+      gap: 48px;
+      padding: 15px 0 64px;
       align-items: center;
-      justify-content: center;
-      min-height: 32px;
-      padding: 0 12px;
-      border: 1px solid currentColor;
-      border-radius: 999px;
-      color: var(--fg);
-      font-size: var(--text-meta);
-      font-weight: 700;
-      text-decoration: none;
     }
-
-    .disabled {
-      color: var(--fg-mute);
+    .collection-hero h1 {
+      font-size: clamp(44px, 6.7vw, 84px);
+      line-height: 1.14;
+      letter-spacing: -0.06em;
     }
-
-    .catalog-list {
-      display: grid;
-      gap: 28px;
+    .title-dot {
+      color: var(--accent-cta);
     }
-
-    .catalog-block {
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 24px;
-      border-top: 1px solid var(--border);
-      padding-top: 24px;
-    }
-
-    .catalog-block header {
-      position: sticky;
-      top: 112px;
-      align-self: start;
-    }
-
-    .catalog-block h3 {
-      color: var(--fg);
-      font-family: var(--mono);
-      font-size: var(--text-h3);
-      line-height: var(--leading-h1);
-      margin-bottom: 6px;
+    .hero-description {
+      font-size: 16px;
+      margin-top: 28px;
+      line-height: 1.85;
       word-break: keep-all;
     }
-
-    .catalog-block header span {
+    .hero-note {
+      justify-self: end;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 285px;
+      text-align: center;
+    }
+    .edition {
+      font: 9px var(--mono);
+      letter-spacing: 0.1em;
       color: var(--fg-mute);
-      font-size: var(--text-desc);
     }
-
-    .catalog-block ol {
-      list-style: none;
+    .collection-mark {
+      position: relative;
       display: grid;
-      gap: 0;
+      place-content: center;
+      width: 170px;
+      height: 155px;
+      margin: 18px 0 15px;
+      transform: rotate(-9deg);
+      color: var(--accent-cta);
     }
-
-    .catalog-block li {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(170px, auto);
-      gap: 20px;
-      align-items: start;
-      border-bottom: 1px solid var(--border-soft);
-      padding: 16px 0;
+    .collection-mark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid #c64b2e66;
+      border-radius: 50%;
+      transform: rotate(-25deg);
     }
-
-    .item-main strong {
-      display: block;
+    .collection-mark span {
+      font:
+        78px/0.9 Georgia,
+        serif;
+      letter-spacing: -11px;
+      padding-right: 10px;
+    }
+    .collection-mark i {
+      font-size: 10px;
+      margin-top: 16px;
+      font-style: normal;
+    }
+    .hero-note p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .hero-note strong {
+      font-weight: 600;
       color: var(--fg);
-      font-size: var(--text-lead);
-      line-height: 1.45;
-      margin-bottom: 6px;
     }
-
-    .item-main span {
-      display: block;
+    .hero-jump {
+      margin-top: 18px;
+      font-size: 11px;
+      text-decoration: none;
+    }
+    .hero-jump span {
+      padding-left: 16px;
+    }
+    .selected {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      margin-bottom: 80px;
+    }
+    .selected .section-head h2 {
+      font-size: 26px;
+    }
+    .section-index {
+      font: 10px var(--mono);
       color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      margin-bottom: 10px;
     }
-
-    .item-main p {
-      color: var(--fg-dim);
-      font-size: var(--text-desc);
-      line-height: var(--leading-body);
-      max-width: 680px;
+    .selected-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 24px;
     }
-
-    .item-links {
-      justify-content: flex-end;
-      margin-top: 0;
-      padding-top: 0;
+    .selected-card {
+      min-width: 0;
     }
-
-    @media (max-width: 900px) {
-      .products-hero,
-      .catalog-block,
-      .catalog-block li {
-        grid-template-columns: 1fr;
+    .art-link {
+      display: block;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: transform 0.2s;
+    }
+    .art-link:hover {
+      transform: translateY(-4px);
+    }
+    .selected-info {
+      padding: 19px 2px 0;
+    }
+    .selected-tag {
+      font-size: 10px;
+      color: var(--fg-mute);
+    }
+    .selected-info h3 {
+      font-size: 24px;
+      margin-top: 5px;
+    }
+    .selected-info h3 a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+    }
+    .selected-info h3 span {
+      font-size: 21px;
+      font-weight: 400;
+    }
+    .selected-info p {
+      font-size: 13px;
+      margin-top: 7px;
+    }
+    .selected-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      margin-top: 13px;
+    }
+    .selected-links a {
+      font-size: 10px;
+      text-decoration: none;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .catalog {
+      scroll-margin-top: 120px;
+    }
+    .catalog-toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .filters {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filters button {
+      min-height: 42px;
+      padding: 9px 14px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: transparent;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .filters button span {
+      font: 9px var(--mono);
+      opacity: 0.7;
+      margin-left: 4px;
+    }
+    .filters button:hover {
+      background: var(--bg-elev);
+    }
+    .filters button[aria-pressed="true"] {
+      background: var(--fg);
+      color: var(--bg);
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--fg-mute);
+      padding: 0 13px;
+      min-width: 240px;
+      height: 43px;
+      background: #fdfcf8;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .search-box input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      background: transparent;
+      outline: none;
+      font-size: 12px;
+      color: var(--fg);
+    }
+    .search-box:focus-within {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .catalog-meta {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      color: var(--fg-mute);
+      font-size: 11px;
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 70px 20px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+    }
+    .empty-state > span {
+      font-size: 40px;
+      color: var(--fg-mute);
+    }
+    .empty-state h3 {
+      margin: 12px 0;
+    }
+    .empty-state p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .making-note {
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      padding: 32px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .note-star {
+      font-size: 58px;
+      line-height: 1;
+      color: var(--accent);
+    }
+    .making-note h2 {
+      font-size: 22px;
+    }
+    .making-note p {
+      font-size: 13px;
+      margin-top: 7px;
+    }
+    .making-note a {
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .no-script {
+      margin-top: 20px;
+      font-size: 13px;
+    }
+    @media (max-width: 1000px) {
+      .collection-hero {
+        gap: 24px;
       }
-
-      .hero-stats {
-        max-width: 520px;
+      .hero-note {
+        width: 240px;
       }
-
-      .featured-grid {
-        grid-template-columns: 1fr;
+      .selected-grid {
+        gap: 16px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
-
-      .product-card {
-        min-height: 220px;
+      .catalog-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
       }
-
-      .card-topline {
-        min-height: 48px;
+      .search-box {
+        width: 100%;
       }
-
-      .catalog-block header {
-        position: static;
-      }
-
-      .item-links {
-        justify-content: flex-start;
+      .catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
-
     @media (max-width: 640px) {
-      .products-hero {
-        padding-top: 8px;
-        margin-bottom: 36px;
+      .collection-hero {
+        grid-template-columns: 1fr;
+        padding: 8px 0 40px;
+        gap: 26px;
       }
-
-      .lead {
-        font-size: 16px;
+      .collection-hero h1 {
+        font-size: clamp(40px, 10.2vw, 64px);
       }
-
-      .section-head,
-      .catalog-head {
-        display: block;
+      .collection-hero .eyebrow {
+        font-size: 9px;
       }
-
-      .section-head p:last-child {
-        margin-top: 10px;
+      .hero-note {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         text-align: left;
+        border-top: 1px solid var(--border-soft);
+        padding-top: 20px;
+      }
+      .edition,
+      .collection-mark {
+        display: none;
+      }
+      .hero-note p {
+        font-size: 11px;
+      }
+      .hero-jump {
+        font-size: 10px;
+        margin-top: 0;
+      }
+      .hero-description {
+        font-size: 14px;
+        margin-top: 20px;
+      }
+      .selected .section-head h2 {
+        font-size: 22px;
+      }
+      .section-index {
+        display: none;
+      }
+      .selected-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .selected-info {
+        padding-top: 14px;
+      }
+      .selected {
+        margin-bottom: 54px;
+      }
+      .selected-info h3 {
+        font-size: 25px;
+      }
+      .selected-info p {
+        font-size: 14px;
+      }
+      .selected-links a {
+        font-size: 12px;
+      }
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .filters {
+        gap: 3px;
+      }
+      .filters button {
+        padding: 9px 10px;
+        font-size: 11px;
+      }
+      .catalog-meta > span {
+        display: none;
+      }
+      .making-note {
+        margin-top: 50px;
+        flex-wrap: wrap;
+        padding: 26px 0;
+        gap: 18px;
+      }
+      .note-star {
+        font-size: 40px;
+      }
+      .making-note h2 {
+        font-size: 18px;
+      }
+      .making-note p {
+        font-size: 12px;
+      }
+      .making-note a {
+        margin-left: 58px;
+        font-size: 12px;
       }
     }
   </style>
