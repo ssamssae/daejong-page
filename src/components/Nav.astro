@@ -9,7 +9,7 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
 <header class="site-header">
   <div class="nav-inner">
     <a class="brand" href="/" aria-label={`${company.name} 작업장 홈`}
-      ><span class="brand-symbol" aria-hidden="true">mβ</span><span
+      ><img class="brand-symbol" src="/minusbeta-badge.svg" alt="" width="43" height="43" /><span
         class="brand-word"
         >minus beta<span>독립적인 생각, 쓸모 있는 제품.</span></span
       ></a
@@ -76,19 +76,12 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
     margin-right: auto;
   }
   .brand-symbol {
-    display: grid;
-    place-items: center;
+    display: block;
     width: 43px;
     height: 43px;
-    background: var(--accent-cta);
-    color: #fffaf3;
-    font:
-      27px Georgia,
-      serif;
-    border-radius: 12px 12px 12px 3px;
-    letter-spacing: -3px;
-    padding-right: 3px;
+    flex-shrink: 0;
   }
+
   .brand-word {
     font-size: 21px;
     line-height: 1.2;

@@ -17,7 +17,7 @@ import { company } from "../data/site";
     </div>
     <div class="footer-bottom">
       <div class="footer-brand">
-        <span aria-hidden="true">mβ</span><strong>{company.name}</strong><a
+        <img src="/minusbeta-badge.svg" alt="" width="42" height="42" /><strong>{company.name}</strong><a
           href={`mailto:${company.email}`}>{company.email}</a>
       </div><div class="biz">
         <span>{company.name} · 대표 {company.representative}</span><span
@@ -90,13 +90,12 @@ import { company } from "../data/site";
     align-content: start;
     font-size: 14px;
   }
-  .footer-brand > span {
+  .footer-brand > img {
     grid-row: span 2;
-    font:
-      36px Georgia,
-      serif;
-    letter-spacing: -4px;
+    width: 42px;
+    height: 42px;
   }
+
   .footer-brand a {
     color: var(--invert-dim);
     font-size: 12px;
