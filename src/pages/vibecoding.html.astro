@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// '활성 스킬' 기준 = 사이트 skills 카탈로그(src/pages/skills.html.astro)의 등재 수.
+// 스킬 수는 과거 공개 카탈로그의 기록이며 현재 활성 개수가 아니다.
 // 공개 현재 로스터 = 아테나·헤르메스·볼칸 3. 라이덴·테미스는 퇴사(복직 아님).
 // '제작 기간' 기준 = claude-automations 최초 커밋일(2026-04-20) ~ 이 페이지 갱신일.
 const stats = [
-  { label: '활성 스킬', value: '52' },
+  { label: '과거 스킬 목록', value: '52' },
   { label: '물리 기기', value: '3' },
-  { label: '워커', value: '2' },
+  { label: 'Cursor 워커', value: '3' },
   { label: '제작 기간', value: '약 21주' },
 ];
 
@@ -111,15 +111,15 @@ const timeline = [
 ];
 
 const nodes = [
-  { name: 'Mac 본진 (아테나)', role: '정책, 배차, 머지 게이트, 최종 승인', lane: 'governance' },
-  { name: '맥북프로14 (헤르메스)', role: '코드 작업, 브랜치·PR, 반영 자격', lane: 'execution' },
-  { name: 'Mac mini (볼칸)', role: '빌드, 배포, 스토어 제출 전담 손', lane: 'orchestration' },
+  { name: '헤르메스', role: 'Codex 총괄·직접 작업·최종 검토, Cursor 승인 작업', lane: 'governance' },
+  { name: '아테나', role: 'Cursor 승인 작업, Codex 신규 배차 중지', lane: 'execution' },
+  { name: '볼칸', role: 'Cursor 승인 작업, Codex 신규 배차 중지', lane: 'execution' },
 ];
 
 const flow = [
   { label: '입력', text: '텔레그램 한 줄 또는 tasks.md 디렉티브' },
-  { label: '판단', text: '본진이 범위, 위험도, 라우팅을 확정' },
-  { label: '실행', text: '워커가 worktree, branch, test, PR까지 수행' },
+  { label: '판단', text: '헤르메스 Codex가 사용자 승인 범위와 배정을 확인' },
+  { label: '실행', text: '헤르메스 직접 작업 또는 승인된 Cursor 배정' },
   { label: '검증', text: 'build, test, diff-check, evidence contract' },
   { label: '회수', text: 'mac-report, sot-mark, 수동 머지 게이트' },
 ];
@@ -140,14 +140,14 @@ const safeguards = [
 >
   <Fragment slot="head">
     <meta property="og:title" content="에이전트 바이브코딩 변천사 - 강대종" />
-    <meta property="og:description" content="물리 3대, 워커 2, 스킬 52개. Grok·Cursor·Codex·Local 브릿지가 같이 쓰이는 바이브코딩 기록." />
+    <meta property="og:description" content="물리 3대, Cursor 워커 3개, 과거 스킬 목록 52개. Grok·Cursor·Codex·Local 브릿지가 같이 쓰이는 바이브코딩 기록." />
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://work.kangdaejong.com/vibecoding.html" />
     <meta property="og:site_name" content="강대종 작업장" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="에이전트 바이브코딩 변천사 - 강대종" />
-    <meta name="twitter:description" content="물리 3대, 워커 2, 스킬 52개. Grok·Cursor·Codex·Local 브릿지가 같이 쓰이는 바이브코딩 기록." />
+    <meta name="twitter:description" content="물리 3대, Cursor 워커 3개, 과거 스킬 목록 52개. Grok·Cursor·Codex·Local 브릿지가 같이 쓰이는 바이브코딩 기록." />
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
     <link rel="canonical" href="https://work.kangdaejong.com/vibecoding.html" />
   </Fragment>

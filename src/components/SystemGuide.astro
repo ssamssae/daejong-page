@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import guide from '../data/system-guide.json';
+import '../styles/system-guide.css';
+const { pageKey, label, eyebrow, title, lead, motif, steps = [], date = guide.reviewed, collectionCount } = Astro.props;
+const canonical = 'https://work.kangdaejong.com' + (pageKey === 'system' ? '/system/' : guide.modules.find(x => x.key === pageKey)?.href);
+---
+<Layout title={`${label} — 마이너스베타스튜디오`} description={lead}>
+  <Fragment slot="head"><link rel="canonical" href={canonical}/><meta property="og:title" content={`${label} — 마이너스베타스튜디오`}/><meta property="og:description" content={lead}/><meta property="og:url" content={canonical}/><meta property="og:type" content="website"/>{collectionCount !== undefined && <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"CollectionPage",name:label,url:canonical,mainEntity:{"@type":"ItemList",numberOfItems:collectionCount}})}/>}</Fragment>
+  <article class="guide-page">
+    <nav class="guide-crumb" aria-label="현재 위치"><a href="/">작업장</a><span>/</span><a href="/system/">시스템</a>{pageKey !== 'system' && <><span>/</span><span aria-current="page">{label}</span></>}</nav>
+    <header class="guide-hero">
+      <div><p class="guide-kicker">{eyebrow}</p><h1>{title}</h1><p class="guide-lead">{lead}</p><p class="guide-date">내용 확인 <time datetime={date}>{date}</time> · 운영 문서 기준</p></div>
+      <div class="guide-poster"><span class="guide-kicker">MINUS BETA / WORKING SYSTEM</span><strong>{motif}</strong><ol>{steps.map((step,i) => <li><span>0{i+1}</span>{step}</li>)}</ol></div>
+    </header>
+    <nav class="guide-tabs" aria-label="시스템 문서">{guide.modules.map(item => <a href={item.href} aria-current={item.key === pageKey ? 'page' : undefined}>{item.label}</a>)}</nav>
+    <slot />
+    <aside class="guide-end"><p class="guide-kicker">BUILT IN THE OPEN</p><h2>만드는 과정도,<br/>함께 남깁니다.</h2><p>시스템 설명은 확인한 시점의 기록입니다. 이후의 변경과 작업은 작업일지에서 이어집니다.</p><a href="/worklog/">최근 작업일지 ↗</a><a href="/system/">시스템 전체 보기 ↗</a></aside>
+  </article>
+</Layout>
