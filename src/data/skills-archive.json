@@ -1,0 +1,508 @@
+{
+  "recorded": "2026-08-31",
+  "skills": [
+    {
+      "name": "araseo",
+      "tag": "자동화",
+      "lane": "orchestrate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "컨셉과 핵심 룰만 주면 앱 제작·개선·운영을 제출 직전까지 굴리는 umbrella orchestrator."
+    },
+    {
+      "name": "app-icon",
+      "tag": "앱 아이콘",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "앱 아이콘 후보 생성부터 텔레그램 선택, 확정본 적용까지 이어지는 아이콘 제작 루틴."
+    },
+    {
+      "name": "app-revenue",
+      "tag": "매출 조회",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "Play Console 설치수·매출과 AdMob 광고수익을 사용자 2FA 확인 뒤 요약합니다."
+    },
+    {
+      "name": "brainstorm",
+      "tag": "아이디어",
+      "lane": "think",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "새 기능과 앱 아이디어를 소크라테스식 문답으로 좁혀 실행 가능한 스펙으로 만듭니다."
+    },
+    {
+      "name": "create-play-app",
+      "tag": "Play Console",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "Google Play Console의 앱 만들기 폼을 Playwright 자동 클릭과 API probe로 등록합니다."
+    },
+    {
+      "name": "ctx",
+      "tag": "세션 요약",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "지금까지 한 작업, 현재 상태, 블로커와 다음 액션을 한 화면으로 요약합니다."
+    },
+    {
+      "name": "device-run",
+      "tag": "Flutter",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "mac mini USB 실기기에 iOS·Android 앱을 clean 빌드하고 실행하는 통합 루틴입니다."
+    },
+    {
+      "name": "design-skill",
+      "tag": "디자인",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "공개 웹 페이지를 바꾸기 전 기존 디자인 톤, 카피, 시각 검증 게이트를 맞춥니다."
+    },
+    {
+      "name": "goodnight",
+      "tag": "하루 마무리",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "작업일지, 미기록 이슈, 주요 저장소 상태를 함께 점검하며 하루를 닫습니다."
+    },
+    {
+      "name": "insta-post",
+      "tag": "SNS",
+      "lane": "publish",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "오늘 작업일지를 1080×1350 텍스트 카드로 렌더해 Instagram에 발행합니다."
+    },
+    {
+      "name": "insta-post-general",
+      "tag": "SNS",
+      "lane": "publish",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "작업일지를 일반 독자용 3~5장 캐러셀로 바꾸고 Instagram에 발행합니다."
+    },
+    {
+      "name": "issue",
+      "tag": "포스트모템",
+      "lane": "publish",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "이슈를 증상·원인·조치·예방 네 칸으로 기록하고 공개 이슈 페이지와 동기화합니다."
+    },
+    {
+      "name": "merge-janitor",
+      "tag": "PR 관리",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "janitor PR을 머지하거나 닫기 전에 대형 변경, 민감 파일, 충돌 신호를 점검합니다."
+    },
+    {
+      "name": "naver-blog-publish",
+      "tag": "블로그",
+      "lane": "publish",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "마크다운을 네이버 SmartEditor ONE에 옮기고 발행 전 안전 가드를 적용합니다."
+    },
+    {
+      "name": "newsletter-publish",
+      "tag": "발행",
+      "lane": "publish",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "뉴스레터 한 편을 Substack, 홈페이지, 네이버 블로그 세 채널에 중복 없이 발행합니다."
+    },
+    {
+      "name": "tuya",
+      "tag": "가전 제어",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "선풍기·에어컨·조명·정수기를 로컬 우선 경로와 안전 확인 규칙으로 제어합니다."
+    },
+    {
+      "name": "parallel-cycle",
+      "tag": "병렬 작업",
+      "lane": "orchestrate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "Mac, WSL, mac mini 작업을 병렬로 나누고 모두 끝나면 결과를 한곳에 모읍니다."
+    },
+    {
+      "name": "pull-apps",
+      "tag": "Git 동기화",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "여러 Flutter 앱 저장소를 rebase와 autostash로 안전하게 한 번에 최신화합니다."
+    },
+    {
+      "name": "session-clear",
+      "tag": "세션 관리",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "이어갈 작업 포인터를 남긴 뒤 현재 세션을 정리하고 오래된 맥락의 재사용을 막습니다."
+    },
+    {
+      "name": "submit-app",
+      "tag": "스토어 제출",
+      "lane": "build",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "과거 리젝 사례를 체크리스트로 만들고, 명시 확인이 있을 때만 실제 제출을 진행합니다."
+    },
+    {
+      "name": "todo",
+      "tag": "할일 관리",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "할일과 실행 작업을 단일 기준에서 조회·추가·완료·수정하는 자연어 인터페이스입니다."
+    },
+    {
+      "name": "todo-reminder",
+      "tag": "밤 알림",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "오늘 한 일과 못한 일을 정리하고 내일 우선순위 세 가지를 텔레그램으로 제안합니다."
+    },
+    {
+      "name": "trio-vote",
+      "tag": "브레인스토밍",
+      "lane": "think",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "PM·엔지니어·비판론자 세 역할이 토론하고 투표해 하나의 결론을 만듭니다."
+    },
+    {
+      "name": "mesh-vote",
+      "tag": "브레인스토밍",
+      "lane": "orchestrate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "여러 물리 기기의 AI 레인이 병렬로 검토하고 상호 투표해 결론을 수렴합니다."
+    },
+    {
+      "name": "daejong-page-sync",
+      "tag": "홈페이지",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "공개 페이지 freshness와 버전 박제 후보를 검사하고 정기적으로 알려줍니다."
+    },
+    {
+      "name": "usage",
+      "tag": "토큰",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "현재 5시간 블록, 히스토리, 모델별 분포와 주·일별 토큰 사용량을 보여줍니다."
+    },
+    {
+      "name": "worklog",
+      "tag": "작업일지",
+      "lane": "publish",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "세션 로그와 git 커밋을 모아 하루 작업일지 원본과 공개본을 만들고 반영합니다."
+    },
+    {
+      "name": "wsl-flutter-test",
+      "tag": "Flutter",
+      "lane": "build",
+      "surfaces": [
+        "wsl"
+      ],
+      "description": "WSL에서 Windows Flutter analyze와 test를 실행할 때 생기는 UNC 경로 함정을 우회합니다."
+    },
+    {
+      "name": "autopilot",
+      "tag": "장시간 자동",
+      "lane": "orchestrate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "한 번의 트리거로 워커 2(헤르메스·볼칸)를 길게 굴리고 본진 아테나가 관리감독·검증·통합합니다."
+    },
+    {
+      "name": "codex-mesh-vote",
+      "tag": "브레인스토밍",
+      "lane": "orchestrate",
+      "surfaces": [
+        "codex"
+      ],
+      "description": "Codex 세션들이 병렬로 제안하고 서로 투표합니다. Codex 휴면 후에도 의견 채널로만 남긴 스킬입니다."
+    },
+    {
+      "name": "context-show",
+      "tag": "토큰",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "텔레그램에서 별도 추론 턴 없이 현재 Claude Code 컨텍스트 사용량을 확인합니다."
+    },
+    {
+      "name": "grill-me",
+      "tag": "브레인스토밍",
+      "lane": "think",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "계획과 설계를 압박 질문으로 검증하고 의사결정의 약한 가지부터 털어냅니다."
+    },
+    {
+      "name": "insight",
+      "tag": "홈페이지",
+      "lane": "publish",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "유튜브 자막과 발화자 인사이트를 압축해 Astro 콘텐츠 컬렉션에 발행합니다."
+    },
+    {
+      "name": "insta-photos",
+      "tag": "SNS",
+      "lane": "publish",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "텔레그램으로 보낸 사진을 단일 이미지나 캐러셀로 Instagram 개인 피드에 올립니다."
+    },
+    {
+      "name": "loop-fleet",
+      "tag": "병렬 작업",
+      "lane": "orchestrate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "워커 노드의 tmux 세션에 동적 루프를 보내 자동 배정된 작업을 각자 실행시킵니다. 현재 워커는 헤르메스·볼칸입니다."
+    },
+    {
+      "name": "secret-set",
+      "tag": "보안",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "API 키와 토큰을 셸 히스토리에 남기지 않는 숨김 프롬프트로 입력·저장합니다."
+    },
+    {
+      "name": "send-message",
+      "tag": "메시지",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "macOS Messages.app과 iPhone 문자 포워딩을 이용해 iMessage와 SMS를 보냅니다."
+    },
+    {
+      "name": "workflow-audit",
+      "tag": "세션 분석",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "최근 Claude Code 사용 패턴을 분석해 반복 작업, 토큰 낭비, 비효율을 찾습니다."
+    },
+    {
+      "name": "claude-fleet-update",
+      "tag": "버전 통일",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "fleet 전체 노드의 Claude Code 버전을 지정 버전이나 최신으로 맞추는 수동 정렬 루틴."
+    },
+    {
+      "name": "flutter-ad-stack",
+      "tag": "Flutter",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "AdMob 배너·전면, 광고제거 IAP, 구매 복원, 버전 표시를 한 묶음으로 이식하고 스토어 신고 내용과의 모순까지 점검합니다."
+    },
+    {
+      "name": "flutter-add-widget-preview",
+      "tag": "Flutter",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "previews.dart 로 위젯을 격리해 보는 미리보기를 붙이고, 네이티브 의존성을 미리 걸러냅니다."
+    },
+    {
+      "name": "flutter-add-widget-test",
+      "tag": "Flutter",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "WidgetTester 로 렌더 결과와 탭·스크롤·입력 같은 상호작용을 검증하는 컴포넌트 테스트를 만듭니다."
+    },
+    {
+      "name": "flutter-build-responsive-layout",
+      "tag": "Flutter",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "LayoutBuilder·MediaQuery·Expanded 로 폰과 태블릿·데스크탑에서 함께 견디는 레이아웃을 짭니다."
+    },
+    {
+      "name": "flutter-fix-layout-issues",
+      "tag": "Flutter",
+      "lane": "build",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "RenderFlex 오버플로우, 무제한 제약 같은 Flutter 레이아웃 에러를 진단하고 고칩니다."
+    },
+    {
+      "name": "playwright-login-session",
+      "tag": "로그인 세션",
+      "lane": "publish",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "발행 계정과 App Store Connect 로그인 세션을 자동화 브라우저에 재사용 가능하게 붙여둡니다."
+    },
+    {
+      "name": "verify-automations-change",
+      "tag": "검증",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "claude-automations 의 셸·브릿지·훅·워처 변경을 PR 전에 정해진 순서로 검증합니다."
+    },
+    {
+      "name": "verify-public-page",
+      "tag": "검증",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "공개 페이지 변경을 빌드·깨진 링크·디자인 게이트까지 확인한 뒤에야 완료로 인정합니다."
+    },
+    {
+      "name": "verify-skills-change",
+      "tag": "검증",
+      "lane": "operate",
+      "surfaces": [
+        "mac",
+        "wsl"
+      ],
+      "description": "claude-skills 의 SKILL.md·어댑터·스크립트 변경을 PR 전에 정해진 순서로 검증합니다."
+    },
+    {
+      "name": "bot-profile",
+      "tag": "봇 관리",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "텔레그램 봇 3기(아테나·헤르메스·볼칸)의 표시명과 프로필 사진을 신화명 체계에 맞춰 정리합니다.",
+      "isNew": true
+    },
+    {
+      "name": "failure-loop",
+      "tag": "세션 분석",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "한 주의 실패 사례를 묶어 좁은 수정을 넣고 재실행 판정까지 도는 주간 루프입니다.",
+      "isNew": true
+    },
+    {
+      "name": "kakao-note",
+      "tag": "메시지",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "나중에 폰에서 다시 볼 메모와 리마인드를 카카오톡 나와의 채팅에 남깁니다.",
+      "isNew": true
+    },
+    {
+      "name": "kakao-send",
+      "tag": "메시지",
+      "lane": "operate",
+      "surfaces": [
+        "mac"
+      ],
+      "description": "macOS 카카오톡을 직접 조작해 지정한 방으로 메시지를 보냅니다. 방이 모호하면 멈춥니다.",
+      "isNew": true
+    }
+  ]
+}
