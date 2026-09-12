@@ -8,7 +8,7 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
 
 <header class="site-header">
   <div class="nav-inner">
-    <a class="brand" href="/" aria-label={`${company.name} 작업장 홈`}
+    <a class="brand" href="https://kangdaejong.com/" aria-label={`${company.name} 홈`}
       ><img class="brand-symbol" src="/minusbeta-badge.svg?v=square" alt="" width="43" height="43" /><span
         class="brand-word"
         >minus beta<span>독립적인 생각, 쓸모 있는 제품.</span></span
@@ -27,10 +27,17 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
       }
     </nav>
     <div class="nav-actions">
-      <details class="site-menu">
-        <summary aria-label="전체 메뉴"
-          >더보기 <span aria-hidden="true">＋</span></summary
-        ><nav aria-label="더보기 메뉴">
+      <div class="more">
+        <button
+          class="more-button"
+          type="button"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="site-more-panel"
+        >
+          더보기 <span class="chevron" aria-hidden="true">▾</span>
+        </button>
+        <nav id="site-more-panel" class="more-panel" aria-label="더보기 메뉴">
           {
             menu.map((link) => (
               <a
@@ -43,7 +50,7 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
             ))
           }
         </nav>
-      </details>
+      </div>
       <a class="contact-link" href={`mailto:${company.email}`}
         >이야기 나누기 <span aria-hidden="true">↗</span></a
       >
@@ -139,32 +146,38 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
   .contact-link span {
     margin-left: 12px;
   }
-  .site-menu {
+  .more {
     position: relative;
   }
-  summary {
-    list-style: none;
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  .more-button {
     min-height: 44px;
+    padding: 0 8px;
+    border: 0;
+    background: transparent;
     color: var(--fg-dim);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
     white-space: nowrap;
   }
-  summary::-webkit-details-marker {
-    display: none;
+  .more-button:hover,
+  .more.open .more-button {
+    color: var(--accent);
   }
-  summary span {
-    font-size: 20px;
-    transition: transform 0.2s;
+  .chevron {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 9px;
+    transition: transform 0.16s ease;
   }
-  details[open] summary span {
-    transform: rotate(45deg);
+  .more.open .chevron {
+    transform: rotate(180deg);
   }
-  .site-menu nav {
+  .more-panel {
     position: absolute;
     right: 0;
-    top: calc(100% + 12px);
+    top: calc(100% + 9px);
+    display: none;
     width: 224px;
     padding: 10px;
     background: var(--bg);
@@ -172,7 +185,10 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
     border-radius: 12px;
     box-shadow: var(--shadow-pop);
   }
-  .site-menu nav a {
+  .more.open .more-panel {
+    display: grid;
+  }
+  .more-panel a {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -180,11 +196,16 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
     padding: 8px 12px;
     border-radius: 6px;
     text-decoration: none;
+    font-size: 13px;
   }
-  .site-menu nav a:hover,
-  .site-menu nav a[aria-current] {
+  .more-panel a:hover,
+  .more-panel a[aria-current] {
     background: var(--bg-elev);
     color: var(--accent);
+  }
+  :where(a, button):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
   @media (max-width: 1100px) {
     .nav-inner {
@@ -241,18 +262,28 @@ const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
   }
 </style>
 <script>
-  document
-    .querySelectorAll<HTMLDetailsElement>(".site-menu")
-    .forEach((menu) => {
-      document.addEventListener("click", (event) => {
-        if (event.target instanceof Node && !menu.contains(event.target))
-          menu.open = false;
-      });
-      menu.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          menu.open = false;
-          menu.querySelector("summary")?.focus();
-        }
-      });
+  document.querySelectorAll<HTMLElement>(".more").forEach((more) => {
+    const button = more.querySelector<HTMLButtonElement>(".more-button");
+    const panel = more.querySelector<HTMLElement>(".more-panel");
+    if (!button || !panel) return;
+
+    const closeMenu = (restoreFocus = false) => {
+      more.classList.remove("open");
+      button.setAttribute("aria-expanded", "false");
+      if (restoreFocus) button.focus();
+    };
+
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const open = more.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(open));
     });
+    panel.addEventListener("click", (event) => event.stopPropagation());
+    document.addEventListener("click", () => closeMenu(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && more.classList.contains("open")) {
+        closeMenu(true);
+      }
+    });
+  });
 </script>

@@ -21,6 +21,10 @@ const required = [
   '한장궁합 가족 리포트',
   'Local Telegram Bridge',
   'local-telegram-bridge/releases/tag/v0.2.0',
+  'grok-telegram-bridge/releases/tag/v0.5.3',
+  'codex-telegram-bridge/releases/tag/v0.9.9',
+  'claude-telegram-bridge/releases/tag/v0.14.2',
+  'cursor-telegram-bridge/releases/tag/v0.4.2',
 ];
 
 const missing = required.filter((text) => !html.includes(text));

@@ -1,6 +1,7 @@
 ---
 import '../styles/hub.css';
 import Layout from '../layouts/Layout.astro';
+import { apps, saas, tools, ebooks, bridges, productCounts } from '../data/products';
 
 const items = [
   {
@@ -21,14 +22,14 @@ const items = [
     href: '/ai-glossary.html',
     kicker: 'GLOSSARY',
     title: 'AI 용어집',
-    desc: '영상과 작업 중 나온 AI·Grok·Claude·Anthropic 용어를 1인 개발자 맥락으로 정리합니다.',
+    desc: '영상과 작업 중 나온 Grok·Claude·Codex·Cursor·로컬 LLM 용어를 1인 개발자 맥락으로 정리합니다.',
     group: '지식 노트',
   },
   {
     href: '/vibecoding.html',
     kicker: 'METHOD',
     title: '바이브코딩',
-    desc: 'Grok·Claude·Codex와 같이 코딩하면서 생긴 작업 방식, 스킬, 운영 습관의 변천사입니다.',
+    desc: '슬래시 커맨드에서 3노드 작업장까지. 지금은 Grok·Cursor·Codex·Local 브릿지가 같이 쓰이는 변천사입니다.',
     group: '지식 노트',
   },
   {
@@ -36,6 +37,13 @@ const items = [
     kicker: 'HABITS',
     title: '습관',
     desc: '세션 운영, 완료 마킹, 보고, 시간 표기처럼 반복해서 지켜야 하는 작은 습관들입니다.',
+    group: '지식 노트',
+  },
+  {
+    href: '/timeline.html',
+    kicker: 'TIMELINE',
+    title: '타임라인',
+    desc: '2026년 4월 첫 코드부터 현재 제품·브릿지·3노드 로스터까지의 공개 연대기입니다.',
     group: '지식 노트',
   },
   {
@@ -67,15 +75,36 @@ const groups = ['운영 기록', '지식 노트', '실험'].map((label) => ({
   items: items.filter((item) => item.group === label),
 }));
 
-const heroSummary = `${items.length}개 문서 · 운영 기록/지식 노트/실험 · 공개 가능한 구조만`;
+const heroSummary = `${items.length}개 문서 · 운영 기록/지식 노트/실험 · 제품 ${productCounts.total} · 공개 브릿지 ${tools.length}`;
 
 const principles = [
   ['실패도 자산으로 남깁니다.', '접은 시도는 지우지 않고, 다음 작업에서 같은 비용을 다시 내지 않게 보관합니다.'],
   ['잡학은 연결될 때까지 둡니다.', '지금은 제품이 아니어도 용어, 습관, 실험은 다음 빌드의 재료가 됩니다.'],
   ['공개 가능한 것만 씁니다.', '실제 운영 세부와 민감한 정보는 제외하고, 배울 수 있는 구조만 남깁니다.'],
 ];
+
+const nowCards = [
+  {
+    href: '/products/',
+    kicker: 'PRODUCTS',
+    title: `공개 제품 ${productCounts.total}`,
+    desc: `웹 ${saas.length} · 앱 ${apps.length} · 오픈소스 ${tools.length} · 전자책 ${ebooks.length}. 회사 홈과 같은 카탈로그를 작업장에서 검색합니다.`,
+  },
+  {
+    href: '/products/#catalog',
+    kicker: 'BRIDGES',
+    title: `텔레그램 브릿지 ${tools.length}`,
+    desc: `Grok v${bridges.grok.version} · Codex v${bridges.codex.version} · Claude v${bridges.claude.version} · Cursor v${bridges.cursor.version} · Local v${bridges.local.version}.`,
+  },
+  {
+    href: '/system/',
+    kicker: 'STUDIO',
+    title: '3노드 작업장',
+    desc: '아테나·헤르메스·볼칸. 실행면은 Grok·Cursor·Codex·Local이 같이 쓰이고, Claude는 잔여 대화로도 남습니다.',
+  },
+];
 ---
-<Layout title="lab — 마이너스베타스튜디오" description="잡학, 실험, 포스트모템, 접은 시도를 모아둔 공개 실험실.">
+<Layout title="lab — 마이너스베타스튜디오" description="잡학, 실험, 포스트모템, 접은 시도를 모아둔 공개 실험실. 현재 제품·브릿지·3노드 작업장과 맞춰 둔 기록입니다.">
   <div class="lab-index">
     <section class="lab-hero" aria-labelledby="page-title">
       <div class="hero-copy">
@@ -103,13 +132,36 @@ const principles = [
       <p class="hero-summary">{heroSummary}</p>
     </section>
 
+    <section class="now-section" aria-labelledby="now-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">NOW</p>
+          <h2 id="now-title">지금 스튜디오</h2>
+        </div>
+        <p>lab을 읽기 전에, 현재 제품·브릿지·작업장 로스터를 먼저 맞춰 둡니다. 2026-09-12 기준.</p>
+      </div>
+
+      <div class="module-grid">
+        {nowCards.map((item, index) => (
+          <a class="module-card" href={item.href}>
+            <span class="card-topline">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <span>{item.kicker}</span>
+            </span>
+            <strong>{item.title}</strong>
+            <span>{item.desc}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
     <section class="featured-section" aria-labelledby="featured-title">
       <div class="section-head">
         <div>
           <p class="eyebrow">START HERE</p>
           <h2 id="featured-title">먼저 볼 기록</h2>
         </div>
-        <p>운영 사고, 접은 길, 용어 정리를 먼저 보면 이 lab이 왜 필요한지 빠르게 보입니다.</p>
+        <p>운영 사고, 접은 길, 바이브코딩 변천사를 먼저 보면 이 lab이 왜 필요한지 빠르게 보입니다.</p>
       </div>
 
       <div class="featured-grid">
