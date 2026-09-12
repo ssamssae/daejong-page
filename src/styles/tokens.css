@@ -1,103 +1,60 @@
-/* tokens.css — daejong-page 디자인 토큰 단일 소스 (SoT)
- * T-260831-005 2단계: 채팅 기준점(Linear 라이브 크롬 + Stripe 리듬).
- * 회사홈 남색+코퍼와 근사 인디고는 폐기. */
+/* T-260912-037 · Minus Beta: warm paper, ink, vermilion. */
 :root {
-  color-scheme: dark;
-
-  --bg:         #08090A;
-  --bg-elev:    #0F1011;
-  --bg-elev2:   #1C1C1F;
-  --bg-tint:    #141516;
-
-  --border:     rgba(255, 255, 255, 0.08);
-  --border-soft: rgba(255, 255, 255, 0.05);
-
-  --fg:         #F7F8F8;
-  --fg-dim:     #D0D6E0;
-  --fg-mute:    #8A8F98;
-  --fg-faint:   #62666D;
-
-  --cyan:       #7170FF;
-  --magenta:    #828FFF;
-  --accent:     #7170FF;
-  --accent-cta: #7170FF;
-  --accent-2:   #828FFF;
-  --accent-dim: #828FFF;
-  --cta-bg:     #E5E5E6;
-  --cta-fg:     #08090A;
-
-  --danger:     #FF6B6B;
-  --success:    #828FFF;
-  --warn:       #828FFF;
-
-  --danger-bg:  #1a0a0a;
-  --accent-bg:  #141516;
-  --code-bg:    #141516;
-
-  --invert-bg:  #F7F8F8;
-  --invert-fg:  #08090A;
-  --invert-dim: #62666D;
-  --invert-border: #7170FF;
-
-  --shadow:     transparent;
-  --shadow-pop: transparent;
-
+  color-scheme: light;
+  --bg: #f7f6f2;
+  --bg-elev: #eeede7;
+  --bg-elev2: #e5e4dd;
+  --border: #d8d8ce;
+  --border-soft: #e7e7df;
+  --fg: #242720;
+  --fg-dim: #62655d;
+  --fg-mute: #707369;
+  --cyan: #a8432b;
+  --magenta: #466448;
+  --accent: #b8452b;
+  --accent-cta: #c64b2e;
+  --accent-2: #466448;
+  --accent-dim: #97341f;
+  --cta-fg: #fffaf3;
+  --danger: #b02f29;
+  --success: #3c664b;
+  --warn: #84601e;
+  --danger-bg: #faeae6;
+  --accent-bg: #f2e5db;
+  --invert-bg: #282e25;
+  --invert-fg: #f8f7ef;
+  --invert-dim: #c5cbbb;
+  --invert-border: #495041;
+  --shadow: 0 6px 24px #24272008;
+  --shadow-pop: 0 16px 40px #24272012;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
-  --serif: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
-
-  --text-h1: clamp(38px, 6vw, 64px);
-  --text-h2: clamp(28px, 4vw, 48px);
-  --text-h3: 20px;
-  --text-lead: 16px;
+  --sans:
+    "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    sans-serif;
+  --serif: "Noto Serif KR", Georgia, "Times New Roman", serif;
+  --text-h1: clamp(38px, 5.5vw, 68px);
+  --text-h2: clamp(25px, 3vw, 36px);
+  --text-h3: 21px;
+  --text-lead: 18px;
   --text-body: 16px;
   --text-desc: 14px;
-  --text-meta: 13px;
-  --text-badge: 12px;
-
-  --track-eyebrow: 0.12em;
+  --text-meta: 12px;
+  --text-badge: 11px;
+  --track-eyebrow: 0.13em;
   --track-badge: 0.08em;
-  --leading-body: 1.50;
-  --leading-h1: 1.00;
-  --leading-desc: 1.6;
-
+  --leading-body: 1.75;
+  --leading-h1: 1.15;
+  --leading-desc: 1.65;
   --measure: 62ch;
-  --radius-card: 12px;
+  --radius-card: 16px;
   --radius-btn: 8px;
-  --radius-pill: 9999px;
-  --gap-card: 16px;
-  --pad-section: 128px;
-  --pad-section-sm: 64px;
-  --pad-head-bottom: 96px;
-  --header-h: 72px;
-  --page-gutter: 46px;
-  --page-gutter-sm: 24px;
-  --page-shell: calc(100% - 2 * var(--page-gutter));
-  --page-shell-sm: calc(100% - 2 * var(--page-gutter-sm));
+  --gap-card: 24px;
+  --pad-section: 80px;
+  --pad-section-sm: 48px;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:         #08090A;
-    --bg-elev:    #0F1011;
-    --bg-elev2:   #1C1C1F;
-    --border:     rgba(255, 255, 255, 0.08);
-    --border-soft: rgba(255, 255, 255, 0.05);
-    --fg:         #F7F8F8;
-    --fg-dim:     #D0D6E0;
-    --fg-mute:    #8A8F98;
-    --cyan:       #7170FF;
-    --magenta:    #828FFF;
-    --accent:     #7170FF;
-    --accent-cta: #7170FF;
-    --accent-2:   #828FFF;
-    --accent-dim: #828FFF;
-    --cta-bg:     #E5E5E6;
-    --cta-fg:     #08090A;
-    --invert-bg:  #F7F8F8;
-    --invert-fg:  #08090A;
-    --invert-border: #7170FF;
-  }
+.accent-cyan {
+  color: var(--cyan);
 }
-.accent-cyan { color: var(--cyan); }
-.accent-magenta { color: var(--magenta); }
+.accent-magenta {
+  color: var(--magenta);
+}

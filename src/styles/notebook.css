@@ -1,0 +1,178 @@
+/* Topic pages retain their specialized controls within the new notebook frame. */
+.site-main.notebook {
+  --up: #ba3d42;
+  --down: #245eaf;
+  --page-accent: var(--accent);
+  --notebook-surface: #fdfcf8;
+}
+.site-main.notebook .eyebrow,
+.site-main.notebook .kicker,
+.site-main.notebook .lab-hero .tagline {
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.site-main.notebook h1 {
+  font-family: var(--sans);
+  font-size: var(--text-h1);
+  line-height: 1.22;
+  letter-spacing: -0.055em;
+}
+.site-main.notebook h2 {
+  font-family: var(--sans);
+  letter-spacing: -0.04em;
+  line-height: 1.35;
+}
+.site-main.notebook :is(.lead, .intro) {
+  font-size: 16px;
+  line-height: 1.9;
+}
+.site-main.notebook :is(.hero-stats, .lab-stats, .summary-grid, .signal-grid) {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-elev);
+  overflow: hidden;
+}
+.site-main.notebook dl.hero-stats > div {
+  padding: 16px 20px;
+  background: transparent;
+}
+.site-main.notebook
+  :is(
+    .issue-card,
+    .dead-card,
+    .policy-card,
+    .feature-card,
+    .stack-card,
+    .skill-card,
+    .knowhow-card,
+    .principle-card,
+    .lab-card
+  ) {
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid var(--border);
+  background: var(--notebook-surface);
+  color: var(--fg);
+  box-shadow: none;
+}
+.site-main.notebook
+  :is(.issue-card, .dead-card, .policy-card, .feature-card).primary {
+  background: #e7ebde;
+  color: var(--fg);
+  border-color: #d2d9c6;
+}
+.site-main.notebook
+  :is(.issue-card, .dead-card, .policy-card, .feature-card).primary
+  :is(strong, h3, p, span) {
+  color: inherit;
+}
+.site-main.notebook
+  :is(.issue-card, .dead-card, .policy-card, .feature-card, .lab-card):hover {
+  border-color: #9c9f90;
+  background: #eeeee5;
+}
+.site-main.notebook .card-topline {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--fg-mute);
+}
+.site-main.notebook :is(.tag, .badge, .lab-cat, .lab-tag) {
+  border-radius: 5px;
+}
+.site-main.notebook :is(.table-wrap, .table-scroll, .ops-table-wrap) {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+.site-main.notebook :is(th, td) {
+  border-color: var(--border);
+  padding: 12px 14px;
+}
+.site-main.notebook th {
+  background: var(--bg-elev);
+}
+.site-main.notebook input:not([type="checkbox"]):not([type="radio"]),
+.site-main.notebook select {
+  background: var(--notebook-surface);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  min-height: 44px;
+  padding: 10px 14px;
+}
+.site-main.notebook :is(.search-wrap, .search-box) {
+  border-radius: 8px;
+}
+.site-main.notebook button {
+  border-radius: 6px;
+  min-height: 36px;
+}
+.site-main.notebook :is(.back-link, .lab-back) {
+  font: 13px var(--sans);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.site-main.notebook :is(.month-block, .group-block) {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+.site-main.notebook :is(.month-block, .group-block) > header h3 {
+  font-size: 25px;
+}
+.site-main.notebook :is(.lab-empty, .lab-error, .lab-loading) {
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-elev);
+}
+.site-main.notebook :is(.lab-list) {
+  gap: 14px;
+  border-top: 0;
+}
+.site-main.notebook :is(.lab-card-title) {
+  font-size: 20px;
+}
+.site-main.notebook :is(.lab-summary) {
+  font-size: 14px;
+  line-height: 1.85;
+}
+.site-main.notebook .lab-page {
+  gap: 42px;
+}
+@media (max-width: 640px) {
+  .site-main.notebook h1 {
+    font-size: 38px;
+  }
+  .site-main.notebook :is(.lead, .intro) {
+    font-size: 14px;
+  }
+  .site-main.notebook :is(.hero-stats, .lab-stats) {
+    border-radius: 10px;
+  }
+  .site-main.notebook
+    :is(
+      .issue-card,
+      .dead-card,
+      .policy-card,
+      .feature-card,
+      .stack-card,
+      .skill-card,
+      .knowhow-card,
+      .principle-card,
+      .lab-card
+    ) {
+    padding: 22px;
+  }
+  .site-main.notebook dl.hero-stats > div {
+    padding: 14px;
+  }
+  .site-main.notebook .lab-card-title {
+    font-size: 18px;
+  }
+}
+
+.site-main.notebook .hero-stats .date-range {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}

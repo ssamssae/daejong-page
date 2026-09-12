@@ -1,0 +1,206 @@
+---
+import "../styles/prose.css";
+const {
+  title,
+  summary,
+  date,
+  label,
+  base,
+  version,
+  headings = [],
+} = Astro.props;
+const sections = headings.filter(
+  (heading: { depth: number }) => heading.depth === 2,
+);
+---
+
+<div class="article-frame">
+  <a class="back" href={base}>← {label} 목록</a>
+  <article>
+    <header class="reading-header">
+      <p class="eyebrow">FROM THE WORKSHOP / {label}</p><h1>{title}</h1>{
+        summary && <p class="reading-summary">{summary}</p>
+      }<div class="reading-meta">
+        <time datetime={date}>{date}</time>{
+          version && (
+            <span>
+              {/^ep/i.test(version) ? version.toUpperCase() : `v${version}`}
+            </span>
+          )
+        }<span>강대종 · 마이너스베타스튜디오</span>
+      </div>
+    </header>
+    <div class="reading-layout">
+      {
+        sections.length > 0 && (
+          <aside class="reading-toc" aria-label="목차">
+            <>
+              <p>IN THIS STORY</p>
+              <ol>
+                {sections.map(
+                  (heading: { slug: string; text: string }, index: number) => (
+                    <li>
+                      <a href={`#${heading.slug}`}>
+                        <span>{String(index + 1).padStart(2, "0")}</span>
+                        {heading.text}
+                      </a>
+                    </li>
+                  ),
+                )}
+              </ol>
+            </>
+          </aside>
+        )
+      }<div class="prose"><slot /></div>
+    </div>
+  </article>
+  <div class="reading-end">
+    <span>기록은 다음 시작이 됩니다.</span><a href={base}>{label} 더 읽기 ↗</a
+    ><a href="/products/">이 작업장의 제품 ↗</a>
+  </div>
+</div>
+<style>
+  .article-frame {
+    max-width: 1180px;
+    margin: auto;
+  }
+  .back {
+    margin-bottom: 28px;
+  }
+  .reading-header {
+    max-width: 900px;
+    margin-left: auto;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .reading-header h1 {
+    font-size: clamp(32px, 4.4vw, 54px);
+    line-height: 1.4;
+    letter-spacing: -0.045em;
+  }
+  .reading-summary {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-top: 24px;
+  }
+  .reading-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    font-size: 11px;
+    color: var(--fg-mute);
+    margin-top: 28px;
+  }
+  .reading-meta time {
+    font-family: var(--mono);
+  }
+  .reading-layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 60px;
+    align-items: start;
+  }
+  .reading-layout > .prose:only-child {
+    grid-column: 2;
+  }
+  .reading-toc {
+    position: sticky;
+    top: 125px;
+  }
+  .reading-toc > p {
+    font: 10px var(--mono);
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .reading-toc ol {
+    list-style: none;
+  }
+  .reading-toc li + li {
+    margin-top: 14px;
+  }
+  .reading-toc a {
+    display: flex;
+    gap: 12px;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--fg-dim);
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .reading-toc a:hover {
+    color: var(--accent);
+  }
+  .reading-toc span {
+    flex: 0 0 20px;
+    font: 10px/2 var(--mono);
+    color: var(--fg-mute);
+  }
+  .reading-end {
+    max-width: 900px;
+    margin: 60px 0 0 auto;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    font-size: 12px;
+  }
+  .reading-end > span {
+    margin-right: auto;
+    color: var(--fg-mute);
+  }
+  .reading-end a {
+    text-decoration: none;
+  }
+  @media (max-width: 900px) {
+    .reading-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .reading-layout > .prose:only-child {
+      grid-column: 1;
+    }
+    .reading-toc {
+      position: static;
+      background: var(--bg-elev);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .reading-toc ol {
+      columns: 2;
+      column-gap: 25px;
+    }
+    .reading-toc li {
+      break-inside: avoid;
+    }
+    .reading-header {
+      margin-bottom: 32px;
+    }
+    .reading-end {
+      margin-top: 40px;
+    }
+  }
+  @media (max-width: 600px) {
+    .reading-header h1 {
+      font-size: 30px;
+    }
+    .reading-summary {
+      font-size: 15px;
+    }
+    .reading-meta {
+      gap: 8px 16px;
+    }
+    .reading-toc {
+      padding: 20px;
+    }
+    .reading-toc ol {
+      columns: 1;
+    }
+    .reading-end > span {
+      width: 100%;
+    }
+  }
+</style>

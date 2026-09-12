@@ -1,0 +1,167 @@
+---
+interface Product {
+  name: string;
+  status: string;
+  desc: string;
+  links: { label: string; url: string; disabled?: boolean }[];
+}
+const { item, kind, label, index } = Astro.props as {
+  item: Product;
+  kind: string;
+  label: string;
+  index: number;
+};
+const icons: Record<string, string> = {
+  한줄일기: "hanjul_icon.png",
+  메모요: "memo_icon.png",
+  "더치페이 계산기": "dutchpay_icon.png",
+  약먹자: "yakmukja_icon.png",
+  한컵: "hankeup_icon.png",
+  포모도로: "pomodoro_icon.png",
+};
+const icon = icons[item.name];
+const glyph =
+  kind === "tool" ? ">_" : kind === "ebook" ? "Aa" : item.name.slice(0, 1);
+---
+
+<article
+  class={`catalog-card kind-${kind}`}
+  data-catalog-item
+  data-kind={kind}
+  data-search={`${item.name} ${item.desc} ${item.status} ${label}`}
+>
+  <div class="catalog-top">
+    <span class="product-icon" aria-hidden="true"
+      >{
+        icon ? (
+          <img src={`/${icon}`} width="48" height="48" loading="lazy" alt="" />
+        ) : (
+          glyph
+        )
+      }</span
+    ><span class="kind-label">{label}</span>
+  </div>
+  <h3>{item.name}</h3>
+  <p class="description">{item.desc}</p>
+  <div class="catalog-bottom">
+    <p class="status">{item.status}</p><div class="catalog-links">
+      {
+        item.links.map((link) =>
+          link.disabled ? (
+            <span class="disabled">{link.label}</span>
+          ) : (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${item.name} — ${link.label} (새 창)`}
+            >
+              {link.label}
+              <span aria-hidden="true">↗</span>
+            </a>
+          ),
+        )
+      }
+    </div>
+  </div>
+</article>
+<style>
+  .catalog-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 26px;
+    background: #fdfcf8;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition:
+      border-color 0.18s,
+      transform 0.18s;
+  }
+  .catalog-card:hover {
+    border-color: #9fa294;
+    transform: translateY(-3px);
+  }
+  .catalog-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 23px;
+  }
+  .product-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #e9ddcc;
+    color: #806445;
+    font: 25px var(--serif);
+    overflow: hidden;
+  }
+  .product-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .kind-tool .product-icon {
+    background: #e2e6dc;
+    color: #46563d;
+    font: 20px var(--mono);
+  }
+  .kind-ebook .product-icon {
+    background: #f0dfd8;
+    color: #a35e45;
+  }
+  .kind-label {
+    font-size: 10px;
+    color: var(--fg-mute);
+    border: 1px solid var(--border-soft);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+  h3 {
+    font-size: 20px;
+    line-height: 1.45;
+    letter-spacing: -0.035em;
+    margin-bottom: 10px;
+  }
+  .description {
+    font-size: 14px;
+    line-height: 1.75;
+    word-break: keep-all;
+  }
+  .catalog-bottom {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+  .status {
+    font-size: 10px;
+    color: var(--fg-mute);
+    margin-bottom: 12px;
+  }
+  .catalog-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 10px;
+  }
+  .catalog-links a {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    min-height: 34px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .catalog-links a span {
+    color: var(--fg-mute);
+  }
+  .disabled {
+    font-size: 12px;
+    color: var(--fg-mute);
+  }
+</style>

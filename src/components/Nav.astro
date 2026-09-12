@@ -1,199 +1,265 @@
 ---
-import { company, navPrimary as primary, navMore as more } from '../data/site';
+import { company, navPrimary, navMore } from "../data/site";
 const path = Astro.url.pathname;
-const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href.replace(/\/$/, ''));
-const moreActive = more.some(l => isActive(l.href));
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href.replace(/\/$/, ""));
+const menu = [...navMore, { href: "/about/", label: "작업자 소개" }];
 ---
-<nav>
+
+<header class="site-header">
   <div class="nav-inner">
-    <a class="brand" href="https://kangdaejong.com/" aria-label={`${company.name} 홈`}>
-      <img src="/minusbeta-badge.svg" alt="" width="30" height="30" />
-      <span>{company.name}</span>
-    </a>
-    <div class="nav-links">
-      {primary.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
-    </div>
+    <a class="brand" href="/" aria-label={`${company.name} 작업장 홈`}
+      ><span class="brand-symbol" aria-hidden="true">mβ</span><span
+        class="brand-word"
+        >minus beta<span>독립적인 생각, 쓸모 있는 제품.</span></span
+      ></a
+    >
+    <nav class="primary-nav" aria-label="주요 메뉴">
+      {
+        navPrimary.map((link) => (
+          <a
+            href={link.href}
+            aria-current={isActive(link.href) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
     <div class="nav-actions">
-      <div class="nav-more" data-nav-more>
-        <button class:list={["nav-more-btn", moreActive && "is-active"]} type="button" aria-haspopup="true" aria-expanded="false">더보기<span class="chev">▾</span></button>
-        <div class="nav-more-panel" role="menu">
-          {more.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}
-        </div>
-      </div>
-      <a class="nav-cta" href={`mailto:${company.email}`}>문의</a>
+      <details class="site-menu">
+        <summary aria-label="전체 메뉴"
+          >더보기 <span aria-hidden="true">＋</span></summary
+        ><nav aria-label="더보기 메뉴">
+          {
+            menu.map((link) => (
+              <a
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+              >
+                {link.label}
+                <span aria-hidden="true">↗</span>
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+      <a class="contact-link" href={`mailto:${company.email}`}
+        >이야기 나누기 <span aria-hidden="true">↗</span></a
+      >
     </div>
   </div>
-  <style>
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid var(--border);
-      background: color-mix(in srgb, var(--bg) 94%, transparent);
-      backdrop-filter: blur(12px);
-      /* 공유 헤더(kangdaejong.com/mb-components.js)와 동일 렌더 — 폰트 스택·행간·글자 간격·크기를
-         mb-header 값에 고정 (T-260707-41). 수치 바꿀 땐 mb-components.js 와 같이 바꿀 것. */
-      font-family: var(--sans);
-      line-height: 1.50;
-      letter-spacing: normal;
-      font-style: normal;
-    }
+</header>
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: #f7f6f2f5;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+  }
+  .nav-inner {
+    width: min(1280px, calc(100% - 96px));
+    margin: auto;
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: var(--fg);
+    margin-right: auto;
+  }
+  .brand-symbol {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    background: var(--accent-cta);
+    color: #fffaf3;
+    font:
+      27px Georgia,
+      serif;
+    border-radius: 12px 12px 12px 3px;
+    letter-spacing: -3px;
+    padding-right: 3px;
+  }
+  .brand-word {
+    font-size: 21px;
+    line-height: 1.2;
+    font-weight: 750;
+    letter-spacing: -0.7px;
+    white-space: nowrap;
+  }
+  .brand-word span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+    font-weight: 450;
+    color: var(--fg-mute);
+    margin-top: 5px;
+  }
+  .primary-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .primary-nav a {
+    position: relative;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--fg-dim);
+    white-space: nowrap;
+  }
+  .primary-nav a[aria-current] {
+    color: var(--fg);
+    font-weight: 700;
+  }
+  .primary-nav a[aria-current]::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .nav-actions {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    font-size: 13px;
+  }
+  .contact-link {
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    white-space: nowrap;
+  }
+  .contact-link span {
+    margin-left: 12px;
+  }
+  .site-menu {
+    position: relative;
+  }
+  summary {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    min-height: 44px;
+    color: var(--fg-dim);
+    white-space: nowrap;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary span {
+    font-size: 20px;
+    transition: transform 0.2s;
+  }
+  details[open] summary span {
+    transform: rotate(45deg);
+  }
+  .site-menu nav {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 12px);
+    width: 224px;
+    padding: 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-pop);
+  }
+  .site-menu nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .site-menu nav a:hover,
+  .site-menu nav a[aria-current] {
+    background: var(--bg-elev);
+    color: var(--accent);
+  }
+  @media (max-width: 1100px) {
     .nav-inner {
-      width: var(--page-shell);
-      margin: 0 auto;
-      min-height: 72px;
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr) auto;
-      align-items: center;
       gap: 24px;
     }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--fg);
-      font-family: var(--sans);
-      font-size: 15px;
-      font-weight: 510;
-      letter-spacing: -0.02em;
-      text-decoration: none;
-      white-space: nowrap;
+    .primary-nav {
+      gap: 20px;
     }
-    .brand img { height: 30px; width: 30px; display: block; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 22px;
-      min-width: 0;
-      font-size: 13px;
-      white-space: nowrap;
+    .contact-link {
+      display: none;
     }
-    .nav-links a {
-      color: var(--fg-mute);
-      text-decoration: none;
-      transition: color .15s;
+  }
+  @media (max-width: 900px) {
+    .nav-inner {
+      width: calc(100% - 48px);
     }
-    .nav-links a:hover,
-    .nav-links a[aria-current="page"] {
-      color: var(--fg);
+  }
+  @media (max-width: 640px) {
+    .nav-inner {
+      width: calc(100% - 36px);
+      flex-wrap: wrap;
+      gap: 0;
+      padding-top: 14px;
     }
-    .nav-links a[aria-current="page"] {
-      font-weight: 510;
+    .brand-word {
+      font-size: 20px;
+    }
+    .brand-word span {
+      display: none;
+    }
+    .brand-symbol {
+      width: 36px;
+      height: 36px;
+      font-size: 24px;
     }
     .nav-actions {
-      display: inline-flex;
-      align-items: center;
+      margin-left: auto;
+    }
+    .primary-nav {
+      order: 3;
+      width: 100%;
+      justify-content: space-between;
       gap: 12px;
-      white-space: nowrap;
+      margin-top: 8px;
     }
-    .nav-more { position: relative; display: inline-flex; }
-    .nav-more-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      min-height: 34px;
-      padding: 0 6px;
-      border: 0;
-      background: none;
-      cursor: pointer;
-      color: var(--fg-dim);
-      font-family: inherit;
+    .primary-nav a {
+      padding: 10px 2px 13px;
+      min-height: 44px;
       font-size: 13px;
-      transition: color .15s;
     }
-    .nav-more-btn:hover,
-    .nav-more-btn.is-active,
-    .nav-more.open .nav-more-btn { color: var(--fg); }
-    .nav-more-btn.is-active { font-weight: 510; }
-    .nav-more-btn .chev { font-size: 10px; transition: transform .15s; }
-    .nav-more.open .nav-more-btn .chev { transform: rotate(180deg); }
-    .nav-more-panel {
-      position: absolute;
-      right: 0;
-      top: calc(100% + 8px);
-      z-index: 20;
-      display: none;
-      flex-direction: column;
-      min-width: 168px;
-      padding: 8px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 0;
-      box-shadow: none;
+    .primary-nav a[aria-current]::after {
+      bottom: 6px;
     }
-    .nav-more.open .nav-more-panel { display: flex; }
-    .nav-more-panel a {
-      padding: 9px 10px;
-      border-radius: 0;
-      color: var(--fg-dim);
-      text-decoration: none;
-      font-size: 13px;
-      white-space: nowrap;
-      transition: background .12s, color .12s;
-    }
-    .nav-more-panel a:hover { background: color-mix(in srgb, var(--fg) 7%, transparent); color: var(--fg); }
-    .nav-more-panel a[aria-current="page"] {
-      color: var(--fg);
-      font-weight: 510;
-      background: color-mix(in srgb, var(--fg) 7%, transparent);
-    }
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 32px;
-      padding: 0 12px;
-      border-radius: var(--radius-pill);
-      background: var(--cta-bg);
-      color: var(--cta-fg);
-      font-size: 13px;
-      font-weight: 510;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .nav-cta:hover { color: var(--cta-fg); text-decoration: none; background: var(--cta-bg); filter: brightness(1.06); }
-    @media (max-width: 760px) {
-      .nav-inner {
-        width: var(--page-shell-sm);
-        grid-template-columns: 1fr auto;
-        min-height: auto;
-        padding: 14px 0 10px;
-        gap: 12px;
-      }
-      .brand span { display: none; }
-      .nav-links {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        justify-content: flex-start;
-        gap: 16px;
-        overflow-x: auto;
-        scrollbar-width: none;
-      }
-      .nav-links::-webkit-scrollbar { display: none; }
-      .nav-actions { grid-column: 2; grid-row: 1; }
-      .nav-cta {
-        min-height: 34px;
-        padding: 0 12px;
-      }
-    }
-  </style>
-  <script>
-    document.querySelectorAll('[data-nav-more]').forEach((root) => {
-      const btn = root.querySelector('.nav-more-btn');
-      const panel = root.querySelector('.nav-more-panel');
-      if (!btn || !panel) return;
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const open = root.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+</style>
+<script>
+  document
+    .querySelectorAll<HTMLDetailsElement>(".site-menu")
+    .forEach((menu) => {
+      document.addEventListener("click", (event) => {
+        if (event.target instanceof Node && !menu.contains(event.target))
+          menu.open = false;
       });
-      panel.addEventListener('click', (e) => e.stopPropagation());
-      document.addEventListener('click', () => {
-        if (!root.classList.contains('open')) return;
-        root.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
+      menu.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          menu.open = false;
+          menu.querySelector("summary")?.focus();
+        }
       });
     });
-  </script>
-</nav>
+</script>

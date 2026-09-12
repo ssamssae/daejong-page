@@ -1,45 +1,150 @@
 ---
-import { company } from '../data/site';
+import { company } from "../data/site";
 ---
-<footer>
-  <div class="foot-head">
-    <strong>{company.name}</strong>
-    <a href={`mailto:${company.email}`}>{company.email}</a>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <p class="footer-kicker">STILL MAKING. ALWAYS LEARNING.</p><h2>
+          다음 작은 시작도,<br />이곳에서.
+        </h2>
+      </div><div class="footer-links">
+        <a href="/products/">제품 둘러보기 ↗</a><a href="/newsletter/"
+          >만드는 이야기 ↗</a
+        ><a href={`mailto:${company.email}`}>이야기 나누기 ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-brand">
+        <span aria-hidden="true">mβ</span><strong>{company.name}</strong><a
+          href={`mailto:${company.email}`}>{company.email}</a>
+      </div><div class="biz">
+        <span>{company.name} · 대표 {company.representative}</span><span
+          >사업자등록번호 {company.bizNumber}</span
+        ><span>통신판매업신고번호 {company.mailOrderNumber}</span><span
+          >{company.address}</span
+        ><span>{company.category}</span>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© {new Date().getFullYear()} MINUS BETA STUDIO</span><span
+        >작게 만들고, 오래 다듬습니다.</span
+      ><a href="#main-content">맨 위로 ↑</a>
+    </div>
   </div>
-  <div class="biz">
-    <span>{company.name} · 대표 {company.representative}</span>
-    <span>사업자등록번호 {company.bizNumber}</span>
-    <span>통신판매업신고번호 {company.mailOrderNumber}</span>
-    <span>{company.address}</span>
-    <span>{company.category}</span>
-  </div>
-  <div class="copy">© 2026 {company.name}. All rights reserved.</div>
-  <style>
-    footer {
-      width: var(--page-shell);
-      margin: 0 auto;
-      padding: 34px 0 56px;
-      border-top: 1px solid var(--border);
-      color: var(--fg-mute);
-      font-size: var(--text-meta);
-    }
-    .foot-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    .foot-head strong { color: var(--fg); font-size: var(--text-desc); }
-    .foot-head a { color: var(--fg); text-decoration: none; }
-    .foot-head a:hover { text-decoration: underline; }
-    .biz { display: flex; flex-wrap: wrap; gap: 6px 14px; }
-    .copy { margin-top: 16px; color: var(--fg-mute); }
-    @media (max-width: 640px) {
-      footer { width: var(--page-shell-sm); padding-bottom: 42px; }
-      .foot-head { display: block; }
-      .foot-head a { display: inline-block; margin-top: 6px; }
-      .biz { flex-direction: column; gap: 4px; }
-    }
-  </style>
 </footer>
+<style>
+  .site-footer {
+    background: var(--invert-bg);
+    color: var(--invert-fg);
+    padding: 64px 0 24px;
+  }
+  .footer-inner {
+    width: min(1280px, calc(100% - 96px));
+    margin: auto;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 36px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid var(--invert-border);
+  }
+  .footer-kicker {
+    font: 10px var(--mono);
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+    color: var(--invert-dim);
+  }
+  h2 {
+    color: var(--invert-fg);
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.35;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 14px;
+    min-width: 180px;
+    font-size: 14px;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #ecc6a5;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 34px 0;
+  }
+  .footer-brand {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 0 12px;
+    align-content: start;
+    font-size: 14px;
+  }
+  .footer-brand > span {
+    grid-row: span 2;
+    font:
+      36px Georgia,
+      serif;
+    letter-spacing: -4px;
+  }
+  .footer-brand a {
+    color: var(--invert-dim);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .biz {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    max-width: 560px;
+    font-size: 11px;
+    color: var(--invert-dim);
+    line-height: 1.9;
+  }
+  .footer-copy {
+    border-top: 1px solid var(--invert-border);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--invert-dim);
+    font: 10px/1.6 var(--mono);
+  }
+  @media (max-width: 900px) {
+    .footer-inner {
+      width: calc(100% - 48px);
+    }
+  }
+  @media (max-width: 600px) {
+    .site-footer {
+      padding-top: 40px;
+    }
+    .footer-inner {
+      width: calc(100% - 36px);
+    }
+    .footer-top,
+    .footer-bottom {
+      flex-direction: column;
+      gap: 28px;
+    }
+    .footer-links {
+      font-size: 13px;
+    }
+    .footer-copy {
+      flex-wrap: wrap;
+    }
+    .footer-copy > span:nth-child(2) {
+      display: none;
+    }
+  }
+</style>

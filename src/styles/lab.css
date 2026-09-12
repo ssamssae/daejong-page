@@ -1,7 +1,7 @@
 /* lab/system child pages shared frame. */
 
 :root {
-  --page-accent: var(--fg);
+  --page-accent: var(--accent);
 }
 
 ::selection {
@@ -173,7 +173,7 @@
   display: block;
   border: 0;
   border-bottom: 1px solid var(--border);
-  border-radius: 0;
+  border-radius: var(--radius-card);
   background: var(--bg);
   color: inherit;
   padding: 18px 0;

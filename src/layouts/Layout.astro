@@ -1,9 +1,17 @@
 ---
-import '../styles/tokens.css';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/tokens.css";
+import "../styles/workshop.css";
+import "../styles/notebook.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 const { title, description } = Astro.props;
+const notebook =
+  /\.html\/?$/.test(Astro.url.pathname) ||
+  ["/policy", "/sorry", "/_cost"].some((path) =>
+    Astro.url.pathname.startsWith(path),
+  );
 ---
+
 <!doctype html>
 <html lang="ko">
   <head>
@@ -12,56 +20,32 @@ const { title, description } = Astro.props;
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/homepage_icon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#08090A" />
+    <meta name="theme-color" content="#f7f6f2" />
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Serif+KR:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
     <slot name="head" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
     <Nav />
-    <main><slot /></main>
+    <main
+      id="main-content"
+      class:list={["site-main", notebook && "notebook"]}
+      tabindex="-1"
+    >
+      <slot />
+    </main>
     <Footer />
-    <style is:global>
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      html {
-        background: var(--bg);
-        scrollbar-gutter: stable;
-        color-scheme: dark;
-        min-height: 100dvh;
-      }
-      body {
-        background: var(--bg);
-        color: var(--fg);
-        font-family: var(--sans);
-        line-height: 1.50;
-        text-rendering: geometricPrecision;
-        min-height: 100dvh;
-      }
-      main {
-        width: var(--page-shell);
-        margin: 0 auto;
-        padding: 64px 0 96px;
-      }
-      a {
-        color: var(--fg);
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 0.18em;
-      }
-      a:hover { color: var(--fg); text-decoration-thickness: 2px; }
-      img { max-width: 100%; height: auto; }
-      h1, h2 { font-family: var(--sans); font-weight: 510; letter-spacing: -0.022em; }
-      h3 { font-family: var(--sans); font-weight: 590; letter-spacing: -0.012em; }
-      p { color: var(--fg-dim); }
-      ::selection { background: var(--fg); color: var(--bg); }
-      @media (max-width: 640px) {
-        main { width: var(--page-shell-sm); padding: 48px 0 64px; }
-      }
-    </style>
   </body>
 </html>

@@ -1,12 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PostList from '../components/PostList.astro';
-import ActivityCard from '../components/ActivityCard.astro';
-import { getCollection } from 'astro:content';
-import { apps, saas, tools, ebooks } from '../data/products';
+import Layout from "../layouts/Layout.astro";
+import PostList from "../components/PostList.astro";
+import ActivityCard from "../components/ActivityCard.astro";
+import ProductArt from "../components/ProductArt.astro";
+import { getCollection } from "astro:content";
+import { apps, saas, tools, ebooks } from "../data/products";
 
-const sortedWorklog = (await getCollection('worklog')).sort((a, b) =>
-  b.data.date.localeCompare(a.data.date) || (b.data.version ?? '').localeCompare(a.data.version ?? '')
+const sortedWorklog = (await getCollection("worklog")).sort(
+  (a, b) =>
+    b.data.date.localeCompare(a.data.date) ||
+    (b.data.version ?? "").localeCompare(a.data.version ?? ""),
 );
 const seenWorklogDates = new Set<string>();
 const allWorklog = sortedWorklog.filter((post) => {
@@ -16,554 +19,452 @@ const allWorklog = sortedWorklog.filter((post) => {
 });
 const recentWorklog = allWorklog.slice(0, 5);
 
-const epNum = (entry) => parseInt(String(entry.id).replace(/\D/g, ''), 10) || 0;
-const allNewsletter = (await getCollection('newsletter')).sort((a, b) => epNum(b) - epNum(a));
+const epNum = (entry) => parseInt(String(entry.id).replace(/\D/g, ""), 10) || 0;
+const allNewsletter = (await getCollection("newsletter")).sort(
+  (a, b) => epNum(b) - epNum(a),
+);
 const recentNewsletter = allNewsletter.slice(0, 4);
 
-const allInsights = (await getCollection('insights')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+const allInsights = (await getCollection("insights")).sort((a, b) =>
+  b.data.date.localeCompare(a.data.date),
+);
 const recentInsights = allInsights.slice(0, 4);
 
-const featured = saas[0];
-
-const stats = [
-  { label: '제품', value: apps.length + tools.length + saas.length + ebooks.length, detail: `앱 ${apps.length} · 도구 ${tools.length} · SaaS ${saas.length} · 전자책 ${ebooks.length}` },
-  { label: '작업일지', value: allWorklog.length, detail: '매일의 빌드 로그' },
-  { label: '뉴스레터', value: `Ep.${epNum(allNewsletter[0])}`, detail: `총 ${allNewsletter.length}편` },
+const total = apps.length + tools.length + saas.length + ebooks.length;
+const spaces = [
+  {
+    href: "/worklog/",
+    label: "01 / BUILD LOG",
+    title: "만드는 날들",
+    desc: "오늘 만든 것과 고친 것. 작은 진전이 쌓이는 기록.",
+    count: allWorklog.length + "일의 기록",
+  },
+  {
+    href: "/newsletter/",
+    label: "02 / LETTERS",
+    title: "과정에서 건진 이야기",
+    desc: "혼자 일하며 배우는 출시, 자동화, 그리고 시행착오.",
+    count: allNewsletter.length + "통의 편지",
+  },
+  {
+    href: "/insights/",
+    label: "03 / INSIGHTS",
+    title: "다음 생각의 재료",
+    desc: "영상과 글에서 얻은 배움을 다음 작업으로 연결합니다.",
+    count: allInsights.length + "개의 노트",
+  },
 ];
-
-const routes = [
-  { href: '/products/', label: '01', kicker: '제품', title: '제품', desc: '공개한 모바일 앱, 오픈소스 도구, 라이브 웹 서비스(첫이름)를 한 화면에서 봅니다.' },
-  { href: '/worklog/', label: '02', kicker: '기록', title: '작업일지', desc: '하루 단위로 무엇을 만들고 고쳤는지 남긴 빌드 로그입니다.' },
-  { href: '/timeline.html/', label: '03', kicker: '시간순', title: '개발 타임라인', desc: '첫 코드부터 지금까지의 출시, 인프라, 큰 결정을 시간순으로 훑습니다.' },
-  { href: '/newsletter/', label: '04', kicker: '에피소드', title: '뉴스레터', desc: '바이브코딩과 1인 앱 제작 과정을 에피소드로 정리합니다.' },
-  { href: '/insights/', label: '05', kicker: '학습', title: '인사이트', desc: '영상과 아티클에서 뽑은 학습 노트를 모아둡니다.' },
-  { href: '/system/', label: '06', kicker: '구조', title: '시스템', desc: '물리 노드와 자동화 스택의 구조를 기록합니다.' },
-  { href: '/lab/', label: '07', kicker: '실험', title: 'lab', desc: '실험, 잡학, 접은 시도까지 작업의 주변부를 보관합니다.' },
-];
-
-const surfaces = ['제품', '작업일지', '뉴스레터', '인사이트', '시스템', 'lab'];
 ---
-<Layout title="강대종의 작업장 — work.kangdaejong.com" description="강대종의 작업장. 제품·오픈소스 도구·작업일지·뉴스레터·인사이트·자동화 스택을 한 곳에서 보는 허브.">
-  <div class="home" data-tone="workshop-index">
-    <section class="home-hero" aria-labelledby="home-title">
-      <div class="hero-copy">
-        <p class="eyebrow">작업장 · 강대종</p>
-        <h1 id="home-title">강대종의 작업장</h1>
-        <p class="tagline">작게 만들고, 매일 남깁니다.</p>
-        <p class="lead">
-          강대종이 만든 앱, 오픈소스 도구, 자동화 시스템과 그 과정을 모은 공개 작업장입니다.
-          제품은 작게 공개하고, 작업일지·뉴스레터·인사이트는 다음 빌드를 위해 남깁니다.
-        </p>
-        <p class="hero-products" aria-label="작업장 표면">{surfaces.join(' · ')}</p>
-        <div class="hero-actions" aria-label="주요 이동">
-          <a class="button primary" href="/products/">제품 보기</a>
-          <a class="button secondary" href="/worklog/">작업일지 보기</a>
-        </div>
+
+<Layout
+  title="강대종의 작업장 — 마이너스베타스튜디오"
+  description="작은 아이디어를 쓸모 있는 제품으로. 강대종이 만드는 앱, 도구, 웹 서비스와 매일의 작업 기록을 만나보세요."
+>
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="home-copy">
+      <p class="eyebrow">AN INDEPENDENT DIGITAL WORKSHOP</p><h1 id="home-title">
+        작게 만들고,<br />오래 다듬습니다<span>.</span>
+      </h1><p class="lead">
+        안녕하세요, 강대종의 작업장입니다.<br />일상을 조금 더 편하게 하는
+        제품을 만들고,<br class="desktop-break" /> 그 과정에서 배운 것들을 나눕니다.
+      </p><div class="hero-actions">
+        <a class="button primary" href="/products/"
+          >제품 둘러보기 <span aria-hidden="true">↗</span></a
+        ><a class="button" href="/about/"
+          >작업자 소개 <span aria-hidden="true">→</span></a>
       </div>
-    </section>
-
-    <section class="proof-strip" aria-label="작업장 요약">
-      <dl class="hero-stats">
-        {stats.map((stat) => (
-          <div>
-            <dt>{stat.label}</dt>
-            <dd>{stat.value}</dd>
-            <span>{stat.detail}</span>
-          </div>
-        ))}
-      </dl>
-    </section>
-
-    <section class="featured-section" aria-labelledby="featured-title">
-      <article class="featured-card">
-        <span>{featured.status}</span>
-        <p class="featured-kicker">대표 웹 서비스</p>
-        <h2 id="featured-title">{featured.name}</h2>
-        <p>{featured.desc}</p>
-        <div class="featured-links">
-          {featured.links.map((link) => (
-            <a href={link.url} target="_blank" rel="noopener">{link.label} →</a>
-          ))}
-        </div>
-      </article>
-    </section>
-
-    <section class="route-section" aria-labelledby="routes-title">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">색인</p>
-          <h2 id="routes-title">들어갈 곳을 고릅니다.</h2>
-        </div>
-        <p>제품, 기록, 시스템을 같은 작업장 안에서 엽니다.</p>
-      </div>
-
-      <div class="route-grid">
-        {routes.map((route) => (
-          <a class="route-card" href={route.href}>
-            <span class="route-top">
-              <span>{route.label}</span>
-              <span>{route.kicker}</span>
-            </span>
-            <strong>{route.title}</strong>
-            <span>{route.desc}</span>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <section class="bridge-section" aria-labelledby="bridge-title">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">공개 도구</p>
-          <h2 id="bridge-title">폰에서 작업장을 다루려고 만든 브릿지</h2>
-        </div>
-        <p>개인 운영에서 출발했지만 공개 저장소와 릴리스로 관리합니다.</p>
-      </div>
-
-      <div class="bridge-grid">
-        {tools.map((project) => (
-          <article class="bridge-card">
-            <div class="bridge-card-top">
-              <h3>{project.name}</h3>
-              <span>{project.status}</span>
-            </div>
-            <p>{project.desc}</p>
-            <div class="bridge-links">
-              {project.links.map((link) => (
-                <a href={link.url} target="_blank" rel="noopener">{link.label}</a>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <ActivityCard />
-
-    <section class="recent-grid" aria-label="최근 기록">
-      <article class="recent-panel">
-        <div class="recent-head">
-          <div>
-            <p class="eyebrow">작업일지</p>
-            <h2>최근 작업일지</h2>
-          </div>
-          <a href="/worklog/">전체 보기</a>
-        </div>
-        <PostList posts={recentWorklog} base="/worklog" />
-      </article>
-
-      <article class="recent-panel">
-        <div class="recent-head">
-          <div>
-            <p class="eyebrow">뉴스레터</p>
-            <h2>최근 뉴스레터</h2>
-          </div>
-          <a href="/newsletter/">전체 보기</a>
-        </div>
-        <PostList posts={recentNewsletter} base="/newsletter" />
-      </article>
-
-      <article class="recent-panel">
-        <div class="recent-head">
-          <div>
-            <p class="eyebrow">인사이트</p>
-            <h2>최근 인사이트</h2>
-          </div>
-          <a href="/insights/">전체 보기</a>
-        </div>
-        <PostList posts={recentInsights} base="/insights" />
-      </article>
-    </section>
+    </div>
+    <div class="home-art">
+      <ProductArt kind="name" /><div class="home-art-note">
+        <span class="note-dot"></span><span>지금 이 작업장에서</span><strong
+          >{total}개의 제품이 자라고 있어요.</strong>
+      </div><span class="hand-note" aria-hidden="true"
+        >small ideas, real things.</span>
+    </div>
+  </section>
+  <div class="studio-strip">
+    <span>MINUS BETA STUDIO</span><span>모바일 앱 <b>{apps.length}</b></span
+    ><span>웹 서비스 <b>{saas.length}</b></span><span
+      >오픈소스 <b>{tools.length}</b></span
+    ><span>전자책 <b>{ebooks.length}</b></span>
   </div>
-
+  <section class="home-selected" aria-labelledby="home-selected-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">BUILT FOR EVERYDAY LIFE</p><h2
+          id="home-selected-title"
+        >
+          가장 작은 변화부터.
+        </h2>
+      </div><a href="/products/" class="text-link">모든 제품 보기 ↗</a>
+    </div><div class="home-products">
+      {
+        [
+          { item: saas[0], kind: "name" },
+          { item: apps[0], kind: "diary" },
+          { item: apps[1], kind: "memo" },
+        ].map(({ item, kind }) => (
+          <a
+            href={item.links[0].url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="home-product"
+          >
+            <>
+              <ProductArt kind={kind} />
+              <h3>
+                {item.name.split(" — ")[0]} <span aria-hidden="true">↗</span>
+              </h3>
+              <p>{item.desc}</p>
+            </>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+  <section class="writing-section" aria-labelledby="writing-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">THE WORK BEHIND THE WORK</p><h2 id="writing-title">
+          결과만큼, 과정도 남깁니다.
+        </h2>
+      </div><p>잘된 일도, 막다른 길도.<br />다음 시작을 위한 기록들입니다.</p>
+    </div><div class="spaces">
+      {
+        spaces.map((space) => (
+          <a class="space" href={space.href}>
+            <>
+              <span class="space-label">{space.label}</span>
+              <h3>{space.title}</h3>
+              <p>{space.desc}</p>
+              <span class="space-bottom">
+                {space.count}
+                <b aria-hidden="true">↗</b>
+              </span>
+            </>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+  <section class="recent-writing" aria-label="최근 기록">
+    <div>
+      <div class="recent-head">
+        <p class="eyebrow">FROM THE WORKSHOP</p><a href="/worklog/"
+          >작업일지 전체 ↗</a>
+      </div><PostList posts={recentWorklog} base="/worklog" />
+    </div><div>
+      <div class="recent-head">
+        <p class="eyebrow">LETTERS & THOUGHTS</p><a href="/newsletter/"
+          >뉴스레터 전체 ↗</a>
+      </div><PostList posts={recentNewsletter} base="/newsletter" />
+    </div>
+  </section>
+  <ActivityCard />
+  <section class="explore-more" aria-labelledby="explore-title">
+    <div>
+      <p class="eyebrow">OPEN NOTEBOOK</p><h2 id="explore-title">
+        작업장의 다른 서랍들.
+      </h2>
+    </div><div class="drawer-links">
+      <a href="/system/">시스템 <span>작업을 지탱하는 구조 ↗</span></a><a
+        href="/lab/">실험실 <span>궁금해서 해본 것들 ↗</span></a
+      ><a href="/timeline.html/">타임라인 <span>처음부터 지금까지 ↗</span></a>
+    </div>
+  </section>
   <style>
-    .home {
-      display: flex;
-      flex-direction: column;
-      gap: 128px;
-    }
-
     .home-hero {
-      position: relative;
-      padding: 40px 0 16px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 70px;
+      padding: 30px 0 68px;
     }
-
-    .eyebrow {
-      color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      margin-bottom: 12px;
+    .home-copy h1 {
+      font-size: clamp(42px, 5.5vw, 76px);
+      line-height: 1.2;
+      letter-spacing: -0.06em;
     }
-
-    .hero-copy h1 {
-      max-width: 18ch;
-      font-size: var(--text-h1);
-      line-height: var(--leading-h1);
-      font-weight: 510;
-      letter-spacing: -0.022em;
-      word-break: keep-all;
+    .home-copy h1 > span {
+      color: var(--accent);
     }
-
-    .tagline {
-      margin-top: 16px;
-      color: var(--fg-dim);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      font-weight: 600;
-      letter-spacing: 0.04em;
+    .home-copy .lead {
+      font-size: 16px;
+      margin-top: 28px;
     }
-
-    .lead {
-      max-width: var(--measure);
-      margin-top: 18px;
-      color: var(--fg-dim);
-      font-size: var(--text-lead);
-      line-height: var(--leading-body);
-      word-break: keep-all;
-    }
-
-    .hero-products {
-      margin-top: 22px;
-      max-width: 46rem;
-      color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      line-height: 1.7;
-      word-break: keep-all;
-    }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 28px;
+      margin-top: 30px;
     }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 32px;
-      padding: 0 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
-      font-size: 13px;
-      font-weight: 510;
-      text-decoration: none;
+    .home-art {
+      position: relative;
+      padding: 16px 18px 30px;
+      background: #eae6dc;
+      border: 1px solid #ded9ce;
+      border-radius: 160px 160px 14px 14px;
+      transform: rotate(3deg);
     }
-
-    .button:hover { text-decoration: none; }
-
-    .button.primary {
-      border-color: var(--accent);
-      background: var(--accent);
-      color: var(--fg);
+    .home-art :global(.product-art) {
+      height: 330px;
+      border-radius: 145px 145px 9px 9px;
     }
-
-    .button.primary:hover {
-      border-color: var(--accent-dim);
-      background: var(--accent-dim);
-      color: var(--fg);
+    .home-art :global(.art-caption) {
+      display: none;
     }
-
-    .button.secondary {
+    .home-art-note {
+      position: relative;
+      display: grid;
+      grid-template-columns: 10px 1fr;
       background: var(--bg);
-      color: var(--fg);
+      padding: 17px 20px;
+      margin: -14px -32px 0 20px;
+      box-shadow: var(--shadow-pop);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transform: rotate(-6deg);
+      gap: 2px 10px;
+      font-size: 11px;
     }
-
-    .button.secondary:hover {
-      border-color: var(--accent);
+    .home-art-note strong {
+      grid-column: 2;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .note-dot {
+      background: #608352;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: 7px;
+    }
+    .hand-note {
+      position: absolute;
+      left: 24px;
+      bottom: -29px;
+      font:
+        italic 18px Georgia,
+        serif;
+      color: var(--accent);
+      transform: rotate(-4deg);
+    }
+    .studio-strip {
+      display: flex;
+      gap: 28px;
+      justify-content: space-between;
+      align-items: center;
+      border-block: 1px solid var(--border);
+      padding: 21px 0;
+      margin-bottom: 80px;
+      font-size: 12px;
+      color: var(--fg-dim);
+    }
+    .studio-strip > span:first-child {
+      font: 10px var(--mono);
+      letter-spacing: 0.06em;
+    }
+    .studio-strip b {
+      font-weight: 600;
+      color: var(--fg);
+      margin-left: 10px;
+    }
+    .home-selected,
+    .writing-section {
+      margin-bottom: 80px;
+    }
+    .home-products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .home-product {
+      text-decoration: none;
+      display: block;
+      min-width: 0;
+    }
+    .home-product h3 {
+      display: flex;
+      justify-content: space-between;
+      margin: 17px 0 8px;
+      font-size: 23px;
+    }
+    .home-product h3 span {
+      font-weight: 400;
+    }
+    .home-product > p {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .spaces {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .space {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      background: var(--bg);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .space:hover {
+      background: var(--bg-elev);
+    }
+    .space-label {
+      font: 10px var(--mono);
+      letter-spacing: 0.07em;
       color: var(--accent);
     }
-
-    .proof-strip { padding: 0; }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .space h3 {
+      margin: 30px 0 14px;
+      font-size: 25px;
     }
-
-    .hero-stats div {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      min-width: 0;
-      padding: 28px 20px 28px 0;
+    .space p {
+      font-size: 14px;
+      line-height: 1.8;
     }
-
-    .hero-stats div + div {
-      padding-left: 20px;
-      border-left: 1px solid var(--border-soft);
-    }
-
-    .hero-stats dt {
-      color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-badge);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-    }
-
-    .hero-stats dd {
-      color: var(--fg);
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.15;
-    }
-
-    .hero-stats span {
-      color: var(--fg-dim);
-      font-size: var(--text-desc);
-      line-height: 1.45;
-    }
-
-    .featured-card {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-width: 40rem;
-      padding: 32px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      background: var(--bg-elev);
-    }
-
-    .featured-card > span,
-    .bridge-card-top span {
-      color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-badge);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-    }
-
-    .featured-kicker {
-      color: var(--fg);
-      font-size: var(--text-body);
-      font-weight: 600;
-    }
-
-    .featured-card h2 {
-      font-size: clamp(28px, 4vw, 40px);
-      letter-spacing: -0.04em;
-      word-break: keep-all;
-    }
-
-    .featured-card p,
-    .bridge-card p {
-      color: var(--fg-dim);
-      font-size: var(--text-body);
-      line-height: var(--leading-body);
-      word-break: keep-all;
-    }
-
-    .featured-links,
-    .bridge-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 8px;
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      font-weight: 600;
-    }
-
-    .section-head {
-      display: grid;
-      gap: 12px;
-      margin-bottom: var(--pad-head-bottom);
-    }
-
-    .section-head h2 {
-      max-width: 720px;
-      font-size: var(--text-h2);
-      line-height: 1.18;
-      letter-spacing: -0.045em;
-      word-break: keep-all;
-    }
-
-    .section-head > p {
-      max-width: var(--measure);
-      color: var(--fg-mute);
-      font-size: var(--text-body);
-      line-height: var(--leading-desc);
-    }
-
-    @media (min-width: 860px) {
-      .section-head {
-        grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
-        gap: 48px;
-        align-items: end;
-      }
-    }
-
-    .route-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--gap-card);
-    }
-
-    .route-card {
-      display: grid;
-      gap: 10px;
-      min-height: 200px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      color: var(--fg);
-      text-decoration: none;
-    }
-
-    .route-card:hover {
-      border-color: var(--accent);
-      background: var(--bg-elev);
-      color: var(--fg);
-      text-decoration: none;
-    }
-
-    .route-top {
+    .space-bottom {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 35px;
+      font-size: 11px;
       color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      font-weight: 600;
     }
-
-    .route-card strong {
-      font-size: var(--text-h3);
-      line-height: 1.3;
+    .space-bottom b {
+      font-size: 23px;
+      font-weight: 400;
+      color: var(--fg);
     }
-
-    .route-card > span:last-child {
-      align-self: end;
-      color: var(--fg-dim);
-      font-size: var(--text-desc);
-      line-height: var(--leading-desc);
-    }
-
-    .bridge-grid {
+    .recent-writing {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--gap-card);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 50px;
+      margin-bottom: 70px;
     }
-
-    .bridge-card {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-width: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 22px;
-      background: var(--bg);
-    }
-
-    .bridge-card:hover { border-color: var(--accent); }
-
-    .bridge-card-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .bridge-card h3 {
-      font-size: var(--text-h3);
-      line-height: 1.3;
-      word-break: keep-all;
-    }
-
-    .bridge-links { margin-top: auto; padding-top: 8px; }
-
-    .recent-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 40px;
-      padding-top: 8px;
-    }
-
-    .recent-panel { min-width: 0; }
-
     .recent-head {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      align-items: flex-start;
-      margin-bottom: 14px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
     }
-
-    .recent-head h2 {
-      font-size: var(--text-h2);
-      line-height: 1.25;
-    }
-
     .recent-head a {
-      flex: 0 0 auto;
-      margin-top: 4px;
-      font-size: var(--text-desc);
-      font-weight: 700;
+      font-size: 11px;
       text-decoration: none;
     }
-
-    .recent-head a:hover { text-decoration: underline; }
-
-    @media (max-width: 1180px) {
-      .recent-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .explore-more {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
     }
-
-    @media (max-width: 920px) {
-      .home { gap: 96px; }
-
-      .hero-stats,
-      .bridge-grid,
-      .recent-grid,
-      .route-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-      .hero-stats div + div { padding-left: 16px; }
+    .drawer-links {
+      display: grid;
     }
-
-    @media (max-width: 640px) {
-      .home { gap: 64px; }
-
-      .home-hero { padding-top: 8px; }
-
-      .hero-actions { flex-direction: column; }
-
-      .button { width: 100%; }
-
-      .hero-stats,
-      .route-grid,
-      .bridge-grid,
-      .recent-grid { grid-template-columns: 1fr; }
-
-      .hero-stats { border-bottom: 0; }
-
-      .hero-stats div {
-        padding: 18px 0;
-        border-left: 0;
-        border-bottom: 1px solid var(--border-soft);
+    .drawer-links a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 19px;
+      text-decoration: none;
+    }
+    .drawer-links span {
+      font-size: 12px;
+      color: var(--fg-dim);
+    }
+    @media (max-width: 1000px) {
+      .home-hero {
+        gap: 36px;
       }
-
-      .hero-stats div + div { padding-left: 0; }
-
-      .featured-card { padding: 22px; }
-
-      .route-card { min-height: 0; }
-
-      .bridge-card-top,
-      .recent-head { display: block; }
-
-      .bridge-card-top span,
-      .recent-head a {
-        display: inline-flex;
-        margin-top: 8px;
+      .home-art-note {
+        margin-right: -15px;
+      }
+      .home-products {
+        gap: 18px;
+      }
+      .space {
+        padding: 23px;
+      }
+      .space h3 {
+        font-size: 22px;
+      }
+      .studio-strip {
+        gap: 18px;
+      }
+      .recent-writing {
+        gap: 30px;
+      }
+    }
+    @media (max-width: 700px) {
+      .home-hero {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding-top: 12px;
+      }
+      .home-copy h1 {
+        font-size: clamp(38px, 9vw, 62px);
+      }
+      .home-art {
+        max-width: 420px;
+        width: calc(100% - 30px);
+        margin: auto;
+      }
+      .studio-strip {
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 12px 24px;
+        margin-bottom: 50px;
+      }
+      .studio-strip > span:first-child {
+        width: 100%;
+      }
+      .home-products,
+      .spaces,
+      .recent-writing,
+      .explore-more {
+        grid-template-columns: 1fr;
+      }
+      .home-products {
+        gap: 34px;
+      }
+      .home-selected,
+      .writing-section {
+        margin-bottom: 50px;
+      }
+      .space {
+        padding: 28px;
+      }
+      .space h3 {
+        margin-top: 20px;
+      }
+      .space-bottom {
+        padding-top: 24px;
+      }
+      .recent-writing {
+        gap: 45px;
+      }
+      .explore-more {
+        margin-top: 50px;
+      }
+      .drawer-links a {
+        font-size: 17px;
+      }
+      .drawer-links span {
+        font-size: 11px;
+      }
+      .desktop-break {
+        display: none;
       }
     }
   </style>
