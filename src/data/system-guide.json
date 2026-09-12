@@ -1,0 +1,47 @@
+{
+  "reviewed": "2026-09-12",
+  "modules": [
+    {
+      "key": "policy",
+      "href": "/policy/",
+      "label": "운영 정책",
+      "en": "POLICY",
+      "desc": "누가 결정하고, 어디까지 실행하는지. 현재 운영 원칙과 승인 범위."
+    },
+    {
+      "key": "automations",
+      "href": "/automations.html",
+      "label": "자동화",
+      "en": "AUTOMATION",
+      "desc": "요청에서 결과 확인까지. 브릿지와 작업 기록이 이어지는 흐름."
+    },
+    {
+      "key": "stack",
+      "href": "/stack.html",
+      "label": "기술 스택",
+      "en": "STACK",
+      "desc": "세 대의 컴퓨터, 다섯 종류의 브릿지. 도구들의 역할과 연결."
+    },
+    {
+      "key": "skills",
+      "href": "/skills.html",
+      "label": "AI 스킬",
+      "en": "SKILLS",
+      "desc": "매번 설명하지 않도록. 작업 목적에 맞춰 꺼내 쓰는 절차."
+    },
+    {
+      "key": "smart-home",
+      "href": "/smart-home.html",
+      "label": "스마트홈",
+      "en": "SMART HOME",
+      "desc": "생활의 반복을 줄이는 제어. 명시적인 요청과 결과 확인."
+    },
+    {
+      "key": "knowhow",
+      "href": "/knowhow.html",
+      "label": "노하우",
+      "en": "FIELD NOTES",
+      "desc": "한 번 해결한 문제를 다음 작업의 출발점으로 만드는 기록."
+    }
+  ]
+}

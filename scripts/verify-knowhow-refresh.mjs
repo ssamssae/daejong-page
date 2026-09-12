@@ -72,12 +72,8 @@ if (entries.indexOf(firstExisting) > 2) {
   fail('new knowhow entries should be at the top of index.json');
 }
 
-if (!page.includes('2026-08-31')) {
-  fail('knowhow recent-change date was not updated');
-}
-if (!page.includes('Grok 함대')) {
-  fail('knowhow page must mention current Grok fleet');
-}
+if (!page.includes('현재 운영 설명과 구분')) fail('archive must distinguish historical records from current operations');
+if (!page.includes('index.entries')) fail('archive must retain the indexed collection');
 
 if (failures.length) {
   console.error('Knowhow refresh verification failed:');
