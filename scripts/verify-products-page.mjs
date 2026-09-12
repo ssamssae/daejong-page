@@ -21,6 +21,10 @@ const required = [
   '한장궁합 가족 리포트',
   'Local Telegram Bridge',
   'local-telegram-bridge/releases/tag/v0.2.0',
+  'grok-telegram-bridge/releases/tag/v0.5.3',
+  'codex-telegram-bridge/releases/tag/v0.9.9',
+  'claude-telegram-bridge/releases/tag/v0.14.2',
+  'cursor-telegram-bridge/releases/tag/v0.4.2',
 ];
 
 const missing = required.filter((text) => !html.includes(text));
@@ -34,12 +38,12 @@ if (html.includes('hanjang_gunghap_report_19900')) {
   process.exit(1);
 }
 
-if (!productsCss.includes('color:var(--invert-fg)')) {
-  console.error('products verification failed: featured body does not use invert-fg');
+if (!productsCss.includes('color:var(--fg-mute)')) {
+  console.error('products verification failed: catalog secondary text does not use the current foreground token');
   process.exit(1);
 }
 
-if (!productsCss.includes('@media(max-width:900px)') ||
+if (!productsCss.includes('@media(max-width:640px)') ||
     !productsCss.includes('grid-template-columns:1fr')) {
   console.error('products verification failed: responsive single-column layout is missing');
   process.exit(1);

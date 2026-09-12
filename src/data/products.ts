@@ -124,17 +124,17 @@ const claudeRepo = 'https://github.com/ssamssae/claude-telegram-bridge';
 const cursorRepo = 'https://github.com/ssamssae/cursor-telegram-bridge';
 const localRepo = 'https://github.com/ssamssae/local-telegram-bridge';
 export const bridges = {
-  grok: { version: '0.5.1', repo: grokRepo },
-  codex: { version: '0.9.7', repo: codexRepo },
-  claude: { version: '0.14.1', repo: claudeRepo },
-  cursor: { version: '0.4.0', repo: cursorRepo },
+  grok: { version: '0.5.3', repo: grokRepo },
+  codex: { version: '0.9.9', repo: codexRepo },
+  claude: { version: '0.14.2', repo: claudeRepo },
+  cursor: { version: '0.4.2', repo: cursorRepo },
   local: { version: '0.2.0', repo: localRepo },
 } as const;
 
 export const tools = [
   {
     name: 'Grok Telegram Bridge', status: `오픈소스 · v${bridges.grok.version}`,
-    desc: '텔레그램으로 자기 컴퓨터의 Grok 세션을 부리는 브릿지. Claude·Codex 브릿지의 형제 도구입니다.',
+    desc: '텔레그램으로 자기 컴퓨터의 Grok 세션을 부리는 브릿지. Claude·Codex·Cursor·Local 브릿지의 형제 도구입니다.',
     links: [
       { label: 'GitHub', url: bridges.grok.repo },
       { label: 'Release', url: `${bridges.grok.repo}/releases/tag/v${bridges.grok.version}` },
@@ -187,7 +187,7 @@ export const ebooks = [
   },
   {
     name: '폰으로 내 컴퓨터 AI 부리기', status: '마이너스베타스튜디오(mβ) · ₩10,000',
-    desc: 'Grok Telegram Bridge와 Claude Code·Codex 브릿지를 텔레그램에 연결해 폰에서 내 컴퓨터의 AI 를 부리는 방법을 정리한 전자책. 비개발자를 위한 따라하기 안내서.',
+    desc: 'Grok·Claude·Codex·Cursor 텔레그램 브릿지를 연결해 폰에서 내 컴퓨터의 AI를 부리는 방법을 정리한 전자책. 비개발자를 위한 따라하기 안내서.',
     links: [{ label: '크몽에서 구매', url: 'https://kmong.com/gig/798202' }],
   },
 ];
