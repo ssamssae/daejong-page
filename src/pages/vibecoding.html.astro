@@ -1,638 +1,1235 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import knowhowIndex from '../../public/knowhow/index.json';
 
-// 스킬 수는 과거 공개 카탈로그의 기록이며 현재 활성 개수가 아니다.
-// 공개 현재 로스터 = 아테나·헤르메스·볼칸 3. 라이덴·테미스는 퇴사(복직 아님).
-// '제작 기간' 기준 = claude-automations 최초 커밋일(2026-04-20) ~ 이 페이지 갱신일.
+const knowhowCount = knowhowIndex.entries.length;
+
 const stats = [
-  { label: '과거 스킬 목록', value: '52' },
-  { label: '물리 기기', value: '3' },
-  { label: 'Cursor 워커', value: '3' },
-  { label: '제작 기간', value: '약 21주' },
+  { value: '3', label: 'Mac 작업 공간' },
+  { value: '5', label: '공개 브릿지 저장소' },
+  { value: '1', label: '작업별 책임 리드' },
+  { value: '09.14', label: '내용 확인일' },
 ];
 
-const timeline = [
+const principles = [
   {
-    period: '2026.04.27 이전',
-    stage: '01',
-    title: '첫 슬래시 커맨드',
-    summary:
-      'todo, worklog, done, goodnight 같은 반복 기록을 파일에 남기는 단계에서 시작했다. 아직은 단일 Mac 세션 안에서 돌아가는 작은 자동화였다.',
-    tags: ['todo', 'worklog', 'done', 'goodnight'],
+    number: '01',
+    title: '프롬프트보다 완료 조건',
+    text: '무엇을 만들어야 하는지보다 어디까지 확인해야 끝인지 먼저 적는다. 구현·검증·배포를 서로 다른 단계로 본다.',
   },
   {
-    period: '2026.04.29 - 05.04',
-    stage: '02',
-    title: 'Mac + WSL 2-way handoff',
-    summary:
-      'WSL을 두 번째 작업자로 붙이고 본진에서 지시, WSL에서 실행, 다시 본진으로 결과를 회수하는 양방향 운반체를 만들었다.',
-    tags: ['parallel-cycle', 'wsl-flutter-test', 'submit-app'],
+    number: '02',
+    title: '한 작업에는 한 책임자',
+    text: '여러 도구를 쓸 수 있어도 같은 일을 동시에 선점하지 않는다. 하나의 리드가 판단과 결과 회수를 끝까지 책임진다.',
   },
   {
-    period: '2026.05.05 - 05.07',
-    stage: '03',
-    title: '에이전트 메시',
-    summary:
-      'PLAN, EXECUTE, JUDGE, REPORT 흐름이 잡히면서 작업 분해와 검증을 에이전트 협력 구조로 넘기기 시작했다.',
-    tags: ['loop-run', 'trio-vote', 'newsletter-publish'],
+    number: '03',
+    title: '자신감보다 관측값',
+    text: '파일을 바꿨다는 말보다 실행 중인 프로세스, 테스트 결과, 실제 기기와 공개 URL에서 읽은 값을 믿는다.',
   },
   {
-    period: '2026.05.08 - 05.09',
-    stage: '04',
-    title: 'Codex 합류와 스킬 다이어트',
-    summary:
-      'Mac mini가 세 번째 노드로 들어오고, 중복 스킬은 device-run 같은 공통 명령으로 합쳐졌다. 늘리는 것보다 줄이는 기준이 생겼다.',
-    tags: ['device-run', 'night-runner', 'merge-janitor'],
-  },
-  {
-    period: '2026.05.10 - 05.11',
-    stage: '05',
-    title: '5노드 메시',
-    summary:
-      '데스크탑 3060Ti와 노트북3060을 붙여 물리 5대 체제로 확장했다. GPU 실험, 모바일 동기화, 코드 실행 레인이 분리됐다.',
-    tags: ['mesh-vote', 'fleet-director', 'araseo'],
-  },
-  {
-    period: '2026.05.14 - 05.17',
-    stage: '06',
-    title: 'Claude Code 단일 스택과 공개 표면',
-    summary:
-      '외부 에이전트 환경을 정리하고 Claude Code 중심으로 통일했다. kangdaejong.com, work, 메일 라우팅, 큐 대시보드가 공개 표면으로 올라왔다.',
-    tags: ['5-node peer', 'domain live', 'public surface'],
-  },
-  {
-    period: '2026.05.25 - 05.28',
-    stage: '07',
-    title: 'Codex 백엔드 라이브',
-    summary:
-      'Codex REPL을 표준 실행 레인으로 세팅하고, 설계 투표와 분산 실행을 위한 Codex mesh 경로를 열었다.',
-    tags: ['codex-mesh-vote', 'codex-loop-fleet', 'YOLO mode'],
-  },
-  {
-    period: '2026.06.05 - 06.15',
-    stage: '08',
-    title: '역할 반전과 자기방어 인프라',
-    summary:
-      '본진은 거버넌스 게이트로 물러나고 자동 실행은 워커가 맡았다. 대신 증거 게이트, 원장, 가드 마커, 컨텍스트 하드클리어 같은 재발방지 장치가 들어갔다.',
-    tags: ['action-ledger', 'sot-mark', 'evidence gate'],
-  },
-  {
-    period: '2026.07.17 - 07.23',
-    stage: '09',
-    title: '하드웨어 세대교체와 실행 엔진 단일화',
-    summary:
-      '오래된 노트북이 물리적으로 은퇴했지만 노드 슬롯과 이력은 새 맥북이 그대로 승계해 5노드 체제를 유지했다. 같은 시기 보조로 쓰던 두 번째 실행 엔진은 자동 배차를 끄고 휴면 채널로만 남겼다.',
-    tags: ['node succession', 'single execution engine', '5-node roster'],
-  },
-  {
-    period: '2026.07.26 - 08.07',
-    stage: '10',
-    title: '2오케 팀 분할 실험과 자기교정',
-    summary:
-      '배차 권한을 팀 단위로 쪼개 오케 2명 체제를 시도했지만, 산출량은 그대로인 채 사고만 늘었다는 실측 근거로 13일 만에 단일팀으로 되돌렸다. 대신 머지 게이트는 작성자와 승인자를 분리하는 규칙으로 못박아 되돌린 자리에 남겼다.',
-    tags: ['team split retro', 'author-not-merger', 'single team'],
-  },
-  {
-    period: '2026.08.18 - 08.31',
-    stage: '11',
-    title: 'Grok 함대와 3노드 확정',
-    summary:
-      '실행 엔진을 Grok으로 옮기고, 라이덴·테미스는 퇴사했다. 복직이 아니다. 남은 AI는 아테나(운영 대표)·헤르메스·볼칸(워커 2)이다. Claude는 잔여 대화, Codex는 휴면 의견 채널로만 남았다.',
-    tags: ['Grok fleet', '3-node roster', 'resigned workers'],
-  },
-  {
-    period: '2026.09.01 - 09.12',
-    stage: '12',
-    title: 'Cursor·Local 브릿지와 다시 열린 실행면',
-    summary:
-      'Cursor Telegram Bridge가 폰에서 한 줄로 답하기 시작했고, Local Telegram Bridge가 Ollama·LM Studio를 같은 대화에 붙였다. Codex는 헤르메스 총괄로 다시 쓰이고, Cursor는 세 기기 워커로 움직인다. 공개 브릿지는 5종이다.',
-    tags: ['Cursor bridge', 'Local bridge', 'Codex orchestrator'],
+    number: '04',
+    title: '되돌리기 어려운 일은 마지막에',
+    text: '삭제·결제·발송·스토어 제출·공개 머지는 준비와 검증을 마친 뒤 승인 범위 안에서 실행한다.',
   },
 ];
 
-const nodes = [
-  { name: '헤르메스', role: 'Codex 총괄·직접 작업·최종 검토, Cursor 승인 작업', lane: 'governance' },
-  { name: '아테나', role: 'Cursor 승인 작업, Codex 신규 배차 중지', lane: 'execution' },
-  { name: '볼칸', role: 'Cursor 승인 작업, Codex 신규 배차 중지', lane: 'execution' },
+const loop = [
+  {
+    step: '01',
+    label: 'REQUEST',
+    title: '목표와 끝을 정한다',
+    text: '사용자 요청에서 결과물, 완료 조건, 제외 범위를 분리한다. 모호함이 결과를 바꿀 때만 질문한다.',
+    proof: 'goal · scope · done',
+  },
+  {
+    step: '02',
+    label: 'GROUND',
+    title: '현재 상태를 먼저 읽는다',
+    text: '기억보다 코드, 실행 중인 환경, 최신 정책과 외부 상태를 확인한다. 오래된 전제를 작업에 들이지 않는다.',
+    proof: 'code · runtime · policy',
+  },
+  {
+    step: '03',
+    label: 'BUILD',
+    title: '작은 변경으로 만든다',
+    text: '작업 공간을 분리하고 직접 코드에서 반복한다. 병렬화는 독립적인 부분에만 쓰고 같은 파일 경합을 피한다.',
+    proof: 'branch · diff · artifact',
+  },
+  {
+    step: '04',
+    label: 'VERIFY',
+    title: '실패할 수 있는 축을 찌른다',
+    text: '빌드만 보지 않는다. 회귀 테스트, 모바일 화면, 링크, 비밀정보, 런타임 값을 변경 위험에 맞게 검증한다.',
+    proof: 'test · visual · runtime',
+  },
+  {
+    step: '05',
+    label: 'SHIP',
+    title: '사용자 표면까지 확인한다',
+    text: 'PR과 배포 성공 뒤에도 라이브 바이트와 공개 페이지를 다시 읽는다. 콘솔의 초록색을 출시 자체로 착각하지 않는다.',
+    proof: 'merge · deploy · live',
+  },
 ];
 
-const flow = [
-  { label: '입력', text: '텔레그램 한 줄 또는 tasks.md 디렉티브' },
-  { label: '판단', text: '헤르메스 Codex가 사용자 승인 범위와 배정을 확인' },
-  { label: '실행', text: '헤르메스 직접 작업 또는 승인된 Cursor 배정' },
-  { label: '검증', text: 'build, test, diff-check, evidence contract' },
-  { label: '회수', text: 'mac-report, sot-mark, 수동 머지 게이트' },
+const eras = [
+  {
+    period: '2026.04 — 05',
+    title: '명령을 만들던 시기',
+    text: 'todo와 worklog 같은 반복 기록을 슬래시 커맨드로 줄였다. 자동화의 출발점은 거대한 에이전트가 아니라 귀찮은 한 단계를 없애는 일이었다.',
+    note: 'single session → reusable commands',
+  },
+  {
+    period: '2026.05 — 06',
+    title: '기기를 늘리던 시기',
+    text: 'Mac과 WSL, 여러 실행 엔진을 연결하며 최대 5대까지 확장했다. 속도는 올랐지만 중복 배정, 환경 차이, 결과 회수 문제가 함께 커졌다.',
+    note: 'more nodes → more coordination',
+  },
+  {
+    period: '2026.07 — 08',
+    title: '복잡성을 되돌리던 시기',
+    text: '팀 분할과 다중 오케스트레이션을 실험한 뒤 효과가 없는 구조는 접었다. 정책 문장보다 claim, 체크포인트, 검증 게이트 같은 강제 장치를 남겼다.',
+    note: 'experiment → measure → rollback',
+  },
+  {
+    period: '2026.09 — NOW',
+    title: '작게 연결해 끝내는 시기',
+    text: '현재 공개 설명의 기준은 3대의 Mac과 5종 브릿지다. 모든 엔진을 동시에 돌리지 않고, 작업마다 가용성을 확인해 한 책임 리드가 필요한 도구만 쓴다.',
+    note: 'one lead → verified delivery',
+  },
 ];
 
-const safeguards = [
-  '큰 작업 전 증거 기반 preflight',
-  '가드 마커와 정책 파일 보호',
-  '외부발신, 배포, 머지 R3 게이트',
-  '작업 상태는 tasks.md와 sot-mark 경유',
-  '컨텍스트 과밀 시 하드클리어와 재개 기준',
-  'stale 스킬을 감지하는 adapter scan',
+const layers = [
+  {
+    label: 'INPUT',
+    title: '요청',
+    text: '직접 대화와 Telegram이 같은 작업 입구를 공유한다.',
+  },
+  {
+    label: 'WORKSPACE',
+    title: '코드',
+    text: '제품 저장소와 분리된 브랜치에서 변경을 만든다.',
+  },
+  {
+    label: 'ENGINE',
+    title: '도구',
+    text: 'Cursor·Codex·Grok·Local은 고정 직급이 아니라 필요할 때 고르는 실행 수단이다.',
+  },
+  {
+    label: 'EVIDENCE',
+    title: '검증',
+    text: '테스트·스크린샷·런타임 관측·라이브 URL이 완료의 근거가 된다.',
+  },
+  {
+    label: 'MEMORY',
+    title: '기록',
+    text: '작업 장부·체크포인트·작업일지·노하우가 다음 작업의 시작점을 만든다.',
+  },
+];
+
+const stopped = [
+  {
+    before: '많이 켜면 더 빠르다',
+    after: '필요한 한 곳만 책임진다',
+  },
+  {
+    before: '설정 파일이 맞으면 적용됐다',
+    after: '실행 환경과 새 PID까지 본다',
+  },
+  {
+    before: 'CI가 초록이면 배포됐다',
+    after: '사용자가 받는 페이지를 확인한다',
+  },
+  {
+    before: '완료 보고를 기억하면 된다',
+    after: '관측값과 체크포인트를 남긴다',
+  },
+];
+
+const fieldNotes = [
+  {
+    date: '2026.09.14',
+    title: '설정 파일과 실행 환경은 다를 수 있다',
+    text: 'plist·현재 PID의 환경·프로세스 시작 시각을 함께 봐야 설정 적용을 확정할 수 있다.',
+    href: 'https://github.com/ssamssae/daejong-page/blob/main/public/knowhow/2026-09-14-launchd-config-live-env-three-way-check.md',
+  },
+  {
+    date: '2026.09.14',
+    title: '브릿지와 작업 세션은 따로 재시작한다',
+    text: '메시지 운반 경로를 고치면서 대화형 세션의 문맥과 입력 버퍼까지 지우지 않는다.',
+    href: 'https://github.com/ssamssae/daejong-page/blob/main/public/knowhow/2026-09-14-restart-transport-not-interactive-session.md',
+  },
+  {
+    date: '2026.09.14',
+    title: '스토어 completed와 공개 출시는 다르다',
+    text: '트랙 상태와 사용자가 여는 공개 URL이 모두 맞을 때 출시 완료로 닫는다.',
+    href: 'https://github.com/ssamssae/daejong-page/blob/main/public/knowhow/2026-09-14-store-console-completed-public-url-404.md',
+  },
+  {
+    date: '2026.09.14',
+    title: '비코드 작업에도 검증 영수증이 필요하다',
+    text: '설정·재시작·수동 UI 작업도 관측값, 기대값, 해시로 다시 확인할 수 있게 남긴다.',
+    href: 'https://github.com/ssamssae/daejong-page/blob/main/public/knowhow/2026-09-14-operational-verification-observation-hash.md',
+  },
 ];
 ---
 
 <Layout
-  title="에이전트 바이브코딩 변천사 - 강대종"
-  description="강대종이 Grok·Cursor·Codex·Local 브릿지와 커스텀 스킬, 3노드 워커로 바이브코딩 시스템을 만들어온 변천사."
+  title="바이브코딩 작업 방식 — 마이너스베타스튜디오"
+  description="강대종이 AI 코딩을 요청에서 출시까지 이어가는 현재 작업 방식. 3대의 Mac, 5종 공개 브릿지, 작업별 단일 책임과 검증 중심 운영을 소개합니다."
 >
   <Fragment slot="head">
-    <meta property="og:title" content="에이전트 바이브코딩 변천사 - 강대종" />
-    <meta property="og:description" content="물리 3대, Cursor 워커 3개, 과거 스킬 목록 52개. Grok·Cursor·Codex·Local 브릿지가 같이 쓰이는 바이브코딩 기록." />
+    <meta property="og:title" content="바이브코딩 작업 방식 — 마이너스베타스튜디오" />
+    <meta
+      property="og:description"
+      content="프롬프트보다 완료 조건, 자신감보다 관측값. 요청에서 실제 출시까지 이어지는 현재의 바이브코딩 운영 방식."
+    />
     <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://work.kangdaejong.com/vibecoding.html" />
     <meta property="og:site_name" content="강대종 작업장" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="에이전트 바이브코딩 변천사 - 강대종" />
-    <meta name="twitter:description" content="물리 3대, Cursor 워커 3개, 과거 스킬 목록 52개. Grok·Cursor·Codex·Local 브릿지가 같이 쓰이는 바이브코딩 기록." />
+    <meta name="twitter:title" content="바이브코딩 작업 방식 — 마이너스베타스튜디오" />
+    <meta
+      name="twitter:description"
+      content="요청을 코드로, 코드를 검증된 출시로 연결하는 1인 개발자의 현재 작업 방식."
+    />
     <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png" />
     <link rel="canonical" href="https://work.kangdaejong.com/vibecoding.html" />
   </Fragment>
 
   <article class="vibe-page">
-    <section class="vibe-hero" aria-labelledby="page-title">
+    <nav class="crumb" aria-label="현재 위치">
+      <a href="/">작업장</a>
+      <span>/</span>
+      <a href="/lab/">실험실</a>
+      <span>/</span>
+      <span aria-current="page">바이브코딩</span>
+    </nav>
+
+    <header class="vibe-hero">
       <div class="hero-copy">
-        <p class="eyebrow">AGENTIC VIBECODING REPORT</p>
-        <h1 id="page-title">에이전트 바이브코딩 변천사</h1>
-        <p class="lead">
-          반복 작업을 줄이려고 만든 작은 슬래시 커맨드가 물리 5대까지 커졌다가,
-          지금은 아테나·헤르메스·볼칸 3대와 Grok·Cursor·Codex·Local 브릿지로 다시 맞춰 있다.
-          이 페이지는 기능 목록이 아니라 어디서 복잡해졌고, 어디서 다시 줄였는지 보는 변화 기록이다.
+        <p class="kicker">VIBECODING / WORKING METHOD 2026</p>
+        <h1>
+          빨리 만드는 것보다,<br />
+          <em>제대로 끝내는 방식.</em>
+        </h1>
+        <p class="hero-lead">
+          바이브코딩은 이제 프롬프트를 잘 쓰는 기술만을 뜻하지 않습니다. 요청의 범위를 정하고,
+          코드에서 직접 반복하고, 실패할 수 있는 축을 검증해 실제 사용자 표면까지 보내는
+          <strong>작은 운영 체계</strong>에 가깝습니다.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#working-loop">현재 작업 루프 보기</a>
+          <a class="text-link" href="/knowhow.html/">실전 노하우 {knowhowCount}건 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-poster" aria-label="현재 바이브코딩 루프">
+        <div class="poster-head">
+          <span>LIVE METHOD</span>
+          <span>2026.09.14</span>
+        </div>
+        <p>Request</p>
+        <span class="poster-arrow" aria-hidden="true">↓</span>
+        <p>Ground</p>
+        <span class="poster-arrow" aria-hidden="true">↓</span>
+        <p>Build</p>
+        <span class="poster-arrow" aria-hidden="true">↓</span>
+        <p>Verify</p>
+        <span class="poster-arrow" aria-hidden="true">↓</span>
+        <p class="poster-accent">Ship.</p>
+        <small>사람이 목표를 정하고, 도구가 만들며, 증거가 완료를 결정합니다.</small>
+      </aside>
+    </header>
+
+    <dl class="signal-strip" aria-label="현재 작업 방식 요약">
+      {stats.map((stat) => (
+        <div>
+          <dd>{stat.value}</dd>
+          <dt>{stat.label}</dt>
+        </div>
+      ))}
+    </dl>
+
+    <section class="vibe-section principles-section" aria-labelledby="principles-title">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">01 / OPERATING PRINCIPLES</p>
+          <h2 id="principles-title">지금 지키는 네 가지 원칙.</h2>
+        </div>
+        <p>
+          도구 이름은 자주 바뀌지만, 작업을 안전하게 끝내는 기준은 오래 남습니다.
         </p>
       </div>
-      <dl class="hero-stats" aria-label="바이브코딩 시스템 요약">
-        {stats.map((stat) => (
-          <div>
-            <dt>{stat.label}</dt>
-            <dd>{stat.value}</dd>
-          </div>
-        ))}
-      </dl>
-    </section>
-
-    <section class="system-map" aria-labelledby="map-title">
-      <div class="section-head">
-        <p class="section-number">00</p>
-        <div>
-          <p class="eyebrow">CURRENT SHAPE</p>
-          <h2 id="map-title">지금은 한 명이 아니라 작은 운영체제처럼 일한다</h2>
-        </div>
-      </div>
-      <div class="map-board" aria-label="입력부터 회수까지의 운영 흐름">
-        {flow.map((item) => (
-          <div class="map-step">
-            <span>{item.label}</span>
-            <p>{item.text}</p>
-          </div>
+      <div class="principle-grid">
+        {principles.map((principle) => (
+          <article class="principle-card" data-principle>
+            <span>{principle.number}</span>
+            <h3>{principle.title}</h3>
+            <p>{principle.text}</p>
+          </article>
         ))}
       </div>
     </section>
 
-    <section class="vibe-section" aria-labelledby="timeline-title">
-      <div class="section-head">
-        <p class="section-number">01</p>
-        <div>
-          <p class="eyebrow">TIMELINE</p>
-          <h2 id="timeline-title">변화는 자동화보다 운영 기준을 만드는 쪽으로 갔다</h2>
-        </div>
+    <section
+      class="vibe-section loop-section"
+      id="working-loop"
+      aria-labelledby="loop-title"
+    >
+      <div class="loop-intro">
+        <p class="kicker">02 / CURRENT LOOP</p>
+        <h2 id="loop-title">요청에서 실제 출시까지.</h2>
+        <p>
+          각 단계는 다음 단계로 넘어가기 위한 산출물을 남깁니다. 그래서 세션이 바뀌거나 도구가
+          달라져도 작업을 처음부터 다시 추측하지 않습니다.
+        </p>
       </div>
-      <ol class="timeline-list">
-        {timeline.map((item) => (
-          <li>
-            <time>{item.period}</time>
+      <ol class="loop-list">
+        {loop.map((item) => (
+          <li data-loop-step>
+            <span class="loop-number">{item.step}</span>
             <div>
-              <span class="stage">STEP {item.stage}</span>
+              <p class="loop-label">{item.label}</p>
               <h3>{item.title}</h3>
-              <p>{item.summary}</p>
-              <ul class="tag-list" aria-label={`${item.title} 관련 키워드`}>
-                {item.tags.map((tag) => <li>{tag}</li>)}
-              </ul>
+              <p class="loop-text">{item.text}</p>
+              <code>{item.proof}</code>
             </div>
           </li>
         ))}
       </ol>
     </section>
 
-    <section class="vibe-section" aria-labelledby="node-title">
-      <div class="section-head">
-        <p class="section-number">02</p>
+    <section class="vibe-section era-section" aria-labelledby="era-title">
+      <div class="section-heading">
         <div>
-          <p class="eyebrow">NODE MAP</p>
-          <h2 id="node-title">지금은 3노드로 줄이고 역할을 나눈다</h2>
+          <p class="kicker">03 / FOUR ERAS</p>
+          <h2 id="era-title">늘렸다가, 줄이고, 기준을 남겼습니다.</h2>
         </div>
+        <p>
+          12단계 기능 연표 대신 무엇이 바뀌었고 어떤 판단이 남았는지만 네 시기로 압축했습니다.
+        </p>
       </div>
-      <div class="node-table" role="table" aria-label="물리 노드 역할">
-        {nodes.map((node) => (
-          <div class="node-row" role="row">
-            <div role="cell">
-              <span>{node.lane}</span>
-              <strong>{node.name}</strong>
+      <ol class="era-grid">
+        {eras.map((era, index) => (
+          <li data-era>
+            <div class="era-top">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <time>{era.period}</time>
             </div>
-            <p role="cell">{node.role}</p>
+            <h3>{era.title}</h3>
+            <p>{era.text}</p>
+            <code>{era.note}</code>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="vibe-section layer-section" aria-labelledby="layer-title">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">04 / CONNECTED LAYERS</p>
+          <h2 id="layer-title">도구가 아니라 흐름으로 봅니다.</h2>
+        </div>
+        <p>
+          엔진 하나가 모든 일을 하는 구조가 아닙니다. 요청·코드·도구·증거·기록이 느슨하게
+          연결되고, 작업마다 필요한 층만 사용합니다.
+        </p>
+      </div>
+      <div class="layer-board">
+        {layers.map((layer, index) => (
+          <article>
+            <span>{layer.label}</span>
+            <div class="layer-index">{String(index + 1).padStart(2, '0')}</div>
+            <h3>{layer.title}</h3>
+            <p>{layer.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="anti-section" aria-labelledby="anti-title">
+      <div class="anti-heading">
+        <p class="kicker">05 / WHAT CHANGED</p>
+        <h2 id="anti-title">더 자동화한 것이 아니라,<br />잘못 믿던 것을 줄였습니다.</h2>
+      </div>
+      <div class="anti-list">
+        {stopped.map((item) => (
+          <div>
+            <p><span>BEFORE</span>{item.before}</p>
+            <span class="anti-arrow" aria-hidden="true">→</span>
+            <p><span>NOW</span>{item.after}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <section class="vibe-section two-column" aria-labelledby="workflow-title">
-      <div class="section-head">
-        <p class="section-number">03</p>
+    <section class="vibe-section notes-section" aria-labelledby="notes-title">
+      <div class="section-heading">
         <div>
-          <p class="eyebrow">OPERATING RULE</p>
-          <h2 id="workflow-title">좋은 자동화는 더 많이 누르는 버튼이 아니라 덜 헷갈리는 절차다</h2>
+          <p class="kicker">06 / FRESH FIELD NOTES</p>
+          <h2 id="notes-title">최근에 다시 확인한 것.</h2>
         </div>
+        <p>
+          작업 방식은 선언보다 사고와 복구에서 더 많이 바뀝니다. 최근 현장에서 다시 쓴 원칙입니다.
+        </p>
       </div>
-      <div class="column-grid">
-        <div class="plain-panel">
-          <h3>처음의 문제</h3>
-          <p>
-            스킬이 늘어날수록 기억해야 할 규칙도 같이 늘었다. 어디까지 자동으로 해도 되는지,
-            어떤 결과를 믿어도 되는지, 어떤 작업은 본진 승인이 필요한지 매번 흔들렸다.
-          </p>
-        </div>
-        <div class="plain-panel">
-          <h3>지금의 기준</h3>
-          <p>
-            워커는 손이다. 브랜치, 검증, PR, 보고까지 수행하지만 머지와 배포는 게이트를 통과한다.
-            자동화가 빠르게 움직이되 되돌릴 수 있는 단위에서 멈추게 만든다.
-          </p>
-        </div>
+      <div class="notes-grid">
+        {fieldNotes.map((note, index) => (
+          <a href={note.href} target="_blank" rel="noopener">
+            <div class="note-meta">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <time>{note.date}</time>
+            </div>
+            <h3>{note.title}</h3>
+            <p>{note.text}</p>
+            <b>원문 보기 <span aria-hidden="true">↗</span></b>
+          </a>
+        ))}
       </div>
     </section>
 
-    <section class="vibe-section" aria-labelledby="guard-title">
-      <div class="section-head">
-        <p class="section-number">04</p>
-        <div>
-          <p class="eyebrow">FORCING FUNCTIONS</p>
-          <h2 id="guard-title">메모가 아니라 강제 장치가 재발을 줄인다</h2>
-        </div>
+    <aside class="closing-block">
+      <p class="kicker">THE POINT</p>
+      <blockquote>
+        “바이브”는 시작을 빠르게 만들고,<br />
+        <strong>운영 방식은 끝을 믿을 수 있게 만듭니다.</strong>
+      </blockquote>
+      <div>
+        <p>
+          이 페이지는 2026년 9월 14일의 작업 방식입니다. 다음 변화와 실제 산출물은 작업일지와
+          노하우에 계속 남깁니다.
+        </p>
+        <a href="/worklog/">최근 작업일지</a>
+        <a href="/knowhow.html/">노하우 아카이브</a>
       </div>
-      <ul class="guard-list">
-        {safeguards.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
+    </aside>
 
     <footer class="vibe-footer">
-      <p>마지막 갱신 2026.09.12</p>
-      <a href="/lab/">lab으로 돌아가기</a>
+      <p>내용 확인 <time datetime="2026-09-14">2026.09.14</time></p>
+      <a href="/lab/">실험실로 돌아가기</a>
     </footer>
   </article>
 
   <style>
     .vibe-page {
+      --vibe-accent: var(--accent);
+      --vibe-green: var(--accent-2);
       display: flex;
+      min-width: 0;
       flex-direction: column;
-      gap: 68px;
+      gap: 88px;
+      padding-top: 4px;
+    }
+
+    .vibe-page > * {
+      min-width: 0;
+    }
+
+    .crumb,
+    .kicker,
+    .poster-head,
+    .signal-strip,
+    .principle-card > span,
+    .loop-number,
+    .loop-label,
+    .loop-list code,
+    .era-top,
+    .era-grid code,
+    .layer-board > article > span,
+    .layer-index,
+    .anti-list p span,
+    .note-meta,
+    .vibe-footer {
+      font-family: var(--mono);
+    }
+
+    .crumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--fg-mute);
+      font-size: var(--text-badge);
+    }
+
+    .crumb a {
+      color: var(--fg-dim);
+      text-decoration: none;
+    }
+
+    .crumb a:hover {
+      color: var(--fg);
+      text-decoration: underline;
+    }
+
+    .kicker {
+      color: var(--fg-mute);
+      font-size: var(--text-badge);
+      font-weight: 600;
+      letter-spacing: var(--track-eyebrow);
+      text-transform: uppercase;
     }
 
     .vibe-hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-      gap: 42px;
-      align-items: end;
-      border-bottom: 1px solid var(--border);
-      padding: 18px 0 42px;
+      grid-template-columns: minmax(0, 1.3fr) minmax(330px, 0.7fr);
+      gap: clamp(42px, 7vw, 96px);
+      align-items: stretch;
+      padding: 8px 0 4px;
     }
 
-    .eyebrow {
-      color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
-      font-weight: 600;
-      letter-spacing: 0;
-      margin-bottom: 12px;
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px 0 22px;
     }
 
-    h1 {
+    .hero-copy h1 {
+      max-width: 900px;
+      margin: 28px 0 30px;
       color: var(--fg);
-      font-size: var(--text-h1);
-      line-height: 0.98;
-      margin: 0 0 22px;
-      max-width: 880px;
+      font-family: var(--serif);
+      font-size: clamp(46px, 7vw, 84px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+      word-break: keep-all;
     }
 
-    .lead {
+    .hero-copy h1 em {
+      color: var(--vibe-accent);
+      font-style: normal;
+    }
+
+    .hero-lead {
+      max-width: 700px;
       color: var(--fg-dim);
       font-size: var(--text-lead);
-      line-height: 1.75;
-      max-width: 760px;
+      line-height: 1.9;
+      word-break: keep-all;
     }
 
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr;
-      border-top: 1px solid var(--fg);
-    }
-
-    .hero-stats div {
-      display: grid;
-      grid-template-columns: 92px minmax(0, 1fr);
-      gap: 14px;
-      align-items: baseline;
-      border-bottom: 1px solid var(--border);
-      min-height: 58px;
-      padding: 14px 0;
-    }
-
-    .hero-stats dt {
-      color: var(--fg-mute);
-      font-size: var(--text-desc);
-      font-weight: 600;
-    }
-
-    .hero-stats dd {
+    .hero-lead strong {
       color: var(--fg);
-      font-family: var(--mono);
-      font-size: var(--text-lead);
-      font-weight: 600;
-      line-height: 1.45;
-      min-width: 0;
+      font-weight: 700;
     }
 
-    .section-head {
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      align-items: center;
+      margin-top: 38px;
+    }
+
+    .hero-actions a {
+      font-size: var(--text-desc);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .primary-link {
+      border-radius: var(--radius-btn);
+      background: var(--fg);
+      color: var(--invert-fg);
+      padding: 14px 18px;
+    }
+
+    .primary-link:hover {
+      background: var(--vibe-accent);
+      color: var(--cta-fg);
+    }
+
+    .text-link {
+      color: var(--fg);
+    }
+
+    .text-link:hover {
+      color: var(--vibe-accent);
+    }
+
+    .hero-poster {
+      display: flex;
+      min-height: 590px;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: var(--radius-card);
+      background: var(--invert-bg);
+      color: var(--invert-fg);
+      padding: 28px;
+      box-shadow: var(--shadow-pop);
+    }
+
+    .poster-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: auto;
+      color: var(--invert-dim);
+      font-size: var(--text-badge);
+      font-weight: 600;
+    }
+
+    .hero-poster > p {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-poster .poster-accent {
+      color: #f28b68;
+    }
+
+    .poster-arrow {
+      margin: 8px 0 8px 6px;
+      color: var(--invert-dim);
+      font-family: var(--mono);
+      font-size: var(--text-body);
+    }
+
+    .hero-poster small {
+      max-width: 290px;
+      margin-top: auto;
+      color: var(--invert-dim);
+      font-size: var(--text-desc);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .signal-strip {
       display: grid;
-      grid-template-columns: 76px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--fg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .signal-strip > div {
+      min-width: 0;
+      border-right: 1px solid var(--border);
+      padding: 24px 20px;
+    }
+
+    .signal-strip > div:first-child {
+      padding-left: 0;
+    }
+
+    .signal-strip > div:last-child {
+      border-right: 0;
+    }
+
+    .signal-strip dd {
+      color: var(--fg);
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .signal-strip dt {
+      margin-top: 11px;
+      color: var(--fg-mute);
+      font-size: var(--text-badge);
+      line-height: 1.5;
+    }
+
+    .vibe-section {
+      scroll-margin-top: 28px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 30px;
       border-top: 1px solid var(--fg);
       padding-top: 22px;
-      margin-bottom: 24px;
     }
 
-    .section-number {
+    .section-heading h2,
+    .loop-intro h2,
+    .anti-heading h2 {
+      max-width: 760px;
+      margin-top: 14px;
       color: var(--fg);
-      font-family: var(--mono);
+      font-family: var(--serif);
+      font-size: var(--text-h2);
+      line-height: 1.3;
+      letter-spacing: -0.03em;
+      word-break: keep-all;
+    }
+
+    .section-heading > p,
+    .loop-intro > p:last-child {
+      color: var(--fg-mute);
       font-size: var(--text-desc);
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+
+    .principle-card {
+      min-height: 250px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+    }
+
+    .principle-card > span {
+      display: block;
+      color: var(--vibe-accent);
+      font-size: var(--text-badge);
       font-weight: 600;
     }
 
-    h2 {
+    .principle-card h3 {
+      margin: 54px 0 14px;
       color: var(--fg);
-      font-size: var(--text-h2);
-      line-height: var(--leading-h1);
-      max-width: 760px;
+      font-family: var(--serif);
+      font-size: var(--text-h3);
+      line-height: 1.4;
+      word-break: keep-all;
     }
 
-    .system-map {
-      margin-top: -18px;
-    }
-
-    .map-board {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      border-top: 1px solid var(--border);
-      border-left: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .map-step {
-      min-height: 156px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 18px;
-    }
-
-    .map-step span {
-      display: block;
-      color: var(--fg);
-      font-size: var(--text-body);
-      font-weight: 700;
-      margin-bottom: 38px;
-    }
-
-    .map-step p {
+    .principle-card p {
+      max-width: 520px;
       color: var(--fg-dim);
       font-size: var(--text-desc);
       line-height: var(--leading-body);
+      word-break: keep-all;
     }
 
-    .timeline-list {
-      list-style: none;
-      border-top: 1px solid var(--border);
-    }
-
-    .timeline-list > li {
+    .loop-section {
       display: grid;
-      grid-template-columns: 190px minmax(0, 1fr);
-      gap: 32px;
+      grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1.38fr);
+      gap: clamp(42px, 7vw, 96px);
+      align-items: start;
+    }
+
+    .loop-intro {
+      position: sticky;
+      top: 28px;
+      border-top: 1px solid var(--fg);
+      padding-top: 22px;
+    }
+
+    .loop-intro > p:last-child {
+      max-width: 390px;
+      margin-top: 18px;
+    }
+
+    .loop-list {
+      list-style: none;
+      border-top: 1px solid var(--fg);
+    }
+
+    .loop-list > li {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 22px;
+      min-height: 230px;
       border-bottom: 1px solid var(--border);
       padding: 26px 0;
     }
 
-    .timeline-list time {
+    .loop-number {
       color: var(--fg-mute);
-      font-family: var(--mono);
       font-size: var(--text-desc);
-      line-height: var(--leading-desc);
-    }
-
-    .stage {
-      color: var(--fg-mute);
-      display: block;
-      font-family: var(--mono);
-      font-size: var(--text-meta);
       font-weight: 600;
-      margin-bottom: 8px;
     }
 
-    .timeline-list h3 {
-      color: var(--fg);
-      font-size: var(--text-h2);
-      line-height: var(--leading-h1);
-      margin-bottom: 10px;
-    }
-
-    .timeline-list p {
-      color: var(--fg-dim);
-      font-size: var(--text-body);
-      line-height: 1.75;
-      max-width: 760px;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      list-style: none;
-      margin-top: 14px;
-    }
-
-    .tag-list li {
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--fg-dim);
-      font-family: var(--mono);
+    .loop-label {
+      color: var(--vibe-accent);
       font-size: var(--text-badge);
-      line-height: 1;
-      padding: 6px 9px;
-    }
-
-    .node-table {
-      border-top: 1px solid var(--border);
-    }
-
-    .node-row {
-      display: grid;
-      grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
-      gap: 28px;
-      border-bottom: 1px solid var(--border);
-      padding: 22px 0;
-    }
-
-    .node-row span {
-      color: var(--fg-mute);
-      display: block;
-      font-family: var(--mono);
-      font-size: var(--text-meta);
       font-weight: 600;
-      margin-bottom: 6px;
+      letter-spacing: var(--track-badge);
     }
 
-    .node-row strong {
+    .loop-list h3 {
+      margin: 12px 0;
       color: var(--fg);
-      display: block;
+      font-family: var(--serif);
       font-size: var(--text-h3);
-      line-height: var(--leading-h1);
+      line-height: 1.35;
     }
 
-    .node-row p {
-      color: var(--fg-dim);
-      font-size: var(--text-body);
-      line-height: var(--leading-body);
-      max-width: 640px;
-    }
-
-    .column-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .plain-panel {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-btn);
-      min-height: 230px;
-      padding: 22px;
-    }
-
-    .plain-panel h3 {
-      color: var(--fg);
-      font-size: var(--text-h3);
-      line-height: var(--leading-h1);
-      margin-bottom: 34px;
-    }
-
-    .plain-panel p {
+    .loop-text {
+      max-width: 620px;
       color: var(--fg-dim);
       font-size: var(--text-body);
       line-height: 1.75;
+      word-break: keep-all;
     }
 
-    .guard-list {
+    .loop-list code,
+    .era-grid code {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--fg-mute);
+      font-size: var(--text-badge);
+    }
+
+    .era-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       list-style: none;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--fg);
       border-left: 1px solid var(--border);
     }
 
-    .guard-list li {
-      color: var(--fg);
+    .era-grid > li {
+      display: flex;
+      min-height: 420px;
+      flex-direction: column;
       border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      font-size: var(--text-body);
+      padding: 22px;
+    }
+
+    .era-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--fg-mute);
+      font-size: var(--text-badge);
+    }
+
+    .era-top > span {
+      color: var(--vibe-accent);
       font-weight: 600;
-      line-height: var(--leading-desc);
-      min-height: 118px;
-      padding: 18px;
+    }
+
+    .era-grid h3 {
+      margin: 56px 0 16px;
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--text-h3);
+      line-height: 1.4;
+      word-break: keep-all;
+    }
+
+    .era-grid > li > p {
+      color: var(--fg-dim);
+      font-size: var(--text-desc);
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .era-grid code {
+      margin-top: auto;
+      padding-top: 24px;
+      white-space: normal;
+    }
+
+    .layer-board {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .layer-board article {
+      position: relative;
+      min-height: 310px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      background: var(--bg-elev);
+      padding: 20px;
+    }
+
+    .layer-board > article > span {
+      color: var(--vibe-green);
+      font-size: var(--text-badge);
+      font-weight: 600;
+      letter-spacing: var(--track-badge);
+    }
+
+    .layer-index {
+      position: absolute;
+      right: 16px;
+      bottom: -25px;
+      color: var(--border);
+      font-size: 96px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .layer-board h3 {
+      margin: 76px 0 14px;
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: var(--text-h3);
+    }
+
+    .layer-board p {
+      position: relative;
+      z-index: 1;
+      color: var(--fg-dim);
+      font-size: var(--text-desc);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .anti-section {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+      gap: clamp(42px, 7vw, 96px);
+      border-radius: var(--radius-card);
+      background: var(--invert-bg);
+      color: var(--invert-fg);
+      padding: clamp(28px, 5vw, 58px);
+    }
+
+    .anti-heading .kicker {
+      color: #f28b68;
+    }
+
+    .anti-heading h2 {
+      color: var(--invert-fg);
+    }
+
+    .anti-list {
+      border-top: 1px solid var(--invert-border);
+    }
+
+    .anti-list > div {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      min-height: 112px;
+      border-bottom: 1px solid var(--invert-border);
+    }
+
+    .anti-list p {
+      color: var(--invert-fg);
+      font-size: var(--text-desc);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    .anti-list p span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--invert-dim);
+      font-size: var(--text-badge);
+    }
+
+    .anti-list p:last-child span {
+      color: #f28b68;
+    }
+
+    .anti-arrow {
+      color: var(--invert-dim);
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--fg);
+      border-left: 1px solid var(--border);
+    }
+
+    .notes-grid > a {
+      display: flex;
+      min-height: 310px;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+      padding: 24px;
+      text-decoration: none;
+      transition: background 160ms ease;
+    }
+
+    .notes-grid > a:hover {
+      background: var(--bg-elev);
+    }
+
+    .notes-grid > a:focus-visible,
+    .hero-actions a:focus-visible,
+    .closing-block a:focus-visible,
+    .crumb a:focus-visible {
+      outline: 2px solid var(--vibe-accent);
+      outline-offset: 3px;
+    }
+
+    .note-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--fg-mute);
+      font-size: var(--text-badge);
+    }
+
+    .note-meta > span {
+      color: var(--vibe-accent);
+      font-weight: 600;
+    }
+
+    .notes-grid h3 {
+      max-width: 500px;
+      margin: 50px 0 14px;
+      font-family: var(--serif);
+      font-size: var(--text-h3);
+      line-height: 1.4;
+      word-break: keep-all;
+    }
+
+    .notes-grid p {
+      max-width: 520px;
+      color: var(--fg-dim);
+      font-size: var(--text-desc);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .notes-grid b {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: auto;
+      padding-top: 24px;
+      font-size: var(--text-badge);
+    }
+
+    .closing-block {
+      display: grid;
+      grid-template-columns: 130px minmax(0, 1fr);
+      gap: 34px;
+      border-top: 1px solid var(--fg);
+      border-bottom: 1px solid var(--border);
+      padding: 34px 0 42px;
+    }
+
+    .closing-block blockquote {
+      max-width: 900px;
+      margin: 0;
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: clamp(27px, 4vw, 46px);
+      line-height: 1.45;
+      letter-spacing: -0.03em;
+      word-break: keep-all;
+    }
+
+    .closing-block blockquote strong {
+      color: var(--vibe-accent);
+      font-weight: 700;
+    }
+
+    .closing-block > div {
+      grid-column: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .closing-block > div p {
+      flex: 1 1 440px;
+      color: var(--fg-mute);
+      font-size: var(--text-desc);
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .closing-block > div a {
+      color: var(--fg);
+      font-size: var(--text-desc);
+      font-weight: 700;
+      text-underline-offset: 4px;
     }
 
     .vibe-footer {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      border-top: 1px solid var(--border);
-      padding-top: 20px;
-    }
-
-    .vibe-footer p,
-    .vibe-footer a {
+      gap: 22px;
       color: var(--fg-mute);
-      font-family: var(--mono);
-      font-size: var(--text-meta);
+      font-size: var(--text-badge);
     }
 
-    @media (max-width: 900px) {
+    .vibe-footer a {
+      color: var(--fg-dim);
+      text-decoration: none;
+    }
+
+    .vibe-footer a:hover {
+      color: var(--fg);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 1040px) {
       .vibe-hero {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+        gap: 34px;
       }
 
-      .map-board,
-      .guard-list {
+      .era-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .column-grid {
-        grid-template-columns: 1fr;
+      .era-grid > li {
+        min-height: 360px;
+      }
+
+      .layer-board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .layer-board article:last-child {
+        grid-column: 1 / -1;
+        min-height: 250px;
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
       .vibe-page {
-        gap: 52px;
+        gap: 66px;
       }
 
-      .vibe-hero {
-        padding-top: 6px;
+      .vibe-hero,
+      .loop-section,
+      .anti-section {
+        grid-template-columns: 1fr;
       }
 
-      h1 {
-        line-height: 1.04;
+      .hero-copy {
+        padding-top: 12px;
       }
 
-      .lead {
+      .hero-poster {
+        min-height: 530px;
+      }
+
+      .signal-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .signal-strip > div:nth-child(2) {
+        border-right: 0;
+      }
+
+      .signal-strip > div:first-child,
+      .signal-strip > div:nth-child(2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .signal-strip > div:nth-child(3) {
+        padding-left: 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .loop-intro {
+        position: static;
+      }
+
+      .anti-section {
+        gap: 34px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .vibe-page {
+        gap: 56px;
+      }
+
+      .hero-copy h1 {
+        margin-top: 22px;
+        font-size: clamp(40px, 13vw, 58px);
+      }
+
+      .hero-lead {
         font-size: 16px;
       }
 
-      .section-head {
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-actions a {
+        text-align: center;
+      }
+
+      .hero-poster {
+        min-height: 500px;
+        padding: 22px;
+      }
+
+      .principle-grid,
+      .era-grid,
+      .layer-board,
+      .notes-grid {
         grid-template-columns: 1fr;
-        gap: 8px;
       }
 
-      .map-board,
-      .guard-list {
-        grid-template-columns: 1fr;
+      .principle-card {
+        min-height: 230px;
       }
 
-      .map-step {
-        min-height: auto;
-      }
-
-      .map-step span {
-        margin-bottom: 14px;
-      }
-
-      .timeline-list > li,
-      .node-row {
-        grid-template-columns: 1fr;
+      .loop-list > li {
+        grid-template-columns: 44px minmax(0, 1fr);
         gap: 12px;
       }
 
-      .plain-panel {
-        min-height: auto;
+      .era-grid > li {
+        min-height: 350px;
       }
 
-      .plain-panel h3 {
-        margin-bottom: 18px;
+      .layer-board article,
+      .layer-board article:last-child {
+        grid-column: auto;
+        min-height: 260px;
+      }
+
+      .anti-list > div {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 20px 0;
+      }
+
+      .anti-arrow {
+        transform: rotate(90deg);
+      }
+
+      .notes-grid > a {
+        min-height: 290px;
+      }
+
+      .closing-block {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .closing-block > div {
+        grid-column: auto;
       }
 
       .vibe-footer {
         flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .notes-grid > a {
+        transition: none;
       }
     }
   </style>
