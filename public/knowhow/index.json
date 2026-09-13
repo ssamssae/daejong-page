@@ -1,6 +1,86 @@
 {
   "entries": [
     {
+      "file": "2026-09-14-launchd-config-live-env-three-way-check.md",
+      "date": "2026-09-14",
+      "slug": "launchd-config-live-env-three-way-check",
+      "title": "설정 파일을 고쳤다고 서비스가 바뀐 건 아니다 — plist·실행 환경·시작 시각을 함께 본다",
+      "category": "인프라",
+      "tags": [
+        "launchd",
+        "plist",
+        "process-env",
+        "configuration-drift",
+        "restart",
+        "verification"
+      ],
+      "summary": "LaunchAgent 설정을 수정했어도 재시작 누락이나 뒤이은 설치 작업의 덮어쓰기로 실행 프로세스는 다른 값을 들 수 있다. 완료 판정은 plist의 디스크 값, 현재 PID의 실제 환경변수, 프로세스 시작 시각을 함께 대조해야 하며 세 층이 어긋난 위치가 곧 원인 범위다."
+    },
+    {
+      "file": "2026-09-14-restart-transport-not-interactive-session.md",
+      "date": "2026-09-14",
+      "slug": "restart-transport-not-interactive-session",
+      "title": "브릿지를 재시작할 때 작업 세션까지 죽이지 않는다 — 운반 프로세스와 실행 프로세스를 분리한다",
+      "category": "인프라",
+      "tags": [
+        "bridge",
+        "tmux",
+        "launchd",
+        "process-isolation",
+        "session-preservation",
+        "telegram"
+      ],
+      "summary": "메시지 운반 브릿지의 설정 반영과 대화형 작업 세션 초기화는 서로 다른 작업이다. 큐와 현재 턴이 끝난 뒤 브릿지 서비스만 교체하고, 새 브릿지 PID·worker 상태·실행 환경은 바뀌되 tmux 안의 Cursor·Codex 세션 PID는 유지됐는지 확인하면 문맥 유실 없이 복구할 수 있다."
+    },
+    {
+      "file": "2026-09-14-store-console-completed-public-url-404.md",
+      "date": "2026-09-14",
+      "slug": "store-console-completed-public-url-404",
+      "title": "스토어 콘솔의 completed는 공개 완료가 아니다 — 트랙 상태와 사용자 URL을 따로 검증한다",
+      "category": "Android 배포",
+      "tags": [
+        "google-play",
+        "production-track",
+        "public-listing",
+        "version-code",
+        "release-verification",
+        "404"
+      ],
+      "summary": "Google Play production 릴리스가 completed여도 지역별 전파나 공개 노출이 끝나지 않아 상세 URL은 404일 수 있다. 업로드·심사·트랙 반영·공개 페이지를 서로 다른 단계로 기록하고, 목표 versionCode의 콘솔 상태와 로그인 없는 사용자 URL이 모두 맞을 때만 공개 출시로 닫아야 한다."
+    },
+    {
+      "file": "2026-09-14-store-app-debug-install-data-loss-guard.md",
+      "date": "2026-09-14",
+      "slug": "store-app-debug-install-data-loss-guard",
+      "title": "실기기 테스트 전에 설치 출처부터 본다 — debug 덮어쓰기가 사용자 데이터를 지울 수 있다",
+      "category": "Flutter",
+      "tags": [
+        "flutter",
+        "android",
+        "adb",
+        "signing",
+        "user-data",
+        "device-test"
+      ],
+      "summary": "스토어 설치본 위에 같은 applicationId의 debug APK를 올리면 서명 불일치가 나고, 자동 uninstall fallback은 실제 사용자 데이터를 함께 지울 수 있다. 설치 전에 installer·versionCode·서명 조건을 확인하고 같은 release 서명, 테스트용 applicationId, 전용 기기 중 하나를 선택해야 한다."
+    },
+    {
+      "file": "2026-09-14-operational-verification-observation-hash.md",
+      "date": "2026-09-14",
+      "slug": "operational-verification-observation-hash",
+      "title": "코드가 안 바뀐 작업도 검증 영수증을 남긴다 — 관측값·기대값·파일 해시의 최소 계약",
+      "category": "검증/운영",
+      "tags": [
+        "verification",
+        "observability",
+        "sha256",
+        "configuration",
+        "runtime",
+        "evidence"
+      ],
+      "summary": "설정 변경·서비스 재시작·콘솔 상태 확인처럼 코드 diff가 없는 작업도 산문 보고만으로 닫으면 재검산할 수 없다. 실제 도구 관측을 JSON으로 남기고 완료 조건의 기대값, 측정 방법, 시각, 관측 파일 SHA-256을 별도 영수증에 묶으면 비코드 작업도 기계적으로 검증할 수 있다."
+    },
+    {
       "file": "2026-07-07-durable-scheduler-for-delayed-actions.md",
       "date": "2026-07-07",
       "slug": "durable-scheduler-for-delayed-actions",
