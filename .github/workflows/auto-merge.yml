@@ -42,6 +42,7 @@ jobs:
        startsWith(github.event.pull_request.head.ref, 'macmini/') ||
        startsWith(github.event.pull_request.head.ref, 'desktop3060ti/') ||
        startsWith(github.event.pull_request.head.ref, 'notebook3060/') ||
+       startsWith(github.event.pull_request.head.ref, 'macbook14/') ||
        startsWith(github.event.pull_request.head.ref, 'mac/'))
     permissions:
       contents: read
@@ -62,6 +63,7 @@ jobs:
        startsWith(github.event.pull_request.head.ref, 'macmini/') ||
        startsWith(github.event.pull_request.head.ref, 'desktop3060ti/') ||
        startsWith(github.event.pull_request.head.ref, 'notebook3060/') ||
+       startsWith(github.event.pull_request.head.ref, 'macbook14/') ||
        startsWith(github.event.pull_request.head.ref, 'mac/')) &&
       !contains(github.event.pull_request.labels.*.name, 'no-auto-merge') &&
       !contains(github.event.pull_request.body, 'no-auto-merge') &&
