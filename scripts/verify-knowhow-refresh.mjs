@@ -2,22 +2,39 @@ import fs from 'node:fs';
 
 const expectedEntries = [
   {
-    file: '2026-07-07-durable-scheduler-for-delayed-actions.md',
-    slug: 'durable-scheduler-for-delayed-actions',
-    title: '"30분 뒤에 꺼줘"는 세션이 아니라 OS에 맡긴다 — 지연 실행용 durable 스케줄러',
-    phrases: ['launchd', '일회성 OS 타이머', '세션은 대화의 수명이고, 예약은 그보다 오래 살아야 한다'],
+    file: '2026-09-14-launchd-config-live-env-three-way-check.md',
+    date: '2026-09-14',
+    slug: 'launchd-config-live-env-three-way-check',
+    title: '설정 파일을 고쳤다고 서비스가 바뀐 건 아니다 — plist·실행 환경·시작 시각을 함께 본다',
+    phrases: ['디스크에 남은 설정', '실행 중 프로세스가 실제로 받은 설정', '프로세스 세대가 일치'],
   },
   {
-    file: '2026-07-07-detached-head-silent-push-failure.md',
-    slug: 'detached-head-silent-push-failure',
-    title: 'detached HEAD에서 자동으로 커밋하면 push가 조용히 실패한다 — 커밋 전 브랜치 앵커를 단언한다',
-    phrases: ['git symbolic-ref -q HEAD', 'salvage 태그', '커밋이 성공했다는 건 데이터가 안전하다는 뜻이 아니다'],
+    file: '2026-09-14-restart-transport-not-interactive-session.md',
+    date: '2026-09-14',
+    slug: 'restart-transport-not-interactive-session',
+    title: '브릿지를 재시작할 때 작업 세션까지 죽이지 않는다 — 운반 프로세스와 실행 프로세스를 분리한다',
+    phrases: ['운반 층', '실행 세션 PID', '브릿지만 갈고 세션은 살려라'],
   },
   {
-    file: '2026-07-07-idempotent-dispatch-claim-gate.md',
-    slug: 'idempotent-dispatch-claim-gate',
-    title: '같은 일을 두 곳에 시키면 두 번 한다 — 착수 전 claim 게이트로 중복 실행을 막는다',
-    phrases: ['claim(클레임/lease) 게이트', '공유 지점', '중복은 착수 지점에서 막아야 한다'],
+    file: '2026-09-14-store-console-completed-public-url-404.md',
+    date: '2026-09-14',
+    slug: 'store-console-completed-public-url-404',
+    title: '스토어 콘솔의 completed는 공개 완료가 아니다 — 트랙 상태와 사용자 URL을 따로 검증한다',
+    phrases: ['프로덕션 트랙', '공개 상세 페이지', '콘솔 상태와 사용자가 받는 공개 페이지'],
+  },
+  {
+    file: '2026-09-14-store-app-debug-install-data-loss-guard.md',
+    date: '2026-09-14',
+    slug: 'store-app-debug-install-data-loss-guard',
+    title: '실기기 테스트 전에 설치 출처부터 본다 — debug 덮어쓰기가 사용자 데이터를 지울 수 있다',
+    phrases: ['installerPackageName', 'uninstall → install', '기기에 이미 있던 사용자 데이터'],
+  },
+  {
+    file: '2026-09-14-operational-verification-observation-hash.md',
+    date: '2026-09-14',
+    slug: 'operational-verification-observation-hash',
+    title: '코드가 안 바뀐 작업도 검증 영수증을 남긴다 — 관측값·기대값·파일 해시의 최소 계약',
+    phrases: ['observed.json', 'verification.json', '재검산 가능한 값'],
   },
 ];
 
@@ -59,7 +76,7 @@ for (const expected of expectedEntries) {
   }
 
   const entry = matches[0];
-  if (entry.date !== '2026-07-07') fail(`${expected.file} has wrong date`);
+  if (entry.date !== expected.date) fail(`${expected.file} has wrong date`);
   if (entry.slug !== expected.slug) fail(`${expected.file} has wrong slug`);
   if (entry.title !== expected.title) fail(`${expected.file} has wrong title`);
   if (!entry.category) fail(`${expected.file} is missing category`);
