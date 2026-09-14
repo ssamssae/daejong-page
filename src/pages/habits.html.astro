@@ -88,14 +88,69 @@ import '../styles/lab.css';
     </section>
 
     <div class="habits-toolbar">
-      <button class="sort-toggle" id="sort-toggle" type="button">정렬: 30 → 01</button>
+      <button class="sort-toggle" id="sort-toggle" type="button">정렬: 35 → 01</button>
     </div>
 
     <!-- 최근 변경: 규칙이 바뀌면 이 줄만 갱신 (누적 X, 최신 1건만, 정식 버전번호 X) -->
-    <div class="recent-change"><b>최근 변경</b> · 2026-09-12 · 헤르메스 Codex가 총괄·직접 작업을 맡고 Cursor 3노드는 승인된 작업을 수행합니다. 아테나·볼칸 Codex와 Grok 신규 배차는 중지 상태입니다. <a href="/system/">현재 운영 기준 보기</a>.</div>
+    <div class="recent-change"><b>최근 변경</b> · 2026-09-14 · 운영 습관 31~35를 추가했습니다 — 확정 목록만 실행, 검증 후 자동 종결, 워커 종료 때 티켓 방치 금지, 단일 책임 리드, 체크포인트 의무. <a href="/system/">현재 운영 기준 보기</a>.</div>
 
     <h2>이전에 기록한 운영 습관</h2>
     <div class="list lab-list">
+
+      <div class="lab-card habit-card">
+        <div class="lab-card-head hb-head">
+          <div class="hb-num">35</div>
+          <div class="lab-card-title hb-title">확정 목록만 · 목록 밖 새 일 금지</div>
+        </div>
+        <div class="hb-body">
+          이미 확정된 목록은 <strong>다시 묻지 않는다</strong>. 목록 밖 새 일은 실행하지 않는다. 구현·검증 세부 단계는 그 결과물을 만드는 일로 구분하고, 별도 결과물·백로그 끌어오기는 새 승인. 오토·밤새·시간만 받은 경우에만 목록을 제시하고 확정을 받는다.
+        </div>
+        <div class="hb-source">2026-09-13 OPERATING_POLICY §3·§7 · T-260913-058</div>
+      </div>
+
+      <div class="lab-card habit-card">
+        <div class="lab-card-head hb-head">
+          <div class="hb-num">34</div>
+          <div class="lab-card-title hb-title">검증 후 자동 종결 · 완료 재승인 반복 금지</div>
+        </div>
+        <div class="hb-body">
+          승인 목표의 완료 조건을 충족하면 리드가 근거를 기록하고 기존 <code>sot-mark</code> 로 종결한다. <strong>별도 완료 승인을 반복해서 묻지 않는다</strong>. 코드 수정은 회귀 검사, 코드 변경 없는 설정·운영·수동 UI 는 작업 ID·관측 hash·기대값 일치를 검증한 runtime-verification. 사용자 확인과 도구 실측은 구분. 검증 없는 강제 완료 · 새 무인 예약기는 사용하지 않는다.
+        </div>
+        <div class="hb-source">2026-09-13 OPERATING_POLICY §6 · T-260913-032</div>
+      </div>
+
+      <div class="lab-card habit-card">
+        <div class="lab-card-head hb-head">
+          <div class="hb-num">33</div>
+          <div class="lab-card-title hb-title">워커 종료 때 티켓 방치 금지</div>
+        </div>
+        <div class="hb-body">
+          세션·배정 슬라이스가 끝날 때 티켓을 <code>[ ]</code>/<code>[~]</code>/<code>[>]</code> 로 방치하지 않는다. 남은 일 0 이면 <code>sot-mark [x]</code> 또는 <code>[-]</code> 와 근거. 남은 일이 있으면 <code>[?]</code> 에 <strong>이유 1줄과 recheck= 날짜</strong> 필수. 머지·관찰 만료·사람승인 해소만으로 자동 <code>[x]</code> 금지.
+        </div>
+        <div class="hb-source">2026-09-14 OPERATING_POLICY §6 · T-260914-006</div>
+      </div>
+
+      <div class="lab-card habit-card">
+        <div class="lab-card-head hb-head">
+          <div class="hb-num">32</div>
+          <div class="lab-card-title hb-title">작업당 단일 책임 리드 · 중복 선점 금지</div>
+        </div>
+        <div class="hb-body">
+          승인 작업마다 실제 노드:엔진 <strong>한 곳만</strong> 책임 리드로 선점한다. 같은 작업을 여러 리드가 중복 선점하거나 실행하지 않는다. lease 와 issuer 를 체크포인트에 기록하고, 인계 없이 같은 작업을 집행하지 않는다. 결과는 헤르메스로 고정하지 않고 그 issuer 의 기존 inbox 로.
+        </div>
+        <div class="hb-source">2026-09-13 OPERATING_POLICY §1·§2 · T-260913-058</div>
+      </div>
+
+      <div class="lab-card habit-card">
+        <div class="lab-card-head hb-head">
+          <div class="hb-num">31</div>
+          <div class="lab-card-title hb-title">체크포인트 의무</div>
+        </div>
+        <div class="hb-body">
+          작업 시작 · 의미 있는 단계 끝 · 세션 비우기 전에 저장하고 재개 때 읽는다. <strong>파일이 없으면 없다고 보고한다</strong>. 스키마는 <code>task-checkpoint-resume.md</code>. 기본 자동압축은 유지하며 새 자동 /clear · 무인 재개 레일은 추가하지 않는다.
+        </div>
+        <div class="hb-source">2026-09-08 OPERATING_POLICY §9 · T-260908-015</div>
+      </div>
 
       <div class="lab-card habit-card">
         <div class="lab-card-head hb-head">
