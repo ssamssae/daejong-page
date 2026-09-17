@@ -60,6 +60,17 @@ test('products.ts URLs are all allowlisted with a slug', () => {
   assert.deepEqual(missing, []);
 });
 
+test('hankeup live Play listing is allowlisted as android hop', () => {
+  const play = 'https://play.google.com/store/apps/details?id=com.ssamssae.hankeup';
+  const src = fs.readFileSync(path.join(root, 'src/data/products.ts'), 'utf8');
+  assert.equal(src.includes(play), true);
+  assert.equal(slugForUrl(play), 'hankeup');
+  const hit = matchHref(allowlist(), play);
+  assert.equal(hit.product, 'hankeup');
+  assert.equal(hit.hop, 'hankeup-android');
+  assert.equal(hit.dest_kind, 'external');
+});
+
 test('open redirect: unknown hop is rejected', () => {
   const list = allowlist();
   assert.equal(lookupHop(list, 'not-a-product'), null);

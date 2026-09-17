@@ -38,6 +38,7 @@ export const PLAY_IDS = {
   'com.daejongkang.dutchpay': 'dutchpay',
   'com.daejongkang.yakmukja': 'yakmukja',
   'com.daejongkang.wordyo': 'wordyo',
+  'com.ssamssae.hankeup': 'hankeup',
   'com.ssamssae.pomodoro': 'pomodoro',
   'com.ssamssae.mini_expense': 'mini-expense',
   'com.daejongkang.lottocalc': 'lottocalc',
