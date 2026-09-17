@@ -15,6 +15,7 @@ const productsCss = fs.readdirSync(assetDir)
   .join('\n');
 const required = [
   '심플 가계부',
+  'com.ssamssae.hankeup',
   '행운번호 생성기',
   '부족한 오행까지 무료',
   '이름 후보·한자 뜻풀이·점수표·PDF는 결제 후',
