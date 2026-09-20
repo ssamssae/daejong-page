@@ -45,9 +45,12 @@ export const apps = [
     ],
   },
   {
-    name: '한컵', status: 'iOS LIVE',
+    name: '한컵', status: 'iOS LIVE · Android LIVE',
     desc: '하루 물 섭취량 트래커. 1컵 단위 카운트와 일일 목표량으로 수분 섭취를 챙겨주는 미니 앱.',
-    links: [{ label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536616' }],
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536616' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ssamssae.hankeup' },
+    ],
   },
   {
     name: '포모도로', status: 'iOS LIVE · Android LIVE',
