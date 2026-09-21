@@ -1,6 +1,22 @@
 {
   "entries": [
     {
+      "file": "2026-09-21-jev-decisions-and-free-prefilter.md",
+      "date": "2026-09-21",
+      "slug": "jev-decisions-and-free-prefilter",
+      "title": "Jev 도입기: AI에게 맡길 판단과 무료 규칙으로 충분한 일",
+      "category": "AI 운영",
+      "tags": [
+        "Jev",
+        "Choso",
+        "분류",
+        "토큰 절감",
+        "무료 규칙",
+        "검증"
+      ],
+      "summary": "실행 전 보조 판단과 실행 후 보고 배지에는 Jev를 적용하고, 파일·로그 사전 선별에는 비교 실험에서 같은 결과를 낸 무료 규칙을 선택했다. 한국어 보고 16건 중 오분류 1건과 무료 규칙의 표본 입력 61.5% 감소를 구분해 기록하며, 모델 판단을 실행 승인·작업 종결로 바꾸지 않는 경계를 남긴다."
+    },
+    {
       "file": "2026-09-14-launchd-config-live-env-three-way-check.md",
       "date": "2026-09-14",
       "slug": "launchd-config-live-env-three-way-check",
