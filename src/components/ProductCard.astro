@@ -1,6 +1,7 @@
 ---
 interface Product {
   name: string;
+  icon?: string;
   status: string;
   desc: string;
   links: { label: string; url: string; disabled?: boolean }[];
@@ -11,15 +12,7 @@ const { item, kind, label, index } = Astro.props as {
   label: string;
   index: number;
 };
-const icons: Record<string, string> = {
-  한줄일기: "hanjul_icon.png",
-  메모요: "memo_icon.png",
-  "더치페이 계산기": "dutchpay_icon.png",
-  약먹자: "yakmukja_icon.png",
-  한컵: "hankeup_icon.png",
-  포모도로: "pomodoro_icon.png",
-};
-const icon = icons[item.name];
+const icon = item.icon;
 const glyph =
   kind === "tool" ? ">_" : kind === "ebook" ? "Aa" : item.name.slice(0, 1);
 ---
@@ -34,7 +27,7 @@ const glyph =
     <span class="product-icon" aria-hidden="true"
       >{
         icon ? (
-          <img src={`/${icon}`} width="48" height="48" loading="lazy" alt="" />
+          <img src={icon} width="48" height="48" loading="lazy" alt="" />
         ) : (
           glyph
         )
