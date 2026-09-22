@@ -39,7 +39,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
 <section class="latest-stories" aria-labelledby="latest-title">
   <div class="section-head">
     <h2 id="latest-title">가장 최근의 이야기</h2><p>
-      오늘의 작업은 어제의 기록에서 시작됩니다.
+      작성일 기준으로 읽습니다. 글 속 도구·가격·운영 상태는 당시의 기록입니다.
     </p>
   </div><div class="story-grid">
     {
@@ -68,7 +68,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     </div><label class="archive-search" data-archive-controls hidden
       ><span class="sr-only">{title} 검색</span><input
         type="search"
-        placeholder="제목으로 기록 찾기"
+        placeholder="제목·요약·날짜로 찾기"
         data-archive-search
       /><span aria-hidden="true">⌕</span></label>
   </div><p
@@ -94,13 +94,13 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
           </header>
           <ol>
             {entries.map((post) => (
-              <li data-archive-item data-search={post.data.title}>
+              <li data-archive-item data-search={[post.data.title, post.data.summary, post.data.date, post.data.version].filter(Boolean).join(" ")}>
                 <a href={`${base}/${post.id}/`}>
                   <time datetime={post.data.date}>
                     {post.data.date.slice(5).replace("-", ".")}
                   </time>
                   <span>{post.data.title}</span>
-                  {ep(post) && <small>EP.{ep(post)}</small>}
+                  {post.data.version && <small>{ep(post) ? `EP.${ep(post)}` : post.data.version}</small>}
                   <b aria-hidden="true">↗</b>
                 </a>
               </li>

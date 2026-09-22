@@ -1,4 +1,6 @@
 ---
+import ListSearch from '../components/ListSearch.astro';
+import { noteHref } from '../lib/note-path.mjs';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import Layout from '../layouts/Layout.astro';
@@ -55,10 +57,8 @@ const stats = [
   { label: '최신', value: latestDate },
 ];
 
-const hrefFor = (entry: DeadEndEntry) => {
-  const slug = entry.slug || entry.file?.replace(/\.md$/, '');
-  return slug ? `/dead-ends/detail.html?slug=${encodeURIComponent(slug)}` : '#';
-};
+const hrefFor = (entry: DeadEndEntry) => noteHref('dead-ends', entry);
+
 
 const formatMonth = (month: string) => month.replace('-', '.');
 ---
@@ -164,6 +164,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
         <p>제목, 날짜, 분류, 태그를 한 줄 흐름으로 훑고 필요한 항목만 상세로 들어갑니다.</p>
       </div>
 
+      <ListSearch target=".archive-list li" label="막다른 길" placeholder="예: 자동화, 로그인, 비용" />
       <div class="archive-list">
         {monthGroups.map((group) => (
           <section class="month-block" aria-labelledby={`month-${group.month}`}>

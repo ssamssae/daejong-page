@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import remarkNoteLinks from './src/lib/remark-note-links.mjs';
 import sitemap from '@astrojs/sitemap';
 
 // T-260728-093 축2: sitemap 을 수기 정적 파일(31 URL)에서 자동생성으로 전환.
@@ -9,12 +10,12 @@ import sitemap from '@astrojs/sitemap';
 //   색인해달라고 제출하는 모순을 막는다. 현행 대상은 /apps 1건이고
 //   T-260728-063 에서 "의도적 noindex" 로 판정됐다(해제 금지).
 //   페이지를 추가로 noindex 하면 이 목록에도 같이 넣어야 한다.
-const NOINDEX_PATHNAMES = ['/apps', '/apps/'];
+const NOINDEX_PATHNAMES = ['/apps', '/apps/', '/404', '/404/', '/404.html'];
 
 export default defineConfig({
   site: 'https://work.kangdaejong.com',
   output: 'static',
-  markdown: { remarkPlugins: [['remark-gfm', { singleTilde: false }]] },
+  markdown: { remarkPlugins: [['remark-gfm', { singleTilde: false }], remarkNoteLinks] },
   integrations: [
     sitemap({
       filter: (page) => !NOINDEX_PATHNAMES.includes(new URL(page).pathname),

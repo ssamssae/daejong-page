@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+const sources = (await getCollection('insights')).map(post => post.id);
+---
+<script is:inline define:vars={{ sources }}>
+{
+  const known = new Set(sources);
+  for (const source of document.querySelectorAll('.glossary-data .src')) {
+    const text = source.textContent || '';
+    const parts = text.split(/([\w-]+\.md)/g);
+    source.replaceChildren(...parts.map(part => {
+      const slug = part.replace(/\.md$/, '');
+      if (!known.has(slug)) return document.createTextNode(part);
+      const link = document.createElement('a');
+      link.href = '/insights/' + encodeURIComponent(slug) + '/';
+      link.textContent = part.replace(/\.md$/, '');
+      return link;
+    }));
+  }
+}
+</script>

@@ -1,0 +1,31 @@
+---
+import { noteSlug, noteHref } from '../../../lib/note-path.mjs';
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import ArticleFrame from '../../../components/ArticleFrame.astro';
+import knowhow from '../../../../public/knowhow/index.json';
+import issues from '../../../../public/issues/index.json';
+import deadEnds from '../../../../public/dead-ends/index.json';
+export async function getStaticPaths() {
+  const posts = await getCollection('notes');
+  const groups = { knowhow, issues, 'dead-ends': deadEnds };
+  const labels = { knowhow: '노하우', issues: '이슈', 'dead-ends': '막다른 길' };
+  return Object.entries(groups).flatMap(([group, index]) => {
+    const entries = [...index.entries].sort((a,b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title, 'ko'));
+    return entries.map((entry, i) => {
+      const file = ('file' in entry && entry.file?.trim()) || entry.slug + '.md';
+      const post = posts.find(p => p.id === group + '/' + file.replace(/\.md$/, ''));
+      if (!post) throw new Error('Missing indexed note: ' + group + '/' + file);
+      const neighbor = (e) => e && ({ title: e.title, href: noteHref(group, e) });
+      return { params: { group, slug: noteSlug(entry) }, props: { post, entry, group, file, label: labels[group], newer: neighbor(entries[i-1]), older: neighbor(entries[i+1]) } };
+    });
+  });
+}
+const { post, entry, group, file, label, newer, older } = Astro.props;
+const { Content, headings } = await render(post);
+---
+<Layout title={`${entry.title} — ${label}`} description={entry.summary || entry.title}>
+  <ArticleFrame title={entry.title} summary={entry.summary} date={entry.date} label={label} base={`/${group}.html/`} headings={headings} newer={newer} older={older} sourceHref={`https://github.com/ssamssae/daejong-page/blob/main/public/${group}/${encodeURIComponent(file)}`}>
+    <Content />
+  </ArticleFrame>
+</Layout>

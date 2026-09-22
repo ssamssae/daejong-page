@@ -1,0 +1,32 @@
+export const pageGroups = [
+  { title: '제품과 작업장', pages: [
+    { href: '/', label: '작업장 홈', description: '최근 공개한 작업과 글' },
+    { href: '/products/', label: '제품', description: '기능·지원 기기·설치 경로 비교' },
+    { href: '/about/', label: '만드는 사람', description: '소개와 연락처' },
+    { href: '/worklog/', label: '작업일지', description: '만든 것과 고친 과정' },
+    { href: '/newsletter/', label: '뉴스레터', description: '작업을 돌아보는 편지' },
+    { href: '/insights/', label: '인사이트', description: '영상·글에서 배운 점' },
+  ] },
+  { title: '만들고 운영하는 방법', pages: [
+    { href: '/system/', label: '시스템', description: '작업장의 전체 연결 구조' },
+    { href: '/policy/', label: '운영 정책', description: '누가 결정하고 무엇을 확인하는지' },
+    { href: '/automations.html/', label: '자동화', description: '요청에서 결과 확인까지의 사례' },
+    { href: '/stack.html/', label: '기술 스택', description: '컴퓨터·엔진·브릿지의 역할' },
+    { href: '/skills.html/', label: 'AI 스킬', description: '작업별 재사용 절차와 예시' },
+    { href: '/smart-home.html/', label: '스마트홈', description: '생활 기기의 요청과 확인' },
+    { href: '/knowhow.html/', label: '노하우', description: '문제를 해결한 원문 기록' },
+    { href: '/vibecoding.html/', label: '바이브코딩', description: '첫 요청부터 완료 확인까지' },
+  ] },
+  { title: '실험과 배운 점', pages: [
+    { href: '/lab/', label: '실험실', description: '주제별 실험·기록 안내' },
+    { href: '/experiments/', label: '실험 결과', description: '비교한 조건·결과·한계' },
+    { href: '/issues.html/', label: '이슈', description: '증상·원인·조치·예방 기록' },
+    { href: '/dead-ends.html/', label: '막다른 길', description: '접은 접근과 판단 근거' },
+    { href: '/sorry/', label: '반성문', description: '실수에서 바꾼 확인 기준' },
+    { href: '/ai-glossary.html/', label: 'AI 용어집', description: '영상 맥락별 용어 찾아보기' },
+    { href: '/habits.html/', label: '습관', description: '반복해서 지키는 작업 방식' },
+    { href: '/timeline.html/', label: '타임라인', description: '공개 작업과 과거 이정표' },
+    { href: '/stock.html/', label: '관심종목 기록', description: '2026년 5월의 관찰 메모' },
+    { href: '/sise.html/', label: '시세판', description: '코인·환율 데이터 실험' },
+  ] },
+];

@@ -20,4 +20,5 @@ export const collections = {
   worklog: mk('worklog'),
   newsletter: mk('newsletter'),
   insights: mk('insights'),
+  notes: defineCollection({ loader: glob({ pattern: ['knowhow/*.md', 'issues/*.md', 'dead-ends/*.md'], base: './public', generateId: ({ entry }) => entry.replace(/\.md$/, '') }) }),
 };

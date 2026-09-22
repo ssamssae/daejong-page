@@ -39,8 +39,10 @@ for path in DIST.rglob("*.html"):
         pages[path] = page
         if path.relative_to(DIST).parts[0] != "nl-go":
             assert any(tag == "h1" for tag, _ in page.tags), f"Missing title: {path}"
-        assert any(tag == "header" and "site-header" in attrs.get("class", "").split()
-                   for tag, attrs in page.tags), f"Missing navigation: {path}"
+        assert any(tag == "mb-header" and attrs.get("active")
+                   for tag, attrs in page.tags), f"Missing shared navigation: {path}"
+        assert any(tag == "script" and attrs.get("src") == "https://kangdaejong.com/mb-components.js"
+                   for tag, attrs in page.tags), f"Missing shared navigation runtime: {path}"
         assert any(tag == "meta" and attrs.get("name") == "theme-color"
                    and attrs.get("content") == "#f7f6f2" for tag, attrs in page.tags), path
         for tag, attrs in page.tags:
@@ -53,21 +55,22 @@ for path in DIST.rglob("*.html"):
 assert len(pages) > 100, "Content collections were not rendered"
 owned_routes = ["/", "/products/", "/about/", "/system/", "/lab/",
                 "/worklog/", "/newsletter/", "/insights/"]
-checked_links = 0
 for route in owned_routes:
-    path = target_file(route)
-    assert path in pages, f"Missing renewed route: {route}"
-    for tag, attrs in pages[path].tags:
+    assert target_file(route) in pages, f"Missing renewed route: {route}"
+checked_links = 0
+for path, page in pages.items():
+    route = "/" + str(path.relative_to(DIST)).removesuffix("index.html")
+    for tag, attrs in page.tags:
         if tag != "a" or not attrs.get("href"):
             continue
         url = urlsplit(urljoin(ORIGIN + route, attrs["href"]))
         if url.netloc != urlsplit(ORIGIN).netloc or url.scheme not in ("http", "https"):
             continue
         target = target_file(url.path)
-        assert target.exists(), f"Broken link in {route}: {attrs['href']}"
-        if url.fragment:
+        assert target.is_file(), f"Broken link in {route}: {attrs['href']}"
+        if url.fragment and target.suffix == ".html":
             dest = pages.get(target) or Page(target)
-            assert unquote(url.fragment) in dest.ids, f"Broken anchor: {attrs['href']}"
+            assert unquote(url.fragment) in dest.ids, f"Broken anchor in {route}: {attrs['href']}"
         checked_links += 1
 
 products = pages[target_file("/products/")]
@@ -91,4 +94,18 @@ for path, page in pages.items():
             toc_links += 1
 
 print(f"PASS: {len(pages)} renewed pages, {len(items)} catalog products, "
-      f"{checked_links} index links, {toc_links} article anchors; all local assets present")
+      f"{checked_links} internal links, {toc_links} article anchors; all local assets present")
+
+# Every indexed public note gets its own reader, including duplicate editorial slugs.
+import json
+note_count = 0
+for group in ("knowhow", "issues", "dead-ends"):
+    entries = json.loads((ROOT / "public" / group / "index.json").read_text())["entries"]
+    slugs = [(entry.get("file", "").strip() or entry["slug"] + ".md").removesuffix(".md") for entry in entries]
+    assert len(set(slugs)) == len(entries), f"Duplicate reader URLs: {group}"
+    for slug in slugs:
+        page = pages[target_file(f"/notes/{group}/{slug}/")]
+        assert "reading-context" in page.source and "reading-neighbors" in page.source
+        assert sum(tag == "h1" for tag, _ in page.tags) == 1, f"Duplicate reader title: {slug}"
+        note_count += 1
+print(f"PASS: {note_count} indexed notes each have a unique reader, context, navigation and one title")

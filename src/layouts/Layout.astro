@@ -3,6 +3,7 @@ import "../styles/tokens.css";
 import "../styles/workshop.css";
 import "../styles/notebook.css";
 import Nav from "../components/Nav.astro";
+import PageDirectory from "../components/PageDirectory.astro";
 import Footer from "../components/Footer.astro";
 const { title, description } = Astro.props;
 const notebook =
@@ -45,6 +46,7 @@ const notebook =
       tabindex="-1"
     >
       <slot />
+      <PageDirectory />
     </main>
     <Footer />
   </body>

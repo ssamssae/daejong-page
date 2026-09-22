@@ -221,3 +221,6 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Filtered records remain hidden even when their card styles set display. */
+[hidden] { display: none !important; }
