@@ -136,6 +136,15 @@ export const bridges = {
 
 export const tools = [
   {
+    name: '입타 (Ipta)', status: 'Mac · Windows · 오픈소스',
+    desc: 'Mac · Windows용 한국어 음성 입력. 받아쓰기는 내 컴퓨터에서 처리하고, AI 문장 다듬기는 선택해서 사용합니다.',
+    links: [
+      { label: 'Mac 다운로드', url: 'https://github.com/ssamssae/ipta/releases/tag/v0.1.24' },
+      { label: 'Windows 다운로드', url: 'https://github.com/ssamssae/ipta/releases/tag/v0.1.23' },
+      { label: '사용 안내', url: 'https://github.com/ssamssae/ipta#readme' },
+    ],
+  },
+  {
     name: 'Grok Telegram Bridge', status: `오픈소스 · v${bridges.grok.version}`,
     desc: '텔레그램으로 자기 컴퓨터의 Grok 세션을 부리는 브릿지. Claude·Codex·Cursor·Local 브릿지의 형제 도구입니다.',
     links: [
