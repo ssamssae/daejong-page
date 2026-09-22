@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContentCases from '../components/ContentCases.astro';
+import experiments from '../data/lab-experiments.json';
+import '../styles/lab.css';
+---
+<Layout title="실험 결과 — 마이너스베타스튜디오" description="Jev 보고 분류와 무료 규칙 선별의 비교 결과. 질문, 표본, 결과, 적용, 측정하지 못한 것을 함께 기록합니다."><div class="lab-page"><section class="lab-hero"><h1 class="logo">실험 결과</h1><p class="intro">어떤 선택이 실제로 도움이 됐는지, 작은 실험의 결과와 한계를 함께 남깁니다.</p></section><ContentCases title="AI를 쓸 곳과 규칙으로 충분한 곳" intro="실험일 2026-09-21 · 편집 확인 2026-09-23. 동일한 도입 기록에서 서로 다른 두 판단을 나눠 읽습니다." cases={experiments}/><a class="lab-back" href="/lab/">← 실험실</a></div></Layout>

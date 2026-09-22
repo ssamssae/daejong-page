@@ -2,6 +2,8 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import Layout from '../layouts/Layout.astro';
+import ContentCases from '../components/ContentCases.astro';
+import decisions from '../data/decision-lessons.json';
 
 type DeadEndEntry = {
   file?: string;
@@ -97,7 +99,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
         <p class="lead">
           시도했지만 접은 것들을 따로 남깁니다.
           안 되는 길을 지워두면 다음 작업은 더 빨리 좁혀집니다.
-          최신 사례 날짜는 {latestDate}이고, 이 목록 페이지 정리는 2026-08-31입니다.
+          최신 사례 날짜는 {latestDate}이고, 원문 목록 정리는 2026-08-31, 판단 사례 편집은 2026-09-23입니다.
         </p>
       </div>
       <dl class="hero-stats" aria-label="막다른 길 요약">
@@ -110,6 +112,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
       </dl>
     </section>
 
+    <ContentCases title="중단도 서로 다른 결정입니다" intro="2026-09-23 편집. 보류는 조건 대기, 중단은 해당 방식 종료, 방향 전환은 대안 선택입니다. 아래 재검토 조건은 편집 제안이며 작업 재개 지시가 아닙니다. 전체 21건의 원래 날짜와 기록은 아래에 보존합니다." cases={decisions}/>
     <section class="featured-section" aria-labelledby="featured-title">
       <div class="section-head">
         <div>

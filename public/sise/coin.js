@@ -93,9 +93,11 @@ async function renderCoins() {
     $("coinCards").querySelectorAll(".rm").forEach(b => {
       b.onclick = () => { removeCoin(b.dataset.id); renderCoins(); };
     });
+    $("coinMeta").textContent = `조회 완료 ${new Date().toLocaleString("ko-KR")} · KRW · 자동 갱신 없음`;
     loading.style.display = "none";
   } catch (e) {
     console.error(e);
+    $("coinMeta").textContent = "조회 실패 · 현재 가격 미확인";
     loading.textContent = "코인 시세를 불러오지 못했어요 (네트워크/요청제한). 잠시 후 새로고침하세요.";
     loading.style.display = "block";
   }
