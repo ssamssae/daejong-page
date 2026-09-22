@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import PostList from "../components/PostList.astro";
 import ActivityCard from "../components/ActivityCard.astro";
-import ProductArt from "../components/ProductArt.astro";
 import { getCollection } from "astro:content";
 import { apps, saas, tools, ebooks } from "../data/products";
 
@@ -63,19 +62,18 @@ const spaces = [
   <section class="home-hero" aria-labelledby="home-title">
     <div class="home-copy">
       <p class="eyebrow">AN INDEPENDENT DIGITAL WORKSHOP</p><h1 id="home-title">
-        작게 만들고,<br />오래 다듬습니다<span>.</span>
+        만들고, 고치고,<br />기록합니다<span>.</span>
       </h1><p class="lead">
-        안녕하세요, 강대종의 작업장입니다.<br />일상을 조금 더 편하게 하는
-        제품을 만들고,<br class="desktop-break" /> 그 과정에서 배운 것들을 나눕니다.
+        강대종이 제품을 만들며 남긴 작업 기록입니다.<br />무엇을 고쳤고, 어디서 막혔고,<br class="desktop-break" /> 무엇을 배웠는지 공개된 글로 읽어보세요.
       </p><div class="hero-actions">
-        <a class="button primary" href="/products/"
-          >제품 둘러보기 <span aria-hidden="true">↗</span></a
-        ><a class="button" href="/about/"
-          >작업자 소개 <span aria-hidden="true">→</span></a>
+        <a class="button primary" href="/worklog/"
+          >최근 작업 읽기 <span aria-hidden="true">↗</span></a
+        ><a class="button" href="/newsletter/"
+          >뉴스레터 읽기 <span aria-hidden="true">→</span></a>
       </div>
     </div>
     <div class="home-art">
-      <ProductArt kind="name" /><div class="home-art-note">
+      <a class="workbench-note" href={`/newsletter/${recentNewsletter[0].id}/`}><span>가장 최근의 이야기 · {recentNewsletter[0].data.date}</span><strong>{recentNewsletter[0].data.title}</strong><p>{recentNewsletter[0].data.summary}</p><b>과정 읽기 ↗</b></a><div class="home-art-note">
         <span class="note-dot"></span><span>지금 이 작업장에서</span><strong
           >{total}개의 제품이 자라고 있어요.</strong>
       </div><span class="hand-note" aria-hidden="true"
@@ -88,40 +86,7 @@ const spaces = [
       >오픈소스 <b>{tools.length}</b></span
     ><span>전자책 <b>{ebooks.length}</b></span>
   </div>
-  <section class="home-selected" aria-labelledby="home-selected-title">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">BUILT FOR EVERYDAY LIFE</p><h2
-          id="home-selected-title"
-        >
-          가장 작은 변화부터.
-        </h2>
-      </div><a href="/products/" class="text-link">모든 제품 보기 ↗</a>
-    </div><div class="home-products">
-      {
-        [
-          { item: saas[0], kind: "name" },
-          { item: apps[0], kind: "diary" },
-          { item: apps[1], kind: "memo" },
-        ].map(({ item, kind }) => (
-          <a
-            href={item.links[0].url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="home-product"
-          >
-            <>
-              <ProductArt kind={kind} />
-              <h3>
-                {item.name.split(" — ")[0]} <span aria-hidden="true">↗</span>
-              </h3>
-              <p>{item.desc}</p>
-            </>
-          </a>
-        ))
-      }
-    </div>
-  </section>
+  <aside class="workshop-purpose"><p>쓸 제품을 찾고 계신가요? 제품 목록에서 기능과 실제 화면을 살펴보세요.</p><a href="/products/">모든 제품 보기 ↗</a><a href="https://founder.kangdaejong.com/">만드는 사람 소개 ↗</a></aside>
   <section class="writing-section" aria-labelledby="writing-title">
     <div class="section-head">
       <div>
@@ -173,6 +138,7 @@ const spaces = [
     </div>
   </section>
   <style>
+    .workbench-note{display:flex;flex-direction:column;gap:20px;padding:38px;background:#fdfcf8;border:1px solid var(--border);border-radius:16px;color:inherit;text-decoration:none}.workbench-note>span{font-size:12px;color:var(--fg-dim)}.workbench-note>strong{font-size:clamp(24px,3vw,38px);line-height:1.45;word-break:keep-all}.workbench-note p{font-size:14px;line-height:1.85;color:var(--fg-dim)}.workbench-note b{font-size:13px;color:var(--accent-cta)}.workshop-purpose{display:flex;flex-wrap:wrap;gap:14px 24px;padding:24px 0 40px;font-size:14px;line-height:1.8}.workshop-purpose p{flex:1 1 100%}.workshop-purpose a{min-height:44px;color:var(--accent-cta)}
     .home-hero {
       display: grid;
       grid-template-columns: 1.3fr 1fr;
@@ -384,7 +350,7 @@ const spaces = [
       color: var(--fg-dim);
     }
     @media (max-width: 1000px) {
-      .home-hero {
+    .home-hero {
         gap: 36px;
       }
       .home-art-note {
@@ -407,7 +373,7 @@ const spaces = [
       }
     }
     @media (max-width: 700px) {
-      .home-hero {
+    .home-hero {
         grid-template-columns: 1fr;
         gap: 48px;
         padding-top: 12px;

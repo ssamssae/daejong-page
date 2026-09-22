@@ -1,5 +1,5 @@
 /**
- * Newsletter product-link allowlist (T-260908-019).
+ * Permitted newsletter product links (T-260908-019).
  * Open redirects are rejected: only these destinations may leave /nl-go/.
  * dest_kind=first_party is the only surface that can emit newsletter_product_visit.
  */

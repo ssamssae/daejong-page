@@ -14,6 +14,7 @@ const NOINDEX_PATHNAMES = ['/apps', '/apps/'];
 export default defineConfig({
   site: 'https://work.kangdaejong.com',
   output: 'static',
+  markdown: { remarkPlugins: [['remark-gfm', { singleTilde: false }]] },
   integrations: [
     sitemap({
       filter: (page) => !NOINDEX_PATHNAMES.includes(new URL(page).pathname),

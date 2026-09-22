@@ -10,7 +10,8 @@ export function initCatalog(root: HTMLElement) {
   const items = [...root.querySelectorAll<HTMLElement>("[data-catalog-item]")];
   const count = root.querySelector<HTMLElement>("[data-catalog-count]");
   const empty = root.querySelector<HTMLElement>("[data-catalog-empty]");
-  let category = "all";
+  const requested = new URLSearchParams(window.location.search).get("category");
+  let category = buttons.some(button => button.dataset.filter === requested) ? requested! : "all";
   const update = () => {
     let visible = 0;
     items.forEach((item) => {

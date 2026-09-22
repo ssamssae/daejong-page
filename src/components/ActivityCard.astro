@@ -1,5 +1,8 @@
 ---
-import activity from '../data/public-activity.json';
+import { getCollection } from 'astro:content';
+import { buildPublicActivity } from '../lib/public-activity.mjs';
+const [worklog, newsletter, insights] = await Promise.all([getCollection('worklog'), getCollection('newsletter'), getCollection('insights')]);
+const activity = buildPublicActivity({worklog, newsletter, insights});
 
 const archiveTotal = activity.totals.worklog + activity.totals.newsletter + activity.totals.insights;
 const recent = activity.recent.slice(0, 4);
@@ -17,7 +20,7 @@ const metrics = [
     </div>
     <p>
       작업일지·뉴스레터·인사이트에 실제로 공개된 기록만 모았습니다.
-      실시간 세션이나 기기 상태를 보여주는 화면이 아닙니다.
+      새 글을 발행할 때 집계도 함께 갱신합니다.
     </p>
   </div>
 
