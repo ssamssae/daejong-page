@@ -5,7 +5,7 @@
 
 export const apps = [
   {
-    name: '한줄일기', status: 'iOS LIVE · Android LIVE',
+    name: '한줄일기', icon: '/product-icons/6764308678-f4fa94ec51.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '하루 한 줄, 부담 없는 일기. 53주 감정 히트맵, 로컬 저장, 계정 가입 0 — 거창한 일기 대신 한 줄이면 충분합니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6764308678' },
@@ -13,7 +13,7 @@ export const apps = [
     ],
   },
   {
-    name: '메모요', status: 'iOS · Android LIVE',
+    name: '메모요', icon: '/product-icons/6762068073-9fffec3bbd.jpg', status: 'iOS · Android LIVE',
     desc: '심플한 다크 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762068073' },
@@ -21,7 +21,7 @@ export const apps = [
     ],
   },
   {
-    name: '더치페이 계산기', status: 'iOS LIVE · Android LIVE',
+    name: '더치페이 계산기', icon: '/product-icons/6762072499-17c5730a71.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미. 금액·인원수 입력만으로 바로 정산.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762072499' },
@@ -29,7 +29,7 @@ export const apps = [
     ],
   },
   {
-    name: '약먹자', status: 'iOS LIVE · Android LIVE',
+    name: '약먹자', icon: '/product-icons/6762100639-41b67f90b6.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 챙겨줍니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762100639' },
@@ -37,7 +37,7 @@ export const apps = [
     ],
   },
   {
-    name: '단어요', status: 'iOS LIVE · Android LIVE',
+    name: '단어요', icon: '/product-icons/6766556759-00e1948545.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '영어 단어를 카드처럼 넘기며 학습하는 미니 단어장. 진행도와 즐겨찾기를 기기 안에 저장합니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6766556759' },
@@ -45,7 +45,7 @@ export const apps = [
     ],
   },
   {
-    name: '한컵', status: 'iOS LIVE · Android LIVE',
+    name: '한컵', icon: '/product-icons/6765536616-bc7a2b80b4.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '하루 물 섭취량 트래커. 1컵 단위 카운트와 일일 목표량으로 수분 섭취를 챙겨주는 미니 앱.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536616' },
@@ -53,7 +53,7 @@ export const apps = [
     ],
   },
   {
-    name: '포모도로', status: 'iOS LIVE · Android LIVE',
+    name: '포모도로', icon: '/product-icons/6765536777-c39328a9da.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '25분 집중 + 5분 휴식 사이클 타이머. 집중 보조 미니 앱.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536777' },
@@ -61,7 +61,7 @@ export const apps = [
     ],
   },
   {
-    name: '심플 가계부', status: 'iOS LIVE · Android LIVE',
+    name: '심플 가계부', icon: '/product-icons/6769037337-2ad919041d.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '하루 지출을 빠르게 적는 미니멀 가계부. 가입 없이 기기 안에서만 기록합니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6769037337' },
@@ -69,7 +69,7 @@ export const apps = [
     ],
   },
   {
-    name: '행운번호 생성기', status: 'iOS LIVE · Android LIVE',
+    name: '행운번호 생성기', icon: '/product-icons/6766077265-28d1fe2980.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '1부터 45까지 중복 없는 숫자 6개를 한 번에 5세트 만드는 오프라인 도구.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6766077265' },
@@ -80,7 +80,7 @@ export const apps = [
 
 export const saas = [
   {
-    name: '첫이름 — AI 사주 작명', status: '웹 SaaS · iOS · Android · ₩19,900',
+    name: '첫이름 — AI 사주 작명', icon: '/product-icons/6791480413-01e65be838.jpg', status: '웹 SaaS · iOS · Android · ₩19,900',
     desc: '생년월일을 넣으면 부족한 오행까지 무료로 확인하고, 이름 후보·한자 뜻풀이·점수표·PDF는 결제 후 받는 작명 서비스.',
     links: [
       { label: '첫이름 바로가기', url: 'https://cheotireum.kangdaejong.com/' },
@@ -136,7 +136,7 @@ export const bridges = {
 
 export const tools = [
   {
-    name: '입타 (Ipta)', status: 'Mac · Windows · 오픈소스',
+    name: '입타 (Ipta)', icon: '/product-icons/ipta-779f2694b7.png', status: 'Mac · Windows · 오픈소스',
     desc: 'Mac · Windows용 한국어 음성 입력. 받아쓰기는 내 컴퓨터에서 처리하고, AI 문장 다듬기는 선택해서 사용합니다.',
     links: [
       { label: 'Mac 다운로드', url: 'https://github.com/ssamssae/ipta/releases/tag/v0.1.24' },
