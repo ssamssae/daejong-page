@@ -11,7 +11,7 @@ for(const item of manifest.icons){
  const file=new URL('public'+item.icon,root);
  assert(existsSync(file),`missing asset: ${item.name}`);
  assert.equal(createHash('sha256').update(readFileSync(file)).digest('hex'),item.sha256,`source bytes changed: ${item.name}`);
- const article=html.match(/<article\b[\s\S]*?<\/article>/g)?.find(x=>x.replace(/<h3\b[^>]*>/g, "<h3>").includes(`<h3>${item.name}</h3>`));
+ const article=html.match(/<article\b[\s\S]*?<\/article>/g)?.find(x=>x.includes('data-catalog-item') && x.replace(/<h3\b[^>]*>/g, "<h3>").includes(`<h3>${item.name}</h3>`));
  assert(article,`missing product card: ${item.name}`);
  assert(article.includes(`src="${item.icon}"`),`card uses stale icon or fallback: ${item.name}`);
  assert(existsSync(new URL('dist'+item.icon,root)),`icon missing from build: ${item.name}`);

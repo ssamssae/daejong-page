@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProductArt from "../components/ProductArt.astro";
+import ProductExamples from "../components/ProductExamples.astro";
 import ProductCard from "../components/ProductCard.astro";
 import { apps, saas, tools, ebooks, productCounts } from "../data/products";
 const categories = [
@@ -9,29 +9,7 @@ const categories = [
   { kind: "tool", label: "오픈소스", items: tools },
   { kind: "ebook", label: "전자책", items: ebooks },
 ];
-const featured = [
-  {
-    item: saas[0],
-    kind: "name",
-    tag: "새로운 시작을 위해",
-    title: "첫이름",
-    desc: "처음 부를 이름에, 오래 간직할 의미를.",
-  },
-  {
-    item: apps[0],
-    kind: "diary",
-    tag: "기록하는 일상을 위해",
-    title: "한줄일기",
-    desc: "거창하지 않아도 괜찮은, 하루 한 줄.",
-  },
-  {
-    item: apps[1],
-    kind: "memo",
-    tag: "떠오르는 생각을 위해",
-    title: "메모요",
-    desc: "스치는 생각이 사라지기 전에.",
-  },
-];
+
 ---
 
 <Layout
@@ -62,64 +40,7 @@ const featured = [
         >나에게 필요한 제품 찾기 <span aria-hidden="true">↓</span></a>
     </div>
   </section>
-  <section class="selected" aria-labelledby="selected-title">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">A FEW GOOD PLACES TO START</p><h2
-          id="selected-title"
-        >
-          이런 것들을 만들고 있어요.
-        </h2>
-      </div><span class="section-index">SELECTED 01 — 03</span>
-    </div>
-    <div class="selected-grid">
-      {
-        featured.map((f, index) => (
-          <article class="selected-card">
-            <>
-              <a
-                class="art-link"
-                href={f.item.links[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${f.title} 바로가기 (새 창)`}
-              >
-                <ProductArt kind={f.kind} />
-              </a>
-              <div class="selected-info">
-                <>
-                  <span class="selected-tag">{f.tag}</span>
-                  <h3>
-                    <a
-                      href={f.item.links[0].url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {f.title}
-                      <span aria-hidden="true">↗</span>
-                    </a>
-                  </h3>
-                  <p>{f.desc}</p>
-                  <div class="selected-links">
-                    {f.item.links.map((link) => (
-                      <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${f.title} — ${link.label} (새 창)`}
-                      >
-                        {link.label} <span aria-hidden="true">↗</span>
-                      </a>
-                    ))}
-                  </div>
-                </>
-              </div>
-            </>
-          </article>
-        ))
-      }
-    </div>
-  </section>
+  <ProductExamples />
   <section
     id="catalog"
     class="catalog"

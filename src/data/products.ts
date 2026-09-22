@@ -145,43 +145,43 @@ export const tools = [
     ],
   },
   {
-    name: 'Grok Telegram Bridge', status: `오픈소스 · v${bridges.grok.version}`,
+    name: 'Grok Telegram Bridge', status: '오픈소스 · 공개 배포',
     desc: '텔레그램으로 자기 컴퓨터의 Grok 세션을 부리는 브릿지. Claude·Codex·Cursor·Local 브릿지의 형제 도구입니다.',
     links: [
       { label: 'GitHub', url: bridges.grok.repo },
-      { label: 'Release', url: `${bridges.grok.repo}/releases/tag/v${bridges.grok.version}` },
+      { label: 'Release', url: `${bridges.grok.repo}/releases/latest` },
     ],
   },
   {
-    name: 'Codex Telegram Bridge', status: `오픈소스 · v${bridges.codex.version}`,
+    name: 'Codex Telegram Bridge', status: '오픈소스 · 공개 배포',
     desc: 'Codex CLI REPL을 텔레그램에서 제어하는 전용 브릿지. 텍스트·이미지·영상·음성·파일 입력, 진행보고, reasoning mirror, typing recovery를 지원합니다.',
     links: [
       { label: 'GitHub', url: bridges.codex.repo },
-      { label: 'Release', url: `${bridges.codex.repo}/releases/tag/v${bridges.codex.version}` },
+      { label: 'Release', url: `${bridges.codex.repo}/releases/latest` },
     ],
   },
   {
-    name: 'Claude Telegram Bridge', status: `오픈소스 · v${bridges.claude.version}`,
+    name: 'Claude Telegram Bridge', status: '오픈소스 · 공개 배포',
     desc: 'Claude Code live tmux 세션을 텔레그램으로 연결하는 전용 브릿지. claude -p 없이 세션 주입·transcript 추출·미디어 local_path 전달로 동작합니다.',
     links: [
       { label: 'GitHub', url: bridges.claude.repo },
-      { label: 'Release', url: `${bridges.claude.repo}/releases/tag/v${bridges.claude.version}` },
+      { label: 'Release', url: `${bridges.claude.repo}/releases/latest` },
     ],
   },
   {
-    name: 'Cursor Telegram Bridge', status: `오픈소스 · v${bridges.cursor.version}`,
+    name: 'Cursor Telegram Bridge', status: '오픈소스 · 공개 배포',
     desc: '이미 떠 있는 Cursor TUI 세션을 텔레그램으로 연결하는 전용 브릿지. 긴 턴 대기, 모델 선택, 승인 버튼을 폰에서 다룹니다.',
     links: [
       { label: 'GitHub', url: bridges.cursor.repo },
-      { label: 'Release', url: `${bridges.cursor.repo}/releases/tag/v${bridges.cursor.version}` },
+      { label: 'Release', url: `${bridges.cursor.repo}/releases/latest` },
     ],
   },
   {
-    name: 'Local Telegram Bridge', status: `오픈소스 · v${bridges.local.version}`,
+    name: 'Local Telegram Bridge', status: '오픈소스 · 공개 배포',
     desc: '로컬 Ollama·LM Studio 모델을 텔레그램과 터미널의 같은 대화로 연결하는 브릿지. 모델별 기록·clear·재시작 복구를 지원합니다.',
     links: [
       { label: 'GitHub', url: bridges.local.repo },
-      { label: 'Release', url: `${bridges.local.repo}/releases/tag/v${bridges.local.version}` },
+      { label: 'Release', url: `${bridges.local.repo}/releases/latest` },
     ],
   },
 ];
