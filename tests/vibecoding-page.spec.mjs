@@ -14,13 +14,21 @@ test('vibecoding page presents the current method without stale fleet claims', a
   await page.goto(base + '/vibecoding.html/');
 
   await expect(page).toHaveTitle('바이브코딩 작업 방식 — 마이너스베타스튜디오');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('제대로 끝내는 방식');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('쓸 수 있는 결과까지');
   await expect(page.locator('[data-principle]')).toHaveCount(4);
   await expect(page.locator('[data-loop-step]')).toHaveCount(5);
   await expect(page.locator('[data-era]')).toHaveCount(4);
-  await expect(page.getByText('Mac 작업 공간', { exact: true })).toBeVisible();
-  await expect(page.getByText('공개 브릿지 저장소', { exact: true })).toBeVisible();
-  await expect(page.getByText('작업별 책임 리드', { exact: true })).toBeVisible();
+  await expect(page.getByText('한 번에 해결할 문제', { exact: true })).toBeVisible();
+  await expect(page.getByText('근거가 있는 실제 사례', { exact: true })).toBeVisible();
+  await expect(page.getByText('요청부터 확인까지 단계', { exact: true })).toBeVisible();
+
+  await expect(page.locator('#background')).not.toHaveAttribute('open', '');
+  await page.locator('#background > summary').click();
+  await expect(page.locator('#era-title')).toBeVisible();
+  await page.getByRole('checkbox').first().check();
+  await expect(page.getByRole('checkbox').first()).toBeChecked();
+  await page.getByRole('link', { name: '처음 시작하기', exact: true }).click();
+  await expect(page).toHaveURL(/#start-small$/);
 
   const body = await page.locator('body').innerText();
   expect(body).not.toContain('과거 스킬 목록');
