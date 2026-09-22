@@ -1,4 +1,6 @@
 ---
+import ProductFacts from "./ProductFacts.astro";
+import allFacts from "../data/product-facts.json";
 interface Product {
   name: string;
   icon?: string;
@@ -13,6 +15,7 @@ const { item, kind, label, index } = Astro.props as {
   index: number;
 };
 const icon = item.icon;
+const facts = allFacts[item.name as keyof typeof allFacts];
 const glyph =
   kind === "tool" ? ">_" : kind === "ebook" ? "Aa" : item.name.slice(0, 1);
 ---
@@ -21,7 +24,7 @@ const glyph =
   class={`catalog-card kind-${kind}`}
   data-catalog-item
   data-kind={kind}
-  data-search={`${item.name} ${item.desc} ${item.status} ${label}`}
+  data-search={`${item.name} ${item.desc} ${item.status} ${label} ${facts.price} ${facts.platform} ${facts.account}`}
 >
   <div class="catalog-top">
     <span class="product-icon" aria-hidden="true"
@@ -37,7 +40,7 @@ const glyph =
   <h3>{item.name}</h3>
   <p class="description">{item.desc}</p>
   <div class="catalog-bottom">
-    <p class="status">{item.status}</p><div class="catalog-links">
+    <ProductFacts name={item.name} /><div class="catalog-links">
       {
         item.links.map((link) =>
           link.disabled ? (
