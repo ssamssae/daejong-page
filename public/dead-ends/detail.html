@@ -405,6 +405,11 @@
           viewEl.innerHTML = '<div class="error">해당 막다른 길을 찾을 수 없습니다. (slug: ' + escapeHtml(slug) + ')</div>';
           return;
         }
+        const readerLink = document.createElement('a');
+        readerLink.href = '/notes/dead-ends/' + encodeURIComponent(entry.file.replace(/\.md$/, '')) + '/';
+        readerLink.textContent = '새 읽기 화면으로 보기 →';
+        readerLink.className = 'back';
+        viewEl.before(readerLink);
         const r = await fetch('./' + entry.file + '?_=' + Date.now());
         if (!r.ok) {
           viewEl.innerHTML = '<div class="error">파일을 불러올 수 없습니다.</div>';

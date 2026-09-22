@@ -1,6 +1,8 @@
 ---
+import { noteHref } from '../lib/note-path.mjs';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import ListSearch from '../components/ListSearch.astro';
 import Layout from '../layouts/Layout.astro';
 
 type IssueEntry = {
@@ -40,8 +42,8 @@ const latestUpdate =
     .sort()
     .at(-1) ?? issues[0]?.date ?? '';
 
-const highSeverity = issues.filter((issue) => String(issue.severity ?? '').toLowerCase() === 'high').length;
-const highRecurrence = issues.filter((issue) => String(issue.recurrence ?? '').toLowerCase() === 'high').length;
+const highSeverity = issues.filter((issue) => /^high\b/i.test(String(issue.severity ?? '').trim())).length;
+const highRecurrence = issues.filter((issue) => /^high\b/i.test(String(issue.recurrence ?? '').trim())).length;
 
 const dateLabel = (date?: string | null) => (date ? date.slice(0, 10).replaceAll('-', '.') : '-');
 const monthLabel = (month: string) => {
@@ -89,8 +91,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
         <h1 id="page-title">이슈</h1>
         <p class="lead">
           발생했다가 해결한 문제를 숨기지 않고 남깁니다. 증상, 원인, 조치, 재발 가능성을
-          날짜별로 모아 다음 작업의 안전장치로 씁니다. 지금 운영 로스터는 아테나·헤르메스·볼칸이고,
-          라이덴·테미스가 제목에 남는 항목은 퇴사 전 기록입니다.
+          날짜별로 모아 다음 작업의 안전장치로 씁니다. 과거의 노드 이름과 역할은 당시 맥락으로 읽습니다. 현재 장애 현황이나 실시간 상태판은 아닙니다.
         </p>
       </div>
       <dl class="hero-stats" aria-label="이슈 기록 요약">
@@ -112,10 +113,10 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     <section class="signal-section" aria-labelledby="signal-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">CURRENT SIGNALS</p>
-          <h2 id="signal-title">지금 먼저 봐야 하는 숫자</h2>
+          <p class="eyebrow">ARCHIVE SUMMARY</p>
+          <h2 id="signal-title">기록에 남은 영향과 재발 위험</h2>
         </div>
-        <p>심각도와 재발 가능성이 높은 항목은 포스트모템보다 운영 규칙으로 옮겨야 합니다.</p>
+        <p>아래 분류는 작성 당시 평가입니다. high 뒤에 설명이 붙은 기록도 포함하며, 평가가 없는 항목은 낮음으로 간주하지 않습니다. 원인과 예방 조치를 함께 읽습니다.</p>
       </div>
       <div class="signal-grid">
         <div>
@@ -146,7 +147,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       </div>
       <div class="latest-grid">
         {latestIssues.map((issue, index) => (
-          <a class={index === 0 ? 'issue-card primary' : 'issue-card'} href={`/issues/${issue.file}`}>
+          <a class={index === 0 ? 'issue-card primary' : 'issue-card'} href={noteHref('issues', issue)}>
             <span class="card-top">
               <span>{String(index + 1).padStart(2, '0')}</span>
               <time datetime={issue.date}>{dateLabel(issue.date)}</time>
@@ -171,6 +172,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
         <p>{monthGroups.size}개월치 이슈를 최신순으로 묶었습니다.</p>
       </div>
 
+      <ListSearch target=".archive-list li" label="이슈" placeholder="예: 로그인, 배포, high" />
       <div class="archive-list">
         {Array.from(monthGroups.entries()).map(([month, items]) => (
           <section class="month-block" aria-labelledby={`month-${month}`}>
@@ -181,7 +183,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
             <ol>
               {items.map((issue) => (
                 <li>
-                  <a href={`/issues/${issue.file}`}>
+                  <a href={noteHref('issues', issue)}>
                     <time datetime={issue.date}>{dateLabel(issue.date)}</time>
                     <span>{issue.title}</span>
                     <small>{levelText(issue.severity)} / {levelText(issue.recurrence)}</small>

@@ -1,0 +1,45 @@
+---
+const { target, label = '기록', placeholder = '제목·내용으로 찾기' } = Astro.props;
+---
+<form class="list-search" data-list-search data-target={target} role="search" hidden>
+  <label>{label} 검색<input type="search" placeholder={placeholder} /></label>
+  <button type="reset">초기화</button>
+  <p role="status" aria-live="polite"></p>
+</form>
+<script>
+import { matchesSearch } from '../lib/workshop-search.mjs';
+for (const form of document.querySelectorAll<HTMLFormElement>('[data-list-search]')) {
+  const input = form.querySelector<HTMLInputElement>('input')!;
+  const status = form.querySelector('p')!;
+  const items = [...document.querySelectorAll<HTMLElement>(form.dataset.target!)];
+  const texts = items.map(item => item.textContent || '');
+  const update = () => {
+    let visible = 0;
+    items.forEach((item,i) => { item.hidden = !matchesSearch(texts[i], input.value); if (!item.hidden) visible++; });
+    status.textContent = visible ? `${visible} / ${items.length}개` : '검색 결과가 없습니다. 검색어를 줄이거나 초기화해 보세요.';
+    for (const group of document.querySelectorAll<HTMLElement>('.archive-list .month-block')) {
+      group.hidden = ![...group.querySelectorAll<HTMLElement>('li')].some(item => !item.hidden);
+    }
+    if (form.dataset.target === '.glossary-data .term') {
+      for (const heading of document.querySelectorAll<HTMLElement>('.glossary-data > h2')) {
+        let sibling = heading.nextElementSibling;
+        let any = false;
+        while (sibling && sibling.tagName !== 'H2') { if (sibling.matches('.term') && !(sibling as HTMLElement).hidden) any = true; sibling = sibling.nextElementSibling; }
+        heading.hidden = !any;
+      }
+    }
+  };
+  form.hidden = false;
+  form.addEventListener('submit', e => e.preventDefault());
+  input.addEventListener('input', update);
+  form.addEventListener('reset', () => { input.value = ''; update(); });
+  update();
+}
+</script>
+<style>
+.list-search { display:flex; flex-wrap:wrap; gap:12px; align-items:end; padding:18px 0; border-block:1px solid var(--border); }
+label { flex:1 1 240px; font-size:13px; } input { display:block; width:100%; margin-top:8px; border:1px solid var(--border); border-radius:8px; background:var(--bg-elev); color:var(--fg); font:inherit; padding:12px; }
+button { padding:12px 18px; color:var(--fg); background:var(--bg-elev); border:1px solid var(--border); border-radius:8px; cursor:pointer; }
+p { flex:1 0 100%; font-size:13px; color:var(--fg-mute); }
+[hidden] { display:none !important; }
+</style>
