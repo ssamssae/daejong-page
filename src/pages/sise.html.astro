@@ -2,17 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/lab.css';
 ---
-<Layout title="시세판 — 코인·환율 실시간 | 강대종" description="인기 코인과 주요 환율을 한 화면에서 확인하는 개인용 시세 대시보드. CoinGecko와 유럽중앙은행 기반 무료 공개 데이터를 불러와 KRW 코인 검색, 환율 카드, 관심 주식 준비 상태를 한 페이지에서 보여줍니다.">
+<Layout title="시세판 — 코인·환율 데이터 실험 | 강대종" description="인기 코인과 주요 환율을 한 화면에서 확인하는 개인용 시세 대시보드. CoinGecko와 유럽중앙은행 기반 무료 공개 데이터를 불러와 KRW 코인 검색, 환율 카드, 관심 주식 준비 상태를 한 페이지에서 보여줍니다.">
   <Fragment slot="head">
     <!-- OG / Twitter Card (2026-05-25) -->
-  <meta property="og:title" content="시세판 — 코인·환율 실시간 | 강대종">
+  <meta property="og:title" content="시세판 — 코인·환율 데이터 실험 | 강대종">
   <meta property="og:description" content="인기 코인과 주요 환율을 한 화면에서 보는 개인용 대시보드. CoinGecko·유럽중앙은행(ECB) 무료 공개 데이터.">
   <meta property="og:image" content="https://work.kangdaejong.com/og-default.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://work.kangdaejong.com/sise.html">
   <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="시세판 — 코인·환율 실시간 | 강대종">
+  <meta name="twitter:title" content="시세판 — 코인·환율 데이터 실험 | 강대종">
   <meta name="twitter:description" content="인기 코인과 주요 환율을 한 화면에서 보는 개인용 대시보드. CoinGecko·유럽중앙은행(ECB) 무료 공개 데이터.">
   <meta name="twitter:image" content="https://work.kangdaejong.com/og-default.png">
   <link rel="canonical" href="https://work.kangdaejong.com/sise.html">
@@ -50,7 +50,8 @@ import '../styles/lab.css';
 
   /* ── 패널 (JS 렌더 컨테이너 — 다크 카드) ── */
   .panel { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 20px; margin-bottom: 16px; }
-  .panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .panel p { line-height:1.8; margin:12px 0; overflow-wrap:anywhere; }
+  .panel-head { flex-wrap:wrap; gap:10px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
   .panel-head h2 { font-size: var(--text-lead); font-weight: 700; color: var(--fg); }
   .panel-head .meta { font-family: var(--mono); font-size: var(--text-meta); color: var(--fg-mute); }
 
@@ -107,13 +108,14 @@ import '../styles/lab.css';
   <div class="lab-page" style="--page-accent: var(--warn)">
     <section class="lab-hero">
       <h1 class="logo">시세판</h1>
-      <p class="tagline">market board · 코인·환율 실시간</p>
+      <p class="tagline">market board · 코인·환율 데이터 실험</p>
       <p class="intro">인기 코인과 주요 환율을 한 화면에 — 개인용 대시보드. CoinGecko와 유럽중앙은행(ECB) 기반 무료 공개 데이터를 불러와 KRW 코인 검색·환율 카드·관심 주식 준비 상태를 보여준다.</p>
     </section>
 
+    <section class="panel" aria-labelledby="data-purpose"><h2 id="data-purpose">외부 데이터를 한 화면에 모으는 실험</h2><p>코인 검색·관심 목록 저장과 환율 비교를 시험한 프로토타입입니다. 2026-09-23 구현 범위를 확인했습니다. 이 날짜는 가격의 기준일이 아닙니다.</p><p>페이지를 열 때 데이터를 요청하며 주기적으로 자동 갱신하지 않습니다. 코인 가격은 제공처 갱신·캐시·요청 제한으로 지연될 수 있습니다. 환율은 Frankfurter v1의 ECB 기준일 데이터로, 화면에 표시한 날짜를 확인하세요.</p><p>코인 등락은 24시간 변화, 환율 등락은 반환된 최근 두 기준일 비교입니다. 환율은 EUR 기준 교차 계산이며 JPY는 100엔 단위입니다. 관심 코인 목록은 현재 브라우저에만 저장되고 다른 기기와 동기화되지 않습니다.</p><p><a href="https://docs.coingecko.com/reference/coins-markets">코인 데이터 설명</a> · <a href="https://frankfurter.dev/v1/">환율 데이터 설명</a></p></section>
     <!-- 코인 패널 -->
     <section class="panel">
-      <div class="panel-head"><h2>🪙 인기 코인</h2><span class="meta" id="coinMeta">실시간 · KRW</span></div>
+      <div class="panel-head"><h2>🪙 인기 코인</h2><span class="meta" id="coinMeta">조회 대기 · KRW</span></div>
       <div class="search">
         <input id="coinSearch" type="text" placeholder="코인 검색 (예: 비트코인, ETH)" autocomplete="off">
         <button id="coinSearchBtn">검색</button>
@@ -125,20 +127,20 @@ import '../styles/lab.css';
 
     <!-- 환율 패널 -->
     <section class="panel">
-      <div class="panel-head"><h2>💱 환율</h2><span class="meta" id="fxMeta">실시간</span></div>
+      <div class="panel-head"><h2>💱 환율</h2><span class="meta" id="fxMeta">기준일 조회 대기</span></div>
       <div class="cards" id="fxCards"></div>
       <div class="soon" id="fxLoading">불러오는 중…</div>
     </section>
 
     <!-- 주식 패널 (준비중 — serviceKey 필요로 차후 합류) -->
     <section class="panel">
-      <div class="panel-head"><h2>📈 관심 주식</h2><span class="meta">준비중</span></div>
-      <div class="soon">전일 종가 기반 관심종목 패널은 준비 중이에요.</div>
+      <div class="panel-head"><h2>📈 관심 주식</h2><span class="meta">미구현</span></div>
+      <div class="soon">주식 가격 조회는 구현하지 않았습니다. 위 코인·환율 패널과 지원 범위가 다릅니다.</div>
     </section>
 
     <div class="footnote">
       코인 시세 <a href="https://www.coingecko.com" target="_blank" rel="noopener">Powered by CoinGecko</a> · 환율 <a href="https://frankfurter.dev" target="_blank" rel="noopener">Frankfurter</a>(유럽중앙은행 ECB)<br>
-      실시간 시세는 참고용이며 투자 권유가 아닙니다.
+      외부 공개 데이터의 조회 결과입니다. 자동 갱신·체결가 제공·주문 기능은 없습니다.
     </div>
 
     <a class="lab-back" href="/lab">← lab</a>

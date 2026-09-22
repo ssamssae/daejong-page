@@ -1,5 +1,6 @@
 ---
 import SystemGuide from '../components/SystemGuide.astro';
+import OperatingModel from '../components/OperatingModel.astro';
 const bridges = ['Grok', 'Codex', 'Claude', 'Cursor', 'Local'];
 ---
 <SystemGuide
@@ -9,49 +10,10 @@ const bridges = ['Grok', 'Codex', 'Claude', 'Cursor', 'Local'];
   title={"역할은 나누고,\n맥락은 연결합니다."}
   lead={"세 물리 노드와 다섯 종류의 브릿지를 사용합니다. 노드는 기기이고 Codex·Cursor·Grok은 엔진입니다. 설치된 도구, 배정된 역할, 실제 가동 상태는 서로 구분해서 읽습니다."}
   motif={"3 nodes.\n5 bridges."}
-  date={"2026-09-13"}
+  date={"2026-09-23"}
   steps={["사용자 · Telegram / 직접 대화", "컴퓨터 · AI 세션 / 작업 공간", "결과 · GitHub / 제품 / 기록"]}
 >
-  <section class="guide-section">
-    <div class="guide-heading">
-      <div>
-        <p class="guide-kicker">01 / THREE PHYSICAL NODES</p>
-        <h2>세 노드의 역할.</h2>
-      </div>
-      <p>리드와 워커는 고정 신분이 아닙니다. 작업마다 노드:엔진 한 곳만 책임 리드를 맡고, 워커는 Cursor를 먼저 검토합니다.</p>
-    </div>
-    <div class="guide-table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>노드</th>
-            <th>현재 배정 기준</th>
-            <th>구분할 점</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>헤르메스</td>
-            <td>Codex·Cursor·Grok 리드/워커, 전체 조율</td>
-            <td>유일한 배차권자는 아님. 작업마다 책임 리드 한 곳</td>
-          </tr>
-          <tr>
-            <td>아테나</td>
-            <td>Codex·Cursor·Grok 리드/워커</td>
-            <td>워커는 Cursor 우선. 기존 직접 대화는 유지</td>
-          </tr>
-          <tr>
-            <td>볼칸</td>
-            <td>Codex·Cursor·Grok 리드/워커</td>
-            <td>워커는 Cursor 우선. 기존 직접 대화는 유지</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <aside class="guide-callout">
-      <p>Grok CLI는 2026-09-14 00:00 KST 이후 배정합니다. 9월 13일에는 리드·워커로 호출하지 않습니다. 위 표는 역할 설정이며 현재 기기 접속·busy·모델 가동 여부를 측정한 상태판이 아닙니다.</p>
-    </aside>
-  </section>
+  <OperatingModel />
   <section class="guide-section">
     <div class="guide-heading">
       <div>
