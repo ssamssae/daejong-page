@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "file": "2026-09-23-jarvis-mac-voice-roundtrip.md",
+      "date": "2026-09-23",
+      "slug": "jarvis-mac-voice-roundtrip",
+      "title": "자비스 제작기 — Mac에 말 걸고 네스트에서 답을 듣기까지",
+      "category": "음성 AI/자동화",
+      "tags": [
+        "자비스",
+        "jarvis",
+        "macOS",
+        "Cursor",
+        "Google Nest",
+        "음성 인식",
+        "실측",
+        "오픈소스"
+      ],
+      "summary": "Mac 내장 마이크·로컬 인식·Cursor·Google Nest를 연결해 실제 호출과 1회 청취까지 확인했다. 39.07초를 구간별로 나누고, 재생 중 재호출 방지와 원형 실측·공개판 검증을 구분하는 기준을 정리했다."
+    },
+    {
       "file": "2026-09-21-jev-decisions-and-free-prefilter.md",
       "date": "2026-09-21",
       "slug": "jev-decisions-and-free-prefilter",
