@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "file": "2026-09-23-babmeokja-retired.md",
+      "slug": "2026-09-23-babmeokja-retired",
+      "title": "밥먹자 — 같이 먹을 사람을 찾지 못해 접다",
+      "date": "2026-09-23",
+      "category": "제품",
+      "tags": [
+        "밥먹자",
+        "모임",
+        "식사",
+        "운영종료"
+      ],
+      "summary": "공덕·마포에서 같이 식사할 사람을 찾던 웹·앱. 이용자가 없어 2026-09-23에 종료했다. 웹은 종료 안내만 남고, 플레이 공개 페이지는 없으며, 회사 홈과 작업장 제품 목록에서도 내렸다."
+    },
+    {
       "file": "2026-05-05-rail-booking-playwright-bot-detection.md",
       "slug": "2026-05-05-rail-booking-playwright-bot-detection",
       "title": "철도 예매 Playwright 자동화 — PerimeterX 3단계 우회 전부 실패",
