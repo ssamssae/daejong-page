@@ -54,6 +54,7 @@ export const HOST_SLUGS = {
 };
 
 export const GITHUB_REPOS = {
+  'ssamssae/jarvis-mac': 'jarvis-mac',
   'ssamssae/ipta': 'ipta',
   'ssamssae/grok-telegram-bridge': 'grok-bridge',
   'ssamssae/codex-telegram-bridge': 'codex-bridge',
@@ -105,6 +106,7 @@ export function slugForUrl(raw) {
   if (!url) return null;
   const path = url.pathname.replace(/\/+$/, '') || '/';
   if (url.hostname === OWNED_HOST && path === PRODUCTS_PATH) return 'products';
+  if (url.hostname === OWNED_HOST && path === '/jarvis') return 'jarvis-mac';
   if (url.hostname === 'kangdaejong.com' && path === '/ipta') return 'ipta';
 
   const apple = url.pathname.match(/\/id(\d+)/);
@@ -139,6 +141,7 @@ export function extractQuotedUrls(source) {
 }
 
 export function hopIdFor(product, url) {
+  if (product === 'jarvis-mac' && url.hostname === OWNED_HOST && url.pathname.replace(/\/+$/, '') === '/jarvis') return 'jarvis-mac-story';
   if (url.hostname === 'apps.apple.com') return `${product}-ios`;
   if (url.hostname === 'play.google.com') return `${product}-android`;
   if (url.hostname === 'github.com' && url.pathname.includes('/releases/')) {

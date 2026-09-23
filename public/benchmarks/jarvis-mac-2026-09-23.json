@@ -1,0 +1,27 @@
+{
+  "project": "Jarvis Mac",
+  "date": "2026-09-23",
+  "sample_count": 1,
+  "input": "Human speech captured by a MacBook Pro built-in microphone",
+  "pipeline": ["local utterance wake gate", "Ipta warm transcription worker", "source retrieval", "Cursor CLI", "macOS speech synthesis", "Google Nest Mini"],
+  "speech_end_to_playing_seconds": 39.07060170173645,
+  "speech_start_to_playing_seconds": 42.7668833732605,
+  "stages_seconds": {
+    "silence_endpoint": 0.9045782089233398,
+    "local_transcription": 0.3992253327742219,
+    "cast_connection": 13.471985124982893,
+    "source_retrieval": 0.9429722912609577,
+    "cursor_generation": 21.88420020788908,
+    "speech_synthesis": 1.0378413340076804,
+    "cast_start": 0.31378574995324016
+  },
+  "playback_finished": true,
+  "generated_audio_clips": 1,
+  "human_confirmed_heard_once": true,
+  "measurement_boundary": "VAD detected final voiced frame to observed Nest PLAYING. Device buffering and observation uncertainty apply.",
+  "limitations": [
+    "One sample, not a latency guarantee or reliability study",
+    "Baseline used an installed Ipta warm worker; public whisper.cpp CLI adapter is a different transcription implementation",
+    "No voice recording, private device name, authentication data or internal logs are published"
+  ]
+}

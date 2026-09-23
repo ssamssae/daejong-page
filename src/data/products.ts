@@ -127,6 +127,14 @@ export const bridges = {
 
 export const tools = [
   {
+    name: 'Jarvis Mac', status: 'macOS · 오픈소스 · 실험',
+    desc: 'Mac 마이크의 호출어로 Cursor에 질문하고 Google Nest에서 답을 듣는 음성 비서 실험. 실제 발화·1회 청취와 응답 지연까지 확인했습니다.',
+    links: [
+      { label: '제작기와 실측', url: 'https://work.kangdaejong.com/jarvis/' },
+      { label: 'GitHub', url: 'https://github.com/ssamssae/jarvis-mac' },
+    ],
+  },
+  {
     name: '입타 (Ipta)', icon: '/product-icons/ipta-779f2694b7.png', status: 'Mac · Windows · 오픈소스',
     desc: 'Mac · Windows용 한국어 음성 입력. 받아쓰기는 내 컴퓨터에서 처리하고, AI 문장 다듬기는 선택해서 사용합니다.',
     links: [
