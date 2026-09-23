@@ -19,7 +19,7 @@ const clickEvent = EVENTS.click;
 const webSource = SOURCES.web;
 ---
 <Layout title="제품으로 이동" description="뉴스레터 제품 링크 이동">
-  {entry && <meta slot="head" http-equiv="refresh" content={`1;url=${dest}`} />}
+  {entry && <noscript slot="head"><meta http-equiv="refresh" content={`1;url=${dest}`} /></noscript>}
   {!entry ? (
     <p data-nl-hop="rejected">이 주소로는 이동하지 않습니다.</p>
   ) : (
@@ -34,7 +34,7 @@ const webSource = SOURCES.web;
         <a id="nl-fallback" href={dest}>제품 페이지로 이동</a>
       </p>
       {destKind === 'external' && (
-        <p data-nl-visit="na">이 목적지는 우리 사이트 밖이라 도착 계측은 NA입니다.</p>
+        <p data-nl-visit="na">제품의 공식 페이지로 이동합니다. 이동하지 않으면 위 링크를 눌러주세요.</p>
       )}
     </>
   )}
@@ -52,6 +52,7 @@ const webSource = SOURCES.web;
       var source = webSource;
       var clickId = params.get('nlc') || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + '-' + Math.random().toString(16).slice(2));
       var landing = new URL(dest);
+      if (params.get('nl_test') === '1') landing.searchParams.set('nl_test', '1');
       landing.searchParams.set('from', 'nl');
       landing.searchParams.set('nlc', clickId);
       landing.searchParams.set('p', product);

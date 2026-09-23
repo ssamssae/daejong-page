@@ -230,7 +230,10 @@ export async function handleRequest(request, env = {}) {
       } catch {
         return json({ ok: false, error: 'storage_unavailable', coverage: 'NA', diagnostic: 'd1_read_unavailable' }, 503, request);
       }
-      if (click && !visitMatchesClick(row, click)) {
+      if (!click) {
+        return json({ ok: true, stored: false, reason: 'click_pending' }, 202, request);
+      }
+      if (!visitMatchesClick(row, click)) {
         return json({ ok: true, stored: false, reason: 'visit_mismatch' }, 202, request);
       }
     }

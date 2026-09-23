@@ -30,7 +30,7 @@ import {
 } from '../src/lib/nl-events.mjs';
 import { handleRequest } from '../nl-events-worker/src/index.js';
 import { nlCollectorOrigin, validateNlCollectorOrigin } from '../src/lib/nl-collector.mjs';
-import { postNlEvent, shouldMarkVisitSent, visitStorageKey } from '../src/lib/nl-client-send.mjs';
+import { postNlEvent, postConfirmedVisit, shouldMarkVisitSent, visitStorageKey } from '../src/lib/nl-client-send.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -417,14 +417,52 @@ test('POST rejects a missing or untrusted browser Origin', async () => {
 
 test('sendBeacon false retries and does not mark storage first', async () => {
   assert.equal(shouldMarkVisitSent({ beaconOk: false, fetchOk: false }), false);
-  assert.equal(shouldMarkVisitSent({ beaconOk: true, fetchOk: false }), true);
+  assert.equal(shouldMarkVisitSent({ beaconOk: true, fetchOk: false }), false);
+  assert.equal(shouldMarkVisitSent({ acknowledged: true }), true);
   assert.equal(visitStorageKey('abc'), 'nl-visit:abc');
   let stored = false;
   const result = await postNlEvent('https://collector.test', { event: 'x' }, {
     sendBeacon: () => false,
-    fetchImpl: async () => ({ ok: true, status: 201 }),
+    fetchImpl: async () => ({ ok: true, status: 201, json: async () => ({stored:true}) }),
   });
-  if (result.ok) stored = true;
+  if (shouldMarkVisitSent(result)) stored = true;
   assert.equal(result.via, 'fetch');
   assert.equal(stored, true);
+});
+
+test('Ipta releases retain exact Mac and Windows destinations and guide links', () => {
+  const urls = ['https://github.com/ssamssae/ipta/releases/tag/v0.1.24', 'https://github.com/ssamssae/ipta/releases/tag/v0.1.25', 'https://kangdaejong.com/ipta/'];
+  const list = buildAllowlist(urls);
+  const hits = urls.map(url => matchHref(list,url));
+  assert.equal(new Set(hits.map(hit=>hit.hop)).size,3);
+  for (let i=0;i<urls.length;i++) { assert.equal(hits[i].product,'ipta'); assert.equal(hits[i].dest, urls[i].replace(/\/$/,'')); }
+  assert.equal(slugForUrl('https://kangdaejong.com/not-ipta/'),null);
+  assert.equal(matchHref(list,'https://github.com/ssamssae/ipta/releases/tag/v9.9.9'),null);
+});
+test('ambiguous product destinations fail the build instead of dropping a link',()=>{
+  assert.throws(()=>buildAllowlist(['https://cheotireum.kangdaejong.com/','https://cheotireum.kangdaejong.com/other']),/collision/);
+});
+test('visit before its click is not counted and can be retried after click arrives',async()=>{
+  const store=createEventStore();
+  const post=body=>handleRequest(new Request('https://collector.test/v1/events',{method:'POST',headers:{origin:'https://work.kangdaejong.com'},body:JSON.stringify(body)}),{store});
+  const visit=event({product:'products',event:EVENTS.visit});
+  assert.equal((await (await post(visit)).json()).reason,'click_pending');
+  assert.equal(store.all().length,0);
+  assert.equal((await post({...visit,event:EVENTS.click})).status,201);
+  assert.equal((await post(visit)).status,201);
+  assert.equal((await (await post(visit)).json()).reason,'duplicate');
+  assert.equal(store.all().length,2);
+});
+test('confirmed visits wait for storage acknowledgement and handle an arrival race',async()=>{
+  let calls=0,beacons=0;
+  const result=await postConfirmedVisit('https://collector.test',event(),{sendBeacon:()=>{beacons++;return true;},wait:async()=>{},fetchImpl:async()=>({ok:true,status:++calls===1?202:201,json:async()=>calls===1?{stored:false,reason:'click_pending'}:{stored:true}})});
+  assert.equal(beacons,0);assert.equal(calls,2);assert.equal(shouldMarkVisitSent(result),true);
+  const excluded=await postConfirmedVisit('https://collector.test',event(),{fetchImpl:async()=>({ok:true,status:202,json:async()=>({stored:false,reason:'excluded'})})});
+  assert.equal(shouldMarkVisitSent(excluded),false);
+});
+test('collector accepts Ipta clicks but does not invent visits on the company domain',async()=>{
+  const store=createEventStore();
+  const post=body=>handleRequest(new Request('https://collector.test/v1/events',{method:'POST',headers:{origin:'https://work.kangdaejong.com'},body:JSON.stringify(body)}),{store});
+  assert.equal((await post(event({product:'ipta'}))).status,201);
+  assert.equal((await (await post(event({product:'ipta',event:EVENTS.visit}))).json()).reason,'visit_na');
 });

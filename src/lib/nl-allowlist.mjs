@@ -54,6 +54,7 @@ export const HOST_SLUGS = {
 };
 
 export const GITHUB_REPOS = {
+  'ssamssae/ipta': 'ipta',
   'ssamssae/grok-telegram-bridge': 'grok-bridge',
   'ssamssae/codex-telegram-bridge': 'codex-bridge',
   'ssamssae/claude-telegram-bridge': 'claude-bridge',
@@ -104,6 +105,7 @@ export function slugForUrl(raw) {
   if (!url) return null;
   const path = url.pathname.replace(/\/+$/, '') || '/';
   if (url.hostname === OWNED_HOST && path === PRODUCTS_PATH) return 'products';
+  if (url.hostname === 'kangdaejong.com' && path === '/ipta') return 'ipta';
 
   const apple = url.pathname.match(/\/id(\d+)/);
   if (url.hostname === 'apps.apple.com' && apple) {
@@ -140,7 +142,8 @@ export function hopIdFor(product, url) {
   if (url.hostname === 'apps.apple.com') return `${product}-ios`;
   if (url.hostname === 'play.google.com') return `${product}-android`;
   if (url.hostname === 'github.com' && url.pathname.includes('/releases/')) {
-    return `${product}-release`;
+    const tag = url.pathname.match(/\/releases\/tag\/([^/]+)$/)?.[1];
+    return tag ? `${product}-release-${encodeURIComponent(tag)}` : `${product}-release`;
   }
   const path = url.pathname.replace(/\/+$/, '') || '/';
   if (path.endsWith('/sample')) return `${product}-sample`;
@@ -150,7 +153,7 @@ export function hopIdFor(product, url) {
 
 export function buildAllowlist(urls) {
   const entries = [];
-  const seen = new Set();
+  const seen = new Map();
   const owned = [
     'https://work.kangdaejong.com/products/',
     'https://work.kangdaejong.com/products',
@@ -165,8 +168,11 @@ export function buildAllowlist(urls) {
     const dest = url.toString();
     const hop = hopIdFor(product, url);
     const key = hop;
-    if (seen.has(key)) continue;
-    seen.add(key);
+    if (seen.has(key)) {
+      if (seen.get(key) !== dest) throw new Error(`Newsletter hop collision: ${hop}`);
+      continue;
+    }
+    seen.set(key, dest);
     entries.push({
       hop,
       product,
