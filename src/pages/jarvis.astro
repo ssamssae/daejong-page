@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+const repo = 'https://github.com/ssamssae/jarvis-mac';
+const stages = [
+  ['무음으로 발화 끝 판정', '0.90초'],
+  ['로컬 음성 인식', '0.40초'],
+  ['네스트 연결', '13.47초'],
+  ['근거 조회', '0.94초'],
+  ['Cursor 답변 생성', '21.88초'],
+  ['음성 합성', '1.04초'],
+  ['네스트 재생 시작', '0.31초'],
+];
+---
+<Layout title="Jarvis Mac — 말 걸면 네스트가 답하는 나만의 자비스" description="Mac의 마이크, 로컬 음성 인식, Cursor, Google Nest를 연결한 자비스 제작기. 실제 사람의 호출과 1회 청취, 39.07초 응답 지연까지 확인한 실험과 오픈소스.">
+  <Fragment slot="head">
+    <link rel="canonical" href="https://work.kangdaejong.com/jarvis/" />
+    <meta property="og:title" content="자비스를 불렀더니, 네스트가 답했다." />
+    <meta property="og:description" content="Mac 마이크 → 로컬 인식 → Cursor → Google Nest. 실제 호출·청취까지 연결한 자비스의 첫 기록." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://work.kangdaejong.com/jarvis/" />
+    <meta property="og:image" content="https://work.kangdaejong.com/og-default.png" />
+  </Fragment>
+  <article class="jarvis-story">
+    <a class="back" href="/">← 작업장으로</a>
+    <header class="story-hero">
+      <div>
+        <p class="eyebrow">JARVIS MAC · OPEN SOURCE EXPERIMENT</p>
+        <h1>자비스를 불렀더니,<br /><em>네스트가 답했다.</em></h1>
+        <p class="lead">키보드를 내려놓고 Mac에 말을 걸었다.<br />질문을 알아듣고 만든 답변이 집에 있던 스피커로 흘러나왔다.</p>
+        <div class="links"><a class="button primary" href={repo}>GitHub에서 코드 보기 ↗</a><a class="button" href="#measured">실측 결과 읽기 ↓</a></div>
+        <p class="dateline">강대종 · 2026.09.23 · macOS 실험 프로젝트</p>
+      </div>
+      <aside class="voice-note" aria-label="실제로 확인한 대화">
+        <div class="note-top"><span class="signal" aria-hidden="true"></span> 실제 마이크로 부른 첫 질문</div>
+        <blockquote>“자비스, 하늘이 파란 이유를<br />한 문장으로 알려줘.”</blockquote>
+        <div class="voice-line" aria-hidden="true">{[12,24,16,38,54,30,62,44,24,46,66,32,18,40,52,24,12].map(h => <i style={`height:${h}px`}></i>)}</div>
+        <p>네스트에서 파란빛의 산란을 설명하는 답변이 재생됐다.</p>
+        <footer><strong>“한 번 들었어.”</strong><span>실제 청취 확인 · 재생 정상 종료</span></footer>
+      </aside>
+    </header>
+
+    <section class="story-section" aria-labelledby="connected">
+      <div class="section-intro"><p class="eyebrow">01 / THE CONNECTION</p><h2 id="connected">각자 하던 일을,<br />하나의 목소리로 연결했다.</h2></div>
+      <div class="section-body">
+        <p>Mac의 내장 마이크가 말을 받고, 로컬 음성 인식이 질문을 글로 바꾼다. 호출어로 시작한 질문을 Cursor에 전달하고, 완성된 답변을 음성으로 합성해 Google Nest Mini에서 재생한다.</p>
+        <ol class="flow" aria-label="실측한 음성 처리 순서">
+          <li><span>01</span><strong>Mac 마이크</strong><small>호출어와 질문</small></li>
+          <li><span>02</span><strong>로컬 인식</strong><small>입타로 받아쓰기</small></li>
+          <li><span>03</span><strong>Cursor</strong><small>근거로 답변 생성</small></li>
+          <li><span>04</span><strong>macOS 음성</strong><small>문장을 소리로</small></li>
+          <li><span>05</span><strong>Google Nest</strong><small>재생과 청취</small></li>
+        </ol>
+        <p>메뉴 막대에서 호출을 기다리고, 일시정지하거나 종료할 수 있다. 답변을 만드는 동안과 스피커가 말하는 동안에는 새 질문을 받지 않아 자기 목소리에 다시 반응하는 일을 막는다.</p>
+      </div>
+    </section>
+
+    <section id="measured" class="measurement" aria-labelledby="measurement-title">
+      <div class="measurement-head"><div><p class="eyebrow">02 / THE RECEIPT</p><h2 id="measurement-title">작동했다. 그리고 시간을 쟀다.</h2></div><div class="big-number"><strong>39.07<span>초</span></strong><p>말을 마친 뒤 → 네스트 재생 시작</p></div></div>
+      <p>실제 사람의 발화에서 출발해, 네스트의 재생 상태와 사람이 한 번 들었다는 확인까지 맞춰 봤다. 빠른 응답이라고 하기에는 아직 기다림이 길다.</p>
+      <div class="latency-bar" role="img" aria-label="전체 지연 중 Cursor 답변 생성 약 56%, 네스트 연결 약 34%, 나머지 약 10%"><span class="generation"></span><span class="connection"></span><span class="rest"></span></div>
+      <div class="bar-labels"><span><i class="generation"></i>답변 생성 21.88초</span><span><i class="connection"></i>네스트 연결 13.47초</span><span><i class="rest"></i>인식·합성 등</span></div>
+      <div class="measurement-detail">
+        <table><caption>단일 질문의 구간별 관측값</caption><tbody>{stages.map(([label,value]) => <tr><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table>
+        <div class="measurement-note"><h3>숫자가 말해주는 것</h3><p>큰 대기는 답변 생성과 스피커 연결에 있었다. “AI가 느리다”로 묶지 않고, 다음에 손댈 구간을 구분할 수 있게 됐다.</p><p>2026년 9월 23일 MacBook Pro 내장 마이크로 측정한 <strong>1회 결과</strong>다. 발화 시작부터는 42.77초. 끝 시점은 무음 감지가 정한 마지막 유성 프레임이며, 장치 버퍼와 관측 오차가 있다.</p><p>각 구간은 별도로 측정하고 반올림했다. 합계와 전체 시간에는 부가 처리 시간이 포함된 차이가 있다.</p><a href="/benchmarks/jarvis-mac-2026-09-23.json">개인정보를 제외한 측정값 JSON ↗</a></div>
+      </div>
+    </section>
+
+    <section class="story-section" aria-labelledby="privacy">
+      <div class="section-intro"><p class="eyebrow">03 / WHAT STAYS LOCAL</p><h2 id="privacy">호출 전의 말은<br />내 컴퓨터 안에 둔다.</h2></div>
+      <div class="section-body"><p>짧은 발화 단위의 음성 인식과 호출어 판정은 Mac에서 수행한다. 호출 전의 인식 내용은 저장하거나 Cursor에 보내지 않는다. 임시 음성 파일은 인식 직후 삭제한다.</p><p>호출된 질문과 근거는 답변 생성을 위해 Cursor로 전송된다. 최근 호출의 질문·답변·시간은 로컬 기록으로 남는다. 따라서 전체 과정이 오프라인인 도구는 아니다.</p><p>“자비스”는 호출 규칙이지 화자 인증이 아니다. 공개 버전에는 가전 실행 경로를 넣지 않았다.</p></div>
+    </section>
+
+    <section class="open-code" aria-labelledby="open-title">
+      <div><p class="eyebrow">04 / TAKE IT APART</p><h2 id="open-title">연결 코드를 공개한다.</h2><p>메뉴 막대 앱, 로컬 호출 판정, Cursor 연결, 네스트 출력, 설치 안내를 독립 저장소에 담았다. 자기 Mac과 스피커에 맞춰 읽고 바꿀 수 있다.</p><a class="button primary" href={repo}>Jarvis Mac · GitHub ↗</a></div>
+      <div class="release-notes"><h3>직접 사용하기 전에</h3><ul><li>연결 코드는 MIT 라이선스다. Cursor와 macOS, 음성 모델은 각자의 조건을 따른다.</li><li>개인 기기명·인증정보·음성 원본·운영 기록은 공개하지 않는다.</li><li>공개용 기본 인식기는 사용자가 설치하는 whisper.cpp CLI 어댑터다. 위 실측은 입타의 상주 인식기를 쓴 결과로, 공개 버전의 속도를 보장하지 않는다.</li><li>완성형 범용 비서가 아닌 개발자용 실험이다. 현재 기본 근거 조회는 하늘·노을 질문에 한정되고, 일반 웹 검색과 끼어들기는 미지원이다.</li></ul></div>
+    </section>
+  </article>
+</Layout>
+<style>
+.jarvis-story{max-width:1160px;margin:auto}.back{display:inline-block;font-size:13px;color:var(--fg-dim);margin-bottom:36px}.story-hero{display:grid;grid-template-columns:1.3fr 1fr;gap:52px;align-items:center;padding-bottom:70px}.story-hero h1{font-size:clamp(36px,4.5vw,62px);line-height:1.24;margin:20px 0 26px}.story-hero em{font-style:normal;color:var(--accent)}.lead{font-size:18px;line-height:1.9}.links{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 20px}.dateline{font-size:12px}.voice-note{background:var(--invert-bg);color:var(--invert-fg);border-radius:18px;padding:32px;box-shadow:var(--shadow-pop)}.note-top{font:11px var(--mono);color:var(--invert-dim);display:flex;gap:9px;align-items:center}.signal{height:7px;width:7px;border-radius:50%;background:#a8c99a}.voice-note blockquote{font-size:23px;font-weight:600;line-height:1.7;letter-spacing:-.03em;margin:26px 0}.voice-line{height:70px;display:flex;gap:7px;align-items:center;justify-content:center;margin:25px 0}.voice-line i{width:6px;background:#a8c99a;border-radius:8px}.voice-note p{font-size:14px;color:var(--invert-dim)}.voice-note footer{border-top:1px solid var(--invert-border);margin-top:28px;padding-top:22px;display:flex;flex-direction:column;gap:5px}.voice-note footer span{font-size:12px;color:var(--invert-dim)}.story-section{display:grid;grid-template-columns:1fr 1.7fr;gap:55px;padding:65px 0;border-top:1px solid var(--border)}.section-intro h2{font-size:28px;margin-top:16px;line-height:1.45}.section-body p+p{margin-top:20px}.flow{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:32px 0}.flow li{border-top:2px solid var(--accent-2);padding-top:14px;min-width:0}.flow span{font:11px var(--mono);color:var(--accent-2)}.flow strong{display:block;font-size:14px;margin:12px 0 3px}.flow small{font-size:11px;color:var(--fg-dim)}.measurement{padding:42px;background:var(--bg-elev);border:1px solid var(--border);border-radius:18px;margin-bottom:65px;scroll-margin-top:100px}.measurement-head{display:flex;justify-content:space-between;align-items:center;gap:30px;margin-bottom:28px}.measurement h2{font-size:30px;margin-top:12px}.big-number{text-align:right;flex-shrink:0}.big-number strong{font:600 54px var(--mono);letter-spacing:-.05em}.big-number strong span{font:500 20px var(--sans);margin-left:7px}.big-number p{font-size:11px;margin-top:5px}.latency-bar{display:flex;gap:3px;overflow:hidden;border-radius:5px;height:26px;margin:30px 0 12px}.generation{background:#a8432b}.connection{background:#466448}.rest{background:#a7aa9c}.latency-bar .generation{width:56%}.latency-bar .connection{width:34.48%}.latency-bar .rest{flex:1}.bar-labels{display:flex;flex-wrap:wrap;gap:12px 24px;font-size:12px}.bar-labels i{display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:2px}.measurement-detail{display:grid;grid-template-columns:1fr 1fr;gap:46px;margin-top:38px}table{width:100%;border-collapse:collapse;font-size:14px}caption{text-align:left;font-size:12px;color:var(--fg-dim);padding-bottom:12px}th,td{padding:9px 0;border-bottom:1px solid var(--border)}th{text-align:left;font-weight:500}td{text-align:right;font-family:var(--mono)}.measurement-note h3{font-size:18px;margin-bottom:14px}.measurement-note p{font-size:13px;margin-bottom:13px}.measurement-note a{font-size:13px;color:var(--accent-dim)}.open-code{display:grid;grid-template-columns:1fr 1fr;gap:65px;padding:50px 0 20px;border-top:1px solid var(--border)}.open-code h2{margin:14px 0 20px}.open-code .button{margin-top:25px}.release-notes{border-left:1px solid var(--border);padding-left:32px}.release-notes h3{font-size:18px;margin-bottom:17px}.release-notes ul{padding-left:18px;color:var(--fg-dim);font-size:14px}.release-notes li+li{margin-top:14px}@media(max-width:850px){.story-hero,.story-section,.open-code{grid-template-columns:1fr;gap:30px}.story-hero{padding-bottom:45px}.voice-note{max-width:520px}.story-section{padding:45px 0}.measurement{padding:26px;margin-bottom:45px}.measurement-head{align-items:flex-start;flex-direction:column}.big-number{text-align:left}.measurement-detail{grid-template-columns:1fr;gap:28px}.release-notes{border-left:0;border-top:1px solid var(--border);padding:25px 0 0}.flow{gap:7px}.flow strong{font-size:12px}.flow small{font-size:10px}}@media(max-width:420px){.flow{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:20px}.voice-note{padding:24px}.voice-note blockquote{font-size:20px}.measurement{padding:22px}.measurement h2{font-size:26px}.big-number strong{font-size:46px}}
+</style>
