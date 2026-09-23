@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import NlVisitBeacon from "../components/NlVisitBeacon.astro";
 import ProductExamples from "../components/ProductExamples.astro";
 import ProductCard from "../components/ProductCard.astro";
 import { apps, saas, tools, ebooks, productCounts } from "../data/products";
@@ -40,6 +41,7 @@ const categories = [
         >나에게 필요한 제품 찾기 <span aria-hidden="true">↓</span></a>
     </div>
   </section>
+  <NlVisitBeacon />
   <ProductExamples />
 <p class="comparison-note">비용·지원·가입 정보 확인: 2026-09-22. 스토어별 인앱 구매와 연결 서비스 요금은 해당 안내를 확인하세요.</p>
   <section

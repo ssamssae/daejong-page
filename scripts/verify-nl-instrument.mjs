@@ -54,6 +54,23 @@ if (!hopHtml.includes('data-nl-visit="na"')) {
 }
 
 const productsHtml = fs.readFileSync(products, 'utf8');
+if (!productsHtml.includes('data-nl-visit-beacon') || !productsHtml.includes(collector.origin)) {
+  console.error('nl instrument verification failed: products landing visit beacon is missing');
+  process.exit(1);
+}
+// Inspect only JavaScript actually attached to the landing page, not orphan build files.
+const attachedScripts = [...productsHtml.matchAll(/<script\b[^>]*src="([^"?#]+)"[^>]*>/g)]
+  .map((match) => match[1])
+  .filter((src) => src.startsWith('/_astro/'))
+  .map((src) => fs.readFileSync(path.join(dist, src.slice(1)), 'utf8'))
+  .join('\n');
+const inlineScripts = [...productsHtml.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(match => match[1]).join('\n');
+const landingScripts = attachedScripts + inlineScripts;
+if (!landingScripts.includes('click_pending') || !landingScripts.includes('acknowledged')) {
+  console.error('nl instrument verification failed: confirmed visit sender is not attached to products');
+  process.exit(1);
+}
+
 if (!productsHtml.includes('https://apps.apple.com/kr/app/id6764308678')) {
   console.error('nl instrument verification failed: products page store URL changed');
   process.exit(1);
