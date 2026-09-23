@@ -15,7 +15,9 @@
     "test:nl-instrument": "node --test scripts/test-nl-instrument.mjs",
     "sync:canonical": "node scripts/sync-canonical-vendored.mjs",
     "test:workshop-search": "node --test scripts/test-workshop-search.mjs",
-    "verify:workshop": "python3 scripts/verify_workshop.py"
+    "verify:workshop": "python3 scripts/verify_workshop.py",
+    "prebuild": "node --test scripts/test-nl-instrument.mjs scripts/test-workshop-search.mjs scripts/test-note-reader.mjs tests/homepage-freshness.test.mjs && node tests/privacy-calc-alarm.node.mjs",
+    "postbuild": "npm run verify:workshop"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

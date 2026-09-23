@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { expect, test } from '@playwright/test';
+
+const base = process.env.WORKSHOP_PREVIEW_URL || 'http://localhost:8772';
 
 const fixtures = [
   {
@@ -20,7 +21,7 @@ const fixtures = [
   },
 ];
 
-test('worklog listings render only the latest version for each date', async ({ page }) => {
+test('home deduplicates dates while the archive preserves every version', async ({ page }) => {
   const contentDir = path.resolve('src', 'content', 'worklog');
   const distWorklog = path.resolve('dist', 'worklog');
   const evidenceDir = path.resolve('test-results', 'worklog-date-dedupe');
@@ -33,24 +34,18 @@ test('worklog listings render only the latest version for each date', async ({ p
     expect(fs.existsSync(path.join(distWorklog, fixture.staleSlug, 'index.html'))).toBe(true);
   }
 
-  const homePath = path.resolve('dist', 'index.html');
-  await page.goto(pathToFileURL(homePath).href);
+  await page.goto(base + '/');
   const recentWorklog = page.locator('.recent-panel').first().locator('.post-list');
   const recentDates = await recentWorklog.locator('.date').allTextContents();
   expect(new Set(recentDates).size).toBe(recentDates.length);
   await page.screenshot({ path: path.join(evidenceDir, 'home.png'), fullPage: true });
 
-  const archivePath = path.resolve('dist', 'worklog', 'index.html');
-  await page.goto(pathToFileURL(archivePath).href);
-  const archive = page.locator('.archive-list');
-  const archiveDates = await archive.locator('time[datetime]').evaluateAll((elements) =>
-    elements.map((element) => element.getAttribute('datetime')),
-  );
-  expect(new Set(archiveDates).size).toBe(archiveDates.length);
+  await page.goto(base + '/worklog/');
+  const archive = page.locator('[data-archive]');
 
   for (const fixture of fixtures) {
     await expect(archive.locator(`a[href="/worklog/${fixture.latestSlug}/"]`)).toHaveCount(1);
-    await expect(archive.locator(`a[href="/worklog/${fixture.staleSlug}/"]`)).toHaveCount(0);
+    await expect(archive.locator(`a[href="/worklog/${fixture.staleSlug}/"]`)).toHaveCount(1);
   }
   await page.screenshot({ path: path.join(evidenceDir, 'archive.png'), fullPage: true });
 

@@ -1,55 +1,28 @@
 ---
-import { EVENTS } from '../lib/nl-events.mjs';
 import { nlCollectorOrigin } from '../lib/nl-collector.mjs';
-
 const collector = nlCollectorOrigin();
-const visitEvent = EVENTS.visit;
 ---
-<script is:inline define:vars={{ collector, visitEvent }}>
-  (function () {
-    var params = new URLSearchParams(window.location.search);
-    if (params.get('from') !== 'nl') return;
-    var clickId = params.get('nlc') || '';
-    var product = params.get('p') || 'products';
-    var campaign = params.get('utm_campaign') || params.get('c') || '';
-    var source = 'web_newsletter';
-    if (!clickId || !campaign) return;
-    if (params.get('nl_test') === '1') return;
-    if (/googlebot|bingbot|applebot|crawler|spider|preview|nl-fixture|\bbot\b/i.test(navigator.userAgent || '')) return;
-    var key = 'nl-visit:' + clickId;
-    try {
-      if (sessionStorage.getItem(key) === 'ok') return;
-    } catch (e) {}
-    if (!collector) return;
-    var payload = {
-      event: visitEvent,
-      source: source,
-      campaign: campaign,
-      product: product,
-      click_id: clickId,
-      occurred_at: new Date().toISOString(),
-      dest_kind: 'first_party',
-    };
-    var url = String(collector).replace(/\/$/, '') + '/v1/events';
-    var body = JSON.stringify(payload);
-    function mark(ok) {
-      if (!ok) return;
-      try { sessionStorage.setItem(key, 'ok'); } catch (e) {}
+<span data-nl-visit-beacon data-collector={collector} hidden></span>
+<script>
+import { EVENTS, isBotUa } from '../lib/nl-events.mjs';
+import { postConfirmedVisit, shouldMarkVisitSent, visitStorageKey } from '../lib/nl-client-send.mjs';
+const collector = document.querySelector<HTMLElement>('[data-nl-visit-beacon]')?.dataset.collector;
+const params = new URLSearchParams(location.search);
+const clickId = params.get('nlc') || '';
+const campaign = params.get('utm_campaign') || params.get('c') || '';
+if (collector && params.get('from') === 'nl' && clickId && campaign && params.get('nl_test') !== '1' && !isBotUa(navigator.userAgent)) {
+  const key = visitStorageKey(clickId);
+  let alreadySent = false;
+  try { alreadySent = sessionStorage.getItem(key) === 'ok'; } catch {}
+  if (!alreadySent) {
+    const result = await postConfirmedVisit(collector, {
+      event: EVENTS.visit, source: 'web_newsletter', campaign,
+      product: params.get('p') || 'products', click_id: clickId,
+      occurred_at: new Date().toISOString(), dest_kind: 'first_party',
+    });
+    if (shouldMarkVisitSent(result)) {
+      try { sessionStorage.setItem(key, 'ok'); } catch {}
     }
-    var sent = false;
-    try {
-      sent = navigator.sendBeacon(url, new Blob([body], { type: 'application/json' }));
-    } catch (e) {}
-    if (sent) {
-      mark(true);
-      return;
-    }
-    fetch(url, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: body,
-      keepalive: true,
-      mode: 'cors',
-    }).then(function (r) { mark(!!r.ok); }).catch(function () { mark(false); });
-  })();
+  }
+}
 </script>

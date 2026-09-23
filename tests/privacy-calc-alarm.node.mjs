@@ -8,9 +8,10 @@ const source = fs.readFileSync(sourcePath, 'utf8');
 
 const must = [
   '계산기알람 개인정보 처리방침',
-  '시행일: 2026년 9월 8일',
+  '시행일: 2026년 9월 10일',
   'minusbetastudio@gmail.com',
   'ML Kit',
+  'Android·iOS',
   'HTTPS',
   '카메라',
   '알림',
