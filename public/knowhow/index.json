@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "file": "2026-09-24-jarvis-wake-routines-and-wol.md",
+      "date": "2026-09-24",
+      "slug": "jarvis-wake-routines-and-wol",
+      "title": "자비스 제작기 2 — 호출 누락, 종료 확인, 원격 전원 켜기를 실사용으로 다듬기",
+      "category": "음성 AI/자동화",
+      "tags": [
+        "자비스",
+        "Jarvis",
+        "음성 인식",
+        "WOL",
+        "macOS",
+        "확인 절차",
+        "실측",
+        "스마트홈"
+      ],
+      "summary": "영어 Jarvis 호출 누락과 짧은 음성 보정, 종료 확인·취소 오인식, 상태등, 빠른 시작으로 달라진 WOL을 실사용으로 다듬었다. 코드 통과·실제 재생·사용자 확인을 분리하고 v1.1.0 릴리스와 연결한다."
+    },
+    {
       "file": "2026-09-23-jarvis-mac-voice-roundtrip.md",
       "date": "2026-09-23",
       "slug": "jarvis-mac-voice-roundtrip",
