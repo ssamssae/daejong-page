@@ -354,7 +354,7 @@ import '../styles/lab.css';
         <dl class="hero-stats" aria-label="AI 용어집 요약">
           <div>
             <dt>누적 용어</dt>
-            <dd><!--AUTO-HERO-TERMS-START-->912<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
+            <dd><!--AUTO-HERO-TERMS-START-->919<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
           </div>
           <div>
             <dt>카테고리</dt>
@@ -1752,7 +1752,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>서브에이전트</h3>
       <p>상위 모델의 지시를 받아 개별 작업을 수행하는 하위 에이전트. 여기서는 구현용 Opus, 탐색용 Haiku 로 나뉜다.</p>
-      <span class="src">영상: 2026-07-11-fable5-token-saving-orchestration-seonggongjisik.md, 2026-08-23-claude-code-1000-hours-techbridge.md</span>
+      <span class="src">영상: 2026-07-11-fable5-token-saving-orchestration-seonggongjisik.md, 2026-08-23-claude-code-1000-hours-techbridge.md, 2026-09-25-printing-press-agent-loops-boris.md</span>
     </div>
 
     <div class="term">
@@ -1836,7 +1836,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>auto mode</h3>
       <p>매 도구 호출을 Sonnet 분류기가 대화 맥락과 함께 심사해 허용·차단하는 실행 모드. 정적 허용목록이 아니라 발화 기반 동적 권한.</p>
-      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md</span>
+      <span class="src">영상: 2026-07-28-claude-code-year-fireside-anthropic.md, 2026-09-25-printing-press-agent-loops-boris.md</span>
     </div>
 
     <div class="term">
@@ -2425,6 +2425,24 @@ import '../styles/lab.css';
       <h3>local execution</h3>
       <p>설정에서 켜는 내 컴퓨터 실행. 앱이 화면에 뜨고 자원을 써서, 기본은 봇 컴퓨터라고 한다.</p>
       <span class="src">영상: 2026-09-25-grok-bot-founders-shub.md</span>
+    </div>
+
+    <div class="term">
+      <h3>다이내믹 워크플로</h3>
+      <p>Claude가 수백에서 수만 에이전트를 부려 큰 이전, 리팩터, 반복 프로파일링을 하게 하는 기능. 사람이 각 Claude를 부르지 않는다.</p>
+      <span class="src">영상: 2026-09-25-printing-press-agent-loops-boris.md</span>
+    </div>
+
+    <div class="term">
+      <h3>dangerous skip permissions</h3>
+      <p>허가를 건너뛰는 모드. Opus 4.8이 지금까지 중 가장 덜 인젝션에 당해도, 아직 완벽하지 않아 쓰지 말라고 한다.</p>
+      <span class="src">영상: 2026-09-25-printing-press-agent-loops-boris.md</span>
+    </div>
+
+    <div class="term">
+      <h3>샌드박스</h3>
+      <p>Claude Code에 들어 있는 오픈소스 격리 환경. 사람이 고리 밖에 있는 루프에서 같이 쓰라고 한다.</p>
+      <span class="src">영상: 2026-09-25-printing-press-agent-loops-boris.md</span>
     </div>
 
     <h2>컨텍스트 · 캐시</h2>
@@ -3451,6 +3469,12 @@ import '../styles/lab.css';
       <h3>dreaming</h3>
       <p>에이전트가 자기 메모리 로그를 보고 무엇을 남길지 정하는 Managed Agents 기능.</p>
       <span class="src">영상: 2026-09-24-ship-managed-agent-isabella.md</span>
+    </div>
+
+    <div class="term">
+      <h3>스킬</h3>
+      <p>일 하나가 아니라, 같은 종류의 일을 다음에 자동으로 풀게 만들어 두는 것.</p>
+      <span class="src">영상: 2026-09-25-printing-press-agent-loops-boris.md</span>
     </div>
 
     <h2>워크플로우 · 문화</h2>
@@ -4625,6 +4649,18 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-09-25-grok-bot-founders-shub.md</span>
     </div>
 
+    <div class="term">
+      <h3>루틴</h3>
+      <p>코드베이스를 반복해서 다듬는 예약 작업. 유지보수 병목을 이쪽에 둔다고 한다.</p>
+      <span class="src">영상: 2026-09-25-printing-press-agent-loops-boris.md</span>
+    </div>
+
+    <div class="term">
+      <h3>루프</h3>
+      <p>같은 종류의 일을 반복하는 단위. 하루 일기를 색으로 칠해 찾았고, 색 하나가 루프 하나였다고 한다.</p>
+      <span class="src">영상: 2026-09-25-printing-press-agent-loops-boris.md</span>
+    </div>
+
     <h2>커리어 · 조직</h2>
 
     <div class="term">
@@ -5383,6 +5419,12 @@ import '../styles/lab.css';
       <h3>브랜드 딜</h3>
       <p>회사에 연락해 광고 계약을 받는 방식. 그는 회신과 협상 때문에 7일 실험에서 빼었다.</p>
       <span class="src">영상: 2026-09-24-laziest-ai-money-mark-tilbury.md</span>
+    </div>
+
+    <div class="term">
+      <h3>테스트 타임 컴퓨트</h3>
+      <p>리뷰에 토큰을 많이 써서 버그를 거의 다 잡는 방식. 더 싼 버전도 있다고 한다.</p>
+      <span class="src">영상: 2026-09-25-printing-press-agent-loops-boris.md</span>
     </div>
 
     <h2>기타</h2>
