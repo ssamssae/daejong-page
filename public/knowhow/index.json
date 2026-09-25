@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "file": "2026-09-26-jarvis-nest-voice-and-telegram-provenance.md",
+      "date": "2026-09-26",
+      "slug": "jarvis-nest-voice-and-telegram-provenance",
+      "title": "자비스 제작기 3 — 네스트로 시작하고, Mac으로 받아쓰고, 텔레그램에서 확인하기",
+      "category": "음성 AI/자동화",
+      "tags": [
+        "자비스",
+        "Google Nest",
+        "Matter",
+        "음성 입력",
+        "텔레그램",
+        "브릿지",
+        "시고토 오와리"
+      ],
+      "summary": "보이스 스타토로 시작하는 단계별 음성 입력과 시고토 오와리의 확인형 종료를 연결했다. 새 대화 첫 입력 누락, 카드 누락, /clear 이후 출처 미확인을 각각 고치고 실제 표시까지 확인한 기록."
+    },
+    {
       "file": "2026-09-24-jarvis-wake-routines-and-wol.md",
       "date": "2026-09-24",
       "slug": "jarvis-wake-routines-and-wol",
