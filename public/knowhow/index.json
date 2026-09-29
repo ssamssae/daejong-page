@@ -1,6 +1,22 @@
 {
   "entries": [
     {
+      "file": "2026-09-29-fastlane-apple-sms-2fa.md",
+      "date": "2026-09-29",
+      "slug": "fastlane-apple-sms-2fa",
+      "title": "Fastlane으로 앱 등록하기 — 문자 2FA까지 기존 Mac 환경에서 처리한 기록",
+      "category": "앱 배포/자동화",
+      "tags": [
+        "Fastlane",
+        "Apple",
+        "문자 2FA",
+        "macOS",
+        "TestFlight",
+        "앱 배포"
+      ],
+      "summary": "Fastlane을 쉬운 말로 설명하고, 배포용 Mac과 문자 수신 Mac을 연결해 Apple 로그인·앱 등록을 처리한 과정을 정리했다. 새 문자만 읽는 기준, 비공개 코드 전달, service key 오류와 팀 선택, 업로드·심사·설치의 확인 단계를 담았다."
+    },
+    {
       "file": "2026-09-26-jarvis-nest-voice-and-telegram-provenance.md",
       "date": "2026-09-26",
       "slug": "jarvis-nest-voice-and-telegram-provenance",
