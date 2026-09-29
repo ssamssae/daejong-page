@@ -2,6 +2,13 @@ import fs from 'node:fs';
 
 const expectedEntries = [
   {
+    file: '2026-09-29-lightweight-agent-task-ledger.md',
+    date: '2026-09-29',
+    slug: 'lightweight-agent-task-ledger',
+    title: 'AI 작업 장부를 가볍게 운영하는 법',
+    phrases: ['결과물 하나에 티켓 하나', 'sot-ticket.sh list --brief', '대기 종류는 조회를 돕는 정보', '시간이나 토큰 절감률은 따로 측정하지 않았다'],
+  },
+  {
     file: '2026-09-14-launchd-config-live-env-three-way-check.md',
     date: '2026-09-14',
     slug: 'launchd-config-live-env-three-way-check',
