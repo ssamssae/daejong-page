@@ -5,7 +5,7 @@ import "../styles/notebook.css";
 import Nav from "../components/Nav.astro";
 import PageDirectory from "../components/PageDirectory.astro";
 import Footer from "../components/Footer.astro";
-const { title, description } = Astro.props;
+const { title, description, bodyClass = "" } = Astro.props;
 const notebook =
   /\.html\/?$/.test(Astro.url.pathname) ||
   ["/policy", "/sorry", "/_cost"].some((path) =>
@@ -37,9 +37,10 @@ const notebook =
       rel="stylesheet"
     />
     <title>{title}</title>
+    <link rel="stylesheet" href="https://kangdaejong.com/studio-page.css?v=20261003" />
     <slot name="head" />
   </head>
-  <body>
+  <body class={`studio-page ${bodyClass}`}>
     <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
     <Nav />
     <main

@@ -226,3 +226,19 @@ p {
 [hidden] { display: none !important; }
 
 @media(max-width:650px){.site-main{width:calc(100% - 40px)}}
+
+/* T-261003-018: match the studio homepage across every shared layout. */
+body.studio-page .site-main{padding-top:76px}
+body.studio-page #main-content.site-main h1{font-family:var(--sans);font-size:51px;font-weight:600;line-height:1.35;letter-spacing:-.065em}
+body.studio-page #main-content.site-main h2{font-family:var(--sans);font-size:23px;line-height:1.45;font-weight:600}
+body.studio-page #main-content.site-main h3{font-family:var(--sans);font-size:18px;line-height:1.5;font-weight:600}
+body.studio-page .home-hero{padding-top:0;padding-bottom:66px}
+body.studio-page .guide-hero{gap:40px;padding:30px 0 42px}
+body.studio-page .guide-poster{padding:23px;min-height:240px;border-radius:12px}
+body.studio-page .guide-poster>strong{font-size:34px}
+body.studio-page .guide-section{padding:38px 0 42px}
+body.studio-page .guide-card{padding:23px;border-radius:12px}
+body.studio-page .guide-grid{gap:14px}
+body.studio-page .catalog-page{padding-top:0}
+body.studio-page.catalog-page .site-main{padding-top:0}
+@media(max-width:650px){body.studio-page .site-main{width:calc(100% - 40px);padding-top:48px}body.studio-page #main-content.site-main h1{font-size:34px}body.studio-page #main-content.site-main h2{font-size:21px}body.studio-page .guide-section{padding:29px 0 32px}body.studio-page .guide-poster>strong{font-size:28px}}

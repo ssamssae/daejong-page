@@ -16,38 +16,12 @@ const categories = [
 ---
 
 <Layout
+  bodyClass="catalog-page"
   title="제품 — 마이너스베타스튜디오"
   description="일상의 작은 불편에서 시작한 마이너스베타스튜디오의 앱, 웹 서비스, 오픈소스 도구와 전자책을 만나보세요."
 >
-  <section class="collection-hero" aria-labelledby="page-title">
-    <div>
-      <p class="eyebrow">THE PRODUCT COLLECTION · MINUS BETA</p><h1
-        id="page-title"
-      >
-        작은 제품,<br />쓸모 있는 일상<span class="title-dot">.</span>
-      </h1><p class="hero-description">
-        일상의 작은 불편에서 시작했습니다.<br />기록하고, 연결하고, 새로운
-        시작을 돕는 것들을 만듭니다.
-      </p>
-    </div>
-    <div class="hero-note">
-      <span class="edition">INDEPENDENTLY MADE / SEOUL</span><div
-        class="collection-mark"
-        aria-hidden="true"
-      >
-        <span>mβ</span><i>작지만, 쓸모 있게.</i>
-      </div><p>
-        하나의 작업장에서 시작된<br /><strong
-          >{productCounts.total}개의 작은 가능성.</strong>
-      </p><a href="#catalog" class="hero-jump"
-        >나에게 필요한 제품 찾기 <span aria-hidden="true">↓</span></a>
-    </div>
-  </section>
+  <section class="studio-hero" aria-labelledby="page-title"><p class="studio-label">직접 만들어 쓰는 도구들</p><h1 id="page-title">작은 제품,<br/><span>쓸모 있는 일상.</span></h1><p class="studio-lead">기록하고, 연결하고, 새로운 시작을 돕는 앱과 공개 도구입니다.</p></section>
   <NlVisitBeacon />
-  <ProductExamples />
-  <IptaDemo />
-  <BridgeDemo />
-<p class="comparison-note">비용·지원·가입 정보 확인: 2026-09-22. 스토어별 인앱 구매와 연결 서비스 요금은 해당 안내를 확인하세요.</p>
   <section
     id="catalog"
     class="catalog"
@@ -124,6 +98,8 @@ const categories = [
       </p></noscript
     >
   </section>
+  <details class="product-demos"><summary>제품 화면과 사용 예시</summary><ProductExamples /><IptaDemo /><BridgeDemo /></details>
+  <p class="comparison-note">비용·지원·가입 정보 확인: 2026-09-22. 스토어별 인앱 구매와 연결 서비스 요금은 해당 안내를 확인하세요.</p>
   <aside class="making-note">
     <span class="note-star" aria-hidden="true">✳</span><div>
       <h2>완성보다, 계속 만드는 마음.</h2><p>
@@ -288,7 +264,7 @@ const categories = [
       gap: 6px;
     }
     .catalog {
-      scroll-margin-top: 120px;
+      scroll-margin-top: 24px;
     }
     .catalog-toolbar {
       display: flex;
@@ -322,8 +298,9 @@ const categories = [
       background: var(--bg-elev);
     }
     .filters button[aria-pressed="true"] {
-      background: var(--fg);
-      color: var(--bg);
+      background: #eef3ff;
+      color: #2458cc;
+      border-color: #2458cc;
     }
     .search-box {
       display: flex;
@@ -360,7 +337,7 @@ const categories = [
     .catalog-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 14px;
     }
     .empty-state {
       text-align: center;
@@ -509,7 +486,7 @@ const categories = [
         margin-top: 50px;
         flex-wrap: wrap;
         padding: 26px 0;
-        gap: 18px;
+        gap: 14px;
       }
       .note-star {
         font-size: 40px;
@@ -525,5 +502,7 @@ const categories = [
         font-size: 12px;
       }
     }
+    .product-demos{margin-top:32px;border-block:1px solid #e6e8ed}.product-demos>summary{padding:16px 0;min-height:48px;cursor:pointer;font-size:13px}.comparison-note{font-size:12px;color:#69717d;margin:20px 0}.catalog>.section-head{margin-bottom:23px}.catalog .eyebrow{display:none}.making-note{margin-top:32px;padding:24px 0;gap:20px}.note-star{display:none}
+    :global(body.catalog-page .site-main){padding-top:0}
   </style>
 </Layout>

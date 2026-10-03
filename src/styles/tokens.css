@@ -21,10 +21,10 @@
   --warn: #84601e;
   --danger-bg: #faeae6;
   --accent-bg: #eef3ff;
-  --invert-bg: #282e25;
-  --invert-fg: #f8f7ef;
-  --invert-dim: #c5cbbb;
-  --invert-border: #495041;
+  --invert-bg: #eef3ff;
+  --invert-fg: #242930;
+  --invert-dim: #626b78;
+  --invert-border: #dce4f4;
   --shadow: 0 6px 24px #24293008;
   --shadow-pop: 0 16px 40px #24293012;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;

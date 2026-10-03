@@ -30,7 +30,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  background: #e8ebdf;
+  background: #eef3ff;
   padding: 30px 24px;
   border-radius: 12px;
 }
@@ -69,7 +69,7 @@
   padding: 24px;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: #fdfcf8;
+  background: #f7f8fa;
   position: relative;
 }
 .flow-list .step {
@@ -113,7 +113,7 @@
   border-radius: 12px;
   min-width: 0;
   text-decoration: none;
-  background: #fdfcf8;
+  background: #f7f8fa;
   transition:
     transform 0.2s,
     border-color 0.2s;
@@ -122,7 +122,7 @@
 .lab-index .feature-card:hover,
 .about-page .route-card:hover {
   transform: translateY(-4px);
-  border-color: #9b9e8f;
+  border-color: #b8c8e8;
   color: var(--fg);
 }
 .card-topline,
@@ -150,15 +150,15 @@
 }
 .module-card:nth-child(1),
 .lab-index .feature-card:nth-child(1) {
-  background: #ece5d8;
+  background: #eef3ff;
 }
 .module-card:nth-child(2),
 .lab-index .feature-card:nth-child(2) {
-  background: #e5ebdd;
+  background: #eef3ff;
 }
 .module-card:nth-child(3),
 .lab-index .feature-card:nth-child(3) {
-  background: #e4e8eb;
+  background: #eef3ff;
 }
 .route-link {
   font-size: 12px;
@@ -257,8 +257,8 @@
   flex-direction: column;
   min-height: 320px;
   border-radius: 160px 160px 12px 12px;
-  background: #e7ddd0;
-  border: 1px solid #d6c9b7;
+  background: #eef3ff;
+  border: 1px solid #dce4f4;
   transform: rotate(3deg);
   color: var(--accent);
 }
@@ -372,7 +372,7 @@
   gap: 30px;
   align-items: end;
   padding: 32px;
-  background: #e5e9de;
+  background: #eef3ff;
   border-radius: 12px;
 }
 .contact-section h2 {
