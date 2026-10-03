@@ -1,34 +1,63 @@
-/* page-dark.css — 정적 페이지 공통 Linear 크롬 (T-260831-005 기준점) */
-
+/* T-260912-037 · Minus Beta: white, slate, blue. */
 :root {
-  color-scheme: dark;
-  --bg:        #08090A;
-  --bg-elev:   #0F1011;
-  --bg-elev2:  #1C1C1F;
-  --border:    rgba(255, 255, 255, 0.08);
-  --border-soft: rgba(255, 255, 255, 0.05);
-  --fg:        #F7F8F8;
-  --fg-dim:    #D0D6E0;
-  --fg-mute:   #8A8F98;
-  --accent:    #7170FF;
-  --accent-2:  #828FFF;
-  --accent-dim:#828FFF;
-  --cta-bg:    #E5E5E6;
-  --cta-fg:    #08090A;
-  --danger:    #FF6B6B;
-  --success:   #828FFF;
-  --warn:      #828FFF;
-  --danger-bg: #1a0a0a;
-  --accent-bg: #141516;
-  --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-elev: #f7f8fa;
+  --bg-elev2: #eef1f5;
+  --border: #e6e8ed;
+  --border-soft: #eceef2;
+  --fg: #242930;
+  --fg-dim: #626b78;
+  --fg-mute: #69717d;
+  --cyan: #2458cc;
+  --magenta: #466448;
+  --accent: #2458cc;
+  --accent-cta: #2458cc;
+  --accent-2: #466448;
+  --accent-dim: #19449f;
+  --cta-fg: #ffffff;
+  --danger: #b02f29;
+  --success: #3c664b;
+  --warn: #84601e;
+  --danger-bg: #faeae6;
+  --accent-bg: #eef3ff;
+  --invert-bg: #282e25;
+  --invert-fg: #f8f7ef;
+  --invert-dim: #c5cbbb;
+  --invert-border: #495041;
+  --shadow: 0 6px 24px #24293008;
+  --shadow-pop: 0 16px 40px #24293012;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --sans:
+    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    sans-serif;
+  --serif: "Noto Serif KR", Georgia, "Times New Roman", serif;
+  --text-h1: clamp(32px, 4.6vw, 51px);
+  --text-h2: clamp(23px, 3vw, 30px);
+  --text-h3: 21px;
+  --text-lead: 18px;
+  --text-body: 15px;
+  --text-desc: 14px;
+  --text-meta: 12px;
+  --text-badge: 11px;
+  --track-eyebrow: 0.13em;
+  --track-badge: 0.08em;
+  --leading-body: 1.75;
+  --leading-h1: 1.15;
+  --leading-desc: 1.65;
+  --measure: 62ch;
+  --radius-card: 16px;
+  --radius-btn: 8px;
+  --gap-card: 24px;
+  --pad-section: 80px;
+  --pad-section-sm: 48px;
+}
+.accent-cyan {
+  color: var(--cyan);
+}
+.accent-magenta {
+  color: var(--magenta);
 }
 
-html { color-scheme: dark; }
-body { background-color: var(--bg); color: var(--fg); }
-::selection { background: var(--fg); color: var(--bg); }
-footer { border-color: var(--border) !important; }
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #1C1C1F; border: 1px solid rgba(255,255,255,0.08); }
-::-webkit-scrollbar-thumb:hover { background: #232326; }
+/* Legacy static document URLs share the studio palette. */
+html{color-scheme:light}body{background:#fff;color:#242930;font-family:var(--sans);font-size:15px;line-height:1.85;letter-spacing:-.025em}::selection{background:#dce7ff;color:#242930}a{color:#2458cc}footer{border-color:#e6e8ed}body.studio-document{padding:0}body.studio-document .wrap{width:min(1000px,calc(100% - 48px));max-width:none;margin:76px auto 66px}body.studio-document h1{font-size:34px;font-weight:600;line-height:1.35;letter-spacing:-.05em;color:#242930}body.studio-document h2{font-size:23px;font-weight:600;color:#242930}body.studio-document p,body.studio-document li{max-width:780px}body.studio-document mb-footer{display:block}@media(max-width:650px){body.studio-document .wrap{width:calc(100% - 40px);margin:48px auto 38px}body.studio-document h1{font-size:30px}body.studio-document h2{font-size:21px}}
