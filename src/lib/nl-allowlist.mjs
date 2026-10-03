@@ -27,6 +27,7 @@ export const APPLE_IDS = {
   '6765536616': 'hankeup',
   '6765536777': 'pomodoro',
   '6769037337': 'mini-expense',
+  '6811111727': 'calc-alarm',
   '6766077265': 'lottocalc',
   '6791480413': 'cheotireum',
 };
@@ -41,6 +42,7 @@ export const PLAY_IDS = {
   'com.ssamssae.hankeup': 'hankeup',
   'com.ssamssae.pomodoro': 'pomodoro',
   'com.ssamssae.mini_expense': 'mini-expense',
+  'com.daejongkang.ireonayo': 'calc-alarm',
   'com.daejongkang.lottocalc': 'lottocalc',
   'com.daejongkang.cheotireum': 'cheotireum',
   'com.minusbeta.babmeokja': 'babmeokja',

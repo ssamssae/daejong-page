@@ -18,3 +18,11 @@
 - 진입: 대표 홈페이지 `/#books`, `/digital-products/`, 작업장 `/products/`의 전자책.
 - 기대: 판매 종료 안내, 신규 구매 링크 및 가격 없음. 공개 무료 양식 링크 정상.
 - 검증: 양쪽 빌드, 기존 전자책 화면 회귀 및 뉴스레터 구매 hop 제거 검사. 공개 반영·크몽 실측 근거는 `/Users/user/reports/T-261003-019/`에 기록.
+
+## 제품 종료 기록과 공유 카드 — T-261004-001
+
+- `/products/`: 현재 앱 6종·공개 도구 7종만 카탈로그에 포함. 모바일 앱/오픈소스 분류와 Jarvis 검색을 확인한다. 종료한 12개 제품·서비스는 날짜·상태를 별도 표시하고 신규 구매 링크를 제공하지 않는다.
+- `/timeline.html/`: 2026-10-03 종료 이벤트 12개와 기존 출시 이력을 함께 표시한다. 종료 데이터는 `src/data/retired-products.json` 한 곳에서 관리한다.
+- 모든 Layout 페이지의 OG/Twitter 이미지와 제목·설명은 공통 레이아웃에서 한 번만 출력한다. 중앙 흰색·파란색 이미지의 해시 버전을 사용한다. 기존 Telegram 메시지에 저장된 미리보기의 갱신은 사이트 배포만으로 보장되지 않는다.
+- 검증: `npm run build`, `node scripts/verify-products-page.mjs`, `node scripts/verify-offboarding-ui.mjs` (기본 localhost:4391, `VERIFY_BASE`로 공개 주소 지정). 390/1440px 분류·검색·종료 이벤트·가로 넘침·중복 메타데이터 검사 통과. 근거 `/Users/user/reports/T-261004-001/`.
+- main 머지는 기존 GitHub Pages 자동 배포를 실행한다. 사용자 홈페이지 최신화 승인 범위이며 배포 설정은 그대로다.

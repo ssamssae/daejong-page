@@ -1,3 +1,5 @@
+import retiredProducts from './retired-products.json';
+
 // 정본 제품 데이터 (T-260723-061) — 랜딩(index)·제품(products) 페이지 공통 소스.
 //   제품 개수·공개 브릿지 버전을 여기 한 곳에서만 관리하고, 두 페이지가 빌드타임에
 //   파생한다(length·버전 파생). 손으로 박은 상수의 스테일 재발방지 — T-260722-012 phase1
@@ -37,30 +39,6 @@ export const apps = [
     ],
   },
   {
-    name: '단어요', icon: '/product-icons/6766556759-00e1948545.jpg', status: 'iOS LIVE · Android LIVE',
-    desc: '영어 단어를 카드처럼 넘기며 학습하는 미니 단어장. 진행도와 즐겨찾기를 기기 안에 저장합니다.',
-    links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6766556759' },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.wordyo' },
-    ],
-  },
-  {
-    name: '한컵', icon: '/product-icons/6765536616-bc7a2b80b4.jpg', status: 'iOS LIVE · Android LIVE',
-    desc: '하루 물 섭취량 트래커. 1컵 단위 카운트와 일일 목표량으로 수분 섭취를 챙겨주는 미니 앱.',
-    links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536616' },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ssamssae.hankeup' },
-    ],
-  },
-  {
-    name: '포모도로', icon: '/product-icons/6765536777-c39328a9da.jpg', status: 'iOS LIVE · Android LIVE',
-    desc: '25분 집중 + 5분 휴식 사이클 타이머. 집중 보조 미니 앱.',
-    links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6765536777' },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ssamssae.pomodoro' },
-    ],
-  },
-  {
     name: '심플 가계부', icon: '/product-icons/6769037337-2ad919041d.jpg', status: 'iOS LIVE · Android LIVE',
     desc: '하루 지출을 빠르게 적는 미니멀 가계부. 가입 없이 기기 안에서만 기록합니다.',
     links: [
@@ -69,46 +47,16 @@ export const apps = [
     ],
   },
   {
-    name: '행운번호 생성기', icon: '/product-icons/6766077265-28d1fe2980.jpg', status: 'iOS LIVE · Android LIVE',
-    desc: '1부터 45까지 중복 없는 숫자 6개를 한 번에 5세트 만드는 오프라인 도구.',
+    name: '계산기알람', status: '모바일 앱',
+    desc: '계산 문제를 풀며 잠에서 깨는 알람 앱.',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6766077265' },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.lottocalc' },
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6811111727' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.ireonayo' },
     ],
   },
 ];
 
-export const saas = [
-  {
-    name: '첫이름 — AI 사주 작명', icon: '/product-icons/6791480413-01e65be838.jpg', status: '웹 SaaS · iOS · Android · ₩19,900',
-    desc: '생년월일을 넣으면 부족한 오행까지 무료로 확인하고, 이름 후보·한자 뜻풀이·점수표·PDF는 결제 후 받는 작명 서비스.',
-    links: [
-      { label: '첫이름 바로가기', url: 'https://cheotireum.kangdaejong.com/' },
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6791480413' },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.cheotireum' },
-    ],
-  },
-  // 대표 자리(products.astro 의 featured = [saas[0], ...])는 건드리지 않고 뒤에 붙인다.
-  // 첫이름을 대표로 올린 것은 T-260731-044 의 명시 결정이라, 순서를 바꾸려면 그 결정을
-  // 다시 여는 것이 맞다 — 상품이 하나 늘었다는 이유만으로 조용히 뒤집지 않는다.
-  {
-    name: '한장궁합 가족 리포트', status: '웹 SaaS · ₩19,900',
-    desc: '결혼을 앞둔 두 사람의 사주로 궁합 점수와 해설을 A4 한 장에 담아 메일로 보냅니다. 시댁·본가에 그대로 내밀 수 있는 형식이고, 결제 전에 예시 한 장을 가려둔 곳 없이 볼 수 있습니다.',
-    links: [
-      { label: '한장궁합 바로가기', url: 'https://hanjang.kangdaejong.com/' },
-      { label: '예시 한 장 보기', url: 'https://hanjang.kangdaejong.com/sample' },
-    ],
-  },
-  // 링크가 하나뿐인 것은 누락이 아니다 — 택일에는 아직 궁합 같은 예시 페이지(/sample)가
-  // 없다. 생기면 여기에 「예시 한 장 보기」를 같은 모양으로 붙인다.
-  {
-    name: '한장택일 — 결혼·이사·개업 날짜', status: '웹 SaaS · ₩19,900',
-    desc: '이름과 생일로 결혼·이사·개업에 좋은 날을 고르고, 고른 이유까지 한 장에 담아 메일로 보냅니다.',
-    links: [
-      { label: '한장택일 바로가기', url: 'https://taekil.kangdaejong.com/' },
-    ],
-  },
-];
+export const saas = [];
 
 // 공개 브릿지 버전 단일 소스 — status 문구·release URL 을 여기서 파생해 페이지 간 drift 를 없앤다.
 // (버전 자체의 실 릴리스 대조는 별도 게이트 몫 — 잔여, PR 본문 참조.)
@@ -185,23 +133,8 @@ export const tools = [
   },
 ];
 
-export const ebooks = [
-  {
-    name: '1인회사 AI자동화', status: '전자책 · 판매 종료',
-    desc: '1인 비즈니스의 구조화부터 콘텐츠, 자동화, 판매까지 실제 작업 흐름을 정리한 전자책.',
-    links: [],
-  },
-  {
-    name: '혼자서 AI팀', status: '전자책 · 판매 종료',
-    desc: '혼자 일하면서 여러 AI 역할을 팀처럼 구성하고 운영하는 방법을 정리한 전자책.',
-    links: [],
-  },
-  {
-    name: '폰으로 내 컴퓨터 AI 부리기', status: '전자책 · 판매 종료',
-    desc: 'Grok·Claude·Codex·Cursor 텔레그램 브릿지를 연결해 폰에서 내 컴퓨터의 AI를 부리는 방법을 정리한 전자책. 비개발자를 위한 따라하기 안내서.',
-    links: [],
-  },
-];
+export const ebooks = [];
+export { retiredProducts };
 
 export const productCounts = {
   apps: apps.length, tools: tools.length, saas: saas.length, ebooks: ebooks.length,

@@ -14,18 +14,9 @@ const productsCss = fs.readdirSync(assetDir)
   .map((name) => fs.readFileSync(path.join(assetDir, name), 'utf8'))
   .join('\n');
 const required = [
-  '심플 가계부',
-  'com.ssamssae.hankeup',
-  '행운번호 생성기',
-  '부족한 오행까지 무료',
-  '이름 후보·한자 뜻풀이·점수표·PDF는 결제 후',
-  '한장궁합 가족 리포트',
-  'Local Telegram Bridge',
-  'local-telegram-bridge/releases/tag/v0.2.0',
-  'grok-telegram-bridge/releases/tag/v0.5.3',
-  'codex-telegram-bridge/releases/tag/v0.9.9',
-  'claude-telegram-bridge/releases/tag/v0.14.2',
-  'cursor-telegram-bridge/releases/tag/v0.4.2',
+  '심플 가계부', '계산기알람', '종료한 제품과 서비스', '2026-10-03',
+  '행운번호 생성기', '한장궁합 가족 리포트', 'Callta', '문의노트',
+  'Local Telegram Bridge', 'local-telegram-bridge/releases/latest',
 ];
 
 const missing = required.filter((text) => !html.includes(text));
@@ -34,7 +25,7 @@ if (missing.length) {
   process.exit(1);
 }
 
-if (html.includes('hanjang_gunghap_report_19900')) {
+if (['hanjang_gunghap_report_19900', 'com.ssamssae.hankeup', '부족한 오행까지 무료', '크몽에서 구매'].some(text => html.includes(text))) {
   console.error('products verification failed: internal product id is visible');
   process.exit(1);
 }

@@ -60,15 +60,14 @@ test('products.ts URLs are all allowlisted with a slug', () => {
   assert.deepEqual(missing, []);
 });
 
-test('hankeup live Play listing is allowlisted as android hop', () => {
-  const play = 'https://play.google.com/store/apps/details?id=com.ssamssae.hankeup';
-  const src = fs.readFileSync(path.join(root, 'src/data/products.ts'), 'utf8');
-  assert.equal(src.includes(play), true);
-  assert.equal(slugForUrl(play), 'hankeup');
-  const hit = matchHref(allowlist(), play);
-  assert.equal(hit.product, 'hankeup');
-  assert.equal(hit.hop, 'hankeup-android');
-  assert.equal(hit.dest_kind, 'external');
+test('retired app store links no longer have purchase hops', () => {
+  for (const url of [
+    'https://play.google.com/store/apps/details?id=com.ssamssae.hankeup',
+    'https://apps.apple.com/kr/app/id6765536777',
+    'https://apps.apple.com/kr/app/id6766556759',
+    'https://apps.apple.com/kr/app/id6766077265',
+  ]) assert.equal(matchHref(allowlist(), url), null);
+  assert.equal(matchHref(allowlist(), 'https://apps.apple.com/kr/app/id6811111727').product, 'calc-alarm');
 });
 
 test('open redirect: unknown hop is rejected', () => {
