@@ -187,19 +187,19 @@ export const tools = [
 
 export const ebooks = [
   {
-    name: '1인회사 AI자동화', status: '마이너스베타스튜디오(mβ) · ₩10,000',
+    name: '1인회사 AI자동화', status: '전자책 · 판매 종료',
     desc: '1인 비즈니스의 구조화부터 콘텐츠, 자동화, 판매까지 실제 작업 흐름을 정리한 전자책.',
-    links: [{ label: '크몽에서 구매', url: 'https://kmong.com/gig/786557' }],
+    links: [],
   },
   {
-    name: '혼자서 AI팀', status: '마이너스베타스튜디오(mβ) · ₩15,000',
+    name: '혼자서 AI팀', status: '전자책 · 판매 종료',
     desc: '혼자 일하면서 여러 AI 역할을 팀처럼 구성하고 운영하는 방법을 정리한 전자책.',
-    links: [{ label: '크몽에서 구매', url: 'https://kmong.com/gig/786749' }],
+    links: [],
   },
   {
-    name: '폰으로 내 컴퓨터 AI 부리기', status: '마이너스베타스튜디오(mβ) · ₩10,000',
+    name: '폰으로 내 컴퓨터 AI 부리기', status: '전자책 · 판매 종료',
     desc: 'Grok·Claude·Codex·Cursor 텔레그램 브릿지를 연결해 폰에서 내 컴퓨터의 AI를 부리는 방법을 정리한 전자책. 비개발자를 위한 따라하기 안내서.',
-    links: [{ label: '크몽에서 구매', url: 'https://kmong.com/gig/798202' }],
+    links: [],
   },
 ];
 

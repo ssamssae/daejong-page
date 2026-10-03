@@ -87,13 +87,14 @@ test('ep7 App Store link still resolves to the same hanjul dest after hop', () =
   assert.equal(hopPath(hit.hop, { campaign: 'ep7', source: 'web_newsletter' }), '/nl-go/hanjul-ios/?c=ep7&s=web_newsletter');
 });
 
-test('owned /products hop is first_party; kmong is visit=NA', () => {
+test('owned /products hop remains; retired ebook purchase hops are absent', () => {
   const list = allowlist();
   const owned = matchHref(list, '/products/');
   assert.equal(owned.dest_kind, 'first_party');
-  const ebook = matchHref(list, 'https://kmong.com/gig/786557');
-  assert.equal(ebook.dest_kind, 'external');
-  assert.equal(ebook.product, 'ebook-786557');
+  for (const id of ['786557', '786749', '798202']) {
+    assert.equal(matchHref(list, `https://kmong.com/gig/${id}`), null);
+    assert.equal(lookupHop(list, `ebook-${id}`), null);
+  }
 });
 
 test('bot and nl_test traffic is excluded', () => {
