@@ -612,6 +612,7 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
     ];
 
     events.push(...retirementEvents);
+    events.push({date: '2026-10-04', title: '무료 실습 양식 공개 제공 종료', desc: '전자책 부록 실습 양식 14종의 웹 열람과 다운로드를 종료했습니다.', tags: [['', '제공 종료']]});
 
     function parseDate(s) {
       var parts = s.split('-');
