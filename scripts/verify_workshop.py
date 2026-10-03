@@ -79,8 +79,8 @@ for route in ("/worklog/", "/newsletter/", "/insights/"):
         f"Latest-story dates/episode metadata missing: {route}"
 items = [attrs for _, attrs in products.tags if "data-catalog-item" in attrs]
 filters = {attrs["data-filter"] for _, attrs in products.tags if "data-filter" in attrs}
-assert items and {item["data-kind"] for item in items} == {"app", "saas", "tool", "ebook"}
-assert filters == {"all", "app", "saas", "tool", "ebook"}
+assert items and {item["data-kind"] for item in items} == {"app", "tool"}
+assert filters == {"all", "app", "tool"}
 assert len({item["data-search"] for item in items}) == len(items), "Duplicate catalog items"
 assert any("data-catalog-empty" in attrs and "hidden" in attrs for _, attrs in products.tags)
 assert any(tag == "input" and attrs.get("type") == "search" for tag, attrs in products.tags)

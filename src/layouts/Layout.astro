@@ -23,8 +23,16 @@ const notebook =
     <link rel="apple-touch-icon" href="https://kangdaejong.com/brand/current/apple-touch-icon.png" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="description" content={description} />
-    <meta property="og:image" content="https://kangdaejong.com/brand/current/social.png?v=20261003" />
-    <meta name="twitter:image" content="https://kangdaejong.com/brand/current/social.png?v=20261003" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, 'https://work.kangdaejong.com').href} />
+    <meta property="og:site_name" content="마이너스베타스튜디오 작업장" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta property="og:image" content="https://kangdaejong.com/brand/current/social.png?v=59a349c1f82627cd" />
+    <meta name="twitter:image" content="https://kangdaejong.com/brand/current/social.png?v=59a349c1f82627cd" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link
       rel="stylesheet"

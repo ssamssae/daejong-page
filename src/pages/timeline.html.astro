@@ -1,21 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import retiredProducts from '../data/retired-products.json';
+const retirementEvents = retiredProducts.map((item) => ({date: item.date, title: `${item.name} — ${item.status}`, desc: item.kind === 'app' ? 'App Store 신규 판매와 Google Play 게시를 종료했습니다. 기존 설치본과 데이터는 보존합니다.' : item.kind === 'ebook' ? '크몽 전자책 판매를 종료했습니다. 공개 무료 템플릿은 유지합니다.' : item.name === '문의노트' ? '공개 운영을 종료하고 소유자 접근만 유지합니다.' : '공개 서비스 운영을 종료했습니다.', tags: [['', item.status]]}));
 const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.localeCompare(a.data.date) || b.id.localeCompare(a.id)).slice(0, 6);
 ---
 <Layout title="개발 타임라인 - 강대종" description="강대종 1인 개발 타임라인으로 2026년 4월 AI와 개발을 시작한 뒤 앱 출시, 뉴스레터, 인프라 구축, 주요 결정과 학습 이정표를 활동 히트맵, 통계 카드, 태그가 붙은 이벤트 목록으로 시간순으로 자세히 기록합니다.">
   <Fragment slot="head">
     <!-- OG / Twitter Card (2026-05-25) -->
-  <meta property="og:title" content="개발 타임라인 - 강대종">
-  <meta property="og:description" content="강대종 1인 개발 타임라인 — 앱 출시, 뉴스레터 ep, 인사이트, 큰 결정 이정표.">
-  <meta property="og:image" content="https://kangdaejong.com/brand/current/social.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://work.kangdaejong.com/timeline.html">
-  <meta property="og:site_name" content="강대종 - 1인 개발 포트폴리오">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="개발 타임라인 - 강대종">
-  <meta name="twitter:description" content="강대종 1인 개발 타임라인 — 앱 출시, 뉴스레터 ep, 인사이트, 큰 결정 이정표.">
-  <meta name="twitter:image" content="https://kangdaejong.com/brand/current/social.png">
   <link rel="canonical" href="https://work.kangdaejong.com/timeline.html">
   <script type="application/ld+json" is:inline>
 {
@@ -512,6 +504,7 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
         </div>
         <p>최신순으로 훑을 수 있게 날짜, 사건, 태그를 한 줄 흐름으로 정리했습니다.</p>
       </div>
+      <p>2026-10-03 서비스·판매 종료 내역을 반영했습니다. <a href="/products/#retired-products">현재 제품과 종료 목록 보기</a></p>
       <div class="events" id="events"></div><noscript><p>이정표 시각화는 JavaScript를 켜면 볼 수 있습니다. 최근 공개 작업은 위 목록과 <a href="/worklog/">작업일지</a>에서 읽을 수 있습니다.</p></noscript>
     </section>
 
@@ -521,7 +514,7 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
     </footer>
   </article>
 
-  <script is:inline>
+  <script is:inline define:vars={{ retirementEvents }}>
     const events = [
       { date: '2026-04-11', title: '첫 번째 코드, 메모요 탄생', desc: 'AI(Claude)와 대화하며 Flutter로 첫 앱을 만들기 시작했다.', tags: [['flutter','Flutter'],['ai','Claude AI']], major: 1 },
       { date: '2026-04-11', title: '개인 홈페이지 오픈', desc: 'daejong-page v1.0.0 배포.', tags: [['web','HTML/CSS/JS'],['','GitHub Pages']] },
@@ -617,6 +610,8 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
       { date: '2026-09-08', title: 'kangdaejong.com 회사 홈 리뉴얼', desc: '회사 홈 17개 경로를 다시 그리고 공개했다. 계산기알람 처리방침도 올렸지만 스토어 출시는 아직이다. Cursor 터미널이 창 크기를 따라가게 고쳤다.', tags: [['web','회사 홈'],['ai','Cursor']] },
       { date: '2026-09-12', title: '공개 브릿지 4종 패치 릴리스', desc: 'Grok v0.5.3, Codex v0.9.9, Claude v0.14.2, Cursor v0.4.2를 같은 날 올렸다. Local은 v0.2.0을 유지한다. 작업장 제품 목록과 lab 현재형을 이 버전에 맞췄다.', major: 32, tags: [['infra','브릿지'],['web','작업장']] }
     ];
+
+    events.push(...retirementEvents);
 
     function parseDate(s) {
       var parts = s.split('-');

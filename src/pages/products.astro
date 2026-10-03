@@ -5,20 +5,20 @@ import ProductExamples from "../components/ProductExamples.astro";
 import IptaDemo from "../components/IptaDemo.astro";
 import BridgeDemo from "../components/BridgeDemo.astro";
 import ProductCard from "../components/ProductCard.astro";
-import { apps, saas, tools, ebooks, productCounts } from "../data/products";
+import { apps, saas, tools, ebooks, retiredProducts, productCounts } from "../data/products";
 const categories = [
   { kind: "saas", label: "웹 서비스", items: saas },
   { kind: "app", label: "모바일 앱", items: apps },
   { kind: "tool", label: "오픈소스", items: tools },
   { kind: "ebook", label: "전자책", items: ebooks },
-];
+].filter(category => category.items.length > 0);
 
 ---
 
 <Layout
   bodyClass="catalog-page"
   title="제품 — 마이너스베타스튜디오"
-  description="일상의 작은 불편에서 시작한 마이너스베타스튜디오의 앱, 웹 서비스, 오픈소스 도구와 전자책을 만나보세요."
+  description="현재 제공하는 모바일 앱과 오픈소스 도구, 서비스·판매 종료 기록을 확인하세요."
 >
   <section class="studio-hero" aria-labelledby="page-title"><p class="studio-label">직접 만들어 쓰는 도구들</p><h1 id="page-title">작은 제품,<br/><span>쓸모 있는 일상.</span></h1><p class="studio-lead">기록하고, 연결하고, 새로운 시작을 돕는 앱과 공개 도구입니다.</p></section>
   <NlVisitBeacon />
@@ -33,7 +33,7 @@ const categories = [
         <p class="eyebrow">FIND YOUR EVERYDAY COMPANION</p><h2
           id="catalog-title"
         >
-          모든 제품
+          현재 제공하는 제품
         </h2>
       </div><p>필요한 순간에, 가볍게 꺼내 쓰세요.</p>
     </div>
@@ -98,8 +98,14 @@ const categories = [
       </p></noscript
     >
   </section>
+  <section class="retired-products" id="retired-products" aria-labelledby="retired-title">
+    <h2 id="retired-title">종료한 제품과 서비스</h2>
+    <p>2026년 10월 3일 기준입니다. 앱은 신규 배포를 종료했으며, 기존 설치본의 데이터 삭제를 뜻하지 않습니다. 전자책 무료 템플릿은 계속 공개합니다.</p>
+    <ul>{retiredProducts.map(item => <li><strong>{item.name}</strong><span>{item.status} · <time datetime={item.date}>{item.date}</time></span></li>)}</ul>
+    <a href="https://kangdaejong.com/digital-products/">전자책 종료 안내와 무료 템플릿</a>
+  </section>
   <details class="product-demos"><summary>제품 화면과 사용 예시</summary><ProductExamples /><IptaDemo /><BridgeDemo /></details>
-  <p class="comparison-note">비용·지원·가입 정보 확인: 2026-09-22. 스토어별 인앱 구매와 연결 서비스 요금은 해당 안내를 확인하세요.</p>
+  <p class="comparison-note">비용·지원·가입 정보 확인: 2026-09-22. 운영·종료 상태 확인: 2026-10-04. 스토어별 인앱 구매와 연결 서비스 요금은 해당 안내를 확인하세요.</p>
   <aside class="making-note">
     <span class="note-star" aria-hidden="true">✳</span><div>
       <h2>완성보다, 계속 만드는 마음.</h2><p>
@@ -115,6 +121,11 @@ const categories = [
       .forEach(initCatalog);
   </script>
   <style>
+    .retired-products{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+    .retired-products>p{font-size:14px;line-height:1.8;margin:14px 0;color:var(--fg-mute)}
+    .retired-products ul{list-style:none;padding:0}.retired-products li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 0;border-bottom:1px solid var(--border-soft);font-size:14px}
+    .retired-products li span{color:var(--fg-mute);font-size:12px}.retired-products>a{display:inline-block;margin-top:18px;min-height:44px}
+
     .collection-hero {
       display: grid;
       grid-template-columns: 1.65fr 1fr;

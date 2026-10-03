@@ -35,25 +35,25 @@
     "checkedAt": "2026-09-22"
   },
   "단어요": {
-    "price": "무료 다운로드",
+    "price": "신규 배포 종료",
     "platform": "iOS · Android",
-    "account": "가입 없이 사용",
+    "account": "신규 이용 종료",
     "source": "https://apps.apple.com/kr/app/id6766556759",
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-10-03"
   },
   "한컵": {
-    "price": "무료 다운로드",
+    "price": "신규 배포 종료",
     "platform": "iOS · Android",
-    "account": "가입 없이 사용",
+    "account": "신규 이용 종료",
     "source": "https://apps.apple.com/kr/app/id6765536616",
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-10-03"
   },
   "포모도로": {
-    "price": "무료 다운로드",
+    "price": "신규 배포 종료",
     "platform": "iOS · Android",
-    "account": "가입 없이 사용",
+    "account": "신규 이용 종료",
     "source": "https://apps.apple.com/kr/app/id6765536777",
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-10-03"
   },
   "심플 가계부": {
     "price": "무료 다운로드",
@@ -63,39 +63,39 @@
     "checkedAt": "2026-09-22"
   },
   "행운번호 생성기": {
-    "price": "무료 다운로드",
+    "price": "신규 배포 종료",
     "platform": "iOS · Android",
-    "account": "가입 없이 사용",
+    "account": "신규 이용 종료",
     "source": "https://apps.apple.com/kr/app/id6766077265",
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-10-03"
   },
   "첫이름 — AI 사주 작명": {
-    "price": "미리보기 무료 · 리포트 19,900원",
+    "price": "서비스 종료",
     "platform": "웹 · iOS · Android",
-    "account": "주문 시 이메일 입력",
+    "account": "신규 이용 종료",
     "source": "https://cheotireum.kangdaejong.com/",
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-10-03"
   },
   "첫이름": {
-    "price": "미리보기 무료 · 리포트 19,900원",
+    "price": "서비스 종료",
     "platform": "웹 · iOS · Android",
-    "account": "주문 시 이메일 입력",
+    "account": "신규 이용 종료",
     "source": "https://cheotireum.kangdaejong.com/",
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-10-03"
   },
   "한장궁합 가족 리포트": {
-    "price": "리포트 19,900원 · 1회 결제",
+    "price": "서비스 종료",
     "platform": "웹",
-    "account": "이메일 인증",
+    "account": "신규 이용 종료",
     "source": "https://hanjang.kangdaejong.com/",
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-10-03"
   },
   "한장택일 — 결혼·이사·개업 날짜": {
-    "price": "날짜 미리보기 무료 · 리포트 19,900원",
+    "price": "서비스 종료",
     "platform": "웹",
-    "account": "이메일 인증",
+    "account": "신규 이용 종료",
     "source": "https://taekil.kangdaejong.com/",
-    "checkedAt": "2026-09-22"
+    "checkedAt": "2026-10-03"
   },
   "입타 (Ipta)": {
     "price": "무료 · 외부 AI 비용 별도",
@@ -142,22 +142,29 @@
   "1인회사 AI자동화": {
     "price": "판매 종료",
     "platform": "전자책 · PC / 모바일",
-    "account": "신규 구매 불가",
+    "account": "신규 이용 종료",
     "source": "https://kangdaejong.com/digital-products/",
     "checkedAt": "2026-10-03"
   },
   "혼자서 AI팀": {
     "price": "판매 종료",
     "platform": "전자책 · PC / 모바일",
-    "account": "신규 구매 불가",
+    "account": "신규 이용 종료",
     "source": "https://kangdaejong.com/digital-products/",
     "checkedAt": "2026-10-03"
   },
   "폰으로 내 컴퓨터 AI 부리기": {
     "price": "판매 종료",
     "platform": "전자책 · PC / 모바일",
-    "account": "신규 구매 불가",
+    "account": "신규 이용 종료",
     "source": "https://kangdaejong.com/digital-products/",
     "checkedAt": "2026-10-03"
+  },
+  "계산기알람": {
+    "price": "스토어에서 확인",
+    "platform": "iOS · Android",
+    "account": "이용 조건은 스토어에서 확인",
+    "source": "https://kangdaejong.com/",
+    "checkedAt": "2026-10-04"
   }
 }
