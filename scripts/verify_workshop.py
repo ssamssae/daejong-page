@@ -44,7 +44,7 @@ for path in DIST.rglob("*.html"):
         assert any(tag == "script" and attrs.get("src") == "https://kangdaejong.com/mb-components.js"
                    for tag, attrs in page.tags), f"Missing shared navigation runtime: {path}"
         assert any(tag == "meta" and attrs.get("name") == "theme-color"
-                   and attrs.get("content") == "#f7f6f2" for tag, attrs in page.tags), path
+                   and attrs.get("content") == "#ffffff" for tag, attrs in page.tags), path
         for tag, attrs in page.tags:
             asset = attrs.get("src") if tag in ("img", "script") else (
                 attrs.get("href") if tag == "link" and attrs.get("rel") == "stylesheet" else None

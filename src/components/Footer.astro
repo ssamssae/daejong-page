@@ -36,12 +36,12 @@ import { company } from "../data/site";
 </footer>
 <style>
   .site-footer {
-    background: var(--invert-bg);
-    color: var(--invert-fg);
+    background: var(--bg);
+    color: var(--fg);
     padding: 64px 0 24px;
   }
   .footer-inner {
-    width: min(1280px, calc(100% - 96px));
+    width: min(1000px, calc(100% - 48px));
     margin: auto;
   }
   .footer-top {
@@ -49,16 +49,16 @@ import { company } from "../data/site";
     justify-content: space-between;
     gap: 36px;
     padding-bottom: 50px;
-    border-bottom: 1px solid var(--invert-border);
+    border-bottom: 1px solid var(--border);
   }
   .footer-kicker {
     font: 10px var(--mono);
     letter-spacing: 0.12em;
     margin-bottom: 20px;
-    color: var(--invert-dim);
+    color: var(--fg-dim);
   }
   h2 {
-    color: var(--invert-fg);
+    color: var(--fg);
     font-size: clamp(30px, 4vw, 48px);
     line-height: 1.35;
   }
@@ -75,7 +75,7 @@ import { company } from "../data/site";
     text-decoration: none;
   }
   a:hover {
-    color: #ecc6a5;
+    color: #2458cc;
   }
   .footer-bottom {
     display: flex;
@@ -97,7 +97,7 @@ import { company } from "../data/site";
   }
 
   .footer-brand a {
-    color: var(--invert-dim);
+    color: var(--fg-dim);
     font-size: 12px;
     margin-top: 4px;
   }
@@ -107,16 +107,16 @@ import { company } from "../data/site";
     gap: 2px 14px;
     max-width: 560px;
     font-size: 11px;
-    color: var(--invert-dim);
+    color: var(--fg-dim);
     line-height: 1.9;
   }
   .footer-copy {
-    border-top: 1px solid var(--invert-border);
+    border-top: 1px solid var(--border);
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
     gap: 16px;
-    color: var(--invert-dim);
+    color: var(--fg-dim);
     font: 10px/1.6 var(--mono);
   }
   @media (max-width: 900px) {
@@ -129,7 +129,7 @@ import { company } from "../data/site";
       padding-top: 40px;
     }
     .footer-inner {
-      width: calc(100% - 36px);
+      width: calc(100% - 40px);
     }
     .footer-top,
     .footer-bottom {
