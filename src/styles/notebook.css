@@ -3,7 +3,7 @@
   --up: #ba3d42;
   --down: #245eaf;
   --page-accent: var(--accent);
-  --notebook-surface: #fdfcf8;
+  --notebook-surface: #f7f8fa;
 }
 .site-main.notebook .eyebrow,
 .site-main.notebook .kicker,
@@ -57,9 +57,9 @@
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card).primary {
-  background: #e7ebde;
+  background: #eef3ff;
   color: var(--fg);
-  border-color: #d2d9c6;
+  border-color: #dce4f4;
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card).primary
@@ -68,8 +68,8 @@
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card, .lab-card):hover {
-  border-color: #9c9f90;
-  background: #eeeee5;
+  border-color: #aab5c6;
+  background: #eef1f5;
 }
 .site-main.notebook .card-topline {
   font-family: var(--mono);
