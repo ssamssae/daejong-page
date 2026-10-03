@@ -73,11 +73,7 @@ const spaces = [
       </div>
     </div>
     <div class="home-art">
-      <a class="workbench-note" href={`/newsletter/${recentNewsletter[0].id}/`}><span>가장 최근의 이야기 · {recentNewsletter[0].data.date}</span><strong>{recentNewsletter[0].data.title}</strong><p>{recentNewsletter[0].data.summary}</p><b>과정 읽기 ↗</b></a><div class="home-art-note">
-        <span class="note-dot"></span><span>지금 이 작업장에서</span><strong
-          >{total}개의 제품이 자라고 있어요.</strong>
-      </div><span class="hand-note" aria-hidden="true"
-        >small ideas, real things.</span>
+      <a class="workbench-note" href={`/newsletter/${recentNewsletter[0].id}/`}><span>가장 최근의 이야기 · {recentNewsletter[0].data.date}</span><strong>{recentNewsletter[0].data.title}</strong><p>{recentNewsletter[0].data.summary}</p><b>과정 읽기 ↗</b></a>
     </div>
   </section>
   <div class="studio-strip">
@@ -172,11 +168,11 @@ const spaces = [
     }
     .home-art {
       position: relative;
-      padding: 16px 18px 30px;
-      background: #eef1f5;
+      padding: 0;
+      background: transparent;
       border: 1px solid #e6e8ed;
-      border-radius: 160px 160px 14px 14px;
-      transform: rotate(3deg);
+      border-radius: 12px;
+      transform: none;
     }
     .home-art :global(.product-art) {
       height: 330px;
@@ -389,7 +385,7 @@ const spaces = [
       }
       .home-art {
         max-width: 420px;
-        width: calc(100% - 30px);
+        width: 100%;
         margin: auto;
       }
       .studio-strip {
@@ -439,5 +435,6 @@ const spaces = [
         display: none;
       }
     }
+      .home-art .workbench-note{margin:0;transform:none;box-shadow:none;border:0;border-radius:12px;padding:23px;background:#f7f8fa}
   </style>
 </Layout>
