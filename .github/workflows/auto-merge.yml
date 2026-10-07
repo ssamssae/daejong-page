@@ -21,6 +21,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write   # T-261008-004: 머지 뒤 deploy.yml workflow_dispatch 실행용
 
 concurrency:
   group: auto-merge-${{ github.repository }}-${{ github.event.pull_request.number }}
@@ -48,9 +49,18 @@ jobs:
       contents: read
     steps:
       - name: Checkout PR merge result
+        id: checkout_merge
         uses: actions/checkout@v4
+        # T-261008-004: 발행기가 먼저 머지하면 refs/pull/N/merge 가 사라져 이 스텝이 실패했다
+        # (run 37648200161). 실패하면 아래에서 PR head 커밋으로 대신 검사한다. 권한·격리는 그대로.
+        continue-on-error: true
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
+      - name: Checkout PR head (merge ref gone)
+        if: steps.checkout_merge.outcome == 'failure'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Verify canonical company drift guard
         run: node scripts/verify-canonical-company.mjs
 
@@ -354,25 +364,26 @@ jobs:
       - name: Merge non-sensitive PR
         if: steps.sensitive.outputs.sensitive != 'true' && steps.public_page_checks.outputs.blocked != 'true'
         env:
-          DEPLOY_PAT: ${{ secrets.DEPLOY_PAT }}
-          GITHUB_TOKEN_FALLBACK: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
 
-          token="$DEPLOY_PAT"
-          if [ -z "$token" ]; then
-            token="$GITHUB_TOKEN_FALLBACK"
-          fi
-          export GH_TOKEN="$token"
+          # ⚠️ 제거 금지 (DO NOT REMOVE) — 머지 토큰 = 실행마다 발급되는 GITHUB_TOKEN (T-261008-004).
+          # 종전엔 DEPLOY_PAT 를 우선했다(T-260610-14). 그 PAT 가 만료돼 401 Bad credentials 로
+          # 모든 자동 머지가 실패했고(2026-10-07 실측), 비어 있지 않아 fallback 도 안 탔다.
+          # GITHUB_TOKEN 머지는 push 이벤트로 deploy.yml 을 깨우지 못하므로(anti-recursion),
+          # ★머지 완료를 확인한 뒤 deploy.yml 을 workflow_dispatch 로 직접 실행한다.
+          # 대종님 승인 2026-10-08 「2번 진행」. 픽스처 = scripts/tests/test_auto_merge_merge_step.sh
+          export GH_TOKEN="$GITHUB_TOKEN"
 
-          # ⚠️ 제거 금지 (DO NOT REMOVE) — merge prefers DEPLOY_PAT.
-          # GITHUB_TOKEN-created merges may not retrigger downstream deploy
-          # workflows because of GitHub anti-recursion. DEPLOY_PAT preserves
-          # daejong-page T-260610-14 behavior; absent PAT falls back safely.
-          owner="${GH_REPO%/*}"
-          repo="${GH_REPO#*/}"
+          # 발행기가 먼저 머지했으면(경합) 할 일이 없다 — 발행기 push 가 배포를 깨운다.
+          state="$(gh pr view "$PR_NUMBER" --repo "$GH_REPO" --json state --jq '.state')"
+          if [ "$state" = "MERGED" ]; then
+            echo "PR #$PR_NUMBER already merged — skip merge and deploy dispatch"
+            exit 0
+          fi
 
           mergeable="UNKNOWN"
           for _attempt in 1 2 3 4 5 6; do
@@ -390,21 +401,23 @@ jobs:
             exit 0
           fi
 
-          auto_allowed="$(gh api graphql \
-            -f owner="$owner" \
-            -f name="$repo" \
-            -f query='query($owner:String!, $name:String!) { repository(owner:$owner, name:$name) { autoMergeAllowed } }' \
-            --jq '.data.repository.autoMergeAllowed')"
+          # --auto 를 쓰지 않는다: 나중에 GitHub 가 대신 머지하면 이 실행이 완료를 확인할 수 없다.
+          # 필수 검사·필수 리뷰가 없는 저장소라 즉시 머지가 된다(main 보호: review count 0).
+          gh pr merge "$PR_NUMBER" \
+            --squash \
+            --delete-branch \
+            --repo "$GH_REPO" || true
 
-          if [ "$auto_allowed" = "true" ]; then
-            gh pr merge "$PR_NUMBER" \
-              --squash \
-              --delete-branch \
-              --auto \
-              --repo "$GH_REPO"
-          else
-            gh pr merge "$PR_NUMBER" \
-              --squash \
-              --delete-branch \
-              --repo "$GH_REPO"
+          merged=""
+          for _attempt in 1 2 3 4 5 6 7 8 9 10; do
+            merged="$(gh pr view "$PR_NUMBER" --repo "$GH_REPO" --json state --jq '.state')"
+            [ "$merged" = "MERGED" ] && break
+            sleep 3
+          done
+          if [ "$merged" != "MERGED" ]; then
+            echo "::error::PR #$PR_NUMBER not merged (state=$merged) — deploy not dispatched"
+            exit 1
           fi
+
+          gh workflow run deploy.yml --ref main --repo "$GH_REPO"
+          echo "PR #$PR_NUMBER merged; deploy.yml dispatched on main"
