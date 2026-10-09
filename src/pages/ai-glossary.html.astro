@@ -344,7 +344,7 @@ import '../styles/lab.css';
         <dl class="hero-stats" aria-label="AI 용어집 요약">
           <div>
             <dt>누적 용어</dt>
-            <dd><!--AUTO-HERO-TERMS-START-->950<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
+            <dd><!--AUTO-HERO-TERMS-START-->959<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
           </div>
           <div>
             <dt>카테고리</dt>
@@ -702,7 +702,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>MoE (Mixture of Experts)</h3>
       <p>전체 전문가 중 일부만 활성화해 계산하는 모델 구조. 속도는 활성 파라미터가 좌우하지만, 메모리는 총 파라미터 기준으로 필요하다.</p>
-      <span class="src">영상: 2026-07-05-local-llm-r9700-hermes-dantes-datalab.md</span>
+      <span class="src">영상: 2026-07-05-local-llm-r9700-hermes-dantes-datalab.md, 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
     </div>
 
     <div class="term">
@@ -1021,6 +1021,30 @@ import '../styles/lab.css';
       <h3>아스트라</h3>
       <p>Aside 쪽 모델. 아이콘이 GPT 테라와 비슷해 여기에 두었더니 한 번에 사용량 245가 나갔다고 한다.</p>
       <span class="src">영상: 2026-09-26-aside-just-ask-sireal.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Ngram Embedding</h3>
+      <p>발화자가 Qwen 3.8 Flash Next와 Qwen 4 계열 설계의 특징으로 든 구성 요소. 본체 125B에 합치면 약 180B 규모다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Dense 모델</h3>
+      <p>토큰마다 모든 파라미터를 계산하는 구조. Qwen 3.8 27B가 이 방식이라 Strata에 올릴 수 없다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
+    </div>
+
+    <div class="term">
+      <h3>MTP (Multi-Token Prediction)</h3>
+      <p>다음 토큰 여러 개를 미리 추정해 초안으로 내고 본 모델이 검증하는 가속 방식. 드래프트 채택률은 초안이 그대로 받아들여진 비율이다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
+    </div>
+
+    <div class="term">
+      <h3>IQ2_XS · IQ3_XXS · IQ3_S</h3>
+      <p>영상에서 비교한 압축(양자화) 단계. 뒤로 갈수록 덜 압축해 더 똑똑하지만 메모리를 더 쓴다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
     </div>
 
     <h2>하니스 · 패턴</h2>
@@ -2483,6 +2507,12 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-10-04-personal-ontology-four-benefits-alex-ai.md</span>
     </div>
 
+    <div class="term">
+      <h3>Opencode 데스크탑</h3>
+      <p>opencode.ai에서 받는 코딩 에이전트 앱. 영상에서는 로그인 없이 Muse Spark 1.3 Free 모델로 Strata 설치와 측정을 시켰다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -2741,6 +2771,12 @@ import '../styles/lab.css';
       <h3>프로젝트별 맥락 분리</h3>
       <p>서로 다른 업무의 목표와 자료가 섞이지 않도록 프로젝트 단위로 관리하는 방식.</p>
       <span class="src">영상: 2026-09-13-chatgpt-work-alex-finn.md</span>
+    </div>
+
+    <div class="term">
+      <h3>프리필 · 디코딩</h3>
+      <p>프리필은 입력 프롬프트를 한꺼번에 읽는 단계, 디코딩은 답을 한 토큰씩 만드는 단계다. 둘 다 초당 토큰으로 잰다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
     </div>
 
     <h2>도구 통신 (MCP · CLI · API)</h2>
@@ -6113,6 +6149,24 @@ import '../styles/lab.css';
       <h3>총비용</h3>
       <p>최초 처리뿐 아니라 분류, 재시도, 재작업, 검토에 드는 비용을 합친 값.</p>
       <span class="src">영상: 2026-09-29-jev-decision-cost.md</span>
+    </div>
+
+    <div class="term">
+      <h3>Strata</h3>
+      <p>Qwen 3.8 Flash Next 전용으로 튜닝된 로컬 서빙 엔진. 압축한 모델을 DRAM에 두고, 쓸 전문가 레이어만 GPU로 옮겨 계산한다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
+    </div>
+
+    <div class="term">
+      <h3>CPU 오프로딩</h3>
+      <p>VRAM에 다 안 들어가는 레이어를 CPU와 시스템 메모리에서 계산하는 방식. 대형 모델에서는 초당 한 자릿수 토큰까지 느려진다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
+    </div>
+
+    <div class="term">
+      <h3>레이어 스플릿 · 파이프라이닝</h3>
+      <p>GPU 여러 장에 레이어를 나눠 올리고(48개를 24개씩), 단계를 겹쳐 돌리는 설정. Strata에서는 모델별 JSON 옵션으로 지정한다.</p>
+      <span class="src">영상: 2026-10-09-strata-qwen-flash-next-soulseeker.md</span>
     </div>
 
     <!-- END_GLOSSARY_DATA -->
