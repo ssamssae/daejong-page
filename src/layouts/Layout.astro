@@ -5,7 +5,11 @@ import "../styles/notebook.css";
 import Nav from "../components/Nav.astro";
 import PageDirectory from "../components/PageDirectory.astro";
 import Footer from "../components/Footer.astro";
-const { title, description, bodyClass = "" } = Astro.props;
+const { title, description, bodyClass = "", image } = Astro.props;
+// T-261010-061: articles pass their own /og/... image; every other page keeps the shared one.
+const shareImage = image
+  ? new URL(image, "https://work.kangdaejong.com").href
+  : "https://kangdaejong.com/brand/current/social.png?v=59a349c1f82627cd";
 const notebook =
   /\.html\/?$/.test(Astro.url.pathname) ||
   ["/policy", "/sorry", "/_cost"].some((path) =>
@@ -31,8 +35,10 @@ const notebook =
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta property="og:image" content="https://kangdaejong.com/brand/current/social.png?v=59a349c1f82627cd" />
-    <meta name="twitter:image" content="https://kangdaejong.com/brand/current/social.png?v=59a349c1f82627cd" />
+    <meta property="og:image" content={shareImage} />
+    {image && <meta property="og:image:width" content="1200" />}
+    {image && <meta property="og:image:height" content="630" />}
+    <meta name="twitter:image" content={shareImage} />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link
       rel="stylesheet"

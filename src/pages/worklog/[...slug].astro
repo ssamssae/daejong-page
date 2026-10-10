@@ -2,6 +2,7 @@
 import ArticleFrame from "../../components/ArticleFrame.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
+import { ogImagePath } from "../../lib/og-image.mjs";
 import "../../styles/prose.css";
 
 export async function getStaticPaths() {
@@ -16,6 +17,7 @@ const { Content, headings } = await render(post);
 <Layout
   title={`${post.data.title} — 작업일지`}
   description={post.data.summary ?? post.data.title}
+  image={ogImagePath("worklog", post.id)}
 >
   <ArticleFrame
     title={post.data.title}

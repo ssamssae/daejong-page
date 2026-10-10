@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import NlNewsletterHops from "../../components/NlNewsletterHops.astro";
 import { campaignFromPath } from "../../lib/nl-allowlist.mjs";
+import { ogImagePath } from "../../lib/og-image.mjs";
 import "../../styles/prose.css";
 
 export async function getStaticPaths() {
@@ -21,6 +22,7 @@ const campaign = String(
 <Layout
   title={`${post.data.title} — 뉴스레터`}
   description={post.data.summary ?? post.data.title}
+  image={ogImagePath("newsletter", post.id)}
 >
   <ArticleFrame
     title={post.data.title}

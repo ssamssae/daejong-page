@@ -12,17 +12,21 @@
     "verify:glossary-counts": "node scripts/verify-glossary-counts.mjs",
     "verify:nl-origin": "node scripts/verify-nl-origin.mjs",
     "verify:nl-instrument": "node scripts/verify-nl-instrument.mjs",
+    "verify:og-images": "node scripts/verify-og-images.mjs",
     "test:nl-instrument": "node --test scripts/test-nl-instrument.mjs",
     "sync:canonical": "node scripts/sync-canonical-vendored.mjs",
     "test:workshop-search": "node --test scripts/test-workshop-search.mjs",
     "verify:workshop": "python3 scripts/verify_workshop.py",
     "prebuild": "node --test scripts/test-nl-instrument.mjs scripts/test-workshop-search.mjs scripts/test-note-reader.mjs tests/homepage-freshness.test.mjs && node tests/privacy-calc-alarm.node.mjs",
-    "postbuild": "npm run verify:workshop"
+    "postbuild": "npm run verify:workshop && npm run verify:og-images"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@resvg/resvg-js": "2.6.2",
     "astro": "^6.3.3",
-    "remark-gfm": "^4.0.1"
+    "pretendard": "1.3.9",
+    "remark-gfm": "^4.0.1",
+    "satori": "0.47.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1"
