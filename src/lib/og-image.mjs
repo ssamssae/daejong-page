@@ -114,5 +114,8 @@ export function ogTree({ collection, title, date, version }) {
 
 export async function renderOgPng(entry) {
   const svg = await satori(ogTree(entry), { width: OG_WIDTH, height: OG_HEIGHT, fonts: loadFonts() });
-  return new Resvg(svg, { fitTo: { mode: 'width', value: OG_WIDTH } }).render().asPng();
+  return new Resvg(svg, {
+    fitTo: { mode: 'width', value: OG_WIDTH },
+    font: { loadSystemFonts: false },
+  }).render().asPng();
 }
