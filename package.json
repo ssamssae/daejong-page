@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/prepare-site-search.mjs",
     "preview": "astro preview",
     "verify:stack-page": "node scripts/verify-stack-page.mjs",
     "verify:knowhow-refresh": "node scripts/verify-knowhow-refresh.mjs",
@@ -29,6 +29,7 @@
     "satori": "0.47.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.61.1"
+    "@playwright/test": "^1.61.1",
+    "pagefind": "1.5.2"
   }
 }

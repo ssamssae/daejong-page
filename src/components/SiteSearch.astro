@@ -1,0 +1,243 @@
+<form class="site-search" data-site-search role="search" data-pagefind-ignore="all">
+  <label for="site-search-input">기록 검색</label>
+  <input
+    id="site-search-input"
+    type="search"
+    name="q"
+    placeholder="제목이나 본문의 단어"
+    autocomplete="off"
+    enterkeyhint="search"
+  />
+  <div class="site-search-panel" data-site-search-panel hidden>
+    <p class="site-search-status" data-site-search-status role="status"></p>
+    <ul data-site-search-results></ul>
+  </div>
+</form>
+<script is:inline>
+  (function () {
+    var root = document.querySelector("[data-site-search]");
+    if (!root) return;
+    var input = root.querySelector("input");
+    var panel = root.querySelector("[data-site-search-panel]");
+    var status = root.querySelector("[data-site-search-status]");
+    var list = root.querySelector("[data-site-search-results]");
+    var pagefind = null;
+    var seq = 0;
+    var timer = 0;
+
+    function sectionLabel(url) {
+      var path = String(url || "");
+      if (path.indexOf("/insights/") !== -1) return "인사이트";
+      if (path.indexOf("/newsletter/") !== -1) return "뉴스레터";
+      if (path.indexOf("/worklog/") !== -1) return "작업일지";
+      return "글";
+    }
+
+    function resultTitle(data) {
+      var title = data && data.meta ? data.meta.title : "";
+      if (Array.isArray(title)) title = title[0];
+      title = String(title || "").trim();
+      return title || data.url || "글";
+    }
+
+    function excerptHtml(excerpt) {
+      return String(excerpt || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/&lt;(\/?mark)&gt;/g, "<$1>");
+    }
+
+    function hide() {
+      panel.hidden = true;
+      status.textContent = "";
+      list.textContent = "";
+    }
+
+    function load() {
+      if (pagefind) return pagefind;
+      pagefind = import("/pagefind/pagefind.js").then(function (mod) {
+        var api = mod && typeof mod.search === "function" ? mod : mod.default;
+        if (!api || typeof api.search !== "function") {
+          throw new Error("pagefind search api missing");
+        }
+        if (typeof api.options === "function") {
+          return Promise.resolve(api.options({ excerptLength: 22 })).then(function () {
+            return api;
+          });
+        }
+        return api;
+      });
+      return pagefind;
+    }
+
+    function render(query, search) {
+      var results = (search && search.results) || [];
+      list.textContent = "";
+      if (!results.length) {
+        status.textContent = "해당하는 글이 없습니다.";
+        return;
+      }
+      var shown = results.slice(0, 8);
+      status.textContent =
+        results.length > shown.length
+          ? results.length + "개 중 8개를 보여 줍니다."
+          : shown.length + "개 글을 찾았습니다.";
+      Promise.all(
+        shown.map(function (result) {
+          return result.data();
+        }),
+      ).then(function (rows) {
+        if (input.value.trim() !== query) return;
+        rows.forEach(function (data) {
+          var item = document.createElement("li");
+          var link = document.createElement("a");
+          var url = String(data.url || "");
+          if (url && url.charAt(0) !== "/" && url.indexOf("://") === -1) url = "/" + url;
+          link.href = url;
+          var kicker = document.createElement("span");
+          kicker.className = "site-search-kicker";
+          kicker.textContent = sectionLabel(url);
+          var title = document.createElement("span");
+          title.className = "site-search-title";
+          title.textContent = resultTitle(data);
+          var excerpt = document.createElement("span");
+          excerpt.className = "site-search-excerpt";
+          excerpt.innerHTML = excerptHtml(data.excerpt);
+          link.appendChild(kicker);
+          link.appendChild(title);
+          link.appendChild(excerpt);
+          item.appendChild(link);
+          list.appendChild(item);
+        });
+      });
+    }
+
+    function run(raw) {
+      var query = String(raw || "").trim();
+      var id = ++seq;
+      window.clearTimeout(timer);
+      if (!query) {
+        hide();
+        return;
+      }
+      panel.hidden = false;
+      status.textContent = "찾는 중";
+      list.textContent = "";
+      load()
+        .then(function (api) {
+          return api.search(query);
+        })
+        .then(function (search) {
+          if (id !== seq) return;
+          render(query, search);
+        })
+        .catch(function () {
+          if (id !== seq) return;
+          status.textContent = "검색 색인을 불러오지 못했습니다.";
+          list.textContent = "";
+        });
+    }
+
+    root.addEventListener("submit", function (event) {
+      event.preventDefault();
+      run(input.value);
+    });
+    input.addEventListener("input", function () {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(function () {
+        run(input.value);
+      }, 200);
+    });
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        input.value = "";
+        seq += 1;
+        hide();
+      }
+    });
+  })();
+</script>
+<style>
+  .site-search {
+    margin: 0 0 28px;
+  }
+  .site-search label {
+    display: block;
+    font-size: 13px;
+    color: var(--fg-dim);
+  }
+  .site-search input {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-btn);
+    background: var(--bg-elev);
+    color: var(--fg);
+    padding: 12px 14px;
+    min-height: 48px;
+  }
+  .site-search input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  .site-search-panel {
+    margin-top: 8px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    max-height: min(60vh, 480px);
+    overflow: auto;
+  }
+  .site-search-status {
+    padding: 12px 14px 0;
+    font-size: 13px;
+    color: var(--fg-mute);
+  }
+  .site-search-panel ul {
+    list-style: none;
+  }
+  .site-search-panel li + li {
+    border-top: 1px solid var(--border-soft);
+  }
+  .site-search-panel a {
+    display: block;
+    padding: 12px 14px 14px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .site-search-kicker {
+    font: 11px var(--mono);
+    letter-spacing: var(--track-badge);
+    color: var(--accent);
+  }
+  .site-search-title {
+    display: block;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .site-search-excerpt {
+    display: block;
+    margin-top: 4px;
+    color: var(--fg-dim);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .site-search-excerpt :global(mark) {
+    background: var(--accent-bg);
+    color: inherit;
+  }
+  :global(body.catalog-page) .site-search {
+    margin-top: 76px;
+  }
+  @media (max-width: 650px) {
+    .site-search {
+      margin-bottom: 20px;
+    }
+    :global(body.catalog-page) .site-search {
+      margin-top: 48px;
+    }
+  }
+</style>
