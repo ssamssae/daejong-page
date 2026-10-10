@@ -33,12 +33,13 @@ prevention_deferred: null
 
 - **막을 코드/훅:** https://github.com/ssamssae/claude-automations/pull/2439
   - `scripts/macos-stale-keychain-handle-check.py` — 현재 securityd 보다 먼저 시작한 계정 데몬을 찾는다(종료코드 1). `--fix` 를 명시하면 그 데몬만 TERM → 버티는 같은 프로세스에만 KILL. 픽스처 = 볼칸 수리 전(stale)·수리 후(ok)·아테나(ok) 실측 ps, 변이 프로브 2종 rc=0. 시각 이름표 정정 후속 = PR #2441.
-  - 정기 실행(launchd 등록)은 아직 없다 — 자동 실행 등록은 별도 승인 대상이다. 그 전까지는 같은 증상이 보이면 이 스크립트부터 돌린다.
+  - 정기 감시: https://github.com/ssamssae/claude-automations/pull/2443 — 볼칸·아테나 launchd `com.claude.macos-stale-keychain-watch` 가 30분마다 읽기 전용 검사, stale 이면 securityd 인스턴스당 1회 텔레그램 알림. 고치기(`--fix`)는 자동 실행하지 않는다. 2026-10-10 13:55 설치(대종님 승인), 첫 실행 OK, 알림 경로 시험 발신 실측.
 - 운영 교훈: 맥 앱이 「알 수 없는 오류」로 로그인을 거부하면 재설치 전에 securityd 와 계정 데몬의 시작 시각부터 비교한다.
 
 ## 재발 이력
 
 ## 관련 링크
 - PR: https://github.com/ssamssae/claude-automations/pull/2439 (감지 스크립트, 머지 f4fbb408)
+- PR: https://github.com/ssamssae/claude-automations/pull/2443 (정기 감시, 머지 43cc792f)
 - 메모리: `memory/reference_imessage_unknown_error_stale_securityd_handles.md`
-- 장부: T-261010-022 (이 기록·감지 코드), T-261004-004 (10/4 볼칸 재설치)
+- 장부: T-261010-022 (이 기록·감지 코드), T-261010-028 (정기 감시), T-261004-004 (10/4 볼칸 재설치)
