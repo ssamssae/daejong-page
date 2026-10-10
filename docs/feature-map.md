@@ -5,7 +5,7 @@
 - `Layout.astro`의 모든 페이지는 흰 배경, 파란 강조색 #2458cc, Pretendard, 최대 본문 1000px을 사용한다. 노트 문서와 제품 화면도 같은 토큰을 따른다.
 - 헤더 정본은 `https://kangdaejong.com/mb-components.js`. 프로젝트·앱·연락은 회사 홈의 해당 구역으로 연결하고, 둘러보기에서 작업장 기존 목적지로 이동한다.
 - 로컬: `npm run build`는 기존 prebuild 검사와 907개 공개 HTML·내부 링크·노트 검증을 수행한다. `tests/shared-tone.spec.mjs`는 홈/제품/작업일지/뉴스레터/시스템/타임라인/스택을 390·1440px에서 검사한다. 로컬의 `SHARED_HEADER_FILE`은 미배포 정본을 테스트 응답으로 제공하며 라이브 검증에서는 지정하지 않는다.
-- 공유 카드와 favicon은 중앙 brand 자산을 유지한다. 공유 이미지 주소의 버전을 갱신해 새 카드 재수집 시 새 이미지를 사용한다.
+- 공유 카드와 favicon은 중앙 brand 자산을 유지한다. 공유 이미지 주소의 버전을 갱신해 새 카드 재수집 시 새 이미지를 사용한다. 예외: 작업일지·뉴스레터·인사이트 글 페이지는 글별 이미지를 쓴다(T-261010-061).
 - main 머지는 기존 GitHub Pages 워크플로를 실행한다. 사용자 전체 톤 변경의 공개 반영 범위이며 배포 설정 변경은 없다. 원격 실행 결과와 실제 CSS·화면 확인은 T-261003-017 체크포인트에 별도로 기록한다.
 
 ## T-261003-018 · 사이트 디자인 통일
@@ -26,3 +26,10 @@
 - 모든 Layout 페이지의 OG/Twitter 이미지와 제목·설명은 공통 레이아웃에서 한 번만 출력한다. 중앙 흰색·파란색 이미지의 해시 버전을 사용한다. 기존 Telegram 메시지에 저장된 미리보기의 갱신은 사이트 배포만으로 보장되지 않는다.
 - 검증: `npm run build`, `node scripts/verify-products-page.mjs`, `node scripts/verify-offboarding-ui.mjs` (기본 localhost:4391, `VERIFY_BASE`로 공개 주소 지정). 390/1440px 분류·검색·종료 이벤트·가로 넘침·중복 메타데이터 검사 통과. 근거 `/Users/user/reports/T-261004-001/`.
 - main 머지는 기존 GitHub Pages 자동 배포를 실행한다. 사용자 홈페이지 최신화 승인 범위이며 배포 설정은 그대로다.
+
+## 글별 공유 이미지 — T-261010-061
+
+- 진입: `/worklog/<id>/`, `/newsletter/<id>/`, `/insights/<id>/` 글 페이지의 링크를 메신저·SNS에 공유한다.
+- 기대: 미리보기에 그 글의 분류·날짜(버전)·제목이 들어간 1200x630 이미지가 뜬다. 긴 제목은 3줄에서 말줄임한다. 홈·목록·기타 페이지는 중앙 공통 이미지를 유지한다.
+- 구현: `src/lib/og-image.mjs`(satori + @resvg/resvg-js, `pretendard` npm 패키지 OFL-1.1 폰트, 네트워크 미사용)가 `src/pages/og/[collection]/[slug].png.ts`에서 빌드 때 `/og/<collection>/<id>.png`를 만든다. 글 페이지는 `Layout`의 `image`로 그 절대 주소를 넘긴다.
+- 검증: `npm run build`의 postbuild `npm run verify:og-images`가 컬렉션별 원문 수 = 글 페이지 수 = PNG 수, 글마다 og:image·twitter:image 1개가 자기 PNG를 가리킴, PNG 1200x630, 홈 공통 이미지 유지를 검사한다. 이미 저장된 메신저 미리보기의 갱신은 배포만으로 보장되지 않는다.
