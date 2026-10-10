@@ -29,11 +29,23 @@ import { company } from "../data/site";
     </div>
     <div class="footer-copy">
       <span>© {new Date().getFullYear()} MINUS BETA STUDIO</span><span
-        >작게 만들고, 오래 다듬습니다.</span
+        class="footer-tagline">작게 만들고, 오래 다듬습니다.</span
+      ><span class="visitors" data-visitors="daejong-page"
+        >오늘 <b>-</b> · 누적 <b>-</b></span
       ><a href="#main-content">맨 위로 ↑</a>
     </div>
   </div>
 </footer>
+<script>
+  import { loadVisitorCount } from "../lib/visitor-counter.mjs";
+  const el = document.querySelector<HTMLElement>("[data-visitors]");
+  if (el) {
+    loadVisitorCount(el, {
+      hostname: location.hostname,
+      fetchImpl: fetch.bind(window),
+    });
+  }
+</script>
 <style>
   .site-footer {
     background: var(--bg);
@@ -119,6 +131,10 @@ import { company } from "../data/site";
     color: var(--fg-dim);
     font: 10px/1.6 var(--mono);
   }
+  .visitors b {
+    font-weight: 600;
+    color: var(--fg);
+  }
   @media (max-width: 900px) {
     .footer-inner {
       width: calc(100% - 48px);
@@ -142,7 +158,7 @@ import { company } from "../data/site";
     .footer-copy {
       flex-wrap: wrap;
     }
-    .footer-copy > span:nth-child(2) {
+    .footer-tagline {
       display: none;
     }
   }
