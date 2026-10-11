@@ -41,11 +41,9 @@
     }
 
     function excerptHtml(excerpt) {
-      return String(excerpt || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/&lt;(\/?mark)&gt;/g, "<$1>");
+      // Pagefind excerpt is already escaped; only <mark> tags are raw. Escaping it
+      // again showed "&lt;task&gt;" on screen (T-261011-022). Neutralise other tags only.
+      return String(excerpt || "").replace(/<(?!\/?mark>)/g, "&lt;");
     }
 
     function hide() {
