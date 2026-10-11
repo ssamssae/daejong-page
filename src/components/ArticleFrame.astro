@@ -10,6 +10,7 @@ const {
   version,
   headings = [],
   sourceHref,
+  searchable = false,
 } = Astro.props;
 const sections = headings.filter(
   (heading: { depth: number }) => heading.depth === 2,
@@ -34,8 +35,12 @@ const context = label === '인사이트'
   <a class="back" href={base}>← {label} 목록</a>
   <article>
     <header class="reading-header">
-      <p class="eyebrow">FROM THE WORKSHOP / {label}</p><h1>{title}</h1>{
-        summary && <p class="reading-summary">{summary}</p>
+      <p class="eyebrow">FROM THE WORKSHOP / {label}</p><h1
+        data-pagefind-body={searchable ? "" : undefined}
+        data-pagefind-meta={searchable ? "title" : undefined}>{title}</h1>{
+        summary && (
+          <p class="reading-summary" data-pagefind-body={searchable ? "" : undefined}>{summary}</p>
+        )
       }<div class="reading-meta">
         <time datetime={date}>{date}</time>{
           version && (
@@ -68,7 +73,7 @@ const context = label === '인사이트'
             </>
           </aside>
         )
-      }<div class="prose"><slot /></div>
+      }<div class="prose" data-pagefind-body={searchable ? "" : undefined}><slot /></div>
     </div>
   </article>
   {(newer || older) && <nav class="reading-neighbors" aria-label="앞뒤 기록">
