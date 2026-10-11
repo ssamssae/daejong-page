@@ -197,33 +197,35 @@
   .site-search-panel ul {
     list-style: none;
   }
-  .site-search-panel li + li {
+  /* Result rows are built by the inline script, so they carry no data-astro-cid.
+     Keep the panel scoped and match its script-made children globally (T-261011-022). */
+  .site-search-panel :global(li + li) {
     border-top: 1px solid var(--border-soft);
   }
-  .site-search-panel a {
+  .site-search-panel :global(a) {
     display: block;
     padding: 12px 14px 14px;
     text-decoration: none;
     overflow-wrap: anywhere;
   }
-  .site-search-kicker {
+  .site-search-panel :global(.site-search-kicker) {
     font: 11px var(--mono);
     letter-spacing: var(--track-badge);
     color: var(--accent);
   }
-  .site-search-title {
+  .site-search-panel :global(.site-search-title) {
     display: block;
     margin-top: 4px;
     font-weight: 600;
   }
-  .site-search-excerpt {
+  .site-search-panel :global(.site-search-excerpt) {
     display: block;
     margin-top: 4px;
     color: var(--fg-dim);
     font-size: 13px;
     line-height: 1.6;
   }
-  .site-search-excerpt :global(mark) {
+  .site-search-panel :global(.site-search-excerpt mark) {
     background: var(--accent-bg);
     color: inherit;
   }
