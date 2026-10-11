@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "file": "2026-10-11-phone-ai-audio-boundaries.md",
+      "date": "2026-10-11",
+      "slug": "phone-ai-audio-boundaries",
+      "title": "전화 AI를 검증하는 법 — 내 컴퓨터의 소리에서 상대의 답변까지",
+      "category": "음성 AI/자동화",
+      "tags": [
+        "전화 AI",
+        "베리",
+        "실시간 말하기",
+        "JEV",
+        "Fable",
+        "오디오",
+        "검증"
+      ],
+      "summary": "로컬 파형과 일반전화 상대 수신은 다르다. Apple 실시간 말하기로 세제 질문의 응답을 확인한 조건, 공개 구현을 읽는 기준, JEV·Fable의 역할과 수동 재생 지연, 아직 검증하지 못한 모델 대화 왕복을 정리했다."
+    },
+    {
       "file": "2026-09-29-lightweight-agent-task-ledger.md",
       "date": "2026-09-29",
       "slug": "lightweight-agent-task-ledger",

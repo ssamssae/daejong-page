@@ -1,6 +1,18 @@
 {
   "entries": [
     {
+      "file": "2026-10-11-berry-call-audio-delivery.md",
+      "date": "2026-10-11",
+      "slug": "berry-call-audio-delivery",
+      "title": "베리 전화 봇의 송출 검증 — 반복 실패에서 상대의 세제 답변까지",
+      "severity": "medium",
+      "recurrence": "high",
+      "scope": "Mac의 iPhone 일반전화 중계. 준비 문장 송출은 확인했고 모델 대화 왕복은 미검증이다.",
+      "occurred_at": "2026-10-11 (이전 시험에서 이어진 문제)",
+      "resolved_at": "2026-10-11 18:30 KST 송출 확인. 모델 대화는 미완료",
+      "updated": "2026-10-11T18:47:25+09:00"
+    },
+    {
       "file": "2026-10-11-codex-mcp-reconnect.md",
       "date": "2026-10-11",
       "slug": "codex-mcp-reconnect",
