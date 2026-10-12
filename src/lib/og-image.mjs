@@ -2,7 +2,7 @@
  * Per-article share image (T-261010-061).
  * Renders a 1200x630 PNG per worklog/newsletter/insights entry at build time.
  * Fonts come from the pinned `pretendard` npm package (OFL-1.1), never the network.
- * Colors follow src/styles/tokens.css (white, slate, blue).
+ * Colors follow the dark block of src/styles/tokens.css (T-261012-032: 회사홈 공용 카드와 같은 다크 카드 — 미리보기 그림은 보는 사람 설정과 무관한 1장).
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -17,7 +17,9 @@ export const OG_COLLECTIONS = Object.freeze({
   insights: '인사이트',
 });
 
-export const ogImagePath = (collection, id) => `/og/${collection}/${id}.png`;
+// T-261012-032: 카드 그림이 바뀌면 이 값을 올린다 — og:image 주소가 바뀌어야 메신저·검색 미리보기가 옛 그림을 다시 쓰지 않는다.
+export const OG_IMAGE_VERSION = 'dark-20261012';
+export const ogImagePath = (collection, id) => `/og/${collection}/${id}.png?v=${OG_IMAGE_VERSION}`;
 
 const FONT_DIR = join(process.cwd(), 'node_modules/pretendard/dist/public/static');
 let fonts;
@@ -55,10 +57,10 @@ export function ogTree({ collection, title, date, version }) {
       flexDirection: 'column',
       justifyContent: 'space-between',
       padding: '64px 80px 56px',
-      background: '#ffffff',
-      borderTop: '12px solid #2458cc',
+      background: '#121519',
+      borderTop: '12px solid #7aa2ff',
       fontFamily: 'Pretendard',
-      color: '#242930',
+      color: '#e3e7ed',
     },
     [
       h('div', { display: 'flex', alignItems: 'center', gap: 20 }, [
@@ -68,14 +70,14 @@ export function ogTree({ collection, title, date, version }) {
             display: 'flex',
             padding: '8px 20px',
             borderRadius: 999,
-            background: '#eef3ff',
-            color: '#2458cc',
+            background: '#1d2a44',
+            color: '#7aa2ff',
             fontSize: 26,
             fontWeight: 700,
           },
           label,
         ),
-        meta && h('div', { display: 'flex', color: '#626b78', fontSize: 26, fontWeight: 500 }, meta),
+        meta && h('div', { display: 'flex', color: '#a0aab7', fontSize: 26, fontWeight: 500 }, meta),
       ].filter(Boolean)),
       h(
         'div',
@@ -100,12 +102,12 @@ export function ogTree({ collection, title, date, version }) {
           justifyContent: 'space-between',
           alignItems: 'center',
           paddingTop: 28,
-          borderTop: '2px solid #e6e8ed',
+          borderTop: '2px solid #2c333c',
           fontSize: 26,
         },
         [
           h('div', { display: 'flex', fontWeight: 600 }, '마이너스베타스튜디오 작업장'),
-          h('div', { display: 'flex', fontWeight: 500, color: '#626b78' }, 'work.kangdaejong.com'),
+          h('div', { display: 'flex', fontWeight: 500, color: '#a0aab7' }, 'work.kangdaejong.com'),
         ],
       ),
     ],

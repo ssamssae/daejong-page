@@ -10,7 +10,7 @@ const { title, description, bodyClass = "", image } = Astro.props;
 // T-261010-061: articles pass their own /og/... image; every other page keeps the shared one.
 const shareImage = image
   ? new URL(image, "https://work.kangdaejong.com").href
-  : "https://kangdaejong.com/brand/current/social.png?v=59a349c1f82627cd";
+  : "https://kangdaejong.com/brand/current/social.png?v=dd2ebedbd4f1cbea";
 const notebook =
   /\.html\/?$/.test(Astro.url.pathname) ||
   ["/policy", "/sorry", "/_cost"].some((path) =>
