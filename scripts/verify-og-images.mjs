@@ -5,7 +5,9 @@ import path from 'node:path';
 import { OG_IMAGE_VERSION } from '../src/lib/og-image.mjs';
 
 const SITE = 'https://work.kangdaejong.com';
-const SHARED = 'https://kangdaejong.com/brand/current/social.png?v=dd2ebedbd4f1cbea';
+// T-261012-041: 공용 카드는 버전 없는 고정 주소 하나만 쓴다. 카드 그림은 회사홈(kangdaejong-com)에서만 바꾸고,
+// 이 사이트는 고칠 곳이 없다. ?v= 같은 버전을 다시 붙이면 아래 전수 검사가 그 페이지를 실패로 잡는다.
+const SHARED = 'https://kangdaejong.com/brand/current/social.png';
 const COLLECTIONS = ['worklog', 'newsletter', 'insights'];
 const dist = path.resolve('dist');
 const errors = [];
