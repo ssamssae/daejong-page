@@ -1,0 +1,121 @@
+---
+// T-261013-009: 노드 연결 모양(토폴로지)을 같은 노드 배치의 작은 그림 네 장으로 보여 준다.
+// 노드 목록·기준일은 src/data/fleet-topology.ts 한 곳에서 읽고, 그림은 빌드 때 계산한 정적 SVG다.
+import { fleet, leadNode, koCount, koMonthDay, withSubject } from '../data/fleet-topology';
+
+const W = 300, H = 210, CX = 150, CY = 105, RX = 112, RY = 72;
+const NODE = { w: 62, h: 26 };
+const CENTER = { w: 66, h: 28 };
+const count = koCount(fleet.nodes.length);
+const nodes = fleet.nodes.map((node, i, all) => {
+  const angle = -Math.PI / 2 + (i * 2 * Math.PI) / all.length;
+  return { ...node, x: CX + RX * Math.cos(angle), y: CY + RY * Math.sin(angle) };
+});
+const hub = nodes.find((node) => node.name === leadNode.name) ?? nodes[0];
+const center = { x: CX, y: CY };
+
+// 두 상자의 중심을 잇되, 선이 상자 테두리 바깥에서 시작하고 끝나게 양 끝을 자른다.
+const edge = (a, aBox, b, bBox, gap = 4) => {
+  const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy);
+  const ux = dx / len, uy = dy / len;
+  const cut = (box) => Math.min(box.w / 2 / (Math.abs(ux) || 1e-9), box.h / 2 / (Math.abs(uy) || 1e-9)) + gap;
+  const s = cut(aBox), e = cut(bBox);
+  const r = (v) => Math.round(v * 10) / 10;
+  return { x1: r(a.x + ux * s), y1: r(a.y + uy * s), x2: r(b.x - ux * e), y2: r(b.y - uy * e) };
+};
+
+const pairs = nodes.flatMap((a, i) => nodes.slice(i + 1).map((b) => edge(a, NODE, b, NODE, 3)));
+const cards = [
+  {
+    key: 'mesh', kicker: '01 · 길', title: '그물형', tone: 'plain', arrows: 'none',
+    lines: pairs,
+    text: `${count} 노드가 Tailscale 사설망 하나에 있습니다. 어느 노드에서든 다른 노드로 바로 접속합니다.`,
+    desc: `${count} 노드가 서로 모두 선으로 이어진 그림입니다.`,
+  },
+  {
+    key: 'direct', kicker: '02 · 일(직접 작업)', title: '별형 · 강대종 중심', tone: 'accent', arrows: 'end',
+    centerLabel: '강대종',
+    lines: nodes.map((node) => edge(center, CENTER, node, NODE)),
+    text: '낮에는 강대종이 텔레그램으로 노드마다 일을 직접 넣습니다. 받은 노드가 그 일을 끝까지 맡습니다.',
+    desc: `가운데 강대종에서 ${count} 노드로 화살표가 하나씩 나가는 그림입니다.`,
+  },
+  {
+    key: 'autopilot', kicker: '03 · 일(오토파일럿)', title: `별형 · ${hub.name} 중심`, tone: 'accent', arrows: 'end',
+    highlight: hub.name,
+    lines: nodes.filter((node) => node !== hub).map((node) => edge(hub, NODE, node, NODE)),
+    text: `승인된 목록만 무인으로 돌립니다. ${hub.name}의 Claude가 ${count} 노드의 ${fleet.workerEngines.join(' 또는 ')} 워커에 일을 나눕니다. 결과 검수와 머지도 ${withSubject(hub.name)} 맡습니다.`,
+    desc: `${hub.name}에서 나머지 노드로 화살표가 나가는 그림입니다. ${hub.name}의 워커도 일을 받습니다.`,
+  },
+  {
+    key: 'board', kicker: '04 · 기록', title: '게시판형', tone: 'record', arrows: 'both',
+    centerLabel: 'GitHub',
+    lines: nodes.map((node) => edge(center, CENTER, node, NODE)),
+    text: '모든 노드가 같은 GitHub 저장소에 결과를 올리고 받아 갑니다. 할 일 목록과 작업 기록도 여기서 함께 씁니다.',
+    desc: `가운데 GitHub와 ${count} 노드가 양방향 화살표로 이어진 그림입니다.`,
+  },
+];
+---
+<section class="guide-section" aria-labelledby="topology-title">
+  <div class="guide-heading">
+    <div><p class="guide-kicker">TOPOLOGY / {fleet.asOf}</p><h2 id="topology-title">{count} 노드를 잇는 세 겹.</h2></div>
+    <p>같은 {count} 노드를 길·일·기록으로 나눠 그렸습니다. {koMonthDay(fleet.asOf)} 기준 설정이며 실시간 가동 상태가 아닙니다.</p>
+  </div>
+  <div class="guide-grid two">
+    {cards.map((card) => (
+      <article class={`guide-card topo-card topo-${card.tone}`}>
+        <span class="guide-kicker">{card.kicker}</span>
+        <h3>{card.title}</h3>
+        <svg class="topo-svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby={`topo-${card.key}-t topo-${card.key}-d`}>
+          <title id={`topo-${card.key}-t`}>{card.kicker} — {card.title}</title>
+          <desc id={`topo-${card.key}-d`}>{card.desc}</desc>
+          {card.arrows !== 'none' && (
+            <defs>
+              <marker id={`topo-${card.key}-arrow`} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path class="topo-head" d="M0,0 L8,4 L0,8 z" />
+              </marker>
+            </defs>
+          )}
+          {card.lines.map((line) => (
+            <line class="topo-line" {...line}
+              marker-end={card.arrows !== 'none' ? `url(#topo-${card.key}-arrow)` : undefined}
+              marker-start={card.arrows === 'both' ? `url(#topo-${card.key}-arrow)` : undefined} />
+          ))}
+          {card.centerLabel && (
+            <g class="topo-center">
+              <rect x={CX - CENTER.w / 2} y={CY - CENTER.h / 2} width={CENTER.w} height={CENTER.h} rx="9" />
+              <text x={CX} y={CY} dy="0.35em">{card.centerLabel}</text>
+            </g>
+          )}
+          {nodes.map((node) => (
+            <g class={node.name === card.highlight ? 'topo-node is-hub' : 'topo-node'}>
+              <rect x={Math.round((node.x - NODE.w / 2) * 10) / 10} y={Math.round((node.y - NODE.h / 2) * 10) / 10} width={NODE.w} height={NODE.h} rx="8" />
+              <text x={Math.round(node.x * 10) / 10} y={Math.round(node.y * 10) / 10} dy="0.35em">{node.name}</text>
+            </g>
+          ))}
+        </svg>
+        <p>{card.text}</p>
+      </article>
+    ))}
+  </div>
+  <ul class="topo-legend" aria-label="노드와 기기">
+    {fleet.nodes.map((node) => <li><b>{node.name}</b>{node.device}</li>)}
+  </ul>
+</section>
+
+<style>
+  .topo-card h3 { margin-bottom: 6px; }
+  .topo-svg { display: block; width: 100%; max-width: 360px; height: auto; margin: 6px auto 14px; overflow: visible; }
+  .topo-svg text { font: 600 13px var(--sans); fill: var(--fg); text-anchor: middle; }
+  .topo-node rect { fill: var(--bg-elev); stroke: var(--line-strong); stroke-width: 1.2; }
+  .topo-node.is-hub rect, .topo-center rect { fill: var(--accent-bg); stroke: var(--accent); stroke-width: 1.6; }
+  .topo-node.is-hub text, .topo-center text { fill: var(--accent-text); }
+  .topo-line { stroke: var(--fg-mute); stroke-width: 1.4; }
+  .topo-accent .topo-line { stroke: var(--accent); stroke-width: 1.6; }
+  .topo-accent .topo-head { fill: var(--accent); }
+  .topo-record .topo-line { stroke: var(--accent-2); stroke-width: 1.6; }
+  .topo-record .topo-head { fill: var(--accent-2); }
+  .topo-record .topo-center rect { fill: var(--bg-elev2); stroke: var(--accent-2); }
+  .topo-record .topo-center text { fill: var(--fg); }
+  .topo-legend { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 24px; list-style: none; font-size: 13px; color: var(--fg-dim); }
+  .topo-legend b { color: var(--fg); margin-right: 8px; font-weight: 650; }
+</style>
