@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "file": "2026-10-13-berry-first-two-way-call.md",
+      "date": "2026-10-13",
+      "slug": "berry-first-two-way-call",
+      "title": "전화 AI 베리, 처음으로 상대와 말을 주고받다 — 이틀의 무음을 하루 만에 뚫은 기록",
+      "category": "음성 AI/자동화",
+      "tags": [
+        "전화 AI",
+        "베리",
+        "실시간 말하기",
+        "접근성 API",
+        "Haiku",
+        "Opus",
+        "지연",
+        "검증"
+      ],
+      "summary": "맥에 붙인 아이폰 회선으로 AI 비서가 전화를 걸어 상대 봇과 질문·답변을 주고받은 첫 통화. 화면 조작 손을 컴퓨터 사용 도구에서 접근성 API 헬퍼로 바꿔 1.2초를 0.1초로, 통화 중 답변 모델을 Haiku로, 단일 턴을 턴 루프로 바꿨다. 알림 센터 통화창·전화 앱·권한 컨텍스트의 함정과 상대 말끝 기준 실측 숫자를 남겼다."
+    },
+    {
       "file": "2026-10-13-chezmoi-partial-settings-management.md",
       "date": "2026-10-13",
       "slug": "chezmoi-partial-settings-management",
