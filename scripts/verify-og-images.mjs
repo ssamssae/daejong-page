@@ -2,10 +2,10 @@
 // 1200x630 PNG under /og/, and non-article pages must keep the shared image.
 import fs from 'node:fs';
 import path from 'node:path';
-import { OG_IMAGE_VERSION } from '../src/lib/og-image.mjs';
+import { OG_IMAGE_VERSION, SHARED_OG_IMAGE } from '../src/lib/og-image.mjs';
 
 const SITE = 'https://work.kangdaejong.com';
-const SHARED = 'https://kangdaejong.com/brand/current/social.png?v=dd2ebedbd4f1cbea';
+const SHARED = SHARED_OG_IMAGE;
 const COLLECTIONS = ['worklog', 'newsletter', 'insights'];
 const dist = path.resolve('dist');
 const errors = [];
@@ -60,7 +60,8 @@ for (const key of ['og:image', 'twitter:image']) {
 
 // T-261012-032: 글 페이지 밖의 모든 HTML(public/ 의 정적 개인정보 페이지 포함)도 공용 카드(SHARED)를 써야 한다.
 // 종전 검사는 글 페이지와 첫 화면만 봐서, 정적 페이지 13곳이 옛 카드 주소(?v=20261003)를 쓰는 것을 놓쳤다.
-// 예외 = 카드가 없는 이동(meta refresh)·검색 제외(noindex) 페이지. twitter:image 는 있으면 og:image 와 같아야 한다.
+// T-261012-040: 예외 없음 — 이동 껍데기(meta refresh)·검색 제외(noindex) 페이지도 공용 카드와 twitter:image 를 갖는다.
+//   종전 예외(카드 없는 이동·noindex 페이지)가 카드 없는 페이지 8곳을 「원래 없음」으로 통과시켰다.
 const metaAny = (html, key) =>
   [...html.matchAll(/<meta\b[^>]*>/gi)]
     .map(([tag]) => tag)
@@ -76,23 +77,19 @@ function* htmlFiles(dir) {
   }
 }
 let sharedPages = 0;
-let exemptPages = 0;
+let redirectPages = 0;
 for (const file of htmlFiles(dist)) {
   if (articleFiles.has(file)) continue;
   const html = fs.readFileSync(file, 'utf8');
   const og = metaAny(html, 'og:image');
-  // 카드가 아예 없는 이동·검색 제외 페이지만 예외다. 카드가 있으면 검색 제외 페이지라도 공용 카드여야 한다(옛 주소 차단).
-  if (og.length === 0 && (/http-equiv="refresh"/i.test(html) || /name="robots"\s+content="[^"]*noindex/i.test(html))) {
-    exemptPages += 1;
-    continue;
-  }
   const rel = path.relative(dist, file);
   if (og.length !== 1 || og[0] !== SHARED) errors.push(`${rel}: og:image=${og.join(',') || '(없음)'}`);
   const tw = metaAny(html, 'twitter:image');
-  if (tw.length > 1 || (tw.length === 1 && tw[0] !== SHARED)) errors.push(`${rel}: twitter:image=${tw.join(',')}`);
+  if (tw.length !== 1 || tw[0] !== SHARED) errors.push(`${rel}: twitter:image=${tw.join(',') || '(없음)'}`);
+  if (/http-equiv="refresh"/i.test(html)) redirectPages += 1;
   sharedPages += 1;
 }
-console.log(`other pages: ${sharedPages} use the shared card, ${exemptPages} exempt (redirect/noindex)`);
+console.log(`other pages: ${sharedPages} use the shared card (incl. ${redirectPages} redirect pages)`);
 
 if (errors.length) {
   console.error(errors.slice(0, 20).join('\n'));

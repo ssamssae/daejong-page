@@ -34,3 +34,18 @@ test('dark scheme follows the company home palette and wide layout', async ({ pa
   expect(Math.abs(main.width - header.width), path).toBeLessThanOrEqual(1);
  }
 });
+// T-261012-040: 레이아웃 밖 정적 페이지(public/privacy*.html·dead-ends/detail.html, page-dark.css)도 다크에서
+// 회사홈 팔레트를 쓰고, 공용 헤더는 PC 폭 1440px. T-261012-024 는 Astro 레이아웃만 바꿔 이 15곳을 놓쳤다.
+test('static documents follow the company dark palette and wide layout', async ({ page }) => {
+ await page.emulateMedia({ colorScheme: 'dark' });
+ await page.setViewportSize({ width: 1920, height: 900 });
+ for (const path of ['/privacy.html', '/privacy-hanjul.html', '/privacy-stillhere.html']) {
+  const response = await page.goto(path); expect(response.status(), path).toBe(200);
+  await expect(page.locator('body'), path).toHaveCSS('background-color', 'rgb(18, 21, 25)');
+  expect(await page.locator('body').evaluate(e => getComputedStyle(e).getPropertyValue('--accent').trim()), path).toBe('#7aa2ff');
+  await expect(page.locator('mb-header .inner'), path).toBeVisible();
+  expect(Math.round((await page.locator('mb-header .inner').boundingBox()).width), path).toBe(1440);
+ }
+ const response = await page.goto('/dead-ends/detail.html'); expect(response.status()).toBe(200);
+ await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(18, 21, 25)');
+});

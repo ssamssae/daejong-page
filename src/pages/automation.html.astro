@@ -1,17 +1,4 @@
 ---
-const target = '/automations.html';
+import RedirectStub from '../components/RedirectStub.astro';
 ---
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content={`0; url=${target}`} />
-    <link rel="canonical" href="https://work.kangdaejong.com/automations.html" />
-    <title>자동화 - 강대종</title>
-    <script is:inline>location.replace('/automations.html');</script>
-  </head>
-  <body>
-    <a href={target}>자동화 페이지로 이동</a>
-  </body>
-</html>
+<RedirectStub target="/automations.html" title="자동화 - 강대종" label="자동화 페이지로 이동" noindex={false} />

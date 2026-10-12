@@ -1,17 +1,4 @@
 ---
-const target = '/products/';
+import RedirectStub from '../components/RedirectStub.astro';
 ---
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="robots" content="noindex" />
-    <meta http-equiv="refresh" content={`0; url=${target}`} />
-    <link rel="canonical" href="https://work.kangdaejong.com/products/" />
-    <script is:inline>window.location.replace('/products/');</script>
-    <title>products로 이동 중</title>
-  </head>
-  <body>
-    <a href="/products/">products로 이동</a>
-  </body>
-</html>
+<RedirectStub target="/products/" title="products로 이동 중" label="products로 이동" />

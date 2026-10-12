@@ -19,6 +19,9 @@ export const OG_COLLECTIONS = Object.freeze({
 
 // T-261012-032: 카드 그림이 바뀌면 이 값을 올린다 — og:image 주소가 바뀌어야 메신저·검색 미리보기가 옛 그림을 다시 쓰지 않는다.
 export const OG_IMAGE_VERSION = 'dark-20261012';
+// T-261012-040: 글이 아닌 페이지가 쓰는 회사홈 공용 카드(kangdaejong-com public/brand/current/social.png).
+// 카드를 다시 그려 버전이 바뀌면 이 값과 Layout.astro·public/*.html 의 같은 주소를 함께 바꾼다(verify-og-images 가 대조).
+export const SHARED_OG_IMAGE = 'https://kangdaejong.com/brand/current/social.png?v=dd2ebedbd4f1cbea';
 export const ogImagePath = (collection, id) => `/og/${collection}/${id}.png?v=${OG_IMAGE_VERSION}`;
 
 const FONT_DIR = join(process.cwd(), 'node_modules/pretendard/dist/public/static');
