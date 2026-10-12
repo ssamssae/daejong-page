@@ -20,3 +20,17 @@ for(const width of [390,1440]) test(`shared homepage tone across workshop routes
  }
  expect(errors).toEqual([]);
 });
+// T-261012-024: 기기 설정이 다크면 회사홈(kangdaejong.com)과 같은 다크 팔레트를 쓰고, PC 폭은 헤더·본문 모두 1440px.
+test('dark scheme follows the company home palette and wide layout', async ({ page }) => {
+ await page.emulateMedia({ colorScheme: 'dark' });
+ await page.setViewportSize({ width: 1920, height: 900 });
+ for (const path of ['/', '/products/', '/worklog/', '/system/', '/timeline.html/', '/lab/']) {
+  const response = await page.goto(path); expect(response.status(), path).toBe(200);
+  await expect(page.locator('html'), path).toHaveAttribute('data-theme', 'auto');
+  await expect(page.locator('body'), path).toHaveCSS('background-color', 'rgb(18, 21, 25)');
+  expect(await page.locator('body').evaluate(e => getComputedStyle(e).getPropertyValue('--accent').trim()), path).toBe('#7aa2ff');
+  const main = await page.locator('main').boundingBox(); const header = await page.locator('mb-header .inner').boundingBox();
+  expect(Math.round(header.width), path).toBe(1440);
+  expect(Math.abs(main.width - header.width), path).toBeLessThanOrEqual(1);
+ }
+});

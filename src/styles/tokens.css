@@ -51,6 +51,60 @@
   --gap-card: 24px;
   --pad-section: 80px;
   --pad-section-sm: 48px;
+  --page-max: 1440px; /* T-261012-024: 회사홈(T-261011-068)과 같은 PC 폭 (옛 1000px). 본문·헤더·푸터가 같은 값을 쓴다. */
+}
+
+/* T-261012-024 · 다크 모드 — 회사홈(kangdaejong.com, T-261011-068 tokens.css)과 같은 팔레트, 기기 설정을 따른다.
+   Layout.astro 가 <html data-theme="auto"> 를 켠 페이지에만 적용된다. 라이트 값은 위 :root 그대로이고,
+   각 리터럴 색은 var(--토큰, 원래색) 대체값으로 라이트 화면을 픽셀 그대로 유지한다. */
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] {
+    color-scheme: dark;
+    --bg: #121519;
+    --bg-elev: #191d23;
+    --bg-elev2: #1f242b;
+    --border: #2c333c;
+    --border-soft: #272e37;
+    --fg: #e3e7ed;
+    --fg-dim: #bfc7d2;
+    --fg-mute: #a0aab7;
+    --cyan: #7aa2ff;
+    --magenta: #8fb59a;
+    --accent: #7aa2ff;
+    --accent-cta: #2f63d6;
+    --accent-2: #8fb59a;
+    --accent-dim: #9ab8ff;
+    --cta-fg: #ffffff;
+    --danger: #ff9d8f;
+    --success: #8ad47f;
+    --warn: #f2b46a;
+    --danger-bg: #3d1f1c;
+    --accent-bg: #1d2a44;
+    /* 작업장의 invert-* 는 '파란 기운 패널'(라이트 #eef3ff)이라 회사홈의 반전 패널과 뜻이 다르다 → 다크도 파란 패널. */
+    --invert-bg: #1d2a44;
+    --invert-fg: #e3e7ed;
+    --invert-dim: #bfc7d2;
+    --invert-border: #2a3a5e;
+    --shadow: 0 6px 24px #00000059;
+    --shadow-pop: 0 16px 40px #000000a6;
+    /* 역할 토큰 (다크 전용 정의 — 라이트에서는 각 선언의 var() 대체값 = 원래색) */
+    --text-4: #8b95a3;
+    --accent-tint: #24365a;
+    --accent-line: #2a3a5e;
+    --accent-line-2: #3d5487;
+    --line-strong: #3a424d;
+    /* 공용 헤더·푸터(mb-components.js, tone="studio")가 상속받는 호스트 팔레트 — 회사홈과 같은 값. */
+    --mb-host-bg: #121519;
+    --mb-host-elev: #191d23;
+    --mb-host-fg: #e3e7ed;
+    --mb-host-dim: #bfc7d2;
+    --mb-host-mute: #a0aab7;
+    --mb-host-border: #2c333c;
+    --mb-host-soft: #1f242b;
+    --mb-host-accent: #7aa2ff;
+    --mb-host-cta-bg: #2f63d6;
+    --mb-host-shadow: #000000a6;
+  }
 }
 .accent-cyan {
   color: var(--cyan);

@@ -19,7 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .site-main {
-  width: min(1000px, calc(100% - 48px));
+  width: min(var(--page-max, 1000px), calc(100% - 48px));
   margin-inline: auto;
   padding: 58px 0 100px;
   min-height: 65vh;
@@ -90,7 +90,7 @@ p {
   color: var(--fg-dim);
 }
 ::selection {
-  background: #dce7ff;
+  background: var(--accent-tint, #dce7ff);
   color: var(--fg);
 }
 [hidden] {

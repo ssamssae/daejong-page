@@ -3,7 +3,7 @@
   --up: #ba3d42;
   --down: #245eaf;
   --page-accent: var(--accent);
-  --notebook-surface: #f7f8fa;
+  --notebook-surface: var(--bg-elev, #f7f8fa);
 }
 .site-main.notebook .eyebrow,
 .site-main.notebook .kicker,
@@ -57,9 +57,9 @@
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card).primary {
-  background: #eef3ff;
+  background: var(--accent-bg, #eef3ff);
   color: var(--fg);
-  border-color: #dce4f4;
+  border-color: var(--accent-line, #dce4f4);
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card).primary
@@ -68,8 +68,8 @@
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card, .lab-card):hover {
-  border-color: #aab5c6;
-  background: #eef1f5;
+  border-color: var(--line-strong, #aab5c6);
+  background: var(--bg-elev2, #eef1f5);
 }
 .site-main.notebook .card-topline {
   font-family: var(--mono);
@@ -175,4 +175,12 @@
 .site-main.notebook .hero-stats .date-range {
   white-space: normal;
   overflow-wrap: anywhere;
+}
+
+/* T-261012-024: 다크 모드에서 등락색을 밝게 (한국식 상승=빨강·하락=파랑 의미는 유지). */
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] .notebook {
+    --up: #ff8a8f;
+    --down: #7aa2ff;
+  }
 }
