@@ -8,6 +8,8 @@ const schema = z.object({
   date: z.string(), // YYYY-MM-DD
   version: z.string().optional(),
   summary: z.string().optional(),
+  // T-261012-042: 그날이 흐름을 바꾼 날이면 짧은 제목 한 줄. 타임라인 「주요 마일스톤」이 이 값을 자동으로 읽는다.
+  milestone: z.string().optional(),
 });
 
 const mk = (dir: string) =>

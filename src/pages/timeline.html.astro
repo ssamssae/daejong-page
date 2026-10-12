@@ -3,6 +3,12 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import retiredProducts from '../data/retired-products.json';
 const retirementEvents = retiredProducts.map((item) => ({date: item.date, title: `${item.name} — ${item.status}`, desc: item.kind === 'app' ? 'App Store 신규 판매와 Google Play 게시를 종료했습니다. 기존 설치본과 데이터는 보존합니다.' : item.kind === 'ebook' ? '크몽 전자책 판매를 종료했습니다. 공개 무료 템플릿은 유지합니다.' : item.name === '문의노트' ? '공개 운영을 종료하고 소유자 접근만 유지합니다.' : '공개 서비스 운영을 종료했습니다.', tags: [['', item.status]]}));
+// T-261012-042: 9/12 뒤 주요 마일스톤은 손으로 적지 않고 작업일지 프론트매터 milestone 에서 읽는다(같은 날 여러 판이면 마지막 판).
+const milestoneLogs = Object.values(Object.fromEntries((await getCollection('worklog'))
+  .filter((e) => e.data.milestone?.trim())
+  .sort((a, b) => a.id.localeCompare(b.id))
+  .map((e) => [e.data.date, { date: e.data.date, title: e.data.milestone.trim(), desc: e.data.summary ?? '', tags: [['', '작업일지']] }])))
+  .sort((a, b) => a.date.localeCompare(b.date));
 const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.localeCompare(a.data.date) || b.id.localeCompare(a.id)).slice(0, 6);
 ---
 <Layout title="개발 타임라인 - 강대종" description="강대종 1인 개발 타임라인으로 2026년 4월 AI와 개발을 시작한 뒤 앱 출시, 뉴스레터, 인프라 구축, 주요 결정과 학습 이정표를 활동 히트맵, 통계 카드, 태그가 붙은 이벤트 목록으로 시간순으로 자세히 기록합니다.">
@@ -514,7 +520,7 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
     </footer>
   </article>
 
-  <script is:inline define:vars={{ retirementEvents }}>
+  <script is:inline define:vars={{ retirementEvents, milestoneLogs }}>
     const events = [
       { date: '2026-04-11', title: '첫 번째 코드, 메모요 탄생', desc: 'AI(Claude)와 대화하며 Flutter로 첫 앱을 만들기 시작했다.', tags: [['flutter','Flutter'],['ai','Claude AI']], major: 1 },
       { date: '2026-04-11', title: '개인 홈페이지 오픈', desc: 'daejong-page v1.0.0 배포.', tags: [['web','HTML/CSS/JS'],['','GitHub Pages']] },
@@ -612,6 +618,9 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
     ];
 
     events.push(...retirementEvents);
+    // T-261012-042: 작업일지에서 이정표로 표시한 날을 손으로 적은 마일스톤 뒤에 번호를 이어 붙인다.
+    var nextMajor = events.reduce(function(n, e) { return Math.max(n, e.major || 0); }, 0);
+    milestoneLogs.forEach(function(e) { nextMajor += 1; events.push(Object.assign({}, e, { major: nextMajor })); });
     events.push({date: '2026-10-04', title: '무료 실습 양식 공개 제공 종료', desc: '전자책 부록 실습 양식 14종의 웹 열람과 다운로드를 종료했습니다.', tags: [['', '제공 종료']]});
 
     function parseDate(s) {
