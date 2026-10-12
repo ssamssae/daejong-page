@@ -67,7 +67,7 @@ const glyph =
     flex-direction: column;
     min-width: 0;
     padding: 23px;
-    background: #f7f8fa;
+    background: var(--bg-elev, #f7f8fa);
     border: 1px solid var(--border);
     border-radius: 12px;
     transition:
@@ -75,7 +75,7 @@ const glyph =
       transform 0.18s;
   }
   .catalog-card:hover {
-    border-color: #b8c8e8;
+    border-color: var(--accent-line-2, #b8c8e8);
     transform: none;
   }
   .catalog-top {
@@ -90,8 +90,8 @@ const glyph =
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: #eef3ff;
-    color: #2458cc;
+    background: var(--accent-bg, #eef3ff);
+    color: var(--accent, #2458cc);
     font: 23px var(--sans);
     overflow: hidden;
   }
@@ -102,13 +102,13 @@ const glyph =
     object-fit: cover;
   }
   .kind-tool .product-icon {
-    background: #eef3ff;
-    color: #2458cc;
+    background: var(--accent-bg, #eef3ff);
+    color: var(--accent, #2458cc);
     font: 20px var(--mono);
   }
   .kind-ebook .product-icon {
-    background: #eef3ff;
-    color: #2458cc;
+    background: var(--accent-bg, #eef3ff);
+    color: var(--accent, #2458cc);
   }
   .kind-label {
     font-size: 10px;

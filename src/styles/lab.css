@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  width: min(calc(100% - 48px), 1120px);
+  width: min(calc(100% - 48px), var(--page-max, 1120px));
   margin: 0 auto;
   padding: 14px 0;
 }
@@ -72,7 +72,7 @@
 }
 
 .lab-main {
-  width: min(calc(100% - 48px), 1120px);
+  width: min(calc(100% - 48px), var(--page-max, 1120px));
   margin: 0 auto;
   padding: 48px 0 72px;
 }
@@ -282,7 +282,7 @@
 }
 
 .lab-foot {
-  width: min(calc(100% - 48px), 1120px);
+  width: min(calc(100% - 48px), var(--page-max, 1120px));
   margin: 56px auto 0;
   border-top: 1px solid var(--border);
   padding: 32px 0 64px;
@@ -320,7 +320,7 @@
   .lab-main,
   .lab-nav-inner,
   .lab-foot {
-    width: min(calc(100% - 32px), 1120px);
+    width: min(calc(100% - 32px), var(--page-max, 1120px));
   }
 
   .lab-hero {
