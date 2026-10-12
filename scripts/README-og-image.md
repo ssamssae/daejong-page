@@ -33,3 +33,5 @@ npm run build:og
 - `.fonts/` Pretendard OTF (4.5MB) 는 `.gitignore` — repo bloat 회피, 빌더가 cdn 에서 매번 fetch
 - `node_modules/` `package-lock.json` 도 `.gitignore`
 - 본 빌더가 결정적 — 동일 입력이면 동일 PNG 출력. 빌드 reproducibility OK.
+
+T-261012-032: 글별 카드(`src/lib/og-image.mjs`)는 회사홈 다크 팔레트(바탕 #121519·위 띠 #7aa2ff·제목 #e3e7ed)로 그린다. 그림을 바꾸면 `OG_IMAGE_VERSION` 을 올려 og:image 주소를 바꾼다. 공용 카드 버전(`social.png?v=`)은 회사홈 manifest 의 sha256 앞 16자리이고, `scripts/verify-og-images.mjs` 가 빌드 결과의 모든 HTML(정적 public 페이지 포함)이 그 버전을 쓰는지 검사한다.

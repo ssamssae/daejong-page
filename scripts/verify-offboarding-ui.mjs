@@ -20,7 +20,7 @@ try {
   await page.locator('[data-catalog-search]').fill('');await page.locator('[data-filter=all]').click();
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   assert.equal(await page.locator('meta[property="og:image"]').count(),1);
-  assert((await page.locator('meta[property="og:image"]').getAttribute('content')).includes('59a349c1f82627cd'));
+  assert((await page.locator('meta[property="og:image"]').getAttribute('content')).includes('dd2ebedbd4f1cbea'));
   await page.screenshot({path:`${out}/products-${width}.png`,fullPage:true});
   await page.goto(base+'/timeline.html/',{waitUntil:'domcontentloaded'});
   await page.locator('#events .event-row').first().waitFor();
