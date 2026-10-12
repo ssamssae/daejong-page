@@ -39,7 +39,7 @@ class ProductOffboarding(unittest.TestCase):
                 for key in ['og:image', 'twitter:image']:
                     images = [a['content'] for tag, a in page.tags if tag == 'meta'
                               and (a.get('property') == key or a.get('name') == key)]
-                    self.assertEqual(images, ['https://kangdaejong.com/brand/current/social.png?v=dd2ebedbd4f1cbea'])
+                    self.assertEqual(images, ['https://kangdaejong.com/brand/current/social.png'])
 
 if __name__ == '__main__':
     unittest.main()
