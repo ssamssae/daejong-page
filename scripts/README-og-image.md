@@ -34,4 +34,6 @@ npm run build:og
 - `node_modules/` `package-lock.json` 도 `.gitignore`
 - 본 빌더가 결정적 — 동일 입력이면 동일 PNG 출력. 빌드 reproducibility OK.
 
-T-261012-032: 글별 카드(`src/lib/og-image.mjs`)는 회사홈 다크 팔레트(바탕 #121519·위 띠 #7aa2ff·제목 #e3e7ed)로 그린다. 그림을 바꾸면 `OG_IMAGE_VERSION` 을 올려 og:image 주소를 바꾼다. 공용 카드 버전(`social.png?v=`)은 회사홈 manifest 의 sha256 앞 16자리이고, `scripts/verify-og-images.mjs` 가 빌드 결과의 모든 HTML(정적 public 페이지 포함)이 그 버전을 쓰는지 검사한다.
+T-261012-032: 글별 카드(`src/lib/og-image.mjs`)는 회사홈 다크 팔레트(바탕 #121519·위 띠 #7aa2ff·제목 #e3e7ed)로 그린다. 그림을 바꾸면 `OG_IMAGE_VERSION` 을 올려 og:image 주소를 바꾼다. 공용 카드 버전(`social.png?v=`)은 회사홈 manifest 의 sha256 앞 16자리이고, `scripts/verify-og-images.mjs` 가 빌드 결과의 모든 HTML(정적 public 페이지 포함)이 그 버전을 쓰는지 검사한다. (T-261012-041 부터는 버전 없는 고정 주소 — 아래)
+
+T-261012-041: 공용 카드(글 페이지 밖 모든 HTML)는 버전 없는 고정 주소 `https://kangdaejong.com/brand/current/social.png` 하나만 쓴다. 카드 그림을 바꿀 때는 회사홈(kangdaejong-com)의 그림만 바꿔 배포하면 이 사이트의 모든 페이지가 따라간다 — 이 저장소에서 고칠 곳은 없다. 회사홈 `/brand/*` 는 `max-age=0, must-revalidate` 라 고정 주소가 늘 최신 그림을 준다. `?v=` 를 다시 붙이면 `scripts/verify-og-images.mjs` 가 실패로 잡는다. 이미 공유된 링크의 메신저 미리보기는 메신저가 따로 저장한 사본이라 이 수정과 무관하다 — 텔레그램은 @WebpageBot 에 주소를 보내 새로 가져오게 한다.
