@@ -10,7 +10,8 @@ import sitemap from '@astrojs/sitemap';
 //   색인해달라고 제출하는 모순을 막는다. 현행 대상은 /apps 1건이고
 //   T-260728-063 에서 "의도적 noindex" 로 판정됐다(해제 금지).
 //   페이지를 추가로 noindex 하면 이 목록에도 같이 넣어야 한다.
-const NOINDEX_PATHNAMES = ['/apps', '/apps/', '/404', '/404/', '/404.html'];
+// T-261012-040: 옛 주소 이동 껍데기 5곳(src/pages/*.html.astro, noindex)도 사이트맵 밖에 둔다.
+const NOINDEX_PATHNAMES = ['/apps', '/apps/', '/404', '/404/', '/404.html', '/worklog.html', '/worklog.html/', '/newsletter.html', '/newsletter.html/', '/insights.html', '/insights.html/', '/insight.html', '/insight.html/', '/portfolio.html', '/portfolio.html/'];
 
 export default defineConfig({
   site: 'https://work.kangdaejong.com',
@@ -21,12 +22,5 @@ export default defineConfig({
       filter: (page) => !NOINDEX_PATHNAMES.includes(new URL(page).pathname),
     }),
   ],
-  // P4 (T-260609-05): REPLACED 레거시 URL → Astro 새 라우트 301 보존 (SEO)
-  redirects: {
-    '/worklog.html': '/worklog',
-    '/newsletter.html': '/newsletter',
-    '/insights.html': '/insights',
-    '/insight.html': '/insights',
-    '/portfolio.html': '/products/',
-  },
+  // P4 (T-260609-05) 레거시 URL 이동은 T-261012-040 부터 src/pages/<옛이름>.html.astro 껍데기(공유 카드 포함)가 맡는다.
 });

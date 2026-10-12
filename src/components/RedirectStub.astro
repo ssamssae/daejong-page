@@ -1,0 +1,29 @@
+---
+// T-261012-040: 옛 주소를 새 주소로 넘기는 이동용 껍데기. 링크 미리보기에도 공용 다크 카드가 뜨고,
+// 다크 기기에서 넘어가는 순간 흰 화면이 번쩍이지 않도록 color-scheme 을 둔다.
+import { SHARED_OG_IMAGE } from '../lib/og-image.mjs';
+interface Props { target: string; title: string; label?: string; noindex?: boolean }
+const { target, title, label = title, noindex = true } = Astro.props;
+const canonical = new URL(target, 'https://work.kangdaejong.com').href;
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={SHARED_OG_IMAGE} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={SHARED_OG_IMAGE} />
+    <script is:inline set:html={`location.replace(${JSON.stringify(target)});`} />
+  </head>
+  <body>
+    <a href={target}>{label}</a>
+  </body>
+</html>
