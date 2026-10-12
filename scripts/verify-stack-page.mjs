@@ -1,4 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 
 // T-261013-009: 스택 페이지의 노드 구성·기준일은 src/data/fleet-topology.ts 한 곳에서 읽는다.
@@ -22,8 +24,17 @@ for (const stale of ['헤르메스', '세 물리 노드', '3 nodes', 'Cursor 우
   assert(!source.includes(stale), `stale: ${stale}`);
 }
 // 공개 페이지: 기기 주소·사설망 이름·접속 별칭·봇 아이디·계정을 넣지 않는다.
+// 이 저장소는 공개라 실제 별칭·호스트 이름을 여기 적지 않는다 — 일반 모양만 적고, 로컬 ~/.ssh/config 가 있으면 실제 값을 거기서 읽는다.
 const sensitive = [/ts\.net/i, /\btail[0-9a-f]{6}\b/i, /desktop-[0-9a-z]{6,}/i, /macbookpro/i, /_bot\b/i,
-  /[\w.+-]+@[\w-]+\.[\w.]+/, /\b(athena|vulcan|zeus|apollo|raiden|themis|hermes)\b/i, /\b100\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/];
+  /[\w.+-]+@[\w-]+\.[\w.]+/, /\b100\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/];
+const sshConfig = join(homedir(), '.ssh', 'config');
+if (existsSync(sshConfig)) {
+  const generic = new Set(['*', 'mac', 'macbook', 'macmini', 'mac-mini', 'wsl', 'desktop', 'github.com']);
+  const names = readFileSync(sshConfig, 'utf8').split('\n')
+    .flatMap((line) => { const m = line.trim().match(/^(Host|HostName)\s+(.+)$/i); return m ? m[2].split(/\s+/) : []; })
+    .filter((name) => name && !generic.has(name.toLowerCase()));
+  for (const name of names) sensitive.push(new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i'));
+}
 for (const pattern of sensitive) assert(!pattern.test(source), `sensitive: ${pattern}`);
 
 // 빌드 결과가 있으면 실제 페이지에서 노드 수·그림 수·낡은 문구를 확인한다.
