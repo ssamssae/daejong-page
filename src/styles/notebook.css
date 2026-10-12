@@ -3,7 +3,7 @@
   --up: #ba3d42;
   --down: #245eaf;
   --page-accent: var(--accent);
-  --notebook-surface: var(--bg-elev, #f7f8fa);
+  --notebook-surface: var(--bg-elev);
 }
 .site-main.notebook .eyebrow,
 .site-main.notebook .kicker,
@@ -57,9 +57,9 @@
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card).primary {
-  background: var(--accent-bg, #eef3ff);
+  background: var(--accent-bg);
   color: var(--fg);
-  border-color: var(--accent-line, #dce4f4);
+  border-color: var(--accent-line);
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card).primary
@@ -68,8 +68,8 @@
 }
 .site-main.notebook
   :is(.issue-card, .dead-card, .policy-card, .feature-card, .lab-card):hover {
-  border-color: var(--line-strong, #aab5c6);
-  background: var(--bg-elev2, #eef1f5);
+  border-color: var(--line-strong);
+  background: var(--bg-elev2);
 }
 .site-main.notebook .card-topline {
   font-family: var(--mono);
@@ -181,6 +181,6 @@
 @media (prefers-color-scheme: dark) {
   html[data-theme="auto"] .notebook {
     --up: #ff8a8f;
-    --down: #7aa2ff;
+    --down: #7aa2ff; /* tokens:fixed — 등락색(하락=파랑), 회사 강조색과 별개 */
   }
 }

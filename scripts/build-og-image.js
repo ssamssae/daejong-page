@@ -55,7 +55,7 @@ async function ensureFonts() {
 
 const svg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <rect width="1200" height="630" fill="#FFFFFF"/><!-- tokens:fixed — 옛 og-default.png 생성기 고정 디자인 -->
   <rect x="0" y="0" width="12" height="630" fill="#3182F6"/>
   <text x="90" y="260" font-family="Pretendard" font-weight="700" font-size="160" fill="#191F28">강대종</text>
   <text x="92" y="340" font-family="Pretendard" font-weight="600" font-size="48" fill="#4A5568">Solo founder · Vibe coder</text>
@@ -68,7 +68,7 @@ async function main() {
   await ensureFonts();
   const opts = {
     fitTo: { mode: 'width', value: 1200 },
-    background: 'rgba(255, 255, 255, 1)',
+    background: 'rgba(255, 255, 255, 1)', // tokens:fixed — 옛 og-default.png 생성기 고정 디자인
     font: {
       fontFiles: FONT_FILES.map((n) => path.join(FONT_DIR, n)),
       loadSystemFonts: false,

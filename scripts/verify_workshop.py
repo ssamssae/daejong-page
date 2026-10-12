@@ -43,8 +43,9 @@ for path in DIST.rglob("*.html"):
                    for tag, attrs in page.tags), f"Missing shared navigation: {path}"
         assert any(tag == "script" and attrs.get("src") == "https://kangdaejong.com/mb-components.js"
                    for tag, attrs in page.tags), f"Missing shared navigation runtime: {path}"
-        assert any(tag == "meta" and attrs.get("name") == "theme-color"
-                   and attrs.get("content") == "#ffffff" for tag, attrs in page.tags), path
+        # T-261013-004: 색은 회사홈 공용 원본 하나 — 페이지마다 그 파일을 읽는다(theme-color 메타 같은 색 복사본은 두지 않는다).
+        assert any(tag == "link" and attrs.get("rel") == "stylesheet"
+                   and attrs.get("href") == "https://kangdaejong.com/brand/current/tokens.css" for tag, attrs in page.tags), f"Missing shared tokens: {path}"
         for tag, attrs in page.tags:
             asset = attrs.get("src") if tag in ("img", "script") else (
                 attrs.get("href") if tag == "link" and attrs.get("rel") == "stylesheet" else None
