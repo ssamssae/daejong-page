@@ -1,32 +1,6 @@
-/* T-260912-037 · Minus Beta: white, slate, blue. */
+/* 정적 페이지(public/privacy*.html·dead-ends/detail.html) 공용 스타일. 색(라이트·다크)과 PC 폭은 T-261013-004 부터
+   회사홈 공용 원본 https://kangdaejong.com/brand/current/tokens.css — 각 페이지가 이 파일보다 먼저 읽는다. 여기에는 색 값을 적지 않는다. */
 :root {
-  color-scheme: light;
-  --bg: #ffffff;
-  --bg-elev: #f7f8fa;
-  --bg-elev2: #eef1f5;
-  --border: #e6e8ed;
-  --border-soft: #eceef2;
-  --fg: #242930;
-  --fg-dim: #626b78;
-  --fg-mute: #69717d;
-  --cyan: #2458cc;
-  --magenta: #466448;
-  --accent: #2458cc;
-  --accent-cta: #2458cc;
-  --accent-2: #466448;
-  --accent-dim: #19449f;
-  --cta-fg: #ffffff;
-  --danger: #b02f29;
-  --success: #3c664b;
-  --warn: #84601e;
-  --danger-bg: #faeae6;
-  --accent-bg: #eef3ff;
-  --invert-bg: #282e25;
-  --invert-fg: #f8f7ef;
-  --invert-dim: #c5cbbb;
-  --invert-border: #495041;
-  --shadow: 0 6px 24px #24293008;
-  --shadow-pop: 0 16px 40px #24293012;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --sans:
     "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
@@ -51,9 +25,7 @@
   --gap-card: 24px;
   --pad-section: 80px;
   --pad-section-sm: 48px;
-  --page-max: 1440px; /* T-261012-040: 작업장 tokens.css 와 같은 PC 폭(옛 1000px). */
 }
-mb-header,mb-footer{--mb-max:var(--page-max,1000px)}
 .accent-cyan {
   color: var(--cyan);
 }
@@ -62,57 +34,4 @@ mb-header,mb-footer{--mb-max:var(--page-max,1000px)}
 }
 
 /* Legacy static document URLs share the studio palette. */
-html{color-scheme:light}body{background:#fff;color:#242930;font-family:var(--sans);font-size:15px;line-height:1.85;letter-spacing:-.025em}::selection{background:#dce7ff;color:#242930}a{color:#2458cc}footer{border-color:#e6e8ed}body.studio-document{padding:0}body.studio-document .wrap{width:min(var(--page-max,1000px),calc(100% - 48px));max-width:none;margin:76px auto 66px}body.studio-document h1{font-size:34px;font-weight:600;line-height:1.35;letter-spacing:-.05em;color:#242930}body.studio-document h2{font-size:23px;font-weight:600;color:#242930}body.studio-document p,body.studio-document li{max-width:780px}body.studio-document mb-footer{display:block}@media(max-width:650px){body.studio-document .wrap{width:calc(100% - 40px);margin:48px auto 38px}body.studio-document h1{font-size:30px}body.studio-document h2{font-size:21px}}
-
-/* T-261012-040 · 다크 모드 — 기기 설정(prefers-color-scheme)을 따른다. 이 파일을 쓰는 정적 페이지
-   (public/privacy*.html·dead-ends/detail.html)도 작업장 Astro 페이지(src/styles/tokens.css 다크 블록)와
-   같은 회사홈 다크 팔레트를 쓴다. 라이트 화면은 위 규칙 그대로다. 값을 바꾸면 tokens.css 와 함께 바꾼다. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --bg: #121519;
-    --bg-elev: #191d23;
-    --bg-elev2: #1f242b;
-    --border: #2c333c;
-    --border-soft: #272e37;
-    --fg: #e3e7ed;
-    --fg-dim: #bfc7d2;
-    --fg-mute: #a0aab7;
-    --cyan: #7aa2ff;
-    --magenta: #8fb59a;
-    --accent: #7aa2ff;
-    --accent-cta: #2f63d6;
-    --accent-2: #8fb59a;
-    --accent-dim: #9ab8ff;
-    --cta-fg: #ffffff;
-    --danger: #ff9d8f;
-    --success: #8ad47f;
-    --warn: #f2b46a;
-    --danger-bg: #3d1f1c;
-    --accent-bg: #1d2a44;
-    --invert-bg: #1d2a44;
-    --invert-fg: #e3e7ed;
-    --invert-dim: #bfc7d2;
-    --invert-border: #2a3a5e;
-    --shadow: 0 6px 24px #00000059;
-    --shadow-pop: 0 16px 40px #000000a6;
-    /* 공용 헤더·푸터(mb-components.js, tone="studio")가 상속받는 호스트 팔레트 — 회사홈과 같은 값. */
-    --mb-host-bg: #121519;
-    --mb-host-elev: #191d23;
-    --mb-host-fg: #e3e7ed;
-    --mb-host-dim: #bfc7d2;
-    --mb-host-mute: #a0aab7;
-    --mb-host-border: #2c333c;
-    --mb-host-soft: #1f242b;
-    --mb-host-accent: #7aa2ff;
-    --mb-host-cta-bg: #2f63d6;
-    --mb-host-shadow: #000000a6;
-  }
-  html { color-scheme: dark; }
-  body { background: var(--bg); color: var(--fg); }
-  ::selection { background: #24365a; color: var(--fg); }
-  a { color: var(--accent); }
-  footer { border-color: var(--border); }
-  body.studio-document h1,
-  body.studio-document h2 { color: var(--fg); }
-}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.85;letter-spacing:-.025em}::selection{background:var(--accent-bg);color:var(--fg)}a{color:var(--accent)}footer{border-color:var(--border)}body.studio-document{padding:0}body.studio-document .wrap{width:min(var(--page-max,1000px),calc(100% - 48px));max-width:none;margin:76px auto 66px}body.studio-document h1{font-size:34px;font-weight:600;line-height:1.35;letter-spacing:-.05em;color:var(--fg)}body.studio-document h2{font-size:23px;font-weight:600;color:var(--fg)}body.studio-document p,body.studio-document li{max-width:780px}body.studio-document mb-footer{display:block}@media(max-width:650px){body.studio-document .wrap{width:calc(100% - 40px);margin:48px auto 38px}body.studio-document h1{font-size:30px}body.studio-document h2{font-size:21px}}

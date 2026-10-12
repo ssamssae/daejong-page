@@ -90,7 +90,7 @@ p {
   color: var(--fg-dim);
 }
 ::selection {
-  background: var(--accent-tint, #dce7ff);
+  background: var(--accent-tint);
   color: var(--fg);
 }
 [hidden] {
