@@ -1,18 +1,23 @@
 ---
 import SystemGuide from '../components/SystemGuide.astro';
 import OperatingModel from '../components/OperatingModel.astro';
+import FleetTopology from '../components/FleetTopology.astro';
+import { fleet, koCount } from '../data/fleet-topology';
 const bridges = ['Grok', 'Codex', 'Claude', 'Cursor', 'Local'];
+// T-261013-009: 노드 수·엔진·기준일은 src/data/fleet-topology.ts 에서 읽는다(여기에 숫자를 다시 적지 않는다).
+const lead = `${koCount(fleet.nodes.length)} 물리 노드와 ${koCount(bridges.length)} 종류의 브릿지를 사용합니다. 노드는 기기이고 ${fleet.engines.join('·')}은 엔진입니다. 설치된 도구, 배정된 역할, 실제 가동 상태는 서로 구분해서 읽습니다.`;
 ---
 <SystemGuide
   pageKey={"stack"}
   label={"기술 스택"}
   eyebrow={"STACK / CONNECTED TOOLS"}
   title={"역할은 나누고,\n맥락은 연결합니다."}
-  lead={"세 물리 노드와 다섯 종류의 브릿지를 사용합니다. 노드는 기기이고 Codex·Cursor·Grok은 엔진입니다. 설치된 도구, 배정된 역할, 실제 가동 상태는 서로 구분해서 읽습니다."}
-  motif={"3 nodes.\n5 bridges."}
-  date={"2026-09-23"}
+  lead={lead}
+  motif={`${fleet.nodes.length} nodes.\n${bridges.length} bridges.`}
+  date={fleet.asOf}
   steps={["사용자 · Telegram / 직접 대화", "컴퓨터 · AI 세션 / 작업 공간", "결과 · GitHub / 제품 / 기록"]}
 >
+  <FleetTopology />
   <OperatingModel />
   <section class="guide-section">
     <div class="guide-heading">
