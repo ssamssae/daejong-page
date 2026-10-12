@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "file": "2026-10-13-chezmoi-partial-settings-management.md",
+      "date": "2026-10-13",
+      "slug": "chezmoi-partial-settings-management",
+      "title": "chezmoi로 4대의 공통 설정만 관리하기",
+      "category": "인프라",
+      "tags": [
+        "chezmoi",
+        "설정 관리",
+        "공통 훅",
+        "멀티기기",
+        "불일치 감지",
+        "원복",
+        "검증"
+      ],
+      "summary": "Mac 두 대와 WSL 두 곳에 승인된 훅 하나의 부분 관리를 도입했다. 복사본 시험, 기존 등록기와의 소유권 조정, 무변경 재적용, 원복과 충돌 거부, 60초 주기 검사와 수동 수정의 경계를 정리했다. 실제 질문 왕복과 사용자 알림 확인은 별도 검증으로 남겼다."
+    },
+    {
       "file": "2026-10-11-phone-ai-audio-boundaries.md",
       "date": "2026-10-11",
       "slug": "phone-ai-audio-boundaries",
