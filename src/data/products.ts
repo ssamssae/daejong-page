@@ -1,3 +1,4 @@
+import { productIcon } from '../lib/product-icons.mjs';
 import retiredProducts from './retired-products.json';
 
 // 정본 제품 데이터 (T-260723-061) — 랜딩(index)·제품(products) 페이지 공통 소스.
@@ -7,7 +8,7 @@ import retiredProducts from './retired-products.json';
 
 export const apps = [
   {
-    name: '한줄일기', icon: '/product-icons/6764308678-f4fa94ec-96.webp', status: 'iOS LIVE · Android LIVE',
+    name: '한줄일기', ...productIcon('hanjul'), status: 'iOS LIVE · Android LIVE',
     desc: '하루 한 줄, 부담 없는 일기. 53주 감정 히트맵, 로컬 저장, 계정 가입 0 — 거창한 일기 대신 한 줄이면 충분합니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6764308678' },
@@ -15,7 +16,7 @@ export const apps = [
     ],
   },
   {
-    name: '메모요', icon: '/product-icons/6762068073-9fffec3b-96.webp', status: 'iOS · Android LIVE',
+    name: '메모요', ...productIcon('memoyo'), status: 'iOS · Android LIVE',
     desc: '심플한 다크 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762068073' },
@@ -23,7 +24,7 @@ export const apps = [
     ],
   },
   {
-    name: '더치페이 계산기', icon: '/product-icons/dutchPayCalculator-0e89d465-96.webp', status: 'iOS LIVE · Android LIVE',
+    name: '더치페이 계산기', ...productIcon('dutchpay'), status: 'iOS LIVE · Android LIVE',
     desc: '여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미. 금액·인원수 입력만으로 바로 정산.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762072499' },
@@ -31,7 +32,7 @@ export const apps = [
     ],
   },
   {
-    name: '약먹자', icon: '/product-icons/yakmukja-f16ca3ee-96.webp', status: 'iOS LIVE · Android LIVE',
+    name: '약먹자', ...productIcon('yakmeokja'), status: 'iOS LIVE · Android LIVE',
     desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 챙겨줍니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762100639' },
@@ -39,7 +40,7 @@ export const apps = [
     ],
   },
   {
-    name: '심플 가계부', icon: '/product-icons/6769037337-2ad91904-96.webp', status: 'iOS LIVE · Android LIVE',
+    name: '심플 가계부', ...productIcon('gagyebu'), status: 'iOS LIVE · Android LIVE',
     desc: '하루 지출을 빠르게 적는 미니멀 가계부. 가입 없이 기기 안에서만 기록합니다.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6769037337' },
@@ -47,7 +48,7 @@ export const apps = [
     ],
   },
   {
-    name: '계산기알람', icon: '/product-icons/ireonayo-14aeddc8-96.webp', status: '모바일 앱',
+    name: '계산기알람', ...productIcon('calcalarm'), status: '모바일 앱',
     desc: '계산 문제를 풀며 잠에서 깨는 알람 앱.',
     links: [
       { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6811111727' },
@@ -75,7 +76,7 @@ export const bridges = {
 
 export const tools = [
   {
-    name: 'Jarvis Mac', icon: '/product-icons/jarvis-6863105c-96.webp', status: 'macOS · 오픈소스 · 실험',
+    name: 'Jarvis Mac', ...productIcon('jarvis'), status: 'macOS · 오픈소스 · 실험',
     desc: 'Mac 마이크의 호출어로 Cursor에 질문하고 Google Nest에서 답을 듣는 음성 비서 실험. 실제 발화·1회 청취와 응답 지연까지 확인했습니다.',
     links: [
       { label: '제작기와 실측', url: 'https://work.kangdaejong.com/jarvis/' },
@@ -83,7 +84,7 @@ export const tools = [
     ],
   },
   {
-    name: '입타 (Ipta)', icon: '/product-icons/ipta-779f2694-96.webp', status: 'Mac · Windows · 오픈소스',
+    name: '입타 (Ipta)', ...productIcon('ipta'), status: 'Mac · Windows · 오픈소스',
     desc: 'Mac · Windows용 한국어 음성 입력. 받아쓰기는 내 컴퓨터에서 처리하고, AI 문장 다듬기는 선택해서 사용합니다.',
     links: [
       { label: 'Mac 다운로드', url: 'https://github.com/ssamssae/ipta/releases/tag/v0.1.24' },
@@ -92,7 +93,7 @@ export const tools = [
     ],
   },
   {
-    name: 'Grok Telegram Bridge', icon: '/product-icons/bridge-grok-f431e691-96.webp', status: '오픈소스 · 공개 배포',
+    name: 'Grok Telegram Bridge', ...productIcon('bridge-grok'), status: '오픈소스 · 공개 배포',
     desc: '텔레그램으로 자기 컴퓨터의 Grok 세션을 부리는 브릿지. Claude·Codex·Cursor·Local 브릿지의 형제 도구입니다.',
     links: [
       { label: 'GitHub', url: bridges.grok.repo },
@@ -100,7 +101,7 @@ export const tools = [
     ],
   },
   {
-    name: 'Codex Telegram Bridge', icon: '/product-icons/bridge-codex-41955708-96.webp', status: '오픈소스 · 공개 배포',
+    name: 'Codex Telegram Bridge', ...productIcon('bridge-codex'), status: '오픈소스 · 공개 배포',
     desc: 'Codex CLI REPL을 텔레그램에서 제어하는 전용 브릿지. 텍스트·이미지·영상·음성·파일 입력, 진행보고, reasoning mirror, typing recovery를 지원합니다.',
     links: [
       { label: 'GitHub', url: bridges.codex.repo },
@@ -108,7 +109,7 @@ export const tools = [
     ],
   },
   {
-    name: 'Claude Telegram Bridge', icon: '/product-icons/bridge-claude-9e27b3a5-96.webp', status: '오픈소스 · 공개 배포',
+    name: 'Claude Telegram Bridge', ...productIcon('bridge-claude'), status: '오픈소스 · 공개 배포',
     desc: 'Claude Code live tmux 세션을 텔레그램으로 연결하는 전용 브릿지. claude -p 없이 세션 주입·transcript 추출·미디어 local_path 전달로 동작합니다.',
     links: [
       { label: 'GitHub', url: bridges.claude.repo },
@@ -116,7 +117,7 @@ export const tools = [
     ],
   },
   {
-    name: 'Cursor Telegram Bridge', icon: '/product-icons/bridge-cursor-2e723079-96.webp', status: '오픈소스 · 공개 배포',
+    name: 'Cursor Telegram Bridge', ...productIcon('bridge-cursor'), status: '오픈소스 · 공개 배포',
     desc: '이미 떠 있는 Cursor TUI 세션을 텔레그램으로 연결하는 전용 브릿지. 긴 턴 대기, 모델 선택, 승인 버튼을 폰에서 다룹니다.',
     links: [
       { label: 'GitHub', url: bridges.cursor.repo },
@@ -124,7 +125,7 @@ export const tools = [
     ],
   },
   {
-    name: 'Local Telegram Bridge', status: '오픈소스 · 공개 배포',
+    name: 'Local Telegram Bridge', ...productIcon('bridge-local'), status: '오픈소스 · 공개 배포',
     desc: '로컬 Ollama·LM Studio 모델을 텔레그램과 터미널의 같은 대화로 연결하는 브릿지. 모델별 기록·clear·재시작 복구를 지원합니다.',
     links: [
       { label: 'GitHub', url: bridges.local.repo },

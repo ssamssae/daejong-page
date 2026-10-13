@@ -16,3 +16,6 @@ test-results/
 
 # beta-signup worker runtime artifacts (Claude 3-pass review, 2026-06-21)
 beta-signup/
+
+# Build identity for production readback
+public/brand-consumer.json

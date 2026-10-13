@@ -106,5 +106,6 @@
       "sha256": "a2a31f81bd81c7a09ca12a9d1ae4c830f33d1c2ff4c0ae4b4931c5a15ac04f9b",
       "approvedAsset": "https://kangdaejong.com/product-icons/bridge-cursor-2e723079-96.webp"
     }
-  ]
+  ],
+  "historicalOnly": "Active catalog: https://kangdaejong.com/brand/products/catalog.json. Keep this record only as migration provenance; no runtime/build mapping reads it."
 }

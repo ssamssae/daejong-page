@@ -1,5 +1,12 @@
 # 기능 확인 경로
 
+## 공용 아이콘·배포 누락 방지 — T-261013-046
+
+- 진입: `/products/` → 전체/모바일 앱/오픈소스 → Jarvis 검색. 같은 회사홈 아이콘을 공용 정본 `https://kangdaejong.com/brand/products/catalog.json`에서 읽는다. 제품별 고정 주소를 사용한다.
+- `src/data/products.ts`에는 제품 ID만 지정한다. 승인 이미지 또는 사유 있는 예외가 없으면 빌드 실패. Local Bridge의 기존 기호만 명시적 예외다. 과거 출처 JSON은 역사 자료로 보존한다.
+- 검증: `bash tests/test_product_icon_contract.sh`, postbuild `verify:product-icons`, PR 필수 `site-release-contract`. 구버전 이미지·누락 카드·미등록 제품은 실패한다.
+- 기존 Pages 배포 뒤 `verify-production`이 공개 커밋, 정본 자산 hash, 모든 사이트맵 HTML, 390/1440px × light/dark 대표 화면을 검사한다. JSON/PNG를 Actions artifact로 보존한다. 실패하면 배포 워크플로도 실패한다. 웹 배포와 Telegram 미리보기 완료는 별도다.
+
 ## 홈페이지와 같은 헤더·톤 — T-261003-017
 
 - `Layout.astro`의 모든 페이지는 흰 배경, 파란 강조색 #2458cc, Pretendard, 최대 본문 1440px(`--page-max`)을 사용한다. 노트 문서와 제품 화면도 같은 토큰을 따른다.
