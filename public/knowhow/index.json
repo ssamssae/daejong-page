@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "file": "2026-10-13-codex-clear-fifth-fix-env-diff.md",
+      "date": "2026-10-13",
+      "slug": "codex-clear-fifth-fix-env-diff",
+      "title": "네 번 고쳐도 안 되던 버그가 다섯 번째에 한 줄로 끝난 이유 — 테스트는 초록인데 운영은 빨간 날",
+      "category": "AI 협업/디버깅",
+      "tags": [
+        "디버깅",
+        "AI 에이전트",
+        "Codex",
+        "텔레그램 브릿지",
+        "재현 환경",
+        "픽스처",
+        "로그 단계 코드",
+        "검증"
+      ],
+      "summary": "텔레그램 /clear 브릿지가 하루 동안 네 번 수정되고도 운영에서 계속 실패했다. 네 번 모두 실제 결함을 고쳤지만 시험용 Codex를 읽기 전용으로 띄워 운영 머리글의 permissions 줄이 보이지 않았다. 다섯 번째는 운영 로그의 단계 코드와 화면 캡처에서 출발해 한 줄을 허용했고, 운영과 같은 설정으로 실패를 먼저 재현한 뒤 36분 만에 사용자의 /clear가 두 기기에서 완료됐다. 테스트 초록·운영 빨강일 때 환경 차이부터 찾는 규칙 일곱 가지."
+    },
+    {
       "file": "2026-10-13-berry-first-two-way-call.md",
       "date": "2026-10-13",
       "slug": "berry-first-two-way-call",
