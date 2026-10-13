@@ -2,8 +2,10 @@
 import ProductFacts from "./ProductFacts.astro";
 import allFacts from "../data/product-facts.json";
 interface Product {
+  id: string;
   name: string;
   icon?: string;
+  icon2x?: string;
   status: string;
   desc: string;
   links: { label: string; url: string; disabled?: boolean }[];
@@ -22,6 +24,7 @@ const glyph =
 
 <article
   class={`catalog-card kind-${kind}`}
+  data-product-id={item.id}
   data-catalog-item
   data-kind={kind}
   data-search={`${item.name} ${item.desc} ${item.status} ${label} ${facts.price} ${facts.platform} ${facts.account}`}
@@ -30,7 +33,7 @@ const glyph =
     <span class="product-icon" aria-hidden="true"
       >{
         icon ? (
-          <img src={icon} width="48" height="48" loading="lazy" alt="" />
+          <img src={icon} srcset={item.icon2x ? `${icon}, ${item.icon2x} 2x` : undefined} width="48" height="48" loading="lazy" alt="" />
         ) : (
           glyph
         )

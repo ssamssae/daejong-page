@@ -46,3 +46,28 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+  verify-production:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: ssamssae/kangdaejong-com
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: node scripts/site-release/prepare.mjs
+      - run: npx playwright install --with-deps chromium
+      - name: Verify deployed pages, shared asset hashes and light/dark screens
+        run: node scripts/site-release/live.mjs --output site-release-report/production
+        env:
+          EXPECTED_WORK_COMMIT: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-site-evidence
+          path: site-release-report/

@@ -1,0 +1,20 @@
+name: Product and site coverage
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  site-release-contract:
+    runs-on: ubuntu-latest
+    env:
+      PUBLIC_NL_EVENTS_ORIGIN: ${{ vars.PUBLIC_NL_EVENTS_ORIGIN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: bash tests/test_product_icon_contract.sh
+      - run: npm run build
+      - run: python3 -m unittest discover -s tests -p test_product_offboarding.py
