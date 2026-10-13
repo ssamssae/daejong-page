@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "file": "2026-10-13-berry-human-call-lessons.md",
+      "date": "2026-10-13",
+      "slug": "berry-human-call-lessons",
+      "title": "베리와 사람의 3분 통화 — 듣기·침묵·종료·전달에서 배운 것",
+      "category": "음성 AI/자동화",
+      "tags": [
+        "전화 AI",
+        "베리",
+        "대화 차례",
+        "침묵",
+        "통화 종료",
+        "카카오톡",
+        "검증"
+      ],
+      "summary": "약 3분 7초 녹음이 남은 사람 통화에서 말 끊기, 5초 침묵 요청, 종료 의사 처리가 문제로 드러났다. 익명화한 대화 흐름과 3.474~19.763초의 로컬 응답 지연, 통화 기록 전달 누락 원인, 적용한 재발 방지와 아직 확인하지 못한 결과를 구분해 남긴다."
+    },
+    {
       "file": "2026-10-13-form-save-blocked-by-broken-nickname-check.md",
       "date": "2026-10-13",
       "slug": "form-save-blocked-by-broken-nickname-check",
