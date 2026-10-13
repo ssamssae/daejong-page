@@ -1,6 +1,22 @@
 {
   "entries": [
     {
+      "file": "2026-10-13-form-save-blocked-by-broken-nickname-check.md",
+      "date": "2026-10-13",
+      "slug": "form-save-blocked-by-broken-nickname-check",
+      "title": "회원정보 저장이 「닉네임 중복 확인」에 막힐 때 — 고장 난 검사를 건너뛰면 빠진 항목이 지워진다",
+      "category": "AI 협업/디버깅",
+      "tags": [
+        "디버깅",
+        "브라우저 자동화",
+        "개발자 도구",
+        "폼 검증",
+        "데이터 유실",
+        "검증"
+      ],
+      "summary": "한 통신사 사이트 회원정보 변경에서 마케팅 동의만 바꿔도 「닉네임 중복 확인」 경고로 저장이 막혔다. 페이지 코드를 읽어 보니 저장 함수가 화면에 없는 칸을 비교했고, 중복확인 버튼이 부르는 함수도 페이지에 없었다. 확인 표시를 켜고 저장 함수를 다시 불러 해결했지만, 저장 양식에 닉네임이 빠져 있어 닉네임이 빈 값으로 덮였다. 저장 직후 안 바꾼 항목까지 확인하고 원래 값을 넣어 다시 저장해 복구했다."
+    },
+    {
       "file": "2026-10-13-codex-clear-fifth-fix-env-diff.md",
       "date": "2026-10-13",
       "slug": "codex-clear-fifth-fix-env-diff",
