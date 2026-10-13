@@ -6,7 +6,7 @@
 - 다크 모드(T-261012-024): `Layout.astro`가 `<html data-theme="auto">`를 켜고, 기기 설정이 다크면 `tokens.css` 다크 블록(회사홈 kangdaejong.com과 같은 팔레트 #121519 바탕·#7aa2ff 강조)이 적용된다. 리터럴 색은 `var(--토큰, 원래색)`으로 감싸 라이트 화면은 그대로다. 공용 헤더·푸터는 `--mb-host-*`를 상속한다. 제품 그림(ProductArt)·영상 바탕·데이터 색(시세 등락·자비스 막대)은 그림 색이라 그대로 둔다.
 - 헤더 정본은 `https://kangdaejong.com/mb-components.js`. 프로젝트·앱·연락은 회사 홈의 해당 구역으로 연결하고, 둘러보기에서 작업장 기존 목적지로 이동한다.
 - 로컬: `npm run build`는 기존 prebuild 검사와 907개 공개 HTML·내부 링크·노트 검증을 수행한다. `tests/shared-tone.spec.mjs`는 홈/제품/작업일지/뉴스레터/시스템/타임라인/스택을 390·1440px에서 검사한다. 로컬의 `SHARED_HEADER_FILE`은 미배포 정본을 테스트 응답으로 제공하며 라이브 검증에서는 지정하지 않는다.
-- 공유 카드와 favicon은 중앙 brand 자산을 유지한다. 공유 이미지 주소의 버전을 갱신해 새 카드 재수집 시 새 이미지를 사용한다. 예외: 작업일지·뉴스레터·인사이트 글 페이지는 글별 이미지를 쓴다(T-261010-061).
+- 공유 카드와 favicon은 중앙 brand 자산을 유지한다. 공유 이미지는 `https://kangdaejong.com/brand/current/social.png` 고정 주소를 사용한다(T-261012-041). 예외: 작업일지·뉴스레터·인사이트 글 페이지는 글별 이미지를 쓴다(T-261010-061).
 - main 머지는 기존 GitHub Pages 워크플로를 실행한다. 사용자 전체 톤 변경의 공개 반영 범위이며 배포 설정 변경은 없다. 원격 실행 결과와 실제 CSS·화면 확인은 T-261003-017 체크포인트에 별도로 기록한다.
 
 ## T-261003-018 · 사이트 디자인 통일
@@ -24,9 +24,17 @@
 
 - `/products/`: 현재 앱 6종·공개 도구 7종만 카탈로그에 포함. 모바일 앱/오픈소스 분류와 Jarvis 검색을 확인한다. 종료한 12개 제품·서비스는 날짜·상태를 별도 표시하고 신규 구매 링크를 제공하지 않는다.
 - `/timeline.html/`: 2026-10-03 종료 이벤트 12개와 기존 출시 이력을 함께 표시한다. 종료 데이터는 `src/data/retired-products.json` 한 곳에서 관리한다.
-- 모든 Layout 페이지의 OG/Twitter 이미지와 제목·설명은 공통 레이아웃에서 한 번만 출력한다. 중앙 흰색·파란색 이미지의 해시 버전을 사용한다. 기존 Telegram 메시지에 저장된 미리보기의 갱신은 사이트 배포만으로 보장되지 않는다.
+- 모든 Layout 페이지의 OG/Twitter 이미지와 제목·설명은 공통 레이아웃에서 한 번만 출력한다. 공통 공유 카드는 중앙 다크 이미지의 고정 주소를 사용한다(T-261012-041). 기존 Telegram 메시지에 저장된 미리보기의 갱신은 사이트 배포만으로 보장되지 않는다.
 - 검증: `npm run build`, `node scripts/verify-products-page.mjs`, `node scripts/verify-offboarding-ui.mjs` (기본 localhost:4391, `VERIFY_BASE`로 공개 주소 지정). 390/1440px 분류·검색·종료 이벤트·가로 넘침·중복 메타데이터 검사 통과. 근거 `/Users/user/reports/T-261004-001/`.
 - main 머지는 기존 GitHub Pages 자동 배포를 실행한다. 사용자 홈페이지 최신화 승인 범위이며 배포 설정은 그대로다.
+
+## 제품 아이콘 — T-261013-044
+
+- 진입: 로그인 없이 `/products/`. 모바일 앱·오픈소스 분류와 제품 검색으로 카드를 찾는다.
+- 기대: 앱 6종·입타·자비스·Grok/Codex/Claude/Cursor 브릿지는 T-261011-068에서 승인한 회사 홈 아이콘을 표시한다. 같은 96px WebP를 48px로 표시한다. 정리본에 아이콘이 없는 Local Telegram Bridge는 기존 기호를 유지한다.
+- 출처: 그록봇의 `icons-20261011` 정리본과 회사 홈 배포 자산. `src/data/product-icon-sources.json`은 현재 카탈로그 아이콘 12개의 원본·배포 파일 해시를 구분한다. 종료 제품의 기존 파일은 보존한다.
+- 검증: `npm run build`, `node scripts/verify-product-icons.mjs`, `node scripts/verify-products-page.mjs`. 화면 확인은 390/1440px·라이트/다크에서 이미지 로딩, 분류·검색, 가로 넘침을 확인한다. 로컬·공개 반영 근거는 `/Users/user/reports/T-261013-044/verification.json`에 기록한다.
+- main 머지는 기존 GitHub Pages 자동 배포를 실행한다. 이번 제품 아이콘 공개 교체 요청의 반영 경로이며 배포 설정은 바꾸지 않는다.
 
 ## 글별 공유 이미지 — T-261010-061
 

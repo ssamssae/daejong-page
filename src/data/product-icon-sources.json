@@ -1,102 +1,110 @@
 {
-  "checkedAt": "2026-09-22",
+  "checkedAt": "2026-10-13",
+  "note": "현재 제품 목록용 아이콘. T-261011-068에서 승인·배포한 회사 홈의 96px WebP를 그대로 사용한다. sourceSha256는 원본, sha256는 배포 WebP 바이트다. T-261013-044.",
   "icons": [
     {
       "name": "한줄일기",
-      "storeName": "한줄일기 - 하루 한 줄",
-      "appId": "6764308678",
-      "icon": "/product-icons/6764308678-f4fa94ec51.jpg",
+      "icon": "/product-icons/6764308678-f4fa94ec-96.webp",
       "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e1/ad/b7/e1adb7a4-9704-0369-d058-e4e48dcb9ffa/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "version": "1.4.3",
-      "sha256": "f4fa94ec511dca63fb02f8a62a4fc6731ada0585e26612c048b08b5e6ce382dd"
+      "sourceSha256": "f4fa94ec511dca63fb02f8a62a4fc6731ada0585e26612c048b08b5e6ce382dd",
+      "sha256": "440691f0df474c291e1102329bd106a8f5a1a2e7a11d2cef33233e0f5330bb89",
+      "approvedAsset": "https://kangdaejong.com/product-icons/6764308678-f4fa94ec-96.webp"
     },
     {
       "name": "메모요",
-      "storeName": "메모요",
-      "appId": "6762068073",
-      "icon": "/product-icons/6762068073-9fffec3bbd.jpg",
+      "icon": "/product-icons/6762068073-9fffec3b-96.webp",
       "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/cc/6c/0bcc6cf8-b022-c9f3-37d3-70fdb421f8e0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "version": "1.0.19",
-      "sha256": "9fffec3bbd2eaa6d8e21c97d2748480bb54364e0875d53736fddb35d7cb7ae0c"
+      "sourceSha256": "9fffec3bbd2eaa6d8e21c97d2748480bb54364e0875d53736fddb35d7cb7ae0c",
+      "sha256": "ba7ae0576f091e791c1a3179afee5fce39624ea71385d9e8b6383bf36b059942",
+      "approvedAsset": "https://kangdaejong.com/product-icons/6762068073-9fffec3b-96.webp"
     },
     {
       "name": "더치페이 계산기",
-      "storeName": "더치페이 계산기",
-      "appId": "6762072499",
-      "icon": "/product-icons/6762072499-17c5730a71.jpg",
-      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/29/0b/64/290b64cd-6252-caf2-3089-e2568a7746e7/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "version": "1.0.7",
-      "sha256": "17c5730a7102b0efbfaf1f1a3103700261d48f44c127acf777880ffce76ce03b"
+      "icon": "/product-icons/dutchPayCalculator-0e89d465-96.webp",
+      "source": "https://github.com/ssamssae/dutch_pay_calculator/blob/b5b1a5f676f0bfed1c4b1c3994b5b0a00bfcbff2/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+      "sourceSha256": "0e89d465a7f4da65d80592585ff2725f1d374555499c5076469c4ab634d3dff1",
+      "sha256": "7ac147dfa2d3356df8f254e975ee143e07052043ecfca41439ec077586523118",
+      "approvedAsset": "https://kangdaejong.com/product-icons/dutchPayCalculator-0e89d465-96.webp",
+      "sourceType": "repository-main"
     },
     {
       "name": "약먹자",
-      "storeName": "약먹자 - 복용 알림",
-      "appId": "6762100639",
-      "icon": "/product-icons/6762100639-41b67f90b6.jpg",
-      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/08/8e/fd/088efd88-7360-698f-6778-8df4316b1983/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "version": "1.0.5",
-      "sha256": "41b67f90b6d3dd9c86511cc7e6bae286abeed0b7e6c3bf6dc14adebb28a0cd89"
-    },
-    {
-      "name": "단어요",
-      "storeName": "단어요",
-      "appId": "6766556759",
-      "icon": "/product-icons/6766556759-00e1948545.jpg",
-      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2d/04/67/2d0467ca-5233-12af-9742-6576941412fe/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "version": "1.0.2",
-      "sha256": "00e194854548d13d1fb49481180c29b1005ce0e5fd118fc0b20be5c3a1b4e9a4"
-    },
-    {
-      "name": "한컵",
-      "storeName": "한컵",
-      "appId": "6765536616",
-      "icon": "/product-icons/6765536616-bc7a2b80b4.jpg",
-      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/87/c1/03/87c10349-d840-e706-b1d2-cf8e1c92b8a8/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "version": "1.0",
-      "sha256": "bc7a2b80b45514ff60cd171e0d31122b0f404bbba5cb8782d8854f349d0e71a1"
-    },
-    {
-      "name": "포모도로",
-      "storeName": "포모도로",
-      "appId": "6765536777",
-      "icon": "/product-icons/6765536777-c39328a9da.jpg",
-      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cc/92/a2/cc92a265-9ee0-198c-20f1-e35e423143db/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "version": "1.0",
-      "sha256": "c39328a9da7ca5f3f51c277515d768abe4617cd0116b81da1b927378fc05c3cd"
+      "icon": "/product-icons/yakmukja-f16ca3ee-96.webp",
+      "source": "https://github.com/ssamssae/yakmukja/blob/8aab6ce82c385850c5268fae31d78fd65f25a0eb/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+      "sourceSha256": "f16ca3ee802305ec605d5974c77dc530a5b0ad942c5e84481b315a07fb142cfe",
+      "sha256": "1f0887f3a6e7ed342f9b0a0b8a384acc680b66ff204775f4abf14ef11ffcf40c",
+      "approvedAsset": "https://kangdaejong.com/product-icons/yakmukja-f16ca3ee-96.webp",
+      "sourceType": "repository-main"
     },
     {
       "name": "심플 가계부",
-      "storeName": "심플 가계부",
-      "appId": "6769037337",
-      "icon": "/product-icons/6769037337-2ad919041d.jpg",
+      "icon": "/product-icons/6769037337-2ad91904-96.webp",
       "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bd/fd/23/bdfd23bd-6982-5241-1a5b-b1165fe61e8d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "version": "1.0.1",
-      "sha256": "2ad919041df6311b93bf030ffcbdd7746948d3646e3e96e273c08e2d1e2d2a73"
+      "sourceSha256": "2ad919041df6311b93bf030ffcbdd7746948d3646e3e96e273c08e2d1e2d2a73",
+      "sha256": "a30059d353761dc74445a74776eef605220b7454b13308e1db437cdd0b0dc28b",
+      "approvedAsset": "https://kangdaejong.com/product-icons/6769037337-2ad91904-96.webp"
     },
     {
-      "name": "행운번호 생성기",
-      "storeName": "행운번호 생성기",
-      "appId": "6766077265",
-      "icon": "/product-icons/6766077265-28d1fe2980.jpg",
-      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0c/05/65/0c05652c-ab58-c6c9-6a9a-15b31059a7f5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "version": "1.1.1",
-      "sha256": "28d1fe2980507b62ae937263361387a2580ff5f72fd027e510e1b74f14db87e9"
+      "name": "계산기알람",
+      "icon": "/product-icons/ireonayo-14aeddc8-96.webp",
+      "source": "https://github.com/ssamssae/motjayo/blob/e9998bb6b0dedc63fcf58aaae101c49a621032a7/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+      "sourceSha256": "14aeddc80846ed737270bbfe8972252ecb4e80917dc5e7dd31bca72122f5c92a",
+      "sha256": "b98de35fdb14ad03c8ad3e499bcaa4d64e605f870a5eba8671d8fa715f4ff317",
+      "approvedAsset": "https://kangdaejong.com/product-icons/ireonayo-14aeddc8-96.webp",
+      "sourceType": "repository-main"
     },
     {
-      "name": "첫이름 — AI 사주 작명",
-      "storeName": "첫이름 - AI 사주 작명 리포트",
-      "appId": "6791480413",
-      "icon": "/product-icons/6791480413-01e65be838.jpg",
-      "source": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/48/95/ca/4895ca96-4fa2-3b10-7df7-dddd39118ac2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "version": "1.0.3",
-      "sha256": "01e65be838d20282b33c2b8ae6a7b62485078ceea4ff00b9b9e062a2343fdb47"
+      "name": "Jarvis Mac",
+      "icon": "/product-icons/jarvis-6863105c-96.webp",
+      "source": "https://github.com/ssamssae/jarvis-mac",
+      "sourceSha256": "6863105c6efba4ad9dc8aeb001e27872e0eb12eaa3bb3de52eb00b5baca76c30",
+      "sha256": "4162494cef5ee53ff7ff40030758af39a26dcd492b53c56be1d6d6ccaee74fc8",
+      "approvedAsset": "https://kangdaejong.com/product-icons/jarvis-6863105c-96.webp",
+      "sourceType": "designed-for-site"
     },
     {
       "name": "입타 (Ipta)",
-      "icon": "/product-icons/ipta-779f2694b7.png",
+      "icon": "/product-icons/ipta-779f2694-96.webp",
       "source": "https://raw.githubusercontent.com/ssamssae/ipta/v0.1.24/App/Resources/icon_1024.png",
-      "version": "0.1.24",
-      "sha256": "779f2694b78a3b57ba3706ca3f067a398b7fb138a5434d2506930c0dd8399834"
+      "sourceSha256": "779f2694b78a3b57ba3706ca3f067a398b7fb138a5434d2506930c0dd8399834",
+      "sha256": "16dda122c21444cd9270be997dd8f0fc8e42049ac6efc73ba50e2e55a215d0df",
+      "approvedAsset": "https://kangdaejong.com/product-icons/ipta-779f2694-96.webp"
+    },
+    {
+      "name": "Grok Telegram Bridge",
+      "icon": "/product-icons/bridge-grok-f431e691-96.webp",
+      "source": "https://github.com/ssamssae/grok-telegram-bridge",
+      "sourceType": "designed-for-site",
+      "sourceSha256": "f431e6919e51982623dfeb5d0f50d782f8231e5073fe49c3da0ed2b625601035",
+      "sha256": "6828396340791b84a76da13e875729f4f028290a38e2343f3bb05d18b7cafaac",
+      "approvedAsset": "https://kangdaejong.com/product-icons/bridge-grok-f431e691-96.webp"
+    },
+    {
+      "name": "Codex Telegram Bridge",
+      "icon": "/product-icons/bridge-codex-41955708-96.webp",
+      "source": "https://github.com/ssamssae/codex-telegram-bridge",
+      "sourceType": "designed-for-site",
+      "sourceSha256": "41955708b90f2b5636041f2ecaa39c03f2b392ead59b6784c012801e8274250a",
+      "sha256": "db8efa99be9d1a3fdd73c18f690bd18c17d5ed7690cf87f06436ddd1103dcac2",
+      "approvedAsset": "https://kangdaejong.com/product-icons/bridge-codex-41955708-96.webp"
+    },
+    {
+      "name": "Claude Telegram Bridge",
+      "icon": "/product-icons/bridge-claude-9e27b3a5-96.webp",
+      "source": "https://github.com/ssamssae/claude-telegram-bridge",
+      "sourceType": "designed-for-site",
+      "sourceSha256": "9e27b3a5651abed51193c64231e4d1a6143b65d3216f4f66ebe3d2b921b83067",
+      "sha256": "de26fcc3666b87c40ff515f67c212aba510320d314c246ed4f65c143ea2fb376",
+      "approvedAsset": "https://kangdaejong.com/product-icons/bridge-claude-9e27b3a5-96.webp"
+    },
+    {
+      "name": "Cursor Telegram Bridge",
+      "icon": "/product-icons/bridge-cursor-2e723079-96.webp",
+      "source": "https://github.com/ssamssae/cursor-telegram-bridge",
+      "sourceType": "designed-for-site",
+      "sourceSha256": "2e723079a2b1076b6f6a474a89ce6f3411ce66139bc40201b5c7629f6943110d",
+      "sha256": "a2a31f81bd81c7a09ca12a9d1ae4c830f33d1c2ff4c0ae4b4931c5a15ac04f9b",
+      "approvedAsset": "https://kangdaejong.com/product-icons/bridge-cursor-2e723079-96.webp"
     }
   ]
 }
