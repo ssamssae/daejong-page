@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import retiredProducts from '../data/retired-products.json';
+import foldStory from '../data/fold-story.json';
+import aiUses from '../data/ai-uses.json';
 const retirementEvents = retiredProducts.map((item) => ({date: item.date, title: `${item.name} — ${item.status}`, desc: item.kind === 'app' ? 'App Store 신규 판매와 Google Play 게시를 종료했습니다. 기존 설치본과 데이터는 보존합니다.' : item.kind === 'ebook' ? '크몽 전자책 판매를 종료했습니다. 공개 무료 템플릿은 유지합니다.' : item.name === '문의노트' ? '공개 운영을 종료하고 소유자 접근만 유지합니다.' : '공개 서비스 운영을 종료했습니다.', tags: [['', item.status]]}));
 // T-261012-042: 9/12 뒤 주요 마일스톤은 손으로 적지 않고 작업일지 프론트매터 milestone 에서 읽는다(같은 날 여러 판이면 마지막 판).
 const milestoneLogs = Object.values(Object.fromEntries((await getCollection('worklog'))
@@ -10,6 +12,27 @@ const milestoneLogs = Object.values(Object.fromEntries((await getCollection('wor
   .map((e) => [e.data.date, { date: e.data.date, title: e.data.milestone.trim(), desc: e.data.summary ?? '', tags: [['', '작업일지']] }])))
   .sort((a, b) => a.date.localeCompare(b.date));
 const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.localeCompare(a.data.date) || b.id.localeCompare(a.id)).slice(0, 6);
+// T-261015-017: 접은 일·다시 편 일은 fold-story.json 한 곳에만 적고, 이야기 칸과 연표 줄을 둘 다 여기서 만든다.
+const FOLD_KIND = { '시작': 'start', '진행': 'start', '접음': 'fold', '전환': 'fold', '보류': 'hold', '다시 폄': 'resume', '마침': 'resume' };
+const FOLD_STATUS = { '접음': 'fold', '전환': 'fold', '보류': 'hold', '다시 폄': 'resume', '진행 중': 'resume', '마침': 'resume' };
+const LISTED_KINDS = new Set(['접음', '전환', '보류', '다시 폄', '마침']); // 연표 줄에는 갈림길만 올린다
+const esc = (s = '') => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const dot = (d) => d.replaceAll('-', '.');
+const foldArcs = foldStory.arcs
+  .map((arc) => {
+    const steps = [...arc.steps].sort((a, b) => a.date.localeCompare(b.date));
+    return { ...arc, steps, first: steps[0].date, last: steps[steps.length - 1].date, resumed: steps.some((s) => s.kind === '다시 폄') };
+  })
+  .sort((a, b) => b.last.localeCompare(a.last) || a.title.localeCompare(b.title));
+const foldEvents = foldArcs.flatMap((arc) => arc.steps
+  .filter((s) => LISTED_KINDS.has(s.kind) && s.list !== false)
+  .map((s) => ({ date: s.date, title: esc(`${arc.title} — ${s.kind}`), desc: esc(s.why ? `${s.text} 이유: ${s.why}` : s.text), tags: [[FOLD_KIND[s.kind], s.kind]], href: `#fold-${arc.id}` })));
+const foldCount = foldArcs.length;
+const foldTally = {
+  resumed: foldArcs.filter((a) => a.resumed).length,
+  folded: foldArcs.filter((a) => a.status === '접음').length,
+  life: foldArcs.filter((a) => a.life).length,
+};
 ---
 <Layout title="개발 타임라인 - 강대종" description="강대종 1인 개발 타임라인으로 2026년 4월 AI와 개발을 시작한 뒤 앱 출시, 뉴스레터, 인프라 구축, 주요 결정과 학습 이정표를 활동 히트맵, 통계 카드, 태그가 붙은 이벤트 목록으로 시간순으로 자세히 기록합니다.">
   <Fragment slot="head">
@@ -365,6 +388,354 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
       border-color: var(--fg);
     }
 
+    /* T-261015-017: 접은 일·다시 편 일 */
+    .tag.fold {
+      border-style: dashed;
+      color: var(--fg-dim);
+    }
+
+    .tag.resume {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .tag.hold {
+      border-color: var(--warn);
+      color: var(--warn);
+    }
+
+    .er-title strong a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: var(--border);
+      text-underline-offset: 4px;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 22px;
+    }
+
+    .hero-links a {
+      color: var(--accent);
+      font-size: var(--text-desc);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .fold-count {
+      color: var(--fg-dim);
+      font-size: var(--text-desc);
+      margin: 0 0 16px;
+    }
+
+    .fold-tools {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 16px;
+    }
+
+    .fold-tools[hidden] {
+      display: none;
+    }
+
+    .fold-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .fold-filter,
+    .fold-expand {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg);
+      color: var(--fg-dim);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: var(--text-desc);
+      font-weight: 600;
+      line-height: 1;
+      min-height: 36px;
+      padding: 0 14px;
+    }
+
+    .fold-filter[aria-pressed="true"],
+    .fold-expand[aria-pressed="true"] {
+      border-color: var(--fg);
+      color: var(--fg);
+    }
+
+    .fold-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--fg);
+    }
+
+    .fold-arc {
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 96px;
+    }
+
+    .fold-arc[hidden] {
+      display: none;
+    }
+
+    .fold-arc > summary {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr) minmax(120px, auto);
+      gap: 16px;
+      align-items: baseline;
+      cursor: pointer;
+      list-style: none;
+      padding: 16px 0;
+    }
+
+    .fold-arc > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .fold-arc > summary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .fold-when {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: var(--text-meta);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .fold-head {
+      min-width: 0;
+    }
+
+    .fold-head strong {
+      display: block;
+      color: var(--fg);
+      font-size: var(--text-body);
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 4px;
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    .fold-head strong::after {
+      content: "\00a0+";
+      color: var(--fg-mute);
+      font-family: var(--mono);
+    }
+
+    .fold-arc[open] .fold-head strong::after {
+      content: "\00a0−";
+    }
+
+    .fold-head span {
+      display: block;
+      color: var(--fg-dim);
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    .fold-badges {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .fold-body {
+      display: grid;
+      gap: 18px;
+      margin: 0 0 22px 128px;
+      min-width: 0;
+    }
+
+    .fold-steps {
+      display: grid;
+      gap: 0;
+      border-left: 1px solid var(--border);
+      list-style: none;
+      margin: 0 0 0 5px;
+      padding: 0;
+    }
+
+    .fold-step {
+      display: grid;
+      grid-template-columns: 92px 64px minmax(0, 1fr);
+      gap: 12px;
+      align-items: baseline;
+      padding: 10px 0 10px 18px;
+      position: relative;
+    }
+
+    .fold-step::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 17px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--fg-mute);
+    }
+
+    .fold-step.fold::before {
+      border-style: dashed;
+    }
+
+    .fold-step.resume::before {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .fold-step.hold::before {
+      border-color: var(--warn);
+    }
+
+    .fold-step time {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: var(--text-meta);
+      font-weight: 600;
+    }
+
+    .fold-step b {
+      color: var(--fg);
+      font-size: var(--text-desc);
+      font-weight: 700;
+    }
+
+    .fold-step.resume b {
+      color: var(--accent);
+    }
+
+    .fold-step.hold b {
+      color: var(--warn);
+    }
+
+    .fold-step p {
+      color: var(--fg-dim);
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
+      margin: 0;
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    .fold-why {
+      display: block;
+      color: var(--fg);
+      margin-top: 4px;
+    }
+
+    .fold-quote {
+      border-left: 3px solid var(--accent);
+      background: var(--bg-elev);
+      margin: 0;
+      padding: 14px 18px;
+    }
+
+    .fold-quote p {
+      color: var(--fg);
+      font-size: var(--text-body);
+      line-height: var(--leading-body);
+      margin: 0 0 6px;
+      word-break: keep-all;
+    }
+
+    .fold-quote cite {
+      color: var(--fg-mute);
+      font-family: var(--mono);
+      font-size: var(--text-meta);
+      font-style: normal;
+    }
+
+    .fold-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 24px;
+      margin: 0;
+    }
+
+    .fold-meta dt {
+      color: var(--fg-mute);
+      font-size: var(--text-meta);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .fold-meta dd {
+      color: var(--fg-dim);
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
+      margin: 0;
+      word-break: keep-all;
+    }
+
+    .fold-link {
+      color: var(--accent);
+      font-size: var(--text-desc);
+      font-weight: 700;
+      justify-self: start;
+    }
+
+    .fold-note {
+      color: var(--fg-mute);
+      font-size: var(--text-desc);
+      margin: 18px 0 0;
+    }
+
+    .ai-way-callout {
+      display: grid;
+      gap: 8px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      background: var(--bg-elev);
+      color: inherit;
+      margin-top: 28px;
+      padding: 24px;
+      text-decoration: none;
+    }
+
+    .ai-way-callout:hover {
+      border-color: var(--accent);
+    }
+
+    .ai-way-callout .eyebrow {
+      margin: 0;
+    }
+
+    .ai-way-callout strong {
+      color: var(--fg);
+      font-size: var(--text-h3);
+      line-height: 1.35;
+    }
+
+    .ai-way-callout strong::after {
+      content: " →";
+      color: var(--accent);
+    }
+
+    .ai-way-callout span:last-child {
+      color: var(--fg-dim);
+      font-size: var(--text-desc);
+      line-height: var(--leading-desc);
+      word-break: keep-all;
+    }
+
     .timeline-footer {
       display: flex;
       justify-content: space-between;
@@ -402,6 +773,19 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
         grid-column: 2;
         justify-content: flex-start;
       }
+
+      .fold-arc > summary {
+        grid-template-columns: 96px minmax(0, 1fr);
+      }
+
+      .fold-badges {
+        grid-column: 2;
+        justify-content: flex-start;
+      }
+
+      .fold-body {
+        margin-left: 112px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -437,6 +821,28 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
         grid-column: auto;
       }
 
+      .fold-arc > summary {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .fold-badges {
+        grid-column: auto;
+      }
+
+      .fold-body {
+        margin-left: 0;
+      }
+
+      .fold-step {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .fold-meta {
+        grid-template-columns: 1fr;
+      }
+
       .timeline-footer a {
         display: inline-block;
         margin-top: 10px;
@@ -452,8 +858,9 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
         <h1 id="page-title">개발 타임라인</h1>
         <p class="lead">
           2026년 4월, 코딩 한 줄 못 쓰던 85년생이 AI와 함께 개발을 시작했습니다.
-          앱 출시, 자동화, 인프라, 실패 복구를 날짜순으로 남긴 작업장 연대표입니다.
+          앱 출시, 자동화, 인프라, 실패 복구에 더해 접은 일과 다시 편 일까지 날짜순으로 남긴 작업장 연대표입니다.
         </p>
+        <p class="hero-links"><a href="#fold">접은 일과 다시 편 일 {foldCount}편</a><a href="/how-i-use-ai/">강대종은 AI를 이렇게 씁니다</a></p>
       </div>
       <dl class="hero-stats" id="stats" aria-label="개발 타임라인 요약"></dl>
     </section>
@@ -501,6 +908,60 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
       <div class="milestones" id="milestones"></div>
     </section>
 
+    <section class="fold-section" id="fold" aria-labelledby="fold-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">FOLD &amp; RESUME</p>
+          <h2 id="fold-title">접은 일과 다시 편 일</h2>
+        </div>
+        <p>시작했다가 접은 일, 접었다가 다시 편 일을 모았습니다. 왜 접었는지, 왜 다시 폈는지, 그때 AI가 무엇을 했는지 함께 적었습니다.</p>
+      </div>
+      <p class="fold-count">이야기 {foldCount}편 · 다시 편 일 {foldTally.resumed}편 · 지금도 접어 둔 일 {foldTally.folded}편 · 생활 이야기 {foldTally.life}편</p>
+      <div class="fold-tools" hidden>
+        <div class="fold-filters" role="group" aria-label="이야기 고르기">
+          <button type="button" class="fold-filter" data-filter="all" aria-pressed="true">전체</button>
+          <button type="button" class="fold-filter" data-filter="resumed" aria-pressed="false">다시 편 일</button>
+          <button type="button" class="fold-filter" data-filter="folded" aria-pressed="false">지금도 접은 일</button>
+          <button type="button" class="fold-filter" data-filter="life" aria-pressed="false">생활·돈·법</button>
+        </div>
+        <button type="button" class="fold-expand" aria-pressed="false">모두 펼치기</button>
+      </div>
+      <div class="fold-list">
+        {foldArcs.map((arc) => (
+          <details class="fold-arc" id={`fold-${arc.id}`} data-resumed={arc.resumed ? '1' : '0'} data-folded={arc.status === '접음' ? '1' : '0'} data-life={arc.life ? '1' : '0'}>
+            <summary>
+              <span class="fold-when">{dot(arc.first)}{arc.last !== arc.first && <><br />→ {dot(arc.last)}</>}</span>
+              <span class="fold-head"><strong>{arc.title}</strong><span>{arc.summary}</span></span>
+              <span class="fold-badges"><span class="tag">{arc.area}</span><span class={`tag ${FOLD_STATUS[arc.status] ?? ''}`}>{arc.status}</span></span>
+            </summary>
+            <div class="fold-body">
+              <ol class="fold-steps">
+                {arc.steps.map((s) => (
+                  <li class={`fold-step ${FOLD_KIND[s.kind]}`}>
+                    <time datetime={s.date}>{dot(s.date)}</time>
+                    <b>{s.kind}</b>
+                    <p>{s.text}{s.why && <span class="fold-why">이유: {s.why}</span>}</p>
+                  </li>
+                ))}
+              </ol>
+              {arc.quote && <blockquote class="fold-quote"><p>「{arc.quote}」</p><cite>{arc.quoteFrom ?? '강대종'}</cite></blockquote>}
+              <dl class="fold-meta">
+                <div><dt>AI가 한 일</dt><dd>{arc.ai}</dd></div>
+                <div><dt>지금</dt><dd>{arc.now}</dd></div>
+              </dl>
+              {arc.link && <a class="fold-link" href={arc.link.href}>{arc.link.label}</a>}
+            </div>
+          </details>
+        ))}
+      </div>
+      <p class="fold-note">기술 문제로 막힌 접근은 <a href="/dead-ends.html/">막다른 길</a>에 따로 정리합니다. 아이디·비밀번호·연락처·번호 같은 세부는 공개하지 않습니다.</p>
+      <a class="ai-way-callout" href="/how-i-use-ai/">
+        <span class="eyebrow">HOW I USE AI</span>
+        <strong>강대종은 AI를 이렇게 씁니다</strong>
+        <span>보험 상담 문자, 환불 요청 메일, 걸려 온 전화처럼 개발 밖에서 AI에게 맡긴 일 {aiUses.uses.length}가지를 따로 모았습니다.</span>
+      </a>
+    </section>
+
     <section aria-labelledby="recent-log-title"><div class="section-head"><div><p class="eyebrow">RECENT PUBLIC RECORDS</p><h2 id="recent-log-title">최근 공개 작업으로 이어보기</h2></div><p>아래 목록은 작업일지에서 가져옵니다. 과거 이정표와 별도로 최근 기록을 확인할 수 있습니다.</p></div><ul class="recent-log-list">{recentLogs.map(post => <li><time datetime={post.data.date}>{post.data.date}</time><a href={`/worklog/${post.id}/`}>{post.data.title}</a></li>)}</ul></section>
     <section class="event-section" aria-labelledby="event-title">
       <div class="section-head">
@@ -520,7 +981,7 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
     </footer>
   </article>
 
-  <script is:inline define:vars={{ retirementEvents, milestoneLogs }}>
+  <script is:inline define:vars={{ retirementEvents, milestoneLogs, foldEvents, foldCount }}>
     const events = [
       { date: '2026-04-11', title: '첫 번째 코드, 메모요 탄생', desc: 'AI(Claude)와 대화하며 Flutter로 첫 앱을 만들기 시작했다.', tags: [['flutter','Flutter'],['ai','Claude AI']], major: 1 },
       { date: '2026-04-11', title: '개인 홈페이지 오픈', desc: 'daejong-page v1.0.0 배포.', tags: [['web','HTML/CSS/JS'],['','GitHub Pages']] },
@@ -605,7 +1066,7 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
       { date: '2026-07-28', title: '검사기가 62개 중 3개만 돌고 합격 도장을 찍고 있었다', desc: '전량 검사라고 믿던 스윕이 실제로는 일부만 돌고 통과를 선언하던 것을 적발했다. 메모에 백틱을 쓰면 그 안이 셸에서 실행되는 경로를 이미 한 번 실행된 뒤에 발견해 기록 펀넬을 홑따옴표로 고정.', tags: [['infra','자동화']] },
       { date: '2026-07-29', title: '정책 게이트가 보기만 하고 안 막고 있었다', desc: '규칙을 코드로 옮긴 지 이틀째, 그 코드가 관찰 모드에 머물러 실제로는 차단을 안 하고 있었다. 봇이 재시작할 때마다 자기가 처음인 줄 알고 같은 소식을 다시 보내던 중복 발신도 함께 수리.', tags: [['infra','자동화']] },
       { date: '2026-07-30', title: '구독 0건 원인 규명 — 매출 누수 3건 적출', desc: '메모요·한줄일기 구독이 0건인 원인을 퍼널 숫자로 세다가 매출이 새는 구멍 세 개를 찾았다. 「겉표시를 실체로 갈음하는」 판단 오류를 하루에 다섯 번 밟고 그 패턴 자체를 룰로 박았다.', tags: [['flutter','Flutter'],['web','SaaS']] },
-      { date: '2026-07-31', title: '첫 손님 실결제 — 첫이름 첫 매출', desc: '첫이름에서 첫 손님이 실제로 결제했다. 다만 결제창은 「테스트라 청구되지 않는다」고 적어둔 채 돈을 받고 있었고 영수증 첫 줄은 「-님」으로 시작하고 있었다. 둘 다 같은 날 적출.', major: 28, tags: [['web','SaaS'],['flutter','Flutter']] },
+      { date: '2026-07-31', title: '첫이름 실결제 개통 — 첫 결제 19,900원', desc: '첫이름 실결제를 열었다. 23:25 첫 결제가 승인됐지만, 8월 10일 다시 세어 보니 본인 시험 계정이었고 외부 손님의 구매는 0건이었다(뉴스레터 91화에서 정정). 결제창은 「테스트라 청구되지 않는다」고 적어둔 채 돈을 받고 있었고 영수증 첫 줄은 「-님」으로 시작하고 있었다. 둘 다 같은 날 적출.', major: 28, tags: [['web','SaaS'],['flutter','Flutter']] },
       { date: '2026-08-01', title: '「배포 성공」 초록불이 실행 0회였다', desc: '배포 성공으로 찍힌 초록불이 실은 한 번도 실행되지 않은 배포였다. 그날 만난 초록불 대부분이 같은 종류의 거짓 신호였음을 확인하고, 완료 판정 기준을 실측 출력 첨부로 옮겼다.', tags: [['infra','자동화']] },
       { date: '2026-08-02', title: '존재하지 않는 도구를 안내하던 경고문 — 하루 1,204회', desc: '경고문이 「이 도구를 쓰세요」라고 안내하는데 그 도구가 실재하지 않았다. 하루 1,204번. 밤에는 「배포 끝났습니다」라는 자체 보고가 스크린샷 한 장에 반증됐다.', tags: [['infra','자동화']] },
       { date: '2026-08-03', title: '감시 장치가 조기 종료 아래 있어 한 번도 돈 적이 없었다', desc: '있는 줄 알았던 감시 장치가 조기 종료 분기 아래에 놓여 단 한 번도 실행된 적이 없었다. 하루 종일 「있는 줄 알았던 것」을 실제로 세어 본 날.', tags: [['infra','자동화']] },
@@ -622,6 +1083,8 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
     var nextMajor = events.reduce(function(n, e) { return Math.max(n, e.major || 0); }, 0);
     milestoneLogs.forEach(function(e) { nextMajor += 1; events.push(Object.assign({}, e, { major: nextMajor })); });
     events.push({date: '2026-10-04', title: '무료 실습 양식 공개 제공 종료', desc: '전자책 부록 실습 양식 14종의 웹 열람과 다운로드를 종료했습니다.', tags: [['', '제공 종료']]});
+    // T-261015-017: 접음·다시 폄 줄은 위 「접은 일과 다시 편 일」 이야기로 이어진다.
+    events.push(...foldEvents);
 
     function parseDate(s) {
       var parts = s.split('-');
@@ -660,7 +1123,8 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
       '<div class="stat"><dt>개발 일수</dt><dd>' + daysSinceStart + '</dd></div>' +
       '<div class="stat"><dt>총 이벤트</dt><dd>' + totalEvents + '</dd></div>' +
       '<div class="stat"><dt>최장 연속</dt><dd>' + longestStreak + '일</dd></div>' +
-      '<div class="stat"><dt>마일스톤</dt><dd>' + majorCount + '</dd></div>';
+      '<div class="stat"><dt>마일스톤</dt><dd>' + majorCount + '</dd></div>' +
+      '<div class="stat"><dt>접음·재개</dt><dd>' + foldCount + '편</dd></div>';
 
     // Heatmap — 12 weeks window ending on Saturday after today
     var endDate = new Date(today);
@@ -739,10 +1203,44 @@ const recentLogs = (await getCollection('worklog')).sort((a,b) => b.data.date.lo
       }).join('');
       return '<div class="event-row ' + (e.major ? 'major' : '') + '">' +
         '<div class="er-date">' + e.date.replace(/-/g, '.') + '</div>' +
-        '<div class="er-title"><strong>' + e.title + '</strong><span>' + e.desc + '</span></div>' +
+        '<div class="er-title"><strong>' + (e.href ? '<a href="' + e.href + '">' + e.title + '</a>' : e.title) + '</strong><span>' + e.desc + '</span></div>' +
         '<div class="er-tags">' + tagsHtml + '</div>' +
       '</div>';
     }).join('');
+  </script>
+  <script is:inline>
+    // T-261015-017: 이야기 고르기·모두 펼치기·연표 줄에서 이야기로 바로 열기
+    (function() {
+      var section = document.getElementById('fold');
+      if (!section) return;
+      var arcs = Array.prototype.slice.call(section.querySelectorAll('.fold-arc'));
+      var filters = Array.prototype.slice.call(section.querySelectorAll('.fold-filter'));
+      var expand = section.querySelector('.fold-expand');
+      section.querySelector('.fold-tools').hidden = false;
+      function applyFilter(name) {
+        filters.forEach(function(b) { b.setAttribute('aria-pressed', String(b.dataset.filter === name)); });
+        arcs.forEach(function(a) {
+          a.hidden = name !== 'all' && a.dataset[name] !== '1';
+        });
+      }
+      filters.forEach(function(b) { b.addEventListener('click', function() { applyFilter(b.dataset.filter); }); });
+      expand.addEventListener('click', function() {
+        var open = expand.getAttribute('aria-pressed') !== 'true';
+        expand.setAttribute('aria-pressed', String(open));
+        expand.textContent = open ? '모두 접기' : '모두 펼치기';
+        arcs.forEach(function(a) { if (!a.hidden) a.open = open; });
+      });
+      function openFromHash() {
+        if (location.hash.indexOf('#fold-') !== 0) return;
+        var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (!target || !target.classList.contains('fold-arc')) return;
+        if (target.hidden) applyFilter('all');
+        target.open = true;
+        target.scrollIntoView();
+      }
+      window.addEventListener('hashchange', openFromHash);
+      openFromHash();
+    })();
   </script>
 <style>.recent-log-list { list-style:none; padding:0; }.recent-log-list li { display:flex; flex-wrap:wrap; gap:12px 24px; padding:18px 0; border-bottom:1px solid var(--border); }.recent-log-list time { font-size:13px; color:var(--fg-mute); }.recent-log-list a { flex:1 1 240px; overflow-wrap:anywhere; }</style>
 </Layout>

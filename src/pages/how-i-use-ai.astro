@@ -1,0 +1,418 @@
+---
+import Layout from '../layouts/Layout.astro';
+import aiUses from '../data/ai-uses.json';
+import foldStory from '../data/fold-story.json';
+
+// T-261015-017: 개발 밖까지 AI에게 맡긴 일을 따로 뽑는다. 사례는 ai-uses.json 한 곳에만 적고, 분야 안 순서는 파일 순서를 따른다.
+const dot = (d) => d.replaceAll('-', '.');
+const areas = aiUses.areas
+  .map((area) => ({ ...area, uses: aiUses.uses.filter((u) => u.area === area.id) }))
+  .filter((area) => area.uses.length);
+const firstMonth = dot(aiUses.uses.map((u) => u.date).sort()[0].slice(0, 7));
+const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전화, 스토어 제출까지. 1인 개발자 강대종이 개발 밖에서 AI에게 맡긴 일 ${aiUses.uses.length}가지를 상황, AI가 한 일, 결과로 정리했습니다.`;
+---
+<Layout title="강대종은 AI를 이렇게 씁니다 — 마이너스베타스튜디오" description={description}>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://work.kangdaejong.com/how-i-use-ai/" />
+    <style is:global>
+      .ai-way {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+        min-width: 0;
+      }
+
+      .ai-way > * {
+        min-width: 0;
+      }
+
+      .ai-way .eyebrow {
+        color: var(--fg-mute);
+        font-family: var(--mono);
+        font-size: var(--text-meta);
+        font-weight: 600;
+        letter-spacing: 0;
+        margin: 0 0 12px;
+      }
+
+      .ai-way-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+        gap: 40px;
+        align-items: end;
+        border-bottom: 1px solid var(--border);
+        padding: 18px 0 40px;
+      }
+
+      .ai-way-hero h1 {
+        color: var(--fg);
+        font-size: var(--text-h1);
+        line-height: var(--leading-h1);
+        margin: 0 0 20px;
+        word-break: keep-all;
+      }
+
+      .ai-way-hero .lead {
+        color: var(--fg-dim);
+        font-size: var(--text-lead);
+        line-height: 1.75;
+        margin: 0;
+        max-width: 660px;
+        word-break: keep-all;
+      }
+
+      .ai-way-aside {
+        color: var(--fg-mute);
+        font-size: var(--text-desc);
+        margin: 16px 0 0;
+      }
+
+      .ai-way-stats {
+        display: grid;
+        border-top: 1px solid var(--fg);
+        margin: 0;
+      }
+
+      .ai-way-stats div {
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 16px;
+        align-items: baseline;
+        border-bottom: 1px solid var(--border);
+        padding: 14px 0;
+      }
+
+      .ai-way-stats dt {
+        color: var(--fg-mute);
+        font-size: var(--text-desc);
+        font-weight: 600;
+      }
+
+      .ai-way-stats dd {
+        color: var(--fg);
+        font-family: var(--mono);
+        font-size: var(--text-lead);
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .ai-way .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 20px;
+      }
+
+      .ai-way .section-head h2 {
+        color: var(--fg);
+        font-size: var(--text-h2);
+        line-height: 1.3;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .ai-way .section-head > p {
+        color: var(--fg-dim);
+        font-size: var(--text-desc);
+        line-height: var(--leading-desc);
+        margin: 0;
+        max-width: 420px;
+        text-align: right;
+        word-break: keep-all;
+      }
+
+      .ai-way-rules {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .ai-way-rules li {
+        border-top: 2px solid var(--fg);
+        padding: 16px 0 0;
+      }
+
+      .ai-way-rules strong {
+        display: block;
+        color: var(--fg);
+        font-size: var(--text-body);
+        line-height: 1.5;
+        margin-bottom: 8px;
+        word-break: keep-all;
+      }
+
+      .ai-way-rules p {
+        color: var(--fg-dim);
+        font-size: var(--text-desc);
+        line-height: var(--leading-desc);
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .ai-way-rules a {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .ai-way-areas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .ai-way-areas a {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--fg-dim);
+        font-size: var(--text-desc);
+        font-weight: 600;
+        line-height: 1;
+        padding: 10px 14px;
+        text-decoration: none;
+      }
+
+      .ai-way-areas a:hover {
+        border-color: var(--fg);
+        color: var(--fg);
+      }
+
+      .ai-way-area {
+        scroll-margin-top: 96px;
+      }
+
+      .ai-way-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .use-card {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-card);
+        background: var(--surface);
+        min-width: 0;
+        padding: 22px;
+        scroll-margin-top: 96px;
+      }
+
+      .use-kicker {
+        color: var(--fg-mute);
+        font-family: var(--mono);
+        font-size: var(--text-meta);
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .use-card h3 {
+        color: var(--fg);
+        font-size: var(--text-h3);
+        line-height: 1.4;
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .use-card dl {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+      }
+
+      .use-card dl div {
+        display: grid;
+        grid-template-columns: 76px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .use-card dt {
+        color: var(--fg-mute);
+        font-size: var(--text-desc);
+        font-weight: 600;
+      }
+
+      .use-card dd {
+        color: var(--fg-dim);
+        font-size: var(--text-desc);
+        line-height: var(--leading-desc);
+        margin: 0;
+        overflow-wrap: anywhere;
+        word-break: keep-all;
+      }
+
+      .use-diff {
+        border-radius: var(--radius-btn);
+        background: var(--accent-bg);
+        color: var(--fg);
+        font-size: var(--text-desc);
+        line-height: var(--leading-desc);
+        margin: auto 0 0;
+        padding: 12px 14px;
+        word-break: keep-all;
+      }
+
+      .use-diff b {
+        display: block;
+        color: var(--accent);
+        font-size: var(--text-meta);
+        margin-bottom: 4px;
+      }
+
+      .use-link {
+        color: var(--accent);
+        font-size: var(--text-desc);
+        font-weight: 700;
+      }
+
+      .ai-way-foot {
+        display: grid;
+        gap: 12px;
+        border-top: 1px solid var(--border);
+        padding-top: 24px;
+      }
+
+      .ai-way-foot p {
+        color: var(--fg-mute);
+        font-size: var(--text-desc);
+        line-height: var(--leading-desc);
+        margin: 0;
+        word-break: keep-all;
+      }
+
+      .ai-way-foot ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .ai-way-foot a {
+        color: var(--accent);
+        font-size: var(--text-desc);
+        font-weight: 700;
+      }
+
+      @media (max-width: 920px) {
+        .ai-way-hero {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .ai-way-rules,
+        .ai-way-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .ai-way {
+          gap: 44px;
+        }
+
+        .ai-way-hero .lead {
+          font-size: 16px;
+        }
+
+        .ai-way .section-head {
+          display: block;
+        }
+
+        .ai-way .section-head > p {
+          margin-top: 8px;
+          max-width: none;
+          text-align: left;
+        }
+
+        .use-card {
+          padding: 18px;
+        }
+
+        .use-card dl div {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <article class="ai-way">
+    <section class="ai-way-hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">HOW I USE AI</p>
+        <h1 id="page-title">강대종은 AI를<br />이렇게 씁니다.</h1>
+        <p class="lead">{aiUses.lead}</p>
+        <p class="ai-way-aside">{aiUses.aside}</p>
+      </div>
+      <dl class="ai-way-stats" aria-label="AI 활용 사례 요약">
+        <div><dt>사례</dt><dd>{aiUses.uses.length}가지</dd></div>
+        <div><dt>분야</dt><dd>{areas.length}곳</dd></div>
+        <div><dt>시작</dt><dd>{firstMonth}</dd></div>
+        <div><dt>접고 편 일</dt><dd><a href="/timeline.html/#fold">{foldStory.arcs.length}편</a></dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="rule-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h2 id="rule-title">이렇게 나눠 맡습니다</h2>
+        </div>
+        <p>AI가 혼자 다 하지 않습니다. 맡기는 방식과 사람이 확인하는 지점을 먼저 정해 두었습니다.</p>
+      </div>
+      <ol class="ai-way-rules">
+        {aiUses.rules.map((rule) => (
+          <li><strong>{rule.title}</strong><p>{rule.text}{rule.link && <> <a href={rule.link.href}>{rule.link.label}</a></>}</p></li>
+        ))}
+      </ol>
+    </section>
+
+    <nav class="ai-way-areas" aria-label="분야 바로가기">
+      {areas.map((area) => <a href={`#area-${area.id}`}>{area.label} {area.uses.length}</a>)}
+    </nav>
+
+    {areas.map((area) => (
+      <section class="ai-way-area" id={`area-${area.id}`} aria-labelledby={`area-${area.id}-title`}>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">{area.eyebrow}</p>
+            <h2 id={`area-${area.id}-title`}>{area.label}</h2>
+          </div>
+          <p>{area.desc}</p>
+        </div>
+        <div class="ai-way-grid">
+          {area.uses.map((use) => (
+            <article class="use-card" id={`use-${use.id}`}>
+              <p class="use-kicker">{use.when ?? dot(use.date)}</p>
+              <h3>{use.title}</h3>
+              <dl>
+                <div><dt>상황</dt><dd>{use.situation}</dd></div>
+                <div><dt>AI가 한 일</dt><dd>{use.ai}</dd></div>
+                <div><dt>결과</dt><dd>{use.result}</dd></div>
+              </dl>
+              <p class="use-diff"><b>여기가 다릅니다</b>{use.different}</p>
+              {use.link && <a class="use-link" href={use.link.href}>{use.link.label} →</a>}
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <footer class="ai-way-foot">
+      <p>{aiUses.footnote}</p>
+      <ul>
+        <li><a href="/timeline.html/#fold">접은 일과 다시 편 일</a></li>
+        <li><a href="/vibecoding.html/">바이브코딩 작업 방식</a></li>
+        <li><a href="/smart-home.html/">스마트홈</a></li>
+        <li><a href="/jarvis/">자비스</a></li>
+        <li><a href="/system/">작업장 시스템</a></li>
+      </ul>
+    </footer>
+  </article>
+</Layout>
