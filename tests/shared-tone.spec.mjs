@@ -10,7 +10,7 @@ test.beforeEach(async({page})=>{
 for(const width of [390,1440]) test(`shared homepage tone across workshop routes at ${width}`,async({page})=>{
  await page.setViewportSize({width,height:900});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- for(const path of ['/','/products/','/worklog/','/newsletter/','/system/','/timeline.html/','/stack.html/']){
+ for(const path of ['/','/products/','/worklog/','/newsletter/','/system/','/timeline.html/','/stack.html/','/how-i-use-ai/']){
   const response=await page.goto(path);expect(response.status(),path).toBe(200);
   await expect(page.locator('mb-header .brand')).toContainText('강대종');
   await expect(page.locator('mb-header .links a')).toHaveText(['프로젝트','앱','연락'],{useInnerText:true});
@@ -27,7 +27,7 @@ for(const width of [390,1440]) test(`shared homepage tone across workshop routes
 test('dark scheme follows the company home palette and wide layout', async ({ page }) => {
  await page.emulateMedia({ colorScheme: 'dark' });
  await page.setViewportSize({ width: 1920, height: 900 });
- for (const path of ['/', '/products/', '/worklog/', '/system/', '/timeline.html/', '/lab/']) {
+ for (const path of ['/', '/products/', '/worklog/', '/system/', '/timeline.html/', '/lab/', '/how-i-use-ai/']) {
   const response = await page.goto(path); expect(response.status(), path).toBe(200);
   await expect(page.locator('html'), path).toHaveAttribute('data-theme', 'auto');
   await expect(page.locator('body'), path).toHaveCSS('background-color', rgb('dark','--bg'));

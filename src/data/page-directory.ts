@@ -16,6 +16,7 @@ export const pageGroups = [
     { href: '/smart-home.html/', label: '스마트홈', description: '생활 기기의 요청과 확인' },
     { href: '/knowhow.html/', label: '노하우', description: '문제를 해결한 원문 기록' },
     { href: '/vibecoding.html/', label: '바이브코딩', description: '첫 요청부터 완료 확인까지' },
+    { href: '/how-i-use-ai/', label: 'AI 활용법', description: '개발 밖까지 AI에게 맡긴 일' },
   ] },
   { title: '실험과 배운 점', pages: [
     { href: '/lab/', label: '실험실', description: '주제별 실험·기록 안내' },
@@ -25,7 +26,7 @@ export const pageGroups = [
     { href: '/sorry/', label: '반성문', description: '실수에서 바꾼 확인 기준' },
     { href: '/ai-glossary.html/', label: 'AI 용어집', description: '영상 맥락별 용어 찾아보기' },
     { href: '/habits.html/', label: '습관', description: '반복해서 지키는 작업 방식' },
-    { href: '/timeline.html/', label: '타임라인', description: '공개 작업과 과거 이정표' },
+    { href: '/timeline.html/', label: '타임라인', description: '이정표·접은 일·다시 편 일' },
     { href: '/stock.html/', label: '관심종목 기록', description: '2026년 5월의 관찰 메모' },
     { href: '/sise.html/', label: '시세판', description: '코인·환율 데이터 실험' },
   ] },
