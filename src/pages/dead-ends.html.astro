@@ -5,7 +5,9 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import Layout from '../layouts/Layout.astro';
 import ContentCases from '../components/ContentCases.astro';
+import FoldStory from '../components/FoldStory.astro';
 import decisions from '../data/decision-lessons.json';
+import story from '../data/dead-ends-story.json';
 
 type DeadEndEntry = {
   file?: string;
@@ -51,10 +53,16 @@ for (const entry of entries) {
 }
 const monthGroups = Array.from(monthMap.entries()).map(([month, items]) => ({ month, items }));
 
+const storyDates = story.entries.flatMap((entry) => entry.flow.map((step) => step.date)).sort();
+const reopenedCount = story.entries.filter((entry) => entry.flow.some((step) => step.event === '다시 엶')).length;
+const newestDate = [latestDate, storyDates.at(-1) ?? ''].sort().at(-1) ?? latestDate;
+
 const stats = [
-  { label: '전체', value: `${entries.length}건` },
+  { label: '연표', value: `${story.entries.length}건` },
+  { label: '다시 엶', value: `${reopenedCount}건` },
+  { label: '기록', value: `${entries.length}건` },
   { label: '분류', value: `${categoryRows.length}개` },
-  { label: '최신', value: latestDate },
+  { label: '최신', value: newestDate },
 ];
 
 const hrefFor = (entry: DeadEndEntry) => noteHref('dead-ends', entry);
@@ -62,7 +70,7 @@ const hrefFor = (entry: DeadEndEntry) => noteHref('dead-ends', entry);
 
 const formatMonth = (month: string) => month.replace('-', '.');
 ---
-<Layout title="막다른 길 — 마이너스베타스튜디오" description="시도했지만 막힌 작업을 모아둔 실패 사례 기록. 브라우저 자동화 차단, API 제한, 구조적 한계를 증상과 판단 근거, 포기 이유, 재시도 조건까지 남겨 다음 시도에서 같은 길을 피합니다.">
+<Layout title="막다른 길 — 마이너스베타스튜디오" description="강대종과 AI가 시도했다가 접은 일과 다시 연 일의 기록. 접은 이유와 강대종의 말, AI가 한 일, 다시 연 계기까지 남겨 다음 시도에서 같은 길을 피합니다.">
   <Fragment slot="head">
     <link rel="canonical" href="https://work.kangdaejong.com/dead-ends.html" />
     <script type="application/ld+json" is:inline>
@@ -97,9 +105,9 @@ const formatMonth = (month: string) => month.replace('-', '.');
         <p class="eyebrow">DEAD ENDS</p>
         <h1 id="page-title">막다른 길</h1>
         <p class="lead">
-          시도했지만 접은 것들을 따로 남깁니다.
+          강대종과 AI가 시도했다가 접은 일, 접었다가 다시 연 일을 함께 남깁니다.
           안 되는 길을 지워두면 다음 작업은 더 빨리 좁혀집니다.
-          최신 사례 날짜는 {latestDate}이고, 원문 목록 정리는 2026-08-31, 판단 사례 편집은 2026-09-23입니다.
+          결정 연표 편집은 {story.edited}, 판단 사례 편집은 2026-09-23, 원문 목록 정리는 2026-08-31입니다.
         </p>
       </div>
       <dl class="hero-stats" aria-label="막다른 길 요약">
@@ -111,6 +119,8 @@ const formatMonth = (month: string) => month.replace('-', '.');
         ))}
       </dl>
     </section>
+
+    <FoldStory entries={story.entries} edited={story.edited} />
 
     <ContentCases title="중단도 서로 다른 결정입니다" intro="2026-09-23 편집. 보류는 조건 대기, 중단은 해당 방식 종료, 방향 전환은 대안 선택입니다. 아래 재검토 조건은 편집 제안이며 작업 재개 지시가 아닙니다. 전체 22건의 원래 날짜와 기록은 아래에 보존합니다." cases={decisions}/>
     <section class="featured-section" aria-labelledby="featured-title">
