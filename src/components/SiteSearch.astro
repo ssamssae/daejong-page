@@ -60,7 +60,8 @@
           throw new Error("pagefind search api missing");
         }
         if (typeof api.options === "function") {
-          return Promise.resolve(api.options({ excerptLength: 22 })).then(function () {
+          var mount = document.querySelector('meta[name="workshop-base"]');
+          return Promise.resolve(api.options({ excerptLength: 22, baseUrl: mount ? mount.content : "/" })).then(function () {
             return api;
           });
         }

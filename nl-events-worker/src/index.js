@@ -17,6 +17,7 @@ import {
 } from '../../src/lib/nl-events.mjs';
 
 const ALLOWED_ORIGINS = new Set([
+  'https://kangdaejong.com',
   'https://work.kangdaejong.com',
   'http://localhost:4321',
   'http://127.0.0.1:4321',

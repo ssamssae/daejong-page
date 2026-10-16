@@ -49,3 +49,9 @@
 - 기대: 미리보기에 그 글의 분류·날짜(버전)·제목이 들어간 1200x630 이미지가 뜬다. 긴 제목은 3줄에서 말줄임한다. 홈·목록·기타 페이지는 중앙 공통 이미지를 유지한다.
 - 구현: `src/lib/og-image.mjs`(satori + @resvg/resvg-js, `pretendard` npm 패키지 OFL-1.1 폰트, 네트워크 미사용)가 `src/pages/og/[collection]/[slug].png.ts`에서 빌드 때 `/og/<collection>/<id>.png`를 만든다. 글 페이지는 `Layout`의 `image`로 그 절대 주소를 넘긴다.
 - 검증: `npm run build`의 postbuild `npm run verify:og-images`가 컬렉션별 원문 수 = 글 페이지 수 = PNG 수, 글마다 og:image·twitter:image 1개가 자기 PNG를 가리킴, PNG 1200x630, 홈 공통 이미지 유지를 검사한다. 이미 저장된 메신저 미리보기의 갱신은 배포만으로 보장되지 않는다.
+## 작업장 주소 이전 — T-261017-004
+
+- 진입점: `https://kangdaejong.com/work/`. 로그인 없이 사용한다.
+- 조작: 기록 검색 → 결과 글 열기 → 제품 목록 검색 → 회사 로고 클릭.
+- 기대: 작업장 내부 이동은 `/work/`를 유지한다. 회사 로고는 회사 홈으로 간다. 옛 글 링크는 같은 새 경로로 301 이동한다. 회사와 작업장은 루트 사이트맵을 함께 쓴다.
+- 로컬 근거: `tests/work-mount.test.mjs`, `scripts/verify-work-mount.mjs`, `tests/work-mount.browser.mjs`. 2026-10-17의 390/1440px 검색·이동 검사를 통과했다. 공개 배포·검색엔진 색인 상태는 별도 확인한다. [배포 순서](work-path.md).
