@@ -13,8 +13,11 @@ try{
     const context=await browser.newContext({viewport:{width,height:900}});
     const page=await context.newPage(),errors=[];
     page.on('pageerror',e=>errors.push(e.message));
-    await context.route('https://kangdaejong.com/**',async route=>{
+    await context.route('**/*',async route=>{
       const url=new URL(route.request().url());
+      // Local regression must not increment live counters or write analytics.
+      if(url.hostname==='visitor-counter.ssamssae.workers.dev')return route.fulfill({json:{count:0}});
+      if(url.origin!=='https://kangdaejong.com')return route.abort();
       let file=path.join(url.pathname.startsWith('/work/')?'dist':company,decodeURIComponent(url.pathname));
       if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=path.join(file,'index.html');
       if(fs.existsSync(file)&&fs.statSync(file).isFile())await route.fulfill({path:file});
