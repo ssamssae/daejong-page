@@ -19,3 +19,4 @@ beta-signup/
 
 # Build identity for production readback
 public/brand-consumer.json
+site-release-report/

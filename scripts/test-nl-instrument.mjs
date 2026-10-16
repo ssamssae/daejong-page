@@ -398,6 +398,23 @@ test('unknown product is rejected by server allowlist', async () => {
   assert.equal((await res.json()).error, 'unknown_product');
 });
 
+test('company and legacy workshop origins can preflight and record a fixture event', async () => {
+  for (const origin of ['https://kangdaejong.com', 'https://work.kangdaejong.com']) {
+    const url = 'https://daejong-nl-events.test/v1/events';
+    const options = await handleRequest(new Request(url, {method:'OPTIONS', headers:{origin}}), {});
+    assert.equal(options.status, 204);
+    assert.equal(options.headers.get('access-control-allow-origin'), origin);
+    const store = createEventStore();
+    const response = await handleRequest(new Request(url, {
+      method:'POST', headers:{origin, 'content-type':'application/json'},
+      body:JSON.stringify(event({product:'products'})),
+    }), {store});
+    assert.equal(response.status, 201);
+    assert.equal(response.headers.get('access-control-allow-origin'), origin);
+    assert.equal(store.all().length, 1);
+  }
+});
+
 test('POST rejects a missing or untrusted browser Origin', async () => {
   const store = createEventStore();
   const body = JSON.stringify(event({ product: 'products' }));

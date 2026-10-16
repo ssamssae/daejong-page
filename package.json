@@ -20,9 +20,11 @@
     "test:workshop-search": "node --test scripts/test-workshop-search.mjs",
     "verify:workshop": "python3 scripts/verify_workshop.py",
     "prebuild": "node --test scripts/test-nl-instrument.mjs scripts/test-workshop-search.mjs scripts/test-note-reader.mjs scripts/test-site-search-excerpt.mjs tests/homepage-freshness.test.mjs && node tests/privacy-calc-alarm.node.mjs",
-    "postbuild": "npm run verify:workshop && npm run verify:og-images && npm run verify:dark-coverage && npm run verify:palette-copies && npm run verify:product-icons",
+    "postbuild": "npm run verify:workshop && npm run verify:og-images && npm run verify:dark-coverage && npm run verify:palette-copies && npm run verify:product-icons && npm run test:work-mount && node scripts/work-mount.mjs && node scripts/prepare-site-search.mjs --mounted && npm run verify:work-mount",
     "verify:product-icons": "node scripts/verify-product-icons.mjs",
-    "test:product-icons": "bash tests/test_product_icon_contract.sh"
+    "test:product-icons": "bash tests/test_product_icon_contract.sh",
+    "test:work-mount": "node --test tests/work-mount.test.mjs",
+    "verify:work-mount": "node scripts/verify-work-mount.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
-    "pagefind": "1.5.2"
+    "pagefind": "1.5.2",
+    "parse5": "7.3.0"
   }
 }

@@ -2,7 +2,8 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 
-const dist = "dist";
+const mounted = process.argv.includes("--mounted");
+const dist = mounted ? "dist/work" : "dist";
 const bin = join("node_modules", ".bin", "pagefind");
 if (!existsSync(bin)) {
   console.error("site search: pagefind is not installed");
