@@ -55,7 +55,7 @@
 }
 .prose pre {
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--tone-radius-control);
   padding: 22px;
   overflow: auto;
   margin: 24px 0;
@@ -86,7 +86,7 @@
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: var(--tone-radius-control);
   margin: 28px auto;
 }
 .prose hr {

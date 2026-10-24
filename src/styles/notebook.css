@@ -28,7 +28,7 @@
 }
 .site-main.notebook :is(.hero-stats, .lab-stats, .summary-grid, .signal-grid) {
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--tone-radius-card);
   background: var(--bg-elev);
   overflow: hidden;
 }
@@ -48,7 +48,7 @@
     .principle-card,
     .lab-card
   ) {
-  border-radius: 12px;
+  border-radius: var(--tone-radius-card);
   padding: 25px;
   border: 1px solid var(--border);
   background: var(--notebook-surface);
@@ -77,10 +77,10 @@
   color: var(--fg-mute);
 }
 .site-main.notebook :is(.tag, .badge, .lab-cat, .lab-tag) {
-  border-radius: 5px;
+  border-radius: var(--tone-radius-pill);
 }
 .site-main.notebook :is(.table-wrap, .table-scroll, .ops-table-wrap) {
-  border-radius: 10px;
+  border-radius: var(--tone-radius-control);
   border: 1px solid var(--border);
   overflow-x: auto;
 }
@@ -96,15 +96,15 @@
   background: var(--notebook-surface);
   color: var(--fg);
   border: 1px solid var(--border);
-  border-radius: 7px;
+  border-radius: var(--tone-radius-control);
   min-height: 44px;
   padding: 10px 14px;
 }
 .site-main.notebook :is(.search-wrap, .search-box) {
-  border-radius: 8px;
+  border-radius: var(--tone-radius-control);
 }
 .site-main.notebook button {
-  border-radius: 6px;
+  border-radius: var(--tone-radius-control);
   min-height: 36px;
 }
 .site-main.notebook :is(.back-link, .lab-back) {
@@ -123,7 +123,7 @@
 .site-main.notebook :is(.lab-empty, .lab-error, .lab-loading) {
   padding: 32px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--tone-radius-card);
   background: var(--bg-elev);
 }
 .site-main.notebook :is(.lab-list) {
@@ -148,7 +148,7 @@
     font-size: 14px;
   }
   .site-main.notebook :is(.hero-stats, .lab-stats) {
-    border-radius: 10px;
+    border-radius: var(--tone-radius-card);
   }
   .site-main.notebook
     :is(
