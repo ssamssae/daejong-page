@@ -242,3 +242,9 @@ body.studio-page .guide-grid{gap:14px}
 body.studio-page .catalog-page{padding-top:0}
 body.studio-page.catalog-page .site-main{padding-top:0}
 @media(max-width:650px){body.studio-page .site-main{width:calc(100% - 40px);padding-top:48px}body.studio-page #main-content.site-main h1{font-size:34px}body.studio-page #main-content.site-main h2{font-size:21px}body.studio-page .guide-section{padding:29px 0 32px}body.studio-page .guide-poster>strong{font-size:28px}}
+
+/* T-261024-030: 라벨을 한국어로 바꿨다 — 영문 대문자용 넓은 자간을 한글 라벨에는 주지 않는다.
+   컴포넌트 범위 스타일(.x[data-astro-cid])보다 구체적이어야 해서 body.studio-page 로 시작한다. */
+body.studio-page :is(.guide-kicker, .story-eyebrow, .footer-kicker, .art-caption, .section-label, .maker-mark p, .studio-strip > span:first-child, .kicker) {
+  letter-spacing: 0;
+}
