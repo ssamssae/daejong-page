@@ -30,7 +30,7 @@ const categories = [
   >
     <div class="section-head">
       <div>
-        <p class="eyebrow">생활에 맞는 앱 찾기</p><h2
+        <p class="eyebrow mb-eyebrow">생활에 맞는 앱 찾기</p><h2
           id="catalog-title"
         >
           현재 제공하는 제품
@@ -39,11 +39,11 @@ const categories = [
     </div>
     <div class="catalog-toolbar" data-catalog-controls hidden>
       <div class="filters" role="group" aria-label="제품 종류">
-        <button type="button" data-filter="all" aria-pressed="true"
+        <button type="button" class="mb-option" data-filter="all" aria-pressed="true"
           >전체 <span>{productCounts.total}</span></button
         >{
           categories.map((c) => (
-            <button type="button" data-filter={c.kind} aria-pressed="false">
+            <button type="button" class="mb-option" data-filter={c.kind} aria-pressed="false">
               {c.label} <span>{c.items.length}</span>
             </button>
           ))
@@ -60,6 +60,7 @@ const categories = [
           ><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4 4"
           ></path></svg
         ><span class="sr-only">제품 검색</span><input
+          class="mb-input"
           type="search"
           placeholder="어떤 제품을 찾으세요?"
           data-catalog-search
@@ -88,7 +89,7 @@ const categories = [
     <div class="empty-state" data-catalog-empty hidden>
       <span aria-hidden="true">⌕</span><h3>아직 찾는 제품이 없네요.</h3><p>
         다른 검색어를 입력하거나 전체 제품을 둘러보세요.
-      </p><button type="button" class="button" data-catalog-reset
+      </p><button type="button" class="mb-btn mb-btn--secondary" data-catalog-reset
         >전체 제품 보기</button>
     </div>
     <noscript
@@ -101,7 +102,7 @@ const categories = [
   <section class="retired-products" id="retired-products" aria-labelledby="retired-title">
     <h2 id="retired-title">종료한 제품과 서비스</h2>
     <p>2026년 10월 3일 기준이에요. 앱은 신규 배포를 종료했으며, 기존 설치본의 데이터 삭제를 뜻하지 않아요. 무료 실습 양식도 2026년 10월 4일 공개 제공을 종료했어요.</p>
-    <ul>{retiredProducts.map(item => <li><strong>{item.name}</strong><span>{item.status} · <time datetime={item.date}>{item.date}</time></span></li>)}</ul>
+    <ul>{retiredProducts.map(item => <li class="mb-row"><strong>{item.name}</strong><span>{item.status} · <time datetime={item.date}>{item.date}</time></span></li>)}</ul>
   </section>
   <details class="product-demos"><summary>제품 화면과 사용 예시</summary><ProductExamples /><IptaDemo /><BridgeDemo /></details>
   <p class="comparison-note">비용·지원·가입 정보 확인: 2026-09-22. 운영·종료 상태 확인: 2026-10-04. 스토어별 인앱 구매와 연결 서비스 요금은 해당 안내를 확인하세요.</p>
@@ -110,7 +111,7 @@ const categories = [
       <h2>완성보다, 계속 만드는 마음.</h2><p>
         제품이 만들어지는 과정과 시행착오도 함께 남겨요.
       </p>
-    </div><a href="/worklog/" class="text-link"
+    </div><a href="/worklog/" class="mb-link"
       >작업 기록 읽기 <span aria-hidden="true">↗</span></a>
   </aside>
   <script>
@@ -120,296 +121,153 @@ const categories = [
       .forEach(initCatalog);
   </script>
   <style>
-    .retired-products{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
-    .retired-products>p{font-size:14px;line-height:1.8;margin:14px 0;color:var(--fg-mute)}
-    .retired-products ul{list-style:none;padding:0}.retired-products li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:14px 0;border-bottom:1px solid var(--border-soft);font-size:14px}
-    .retired-products li span{color:var(--fg-mute);font-size:12px}.retired-products>a{display:inline-block;margin-top:18px;min-height:44px}
-
-    .collection-hero {
-      display: grid;
-      grid-template-columns: 1.65fr 1fr;
-      gap: 48px;
-      padding: 15px 0 64px;
-      align-items: center;
-    }
-    .collection-hero h1 {
-      font-size: clamp(44px, 6.7vw, 84px);
-      line-height: 1.14;
-      letter-spacing: -0.06em;
-    }
-    .title-dot {
-      color: var(--accent-cta);
-    }
-    .hero-description {
-      font-size: 16px;
-      margin-top: 28px;
-      line-height: 1.85;
-      word-break: keep-all;
-    }
-    .hero-note {
-      justify-self: end;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 285px;
-      text-align: center;
-    }
-    .edition {
-      font: 9px var(--mono);
-      letter-spacing: 0.1em;
-      color: var(--fg-mute);
-    }
-    .collection-mark {
-      position: relative;
-      display: grid;
-      place-content: center;
-      width: 170px;
-      height: 155px;
-      margin: 18px 0 15px;
-      transform: rotate(-9deg);
-      color: var(--accent-cta);
-    }
-    .collection-mark::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-      border-radius: 50%;
-      transform: rotate(-25deg);
-    }
-    .collection-mark span {
-      font:
-        78px/0.9 Georgia,
-        serif;
-      letter-spacing: -11px;
-      padding-right: 10px;
-    }
-    .collection-mark i {
-      font-size: 10px;
-      margin-top: 16px;
-      font-style: normal;
-    }
-    .hero-note p {
-      font-size: 13px;
-      line-height: 1.7;
-    }
-    .hero-note strong {
-      font-weight: 600;
-      color: var(--fg);
-    }
-    .hero-jump {
-      margin-top: 18px;
-      font-size: 11px;
-      text-decoration: none;
-    }
-    .hero-jump span {
-      padding-left: 16px;
-    }
-    .selected {
+    /* T-261024-058: 고르는 칸(.mb-option)·입력칸(.mb-input)·버튼(.mb-btn)·글 링크(.mb-link)·이름·값 줄(.mb-row)·눈썹 글(.mb-eyebrow)은
+       회사홈 공용 톤 파일의 부품이 정하고, 남는 배치 간격·글자 크기는 공용 톤 값(--tone-*)만 쓴다 — 직접 숫자 0(verify-tone-copies).
+       첫 화면(.studio-hero·.studio-label·.studio-lead)은 공용 studio-page.css 가 정한다.
+       마크업에 없던 옛 규칙(.collection-hero·.hero-note·.collection-mark·.selected-*·.art-link 등)은 지웠다. */
+    .retired-products {
+      margin-top: var(--tone-section-gap);
+      padding-top: var(--tone-space-4);
       border-top: 1px solid var(--border);
-      padding-top: 32px;
-      margin-bottom: 80px;
     }
-    .selected .section-head h2 {
-      font-size: 26px;
-    }
-    .section-index {
-      font: 10px var(--mono);
+    .retired-products > p {
+      font-size: var(--tone-label-size);
+      line-height: var(--tone-label-line);
+      margin: var(--tone-space-2) 0;
       color: var(--fg-mute);
     }
-    .selected-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 24px;
+    .retired-products ul {
+      list-style: none;
+      padding: 0;
     }
-    .selected-card {
-      min-width: 0;
-    }
-    .art-link {
-      display: block;
-      text-decoration: none;
-      border-radius: var(--tone-radius-card);
-      transition: transform 0.2s;
-    }
-    .art-link:hover {
-      transform: translateY(-4px);
-    }
-    .selected-info {
-      padding: 19px 2px 0;
-    }
-    .selected-tag {
-      font-size: 10px;
-      color: var(--fg-mute);
-    }
-    .selected-info h3 {
-      font-size: 24px;
-      margin-top: 5px;
-    }
-    .selected-info h3 a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-decoration: none;
-    }
-    .selected-info h3 span {
-      font-size: 21px;
-      font-weight: 400;
-    }
-    .selected-info p {
-      font-size: 13px;
-      margin-top: 7px;
-    }
-    .selected-links {
-      display: flex;
+    .retired-products li {
       flex-wrap: wrap;
-      gap: 6px 16px;
-      margin-top: 13px;
     }
-    .selected-links a {
-      font-size: 10px;
-      text-decoration: none;
-      min-height: 32px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .retired-products li span {
+      color: var(--fg-mute);
+      font-size: var(--tone-caption-size);
     }
     .catalog {
-      scroll-margin-top: 24px;
+      scroll-margin-top: var(--tone-space-4);
     }
     .catalog-toolbar {
       display: flex;
       justify-content: space-between;
-      gap: 24px;
+      gap: var(--tone-space-4);
       align-items: center;
-      padding: 20px 0;
+      padding: var(--tone-space-3) 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
     .filters {
       display: flex;
-      gap: 6px;
+      gap: var(--tone-space-1);
       flex-wrap: wrap;
     }
     .filters button {
-      min-height: 42px;
-      padding: 9px 14px;
-      border: 1px solid transparent;
-      border-radius: var(--tone-radius-pill);
-      background: transparent;
-      font-size: 12px;
       white-space: nowrap;
     }
     .filters button span {
-      font: 9px var(--mono);
+      font: var(--tone-weight) var(--tone-caption-size) / var(--tone-caption-line) var(--mono);
       opacity: 0.7;
-      margin-left: 4px;
-    }
-    .filters button:hover {
-      background: var(--bg-elev);
-    }
-    .filters button[aria-pressed="true"] {
-      background: var(--accent-bg);
-      color: var(--accent);
-      border-color: var(--accent);
     }
     .search-box {
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 10px;
       color: var(--fg-mute);
-      padding: 0 13px;
       min-width: 240px;
-      height: 43px;
-      background: var(--bg-elev);
-      border: 1px solid var(--border);
-      border-radius: var(--tone-radius-control);
+    }
+    .search-box svg {
+      position: absolute;
+      left: var(--tone-control-padding);
+      pointer-events: none;
     }
     .search-box input {
-      width: 100%;
-      min-width: 0;
-      border: 0;
-      background: transparent;
-      outline: none;
-      font-size: 12px;
-      color: var(--fg);
-    }
-    .search-box:focus-within {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
+      padding-left: var(--tone-space-6);
     }
     .catalog-meta {
       display: flex;
       justify-content: space-between;
-      margin: 20px 0;
+      margin: var(--tone-space-3) 0;
       color: var(--fg-mute);
-      font-size: 11px;
+      font-size: var(--tone-caption-size);
     }
     .catalog-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: var(--tone-space-2);
     }
     .empty-state {
       text-align: center;
-      padding: 70px 20px;
+      padding: var(--tone-section-gap) var(--tone-space-3);
       border: 1px dashed var(--border);
       border-radius: var(--tone-radius-card);
     }
     .empty-state > span {
-      font-size: 40px;
+      font-size: var(--tone-display-size);
       color: var(--fg-mute);
     }
     .empty-state h3 {
-      margin: 12px 0;
+      margin: var(--tone-space-2) 0;
     }
     .empty-state p {
-      font-size: 14px;
-      margin-bottom: 24px;
+      font-size: var(--tone-label-size);
+      margin-bottom: var(--tone-space-4);
     }
     .making-note {
-      margin-top: 80px;
+      margin-top: var(--tone-space-5);
       display: flex;
       align-items: center;
-      gap: 26px;
-      padding: 32px;
+      gap: var(--tone-space-3);
+      padding: var(--tone-space-4) 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
     .note-star {
-      font-size: 58px;
-      line-height: 1;
-      color: var(--accent);
-    }
-    .making-note h2 {
-      font-size: 22px;
+      display: none;
     }
     .making-note p {
-      font-size: 13px;
-      margin-top: 7px;
+      font-size: var(--tone-label-size);
+      margin-top: var(--tone-space-1);
     }
     .making-note a {
       margin-left: auto;
       white-space: nowrap;
     }
     .no-script {
-      margin-top: 20px;
-      font-size: 13px;
+      margin-top: var(--tone-space-3);
+      font-size: var(--tone-caption-size);
+    }
+    .product-demos {
+      margin-top: var(--tone-space-5);
+      border-block: 1px solid var(--border);
+    }
+    .product-demos > summary {
+      padding: var(--tone-space-3) 0;
+      min-height: var(--tone-control-height);
+      cursor: pointer;
+      font-size: var(--tone-label-size);
+    }
+    .comparison-note {
+      font-size: var(--tone-caption-size);
+      color: var(--fg-mute);
+      margin: var(--tone-space-3) 0;
+    }
+    .catalog > .section-head {
+      margin-bottom: var(--tone-space-4);
+    }
+    .catalog .eyebrow {
+      display: none;
+    }
+    :global(body.catalog-page .site-main) {
+      padding-top: 0;
     }
     @media (max-width: 1000px) {
-      .collection-hero {
-        gap: 24px;
-      }
-      .hero-note {
-        width: 240px;
-      }
-      .selected-grid {
-        gap: 16px;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
       .catalog-toolbar {
         align-items: stretch;
         flex-direction: column;
-        gap: 14px;
+        gap: var(--tone-space-2);
       }
       .search-box {
         width: 100%;
@@ -419,100 +277,22 @@ const categories = [
       }
     }
     @media (max-width: 640px) {
-      .collection-hero {
-        grid-template-columns: 1fr;
-        padding: 8px 0 40px;
-        gap: 26px;
-      }
-      .collection-hero h1 {
-        font-size: clamp(40px, 10.2vw, 64px);
-      }
-      .collection-hero .eyebrow {
-        font-size: 9px;
-      }
-      .hero-note {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-        border-top: 1px solid var(--border-soft);
-        padding-top: 20px;
-      }
-      .edition,
-      .collection-mark {
-        display: none;
-      }
-      .hero-note p {
-        font-size: 11px;
-      }
-      .hero-jump {
-        font-size: 10px;
-        margin-top: 0;
-      }
-      .hero-description {
-        font-size: 14px;
-        margin-top: 20px;
-      }
-      .selected .section-head h2 {
-        font-size: 22px;
-      }
-      .section-index {
-        display: none;
-      }
-      .selected-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-      .selected-info {
-        padding-top: 14px;
-      }
-      .selected {
-        margin-bottom: 54px;
-      }
-      .selected-info h3 {
-        font-size: 25px;
-      }
-      .selected-info p {
-        font-size: 14px;
-      }
-      .selected-links a {
-        font-size: 12px;
-      }
       .catalog-grid {
         grid-template-columns: 1fr;
-      }
-      .filters {
-        gap: 3px;
-      }
-      .filters button {
-        padding: 9px 10px;
-        font-size: 11px;
       }
       .catalog-meta > span {
         display: none;
       }
       .making-note {
-        margin-top: 50px;
         flex-wrap: wrap;
-        padding: 26px 0;
-        gap: 14px;
-      }
-      .note-star {
-        font-size: 40px;
-      }
-      .making-note h2 {
-        font-size: 18px;
+        gap: var(--tone-space-2);
       }
       .making-note p {
-        font-size: 12px;
+        font-size: var(--tone-caption-size);
       }
       .making-note a {
-        margin-left: 58px;
-        font-size: 12px;
+        margin-left: 0;
       }
     }
-    .product-demos{margin-top:32px;border-block:1px solid var(--border)}.product-demos>summary{padding:16px 0;min-height:48px;cursor:pointer;font-size:13px}.comparison-note{font-size:12px;color:var(--fg-mute);margin:20px 0}.catalog>.section-head{margin-bottom:23px}.catalog .eyebrow{display:none}.making-note{margin-top:32px;padding:24px 0;gap:20px}.note-star{display:none}
-    :global(body.catalog-page .site-main){padding-top:0}
   </style>
 </Layout>

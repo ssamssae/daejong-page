@@ -29,8 +29,13 @@ for (const file of files) {
   });
 }
 // T-261024-028: 작업장 자기 값(글꼴·모서리·본문 크기)은 공용 톤 파일에 연결돼 있어야 한다 — 숫자로 되돌리면 실패.
+// T-261024-058: 제목·설명·간격 값의 연결(--text-h1/h2/h3·--text-desc·--gap-card·--pad-section)도 같은 방식으로 지킨다.
 const siteTokens = readFileSync('src/styles/tokens.css', 'utf8');
-for (const link of ['--sans: var(--tone-font)', '--radius-card: var(--tone-radius-card)', '--radius-btn: var(--tone-radius-control)', '--text-body: var(--tone-label-size)']) {
+for (const link of [
+  '--sans: var(--tone-font)', '--radius-card: var(--tone-radius-card)', '--radius-btn: var(--tone-radius-control)', '--text-body: var(--tone-label-size)',
+  '--text-h1: var(--tone-display-size)', '--text-h2: var(--tone-title-size)', '--text-h3: var(--tone-subtitle-size)', '--text-desc: var(--tone-caption-size)',
+  '--gap-card: var(--tone-space-4)', '--pad-section: var(--tone-section-gap)',
+]) {
   if (!siteTokens.includes(link)) hits.push(`src/styles/tokens.css: ${link} 연결이 없다 (공용 톤 파일)`);
 }
 if (hits.length) {

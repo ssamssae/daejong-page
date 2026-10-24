@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>막다른 길 상세 - 강대종</title>
   <meta name="description" content="시도했지만 막힌 사례의 상세 — 시도/원인/남은 선택지/결론.">
-  <!-- T-261012-032: 공유 카드(회사 공용 다크 카드) — 종전엔 og:image 가 없어 링크 미리보기에 그림이 없었다. -->
+  <!-- T-261012-032: 공유 카드(회사 공용 카드) — 종전엔 og:image 가 없어 링크 미리보기에 그림이 없었다. -->
   <meta property="og:title" content="막다른 길 상세 - 강대종">
   <meta property="og:description" content="시도했지만 막힌 사례의 상세 — 시도/원인/남은 선택지/결론.">
   <meta property="og:image" content="https://kangdaejong.com/brand/current/social.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://kangdaejong.com/brand/current/social.png">
-  <meta name="theme-color" content="#08090A">
+  <!-- T-261024-058: 전부 라이트 — 옛 다크 theme-color(#08090A) 복사본은 뺐다. 색은 공용 tokens.css 하나에서만 온다. -->
+  <meta name="color-scheme" content="light">
   <link rel="icon" href="https://kangdaejong.com/brand/current/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -22,7 +23,7 @@
   <link rel="stylesheet" href="/page-dark.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { color-scheme: dark; }
+    html { color-scheme: light; }
     body {
       background-color: var(--bg);
       color: var(--fg);
