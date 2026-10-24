@@ -57,7 +57,20 @@ export const apps = [
   },
 ];
 
-export const saas = [];
+export const saas = [
+  {
+    id: 'cheotireum',
+    name: '첫이름',
+    ...productIcon('cheotireum'),
+    status: '웹 서비스 · 작명서 1,000원',
+    desc: '사주와 부족한 오행, 한자 뜻풀이와 발음·획수를 함께 살펴 가족이 고르는 아기 이름 작명서예요.',
+    links: [
+      { label: '웹에서 시작하기', url: 'https://cheotireum.kangdaejong.com/' },
+      { label: '무료 샘플', url: 'https://cheotireum.kangdaejong.com/sample-report' },
+      { label: '한자 확인', url: 'https://cheotireum.kangdaejong.com/hanja-check' },
+    ],
+  },
+];
 
 // 공개 브릿지 버전 단일 소스 — status 문구·release URL 을 여기서 파생해 페이지 간 drift 를 없앤다.
 // (버전 자체의 실 릴리스 대조는 별도 게이트 몫 — 잔여, PR 본문 참조.)
