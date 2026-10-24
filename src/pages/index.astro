@@ -61,19 +61,19 @@ const spaces = [
 >
   <section class="home-hero" aria-labelledby="home-title">
     <div class="home-copy">
-      <p class="eyebrow">1인 디지털 작업장</p><h1 id="home-title">
+      <p class="eyebrow mb-eyebrow">1인 디지털 작업장</p><h1 id="home-title">
         만들고, 고치고,<br />기록해요<span>.</span>
       </h1><p class="lead">
         강대종이 제품을 만들며 남긴 작업 기록이에요.<br />무엇을 고쳤고, 어디서 막혔고,<br class="desktop-break" /> 무엇을 배웠는지 공개된 글로 읽어보세요.
       </p><div class="hero-actions">
-        <a class="button primary" href="/worklog/"
+        <a class="mb-btn mb-btn--primary" href="/worklog/"
           >최근 작업 읽기 <span aria-hidden="true">↗</span></a
-        ><a class="button" href="/newsletter/"
+        ><a class="mb-btn mb-btn--secondary" href="/newsletter/"
           >뉴스레터 읽기 <span aria-hidden="true">→</span></a>
       </div>
     </div>
     <div class="home-art">
-      <a class="workbench-note" href={`/newsletter/${recentNewsletter[0].id}/`}><span>가장 최근의 이야기 · {recentNewsletter[0].data.date}</span><strong>{recentNewsletter[0].data.title}</strong><p>{recentNewsletter[0].data.summary}</p><b>과정 읽기 ↗</b></a>
+      <a class="workbench-note mb-card" href={`/newsletter/${recentNewsletter[0].id}/`}><span>가장 최근의 이야기 · {recentNewsletter[0].data.date}</span><strong>{recentNewsletter[0].data.title}</strong><p>{recentNewsletter[0].data.summary}</p><b class="mb-link">과정 읽기 ↗</b></a>
     </div>
   </section>
   <div class="studio-strip">
@@ -82,24 +82,24 @@ const spaces = [
       >오픈소스 <b>{tools.length}</b></span
     ><span>전자책 <b>{ebooks.length}</b></span>
   </div>
-  <aside class="workshop-purpose"><p>쓸 제품을 찾고 계신가요? 제품 목록에서 기능과 실제 화면을 살펴보세요.</p><a href="/products/">모든 제품 보기 ↗</a><a href="https://founder.kangdaejong.com/">만드는 사람 소개 ↗</a></aside>
-  <a class="jarvis-highlight" href="/jarvis/">
-    <div><span>새로 공개 · 자비스</span><h2>자비스를 불렀더니, 네스트가 답했다.</h2><p>Mac 마이크와 Cursor, 집에 있던 스피커를 연결했다. 실제 호출·청취까지 확인한 오픈소스 실험.</p></div>
-    <strong>제작기와 실측 보기 ↗</strong>
+  <aside class="workshop-purpose"><p>쓸 제품을 찾고 계신가요? 제품 목록에서 기능과 실제 화면을 살펴보세요.</p><a class="mb-link" href="/products/">모든 제품 보기 ↗</a><a class="mb-link" href="https://founder.kangdaejong.com/">만드는 사람 소개 ↗</a></aside>
+  <a class="jarvis-highlight mb-card" href="/jarvis/">
+    <div><span class="mb-eyebrow">새로 공개 · 자비스</span><h2>자비스를 불렀더니, 네스트가 답했다.</h2><p>Mac 마이크와 Cursor, 집에 있던 스피커를 연결했다. 실제 호출·청취까지 확인한 오픈소스 실험.</p></div>
+    <strong class="mb-link">제작기와 실측 보기 ↗</strong>
   </a>
   <section class="writing-section" aria-labelledby="writing-title">
     <div class="section-head">
       <div>
-        <p class="eyebrow">과정의 기록</p><h2 id="writing-title">
+        <p class="eyebrow mb-eyebrow">과정의 기록</p><h2 id="writing-title">
           결과만큼, 과정도 남겨요.
         </h2>
       </div><p>잘된 일도, 막다른 길도.<br />다음 시작을 위한 기록들이에요.</p>
     </div><div class="spaces">
       {
         spaces.map((space) => (
-          <a class="space" href={space.href}>
+          <a class="space mb-card" href={space.href}>
             <>
-              <span class="space-label">{space.label}</span>
+              <span class="space-label mb-eyebrow">{space.label}</span>
               <h3>{space.title}</h3>
               <p>{space.desc}</p>
               <span class="space-bottom">
@@ -115,12 +115,12 @@ const spaces = [
   <section class="recent-writing" aria-label="최근 기록">
     <div>
       <div class="recent-head">
-        <p class="eyebrow">작업일지</p><a href="/worklog/"
+        <p class="eyebrow mb-eyebrow">작업일지</p><a class="mb-link" href="/worklog/"
           >작업일지 전체 ↗</a>
       </div><PostList posts={recentWorklog} base="/worklog" />
     </div><div>
       <div class="recent-head">
-        <p class="eyebrow">뉴스레터</p><a href="/newsletter/"
+        <p class="eyebrow mb-eyebrow">뉴스레터</p><a class="mb-link" href="/newsletter/"
           >뉴스레터 전체 ↗</a>
       </div><PostList posts={recentNewsletter} base="/newsletter" />
     </div>
@@ -128,7 +128,7 @@ const spaces = [
   <ActivityCard />
   <section class="explore-more" aria-labelledby="explore-title">
     <div>
-      <p class="eyebrow">더 둘러보기</p><h2 id="explore-title">
+      <p class="eyebrow mb-eyebrow">더 둘러보기</p><h2 id="explore-title">
         작업장의 다른 서랍들.
       </h2>
     </div><div class="drawer-links">
@@ -138,184 +138,150 @@ const spaces = [
     </div>
   </section>
   <style>
-    .jarvis-highlight{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:30px 34px;margin:0 0 65px;border:1px solid var(--border);border-left:4px solid var(--accent-2);border-radius:var(--tone-radius-card);background:var(--bg-elev);text-decoration:none}.jarvis-highlight span{font:10px var(--mono);letter-spacing:.1em;color:var(--accent-2)}.jarvis-highlight h2{font-size:24px;margin:10px 0}.jarvis-highlight p{font-size:14px;max-width:64ch}.jarvis-highlight>strong{font-size:13px;white-space:nowrap;color:var(--accent-dim)}@media(max-width:700px){.jarvis-highlight{align-items:flex-start;flex-direction:column;padding:24px}.jarvis-highlight h2{font-size:22px}}
-
-    .workbench-note{display:flex;flex-direction:column;gap:20px;padding:38px;background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--tone-radius-card);color:inherit;text-decoration:none}.workbench-note>span{font-size:12px;color:var(--fg-dim)}.workbench-note>strong{font-size:clamp(24px,3vw,38px);line-height:1.45;word-break:keep-all}.workbench-note p{font-size:14px;line-height:1.85;color:var(--fg-dim)}.workbench-note b{font-size:13px;color:var(--accent-cta)}.workshop-purpose{display:flex;flex-wrap:wrap;gap:14px 24px;padding:24px 0 40px;font-size:14px;line-height:1.8}.workshop-purpose p{flex:1 1 100%}.workshop-purpose a{min-height:44px;color:var(--accent-cta)}
+    /* T-261024-058: 카드(.mb-card)·버튼(.mb-btn)·눈썹 글(.mb-eyebrow)·글 링크(.mb-link)는 회사홈 공용 톤 파일의 부품이 정하고,
+       남는 배치 간격·글자 크기는 공용 톤 값(--tone-*)만 쓴다 — 직접 숫자 0(verify-tone-copies).
+       마크업에 없던 옛 규칙(.home-art-note·.hand-note·.note-dot·.home-selected·.home-products·.home-product)은 지웠다. */
     .home-hero {
       display: grid;
       grid-template-columns: 1.3fr 1fr;
       align-items: center;
-      gap: 70px;
-      padding: 30px 0 68px;
+      gap: var(--tone-section-gap);
+      padding: 0 0 var(--tone-section-gap);
     }
     .home-copy h1 {
-      font-size: clamp(42px, 5.5vw, 76px);
-      line-height: 1.2;
-      letter-spacing: -0.06em;
+      font-size: var(--tone-display-size);
+      line-height: var(--tone-display-line);
+      letter-spacing: var(--tone-tracking-title);
     }
     .home-copy h1 > span {
       color: var(--accent);
     }
     .home-copy .lead {
-      font-size: 16px;
-      margin-top: 28px;
+      font-size: var(--text-lead);
+      margin-top: var(--tone-space-4);
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 30px;
+      gap: var(--tone-space-2);
+      margin-top: var(--tone-space-5);
     }
     .home-art {
       position: relative;
-      padding: 0;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      transform: none;
     }
-    .home-art :global(.product-art) {
-      height: 330px;
-      border-radius: 145px 145px 9px 9px;
+    .workbench-note {
+      display: flex;
+      flex-direction: column;
+      gap: var(--tone-space-3);
+      color: inherit;
+      text-decoration: none;
     }
-    .home-art :global(.art-caption) {
-      display: none;
+    .workbench-note > span {
+      font-size: var(--tone-caption-size);
+      color: var(--fg-dim);
     }
-    .home-art-note {
-      position: relative;
-      display: grid;
-      grid-template-columns: 10px 1fr;
-      background: var(--bg);
-      padding: 17px 20px;
-      margin: -14px -32px 0 20px;
-      box-shadow: var(--shadow-pop);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      transform: rotate(-6deg);
-      gap: 2px 10px;
-      font-size: 11px;
+    .workbench-note > strong {
+      font-size: var(--tone-title-size);
+      line-height: var(--tone-title-line);
+      letter-spacing: var(--tone-tracking-title);
+      word-break: keep-all;
     }
-    .home-art-note strong {
-      grid-column: 2;
-      font-size: 13px;
-      font-weight: 600;
+    .workbench-note > p {
+      word-break: keep-all;
     }
-    .note-dot {
-      background: var(--accent-cta);
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      margin-top: 7px;
+    .workshop-purpose {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--tone-space-2) var(--tone-space-4);
+      padding: var(--tone-space-4) 0 var(--tone-space-6);
+      font-size: var(--tone-label-size);
+      line-height: var(--tone-label-line);
     }
-    .hand-note {
-      position: absolute;
-      left: 24px;
-      bottom: -29px;
-      font:
-        italic 18px Georgia,
-        serif;
-      color: var(--accent);
-      transform: rotate(-4deg);
+    .workshop-purpose p {
+      flex: 1 1 100%;
+    }
+    .jarvis-highlight {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--tone-space-4);
+      margin: 0 0 var(--tone-section-gap);
+      border-left: 4px solid var(--accent-2);
+      text-decoration: none;
+    }
+    .jarvis-highlight span {
+      display: block;
+      color: var(--accent-2);
+    }
+    .jarvis-highlight h2 {
+      margin: var(--tone-space-1) 0;
+    }
+    .jarvis-highlight p {
+      font-size: var(--tone-label-size);
+      line-height: var(--tone-label-line);
+      max-width: 64ch;
+    }
+    .jarvis-highlight > strong {
+      white-space: nowrap;
     }
     .studio-strip {
       display: flex;
-      gap: 28px;
+      gap: var(--tone-space-4);
       justify-content: space-between;
       align-items: center;
       border-block: 1px solid var(--border);
-      padding: 21px 0;
-      margin-bottom: 80px;
-      font-size: 12px;
+      padding: var(--tone-space-4) 0;
+      margin-bottom: var(--tone-section-gap);
+      font-size: var(--tone-caption-size);
       color: var(--fg-dim);
     }
     .studio-strip > span:first-child {
-      font: 10px var(--mono);
-      letter-spacing: 0.06em;
+      font: var(--tone-weight-bold) var(--tone-caption-size) / var(--tone-caption-line) var(--mono);
     }
     .studio-strip b {
-      font-weight: 600;
+      font-weight: var(--tone-weight-bold);
       color: var(--fg);
-      margin-left: 10px;
+      margin-left: var(--tone-space-1);
     }
-    .home-selected,
     .writing-section {
-      margin-bottom: 80px;
-    }
-    .home-products {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-    .home-product {
-      text-decoration: none;
-      display: block;
-      min-width: 0;
-    }
-    .home-product h3 {
-      display: flex;
-      justify-content: space-between;
-      margin: 17px 0 8px;
-      font-size: 23px;
-    }
-    .home-product h3 span {
-      font-weight: 400;
-    }
-    .home-product > p {
-      font-size: 13px;
-      line-height: 1.8;
+      margin-bottom: var(--tone-section-gap);
     }
     .spaces {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
+      gap: var(--tone-space-2);
     }
     .space {
       display: flex;
       flex-direction: column;
-      padding: 30px;
-      background: var(--bg);
       text-decoration: none;
-      transition: background 0.2s;
     }
-    .space:hover {
-      background: var(--bg-elev);
-    }
-    .space-label {
-      font: 10px var(--mono);
-      letter-spacing: 0.07em;
+    .space .space-label {
+      display: block;
       color: var(--accent);
     }
     .space h3 {
-      margin: 30px 0 14px;
-      font-size: 25px;
-    }
-    .space p {
-      font-size: 14px;
-      line-height: 1.8;
+      margin: var(--tone-space-4) 0 var(--tone-space-2);
     }
     .space-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: auto;
-      padding-top: 35px;
-      font-size: 11px;
+      padding-top: var(--tone-space-5);
+      font-size: var(--tone-caption-size);
       color: var(--fg-mute);
     }
     .space-bottom b {
-      font-size: 23px;
-      font-weight: 400;
+      font-size: var(--tone-title-size);
+      font-weight: var(--tone-weight);
       color: var(--fg);
     }
     .recent-writing {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 50px;
-      margin-bottom: 70px;
+      gap: var(--tone-space-6);
+      margin-bottom: var(--tone-section-gap);
     }
     .recent-head {
       display: flex;
@@ -323,17 +289,13 @@ const spaces = [
       align-items: baseline;
       border-bottom: 1px solid var(--border);
     }
-    .recent-head a {
-      font-size: 11px;
-      text-decoration: none;
-    }
     .explore-more {
-      margin-top: 80px;
-      padding-top: 32px;
+      margin-top: var(--tone-section-gap);
+      padding-top: var(--tone-space-5);
       border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: var(--tone-space-6);
     }
     .drawer-links {
       display: grid;
@@ -342,99 +304,76 @@ const spaces = [
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 17px 0;
+      min-height: var(--tone-control-height);
+      padding: var(--tone-space-3) 0;
       border-bottom: 1px solid var(--border);
-      font-size: 19px;
+      font-size: var(--tone-subtitle-size);
       text-decoration: none;
     }
     .drawer-links span {
-      font-size: 12px;
+      font-size: var(--tone-caption-size);
       color: var(--fg-dim);
     }
     @media (max-width: 1000px) {
-    .home-hero {
-        gap: 36px;
-      }
-      .home-art-note {
-        margin-right: -15px;
-      }
-      .home-products {
-        gap: 18px;
-      }
-      .space {
-        padding: 23px;
-      }
-      .space h3 {
-        font-size: 22px;
+      .home-hero {
+        gap: var(--tone-space-5);
       }
       .studio-strip {
-        gap: 18px;
+        gap: var(--tone-space-3);
       }
       .recent-writing {
-        gap: 30px;
+        gap: var(--tone-space-5);
       }
     }
     @media (max-width: 700px) {
-    .home-hero {
+      .home-hero {
         grid-template-columns: 1fr;
-        gap: 48px;
-        padding-top: 12px;
+        gap: var(--tone-space-6);
       }
-      .home-copy h1 {
-        font-size: clamp(38px, 9vw, 62px);
+      .jarvis-highlight {
+        align-items: flex-start;
+        flex-direction: column;
       }
       .home-art {
-        max-width: 420px;
+        max-width: var(--tone-flow-max);
         width: 100%;
         margin: auto;
       }
       .studio-strip {
         flex-wrap: wrap;
         justify-content: start;
-        gap: 12px 24px;
-        margin-bottom: 50px;
+        gap: var(--tone-space-2) var(--tone-space-4);
+        margin-bottom: var(--tone-space-6);
       }
       .studio-strip > span:first-child {
         width: 100%;
       }
-      .home-products,
       .spaces,
       .recent-writing,
       .explore-more {
         grid-template-columns: 1fr;
       }
-      .home-products {
-        gap: 34px;
-      }
-      .home-selected,
       .writing-section {
-        margin-bottom: 50px;
-      }
-      .space {
-        padding: 28px;
+        margin-bottom: var(--tone-space-6);
       }
       .space h3 {
-        margin-top: 20px;
+        margin-top: var(--tone-space-3);
       }
       .space-bottom {
-        padding-top: 24px;
+        padding-top: var(--tone-space-4);
       }
       .recent-writing {
-        gap: 45px;
+        gap: var(--tone-space-6);
       }
       .explore-more {
-        margin-top: 50px;
+        margin-top: var(--tone-space-6);
       }
       .drawer-links a {
-        font-size: 17px;
-      }
-      .drawer-links span {
-        font-size: 11px;
+        font-size: var(--tone-body-size);
       }
       .desktop-break {
         display: none;
       }
     }
-      .home-art .workbench-note{margin:0;transform:none;box-shadow:none;border:0;border-radius:var(--tone-radius-card);padding:23px;background:var(--bg-elev)}
   </style>
 </Layout>

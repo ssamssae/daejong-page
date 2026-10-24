@@ -2,7 +2,8 @@
  * Per-article share image (T-261010-061).
  * Renders a 1200x630 PNG per worklog/newsletter/insights entry at build time.
  * Fonts come from the pinned `pretendard` npm package (OFL-1.1), never the network.
- * Colors = 회사 공용 원본(https://kangdaejong.com/brand/current/tokens.json)의 다크 값(T-261013-004). 미리보기 그림은 보는 사람 설정과 무관한 1장.
+ * Colors = 회사 공용 원본(https://kangdaejong.com/brand/current/tokens.json)의 라이트 값(T-261013-004 원본 하나, T-261024-058 전부 라이트 —
+ * 원본 tokens.json 에서 dark 키가 사라진다). 미리보기 그림은 보는 사람 설정과 무관한 1장.
  * OG_IMAGE_VERSION 은 그 색의 지문이라, 원본 색이 바뀌면 다음 빌드에서 카드가 새 주소로 다시 그려진다.
  */
 import { readFileSync } from 'node:fs';
@@ -21,9 +22,10 @@ export const OG_COLLECTIONS = Object.freeze({
 });
 
 // T-261012-032: 카드 그림이 바뀌면 이 값을 올린다 — og:image 주소가 바뀌어야 메신저·검색 미리보기가 옛 그림을 다시 쓰지 않는다.
-const C = brandTokens.dark;
+// T-261024-058: 접두 dark- → light- (카드도 라이트). 접두가 바뀌어 다음 빌드에서 글 카드 전부가 새 주소로 다시 그려진다.
+const C = brandTokens.light;
 const CARD_COLORS = ['--bg', '--fg', '--fg-mute', '--accent', '--accent-bg', '--border'];
-export const OG_IMAGE_VERSION = `dark-${createHash('sha256').update(CARD_COLORS.map((name) => `${name}=${C[name]}`).join(';')).digest('hex').slice(0, 8)}`;
+export const OG_IMAGE_VERSION = `light-${createHash('sha256').update(CARD_COLORS.map((name) => `${name}=${C[name]}`).join(';')).digest('hex').slice(0, 8)}`;
 // T-261012-040: 이동 껍데기(components/RedirectStub.astro)가 쓰는 회사홈 공용 카드 — T-261012-041 고정 주소(버전 없음).
 // 카드를 다시 그려도 이 값은 그대로다. verify-og-images 가 모든 HTML 이 이 주소인지 본다.
 export const SHARED_OG_IMAGE = 'https://kangdaejong.com/brand/current/social.png';

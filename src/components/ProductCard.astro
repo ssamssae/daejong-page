@@ -23,7 +23,7 @@ const glyph =
 ---
 
 <article
-  class={`catalog-card kind-${kind}`}
+  class={`catalog-card mb-card kind-${kind}`}
   data-product-id={item.id}
   data-catalog-item
   data-kind={kind}
@@ -38,10 +38,10 @@ const glyph =
           glyph
         )
       }</span
-    ><span class="kind-label">{label}</span>
+    ><span class="kind-label mb-chip">{label}</span>
   </div>
-  <h3>{item.name}</h3>
-  <p class="description">{item.desc}</p>
+  <h3 class="mb-card-title">{item.name}</h3>
+  <p class="description mb-card-text">{item.desc}</p>
   <div class="catalog-bottom">
     <ProductFacts name={item.name} /><div class="catalog-links">
       {
@@ -50,6 +50,7 @@ const glyph =
             <span class="disabled">{link.label}</span>
           ) : (
             <a
+              class="mb-link"
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -65,37 +66,28 @@ const glyph =
   </div>
 </article>
 <style>
+  /* T-261024-058: 카드 바탕·모서리·안쪽 여백·제목·설명(.mb-card)·종류 칩(.mb-chip)·링크(.mb-link)는 회사홈 공용 톤 파일의 부품이 정한다.
+     여기에는 배치만 적고 직접 숫자를 두지 않는다 — verify-tone-copies 기준선 0. */
   .catalog-card {
     display: flex;
     flex-direction: column;
     min-width: 0;
-    padding: 23px;
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: var(--tone-radius-card);
-    transition:
-      border-color 0.18s,
-      transform 0.18s;
-  }
-  .catalog-card:hover {
-    border-color: var(--accent-line-2);
-    transform: none;
   }
   .catalog-top {
     display: flex;
     justify-content: space-between;
     align-items: start;
-    margin-bottom: 23px;
+    margin-bottom: var(--tone-space-4);
   }
   .product-icon {
     display: grid;
     place-items: center;
-    width: 48px;
+    width: 48px; /* 그림 크기 = img width/height 속성(48)과 같은 값 */
     height: 48px;
-    border-radius: 12px;
+    border-radius: var(--tone-radius-control);
     background: var(--accent-bg);
     color: var(--accent);
-    font: 23px var(--sans);
+    font: var(--tone-weight-bold) var(--tone-title-size) / 1 var(--sans);
     overflow: hidden;
   }
   .product-icon img {
@@ -105,62 +97,30 @@ const glyph =
     object-fit: cover;
   }
   .kind-tool .product-icon {
-    background: var(--accent-bg);
-    color: var(--accent);
-    font: 20px var(--mono);
-  }
-  .kind-ebook .product-icon {
-    background: var(--accent-bg);
-    color: var(--accent);
-  }
-  .kind-label {
-    font-size: 10px;
-    color: var(--fg-mute);
-    border: 1px solid var(--border-soft);
-    border-radius: 4px;
-    padding: 2px 7px;
-  }
-  h3 {
-    font-size: 18px;
-    line-height: 1.45;
-    letter-spacing: -0.035em;
-    margin-bottom: 10px;
+    font: var(--tone-weight-bold) var(--tone-subtitle-size) / 1 var(--mono);
   }
   .description {
-    font-size: 13px;
-    line-height: 1.75;
     word-break: keep-all;
   }
   .catalog-bottom {
     margin-top: auto;
-    padding-top: 24px;
-  }
-  .status {
-    font-size: 10px;
-    color: var(--fg-mute);
-    margin-bottom: 12px;
+    padding-top: var(--tone-space-4);
   }
   .catalog-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 16px;
+    gap: var(--tone-space-1) var(--tone-space-3);
     border-top: 1px solid var(--border-soft);
-    padding-top: 10px;
-  }
-  .catalog-links a {
-    display: inline-flex;
-    gap: 10px;
-    align-items: center;
-    min-height: 44px;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
+    padding-top: var(--tone-space-1);
   }
   .catalog-links a span {
     color: var(--fg-mute);
   }
   .disabled {
-    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--tone-tap-height);
+    font-size: var(--tone-caption-size);
     color: var(--fg-mute);
   }
 </style>

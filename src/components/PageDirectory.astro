@@ -10,14 +10,15 @@ const current = normalize(Astro.url.pathname);
   </nav>
 </details>
 <style>
-.page-directory { margin:56px 0 0; border-block:1px solid var(--border); }
-summary { cursor:pointer; padding:22px 0; font-weight:600; }
-summary span { display:inline-block; margin-left:16px; color:var(--fg-mute); font-size:13px; font-weight:400; }
-nav { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; padding:12px 0 28px; }
-h2 { font-size:16px; margin-bottom:12px; }
-ul { list-style:none; padding:0; } li + li { margin-top:4px; }
-a { display:block; padding:10px 0; text-decoration:none; }
-a strong { font-size:14px; } a span { display:block; font-size:12px; color:var(--fg-mute); margin-top:4px; overflow-wrap:anywhere; }
+/* T-261024-058: 간격·글자 크기는 공용 톤 값(--tone-*)만 쓴다 — 직접 숫자 0. */
+.page-directory { margin:var(--tone-section-gap) 0 0; border-block:1px solid var(--border); }
+summary { cursor:pointer; padding:var(--tone-space-4) 0; font-weight:var(--tone-weight-bold); }
+summary span { display:inline-block; margin-left:var(--tone-space-3); color:var(--fg-mute); font-size:var(--tone-caption-size); font-weight:var(--tone-weight); }
+nav { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--tone-space-4); padding:var(--tone-space-2) 0 var(--tone-space-4); }
+h2 { font-size:var(--tone-subtitle-size); margin-bottom:var(--tone-space-2); }
+ul { list-style:none; padding:0; }
+a { display:block; padding:var(--tone-space-2) 0; text-decoration:none; }
+a strong { font-size:var(--tone-label-size); } a span { display:block; font-size:var(--tone-caption-size); color:var(--fg-mute); margin-top:var(--tone-space-1); overflow-wrap:anywhere; }
 a[aria-current] strong { color:var(--accent); } a:hover strong { text-decoration:underline; }
-@media(max-width:700px) { nav { grid-template-columns:1fr; gap:20px; } summary span { display:block; margin:8px 0 0; } }
+@media(max-width:700px) { nav { grid-template-columns:1fr; gap:var(--tone-space-3); } summary span { display:block; margin:var(--tone-space-1) 0 0; } }
 </style>

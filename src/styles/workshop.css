@@ -18,8 +18,10 @@ body {
   font: var(--text-body) / var(--leading-body) var(--sans);
   -webkit-font-smoothing: antialiased;
 }
+/* T-261024-058: 본문 폭의 좌우 여백은 공용 헤더(mb-components.js)와 같은 톤 값(--tone-gutter 20/32px)이다.
+   종전 48px(24px씩)은 900px 이상에서 헤더보다 16px 넓어 tests/shared-tone.spec.mjs(본문 폭 = 헤더 폭)가 실패했다. */
 .site-main {
-  width: min(var(--page-max, 1000px), calc(100% - 48px));
+  width: min(var(--page-max, 1000px), calc(100% - var(--tone-gutter) * 2));
   margin-inline: auto;
   padding: 58px 0 100px;
   min-height: 65vh;
@@ -191,13 +193,13 @@ p {
 }
 @media (max-width: 900px) {
   .site-main {
-    width: calc(100% - 48px);
+    width: calc(100% - var(--tone-gutter) * 2);
     padding-top: 40px;
   }
 }
 @media (max-width: 600px) {
   .site-main {
-    width: calc(100% - 36px);
+    width: calc(100% - var(--tone-gutter) * 2);
     padding: 32px 0 64px;
   }
   .section-head {
@@ -225,7 +227,7 @@ p {
 /* Filtered records remain hidden even when their card styles set display. */
 [hidden] { display: none !important; }
 
-@media(max-width:650px){.site-main{width:calc(100% - 40px)}}
+@media(max-width:650px){.site-main{width:calc(100% - var(--tone-gutter) * 2)}}
 
 /* T-261003-018: match the studio homepage across every shared layout. */
 body.studio-page .site-main{padding-top:76px}
@@ -241,7 +243,7 @@ body.studio-page .guide-card{padding:23px;border-radius:var(--tone-radius-card)}
 body.studio-page .guide-grid{gap:14px}
 body.studio-page .catalog-page{padding-top:0}
 body.studio-page.catalog-page .site-main{padding-top:0}
-@media(max-width:650px){body.studio-page .site-main{width:calc(100% - 40px);padding-top:48px}body.studio-page #main-content.site-main h1{font-size:34px}body.studio-page #main-content.site-main h2{font-size:21px}body.studio-page .guide-section{padding:29px 0 32px}body.studio-page .guide-poster>strong{font-size:28px}}
+@media(max-width:650px){body.studio-page .site-main{width:calc(100% - var(--tone-gutter) * 2);padding-top:48px}body.studio-page #main-content.site-main h1{font-size:34px}body.studio-page #main-content.site-main h2{font-size:21px}body.studio-page .guide-section{padding:29px 0 32px}body.studio-page .guide-poster>strong{font-size:28px}}
 
 /* T-261024-030: 라벨을 한국어로 바꿨다 — 영문 대문자용 넓은 자간을 한글 라벨에는 주지 않는다.
    컴포넌트 범위 스타일(.x[data-astro-cid])보다 구체적이어야 해서 body.studio-page 로 시작한다. */

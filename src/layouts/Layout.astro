@@ -19,12 +19,13 @@ const notebook =
 ---
 
 <!doctype html>
-<html lang="ko" data-theme="auto">
+<html lang="ko" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
-    <!-- T-261013-004: 색(라이트·다크)·폭의 단 하나의 원본(회사홈). 이 사이트에는 색 값을 적지 않는다. -->
+    <meta name="color-scheme" content="light" />
+    <!-- T-261013-004: 색·폭·모양·글자의 단 하나의 원본(회사홈 공용 톤 파일). 이 사이트에는 색 값을 적지 않는다.
+         T-261024-058: 공개 사이트는 전부 라이트(2026-10-24 대종님 결정) — data-theme="light" 로 고정하고 다크 규칙을 두지 않는다. -->
     <link rel="stylesheet" href="https://kangdaejong.com/brand/current/tokens.css" />
     <link rel="icon" href="https://kangdaejong.com/brand/current/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="https://kangdaejong.com/brand/current/logo.svg" />
@@ -54,7 +55,7 @@ const notebook =
       rel="stylesheet"
     />
     <title>{title}</title>
-    <link rel="stylesheet" href="https://kangdaejong.com/studio-page.css?v=20261003" />
+    <link rel="stylesheet" href="https://kangdaejong.com/studio-page.css" />
     <slot name="head" />
   </head>
   <body class={`studio-page ${bodyClass}`}>

@@ -1,6 +1,7 @@
-<form class="site-search" data-site-search role="search" data-pagefind-ignore="all">
-  <label for="site-search-input">기록 검색</label>
+<form class="site-search mb-field" data-site-search role="search" data-pagefind-ignore="all">
+  <label class="mb-label" for="site-search-input">기록 검색</label>
   <input
+    class="mb-input"
     id="site-search-input"
     type="search"
     name="q"
@@ -158,41 +159,22 @@
   })();
 </script>
 <style>
+  /* T-261024-058: 라벨·입력칸은 공용 부품(.mb-field·.mb-label·.mb-input)이 정한다. 여기에는 결과 판 배치만 적고
+     간격·글자 크기는 공용 톤 값(--tone-*)만 쓴다 — 직접 숫자 0. */
   .site-search {
-    margin: 0 0 28px;
-  }
-  .site-search label {
-    display: block;
-    font-size: 13px;
-    color: var(--fg-dim);
-  }
-  .site-search input {
-    display: block;
-    width: 100%;
-    margin-top: 8px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-btn);
-    background: var(--bg-elev);
-    color: var(--fg);
-    padding: 12px 14px;
-    min-height: 48px;
-  }
-  .site-search input:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 1px;
+    margin: 0 0 var(--tone-space-4);
   }
   .site-search-panel {
-    margin-top: 8px;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     background: var(--bg);
     box-shadow: var(--shadow);
-    max-height: min(60vh, 480px);
+    max-height: min(60vh, var(--tone-flow-max));
     overflow: auto;
   }
   .site-search-status {
-    padding: 12px 14px 0;
-    font-size: 13px;
+    padding: var(--tone-space-2) var(--tone-space-3) 0;
+    font-size: var(--tone-caption-size);
     color: var(--fg-mute);
   }
   .site-search-panel ul {
@@ -205,40 +187,37 @@
   }
   .site-search-panel :global(a) {
     display: block;
-    padding: 12px 14px 14px;
+    padding: var(--tone-space-2) var(--tone-space-3) var(--tone-space-3);
     text-decoration: none;
     overflow-wrap: anywhere;
   }
   .site-search-panel :global(.site-search-kicker) {
-    font: 11px var(--mono);
+    font: var(--tone-weight-bold) var(--tone-caption-size) / var(--tone-caption-line) var(--mono);
     letter-spacing: var(--track-badge);
     color: var(--accent);
   }
   .site-search-panel :global(.site-search-title) {
     display: block;
-    margin-top: 4px;
-    font-weight: 600;
+    margin-top: var(--tone-space-1);
+    font-weight: var(--tone-weight-bold);
   }
   .site-search-panel :global(.site-search-excerpt) {
     display: block;
-    margin-top: 4px;
+    margin-top: var(--tone-space-1);
     color: var(--fg-dim);
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: var(--tone-caption-size);
+    line-height: var(--leading-desc);
   }
   .site-search-panel :global(.site-search-excerpt mark) {
     background: var(--accent-bg);
     color: inherit;
   }
   :global(body.catalog-page) .site-search {
-    margin-top: 76px;
+    margin-top: var(--tone-hero-top);
   }
   @media (max-width: 650px) {
     .site-search {
-      margin-bottom: 20px;
-    }
-    :global(body.catalog-page) .site-search {
-      margin-top: 48px;
+      margin-bottom: var(--tone-space-3);
     }
   }
 </style>

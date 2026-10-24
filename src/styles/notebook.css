@@ -176,11 +176,3 @@
   white-space: normal;
   overflow-wrap: anywhere;
 }
-
-/* T-261012-024: 다크 모드에서 등락색을 밝게 (한국식 상승=빨강·하락=파랑 의미는 유지). */
-@media (prefers-color-scheme: dark) {
-  html[data-theme="auto"] .notebook {
-    --up: #ff8a8f;
-    --down: #7aa2ff; /* tokens:fixed — 등락색(하락=파랑), 회사 강조색과 별개 */
-  }
-}

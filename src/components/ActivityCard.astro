@@ -15,7 +15,7 @@ const metrics = [
 <section class="activity-section" aria-labelledby="activity-title">
   <div class="activity-head">
     <div>
-      <p class="activity-kicker">공개 활동</p>
+      <p class="activity-kicker mb-eyebrow">공개 활동</p>
       <h2 id="activity-title">최근 공개 활동</h2>
     </div>
     <p>
@@ -59,25 +59,18 @@ const metrics = [
 </section>
 
 <style>
+  /* T-261024-058: 눈썹 글은 공용 부품(.mb-eyebrow), 간격·글자 크기는 공용 톤 값(--tone-*·작업장 --text-*)만 쓴다 — 직접 숫자 0. */
   .activity-section {
-    padding: 34px 0 0;
+    padding: var(--tone-space-5) 0 0;
     border-top: 1px solid var(--border);
   }
 
   .activity-head {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
-    gap: 32px;
+    gap: var(--tone-space-5);
     align-items: end;
-    margin-bottom: 24px;
-  }
-
-  .activity-kicker {
-    margin-bottom: 12px;
-    color: var(--fg-mute);
-    font-family: var(--mono);
-    font-size: var(--text-meta);
-    font-weight: 600;
+    margin-bottom: var(--tone-space-4);
   }
 
   .activity-head h2 {
@@ -95,7 +88,7 @@ const metrics = [
   .activity-body {
     display: grid;
     grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
-    gap: 48px;
+    gap: var(--tone-space-6);
   }
 
   .activity-metrics {
@@ -105,10 +98,10 @@ const metrics = [
   .activity-metrics div {
     display: grid;
     grid-template-columns: 108px minmax(0, 1fr) auto;
-    gap: 16px;
+    gap: var(--tone-space-3);
     align-items: baseline;
-    min-height: 72px;
-    padding: 18px 0;
+    min-height: var(--tone-control-height);
+    padding: var(--tone-space-3) 0;
     border-bottom: 1px solid var(--border);
   }
 
@@ -129,7 +122,7 @@ const metrics = [
   .activity-metrics dd {
     color: var(--fg);
     font-size: var(--text-h3);
-    font-weight: 700;
+    font-weight: var(--tone-weight-bold);
   }
 
   .activity-metrics span {
@@ -144,10 +137,10 @@ const metrics = [
   .activity-recent-head {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: var(--tone-space-3);
     align-items: baseline;
-    min-height: 58px;
-    padding: 16px 0;
+    min-height: var(--tone-control-height);
+    padding: var(--tone-space-3) 0;
     border-bottom: 1px solid var(--border);
   }
 
@@ -166,10 +159,10 @@ const metrics = [
   .activity-recent a {
     display: grid;
     grid-template-columns: 150px minmax(0, 1fr);
-    gap: 18px;
+    gap: var(--tone-space-3);
     align-items: baseline;
-    min-height: 66px;
-    padding: 17px 0;
+    min-height: var(--tone-control-height);
+    padding: var(--tone-space-3) 0;
     color: var(--fg);
     text-decoration: none;
   }
@@ -186,7 +179,7 @@ const metrics = [
   }
 
   .activity-privacy {
-    margin-top: 18px;
+    margin-top: var(--tone-space-3);
     color: var(--fg-mute);
     font-size: var(--text-meta);
     line-height: var(--leading-desc);
@@ -199,7 +192,7 @@ const metrics = [
     }
 
     .activity-body {
-      gap: 34px;
+      gap: var(--tone-space-5);
     }
   }
 
@@ -207,7 +200,7 @@ const metrics = [
     .activity-metrics div,
     .activity-recent a {
       grid-template-columns: 1fr;
-      gap: 4px;
+      gap: var(--tone-space-1);
     }
 
     .activity-metrics span {
