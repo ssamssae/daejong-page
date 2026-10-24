@@ -48,35 +48,35 @@ const principles = [
 const loop = [
   {
     step: '01',
-    label: 'REQUEST',
+    label: '요청',
     title: '목표와 끝을 정한다',
     text: '사용자 요청에서 결과물, 완료 조건, 제외 범위를 분리한다. 모호함이 결과를 바꿀 때만 질문한다.',
     proof: 'goal · scope · done',
   },
   {
     step: '02',
-    label: 'GROUND',
+    label: '근거',
     title: '현재 상태를 먼저 읽는다',
     text: '기억보다 코드, 실행 중인 환경, 최신 정책과 외부 상태를 확인한다. 오래된 전제를 작업에 들이지 않는다.',
     proof: 'code · runtime · policy',
   },
   {
     step: '03',
-    label: 'BUILD',
+    label: '구현',
     title: '작은 변경으로 만든다',
     text: '작업 공간을 분리하고 직접 코드에서 반복한다. 병렬화는 독립적인 부분에만 쓰고 같은 파일 경합을 피한다.',
     proof: 'branch · diff · artifact',
   },
   {
     step: '04',
-    label: 'VERIFY',
+    label: '검증',
     title: '문제가 생길 조건을 확인한다',
     text: '빌드만 보지 않는다. 회귀 테스트, 모바일 화면, 링크, 비밀정보, 런타임 값을 변경 위험에 맞게 검증한다.',
     proof: 'test · visual · runtime',
   },
   {
     step: '05',
-    label: 'SHIP',
+    label: '출시',
     title: '실제로 사용하는 곳에서 확인한다',
     text: '코드 검토와 배포가 끝나면 실제 주소나 기기에서 바뀐 동작을 확인한다. 준비된 파일과 사용자가 받는 결과를 구분한다.',
     proof: 'merge · deploy · live',
@@ -112,27 +112,27 @@ const eras = [
 
 const layers = [
   {
-    label: 'INPUT',
+    label: '입력',
     title: '요청',
     text: '직접 대화와 Telegram은 서로 다른 입력 경로다. 누가 요청했는지, 어떤 프로그램이 전달했는지, 어디서 실행하는지를 구분해 같은 작업 기록으로 연결한다.',
   },
   {
-    label: 'WORKSPACE',
+    label: '작업 공간',
     title: '코드',
     text: '제품 저장소와 분리된 브랜치에서 변경을 만든다.',
   },
   {
-    label: 'ENGINE',
+    label: '엔진',
     title: '도구',
     text: 'Codex·Cursor·Grok은 작업별 리드 또는 워커 후보이며 고정 직급이 아니다. Claude·Local을 포함한 브릿지 종류와 현재 작업에 배정된 엔진도 구분한다.',
   },
   {
-    label: 'EVIDENCE',
+    label: '증거',
     title: '검증',
     text: '테스트·스크린샷·런타임 관측·라이브 URL이 완료의 근거가 된다.',
   },
   {
-    label: 'MEMORY',
+    label: '기억',
     title: '기록',
     text: '작업 장부·체크포인트·작업일지·노하우가 다음 작업의 시작점을 만든다.',
   },
@@ -212,7 +212,7 @@ const earlierNotes = [
 
     <header class="vibe-hero">
       <div class="hero-copy">
-        <p class="kicker">VIBECODING / WORKING METHOD 2026</p>
+        <p class="kicker">바이브코딩 / 2026 작업 방식</p>
         <h1>
           말로 시작해서,<br />
           <em>쓸 수 있는 결과까지.</em>
@@ -261,7 +261,7 @@ const earlierNotes = [
       <a href="#start-small">처음 시작하기</a><a href="#working-loop">작업 순서</a><a href="#real-cases">실제 사례</a><a href="#done-check">완료 체크</a><a href="#background">작업장 변천사</a>
     </nav>
     <section class="start-small" id="start-small" aria-labelledby="start-title">
-      <div class="section-heading"><div><p class="kicker">START SMALL</p><h2 id="start-title">첫 요청은 작고 구체적으로.</h2></div><p>버튼 하나, 입력창 하나처럼 직접 결과를 확인할 수 있는 문제부터 시작합니다. 아래는 실제 의뢰가 아닌 따라 써볼 수 있는 예시입니다.</p></div>
+      <div class="section-heading"><div><p class="kicker">작게 시작</p><h2 id="start-title">첫 요청은 작고 구체적으로.</h2></div><p>버튼 하나, 입력창 하나처럼 직접 결과를 확인할 수 있는 문제부터 시작합니다. 아래는 실제 의뢰가 아닌 따라 써볼 수 있는 예시입니다.</p></div>
       <div class="request-comparison">
         <article><h3>이렇게만 말하면</h3><blockquote>“할 일 앱 좀 좋게 만들어줘.”</blockquote><p>누가 쓰는지, 어느 화면이 불편한지, 무엇이 되면 끝인지 알 수 없어 결과가 엇갈리기 쉽습니다.</p></article>
         <article><h3>확인할 수 있게 바꾸면</h3><blockquote>“휴대폰에서 할 일을 추가할 때 키보드가 등록 버튼을 가립니다. 입력한 글을 유지하면서 등록할 수 있게 고쳐주세요. 작은 화면과 긴 한글 제목으로 확인하고, 로그인·저장 방식은 바꾸지 마세요.”</blockquote><p>대상·문제·원하는 동작·확인 조건·제외 범위가 생겼습니다. AI가 만든 결과도 같은 조건으로 검토할 수 있습니다.</p></article>
@@ -278,7 +278,7 @@ const earlierNotes = [
     <section class="vibe-section principles-section" aria-labelledby="principles-title">
       <div class="section-heading">
         <div>
-          <p class="kicker">01 / OPERATING PRINCIPLES</p>
+          <p class="kicker">01 / 운영 원칙</p>
           <h2 id="principles-title">지금 지키는 네 가지 원칙.</h2>
         </div>
         <p>
@@ -302,7 +302,7 @@ const earlierNotes = [
       aria-labelledby="loop-title"
     >
       <div class="loop-intro">
-        <p class="kicker">02 / CURRENT LOOP</p>
+        <p class="kicker">02 / 지금의 작업 순환</p>
         <h2 id="loop-title">요청에서 실제 출시까지.</h2>
         <p>
           각 단계는 다음 단계로 넘어가기 위한 산출물을 남깁니다. 그래서 세션이 바뀌거나 도구가
@@ -338,7 +338,7 @@ const earlierNotes = [
     <section class="vibe-section era-section" aria-labelledby="era-title">
       <div class="section-heading">
         <div>
-          <p class="kicker">03 / FOUR ERAS</p>
+          <p class="kicker">03 / 네 시기</p>
           <h2 id="era-title">늘렸다가, 줄이고, 기준을 남겼습니다.</h2>
         </div>
         <p>
@@ -363,7 +363,7 @@ const earlierNotes = [
     <section class="vibe-section layer-section" aria-labelledby="layer-title">
       <div class="section-heading">
         <div>
-          <p class="kicker">04 / CONNECTED LAYERS</p>
+          <p class="kicker">04 / 연결된 층</p>
           <h2 id="layer-title">도구가 아니라 흐름으로 봅니다.</h2>
         </div>
         <p>
@@ -386,7 +386,7 @@ const earlierNotes = [
     </div></details>
 
     <section id="done-check" class="done-check" aria-labelledby="done-title">
-      <div class="section-heading"><div><p class="kicker">CHECK THE RESULT</p><h2 id="done-title">“완료”라는 답을 받았을 때.</h2></div><p>내가 요청한 결과를 직접 확인하는 네 가지 질문입니다. 체크 상태는 저장하거나 전송하지 않습니다.</p></div>
+      <div class="section-heading"><div><p class="kicker">결과 확인</p><h2 id="done-title">“완료”라는 답을 받았을 때.</h2></div><p>내가 요청한 결과를 직접 확인하는 네 가지 질문입니다. 체크 상태는 저장하거나 전송하지 않습니다.</p></div>
       <div class="check-items">
         <label><input type="checkbox"/><span><strong>처음 불편했던 동작이 해결됐나요?</strong>원래의 입력과 사용 순서로 다시 실행해 봅니다.</span></label>
         <label><input type="checkbox"/><span><strong>다른 조건에서도 쓸 수 있나요?</strong>작은 화면, 긴 문구, 빈 값처럼 문제가 생기기 쉬운 조건을 확인합니다.</span></label>
@@ -401,7 +401,7 @@ const earlierNotes = [
     <section class="vibe-section notes-section" aria-labelledby="notes-title">
       <div class="section-heading">
         <div>
-          <p class="kicker">06 / FRESH FIELD NOTES</p>
+          <p class="kicker">06 / 최근 현장 노트</p>
           <h2 id="notes-title">공개 기록에서 이어 읽기.</h2>
         </div>
         <p>
@@ -430,7 +430,7 @@ const earlierNotes = [
     </details>
 
     <aside class="closing-block">
-      <p class="kicker">THE POINT</p>
+      <p class="kicker">핵심</p>
       <blockquote>
         “바이브”는 시작을 빠르게 만들고,<br />
         <strong>운영 방식은 끝을 믿을 수 있게 만듭니다.</strong>

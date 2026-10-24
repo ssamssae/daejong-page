@@ -74,14 +74,14 @@
       var results = (search && search.results) || [];
       list.textContent = "";
       if (!results.length) {
-        status.textContent = "해당하는 글이 없습니다.";
+        status.textContent = "해당하는 글이 없어요.";
         return;
       }
       var shown = results.slice(0, 8);
       status.textContent =
         results.length > shown.length
-          ? results.length + "개 중 8개를 보여 줍니다."
-          : shown.length + "개 글을 찾았습니다.";
+          ? results.length + "개 중 8개를 보여 줘요."
+          : shown.length + "개 글을 찾았어요.";
       Promise.all(
         shown.map(function (result) {
           return result.data();
@@ -133,7 +133,7 @@
         })
         .catch(function () {
           if (id !== seq) return;
-          status.textContent = "검색 색인을 불러오지 못했습니다.";
+          status.textContent = "검색 색인을 불러오지 못했어요.";
           list.textContent = "";
         });
     }

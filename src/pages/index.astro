@@ -33,23 +33,23 @@ const total = apps.length + tools.length + saas.length + ebooks.length;
 const spaces = [
   {
     href: "/worklog/",
-    label: "01 / BUILD LOG",
+    label: "01 / 작업일지",
     title: "만드는 날들",
     desc: "오늘 만든 것과 고친 것. 작은 진전이 쌓이는 기록.",
     count: allWorklog.length + "일의 기록",
   },
   {
     href: "/newsletter/",
-    label: "02 / LETTERS",
+    label: "02 / 뉴스레터",
     title: "과정에서 건진 이야기",
     desc: "혼자 일하며 배우는 출시, 자동화, 그리고 시행착오.",
     count: allNewsletter.length + "통의 편지",
   },
   {
     href: "/insights/",
-    label: "03 / INSIGHTS",
+    label: "03 / 인사이트",
     title: "다음 생각의 재료",
-    desc: "영상과 글에서 얻은 배움을 다음 작업으로 연결합니다.",
+    desc: "영상과 글에서 얻은 배움을 다음 작업으로 연결해요.",
     count: allInsights.length + "개의 노트",
   },
 ];
@@ -61,10 +61,10 @@ const spaces = [
 >
   <section class="home-hero" aria-labelledby="home-title">
     <div class="home-copy">
-      <p class="eyebrow">AN INDEPENDENT DIGITAL WORKSHOP</p><h1 id="home-title">
-        만들고, 고치고,<br />기록합니다<span>.</span>
+      <p class="eyebrow">1인 디지털 작업장</p><h1 id="home-title">
+        만들고, 고치고,<br />기록해요<span>.</span>
       </h1><p class="lead">
-        강대종이 제품을 만들며 남긴 작업 기록입니다.<br />무엇을 고쳤고, 어디서 막혔고,<br class="desktop-break" /> 무엇을 배웠는지 공개된 글로 읽어보세요.
+        강대종이 제품을 만들며 남긴 작업 기록이에요.<br />무엇을 고쳤고, 어디서 막혔고,<br class="desktop-break" /> 무엇을 배웠는지 공개된 글로 읽어보세요.
       </p><div class="hero-actions">
         <a class="button primary" href="/worklog/"
           >최근 작업 읽기 <span aria-hidden="true">↗</span></a
@@ -77,23 +77,23 @@ const spaces = [
     </div>
   </section>
   <div class="studio-strip">
-    <span>MINUS BETA STUDIO</span><span>모바일 앱 <b>{apps.length}</b></span
+    <span>마이너스베타스튜디오</span><span>모바일 앱 <b>{apps.length}</b></span
     ><span>웹 서비스 <b>{saas.length}</b></span><span
       >오픈소스 <b>{tools.length}</b></span
     ><span>전자책 <b>{ebooks.length}</b></span>
   </div>
   <aside class="workshop-purpose"><p>쓸 제품을 찾고 계신가요? 제품 목록에서 기능과 실제 화면을 살펴보세요.</p><a href="/products/">모든 제품 보기 ↗</a><a href="https://founder.kangdaejong.com/">만드는 사람 소개 ↗</a></aside>
   <a class="jarvis-highlight" href="/jarvis/">
-    <div><span>NEW · JARVIS MAC</span><h2>자비스를 불렀더니, 네스트가 답했다.</h2><p>Mac 마이크와 Cursor, 집에 있던 스피커를 연결했다. 실제 호출·청취까지 확인한 오픈소스 실험.</p></div>
+    <div><span>새로 공개 · 자비스</span><h2>자비스를 불렀더니, 네스트가 답했다.</h2><p>Mac 마이크와 Cursor, 집에 있던 스피커를 연결했다. 실제 호출·청취까지 확인한 오픈소스 실험.</p></div>
     <strong>제작기와 실측 보기 ↗</strong>
   </a>
   <section class="writing-section" aria-labelledby="writing-title">
     <div class="section-head">
       <div>
-        <p class="eyebrow">THE WORK BEHIND THE WORK</p><h2 id="writing-title">
-          결과만큼, 과정도 남깁니다.
+        <p class="eyebrow">과정의 기록</p><h2 id="writing-title">
+          결과만큼, 과정도 남겨요.
         </h2>
-      </div><p>잘된 일도, 막다른 길도.<br />다음 시작을 위한 기록들입니다.</p>
+      </div><p>잘된 일도, 막다른 길도.<br />다음 시작을 위한 기록들이에요.</p>
     </div><div class="spaces">
       {
         spaces.map((space) => (
@@ -115,12 +115,12 @@ const spaces = [
   <section class="recent-writing" aria-label="최근 기록">
     <div>
       <div class="recent-head">
-        <p class="eyebrow">FROM THE WORKSHOP</p><a href="/worklog/"
+        <p class="eyebrow">작업일지</p><a href="/worklog/"
           >작업일지 전체 ↗</a>
       </div><PostList posts={recentWorklog} base="/worklog" />
     </div><div>
       <div class="recent-head">
-        <p class="eyebrow">LETTERS & THOUGHTS</p><a href="/newsletter/"
+        <p class="eyebrow">뉴스레터</p><a href="/newsletter/"
           >뉴스레터 전체 ↗</a>
       </div><PostList posts={recentNewsletter} base="/newsletter" />
     </div>
@@ -128,7 +128,7 @@ const spaces = [
   <ActivityCard />
   <section class="explore-more" aria-labelledby="explore-title">
     <div>
-      <p class="eyebrow">OPEN NOTEBOOK</p><h2 id="explore-title">
+      <p class="eyebrow">더 둘러보기</p><h2 id="explore-title">
         작업장의 다른 서랍들.
       </h2>
     </div><div class="drawer-links">

@@ -4,11 +4,11 @@ import { fleet, leadNode, koCount, koMonthDay } from '../data/fleet-topology';
 const count = koCount(fleet.nodes.length);
 ---
 <section class="guide-section" aria-labelledby="operating-model-title">
-  <div class="guide-heading"><div><p class="guide-kicker">CURRENT / {fleet.asOf}</p><h2 id="operating-model-title">한 작업에는 한 책임자.</h2></div><p>{fleet.policyDate} 운영 지침을 {koMonthDay(fleet.asOf)} 대조했습니다. 아래는 역할 설정이며 실시간 가동 상태가 아닙니다.</p></div>
+  <div class="guide-heading"><div><p class="guide-kicker">현재 기준 / {fleet.asOf}</p><h2 id="operating-model-title">한 작업에는 한 책임자.</h2></div><p>{fleet.policyDate} 운영 지침을 {koMonthDay(fleet.asOf)} 대조했어요. 아래는 역할 설정이며 실시간 가동 상태가 아니에요.</p></div>
   <div class="guide-grid">
-    <article class="guide-card"><h3>요청의 책임자</h3><p>승인된 작업마다 한 노드의 한 엔진이 리드를 맡아 범위·구현·검증·보고를 책임집니다. 여러 엔진이 같은 일을 중복 실행하지 않습니다.</p></article>
-    <article class="guide-card"><h3>필요한 만큼 나누기</h3><p>낮에는 강대종이 노드마다 일을 직접 넣고, 받은 노드가 끝까지 맡습니다. 무인 오토파일럿은 승인된 목록만 {count} 노드의 {fleet.workerEngines.join(' 또는 ')} 워커가 나눠 맡습니다. 한 계획에는 엔진 하나만 씁니다.</p></article>
-    <article class="guide-card"><h3>계획과 검수</h3><p>오토파일럿의 계획 등록과 검수·머지는 {leadNode.name}의 Claude가 맡습니다. 코드를 쓴 워커와 검수자는 나눕니다. 사용자의 보류와 기존 대화는 다른 작업 배정으로 해제되지 않습니다.</p></article>
+    <article class="guide-card"><h3>요청의 책임자</h3><p>승인된 작업마다 한 노드의 한 엔진이 리드를 맡아 범위·구현·검증·보고를 책임져요. 여러 엔진이 같은 일을 중복 실행하지 않아요.</p></article>
+    <article class="guide-card"><h3>필요한 만큼 나누기</h3><p>낮에는 강대종이 노드마다 일을 직접 넣고, 받은 노드가 끝까지 맡아요. 무인 오토파일럿은 승인된 목록만 {count} 노드의 {fleet.workerEngines.join(' 또는 ')} 워커가 나눠 맡아요. 한 계획에는 엔진 하나만 써요.</p></article>
+    <article class="guide-card"><h3>계획과 검수</h3><p>오토파일럿의 계획 등록과 검수·머지는 {leadNode.name}의 Claude가 맡아요. 코드를 쓴 워커와 검수자는 나눠요. 사용자의 보류와 기존 대화는 다른 작업 배정으로 해제되지 않아요.</p></article>
   </div>
-  <aside class="guide-callout"><p>노드는 컴퓨터, 엔진은 작업 도구, 리드는 작업별 책임입니다. 과거 글의 고정 역할이나 중지 일정은 당시 기록으로 읽습니다. 현재 역할과 접속 여부·진행 중 여부는 별개입니다.</p></aside>
+  <aside class="guide-callout"><p>노드는 컴퓨터, 엔진은 작업 도구, 리드는 작업별 책임이에요. 과거 글의 고정 역할이나 중지 일정은 당시 기록으로 읽어요. 현재 역할과 접속 여부·진행 중 여부는 별개예요.</p></aside>
 </section>

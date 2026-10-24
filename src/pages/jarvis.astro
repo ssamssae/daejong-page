@@ -19,7 +19,7 @@ const stages = [
     <a class="back" href="/">← 작업장으로</a>
     <header class="story-hero">
       <div>
-        <p class="eyebrow">JARVIS MAC · OPEN SOURCE EXPERIMENT</p>
+        <p class="eyebrow">자비스 · 오픈소스 실험</p>
         <h1>자비스를 불렀더니,<br /><em>네스트가 답했다.</em></h1>
         <p class="lead">키보드를 내려놓고 Mac에 말을 걸었다.<br />질문을 알아듣고 만든 답변이 집에 있던 스피커로 흘러나왔다.</p>
         <div class="links"><a class="button primary" href={repo}>GitHub에서 코드 보기 ↗</a><a class="button" href="#measured">실측 결과 읽기 ↓</a></div>
@@ -35,7 +35,7 @@ const stages = [
     </header>
 
     <section class="story-section" aria-labelledby="connected">
-      <div class="section-intro"><p class="eyebrow">01 / THE CONNECTION</p><h2 id="connected">각자 하던 일을,<br />하나의 목소리로 연결했다.</h2></div>
+      <div class="section-intro"><p class="eyebrow">01 / 연결</p><h2 id="connected">각자 하던 일을,<br />하나의 목소리로 연결했다.</h2></div>
       <div class="section-body">
         <p>Mac의 내장 마이크가 말을 받고, 로컬 음성 인식이 질문을 글로 바꾼다. 호출어로 시작한 질문을 Cursor에 전달하고, 완성된 답변을 음성으로 합성해 Google Nest Mini에서 재생한다.</p>
         <ol class="flow" aria-label="실측한 음성 처리 순서">
@@ -50,7 +50,7 @@ const stages = [
     </section>
 
     <section id="measured" class="measurement" aria-labelledby="measurement-title">
-      <div class="measurement-head"><div><p class="eyebrow">02 / THE RECEIPT</p><h2 id="measurement-title">작동했다. 그리고 시간을 쟀다.</h2></div><div class="big-number"><strong>39.07<span>초</span></strong><p>말을 마친 뒤 → 네스트 재생 시작</p></div></div>
+      <div class="measurement-head"><div><p class="eyebrow">02 / 측정 결과</p><h2 id="measurement-title">작동했다. 그리고 시간을 쟀다.</h2></div><div class="big-number"><strong>39.07<span>초</span></strong><p>말을 마친 뒤 → 네스트 재생 시작</p></div></div>
       <p>실제 사람의 발화에서 출발해, 네스트의 재생 상태와 사람이 한 번 들었다는 확인까지 맞춰 봤다. 빠른 응답이라고 하기에는 아직 기다림이 길다.</p>
       <div class="latency-bar" role="img" aria-label="전체 지연 중 Cursor 답변 생성 약 56%, 네스트 연결 약 34%, 나머지 약 10%"><span class="generation"></span><span class="connection"></span><span class="rest"></span></div>
       <div class="bar-labels"><span><i class="generation"></i>답변 생성 21.88초</span><span><i class="connection"></i>네스트 연결 13.47초</span><span><i class="rest"></i>인식·합성 등</span></div>
@@ -61,12 +61,12 @@ const stages = [
     </section>
 
     <section class="story-section" aria-labelledby="privacy">
-      <div class="section-intro"><p class="eyebrow">03 / WHAT STAYS LOCAL</p><h2 id="privacy">호출 전의 말은<br />내 컴퓨터 안에 둔다.</h2></div>
+      <div class="section-intro"><p class="eyebrow">03 / 내 컴퓨터에 남는 것</p><h2 id="privacy">호출 전의 말은<br />내 컴퓨터 안에 둔다.</h2></div>
       <div class="section-body"><p>짧은 발화 단위의 음성 인식과 호출어 판정은 Mac에서 수행한다. 호출 전의 인식 내용은 저장하거나 Cursor에 보내지 않는다. 임시 음성 파일은 인식 직후 삭제한다.</p><p>호출된 질문과 근거는 답변 생성을 위해 Cursor로 전송된다. 최근 호출의 질문·답변·시간은 로컬 기록으로 남는다. 따라서 전체 과정이 오프라인인 도구는 아니다.</p><p>“자비스”는 호출 규칙이지 화자 인증이 아니다. 공개 메뉴 앱에는 가전 제어 기능을 넣지 않았다.</p></div>
     </section>
 
     <section class="open-code" aria-labelledby="open-title">
-      <div><p class="eyebrow">04 / TAKE IT APART</p><h2 id="open-title">연결 코드를 공개한다.</h2><p>메뉴 막대 앱, 로컬 호출 판정, Cursor 연결, 네스트 출력, 설치 안내를 독립 저장소에 담았다. 자기 Mac과 스피커에 맞춰 읽고 바꿀 수 있다.</p><a class="button primary" href={repo}>Jarvis Mac · GitHub ↗</a></div>
+      <div><p class="eyebrow">04 / 뜯어보기</p><h2 id="open-title">연결 코드를 공개한다.</h2><p>메뉴 막대 앱, 로컬 호출 판정, Cursor 연결, 네스트 출력, 설치 안내를 독립 저장소에 담았다. 자기 Mac과 스피커에 맞춰 읽고 바꿀 수 있다.</p><a class="button primary" href={repo}>Jarvis Mac · GitHub ↗</a></div>
       <div class="release-notes"><h3>직접 사용하기 전에</h3><ul><li>연결 코드는 MIT 라이선스다. Cursor와 macOS, 음성 모델은 각자의 조건을 따른다.</li><li>개인 기기명·인증정보·음성 원본·운영 기록은 공개하지 않는다.</li><li>공개용 기본 인식기는 사용자가 설치하는 whisper.cpp CLI 어댑터다. 위 실측은 입타의 상주 인식기를 쓴 결과로, 공개 버전의 속도를 보장하지 않는다.</li><li>완성형 범용 비서가 아닌 개발자용 실험이다. 현재 기본 근거 조회는 하늘·노을 질문에 한정되고, 일반 웹 검색과 끼어들기는 미지원이다.</li></ul></div>
     </section>
   </article>
