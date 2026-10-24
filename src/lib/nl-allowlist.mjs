@@ -151,7 +151,8 @@ export function hopIdFor(product, url) {
     return tag ? `${product}-release-${encodeURIComponent(tag)}` : `${product}-release`;
   }
   const path = url.pathname.replace(/\/+$/, '') || '/';
-  if (path.endsWith('/sample')) return `${product}-sample`;
+  if (path.endsWith('/sample') || path.endsWith('/sample-report')) return `${product}-sample`;
+  if (path.endsWith('/hanja-check')) return `${product}-hanja-check`;
   if (path.includes('/guides')) return `${product}-guides`;
   return product;
 }

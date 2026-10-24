@@ -2,8 +2,8 @@
 
 ## 공용 아이콘·배포 누락 방지 — T-261013-046
 
-- 진입: `/products/` → 전체/모바일 앱/오픈소스 → Jarvis 검색. 같은 회사홈 아이콘을 공용 정본 `https://kangdaejong.com/brand/products/catalog.json`에서 읽는다. 제품별 고정 주소를 사용한다.
-- `src/data/products.ts`에는 제품 ID만 지정한다. 승인 이미지 또는 사유 있는 예외가 없으면 빌드 실패. Local Bridge의 기존 기호만 명시적 예외다. 과거 출처 JSON은 역사 자료로 보존한다.
+- 진입: `/work/products/` → 전체/모바일 앱/웹 서비스/오픈소스 → 첫이름 또는 Jarvis 검색. 같은 회사홈 아이콘을 공용 정본 `https://kangdaejong.com/brand/products/catalog.json`에서 읽는다. 제품별 고정 주소를 사용한다.
+- `src/data/products.ts`에는 제품 ID만 지정한다. 승인 이미지 또는 사유 있는 예외가 없으면 빌드 실패. Local Bridge의 기존 기호와 첫이름의 승인된 letter-mark가 명시적 예외다. 첫이름은 정본에 ID가 없을 때만 보충하며, 정본 등록 뒤에는 정본 항목을 그대로 사용한다. 과거 출처 JSON은 역사 자료로 보존한다.
 - 검증: `bash tests/test_product_icon_contract.sh`, postbuild `verify:product-icons`, PR 필수 `site-release-contract`. 구버전 이미지·누락 카드·미등록 제품은 실패한다.
 - 기존 Pages 배포 뒤 `verify-production`이 공개 커밋, 정본 자산 hash, 모든 사이트맵 HTML, 390/1440px × light/dark 대표 화면을 검사한다. JSON/PNG를 Actions artifact로 보존한다. 실패하면 배포 워크플로도 실패한다. 웹 배포와 Telegram 미리보기 완료는 별도다.
 
@@ -29,11 +29,20 @@
 
 ## 제품 종료 기록과 공유 카드 — T-261004-001
 
-- `/products/`: 현재 앱 6종·공개 도구 7종만 카탈로그에 포함. 모바일 앱/오픈소스 분류와 Jarvis 검색을 확인한다. 종료한 12개 제품·서비스는 날짜·상태를 별도 표시하고 신규 구매 링크를 제공하지 않는다.
-- `/timeline.html/`: 2026-10-03 종료 이벤트 12개와 기존 출시 이력을 함께 표시한다. 종료 데이터는 `src/data/retired-products.json` 한 곳에서 관리한다.
+- `/work/products/`: 현재 앱 6종·웹 서비스 1종·공개 도구 7종을 카탈로그에 포함. 모바일 앱/웹 서비스/오픈소스 분류와 첫이름·Jarvis 검색을 확인한다. 종료한 11개 제품·서비스는 날짜·상태를 별도 표시하고 신규 구매 링크를 제공하지 않는다.
+- `/work/timeline.html/`: 2026-10-03 종료 이벤트 11개와 기존 출시 이력을 함께 표시한다. 종료 데이터는 `src/data/retired-products.json` 한 곳에서 관리한다.
 - 모든 Layout 페이지의 OG/Twitter 이미지와 제목·설명은 공통 레이아웃에서 한 번만 출력한다. 공통 공유 카드는 중앙 다크 이미지의 고정 주소를 사용한다(T-261012-041). 기존 Telegram 메시지에 저장된 미리보기의 갱신은 사이트 배포만으로 보장되지 않는다.
 - 검증: `npm run build`, `node scripts/verify-products-page.mjs`, `node scripts/verify-offboarding-ui.mjs` (기본 localhost:4391, `VERIFY_BASE`로 공개 주소 지정). 390/1440px 분류·검색·종료 이벤트·가로 넘침·중복 메타데이터 검사 통과. 근거 `/Users/user/reports/T-261004-001/`.
 - main 머지는 기존 GitHub Pages 자동 배포를 실행한다. 사용자 홈페이지 최신화 승인 범위이며 배포 설정은 그대로다.
+
+## 첫이름 유료 웹 서비스 복구 — T-261024-052
+
+- 사전 조건: 로그인 없이 로컬 빌드를 확인한다. `PUBLIC_NL_EVENTS_ORIGIN`은 저장소 Actions 변수와 같은 공개 collector 주소를 사용한다.
+- 진입·조작: `/work/`의 요약 바 확인 → `/work/products/`의 웹 서비스 필터 선택 → 전체 필터에서 첫이름 검색 → 카드의 웹에서 시작하기·무료 샘플·한자 확인 링크 확인.
+- 기대: 요약 바는 `웹 서비스 1`, 웹 서비스 필터와 첫이름 검색은 카드 1개다. 전체 활성 카드는 14개이며 종료 목록은 11개다. 첫이름 종료 오기는 목록과 타임라인에서 제거된다. 작명서 가격은 1,000원이며 링크는 첫이름 도메인의 `/`, `/sample-report`, `/hanja-check`다.
+- 로컬 실측(2026-10-24): 필수 5개 검증과 `node scripts/verify-products-page.mjs` 통과. `VERIFY_BASE=http://127.0.0.1:4391/work VERIFY_OUT=<근거 폴더> node scripts/verify-offboarding-ui.mjs`로 390/1440px 필터·검색·링크·요약·타임라인을 확인했다. 가로 넘침과 브라우저 예외는 없었다. 이 변경 PR에 검증 결과를 기록한다.
+- 아이콘 회귀: 누락 catalog의 보조 항목, 정본 아이콘 우선, 검증 함수의 입력 불변성을 검사한다. 뉴스레터 회귀는 세 링크의 고유 hop과 `/other` 충돌 거부를 검사한다.
+- 승인 경계: 이번 작업은 수동 PR 생성까지다. PR 머지·프로덕션 배포·결제 실행은 하지 않는다. 공개 작업장 반영은 이번 로컬 검증의 범위가 아니다.
 
 ## 제품 아이콘 — T-261013-044
 

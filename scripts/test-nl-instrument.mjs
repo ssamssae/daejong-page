@@ -456,6 +456,16 @@ test('Ipta releases retain exact Mac and Windows destinations and guide links', 
   assert.equal(slugForUrl('https://kangdaejong.com/not-ipta/'),null);
   assert.equal(matchHref(list,'https://github.com/ssamssae/ipta/releases/tag/v9.9.9'),null);
 });
+test('cheotireum report and hanja links keep distinct newsletter destinations',()=>{
+  const urls=['https://cheotireum.kangdaejong.com/','https://cheotireum.kangdaejong.com/sample-report','https://cheotireum.kangdaejong.com/hanja-check'];
+  const list=buildAllowlist(urls);
+  const hops=['cheotireum','cheotireum-sample','cheotireum-hanja-check'];
+  for(let i=0;i<urls.length;i++){
+    assert.equal(matchHref(list,urls[i]).hop,hops[i]);
+    assert.equal(lookupHop(list,hops[i]).dest,urls[i]);
+  }
+  assert.equal(matchHref(buildAllowlist(['https://cheotireum.kangdaejong.com/sample']),'https://cheotireum.kangdaejong.com/sample').hop,'cheotireum-sample');
+});
 test('ambiguous product destinations fail the build instead of dropping a link',()=>{
   assert.throws(()=>buildAllowlist(['https://cheotireum.kangdaejong.com/','https://cheotireum.kangdaejong.com/other']),/collision/);
 });
