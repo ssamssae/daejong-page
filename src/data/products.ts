@@ -79,12 +79,14 @@ const codexRepo = 'https://github.com/ssamssae/codex-telegram-bridge';
 const claudeRepo = 'https://github.com/ssamssae/claude-telegram-bridge';
 const cursorRepo = 'https://github.com/ssamssae/cursor-telegram-bridge';
 const localRepo = 'https://github.com/ssamssae/local-telegram-bridge';
+const grokbotRepo = 'https://github.com/ssamssae/grokbot-telegram-bridge';
 export const bridges = {
   grok: { version: '0.5.3', repo: grokRepo },
   codex: { version: '0.9.9', repo: codexRepo },
   claude: { version: '0.14.2', repo: claudeRepo },
   cursor: { version: '0.4.2', repo: cursorRepo },
   local: { version: '0.2.0', repo: localRepo },
+  grokbot: { version: '0.1.0', repo: grokbotRepo },
 } as const;
 
 export const tools = [
@@ -143,6 +145,14 @@ export const tools = [
     links: [
       { label: 'GitHub', url: bridges.local.repo },
       { label: 'Release', url: `${bridges.local.repo}/releases/latest` },
+    ],
+  },
+  {
+    name: 'Grok Bot Telegram Bridge', ...productIcon('bridge-grokbot'), status: '오픈소스 · 공개 배포',
+    desc: '텔레그램으로 그록봇 앱의 봇 하나와 대화하는 브릿지. 텔레그램 글은 루틴 웹훅으로 넘기고, 봇의 답은 앱의 대화 기록에서 읽어 돌려줘요. 화면 자동화를 쓰지 않아요.',
+    links: [
+      { label: 'GitHub', url: bridges.grokbot.repo },
+      { label: 'Release', url: `${bridges.grokbot.repo}/releases/latest` },
     ],
   },
 ];

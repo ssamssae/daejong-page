@@ -139,6 +139,13 @@
     "source": "https://github.com/ssamssae/local-telegram-bridge#readme",
     "checkedAt": "2026-09-22"
   },
+  "Grok Bot Telegram Bridge": {
+    "price": "브릿지 무료 · 그록봇 이용 비용 별도",
+    "platform": "macOS (그록봇 데스크톱 앱)",
+    "account": "Telegram · 그록봇 계정",
+    "source": "https://github.com/ssamssae/grokbot-telegram-bridge#readme",
+    "checkedAt": "2026-10-24"
+  },
   "1인회사 AI자동화": {
     "price": "판매 종료",
     "platform": "전자책 · PC / 모바일",

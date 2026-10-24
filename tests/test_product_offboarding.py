@@ -22,7 +22,7 @@ class ProductOffboarding(unittest.TestCase):
     def test_only_current_products_have_purchase_links(self):
         page = Page(ROOT / 'dist/products/index.html')
         cards = [a for _, a in page.tags if 'data-catalog-item' in a]
-        self.assertEqual(len(cards), 14)
+        self.assertEqual(len(cards), 15)  # T-261024-056: Grok Bot Telegram Bridge 추가
         retired = json.loads((ROOT / 'src/data/retired-products.json').read_text())
         self.assertEqual(len(retired), 11)
         self.assertNotIn('첫이름 — AI 사주 작명', [item['name'] for item in retired])
