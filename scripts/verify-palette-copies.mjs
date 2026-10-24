@@ -24,11 +24,18 @@ for (const file of files) {
     for (const m of line.matchAll(/(--[\w-]+)\s*:\s*var\(\s*(--[\w-]+)\s*\)/g)) if (m[1] === m[2]) hits.push(`${file}:${i + 1}: ${m[0]} (자기 참조)  ${line.trim().slice(0, 80)}`);
     for (const m of line.matchAll(pattern)) if (longs.has(asLong(m[0]))) hits.push(`${file}:${i + 1}: ${m[0]}  ${line.trim().slice(0, 100)}`);
     for (const m of line.matchAll(rgbPattern)) if (longs.has(rgbHex(m[1], m[2], m[3]))) hits.push(`${file}:${i + 1}: ${m[0]}  ${line.trim().slice(0, 100)}`);
+    // T-261024-028: 톤 값(--tone-*)도 회사홈 공용 원본에서만 정의한다 — 여기서는 var(--tone-이름) 으로만 쓴다.
+    for (const m of line.matchAll(/(--tone-[\w-]+)\s*:/g)) hits.push(`${file}:${i + 1}: ${m[1]} (톤 값 복사)  ${line.trim().slice(0, 80)}`);
   });
+}
+// T-261024-028: 작업장 자기 값(글꼴·모서리·본문 크기)은 공용 톤 파일에 연결돼 있어야 한다 — 숫자로 되돌리면 실패.
+const siteTokens = readFileSync('src/styles/tokens.css', 'utf8');
+for (const link of ['--sans: var(--tone-font)', '--radius-card: var(--tone-radius-card)', '--radius-btn: var(--tone-radius-control)', '--text-body: var(--tone-label-size)']) {
+  if (!siteTokens.includes(link)) hits.push(`src/styles/tokens.css: ${link} 연결이 없다 (공용 톤 파일)`);
 }
 if (hits.length) {
   console.error(hits.slice(0, 40).join('\n'));
-  console.error(`palette copies: ${hits.length} 곳 — 색 값 대신 var(--이름) 을 쓰거나, 테마와 무관한 색이면 그 줄에 tokens:fixed`);
+  console.error(`palette copies: ${hits.length} 곳 — 색·톤 값 대신 var(--이름) 을 쓰거나, 테마와 무관한 색이면 그 줄에 tokens:fixed`);
   process.exit(1);
 }
 console.log(`palette copies: 0 — ${files.length} files, ${longs.size} palette colors (원본 https://kangdaejong.com/brand/current/tokens.css)`);

@@ -182,7 +182,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     gap: 20px;
     background: var(--bg-elev);
     padding: 24px 28px;
-    border-radius: 12px;
+    border-radius: var(--tone-radius-card);
   }
   .archive-total strong {
     font:
@@ -212,7 +212,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     min-height: 275px;
     padding: 26px;
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: var(--tone-radius-card);
     background: var(--accent-bg);
     text-decoration: none;
     transition: transform 0.2s;
@@ -267,7 +267,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     display: flex;
     align-items: center;
     border: 1px solid var(--border);
-    border-radius: 7px;
+    border-radius: var(--tone-radius-control);
     background: var(--bg-elev);
     padding: 10px 14px;
     gap: 14px;
@@ -345,7 +345,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     text-align: center;
     padding: 60px 20px;
     background: var(--bg-elev);
-    border-radius: 12px;
+    border-radius: var(--tone-radius-card);
   }
   .archive-empty p {
     margin: 14px 0 24px;

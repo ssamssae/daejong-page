@@ -1,16 +1,15 @@
 /* 작업장 글꼴·크기·간격 값. 색(라이트·다크)과 PC 폭(--page-max)은 T-261013-004 부터 회사홈 공용 원본
-   https://kangdaejong.com/brand/current/tokens.css 에 있다 — Layout.astro 가 그 파일을 읽는다. 여기에 색을 다시 적지 않는다. */
+   https://kangdaejong.com/brand/current/tokens.css 에 있다 — Layout.astro 가 그 파일을 읽는다. 여기에 색을 다시 적지 않는다.
+   T-261024-028: 글꼴·모서리·본문 크기는 같은 공용 원본의 톤 값(--tone-*, 첫이름·토스 톤)에 연결한다 — 숫자를 여기 다시 적지 않는다. */
 :root {
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --sans:
-    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    sans-serif;
+  --sans: var(--tone-font);
   --serif: "Noto Serif KR", Georgia, "Times New Roman", serif;
   --text-h1: clamp(32px, 4.6vw, 51px);
   --text-h2: clamp(23px, 3vw, 30px);
   --text-h3: 21px;
   --text-lead: 18px;
-  --text-body: 15px;
+  --text-body: var(--tone-label-size);
   --text-desc: 14px;
   --text-meta: 12px;
   --text-badge: 11px;
@@ -20,8 +19,8 @@
   --leading-h1: 1.15;
   --leading-desc: 1.65;
   --measure: 62ch;
-  --radius-card: 16px;
-  --radius-btn: 8px;
+  --radius-card: var(--tone-radius-card);
+  --radius-btn: var(--tone-radius-control);
   --gap-card: 24px;
   --pad-section: 80px;
   --pad-section-sm: 48px;

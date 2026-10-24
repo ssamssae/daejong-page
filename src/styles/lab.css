@@ -206,7 +206,7 @@
 .lab-cat {
   flex: 0 0 auto;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--tone-radius-pill);
   color: var(--fg-dim);
   background: var(--bg);
   padding: 3px 9px;
@@ -238,7 +238,7 @@
 
 .lab-tag {
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--tone-radius-pill);
   background: var(--bg);
   color: var(--fg-dim);
   padding: 3px 8px;
