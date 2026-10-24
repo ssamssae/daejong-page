@@ -11,10 +11,10 @@ const canonical = 'https://work.kangdaejong.com' + (pageKey === 'system' ? '/sys
     <nav class="guide-crumb" aria-label="현재 위치"><a href="/">작업장</a><span>/</span><a href="/system/">시스템</a>{pageKey !== 'system' && <><span>/</span><span aria-current="page">{label}</span></>}</nav>
     <header class="guide-hero">
       <div><p class="guide-kicker">{eyebrow}</p><h1>{title}</h1><p class="guide-lead">{lead}</p><p class="guide-date">내용 확인 <time datetime={date}>{date}</time> · 운영 문서 기준</p></div>
-      <div class="guide-poster"><span class="guide-kicker">MINUS BETA / WORKING SYSTEM</span><strong>{motif}</strong><ol>{steps.map((step,i) => <li><span>0{i+1}</span>{step}</li>)}</ol></div>
+      <div class="guide-poster"><span class="guide-kicker">마이너스베타 / 작업 시스템</span><strong>{motif}</strong><ol>{steps.map((step,i) => <li><span>0{i+1}</span>{step}</li>)}</ol></div>
     </header>
     <nav class="guide-tabs" aria-label="시스템 문서">{guide.modules.map(item => <a href={item.href} aria-current={item.key === pageKey ? 'page' : undefined}>{item.label}</a>)}</nav>
     <slot />
-    <aside class="guide-end"><p class="guide-kicker">BUILT IN THE OPEN</p><h2>만드는 과정도,<br/>함께 남깁니다.</h2><p>시스템 설명은 확인한 시점의 기록입니다. 이후의 변경과 작업은 작업일지에서 이어집니다.</p><a href="/worklog/">최근 작업일지 ↗</a><a href="/system/">시스템 전체 보기 ↗</a></aside>
+    <aside class="guide-end"><p class="guide-kicker">공개 기록</p><h2>만드는 과정도,<br/>함께 남겨요.</h2><p>시스템 설명은 확인한 시점의 기록이에요. 이후의 변경과 작업은 작업일지에서 이어져요.</p><a href="/worklog/">최근 작업일지 ↗</a><a href="/system/">시스템 전체 보기 ↗</a></aside>
   </article>
 </Layout>

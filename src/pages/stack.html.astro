@@ -5,13 +5,13 @@ import FleetTopology from '../components/FleetTopology.astro';
 import { fleet, koCount } from '../data/fleet-topology';
 const bridges = ['Grok', 'Codex', 'Claude', 'Cursor', 'Local'];
 // T-261013-009: 노드 수·엔진·기준일은 src/data/fleet-topology.ts 에서 읽는다(여기에 숫자를 다시 적지 않는다).
-const lead = `${koCount(fleet.nodes.length)} 물리 노드와 ${koCount(bridges.length)} 종류의 브릿지를 사용합니다. 노드는 기기이고 ${fleet.engines.join('·')}은 엔진입니다. 설치된 도구, 배정된 역할, 실제 가동 상태는 서로 구분해서 읽습니다.`;
+const lead = `${koCount(fleet.nodes.length)} 물리 노드와 ${koCount(bridges.length)} 종류의 브릿지를 사용해요. 노드는 기기이고 ${fleet.engines.join('·')}은 엔진이에요. 설치된 도구, 배정된 역할, 실제 가동 상태는 서로 구분해서 읽어요.`;
 ---
 <SystemGuide
   pageKey={"stack"}
   label={"기술 스택"}
-  eyebrow={"STACK / CONNECTED TOOLS"}
-  title={"역할은 나누고,\n맥락은 연결합니다."}
+  eyebrow={"쓰는 도구 / 서로 이어진 구성"}
+  title={"역할은 나누고,\n맥락은 연결해요."}
   lead={lead}
   motif={`${fleet.nodes.length} nodes.\n${bridges.length} bridges.`}
   date={fleet.asOf}
@@ -22,7 +22,7 @@ const lead = `${koCount(fleet.nodes.length)} 물리 노드와 ${koCount(bridges.
   <section class="guide-section">
     <div class="guide-heading">
       <div>
-        <p class="guide-kicker">02 / BUILDING BLOCKS</p>
+        <p class="guide-kicker">02 / 구성 요소</p>
         <h2>연결마다 다른 역할.</h2>
       </div>
       <p></p>
@@ -31,24 +31,24 @@ const lead = `${koCount(fleet.nodes.length)} 물리 노드와 ${koCount(bridges.
       <article class="guide-card">
         <span class="guide-kicker">01</span>
         <h3>입력과 대화</h3>
-        <p>텔레그램과 컴퓨터의 직접 대화가 요청의 입구입니다. 브릿지는 이를 AI 세션과 연결합니다.</p>
+        <p>텔레그램과 컴퓨터의 직접 대화가 요청의 입구예요. 브릿지는 이를 AI 세션과 연결해요.</p>
       </article>
       <article class="guide-card">
         <span class="guide-kicker">02</span>
         <h3>제품과 코드</h3>
-        <p>앱 개발과 웹 제작은 각 제품 저장소에서 진행합니다. 이 작업장 웹사이트는 Astro로 빌드하고 GitHub Pages로 배포합니다.</p>
+        <p>앱 개발과 웹 제작은 각 제품 저장소에서 진행해요. 이 작업장 웹사이트는 Astro로 빌드하고 GitHub Pages로 배포해요.</p>
       </article>
       <article class="guide-card">
         <span class="guide-kicker">03</span>
         <h3>검증과 관찰</h3>
-        <p>GitHub의 PR·검사 결과와 초소의 받은 요청·노드 신호를 통해 변경과 활동을 확인합니다.</p>
+        <p>GitHub의 PR·검사 결과와 초소의 받은 요청·노드 신호를 통해 변경과 활동을 확인해요.</p>
       </article>
     </div>
   </section>
   <section class="guide-section">
     <div class="guide-heading">
       <div>
-        <p class="guide-kicker">03 / OPEN SOURCE</p>
+        <p class="guide-kicker">03 / 공개 소스</p>
         <h2>브릿지의 구현 보기.</h2>
       </div>
       <p></p>
@@ -57,7 +57,7 @@ const lead = `${koCount(fleet.nodes.length)} 물리 노드와 ${koCount(bridges.
       {bridges.map((name) => (
         <a class="guide-card" href={`https://github.com/ssamssae/${name.toLowerCase()}-telegram-bridge`}>
           <h3>{name} Telegram Bridge</h3>
-          <p>설치 방법, 지원 기능, 최신 릴리스를 확인합니다.</p>
+          <p>설치 방법, 지원 기능, 최신 릴리스를 확인해요.</p>
           <b>저장소 열기 ↗</b>
         </a>
       ))}

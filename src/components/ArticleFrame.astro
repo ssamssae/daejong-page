@@ -25,17 +25,17 @@ if (collection) {
   if (current >= 0) { newer = neighbor(posts[current - 1]); older = neighbor(posts[current + 1]); }
 }
 const context = label === '인사이트'
-  ? '영상과 글을 보고 정리한 해석입니다. 원 출처의 주장과 직접 확인한 결과를 구분해 읽습니다.'
+  ? '영상과 글을 보고 정리한 해석이에요. 원 출처의 주장과 직접 확인한 결과를 구분해 읽어요.'
   : label === '뉴스레터'
-  ? '발행 당시의 생각과 작업을 담은 편지입니다. 제품의 현재 기능과 설치 정보는 제품 목록에서 확인할 수 있습니다.'
-  : '작성 당시의 문제와 판단을 남긴 기록입니다. 도구와 운영 방식은 이후 달라질 수 있으며, 적용할 때는 현재 조건을 확인합니다.';
+  ? '발행 당시의 생각과 작업을 담은 편지예요. 제품의 현재 기능과 설치 정보는 제품 목록에서 확인할 수 있어요.'
+  : '작성 당시의 문제와 판단을 남긴 기록이에요. 도구와 운영 방식은 이후 달라질 수 있으며, 적용할 때는 현재 조건을 확인해요.';
 ---
 
 <div class="article-frame">
   <a class="back" href={base}>← {label} 목록</a>
   <article>
     <header class="reading-header">
-      <p class="eyebrow">FROM THE WORKSHOP / {label}</p><h1
+      <p class="eyebrow">작업장 / {label}</p><h1
         data-pagefind-body={searchable ? "" : undefined}
         data-pagefind-meta={searchable ? "title" : undefined}>{title}</h1>{
         summary && (
@@ -81,7 +81,7 @@ const context = label === '인사이트'
     {older && <a href={older.href}><small>이전 기록 →</small><strong>{older.title}</strong></a>}
   </nav>}
   <div class="reading-end">
-    <span>기록은 다음 시작이 됩니다.</span><a href={base}>{label} 더 읽기 ↗</a
+    <span>기록은 다음 시작이 돼요.</span><a href={base}>{label} 더 읽기 ↗</a
     ><a href="/products/">이 작업장의 제품 ↗</a>
   </div>
 </div>

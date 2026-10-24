@@ -6,63 +6,63 @@ import experiments from '../data/lab-experiments.json';
 const items = [
   {
     href: '/issues.html',
-    kicker: 'POSTMORTEM',
+    kicker: '사고 기록',
     title: '이슈',
     desc: '발생했다 해결한 이슈와 혼선의 포스트모템. 증상, 원인, 조치, 예방을 남깁니다.',
     group: '운영 기록',
   },
   {
     href: '/dead-ends.html',
-    kicker: 'DEAD ENDS',
+    kicker: '막다른 길',
     title: '막다른 길',
     desc: '강대종과 AI가 시도했다가 접은 일과 다시 연 일. 같은 벽을 다시 치지 않기 위한 기록입니다.',
     group: '운영 기록',
   },
   {
     href: '/ai-glossary.html',
-    kicker: 'GLOSSARY',
+    kicker: '용어집',
     title: 'AI 용어집',
     desc: '영상과 작업 중 나온 Grok·Claude·Codex·Cursor·로컬 LLM 용어를 1인 개발자 맥락으로 정리합니다.',
     group: '지식 노트',
   },
   {
     href: '/vibecoding.html',
-    kicker: 'METHOD',
+    kicker: '작업 방식',
     title: '바이브코딩',
     desc: '슬래시 커맨드에서 여러 노드와 브릿지를 쓰기까지, 개발 방식이 바뀐 과정을 읽습니다.',
     group: '지식 노트',
   },
   {
     href: '/habits.html',
-    kicker: 'HABITS',
+    kicker: '습관',
     title: '습관',
     desc: '세션 운영, 완료 마킹, 보고, 시간 표기처럼 반복해서 지켜야 하는 작은 습관들입니다.',
     group: '지식 노트',
   },
   {
     href: '/timeline.html',
-    kicker: 'TIMELINE',
+    kicker: '연표',
     title: '타임라인',
     desc: '2026년 4월 첫 코드부터 제품과 작업 도구가 늘어난 과정을 남긴 공개 연대기입니다.',
     group: '지식 노트',
   },
   {
     href: '/stock.html',
-    kicker: 'STOCK',
+    kicker: '관심종목',
     title: '주식',
     desc: '투자 관련 메모와 관찰 기록입니다.',
     group: '실험',
   },
   {
     href: '/sise.html',
-    kicker: 'MARKET',
+    kicker: '시세',
     title: '시세',
     desc: '시세 관련 실험과 데이터 관찰을 모아둡니다.',
     group: '실험',
   },
   {
     href: '/sorry/',
-    kicker: 'LOG',
+    kicker: '기록',
     title: '반성문',
     desc: '에이전트가 실수한 순간을 기록하고, 같은 실수를 줄이기 위한 흔적을 남깁니다.',
     group: '운영 기록',
@@ -89,7 +89,7 @@ const nowCards = experiments.map(item => ({ href: `/experiments/#${item.id}`, ki
   <div class="lab-index">
     <section class="lab-hero" aria-labelledby="page-title">
       <div class="hero-copy">
-        <p class="eyebrow">LAB NOTEBOOK</p>
+        <p class="eyebrow">실험 노트</p>
         <h1 id="page-title">실험실</h1>
         <p class="lead">
           제품으로 바로 묶이지 않는 잡학, 실험, 포스트모템, 접은 시도를 모아둡니다.
@@ -116,7 +116,7 @@ const nowCards = experiments.map(item => ({ href: `/experiments/#${item.id}`, ki
     <section class="now-section" aria-labelledby="now-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">TESTED</p>
+          <p class="eyebrow">확인한 실험</p>
           <h2 id="now-title">직접 비교해 얻은 결과</h2>
         </div>
         <p>2026-09-21 실험 기록 · 편집 확인 2026-09-23. 성공 수치와 측정하지 못한 것을 함께 공개합니다.</p>
@@ -139,7 +139,7 @@ const nowCards = experiments.map(item => ({ href: `/experiments/#${item.id}`, ki
     <section class="featured-section" aria-labelledby="featured-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">START HERE</p>
+          <p class="eyebrow">여기서 시작</p>
           <h2 id="featured-title">먼저 볼 기록</h2>
         </div>
         <p>운영 사고, 접은 길, 바이브코딩 변천사를 먼저 보면 이 lab이 왜 필요한지 빠르게 보입니다.</p>
@@ -162,7 +162,7 @@ const nowCards = experiments.map(item => ({ href: `/experiments/#${item.id}`, ki
     <section class="archive-section" aria-labelledby="archive-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">INDEX</p>
+          <p class="eyebrow">목록</p>
           <h2 id="archive-title">전체 lab</h2>
         </div>
         <p>성격별로 나눠 필요한 기록으로 바로 들어갈 수 있게 정리했습니다.</p>
@@ -194,7 +194,7 @@ const nowCards = experiments.map(item => ({ href: `/experiments/#${item.id}`, ki
     <section class="principle-section" aria-labelledby="principle-title">
       <div class="section-head compact">
         <div>
-          <p class="eyebrow">WHY KEEP IT</p>
+          <p class="eyebrow">남기는 이유</p>
           <h2 id="principle-title">lab에 남기는 기준</h2>
         </div>
       </div>

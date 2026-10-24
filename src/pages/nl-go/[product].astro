@@ -21,7 +21,7 @@ const webSource = SOURCES.web;
 <Layout title="제품으로 이동" description="뉴스레터 제품 링크 이동">
   {entry && <noscript slot="head"><meta http-equiv="refresh" content={`1;url=${dest}`} /></noscript>}
   {!entry ? (
-    <p data-nl-hop="rejected">이 주소로는 이동하지 않습니다.</p>
+    <p data-nl-hop="rejected">이 주소로는 이동하지 않아요.</p>
   ) : (
     <>
       <p
@@ -34,7 +34,7 @@ const webSource = SOURCES.web;
         <a id="nl-fallback" href={dest}>제품 페이지로 이동</a>
       </p>
       {destKind === 'external' && (
-        <p data-nl-visit="na">제품의 공식 페이지로 이동합니다. 이동하지 않으면 위 링크를 눌러주세요.</p>
+        <p data-nl-visit="na">제품의 공식 페이지로 이동해요. 이동하지 않으면 위 링크를 눌러주세요.</p>
       )}
     </>
   )}

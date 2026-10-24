@@ -16,7 +16,7 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-list-search
   const update = () => {
     let visible = 0;
     items.forEach((item,i) => { item.hidden = !matchesSearch(texts[i], input.value); if (!item.hidden) visible++; });
-    status.textContent = visible ? `${visible} / ${items.length}개` : '검색 결과가 없습니다. 검색어를 줄이거나 초기화해 보세요.';
+    status.textContent = visible ? `${visible} / ${items.length}개` : '검색 결과가 없어요. 검색어를 줄이거나 초기화해 보세요.';
     for (const group of document.querySelectorAll<HTMLElement>('.archive-list .month-block')) {
       group.hidden = ![...group.querySelectorAll<HTMLElement>('li')].some(item => !item.hidden);
     }
