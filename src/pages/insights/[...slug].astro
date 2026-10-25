@@ -1,5 +1,6 @@
 ---
 import ArticleFrame from "../../components/ArticleFrame.astro";
+import TermTips from "../../components/TermTips.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { ogImagePath } from "../../lib/og-image.mjs";
@@ -29,4 +30,5 @@ const { Content, headings } = await render(post);
     searchable
     base="/insights/"><Content /></ArticleFrame
   >
+  <TermTips />
 </Layout>

@@ -64,3 +64,13 @@
 - 조작: 기록 검색 → 결과 글 열기 → 제품 목록 검색 → 회사 로고 클릭.
 - 기대: 작업장 내부 이동은 `/work/`를 유지한다. 회사 로고는 회사 홈으로 간다. 옛 글 링크는 같은 새 경로로 301 이동한다. 회사와 작업장은 루트 사이트맵을 함께 쓴다.
 - 로컬 근거: `tests/work-mount.test.mjs`, `scripts/verify-work-mount.mjs`, `tests/work-mount.browser.mjs`. 2026-10-17의 390/1440px 검색·이동 검사를 통과했다. 공개 배포·검색엔진 색인 상태는 별도 확인한다. [배포 순서](work-path.md).
+
+## 글 본문 용어 툴팁 — T-261025-009
+
+- 출발: 인사이트 「바이브코더 필수 UI 용어 24가지」(2026-10-25)의 툴팁 — 대종님 「추천1~4 진행해줘」의 추천 4.
+- 진입점: `/work/insights/<id>/`·`/work/worklog/<id>/` 글 본문. 로그인 없이.
+- 조작: PC 는 점선 밑줄 단어에 마우스를 올리거나 키보드(Tab)로 고른다. 휴대전화는 단어를 누른다 — 다시 누르거나 바깥을 누르면 닫힌다. ESC 로도 닫는다.
+- 기대: 용어 사전(`src/pages/ai-glossary.html.astro`)에 있는 말이 그 글에서 처음 나올 때 한 줄 풀이가 뜬다(한 글에 최대 12개). 인사이트는 그 영상의 풀이를 그대로, 다른 글은 사전 풀이의 첫 문장을 쓴다(영상 속 상황 — 「영상」·「발화자」·「대담」·「강연」·「인터뷰」 — 을 말하는 풀이는 건너뛴다). 풀지 않는 것: 제목·링크·코드, 인사이트의 「용어」·「영상 메타」 구역, 두 글자 한국어 일상어(문서·채널), 영어 일상어(session·agent — 사전이 대문자로 써도), 경로·이름에 붙은 말(`claude-skills`·`~/.codex`·`MCP_SERVER`), 우리 노드 이름(Athena·Hermes·Vulcan…). 풀이 상자는 화면 좌우 여백 안에 들어온다. 풀이는 사이트 검색 색인에서 뺀다(`data-pagefind-ignore`).
+- 구현: 빌드 때 `src/lib/rehype-glossary-tips.mjs`(사전 읽기 `src/lib/glossary-terms.mjs`)가 표시를 달고(`astro.config.mjs` 의 `rehypePlugins`), `src/components/TermTips.astro` 가 모양(공용 톤 이름만)과 여닫기를 맡는다. 사전이 바뀌면 다음 빌드에 자동 반영된다. 로컬에서 플러그인 코드를 고친 뒤에는 `node_modules/.astro/data-store.json`(본문 결과 저장분)을 지우고 빌드해야 반영된다 — CI 는 매번 새로 설치하므로 영향 없음.
+- 근거: `scripts/test-glossary-tips.mjs`(prebuild, 14개), `tests/term-tips.spec.mjs`(미리보기 서버 대상 5개 — 마우스·키보드·ESC·휴대전화 누르기·360px 화면 안). 2026-10-25 제우스 로컬 — 전체 빌드·postbuild 검사 통과(직접 숫자 707 ≤ 기준선 707), 브라우저 시험 16개 통과, 399편에 1,729개(한 편 최대 12개).
+- 미확인·갱신 조건: 공개 배포 뒤 실제 화면.
