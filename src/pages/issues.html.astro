@@ -196,7 +196,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .issues-page {
       display: flex;
       flex-direction: column;
-      gap: 64px;
+      gap: var(--tone-section-gap);
       min-width: 0;
     }
 
@@ -207,10 +207,10 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .issues-hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-      gap: 40px;
+      gap: var(--tone-space-6);
       align-items: end;
       border-bottom: 1px solid var(--border);
-      padding: 18px 0 40px;
+      padding: var(--tone-space-3) 0 var(--tone-space-6);
     }
 
     .eyebrow {
@@ -219,18 +219,18 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
-      margin-bottom: 12px;
+      margin-bottom: var(--tone-space-2);
     }
 
     h1 {
       color: var(--fg);
       font-size: var(--text-h1);
       line-height: 0.95;
-      margin: 0 0 20px;
+      margin: 0 0 var(--tone-space-4);
     }
 
     .lead {
-      max-width: 640px;
+      max-width: var(--tone-prose-max);
       color: var(--fg-dim);
       font-size: var(--text-lead);
       line-height: 1.75;
@@ -245,11 +245,11 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .hero-stats div {
       display: grid;
       grid-template-columns: 72px minmax(0, 1fr);
-      gap: 16px;
+      gap: var(--tone-space-3);
       align-items: baseline;
       border-bottom: 1px solid var(--border);
-      min-height: 58px;
-      padding: 14px 0;
+      min-height: 58px; /* tone:fixed: 숫자 칸 고정 높이(편집 의장) */
+      padding: var(--tone-space-3) 0;
     }
 
     .hero-stats dt {
@@ -270,9 +270,9 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .section-head {
       display: flex;
       justify-content: space-between;
-      gap: 24px;
+      gap: var(--tone-space-4);
       align-items: end;
-      margin-bottom: 20px;
+      margin-bottom: var(--tone-space-4);
     }
 
     .section-head h2 {
@@ -282,7 +282,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     }
 
     .section-head p:last-child {
-      max-width: 380px;
+      max-width: 380px; /* tone:fixed: 머리 설명 열 폭(편집 의장) */
       color: var(--fg-mute);
       font-size: var(--text-desc);
       line-height: var(--leading-body);
@@ -299,8 +299,8 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .signal-grid div {
       border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      min-height: 174px;
-      padding: 18px;
+      min-height: 174px; /* tone:fixed: 신호 카드 고정 높이(편집 의장) */
+      padding: var(--tone-card-padding);
     }
 
     .signal-grid span,
@@ -320,7 +320,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       font-family: var(--mono);
       font-size: var(--text-h2);
       line-height: 1;
-      margin: 34px 0 12px;
+      margin: var(--tone-space-5) 0 var(--tone-space-2);
     }
 
     .signal-grid p {
@@ -332,7 +332,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .latest-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      gap: var(--tone-space-3);
     }
 
     .issue-card {
@@ -340,8 +340,8 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       border-radius: var(--radius-btn);
       background: var(--bg);
       color: var(--fg);
-      min-height: 260px;
-      padding: 18px;
+      min-height: 260px; /* tone:fixed: 이슈 카드 고정 높이(편집 의장) */
+      padding: var(--tone-card-padding);
       text-decoration: none;
     }
 
@@ -364,8 +364,8 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .card-top {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 42px;
+      gap: var(--tone-space-2);
+      margin-bottom: var(--tone-space-6);
     }
 
     .issue-card.primary .card-top,
@@ -377,7 +377,7 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       color: inherit;
       font-size: var(--text-h3);
       line-height: 1.38;
-      margin-bottom: 12px;
+      margin-bottom: var(--tone-space-2);
       word-break: keep-all;
       overflow-wrap: anywhere;
     }
@@ -391,18 +391,18 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 18px;
+      gap: var(--tone-space-1);
+      margin-top: var(--tone-space-3);
     }
 
     .badge-row span {
       border: 1px solid var(--border);
-      border-radius: 999px;
+      border-radius: var(--tone-radius-pill);
       color: var(--fg-dim);
       font-family: var(--mono);
       font-size: var(--text-badge);
       line-height: 1;
-      padding: 6px 9px;
+      padding: 6px 9px; /* tone:fixed: 마이크로 칩(의장) */
     }
 
     .issue-card.primary .badge-row span {
@@ -422,22 +422,22 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     .archive-list {
       display: grid;
-      gap: 16px;
+      gap: var(--tone-space-3);
       min-width: 0;
     }
 
     .month-block {
       border-top: 1px solid var(--fg);
       min-width: 0;
-      padding-top: 16px;
+      padding-top: var(--tone-space-3);
     }
 
     .month-block header {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: var(--tone-space-4);
       align-items: baseline;
-      margin-bottom: 8px;
+      margin-bottom: var(--tone-space-1);
     }
 
     .month-block h3 {
@@ -466,10 +466,10 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .month-block a {
       display: grid;
       grid-template-columns: 112px minmax(0, 1fr) 120px;
-      gap: 16px;
+      gap: var(--tone-space-3);
       align-items: baseline;
-      min-height: 54px;
-      padding: 14px 0;
+      min-height: 54px; /* tone:fixed: 목록 행 고정 높이(편집 의장) */
+      padding: var(--tone-space-3) 0;
       color: var(--fg);
       min-width: 0;
       text-decoration: none;
@@ -499,9 +499,9 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
     .issues-footer {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: var(--tone-space-4);
       border-top: 1px solid var(--border);
-      padding-top: 20px;
+      padding-top: var(--tone-space-4);
     }
 
     .issues-footer p,
@@ -528,11 +528,11 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
 
     @media (max-width: 640px) {
       .issues-page {
-        gap: 52px;
+        gap: var(--tone-section-gap);
       }
 
       .lead {
-        font-size: 16px;
+        font-size: var(--tone-body-size);
       }
 
       .section-head,
@@ -541,13 +541,13 @@ const badgeClass = (kind: 'severity' | 'recurrence', level?: string | null) => {
       }
 
       .section-head p:last-child {
-        margin-top: 8px;
+        margin-top: var(--tone-space-1);
         text-align: left;
       }
 
       .month-block a {
         grid-template-columns: 1fr;
-        gap: 4px;
+        gap: var(--tone-space-1);
       }
 
       .month-block small {

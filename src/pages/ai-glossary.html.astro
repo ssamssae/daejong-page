@@ -34,16 +34,16 @@ import '../styles/lab.css';
 <style is:global>
     .glossary-page {
       --page-accent: var(--accent);
-      gap: 48px;
+      gap: var(--tone-section-gap);
     }
 
     .glossary-hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-      gap: 40px;
+      gap: var(--tone-space-6);
       align-items: end;
       border-bottom: 1px solid var(--border);
-      padding: 18px 0 40px;
+      padding: var(--tone-space-3) 0 var(--tone-space-6);
     }
 
     .eyebrow {
@@ -52,19 +52,19 @@ import '../styles/lab.css';
       font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
-      margin-bottom: 12px;
+      margin-bottom: var(--tone-space-2);
     }
 
     .glossary-hero h1 {
       color: var(--fg);
       font-size: var(--text-h1);
       line-height: 0.95;
-      margin: 0 0 20px;
+      margin: 0 0 var(--tone-space-4);
       word-break: keep-all;
     }
 
     .lead {
-      max-width: 680px;
+      max-width: var(--tone-prose-max);
       color: var(--fg-dim);
       font-size: var(--text-lead);
       line-height: 1.75;
@@ -85,11 +85,11 @@ import '../styles/lab.css';
     .hero-stats div {
       display: grid;
       grid-template-columns: 88px minmax(0, 1fr);
-      gap: 16px;
+      gap: var(--tone-space-3);
       align-items: baseline;
-      min-height: 58px;
+      min-height: 58px; /* tone:fixed: 숫자 칸 고정 높이(편집 의장) */
       border-bottom: 1px solid var(--border);
-      padding: 14px 0;
+      padding: var(--tone-space-3) 0;
     }
 
     .hero-stats dt {
@@ -111,14 +111,14 @@ import '../styles/lab.css';
       color: var(--fg-dim);
       font-size: var(--text-meta);
       font-weight: 500;
-      margin-left: 4px;
+      margin-left: 4px; /* tone:fixed: 숫자 단위 붙임 간격(의장) */
     }
 
     .hero-summary {
       color: var(--fg-dim);
       font-size: var(--text-desc);
       line-height: 1.45;
-      margin-top: 12px;
+      margin-top: var(--tone-space-2);
       white-space: nowrap;
     }
 
@@ -132,7 +132,7 @@ import '../styles/lab.css';
     .glossary-guide div {
       min-width: 0;
       border-right: 1px solid var(--border);
-      padding: 20px 20px 22px;
+      padding: var(--tone-card-padding);
     }
 
     .glossary-guide div:last-child {
@@ -145,7 +145,7 @@ import '../styles/lab.css';
       font-family: var(--mono);
       font-size: var(--text-meta);
       font-weight: 600;
-      margin-bottom: 28px;
+      margin-bottom: var(--tone-space-5);
     }
 
     .glossary-guide strong {
@@ -153,7 +153,7 @@ import '../styles/lab.css';
       color: var(--fg);
       font-size: var(--text-h3);
       line-height: 1.35;
-      margin-bottom: 8px;
+      margin-bottom: var(--tone-space-1);
       word-break: keep-all;
     }
 
@@ -167,28 +167,28 @@ import '../styles/lab.css';
     .category-strip {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: var(--tone-space-1);
       margin-top: -20px;
     }
 
     .category-strip span {
       border: 1px solid var(--border);
-      border-radius: 999px;
+      border-radius: var(--tone-radius-pill);
       color: var(--fg-dim);
       font-family: var(--mono);
       font-size: var(--text-meta);
       line-height: 1.4;
-      padding: 6px 10px;
+      padding: 6px 10px; /* tone:fixed: 마이크로 칩(의장) */
       white-space: nowrap;
     }
 
     .data-head {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(240px, 380px);
-      gap: 32px;
+      gap: var(--tone-space-5);
       align-items: end;
       border-top: 1px solid var(--fg);
-      padding-top: 24px;
+      padding-top: var(--tone-space-4);
     }
 
     .data-head h2 {
@@ -210,7 +210,7 @@ import '../styles/lab.css';
     .glossary-data {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px 14px;
+      gap: var(--tone-space-2) var(--tone-space-3);
       margin-top: -24px;
     }
 
@@ -220,8 +220,8 @@ import '../styles/lab.css';
       color: var(--fg);
       font-size: var(--text-h2);
       line-height: var(--leading-h1);
-      margin: 22px 0 2px;
-      padding-top: 20px;
+      margin: var(--tone-space-4) 0 0;
+      padding-top: var(--tone-space-4);
       word-break: keep-all;
     }
 
@@ -234,7 +234,7 @@ import '../styles/lab.css';
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-btn);
-      padding: 16px 18px;
+      padding: var(--tone-space-3);
     }
 
     .term h3 {
@@ -242,7 +242,7 @@ import '../styles/lab.css';
       font-size: var(--text-lead);
       font-weight: 700;
       line-height: 1.45;
-      margin-bottom: 8px;
+      margin-bottom: var(--tone-space-1);
       overflow-wrap: break-word;
       word-break: keep-all;
     }
@@ -258,22 +258,22 @@ import '../styles/lab.css';
     .term code {
       background: var(--bg-elev2);
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 4px; /* tone:fixed: 인라인 코드 모서리(의장) */
       color: var(--fg);
       font-family: var(--mono);
       font-size: var(--text-meta);
-      padding: 1px 5px;
+      padding: 1px 5px; /* tone:fixed: 인라인 코드 안쪽(의장) */
     }
 
     .src {
       display: block;
-      margin-top: 10px;
+      margin-top: var(--tone-space-2);
       border-top: 1px solid var(--border-soft);
       color: var(--fg-mute);
       font-family: var(--mono);
       font-size: var(--text-badge);
       line-height: var(--leading-desc);
-      padding-top: 8px;
+      padding-top: var(--tone-space-1);
       word-break: break-all;
     }
 
@@ -292,12 +292,12 @@ import '../styles/lab.css';
       }
 
       .lead {
-        font-size: 16px;
+        font-size: var(--tone-body-size);
       }
 
       .hero-stats div {
         grid-template-columns: 1fr;
-        gap: 4px;
+        gap: var(--tone-space-1);
         min-height: 0;
       }
 

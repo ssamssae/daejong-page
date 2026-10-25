@@ -18,7 +18,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
       .ai-way {
         display: flex;
         flex-direction: column;
-        gap: 64px;
+        gap: var(--tone-section-gap);
         min-width: 0;
       }
 
@@ -32,23 +32,23 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
         font-size: var(--text-meta);
         font-weight: 600;
         letter-spacing: 0;
-        margin: 0 0 12px;
+        margin: 0 0 var(--tone-space-2);
       }
 
       .ai-way-hero {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
-        gap: 40px;
+        gap: var(--tone-space-6);
         align-items: end;
         border-bottom: 1px solid var(--border);
-        padding: 18px 0 40px;
+        padding: var(--tone-space-3) 0 var(--tone-space-6);
       }
 
       .ai-way-hero h1 {
         color: var(--fg);
         font-size: var(--text-h1);
         line-height: var(--leading-h1);
-        margin: 0 0 20px;
+        margin: 0 0 var(--tone-space-4);
         word-break: keep-all;
       }
 
@@ -57,14 +57,14 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
         font-size: var(--text-lead);
         line-height: 1.75;
         margin: 0;
-        max-width: 660px;
+        max-width: var(--tone-prose-max);
         word-break: keep-all;
       }
 
       .ai-way-aside {
         color: var(--fg-mute);
         font-size: var(--text-desc);
-        margin: 16px 0 0;
+        margin: var(--tone-space-3) 0 0;
       }
 
       .ai-way-stats {
@@ -76,10 +76,10 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
       .ai-way-stats div {
         display: grid;
         grid-template-columns: 88px minmax(0, 1fr);
-        gap: 16px;
+        gap: var(--tone-space-3);
         align-items: baseline;
         border-bottom: 1px solid var(--border);
-        padding: 14px 0;
+        padding: var(--tone-space-3) 0;
       }
 
       .ai-way-stats dt {
@@ -99,9 +99,9 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
       .ai-way .section-head {
         display: flex;
         justify-content: space-between;
-        gap: 24px;
+        gap: var(--tone-space-4);
         align-items: end;
-        margin-bottom: 20px;
+        margin-bottom: var(--tone-space-4);
       }
 
       .ai-way .section-head h2 {
@@ -117,7 +117,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
         font-size: var(--text-desc);
         line-height: var(--leading-desc);
         margin: 0;
-        max-width: 420px;
+        max-width: 420px; /* tone:fixed: 머리 설명 열 폭(편집 의장) */
         text-align: right;
         word-break: keep-all;
       }
@@ -125,7 +125,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
       .ai-way-rules {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
+        gap: var(--tone-space-2);
         list-style: none;
         margin: 0;
         padding: 0;
@@ -133,7 +133,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
 
       .ai-way-rules li {
         border-top: 2px solid var(--fg);
-        padding: 16px 0 0;
+        padding: var(--tone-space-3) 0 0;
       }
 
       .ai-way-rules strong {
@@ -141,7 +141,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
         color: var(--fg);
         font-size: var(--text-body);
         line-height: 1.5;
-        margin-bottom: 8px;
+        margin-bottom: var(--tone-space-1);
         word-break: keep-all;
       }
 
@@ -161,17 +161,17 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
       .ai-way-areas {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: var(--tone-space-1);
       }
 
       .ai-way-areas a {
         border: 1px solid var(--border);
-        border-radius: 999px;
+        border-radius: var(--tone-radius-pill);
         color: var(--fg-dim);
         font-size: var(--text-desc);
         font-weight: 600;
         line-height: 1;
-        padding: 10px 14px;
+        padding: var(--tone-space-2) var(--tone-space-3);
         text-decoration: none;
       }
 
@@ -187,18 +187,18 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
       .ai-way-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
+        gap: var(--tone-space-3);
       }
 
       .use-card {
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: var(--tone-space-3);
         border: 1px solid var(--border);
         border-radius: var(--radius-card);
         background: var(--surface);
         min-width: 0;
-        padding: 22px;
+        padding: var(--tone-card-padding);
         scroll-margin-top: 96px;
       }
 
@@ -220,14 +220,14 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
 
       .use-card dl {
         display: grid;
-        gap: 10px;
+        gap: var(--tone-space-2);
         margin: 0;
       }
 
       .use-card dl div {
         display: grid;
         grid-template-columns: 76px minmax(0, 1fr);
-        gap: 12px;
+        gap: var(--tone-space-2);
       }
 
       .use-card dt {
@@ -252,7 +252,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
         font-size: var(--text-desc);
         line-height: var(--leading-desc);
         margin: auto 0 0;
-        padding: 12px 14px;
+        padding: var(--tone-space-2) var(--tone-space-3);
         word-break: keep-all;
       }
 
@@ -260,7 +260,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
         display: block;
         color: var(--accent);
         font-size: var(--text-meta);
-        margin-bottom: 4px;
+        margin-bottom: var(--tone-space-1);
       }
 
       .use-link {
@@ -271,9 +271,9 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
 
       .ai-way-foot {
         display: grid;
-        gap: 12px;
+        gap: var(--tone-space-2);
         border-top: 1px solid var(--border);
-        padding-top: 24px;
+        padding-top: var(--tone-space-4);
       }
 
       .ai-way-foot p {
@@ -287,7 +287,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
       .ai-way-foot ul {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px 20px;
+        gap: var(--tone-space-2) var(--tone-space-4);
         list-style: none;
         margin: 0;
         padding: 0;
@@ -302,7 +302,7 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
       @media (max-width: 920px) {
         .ai-way-hero {
           grid-template-columns: 1fr;
-          gap: 28px;
+          gap: var(--tone-space-5);
         }
 
         .ai-way-rules,
@@ -313,11 +313,11 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
 
       @media (max-width: 640px) {
         .ai-way {
-          gap: 44px;
+          gap: var(--tone-space-6);
         }
 
         .ai-way-hero .lead {
-          font-size: 16px;
+          font-size: var(--tone-body-size);
         }
 
         .ai-way .section-head {
@@ -325,18 +325,18 @@ const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전�
         }
 
         .ai-way .section-head > p {
-          margin-top: 8px;
+          margin-top: var(--tone-space-1);
           max-width: none;
           text-align: left;
         }
 
         .use-card {
-          padding: 18px;
+          padding: var(--tone-card-padding);
         }
 
         .use-card dl div {
           grid-template-columns: 1fr;
-          gap: 2px;
+          gap: 2px; /* tone:fixed: 줄 사이 미세 간격(의장) */
         }
       }
     </style>
