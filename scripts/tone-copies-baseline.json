@@ -1,16 +1,11 @@
 {
   "public/sise/coin.js": 1,
   "public/sise/fx.js": 1,
-  "src/components/BridgeDemo.astro": 21,
   "src/components/ContentCases.astro": 11,
   "src/components/FleetTopology.astro": 10,
   "src/components/FoldStory.astro": 29,
-  "src/components/IptaDemo.astro": 21,
   "src/components/ListSearch.astro": 8,
   "src/components/PostList.astro": 5,
-  "src/components/ProductArt.astro": 28,
-  "src/components/ProductExamples.astro": 36,
-  "src/components/ProductFacts.astro": 4,
   "src/components/SectionCard.astro": 5,
   "src/pages/worklog/[...slug].astro": 4,
   "src/styles/notebook.css": 26
