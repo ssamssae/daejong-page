@@ -40,48 +40,48 @@
     .site-nav-inner {
       width: min(calc(100% - 48px), 1250px);
       margin: 0 auto;
-      min-height: 64px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      min-height: var(--tone-header-height);
+      display: flex; align-items: center; justify-content: space-between; gap: var(--tone-space-3);
     }
-    .site-nav a { color: var(--fg); text-decoration: none; font-size: 14px; }
+    .site-nav a { color: var(--fg); text-decoration: none; font-size: var(--tone-label-size); }
     .site-nav a:hover { color: var(--accent); }
-    .site-nav .brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+    .site-nav .brand { display: inline-flex; align-items: center; gap: var(--tone-space-1); font-weight: 600; }
     .site-nav .brand img { width: 30px; height: 30px; }
-    .site-nav .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .site-nav .nav-links { display: flex; gap: var(--tone-space-3); flex-wrap: wrap; }
     .wrap {
       width: min(calc(100% - 48px), 760px);
       margin: 0 auto;
-      padding: 48px 0 80px;
+      padding: var(--tone-section-gap) 0 var(--tone-section-gap);
     }
 
     .page-kicker {
-      font-family: var(--mono); font-size: 12px; font-weight: 600;
-      letter-spacing: 0.08em; color: var(--fg-mute); text-transform: uppercase;
-      margin-bottom: 10px;
+      font-family: var(--mono); font-size: 12px; font-weight: 600; /* tone:fixed: 모노 키커(의장) */
+      letter-spacing: 0.08em; color: var(--fg-mute); text-transform: uppercase; /* tone:fixed: 모노 키커 자간(의장) */
+      margin-bottom: var(--tone-space-2);
     }
     .page-head {
-      display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
-      margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: baseline; justify-content: space-between; gap: var(--tone-space-3);
+      margin-bottom: var(--tone-space-5); padding-bottom: var(--tone-space-3); border-bottom: 1px solid var(--border);
     }
-    .page-head h1 { font-size: 22px; color: var(--fg); font-weight: 510; letter-spacing: -0.022em; }
-    .page-head a { color: var(--fg-mute); text-decoration: none; font-size: 14px; }
+    .page-head h1 { font-size: var(--tone-title-size); color: var(--fg); font-weight: var(--tone-weight-bold); letter-spacing: var(--tone-tracking-title); }
+    .page-head a { color: var(--fg-mute); text-decoration: none; font-size: var(--tone-label-size); }
     .page-head a:hover { color: var(--accent); }
 
-    .detail-head { margin-bottom: 18px; }
+    .detail-head { margin-bottom: var(--tone-space-3); }
     .detail-date {
-      font-family: var(--mono); font-size: 13px; color: var(--accent); font-weight: 600;
-      letter-spacing: 0.04em; margin-bottom: 8px;
+      font-family: var(--mono); font-size: var(--tone-caption-size); color: var(--accent); font-weight: 600;
+      letter-spacing: 0.04em; margin-bottom: 8px; /* tone:fixed: 모노 날짜 자간(의장) */
     }
     .detail-title {
-      font-size: 28px; color: var(--fg); font-weight: 510;
-      line-height: 1.25; margin-bottom: 12px; letter-spacing: -0.022em;
+      font-size: var(--tone-title-size); color: var(--fg); font-weight: var(--tone-weight-bold);
+      line-height: var(--tone-title-line); margin-bottom: var(--tone-space-2); letter-spacing: var(--tone-tracking-title);
       word-break: keep-all; overflow-wrap: break-word;
     }
 
-    .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .badges { display: flex; gap: var(--tone-space-1); flex-wrap: wrap; margin-bottom: var(--tone-space-2); }
     .badge {
-      font-family: var(--mono); font-size: 11px; padding: 3px 9px; border-radius: 999px;
-      font-weight: 600; letter-spacing: 0.04em;
+      font-family: var(--mono); font-size: 11px; padding: 3px 9px; border-radius: 999px; /* tone:fixed: 마이크로 칩(의장) */
+      font-weight: 600; letter-spacing: 0.04em; /* tone:fixed: 마이크로 칩 자간(의장) */
       border: 1px solid var(--border);
     }
     .badge-cat {
@@ -92,64 +92,64 @@
     }
 
     .meta-grid {
-      display: grid; grid-template-columns: auto 1fr; gap: 6px 14px;
-      padding: 14px 16px; background: var(--bg-elev);
-      border: 1px solid var(--border); border-radius: 12px;
-      margin-bottom: 22px;
-      font-size: 13px;
+      display: grid; grid-template-columns: auto 1fr; gap: var(--tone-space-1) var(--tone-space-3);
+      padding: var(--tone-space-3) var(--tone-space-3); background: var(--bg-elev);
+      border: 1px solid var(--border); border-radius: var(--tone-radius-control);
+      margin-bottom: var(--tone-space-4);
+      font-size: var(--tone-caption-size);
     }
     .meta-grid dt { color: var(--fg-mute); font-weight: 600; font-family: var(--mono); }
     .meta-grid dd { color: var(--fg-dim); word-break: keep-all; overflow-wrap: break-word; }
 
-    .de-sections { display: flex; flex-direction: column; gap: 14px; }
+    .de-sections { display: flex; flex-direction: column; gap: var(--tone-space-3); }
     .de-section {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 18px;
+      border-radius: var(--tone-radius-control);
+      padding: var(--tone-space-3) var(--tone-space-3);
     }
     .de-section.highlight {
       background: var(--accent-bg);
       border-color: rgba(113, 112, 255, 0.28);
     }
     .section-label {
-      display: inline-block; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.08em; color: var(--accent);
-      margin-bottom: 8px; text-transform: uppercase; font-family: var(--mono);
+      display: inline-block; font-size: 11px; font-weight: 700; /* tone:fixed: 모노 마이크로 라벨(의장) */
+      letter-spacing: 0.08em; color: var(--accent); /* tone:fixed: 모노 라벨 자간(의장) */
+      margin-bottom: var(--tone-space-1); text-transform: uppercase; font-family: var(--mono);
     }
     .section-body {
-      font-size: 15px; color: var(--fg-dim); line-height: 1.7;
+      font-size: var(--tone-label-size); color: var(--fg-dim); line-height: 1.7;
       word-break: keep-all; overflow-wrap: break-word;
     }
-    .section-body ul { padding-left: 20px; margin: 6px 0; }
-    .section-body ol { padding-left: 22px; margin: 6px 0; }
-    .section-body li { margin-bottom: 6px; }
+    .section-body ul { padding-left: var(--tone-card-padding); margin: var(--tone-space-1) 0; }
+    .section-body ol { padding-left: var(--tone-space-4); margin: var(--tone-space-1) 0; }
+    .section-body li { margin-bottom: var(--tone-space-1); }
     .section-body code {
-      background: var(--bg-elev2); padding: 1px 6px; border-radius: 4px;
-      font-size: 13px; color: var(--accent);
+      background: var(--bg-elev2); padding: 1px 6px; border-radius: 4px; /* tone:fixed: 인라인 코드 미세 패딩(의장) */
+      font-size: var(--tone-caption-size); color: var(--accent);
     }
     .section-body pre {
       background: var(--bg-elev2); color: var(--fg);
-      padding: 12px 14px; border-radius: 8px;
-      overflow-x: auto; font-size: 12px; line-height: 1.5;
-      margin: 8px 0; border: 1px solid var(--border);
+      padding: var(--tone-space-2) var(--tone-space-3); border-radius: var(--tone-radius-control);
+      overflow-x: auto; font-size: var(--tone-caption-size); line-height: 1.5;
+      margin: var(--tone-space-1) 0; border: 1px solid var(--border);
     }
     .section-body pre code {
-      background: transparent; color: var(--fg); padding: 0; font-size: 12px;
+      background: transparent; color: var(--fg); padding: 0; font-size: var(--tone-caption-size);
     }
-    .section-body p { margin: 6px 0; }
+    .section-body p { margin: var(--tone-space-1) 0; }
     .section-body a { color: var(--accent); text-decoration: none; word-break: break-all; }
     .section-body a:hover { text-decoration: underline; }
     .section-body h3 {
-      font-size: 16px; font-weight: 600; color: var(--fg);
-      margin: 14px 0 6px;
+      font-size: var(--tone-body-size); font-weight: 600; color: var(--fg);
+      margin: var(--tone-space-3) 0 var(--tone-space-1);
     }
     .section-body table {
-      width: 100%; border-collapse: collapse; margin: 8px 0;
-      font-size: 13px;
+      width: 100%; border-collapse: collapse; margin: var(--tone-space-1) 0;
+      font-size: var(--tone-caption-size);
     }
     .section-body th, .section-body td {
-      border: 1px solid var(--border); padding: 6px 10px;
+      border: 1px solid var(--border); padding: var(--tone-space-1) var(--tone-space-2);
       text-align: left; vertical-align: top;
     }
     .section-body th {
@@ -157,26 +157,26 @@
     }
 
     .back {
-      display: inline-block; margin-top: 28px; color: var(--fg-mute);
-      text-decoration: none; font-size: 14px;
+      display: inline-block; margin-top: var(--tone-space-5); color: var(--fg-mute);
+      text-decoration: none; font-size: var(--tone-label-size);
     }
     .back:hover { color: var(--accent); }
 
-    .loading { color: var(--fg-mute); text-align: center; padding: 40px 0; font-size: 14px; font-style: italic; }
+    .loading { color: var(--fg-mute); text-align: center; padding: var(--tone-space-6) 0; font-size: var(--tone-label-size); font-style: italic; }
     .error {
-      color: var(--danger); text-align: center; padding: 40px 0; font-size: 14px;
+      color: var(--danger); text-align: center; padding: var(--tone-space-6) 0; font-size: var(--tone-label-size);
       background: var(--danger-bg);
       border: 1px solid rgba(255, 107, 107, 0.28);
-      border-radius: 12px;
+      border-radius: var(--tone-radius-control);
     }
     .error a { color: var(--accent); }
     .site-foot {
       width: min(calc(100% - 48px), 1250px);
       margin: 0 auto;
-      padding: 24px 0 48px;
+      padding: var(--tone-space-4) 0 var(--tone-section-gap);
       border-top: 1px solid var(--border);
       color: var(--fg-mute);
-      font-size: 13px;
+      font-size: var(--tone-caption-size);
     }
   </style>
 </head>

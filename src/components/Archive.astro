@@ -158,59 +158,51 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
   .archive-intro {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 48px;
+    gap: var(--tone-section-gap);
     align-items: end;
-    padding: 20px 0 54px;
+    padding: var(--tone-card-padding) 0 var(--tone-section-gap);
     border-bottom: 1px solid var(--border);
-    margin-bottom: 48px;
+    margin-bottom: var(--tone-section-gap);
   }
-  .archive-intro h1 {
-    font-size: clamp(44px, 6vw, 78px);
-    letter-spacing: -0.055em;
-  }
+  /* T-261024-060: h1 크기·자간은 공용 studio-page.css 가 이김 — 죽은 선언 삭제 */
   .archive-intro h1 span {
     color: var(--accent);
   }
   .archive-intro .lead {
-    font-size: 16px;
+    font-size: var(--tone-body-size);
     max-width: 56ch;
-    margin-top: 24px;
+    margin-top: var(--tone-space-4);
   }
   .archive-total {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: var(--tone-card-padding);
     background: var(--bg-elev);
-    padding: 24px 28px;
+    padding: var(--tone-space-4) var(--tone-space-5);
     border-radius: var(--tone-radius-card);
   }
   .archive-total strong {
-    font:
-      54px/1 Georgia,
-      serif;
+    font: 54px/1 Georgia, serif; /* tone:fixed: Georgia 합계 디스플레이(의장) */
     color: var(--accent);
   }
   .archive-total span {
-    font-size: 11px;
+    font-size: var(--tone-caption-size);
     color: var(--fg-mute);
     line-height: 1.8;
   }
   .latest-stories {
-    margin-bottom: 70px;
-  }
-  .latest-stories h2 {
-    font-size: 25px;
+    margin-bottom: var(--tone-section-gap);
   }
   .story-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: var(--tone-card-padding);
   }
   .story-card {
     display: flex;
     flex-direction: column;
-    min-height: 275px;
-    padding: 26px;
+    min-height: 275px; /* tone:fixed: 스토리 카드 고정 높이(의장) */
+    padding: var(--tone-space-4);
     border: 1px solid var(--border);
     border-radius: var(--tone-radius-card);
     background: var(--accent-bg);
@@ -229,19 +221,15 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
   .story-top {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
-    font: 10px var(--mono);
+    gap: var(--tone-space-3);
+    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
     color: var(--fg-dim);
-    margin-bottom: 34px;
+    margin-bottom: var(--tone-space-5);
   }
-  .story-card h3 {
-    font-size: 22px;
-    line-height: 1.5;
-    letter-spacing: -0.035em;
-  }
+  /* T-261024-060: 카드 h3 크기는 공용이 이김 — 죽은 선언 삭제 */
   .story-card p {
-    font-size: 13px;
-    margin-top: 14px;
+    font-size: var(--tone-caption-size);
+    margin-top: var(--tone-space-3);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -252,12 +240,12 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 27px;
-    font-size: 11px;
+    padding-top: var(--tone-space-4);
+    font-size: var(--tone-caption-size);
     color: var(--fg-dim);
   }
   .story-read b {
-    font-size: 22px;
+    font-size: var(--tone-title-size);
     font-weight: 400;
   }
   .archive-browse > .section-head {
@@ -269,15 +257,15 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     border: 1px solid var(--border);
     border-radius: var(--tone-radius-control);
     background: var(--bg-elev);
-    padding: 10px 14px;
-    gap: 14px;
+    padding: var(--tone-space-2) var(--tone-space-3);
+    gap: var(--tone-space-3);
   }
   .archive-search input {
     width: 225px;
     min-width: 0;
     border: 0;
     background: transparent;
-    font-size: 13px;
+    font-size: var(--tone-caption-size);
     outline: none;
     color: var(--fg);
   }
@@ -286,29 +274,28 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     outline-offset: 3px;
   }
   .search-count {
-    font: 11px var(--mono);
-    margin: 0 0 18px;
+    font: 11px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+    margin: 0 0 var(--tone-space-3);
     color: var(--fg-mute);
   }
   .archive-month {
     display: grid;
     grid-template-columns: 150px minmax(0, 1fr);
-    gap: 35px;
+    gap: var(--tone-space-5);
     border-top: 1px solid var(--border);
-    padding-top: 12px;
-    margin-top: 24px;
+    padding-top: var(--tone-space-2);
+    margin-top: var(--tone-space-4);
   }
   .archive-month h3 {
-    font:
-      23px/1.5 Georgia,
-      serif;
-    padding: 14px 0;
+    /* T-261024-060: 크기는 공용(main#main-content, id)이 이기지만 글꼴은 스코프 특이도로 살아 있다 */
+    font: 23px/1.5 Georgia, serif; /* tone:fixed: Georgia 월 제목 글꼴(크기 23px 는 공용 20px 가 이김) */
+    padding: var(--tone-space-3) 0;
   }
   .archive-month h3 span {
     display: block;
-    font: 10px var(--mono);
+    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
     color: var(--fg-mute);
-    margin-top: 10px;
+    margin-top: var(--tone-space-2);
   }
   .archive-month ol {
     list-style: none;
@@ -318,14 +305,14 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
   }
   .archive-month a {
     display: flex;
-    gap: 20px;
+    gap: var(--tone-card-padding);
     align-items: baseline;
-    padding: 20px 0;
+    padding: var(--tone-card-padding) 0;
     text-decoration: none;
-    font-size: 15px;
+    font-size: var(--tone-label-size);
   }
   .archive-month time {
-    font: 11px var(--mono);
+    font: 11px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
     color: var(--fg-mute);
     flex: 0 0 42px;
   }
@@ -335,7 +322,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     overflow-wrap: anywhere;
   }
   .archive-month small {
-    font: 10px var(--mono);
+    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
     color: var(--fg-mute);
   }
   .archive-month b {
@@ -343,13 +330,13 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
   }
   .archive-empty {
     text-align: center;
-    padding: 60px 20px;
+    padding: var(--tone-section-gap) var(--tone-card-padding);
     background: var(--bg-elev);
     border-radius: var(--tone-radius-card);
   }
   .archive-empty p {
-    margin: 14px 0 24px;
-    font-size: 14px;
+    margin: var(--tone-space-3) 0 var(--tone-space-4);
+    font-size: var(--tone-label-size);
   }
   @media (max-width: 1000px) {
     .archive-intro {
@@ -357,53 +344,41 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     }
     .archive-total {
       justify-self: start;
-      padding: 18px 25px;
+      padding: var(--tone-space-3) var(--tone-space-4);
     }
     .archive-total strong {
-      font-size: 40px;
+      font-size: 40px; /* tone:fixed: Georgia 합계 디스플레이 태블릿(의장) */
     }
     .story-grid {
-      gap: 14px;
+      gap: var(--tone-space-3);
     }
     .story-card {
-      padding: 22px;
-    }
-    .story-card h3 {
-      font-size: 19px;
+      padding: var(--tone-space-4);
     }
     .archive-month {
       grid-template-columns: 110px 1fr;
-      gap: 24px;
+      gap: var(--tone-space-4);
     }
   }
   @media (max-width: 600px) {
     .archive-intro {
-      padding-top: 8px;
-      gap: 24px;
-      margin-bottom: 32px;
-      padding-bottom: 30px;
-    }
-    .archive-intro .lead {
-      font-size: 14px;
+      padding-top: var(--tone-space-1);
+      gap: var(--tone-space-4);
+      margin-bottom: var(--tone-space-5);
+      padding-bottom: var(--tone-space-5);
     }
     .archive-total {
       width: 100%;
       justify-content: space-between;
     }
-    .archive-total span {
-      font-size: 11px;
-    }
     .story-grid {
       grid-template-columns: 1fr;
     }
     .story-card {
-      min-height: 220px;
-    }
-    .story-card h3 {
-      font-size: 22px;
+      min-height: 220px; /* tone:fixed: 스토리 카드 모바일 고정 높이(의장) */
     }
     .latest-stories {
-      margin-bottom: 48px;
+      margin-bottom: var(--tone-space-6);
     }
     .archive-search {
       width: 100%;
@@ -418,7 +393,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     .archive-month {
       grid-template-columns: 1fr;
       gap: 0;
-      margin-top: 20px;
+      margin-top: var(--tone-card-padding);
     }
     .archive-month h3 {
       display: flex;
@@ -429,8 +404,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
       margin: 0;
     }
     .archive-month a {
-      gap: 12px;
-      font-size: 14px;
+      gap: var(--tone-space-2);
     }
     .archive-month small {
       display: none;
