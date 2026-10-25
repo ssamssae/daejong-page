@@ -36,8 +36,8 @@ const { posts, base } = Astro.props as { posts: Post[]; base: string };
   .post-list a {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 7px 14px;
-    padding: 20px 0;
+    gap: var(--tone-space-1) var(--tone-space-3);
+    padding: var(--tone-space-4) 0;
     text-decoration: none;
   }
   .post-list a:hover .title {
@@ -45,12 +45,12 @@ const { posts, base } = Astro.props as { posts: Post[]; base: string };
   }
   .date,
   .ep {
-    font: 10px var(--mono);
+    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
     color: var(--fg-mute);
   }
   .title {
     grid-column: 1/-1;
-    font-size: 16px;
+    font-size: var(--tone-body-size);
     line-height: 1.6;
     font-weight: 550;
     word-break: keep-all;

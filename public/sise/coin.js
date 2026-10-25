@@ -56,7 +56,7 @@ function coinCard(c, pinned) {
       ${pinned ? `<button class="rm" title="삭제" data-id="${c.id}">×</button>` : ""}
       <div class="nm">${c.name}</div>
       <div class="cd">${(c.symbol || "").toUpperCase()}</div>
-      <div class="price">${fmtKrw(c.current_price)}<span style="font-size:12px;color:var(--gray2);font-weight:400"> 원</span></div>
+      <div class="price">${fmtKrw(c.current_price)}<span style="font-size:var(--tone-caption-size);color:var(--gray2);font-weight:400"> 원</span></div>
       <div class="chg ${d}">${sign(fr)} ${Math.abs(fr)}%</div>
     </div>`;
 }

@@ -9,7 +9,7 @@
 .site-main.notebook .kicker,
 .site-main.notebook .lab-hero .tagline {
   color: var(--accent);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.08em; /* tone:fixed: 라벨 자간(의장) */
 }
 .site-main.notebook h1 {
   font-family: var(--sans);
@@ -23,7 +23,7 @@
   line-height: 1.35;
 }
 .site-main.notebook :is(.lead, .intro) {
-  font-size: 16px;
+  font-size: var(--tone-body-size);
   line-height: 1.9;
 }
 .site-main.notebook :is(.hero-stats, .lab-stats, .summary-grid, .signal-grid) {
@@ -33,7 +33,7 @@
   overflow: hidden;
 }
 .site-main.notebook dl.hero-stats > div {
-  padding: 16px 20px;
+  padding: var(--tone-space-3) var(--tone-card-padding);
   background: transparent;
 }
 .site-main.notebook
@@ -49,7 +49,7 @@
     .lab-card
   ) {
   border-radius: var(--tone-radius-card);
-  padding: 25px;
+  padding: var(--tone-card-padding);
   border: 1px solid var(--border);
   background: var(--notebook-surface);
   color: var(--fg);
@@ -73,7 +73,7 @@
 }
 .site-main.notebook .card-topline {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 10px; /* tone:fixed: 모노 마이크로 라벨(의장) */
   color: var(--fg-mute);
 }
 .site-main.notebook :is(.tag, .badge, .lab-cat, .lab-tag) {
@@ -86,7 +86,7 @@
 }
 .site-main.notebook :is(th, td) {
   border-color: var(--border);
-  padding: 12px 14px;
+  padding: var(--tone-space-2) var(--tone-space-3);
 }
 .site-main.notebook th {
   background: var(--bg-elev);
@@ -97,55 +97,55 @@
   color: var(--fg);
   border: 1px solid var(--border);
   border-radius: var(--tone-radius-control);
-  min-height: 44px;
-  padding: 10px 14px;
+  min-height: var(--tone-tap-height);
+  padding: var(--tone-space-2) var(--tone-control-padding);
 }
 .site-main.notebook :is(.search-wrap, .search-box) {
   border-radius: var(--tone-radius-control);
 }
 .site-main.notebook button {
   border-radius: var(--tone-radius-control);
-  min-height: 36px;
+  min-height: var(--tone-tap-height);
 }
 .site-main.notebook :is(.back-link, .lab-back) {
-  font: 13px var(--sans);
-  min-height: 44px;
+  font: var(--tone-caption-size) var(--sans);
+  min-height: var(--tone-tap-height);
   display: inline-flex;
   align-items: center;
 }
 .site-main.notebook :is(.month-block, .group-block) {
   border-top: 1px solid var(--border);
-  padding-top: 24px;
+  padding-top: var(--tone-space-4);
 }
 .site-main.notebook :is(.month-block, .group-block) > header h3 {
-  font-size: 25px;
+  font-size: var(--tone-title-size);
 }
 .site-main.notebook :is(.lab-empty, .lab-error, .lab-loading) {
-  padding: 32px;
+  padding: var(--tone-space-5);
   border: 1px solid var(--border);
   border-radius: var(--tone-radius-card);
   background: var(--bg-elev);
 }
 .site-main.notebook :is(.lab-list) {
-  gap: 14px;
+  gap: var(--tone-space-3);
   border-top: 0;
 }
 .site-main.notebook :is(.lab-card-title) {
-  font-size: 20px;
+  font-size: var(--tone-subtitle-size);
 }
 .site-main.notebook :is(.lab-summary) {
-  font-size: 14px;
+  font-size: var(--tone-label-size);
   line-height: 1.85;
 }
 .site-main.notebook .lab-page {
-  gap: 42px;
+  gap: var(--tone-space-6);
 }
 @media (max-width: 640px) {
   .site-main.notebook h1 {
-    font-size: 38px;
+    font-size: var(--tone-display-size);
   }
   .site-main.notebook :is(.lead, .intro) {
-    font-size: 14px;
+    font-size: var(--tone-label-size);
   }
   .site-main.notebook :is(.hero-stats, .lab-stats) {
     border-radius: var(--tone-radius-card);
@@ -162,13 +162,13 @@
       .principle-card,
       .lab-card
     ) {
-    padding: 22px;
+    padding: var(--tone-card-padding);
   }
   .site-main.notebook dl.hero-stats > div {
-    padding: 14px;
+    padding: var(--tone-space-3);
   }
   .site-main.notebook .lab-card-title {
-    font-size: 18px;
+    font-size: var(--tone-body-size);
   }
 }
 

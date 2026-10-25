@@ -36,7 +36,7 @@ async function renderFx() {
         <div class="card">
           <div class="nm">${c.flag} ${c.label}</div>
           <div class="cd">${c.unit > 1 ? c.unit + " " : ""}${c.code} → KRW</div>
-          <div class="price">${fmt(Math.round(cur))}<span style="font-size:12px;color:var(--gray2);font-weight:400"> 원</span></div>
+          <div class="price">${fmt(Math.round(cur))}<span style="font-size:var(--tone-caption-size);color:var(--gray2);font-weight:400"> 원</span></div>
           <div class="chg ${d}">${sign(fr)} ${Math.abs(fr)}%</div>
         </div>`;
     }).join("");

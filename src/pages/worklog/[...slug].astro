@@ -55,11 +55,11 @@ const { Content, headings } = await render(post);
 
   <style>
     .store-footer {
-      max-width: 900px;
-      margin: 32px 0 0 auto;
+      max-width: 900px; /* tone:fixed: 글 맺음열 편집 폭(본문보다 넓음) */
+      margin: var(--tone-space-5) 0 0 auto;
       border-top: 1px solid var(--border);
-      padding-top: 20px;
-      font-size: 13px;
+      padding-top: var(--tone-space-4);
+      font-size: var(--tone-caption-size);
       line-height: 1.9;
     }
   </style>
