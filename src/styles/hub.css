@@ -1,57 +1,56 @@
-/* Shared visual system for the workshop's three index pages. */
+/* Shared visual system for the workshop's three index pages.
+   T-261024-060: 직접 숫자 → var(--tone-*). 제목(h1·h2) 크기·자간은 공용 studio-page.css
+   (body.studio-page main#main-content …)가 특이도로 이기므로 여기서 정의하지 않는다.
+   Georgia 의장 숫자·모노 마이크로 라벨만 tone:fixed 로 남긴다(토큰 어휘 밖). */
 .system-page,
 .lab-index,
 .about-page {
   display: flex;
   flex-direction: column;
-  gap: 76px;
+  gap: var(--tone-section-gap);
 }
 .system-hero,
 .lab-index > .lab-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
-  gap: 35px 70px;
+  gap: var(--tone-space-5) var(--tone-section-gap);
   align-items: center;
-  padding: 20px 0 50px;
+  padding: var(--tone-card-padding) 0 var(--tone-section-gap);
   border-bottom: 1px solid var(--border);
 }
 .system-hero h1,
 .lab-index > .lab-hero h1 {
-  font-size: clamp(48px, 6.5vw, 82px);
-  letter-spacing: -0.05em;
-  margin-bottom: 24px;
+  margin-bottom: var(--tone-space-4);
 }
 .system-hero .lead,
 .lab-index > .lab-hero .lead {
-  font-size: 16px;
+  font-size: var(--tone-body-size);
   line-height: 1.85;
 }
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: var(--tone-card-padding);
   background: var(--accent-bg);
-  padding: 30px 24px;
+  padding: var(--tone-space-5) var(--tone-space-4);
   border-radius: var(--tone-radius-card);
 }
 .hero-stats div {
   min-width: 0;
 }
 .hero-stats dt {
-  font-size: 11px;
+  font-size: var(--tone-caption-size);
   color: var(--fg-dim);
-  margin-bottom: 14px;
+  margin-bottom: var(--tone-space-2);
 }
 .hero-stats dd {
-  font:
-    38px/1.2 Georgia,
-    var(--serif);
+  font: 38px/1.2 Georgia, var(--serif); /* tone:fixed: Georgia 통계 디스플레이 숫자(의장) */
   color: var(--fg);
 }
 .hero-summary {
-  font: 10px/1.8 var(--mono);
+  font: 10px/1.8 var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
   color: var(--fg-mute);
-  margin-top: 16px;
+  margin-top: var(--tone-space-3);
 }
 .lab-index > .lab-hero > .hero-summary {
   grid-column: 1/-1;
@@ -60,39 +59,37 @@
 .flow-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: var(--tone-space-3);
   list-style: none;
 }
 .flow-list li {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: var(--tone-space-4);
   border: 1px solid var(--border);
   border-radius: var(--tone-radius-card);
   background: var(--bg-elev);
   position: relative;
 }
 .flow-list .step {
-  font:
-    45px Georgia,
-    serif;
+  font: 45px Georgia, serif; /* tone:fixed: Georgia 단계 디스플레이 숫자(의장) */
   color: var(--text-4);
   line-height: 1;
 }
 .flow-list .label {
-  font: 9px var(--mono);
+  font: 9px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
   color: var(--accent);
-  margin: 20px 0 12px;
-  letter-spacing: 0.1em;
+  margin: var(--tone-card-padding) 0 var(--tone-space-2);
+  letter-spacing: 0.1em; /* tone:fixed: 모노 라벨 자간(의장) */
 }
 .flow-list strong {
-  font-size: 18px;
+  font-size: var(--tone-subtitle-size);
   line-height: 1.5;
   word-break: keep-all;
 }
 .flow-list p {
-  font-size: 13px;
-  margin-top: 12px;
+  font-size: var(--tone-caption-size);
+  margin-top: var(--tone-space-2);
   line-height: 1.8;
 }
 .module-grid,
@@ -100,15 +97,15 @@
 .about-page .route-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: var(--tone-card-padding);
 }
 .module-card,
 .lab-index .feature-card,
 .about-page .route-card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 30px;
+  gap: var(--tone-space-3);
+  padding: var(--tone-space-5);
   border: 1px solid var(--border);
   border-radius: var(--tone-radius-card);
   min-width: 0;
@@ -129,22 +126,22 @@
 .route-top {
   display: flex;
   justify-content: space-between;
-  gap: 15px;
-  font: 10px var(--mono);
+  gap: var(--tone-space-3);
+  font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
   color: var(--fg-mute);
-  margin-bottom: 20px;
+  margin-bottom: var(--tone-card-padding);
 }
 .module-card > strong,
 .feature-card > strong,
 .route-card > strong {
-  font-size: 28px;
-  letter-spacing: -0.04em;
+  font-size: var(--tone-title-size);
+  letter-spacing: var(--tone-tracking-title);
   line-height: 1.3;
 }
 .module-card > span:last-child,
 .feature-card > span:last-child,
 .route-body {
-  font-size: 14px;
+  font-size: var(--tone-label-size);
   color: var(--fg-dim);
   line-height: 1.8;
 }
@@ -161,43 +158,43 @@
   background: var(--accent-bg);
 }
 .route-link {
-  font-size: 12px;
+  font-size: var(--tone-caption-size);
   margin-top: auto;
-  padding-top: 15px;
+  padding-top: var(--tone-space-3);
 }
 .safeguard-list,
 .lab-index .principle-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 25px;
-  padding-top: 24px;
+  gap: var(--tone-space-4);
+  padding-top: var(--tone-space-4);
   border-top: 1px solid var(--border);
 }
 .safeguard-list dt,
 .lab-index .principle-list dt {
-  font-size: 18px;
+  font-size: var(--tone-subtitle-size);
   font-weight: 650;
-  margin-bottom: 14px;
-  letter-spacing: -0.025em;
+  margin-bottom: var(--tone-space-2);
+  letter-spacing: var(--tone-tracking-title);
 }
 .safeguard-list dd,
 .lab-index .principle-list dd {
-  font-size: 14px;
+  font-size: var(--tone-label-size);
   color: var(--fg-dim);
   line-height: 1.8;
 }
 .group-block {
   display: grid;
   grid-template-columns: 180px 1fr;
-  gap: 40px;
-  padding: 24px 0;
+  gap: var(--tone-space-6);
+  padding: var(--tone-space-4) 0;
   border-top: 1px solid var(--border);
 }
 .group-block header {
-  padding-top: 10px;
+  padding-top: var(--tone-space-1);
 }
 .group-block header > span {
-  font: 11px var(--mono);
+  font: 11px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
   color: var(--fg-mute);
 }
 .group-block ol {
@@ -209,20 +206,20 @@
 .group-block li a {
   display: grid;
   grid-template-columns: 105px minmax(120px, 0.8fr) 1.5fr;
-  gap: 24px;
+  gap: var(--tone-space-4);
   align-items: baseline;
-  padding: 20px 0;
+  padding: var(--tone-card-padding) 0;
   text-decoration: none;
 }
 .group-block li a > span {
-  font: 9px var(--mono);
+  font: 9px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
   color: var(--fg-mute);
 }
 .group-block li strong {
-  font-size: 18px;
+  font-size: var(--tone-subtitle-size);
 }
 .group-block em {
-  font-size: 13px;
+  font-size: var(--tone-caption-size);
   font-style: normal;
   color: var(--fg-dim);
   line-height: 1.75;
@@ -230,187 +227,170 @@
 .about-hero {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
-  gap: 70px;
+  gap: var(--tone-section-gap);
   align-items: center;
-  padding: 20px 0 50px;
+  padding: var(--tone-card-padding) 0 var(--tone-section-gap);
   border-bottom: 1px solid var(--border);
 }
-.about-hero h1 {
-  font-size: clamp(36px, 4.8vw, 62px);
-  line-height: 1.3;
-  letter-spacing: -0.055em;
-}
 .about-hero .lead {
-  margin-top: 25px;
-  font-size: 16px;
+  margin-top: var(--tone-space-4);
+  font-size: var(--tone-body-size);
 }
 .hero-actions {
   display: flex;
-  gap: 12px;
+  gap: var(--tone-space-2);
   flex-wrap: wrap;
-  margin-top: 28px;
+  margin-top: var(--tone-space-5);
 }
 .maker-mark {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 320px;
-  border-radius: 160px 160px 12px 12px;
+  min-height: 320px; /* tone:fixed: 아치 의장 고정 높이 */
+  border-radius: 160px 160px 12px 12px; /* tone:fixed: 아치 의장 모양 */
   background: var(--accent-bg);
   border: 1px solid var(--accent-line);
   transform: rotate(3deg);
   color: var(--accent);
 }
 .maker-mark > span {
-  font:
-    100px Georgia,
-    serif;
-  letter-spacing: -14px;
-  padding-right: 15px;
+  font: 100px Georgia, serif; /* tone:fixed: Georgia 아치 이니셜(의장) */
+  letter-spacing: -14px; /* tone:fixed: 아치 이니셜 자간(의장) */
+  padding-right: var(--tone-space-3);
 }
 .maker-mark p {
-  font: 10px/2 var(--mono);
+  font: 10px/2 var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
   text-align: center;
   color: var(--fg-dim);
-  margin-top: 30px;
-  letter-spacing: 0.1em;
+  margin-top: var(--tone-space-5);
 }
 .profile-section,
 .story-section {
   display: grid;
   grid-template-columns: 80px minmax(0, 1.4fr) minmax(220px, 1fr);
-  gap: 38px;
+  gap: var(--tone-space-6);
 }
 .section-label {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  font: 10px var(--mono);
+  gap: var(--tone-space-2);
+  font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
   color: var(--accent);
 }
 .section-label > span:first-child {
-  font:
-    36px Georgia,
-    serif;
+  font: 36px Georgia, serif; /* tone:fixed: Georgia 구역 번호(의장) */
   color: var(--text-4);
 }
 .profile-copy h2,
 .story-copy h2 {
-  font-size: 30px;
-  line-height: 1.5;
-  margin-bottom: 24px;
+  margin-bottom: var(--tone-space-4);
 }
 .profile-copy p,
 .story-copy p {
-  font-size: 15px;
+  font-size: var(--tone-label-size);
   line-height: 1.9;
-  margin-top: 18px;
+  margin-top: var(--tone-space-3);
 }
 .facts,
 .now-note {
   background: var(--bg-elev);
-  padding: 25px;
+  padding: var(--tone-space-4);
   border-radius: var(--tone-radius-card);
   align-self: start;
 }
 .facts > div + div {
   border-top: 1px solid var(--border);
-  margin-top: 18px;
-  padding-top: 18px;
+  margin-top: var(--tone-space-3);
+  padding-top: var(--tone-space-3);
 }
 .facts dt {
-  font: 9px var(--mono);
+  font: 9px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
   color: var(--fg-mute);
-  margin-bottom: 8px;
+  margin-bottom: var(--tone-space-1);
 }
 .facts dd {
-  font-size: 13px;
+  font-size: var(--tone-caption-size);
 }
 .now-note strong,
 .now-note > span {
   display: block;
 }
 .now-note strong {
-  font-size: 18px;
+  font-size: var(--tone-subtitle-size);
   line-height: 1.6;
 }
 .now-note > span {
-  font-size: 12px;
+  font-size: var(--tone-caption-size);
   color: var(--fg-dim);
-  margin-top: 20px;
+  margin-top: var(--tone-card-padding);
 }
 .about-page .principle-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  gap: var(--tone-space-4);
   list-style: none;
 }
 .about-page .principle-list li {
   border-top: 1px solid var(--border);
-  padding-top: 24px;
+  padding-top: var(--tone-space-4);
 }
 .about-page .principle-list li > span {
-  font:
-    34px Georgia,
-    serif;
+  font: 34px Georgia, serif; /* tone:fixed: Georgia 원칙 번호(의장) */
   color: var(--accent);
 }
 .about-page .principle-list strong {
   display: block;
-  font-size: 21px;
+  font-size: var(--tone-subtitle-size);
   line-height: 1.6;
-  margin: 22px 0 12px;
+  margin: var(--tone-space-4) 0 var(--tone-space-2);
 }
 .about-page .principle-list p {
-  font-size: 14px;
+  font-size: var(--tone-label-size);
   line-height: 1.9;
 }
 .contact-section {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  gap: var(--tone-space-5);
   align-items: end;
-  padding: 32px;
+  padding: var(--tone-space-5);
   background: var(--accent-bg);
   border-radius: var(--tone-radius-card);
 }
-.contact-section h2 {
-  font-size: 26px;
-}
 .contact-section p {
-  font-size: 14px;
-  margin-top: 12px;
+  font-size: var(--tone-label-size);
+  margin-top: var(--tone-space-2);
 }
 .contact-actions {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--tone-space-3);
   flex-shrink: 0;
-  font-size: 13px;
+  font-size: var(--tone-caption-size);
 }
 @media (max-width: 1000px) {
   .system-hero,
   .lab-index > .lab-hero {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: var(--tone-space-4);
   }
   .hero-side {
-    max-width: 600px;
+    max-width: var(--tone-prose-max);
   }
   .hero-stats {
-    max-width: 600px;
+    max-width: var(--tone-prose-max);
   }
   .flow-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .about-hero {
-    gap: 30px;
+    gap: var(--tone-space-5);
   }
   .profile-section,
   .story-section {
     grid-template-columns: 60px 1fr;
-    gap: 25px;
+    gap: var(--tone-space-4);
   }
   .facts,
   .now-note {
@@ -418,40 +398,36 @@
   }
   .group-block {
     grid-template-columns: 130px 1fr;
-    gap: 20px;
+    gap: var(--tone-card-padding);
   }
   .group-block li a {
     grid-template-columns: 1fr;
   }
   .group-block li a {
-    gap: 8px;
+    gap: var(--tone-space-1);
   }
   .module-card,
   .lab-index .feature-card,
   .about-page .route-card {
-    padding: 22px;
+    padding: var(--tone-space-4);
   }
 }
 @media (max-width: 640px) {
   .system-page,
   .lab-index,
   .about-page {
-    gap: 50px;
+    gap: var(--tone-space-6);
   }
   .system-hero,
   .lab-index > .lab-hero {
-    padding: 8px 0 32px;
-  }
-  .system-hero .lead,
-  .lab-index > .lab-hero .lead {
-    font-size: 14px;
+    padding: var(--tone-space-1) 0 var(--tone-space-5);
   }
   .hero-stats {
-    padding: 22px;
-    gap: 16px;
+    padding: var(--tone-space-4);
+    gap: var(--tone-space-3);
   }
   .hero-stats dd {
-    font-size: 30px;
+    font-size: 30px; /* tone:fixed: Georgia 통계 숫자 모바일(의장) */
   }
   .module-grid,
   .lab-index .featured-grid,
@@ -462,20 +438,14 @@
     grid-template-columns: 1fr;
   }
   .flow-list {
-    gap: 12px;
+    gap: var(--tone-space-2);
   }
   .flow-list li {
-    padding: 20px;
-  }
-  .flow-list strong {
-    font-size: 16px;
-  }
-  .flow-list p {
-    font-size: 12px;
+    padding: var(--tone-card-padding);
   }
   .group-block {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: var(--tone-space-2);
   }
   .group-block header {
     display: flex;
@@ -484,32 +454,26 @@
   .module-card,
   .lab-index .feature-card,
   .about-page .route-card {
-    padding: 26px;
+    padding: var(--tone-space-4);
   }
   .about-hero {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding-top: 8px;
-  }
-  .about-hero h1 {
-    font-size: 36px;
-  }
-  .about-hero .lead {
-    font-size: 14px;
+    gap: var(--tone-space-5);
+    padding-top: var(--tone-space-1);
   }
   .maker-mark {
-    min-height: 250px;
-    max-width: 320px;
+    min-height: 250px; /* tone:fixed: 아치 의장 모바일 높이 */
+    max-width: 320px; /* tone:fixed: 아치 의장 모바일 폭 */
     width: 90%;
     justify-self: center;
   }
   .maker-mark > span {
-    font-size: 80px;
+    font-size: 80px; /* tone:fixed: Georgia 아치 이니셜 모바일(의장) */
   }
   .profile-section,
   .story-section {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: var(--tone-card-padding);
   }
   .section-label {
     flex-direction: row;
@@ -519,12 +483,8 @@
   .now-note {
     grid-column: 1;
   }
-  .profile-copy h2,
-  .story-copy h2 {
-    font-size: 27px;
-  }
   .contact-section {
-    padding: 25px;
+    padding: var(--tone-space-4);
     flex-direction: column;
     align-items: stretch;
   }
