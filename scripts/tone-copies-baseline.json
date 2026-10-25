@@ -44,10 +44,8 @@
   "src/pages/timeline.html.astro": 86,
   "src/pages/vibecoding.html.astro": 141,
   "src/pages/worklog/[...slug].astro": 4,
-  "src/styles/hub.css": 127,
   "src/styles/lab.css": 44,
   "src/styles/notebook.css": 26,
   "src/styles/prose.css": 45,
-  "src/styles/system-guide.css": 106,
   "src/styles/workshop.css": 40
 }
