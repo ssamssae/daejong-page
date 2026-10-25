@@ -39,46 +39,46 @@ import '../styles/lab.css';
   }
 
   /* ── 패널 (JS 렌더 컨테이너 — 다크 카드) ── */
-  .panel { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 20px; margin-bottom: 16px; }
-  .panel p { line-height:1.8; margin:12px 0; overflow-wrap:anywhere; }
-  .panel-head { flex-wrap:wrap; gap:10px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .panel { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--tone-card-padding); margin-bottom: var(--tone-space-3); }
+  .panel p { line-height:1.8; margin:var(--tone-space-2) 0; overflow-wrap:anywhere; }
+  .panel-head { flex-wrap:wrap; gap:var(--tone-space-2); display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--tone-space-3); }
   .panel-head h2 { font-size: var(--text-lead); font-weight: 700; color: var(--fg); }
   .panel-head .meta { font-family: var(--mono); font-size: var(--text-meta); color: var(--fg-mute); }
 
-  .search { display: flex; gap: 8px; margin-bottom: 14px; }
+  .search { display: flex; gap: var(--tone-space-1); margin-bottom: var(--tone-space-3); }
   .search input {
-    flex: 1; min-width: 0; border: 1px solid var(--border); border-radius: var(--radius-btn); padding: 12px 14px;
+    flex: 1; min-width: 0; border: 1px solid var(--border); border-radius: var(--radius-btn); padding: var(--tone-space-2) var(--tone-control-padding);
     font-size: var(--text-desc); font-family: inherit; background: var(--bg); color: var(--fg);
   }
   .search input::placeholder { color: var(--fg-mute); }
   .search input:focus { outline: none; border-color: var(--page-accent); background: var(--bg-elev2); }
   .search button {
-    border: none; border-radius: var(--radius-btn); padding: 0 18px; font-size: var(--text-desc); font-weight: 600;
+    border: none; border-radius: var(--radius-btn); padding: 0 var(--tone-control-padding); font-size: var(--text-desc); font-weight: 600;
     background: var(--page-accent); color: var(--bg); cursor: pointer; font-family: inherit;
   }
   .search button:active { background: var(--page-accent); filter: brightness(0.85); }
 
-  .results { display: none; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .results { display: none; flex-direction: column; gap: var(--tone-space-1); margin-bottom: var(--tone-space-3); }
   .results.show { display: flex; }
   .result-row {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-btn); cursor: pointer;
+    padding: var(--tone-space-2); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-btn); cursor: pointer;
   }
   .result-row:hover { background: var(--bg-elev2); }
   .result-row .nm { font-size: var(--text-desc); font-weight: 600; color: var(--fg); }
-  .result-row .cd { font-size: var(--text-meta); color: var(--fg-mute); margin-left: 6px; font-weight: 400; }
+  .result-row .cd { font-size: var(--text-meta); color: var(--fg-mute); margin-left: var(--tone-space-1); font-weight: 400; }
   .result-row .add { font-size: var(--text-meta); color: var(--page-accent); font-weight: 600; }
 
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--tone-space-2); }
   @media (max-width: 480px) { .cards { grid-template-columns: 1fr; } }
   .card {
     position: relative; background: var(--bg); border: 1px solid var(--border);
-    border-left: 3px solid var(--page-accent); border-radius: var(--radius-card); padding: 14px;
+    border-left: 3px solid var(--page-accent); border-radius: var(--radius-card); padding: var(--tone-space-3);
   }
   .card .nm { font-size: var(--text-desc); font-weight: 600; color: var(--fg); }
-  .card .cd { font-size: var(--text-badge); color: var(--fg-mute); margin-top: 1px; }
-  .card .price { font-size: var(--text-h3); font-weight: 700; color: var(--fg); margin-top: 10px; font-variant-numeric: tabular-nums; }
-  .card .chg { font-size: var(--text-desc); font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .card .cd { font-size: var(--text-badge); color: var(--fg-mute); margin-top: 1px; } /* tone:fixed: 종목 코드 미세 간격(의장) */
+  .card .price { font-size: var(--text-h3); font-weight: 700; color: var(--fg); margin-top: var(--tone-space-2); font-variant-numeric: tabular-nums; }
+  .card .chg { font-size: var(--text-desc); font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; } /* tone:fixed: 등락 미세 간격(의장) */
   .card .chg.up { color: var(--up); }
   .card .chg.down { color: var(--down); }
   .card .chg.flat { color: var(--fg-mute); }
@@ -89,8 +89,8 @@ import '../styles/lab.css';
   .card .rm:hover { background: var(--border); color: var(--fg-dim); }
 
   .count { font-size: var(--text-meta); color: var(--fg-mute); }
-  .soon { color: var(--fg-mute); font-size: var(--text-desc); padding: 20px 0; text-align: center; }
-  .footnote { font-size: var(--text-badge); color: var(--fg-mute); text-align: center; margin-top: 20px; line-height: var(--leading-desc); }
+  .soon { color: var(--fg-mute); font-size: var(--text-desc); padding: var(--tone-space-4) 0; text-align: center; }
+  .footnote { font-size: var(--text-badge); color: var(--fg-mute); text-align: center; margin-top: var(--tone-space-4); line-height: var(--leading-desc); }
   .footnote a { color: var(--fg-dim); }
     </style>
   </Fragment>
