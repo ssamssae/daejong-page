@@ -12,10 +12,6 @@
   "src/components/ProductExamples.astro": 36,
   "src/components/ProductFacts.astro": 4,
   "src/components/SectionCard.astro": 5,
-  "src/pages/404.astro": 7,
-  "src/pages/habits.html.astro": 19,
-  "src/pages/sise.html.astro": 22,
-  "src/pages/stock.html.astro": 25,
   "src/pages/worklog/[...slug].astro": 4,
   "src/styles/notebook.css": 26
 }
