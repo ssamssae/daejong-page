@@ -309,9 +309,9 @@ const totalLine =
     .cost-hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
-      gap: 36px;
+      gap: var(--tone-space-6);
       align-items: end;
-      padding: 20px 0 46px;
+      padding: var(--tone-space-4) 0 var(--tone-space-6);
       border-bottom: 1px solid var(--border);
     }
 
@@ -334,26 +334,26 @@ const totalLine =
     }
 
     .cost-hero h1 {
-      max-width: 720px;
-      margin-top: 12px;
+      max-width: var(--tone-prose-max);
+      margin-top: var(--tone-space-2);
       color: var(--fg);
       font-size: var(--text-h1);
       line-height: 1.04;
     }
 
     .cost-lead {
-      max-width: 660px;
-      margin-top: 20px;
+      max-width: var(--tone-prose-max);
+      margin-top: var(--tone-space-4);
       color: var(--fg-dim);
       font-size: var(--text-lead);
       line-height: 1.75;
     }
 
     .cost-note {
-      max-width: 640px;
-      margin-top: 18px;
+      max-width: var(--tone-prose-max);
+      margin-top: var(--tone-space-3);
       border-left: 3px solid var(--cost-blue);
-      padding-left: 14px;
+      padding-left: var(--tone-space-3);
       color: var(--fg);
       font-size: var(--text-desc);
       line-height: var(--leading-body);
@@ -362,14 +362,14 @@ const totalLine =
     .hero-metrics {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: var(--tone-space-2);
     }
 
     .hero-metric {
       border: 1px solid var(--border);
       border-radius: var(--radius-btn);
       background: var(--bg-elev);
-      padding: 18px;
+      padding: var(--tone-card-padding);
     }
 
     .hero-metric.total {
@@ -384,7 +384,7 @@ const totalLine =
     }
 
     .hero-metric dd {
-      margin-top: 8px;
+      margin-top: var(--tone-space-1);
       color: var(--fg);
       font-size: var(--text-h2);
       font-weight: 700;
@@ -393,21 +393,21 @@ const totalLine =
 
     .hero-metric span {
       display: block;
-      margin-top: 8px;
+      margin-top: var(--tone-space-1);
       color: var(--fg-dim);
       font-size: var(--text-desc);
     }
 
     .cost-section {
-      padding: 42px 0 0;
+      padding: var(--tone-space-6) 0 0;
     }
 
     .section-head {
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
-      gap: 24px;
+      gap: var(--tone-space-4);
       align-items: end;
-      margin-bottom: 18px;
+      margin-bottom: var(--tone-space-3);
     }
 
     .section-head.compact {
@@ -416,7 +416,7 @@ const totalLine =
 
     .section-head h2,
     .source-note h2 {
-      margin-top: 6px;
+      margin-top: var(--tone-space-1);
       color: var(--fg);
       font-size: var(--text-h2);
       line-height: var(--leading-h1);
@@ -431,7 +431,7 @@ const totalLine =
     .category-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: var(--tone-space-2);
     }
 
     .category-card {
@@ -439,14 +439,14 @@ const totalLine =
       border-left: 3px solid var(--cat-color);
       border-radius: var(--radius-btn);
       background: var(--bg-elev);
-      padding: 18px;
-      min-height: 210px;
+      padding: var(--tone-card-padding);
+      min-height: 210px; /* tone:fixed: 분류 카드 고정 높이(편집 의장) */
     }
 
     .category-top {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: var(--tone-space-2);
       color: var(--fg-mute);
       font-size: var(--text-badge);
       font-weight: 700;
@@ -454,7 +454,7 @@ const totalLine =
     }
 
     .category-card h3 {
-      margin-top: 16px;
+      margin-top: var(--tone-space-3);
       color: var(--fg);
       font-size: var(--text-lead);
       line-height: 1.35;
@@ -462,14 +462,14 @@ const totalLine =
 
     .category-card strong {
       display: block;
-      margin-top: 10px;
+      margin-top: var(--tone-space-2);
       color: var(--cat-color);
       font-size: var(--text-h2);
       line-height: 1.18;
     }
 
     .category-card p {
-      margin-top: 12px;
+      margin-top: var(--tone-space-2);
       color: var(--fg-dim);
       font-size: var(--text-desc);
       line-height: var(--leading-body);
@@ -479,7 +479,7 @@ const totalLine =
       border: 1px solid var(--border);
       border-radius: var(--radius-btn);
       background: var(--bg-elev);
-      padding: 18px;
+      padding: var(--tone-card-padding);
       overflow-x: auto;
     }
 
@@ -499,8 +499,8 @@ const totalLine =
     .chart-legend {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 16px;
-      margin-top: 12px;
+      gap: var(--tone-space-2) var(--tone-space-3);
+      margin-top: var(--tone-space-2);
       color: var(--fg-dim);
       font-size: var(--text-meta);
     }
@@ -508,13 +508,13 @@ const totalLine =
     .chart-legend span {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: var(--tone-space-1);
     }
 
     .chart-legend i {
       width: 10px;
       height: 10px;
-      border-radius: 2px;
+      border-radius: 2px; /* tone:fixed: 범례 견본 모서리(의장) */
       background: var(--cat-color);
     }
 
@@ -534,7 +534,7 @@ const totalLine =
     th,
     td {
       border-bottom: 1px solid var(--border);
-      padding: 12px 14px;
+      padding: var(--tone-space-2) var(--tone-space-3);
       text-align: left;
       vertical-align: top;
       font-size: var(--text-desc);
@@ -580,31 +580,31 @@ const totalLine =
 
     .ledger-table td span {
       display: block;
-      margin-top: 4px;
+      margin-top: var(--tone-space-1);
       color: var(--fg-mute);
       font-size: var(--text-meta);
       line-height: 1.5;
     }
 
     .source-note {
-      margin-top: 44px;
+      margin-top: var(--tone-space-6);
       border: 1px solid var(--border);
       border-left: 3px solid var(--cost-amber);
       border-radius: var(--radius-btn);
       background: var(--bg-elev);
-      padding: 22px;
+      padding: var(--tone-card-padding);
     }
 
     .source-note p {
-      margin-top: 12px;
+      margin-top: var(--tone-space-2);
       color: var(--fg-dim);
       font-size: var(--text-desc);
       line-height: 1.72;
     }
 
     .source-note ul {
-      margin-top: 14px;
-      padding-left: 18px;
+      margin-top: var(--tone-space-3);
+      padding-left: var(--tone-space-3);
       color: var(--fg-dim);
       font-size: var(--text-desc);
       line-height: var(--leading-body);
@@ -612,7 +612,7 @@ const totalLine =
 
     .cost-back {
       display: inline-block;
-      margin-top: 28px;
+      margin-top: var(--tone-space-5);
       color: var(--fg-dim);
       text-decoration: none;
       font-size: var(--text-desc);
@@ -636,8 +636,8 @@ const totalLine =
 
     @media (max-width: 640px) {
       .cost-hero {
-        padding-top: 4px;
-        gap: 24px;
+        padding-top: var(--tone-space-1);
+        gap: var(--tone-space-4);
       }
 
       .cost-lead {
