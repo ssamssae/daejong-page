@@ -86,44 +86,40 @@ const context = label === '인사이트'
   </div>
 </div>
 <style>
-  .reading-context { max-width:900px; margin:0 0 32px auto; padding:18px 22px; background:var(--bg-elev); border-left:3px solid var(--accent); font-size:14px; line-height:1.8; }
-  .reading-context a { display:inline-block; margin-top:8px; }
-  .reading-neighbors { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:16px; margin-top:40px; }
-  .reading-neighbors a { border:1px solid var(--border); border-radius:var(--tone-radius-card); padding:20px; text-decoration:none; overflow-wrap:anywhere; }
-  .reading-neighbors small { display:block; color:var(--fg-mute); margin-bottom:10px; }
-  .reading-neighbors strong { font-size:15px; line-height:1.7; }
+  .reading-context { max-width:900px; /* tone:fixed: 글 머리열 편집 폭(본문보다 넓음) */ margin:0 0 var(--tone-space-5) auto; padding:var(--tone-space-3) var(--tone-space-4); background:var(--bg-elev); border-left:3px solid var(--accent); font-size:var(--tone-label-size); line-height:1.8; }
+  .reading-context a { display:inline-block; margin-top:var(--tone-space-1); }
+  .reading-neighbors { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:var(--tone-space-3); margin-top:var(--tone-space-6); }
+  .reading-neighbors a { border:1px solid var(--border); border-radius:var(--tone-radius-card); padding:var(--tone-card-padding); text-decoration:none; overflow-wrap:anywhere; }
+  .reading-neighbors small { display:block; color:var(--fg-mute); margin-bottom:var(--tone-space-2); }
+  .reading-neighbors strong { font-size:var(--tone-label-size); line-height:1.7; }
 
   .article-frame {
-    max-width: 1180px;
+    max-width: var(--tone-page-max);
     margin: auto;
   }
   .back {
-    margin-bottom: 28px;
+    margin-bottom: var(--tone-space-5);
   }
   .reading-header {
-    max-width: 900px;
+    max-width: 900px; /* tone:fixed: 글 머리열 편집 폭(본문보다 넓음) */
     margin-left: auto;
-    padding-bottom: 30px;
+    padding-bottom: var(--tone-space-5);
     border-bottom: 1px solid var(--border);
-    margin-bottom: 48px;
+    margin-bottom: var(--tone-section-gap);
   }
-  .reading-header h1 {
-    font-size: clamp(32px, 4.4vw, 54px);
-    line-height: 1.4;
-    letter-spacing: -0.045em;
-  }
+  /* T-261024-060: h1 크기·자간은 공용 studio-page.css(id)가 이김 — 죽은 선언 삭제 */
   .reading-summary {
-    font-size: 17px;
+    font-size: var(--tone-body-size);
     line-height: 1.8;
-    margin-top: 24px;
+    margin-top: var(--tone-space-4);
   }
   .reading-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 24px;
-    font-size: 11px;
+    gap: var(--tone-space-2) var(--tone-space-4);
+    font-size: var(--tone-caption-size);
     color: var(--fg-mute);
-    margin-top: 28px;
+    margin-top: var(--tone-space-5);
   }
   .reading-meta time {
     font-family: var(--mono);
@@ -131,7 +127,7 @@ const context = label === '인사이트'
   .reading-layout {
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
-    gap: 60px;
+    gap: var(--tone-section-gap);
     align-items: start;
   }
   .reading-layout > .prose:only-child {
@@ -142,22 +138,22 @@ const context = label === '인사이트'
     top: 125px;
   }
   .reading-toc > p {
-    font: 10px var(--mono);
-    letter-spacing: 0.1em;
+    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+    letter-spacing: 0.1em; /* tone:fixed: 모노 라벨 자간(의장) */
     color: var(--accent);
-    margin-bottom: 20px;
+    margin-bottom: var(--tone-card-padding);
   }
   .reading-toc ol {
     list-style: none;
   }
   .reading-toc li + li {
-    margin-top: 14px;
+    margin-top: var(--tone-space-3);
   }
   .reading-toc a {
     display: flex;
-    gap: 12px;
+    gap: var(--tone-space-2);
     text-decoration: none;
-    font-size: 12px;
+    font-size: var(--tone-caption-size);
     line-height: 1.65;
     color: var(--fg-dim);
     word-break: keep-all;
@@ -168,18 +164,18 @@ const context = label === '인사이트'
   }
   .reading-toc span {
     flex: 0 0 20px;
-    font: 10px/2 var(--mono);
+    font: 10px/2 var(--mono); /* tone:fixed: 모노 마이크로 번호(의장) */
     color: var(--fg-mute);
   }
   .reading-end {
-    max-width: 900px;
-    margin: 60px 0 0 auto;
-    padding: 24px 0;
+    max-width: 900px; /* tone:fixed: 글 맺음열 편집 폭(본문보다 넓음) */
+    margin: var(--tone-section-gap) 0 0 auto;
+    padding: var(--tone-space-4) 0;
     border-top: 1px solid var(--border);
     display: flex;
     flex-wrap: wrap;
-    gap: 14px 28px;
-    font-size: 12px;
+    gap: var(--tone-space-3) var(--tone-space-5);
+    font-size: var(--tone-caption-size);
   }
   .reading-end > span {
     margin-right: auto;
@@ -191,7 +187,7 @@ const context = label === '인사이트'
   @media (max-width: 900px) {
     .reading-layout {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: var(--tone-space-5);
     }
     .reading-layout > .prose:only-child {
       grid-column: 1;
@@ -199,35 +195,29 @@ const context = label === '인사이트'
     .reading-toc {
       position: static;
       background: var(--bg-elev);
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: var(--tone-radius-control);
+      padding: var(--tone-space-4);
     }
     .reading-toc ol {
       columns: 2;
-      column-gap: 25px;
+      column-gap: var(--tone-space-4);
     }
     .reading-toc li {
       break-inside: avoid;
     }
     .reading-header {
-      margin-bottom: 32px;
+      margin-bottom: var(--tone-space-5);
     }
     .reading-end {
-      margin-top: 40px;
+      margin-top: var(--tone-space-6);
     }
   }
   @media (max-width: 600px) {
-    .reading-header h1 {
-      font-size: 30px;
-    }
-    .reading-summary {
-      font-size: 15px;
-    }
     .reading-meta {
-      gap: 8px 16px;
+      gap: var(--tone-space-1) var(--tone-space-3);
     }
     .reading-toc {
-      padding: 20px;
+      padding: var(--tone-card-padding);
     }
     .reading-toc ol {
       columns: 1;

@@ -2,34 +2,29 @@
 .prose {
   min-width: 0;
   max-width: 72ch;
-  font-size: 17px;
+  font-size: var(--tone-body-size);
   line-height: 1.95;
   overflow-wrap: anywhere;
   color: var(--fg);
 }
+/* T-261024-060: h1/h2/h3 크기·자간은 공용 studio-page.css(main#main-content, id)가 이긴다
+   (라이브 실측 h2 24px·h3 20px) — 죽은 크기 선언은 지우고 간격·구분선만 남긴다. */
 .prose h1 {
-  font-size: 34px;
-  line-height: 1.45;
-  margin: 32px 0 22px;
+  margin: var(--tone-space-5) 0 var(--tone-space-4);
 }
 .prose h2 {
-  font-size: 28px;
-  line-height: 1.45;
-  letter-spacing: -0.04em;
-  margin: 54px 0 18px;
-  padding-top: 24px;
+  margin: var(--tone-section-gap) 0 var(--tone-space-3);
+  padding-top: var(--tone-space-4);
   border-top: 1px solid var(--border);
 }
 .prose h2:first-child {
   margin-top: 0;
 }
 .prose h3 {
-  font-size: 22px;
-  margin: 34px 0 14px;
-  line-height: 1.5;
+  margin: var(--tone-space-5) 0 var(--tone-space-3);
 }
 .prose p {
-  margin: 20px 0;
+  margin: var(--tone-card-padding) 0;
   color: var(--fg-dim);
 }
 .prose strong {
@@ -38,29 +33,29 @@
 }
 .prose ul,
 .prose ol {
-  margin: 20px 0;
-  padding-left: 24px;
+  margin: var(--tone-card-padding) 0;
+  padding-left: var(--tone-space-4);
 }
 .prose li {
-  margin: 9px 0;
+  margin: var(--tone-space-1) 0;
   color: var(--fg-dim);
-  padding-left: 3px;
+  padding-left: 3px; /* tone:fixed: 리스트 글머리 미세 들여쓰기 */
 }
 .prose code {
-  font: 13px/1.7 var(--mono);
+  font: var(--tone-caption-size)/1.7 var(--mono);
   background: var(--bg-elev);
-  padding: 3px 6px;
-  border-radius: 4px;
+  padding: 3px 6px; /* tone:fixed: 인라인 코드 미세 패딩 */
+  border-radius: 4px; /* tone:fixed: 인라인 코드 미세 모서리 */
   color: var(--accent);
 }
 .prose pre {
   border: 1px solid var(--border);
   border-radius: var(--tone-radius-control);
-  padding: 22px;
+  padding: var(--tone-space-4);
   overflow: auto;
-  margin: 24px 0;
+  margin: var(--tone-space-4) 0;
   max-width: 100%;
-  font-size: 13px;
+  font-size: var(--tone-caption-size);
 }
 .prose pre code {
   background: none;
@@ -71,15 +66,15 @@
 }
 .prose blockquote {
   border-left: 3px solid var(--accent);
-  padding: 16px 24px;
+  padding: var(--tone-space-3) var(--tone-space-4);
   background: var(--accent-bg);
-  border-radius: 0 8px 8px 0;
-  margin: 28px 0;
+  border-radius: 0 var(--tone-radius-control) var(--tone-radius-control) 0;
+  margin: var(--tone-space-5) 0;
   font-family: var(--serif);
-  font-size: 17px;
+  font-size: var(--tone-body-size);
 }
 .prose blockquote p {
-  margin: 4px 0;
+  margin: var(--tone-space-1) 0;
   color: var(--fg);
 }
 .prose img {
@@ -87,26 +82,26 @@
   max-width: 100%;
   height: auto;
   border-radius: var(--tone-radius-control);
-  margin: 28px auto;
+  margin: var(--tone-space-5) auto;
 }
 .prose hr {
   border: 0;
   border-top: 1px solid var(--border);
-  margin: 40px 0;
+  margin: var(--tone-space-6) 0;
 }
 .prose table {
   display: block;
   overflow-x: auto;
   border-collapse: collapse;
   max-width: 100%;
-  margin: 24px 0;
-  font-size: 13px;
+  margin: var(--tone-space-4) 0;
+  font-size: var(--tone-caption-size);
   line-height: 1.7;
 }
 .prose th,
 .prose td {
   border: 1px solid var(--border);
-  padding: 12px 15px;
+  padding: var(--tone-space-2) var(--tone-space-3);
   text-align: left;
   min-width: 100px;
 }
@@ -121,25 +116,13 @@
   color: var(--accent-dim);
 }
 @media (max-width: 600px) {
-  .prose {
-    font-size: 16px;
-    line-height: 1.9;
-  }
-  .prose h1 {
-    font-size: 28px;
-  }
   .prose h2 {
-    font-size: 24px;
-    margin-top: 40px;
-  }
-  .prose h3 {
-    font-size: 20px;
+    margin-top: var(--tone-space-6);
   }
   .prose pre {
-    padding: 16px;
+    padding: var(--tone-space-3);
   }
   .prose blockquote {
-    padding: 14px 18px;
-    font-size: 16px;
+    padding: var(--tone-space-3) var(--tone-space-3);
   }
 }
