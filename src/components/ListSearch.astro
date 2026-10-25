@@ -37,9 +37,9 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-list-search
 }
 </script>
 <style>
-.list-search { display:flex; flex-wrap:wrap; gap:12px; align-items:end; padding:18px 0; border-block:1px solid var(--border); }
-label { flex:1 1 240px; font-size:13px; } input { display:block; width:100%; margin-top:8px; border:1px solid var(--border); border-radius:var(--tone-radius-control); background:var(--bg-elev); color:var(--fg); font:inherit; padding:12px; }
-button { padding:12px 18px; color:var(--fg); background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--tone-radius-control); cursor:pointer; }
-p { flex:1 0 100%; font-size:13px; color:var(--fg-mute); }
+.list-search { display:flex; flex-wrap:wrap; gap:var(--tone-space-2); align-items:end; padding:var(--tone-space-3) 0; border-block:1px solid var(--border); }
+label { flex:1 1 240px; font-size:var(--tone-caption-size); } input { display:block; width:100%; margin-top:var(--tone-space-1); border:1px solid var(--border); border-radius:var(--tone-radius-control); background:var(--bg-elev); color:var(--fg); font:inherit; padding:var(--tone-space-2); }
+button { padding:var(--tone-space-2) var(--tone-control-padding); color:var(--fg); background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--tone-radius-control); cursor:pointer; }
+p { flex:1 0 100%; font-size:var(--tone-caption-size); color:var(--fg-mute); }
 [hidden] { display:none !important; }
 </style>

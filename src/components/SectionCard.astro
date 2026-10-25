@@ -17,13 +17,13 @@ const label = typeof index === 'number' ? String(index).padStart(2, '0') : '→'
 <style>
   .section-card {
     display: flex;
-    min-height: 188px;
+    min-height: 188px; /* tone:fixed: 카드 고정 높이(편집 의장) */
     flex-direction: column;
-    gap: 12px;
+    gap: var(--tone-space-2);
     position: relative;
     border: 1px solid var(--border);
     border-radius: var(--radius-btn);
-    padding: 22px;
+    padding: var(--tone-card-padding);
     background: var(--bg);
     color: var(--fg);
     text-decoration: none;
@@ -47,6 +47,7 @@ const label = typeof index === 'number' ? String(index).padStart(2, '0') : '→'
   .sc-desc { max-width: 28ch; font-size: var(--text-desc); color: var(--fg-dim); line-height: var(--leading-desc); }
   .sc-arrow { margin-top: auto; font-size: var(--text-lead); }
   @media (max-width: 640px) {
-    .section-card { min-height: 156px; padding: 18px; }
+    .section-card { min-height: 156px; /* tone:fixed: 카드 고정 높이(편집 의장) */
+      padding: var(--tone-card-padding); }
   }
 </style>
