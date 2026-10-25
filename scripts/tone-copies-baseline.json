@@ -30,13 +30,11 @@
   "src/pages/404.astro": 7,
   "src/pages/_cost.astro": 42,
   "src/pages/ai-glossary.html.astro": 38,
-  "src/pages/dead-ends.html.astro": 47,
   "src/pages/habits.html.astro": 19,
   "src/pages/how-i-use-ai.astro": 38,
   "src/pages/issues.html.astro": 41,
   "src/pages/sise.html.astro": 22,
   "src/pages/stock.html.astro": 25,
   "src/pages/worklog/[...slug].astro": 4,
-  "src/styles/lab.css": 44,
   "src/styles/notebook.css": 26
 }

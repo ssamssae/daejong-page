@@ -211,16 +211,16 @@ const formatMonth = (month: string) => month.replace('-', '.');
       --dead-accent: var(--accent);
       display: flex;
       flex-direction: column;
-      gap: 56px;
+      gap: var(--tone-section-gap);
     }
 
     .dead-hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
-      gap: 40px;
+      gap: var(--tone-space-6);
       align-items: end;
       border-bottom: 1px solid var(--border);
-      padding: 18px 0 40px;
+      padding: var(--tone-space-3) 0 var(--tone-space-6);
     }
 
     .eyebrow {
@@ -229,18 +229,18 @@ const formatMonth = (month: string) => month.replace('-', '.');
       font-size: var(--text-meta);
       font-weight: 600;
       letter-spacing: 0;
-      margin-bottom: 12px;
+      margin-bottom: var(--tone-space-2);
     }
 
     h1 {
       color: var(--fg);
       font-size: var(--text-h1);
       line-height: 0.95;
-      margin: 0 0 20px;
+      margin: 0 0 var(--tone-card-padding);
     }
 
     .lead {
-      max-width: 640px;
+      max-width: var(--tone-prose-max);
       color: var(--fg-dim);
       font-size: var(--text-lead);
       line-height: 1.75;
@@ -256,11 +256,11 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .hero-stats div {
       display: grid;
       grid-template-columns: 72px minmax(0, 1fr);
-      gap: 16px;
+      gap: var(--tone-space-3);
       align-items: baseline;
       border-bottom: 1px solid var(--border);
-      min-height: 58px;
-      padding: 14px 0;
+      min-height: var(--tone-control-height);
+      padding: var(--tone-space-3) 0;
     }
 
     .hero-stats dt {
@@ -281,9 +281,9 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .section-head {
       display: flex;
       justify-content: space-between;
-      gap: 24px;
+      gap: var(--tone-space-4);
       align-items: end;
-      margin-bottom: 20px;
+      margin-bottom: var(--tone-card-padding);
     }
 
     .section-head.compact {
@@ -298,7 +298,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
     }
 
     .section-head > p {
-      max-width: 380px;
+      max-width: var(--tone-flow-max);
       color: var(--fg-mute);
       font-size: var(--text-desc);
       line-height: var(--leading-desc);
@@ -309,18 +309,18 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .featured-grid {
       display: grid;
       grid-template-columns: 1.08fr 0.96fr 0.96fr;
-      gap: 16px;
+      gap: var(--tone-space-3);
     }
 
     .dead-card {
       display: flex;
-      min-height: 258px;
+      min-height: 258px; /* tone:fixed: 카드 고정 높이(의장) */
       flex-direction: column;
       border: 1px solid var(--border);
       border-radius: var(--radius-btn);
       background: var(--bg);
       color: var(--fg);
-      padding: 22px;
+      padding: var(--tone-space-4);
       text-decoration: none;
     }
 
@@ -345,8 +345,8 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .card-topline {
       display: flex;
       flex-direction: column;
-      gap: 50px;
-      margin-bottom: 14px;
+      gap: 50px; /* tone:fixed: 카드 날짜-제목 큰 간격(의장) */
+      margin-bottom: var(--tone-space-3);
       color: var(--fg-mute);
       font-family: var(--mono);
       font-size: var(--text-meta);
@@ -357,7 +357,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
       color: inherit;
       font-size: var(--text-h2);
       line-height: 1.32;
-      margin-bottom: 12px;
+      margin-bottom: var(--tone-space-2);
       word-break: keep-all;
     }
 
@@ -376,7 +376,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
       height: 34px;
       margin-top: auto;
       border: 1px solid currentColor;
-      border-radius: 999px;
+      border-radius: var(--tone-radius-pill);
       color: inherit;
       font-size: var(--text-desc);
       font-weight: 700;
@@ -391,15 +391,15 @@ const formatMonth = (month: string) => month.replace('-', '.');
     }
 
     .category-list li {
-      min-height: 96px;
+      min-height: 96px; /* tone:fixed: 분류 셀 고정 높이(의장) */
       border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 18px;
+      padding: var(--tone-space-3);
     }
 
     .category-list span {
       display: block;
-      margin-bottom: 16px;
+      margin-bottom: var(--tone-space-3);
       color: var(--fg-mute);
       font-family: var(--mono);
       font-size: var(--text-meta);
@@ -414,15 +414,15 @@ const formatMonth = (month: string) => month.replace('-', '.');
 
     .archive-list {
       display: grid;
-      gap: 28px;
+      gap: var(--tone-space-5);
     }
 
     .month-block {
       display: grid;
       grid-template-columns: 180px minmax(0, 1fr);
-      gap: 24px;
+      gap: var(--tone-space-4);
       border-top: 1px solid var(--border);
-      padding-top: 24px;
+      padding-top: var(--tone-space-4);
     }
 
     .month-block header {
@@ -436,7 +436,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
       font-family: var(--mono);
       font-size: var(--text-h3);
       line-height: var(--leading-h1);
-      margin-bottom: 6px;
+      margin-bottom: var(--tone-space-1);
     }
 
     .month-block header span {
@@ -456,10 +456,10 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .month-block a {
       display: grid;
       grid-template-columns: 116px minmax(0, 1fr);
-      gap: 16px;
+      gap: var(--tone-space-3);
       align-items: baseline;
-      min-height: 68px;
-      padding: 14px 0;
+      min-height: 68px; /* tone:fixed: 목록 행 고정 높이(의장) */
+      padding: var(--tone-space-3) 0;
       color: var(--fg);
       text-decoration: none;
     }
@@ -478,7 +478,7 @@ const formatMonth = (month: string) => month.replace('-', '.');
 
     .archive-body {
       display: grid;
-      gap: 8px;
+      gap: var(--tone-space-1);
       min-width: 0;
     }
 
@@ -492,18 +492,18 @@ const formatMonth = (month: string) => month.replace('-', '.');
     .archive-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: var(--tone-space-1);
     }
 
     .archive-meta em,
     .archive-meta small {
       border: 1px solid var(--border);
-      border-radius: 999px;
+      border-radius: var(--tone-radius-pill);
       color: var(--fg-mute);
       font-size: var(--text-badge);
       font-style: normal;
       line-height: 1.4;
-      padding: 2px 8px;
+      padding: 2px 8px; /* tone:fixed: 마이크로 칩(의장) */
     }
 
     .archive-meta em {
@@ -529,12 +529,8 @@ const formatMonth = (month: string) => month.replace('-', '.');
         grid-template-columns: 1fr;
       }
 
-      .lead {
-        font-size: 16px;
-      }
-
-      .hero-stats {
-        max-width: 520px;
+            .hero-stats {
+        max-width: var(--tone-flow-max);
       }
 
       .category-list {
@@ -548,12 +544,12 @@ const formatMonth = (month: string) => month.replace('-', '.');
 
     @media (max-width: 640px) {
       .dead-page {
-        gap: 48px;
+        gap: var(--tone-space-6);
       }
 
       .dead-hero {
-        gap: 34px;
-        padding-top: 8px;
+        gap: var(--tone-space-5);
+        padding-top: var(--tone-space-1);
       }
 
       .hero-stats div,
@@ -566,17 +562,17 @@ const formatMonth = (month: string) => month.replace('-', '.');
       }
 
       .section-head > p {
-        margin-top: 10px;
+        margin-top: var(--tone-space-2);
         text-align: left;
       }
 
       .dead-card {
-        min-height: 220px;
-        padding: 20px;
+        min-height: 220px; /* tone:fixed: 카드 모바일 고정 높이(의장) */
+        padding: var(--tone-card-padding);
       }
 
       .card-topline {
-        gap: 36px;
+        gap: 36px; /* tone:fixed: 카드 날짜-제목 간격 모바일(의장) */
       }
 
       .category-list {
@@ -584,13 +580,13 @@ const formatMonth = (month: string) => month.replace('-', '.');
       }
 
       .month-block {
-        gap: 16px;
+        gap: var(--tone-space-3);
       }
 
       .month-block a {
-        gap: 4px;
+        gap: var(--tone-space-1);
         min-height: auto;
-        padding: 14px 0;
+        padding: var(--tone-space-3) 0;
       }
     }
   </style>
