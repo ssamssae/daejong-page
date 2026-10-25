@@ -229,11 +229,10 @@ p {
 
 @media(max-width:650px){.site-main{width:calc(100% - var(--tone-gutter) * 2)}}
 
-/* T-261003-018: match the studio homepage across every shared layout. */
+/* T-261003-018: match the studio homepage across every shared layout.
+   T-261024-060: 제목 h1/h2/h3 직접 숫자 규칙 제거 — 공용 studio-page.css 의
+   body.studio-page main#main-content h1/h2/h3 (var(--tone-*)) 가 적용되게 둔다. */
 body.studio-page .site-main{padding-top:76px}
-body.studio-page #main-content.site-main h1{font-family:var(--sans);font-size:51px;font-weight:600;line-height:1.35;letter-spacing:-.065em}
-body.studio-page #main-content.site-main h2{font-family:var(--sans);font-size:23px;line-height:1.45;font-weight:600}
-body.studio-page #main-content.site-main h3{font-family:var(--sans);font-size:18px;line-height:1.5;font-weight:600}
 body.studio-page .home-hero{padding-top:0;padding-bottom:66px}
 body.studio-page .guide-hero{gap:40px;padding:30px 0 42px}
 body.studio-page .guide-poster{padding:23px;min-height:240px;border-radius:var(--tone-radius-sheet)}
@@ -243,7 +242,7 @@ body.studio-page .guide-card{padding:23px;border-radius:var(--tone-radius-card)}
 body.studio-page .guide-grid{gap:14px}
 body.studio-page .catalog-page{padding-top:0}
 body.studio-page.catalog-page .site-main{padding-top:0}
-@media(max-width:650px){body.studio-page .site-main{width:calc(100% - var(--tone-gutter) * 2);padding-top:48px}body.studio-page #main-content.site-main h1{font-size:34px}body.studio-page #main-content.site-main h2{font-size:21px}body.studio-page .guide-section{padding:29px 0 32px}body.studio-page .guide-poster>strong{font-size:28px}}
+@media(max-width:650px){body.studio-page .site-main{width:calc(100% - var(--tone-gutter) * 2);padding-top:48px}body.studio-page .guide-section{padding:29px 0 32px}body.studio-page .guide-poster>strong{font-size:28px}}
 
 /* T-261024-030: 라벨을 한국어로 바꿨다 — 영문 대문자용 넓은 자간을 한글 라벨에는 주지 않는다.
    컴포넌트 범위 스타일(.x[data-astro-cid])보다 구체적이어야 해서 body.studio-page 로 시작한다. */
