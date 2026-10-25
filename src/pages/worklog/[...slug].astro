@@ -1,5 +1,6 @@
 ---
 import ArticleFrame from "../../components/ArticleFrame.astro";
+import TermTips from "../../components/TermTips.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 import { ogImagePath } from "../../lib/og-image.mjs";
@@ -29,6 +30,7 @@ const { Content, headings } = await render(post);
     searchable
     base="/worklog/"><Content /></ArticleFrame
   >
+  <TermTips />
   <aside class="store-footer">
     <p class="store-footer__line">
       이 작업장에서 만든 앱 —

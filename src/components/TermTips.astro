@@ -1,0 +1,103 @@
+---
+// T-261025-009 · 글 본문 용어 툴팁의 모양과 여닫기(표시는 빌드 때 src/lib/rehype-glossary-tips.mjs 가 단다).
+//   마우스를 올리거나 키보드로 고르면 한 줄 풀이가 뜨고, 휴대전화는 누르면 뜬다. 다시 누르기·바깥 누르기·ESC 로 닫는다.
+//   풀이 상자는 화면 좌우 여백 안으로 밀어 넣고, 아래가 모자라면 말 위로 띄운다. 모양은 공용 톤 파일의 이름(--tone-*·색)만 쓴다.
+---
+<style is:global>
+  .term-tip { position: relative; }
+  .term-tip-term { padding: 0; border: 0; background: none; color: inherit; font: inherit; letter-spacing: inherit; text-align: inherit; cursor: help; text-decoration: underline dotted; text-decoration-color: var(--fg-mute); text-underline-offset: var(--tone-underline-offset); }
+  .term-tip-term:focus-visible { outline: var(--tone-focus-width) solid var(--accent); outline-offset: var(--tone-focus-offset); }
+  .term-tip-body {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + var(--tone-space-1));
+    z-index: 40;
+    box-sizing: border-box;
+    width: max-content;
+    max-width: min(var(--tone-flow-max), calc(100vw - var(--tone-gutter) * 2));
+    padding: var(--tone-space-2) var(--tone-space-3);
+    border-radius: var(--tone-radius-control);
+    background: var(--fg);
+    color: var(--bg);
+    font: var(--tone-weight) var(--tone-label-size)/var(--tone-label-line) var(--tone-font);
+    letter-spacing: normal;
+    text-align: left;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    box-shadow: var(--shadow-pop);
+    transform: translateX(var(--term-tip-shift, 0px));
+  }
+  .term-tip.is-open .term-tip-body { display: block; }
+  .term-tip.is-above .term-tip-body { top: auto; bottom: calc(100% + var(--tone-space-1)); }
+</style>
+<script>
+  let openTip: HTMLElement | null = null;
+  let tappedOpen = false;
+  const tipOf = (target: EventTarget | null) => (target instanceof Element ? target.closest<HTMLElement>('.term-tip') : null);
+  const gutter = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--tone-gutter')) || 0;
+
+  function place(tip: HTMLElement) {
+    const body = tip.querySelector<HTMLElement>('.term-tip-body');
+    if (!body) return;
+    tip.classList.remove('is-above');
+    body.style.setProperty('--term-tip-shift', '0px');
+    // 휴대전화는 상자가 넘치는 순간 innerWidth 가 같이 커진다(360 → 405 실측) — 보이는 폭은 clientWidth 로 잰다.
+    const { clientWidth: width, clientHeight: height } = document.documentElement;
+    const edge = gutter();
+    const box = body.getBoundingClientRect();
+    let shift = 0;
+    if (box.right > width - edge) shift = width - edge - box.right;
+    if (box.left + shift < edge) shift = edge - box.left;
+    body.style.setProperty('--term-tip-shift', `${Math.round(shift)}px`);
+    const term = tip.getBoundingClientRect();
+    if (box.bottom > height - edge && term.top - (box.bottom - term.bottom) > edge) tip.classList.add('is-above');
+  }
+  function close(tip = openTip) {
+    if (!tip) return;
+    tip.classList.remove('is-open', 'is-above');
+    if (openTip === tip) openTip = null;
+  }
+  function open(tip: HTMLElement) {
+    if (openTip && openTip !== tip) close(openTip);
+    tip.classList.add('is-open');
+    openTip = tip;
+    place(tip);
+  }
+
+  document.addEventListener('pointerover', (event) => {
+    const tip = tipOf(event.target);
+    if (tip && event.pointerType === 'mouse') open(tip);
+  });
+  document.addEventListener('pointerout', (event) => {
+    const tip = tipOf(event.target);
+    if (tip && event.pointerType === 'mouse' && !tip.contains(event.relatedTarget as Node | null) && !tip.contains(document.activeElement)) close(tip);
+  });
+  document.addEventListener('focusin', (event) => {
+    const tip = tipOf(event.target);
+    if (tip) open(tip);
+  });
+  document.addEventListener('focusout', (event) => {
+    const tip = tipOf(event.target);
+    if (tip && !tip.contains(event.relatedTarget as Node | null)) close(tip);
+  });
+  // 휴대전화: 누를 때 이미 열려 있었으면 이번 누르기는 닫기다(누르면서 생긴 초점이 먼저 열어도 헷갈리지 않게).
+  document.addEventListener('pointerdown', (event) => {
+    const tip = tipOf(event.target);
+    tappedOpen = Boolean(tip && tip === openTip && event.pointerType !== 'mouse');
+  });
+  document.addEventListener('click', (event) => {
+    const tip = tipOf(event.target);
+    if (!tip) return close();
+    if (!(event.target as Element).closest('.term-tip-term')) return;
+    if (tappedOpen) close(tip);
+    else open(tip);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') close();
+  });
+  addEventListener('resize', () => {
+    if (openTip) place(openTip);
+  });
+</script>

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import remarkNoteLinks from './src/lib/remark-note-links.mjs';
+import rehypeGlossaryTips from './src/lib/rehype-glossary-tips.mjs';
 import sitemap from '@astrojs/sitemap';
 
 // T-260728-093 축2: sitemap 을 수기 정적 파일(31 URL)에서 자동생성으로 전환.
@@ -16,7 +17,8 @@ const NOINDEX_PATHNAMES = ['/apps', '/apps/', '/404', '/404/', '/404.html', '/wo
 export default defineConfig({
   site: 'https://work.kangdaejong.com',
   output: 'static',
-  markdown: { remarkPlugins: [['remark-gfm', { singleTilde: false }], remarkNoteLinks] },
+  // T-261025-009: 인사이트·작업일지 본문의 사전 용어에 한 줄 풀이 툴팁(src/lib/rehype-glossary-tips.mjs, 모양·동작은 TermTips.astro).
+  markdown: { remarkPlugins: [['remark-gfm', { singleTilde: false }], remarkNoteLinks], rehypePlugins: [rehypeGlossaryTips] },
   integrations: [
     sitemap({
       filter: (page) => !NOINDEX_PATHNAMES.includes(new URL(page).pathname),
