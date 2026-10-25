@@ -1,6 +1,4 @@
 {
-  "public/dead-ends/detail.html": 76,
-  "public/lab-page.css": 66,
   "public/page-dark.css": 10,
   "public/privacy-babmeokja.html": 20,
   "public/privacy-calc-alarm.html": 20,
@@ -18,7 +16,6 @@
   "public/privacy.html": 16,
   "public/sise/coin.js": 1,
   "public/sise/fx.js": 1,
-  "src/components/Archive.astro": 67,
   "src/components/ArticleFrame.astro": 49,
   "src/components/BridgeDemo.astro": 21,
   "src/components/ContentCases.astro": 11,
