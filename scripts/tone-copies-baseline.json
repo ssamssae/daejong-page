@@ -42,7 +42,6 @@
   "src/pages/sise.html.astro": 22,
   "src/pages/stock.html.astro": 25,
   "src/pages/timeline.html.astro": 86,
-  "src/pages/vibecoding.html.astro": 141,
   "src/pages/worklog/[...slug].astro": 4,
   "src/styles/lab.css": 44,
   "src/styles/notebook.css": 26,
