@@ -182,7 +182,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     border-radius: var(--tone-radius-card);
   }
   .archive-total strong {
-    font: 54px/1 Georgia, serif; /* tone:fixed: Georgia 합계 디스플레이(의장) */
+    font: var(--tone-weight-bold) 54px/1 var(--tone-font); /* tone:fixed: 합계 디스플레이(의장) */
     color: var(--accent);
   }
   .archive-total span {
@@ -222,7 +222,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     display: flex;
     justify-content: space-between;
     gap: var(--tone-space-3);
-    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+    font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
     color: var(--fg-dim);
     margin-bottom: var(--tone-space-5);
   }
@@ -274,7 +274,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     outline-offset: 3px;
   }
   .search-count {
-    font: 11px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+    font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
     margin: 0 0 var(--tone-space-3);
     color: var(--fg-mute);
   }
@@ -288,12 +288,12 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
   }
   .archive-month h3 {
     /* T-261024-060: 크기는 공용(main#main-content, id)이 이기지만 글꼴은 스코프 특이도로 살아 있다 */
-    font: 23px/1.5 Georgia, serif; /* tone:fixed: Georgia 월 제목 글꼴(크기 23px 는 공용 20px 가 이김) */
+    font: 23px/1.5 var(--tone-font); /* tone:fixed: 월 제목 글꼴(크기 23px 는 공용 20px 가 이김) */
     padding: var(--tone-space-3) 0;
   }
   .archive-month h3 span {
     display: block;
-    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+    font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
     color: var(--fg-mute);
     margin-top: var(--tone-space-2);
   }
@@ -312,7 +312,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     font-size: var(--tone-label-size);
   }
   .archive-month time {
-    font: 11px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+    font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
     color: var(--fg-mute);
     flex: 0 0 42px;
   }
@@ -322,7 +322,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
     overflow-wrap: anywhere;
   }
   .archive-month small {
-    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+    font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
     color: var(--fg-mute);
   }
   .archive-month b {
@@ -347,7 +347,7 @@ const ep = (post: Post) => post.data.version?.match(/^ep(\d+)$/i)?.[1];
       padding: var(--tone-space-3) var(--tone-space-4);
     }
     .archive-total strong {
-      font-size: 40px; /* tone:fixed: Georgia 합계 디스플레이 태블릿(의장) */
+      font-size: 40px; /* tone:fixed: 합계 디스플레이 태블릿(의장) */
     }
     .story-grid {
       gap: var(--tone-space-3);

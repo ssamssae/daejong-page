@@ -1,7 +1,7 @@
 /* Shared visual system for the workshop's three index pages.
    T-261024-060: 직접 숫자 → var(--tone-*). 제목(h1·h2) 크기·자간은 공용 studio-page.css
    (body.studio-page main#main-content …)가 특이도로 이기므로 여기서 정의하지 않는다.
-   Georgia 의장 숫자·모노 마이크로 라벨만 tone:fixed 로 남긴다(토큰 어휘 밖). */
+   큰 장식 숫자만 tone:fixed 로 남긴다(토큰 어휘 밖). 글꼴은 전부 공용(T-261027-001 — 명조·코드체 라벨 정리). */
 .system-page,
 .lab-index,
 .about-page {
@@ -44,11 +44,11 @@
   margin-bottom: var(--tone-space-2);
 }
 .hero-stats dd {
-  font: 38px/1.2 Georgia, var(--serif); /* tone:fixed: Georgia 통계 디스플레이 숫자(의장) */
+  font: var(--tone-weight-bold) 38px/1.2 var(--tone-font); /* tone:fixed: 통계 디스플레이 숫자(의장) */
   color: var(--fg);
 }
 .hero-summary {
-  font: 10px/1.8 var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+  font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
   color: var(--fg-mute);
   margin-top: var(--tone-space-3);
 }
@@ -72,15 +72,15 @@
   position: relative;
 }
 .flow-list .step {
-  font: 45px Georgia, serif; /* tone:fixed: Georgia 단계 디스플레이 숫자(의장) */
+  font: var(--tone-weight-bold) 45px var(--tone-font); /* tone:fixed: 단계 디스플레이 숫자(의장) */
   color: var(--text-4);
   line-height: 1;
 }
 .flow-list .label {
-  font: 9px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+  font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
   color: var(--accent);
   margin: var(--tone-card-padding) 0 var(--tone-space-2);
-  letter-spacing: 0.1em; /* tone:fixed: 모노 라벨 자간(의장) */
+  letter-spacing: normal;
 }
 .flow-list strong {
   font-size: var(--tone-subtitle-size);
@@ -127,7 +127,7 @@
   display: flex;
   justify-content: space-between;
   gap: var(--tone-space-3);
-  font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+  font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
   color: var(--fg-mute);
   margin-bottom: var(--tone-card-padding);
 }
@@ -194,7 +194,7 @@
   padding-top: var(--tone-space-1);
 }
 .group-block header > span {
-  font: 11px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+  font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
   color: var(--fg-mute);
 }
 .group-block ol {
@@ -212,7 +212,7 @@
   text-decoration: none;
 }
 .group-block li a > span {
-  font: 9px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+  font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
   color: var(--fg-mute);
 }
 .group-block li strong {
@@ -255,12 +255,12 @@
   color: var(--accent);
 }
 .maker-mark > span {
-  font: 100px Georgia, serif; /* tone:fixed: Georgia 아치 이니셜(의장) */
+  font: 100px var(--tone-font); /* tone:fixed: 아치 이니셜(의장) */
   letter-spacing: -14px; /* tone:fixed: 아치 이니셜 자간(의장) */
   padding-right: var(--tone-space-3);
 }
 .maker-mark p {
-  font: 10px/2 var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+  font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
   text-align: center;
   color: var(--fg-dim);
   margin-top: var(--tone-space-5);
@@ -275,11 +275,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--tone-space-2);
-  font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+  font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
   color: var(--accent);
 }
 .section-label > span:first-child {
-  font: 36px Georgia, serif; /* tone:fixed: Georgia 구역 번호(의장) */
+  font: var(--tone-weight-bold) 36px var(--tone-font); /* tone:fixed: 구역 번호(의장) */
   color: var(--text-4);
 }
 .profile-copy h2,
@@ -305,7 +305,7 @@
   padding-top: var(--tone-space-3);
 }
 .facts dt {
-  font: 9px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+  font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
   color: var(--fg-mute);
   margin-bottom: var(--tone-space-1);
 }
@@ -336,7 +336,7 @@
   padding-top: var(--tone-space-4);
 }
 .about-page .principle-list li > span {
-  font: 34px Georgia, serif; /* tone:fixed: Georgia 원칙 번호(의장) */
+  font: var(--tone-weight-bold) 34px var(--tone-font); /* tone:fixed: 원칙 번호(의장) */
   color: var(--accent);
 }
 .about-page .principle-list strong {
@@ -427,7 +427,7 @@
     gap: var(--tone-space-3);
   }
   .hero-stats dd {
-    font-size: 30px; /* tone:fixed: Georgia 통계 숫자 모바일(의장) */
+    font-size: 30px; /* tone:fixed: 통계 숫자 모바일(의장) */
   }
   .module-grid,
   .lab-index .featured-grid,
@@ -468,7 +468,7 @@
     justify-self: center;
   }
   .maker-mark > span {
-    font-size: 80px; /* tone:fixed: Georgia 아치 이니셜 모바일(의장) */
+    font-size: 80px; /* tone:fixed: 아치 이니셜 모바일(의장) */
   }
   .profile-section,
   .story-section {

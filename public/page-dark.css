@@ -5,7 +5,6 @@
   --sans:
     "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     sans-serif;
-  --serif: "Noto Serif KR", Georgia, "Times New Roman", serif;
   --text-h1: clamp(32px, 4.6vw, 51px);
   --text-h2: clamp(23px, 3vw, 30px);
   --text-h3: 21px;

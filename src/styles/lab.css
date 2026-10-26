@@ -42,7 +42,7 @@
   display: inline-flex;
   align-items: center;
   color: var(--fg);
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-lead);
   font-weight: 600;
   text-decoration: none;
@@ -58,7 +58,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--tone-space-3);
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-desc);
 }
 
@@ -100,7 +100,7 @@
 .lab-hero .tagline {
   max-width: var(--tone-prose-max);
   color: var(--fg-mute);
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-meta);
   font-weight: 600;
   line-height: 1.5;
@@ -137,7 +137,7 @@
 .lab-stat-label {
   margin-bottom: var(--tone-space-1);
   color: var(--fg-mute);
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-badge);
   font-weight: 600;
 }
@@ -210,7 +210,7 @@
   color: var(--fg-dim);
   background: var(--bg);
   padding: 3px 9px; /* tone:fixed: 마이크로 칩(의장) */
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-badge);
   font-weight: 600;
   line-height: 1.4;
@@ -219,7 +219,7 @@
 .lab-meta {
   margin-bottom: var(--tone-space-1);
   color: var(--fg-mute);
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-meta);
   line-height: 1.5;
 }
@@ -242,7 +242,7 @@
   background: var(--bg);
   color: var(--fg-dim);
   padding: 3px 8px; /* tone:fixed: 마이크로 칩(의장) */
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-badge);
   font-weight: 600;
   line-height: 1.4;
@@ -272,7 +272,7 @@
 .lab-back {
   display: inline-block;
   color: var(--fg-dim);
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-desc);
   text-decoration: none;
 }
@@ -287,7 +287,7 @@
   border-top: 1px solid var(--border);
   padding: var(--tone-space-5) 0 var(--tone-section-gap);
   color: var(--fg-dim);
-  font-family: var(--mono);
+  font-family: var(--tone-font);
   font-size: var(--text-meta);
 }
 
