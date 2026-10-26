@@ -42,7 +42,7 @@
   padding-left: 3px; /* tone:fixed: 리스트 글머리 미세 들여쓰기 */
 }
 .prose code {
-  font: var(--tone-caption-size)/1.7 var(--mono);
+  font: var(--tone-caption-size)/1.7 var(--mono); /* tone:code: 실제 코드·명령어 글자 */
   background: var(--bg-elev);
   padding: 3px 6px; /* tone:fixed: 인라인 코드 미세 패딩 */
   border-radius: 4px; /* tone:fixed: 인라인 코드 미세 모서리 */
@@ -70,7 +70,7 @@
   background: var(--accent-bg);
   border-radius: 0 var(--tone-radius-control) var(--tone-radius-control) 0;
   margin: var(--tone-space-5) 0;
-  font-family: var(--serif);
+  font-family: var(--tone-font);
   font-size: var(--tone-body-size);
 }
 .prose blockquote p {

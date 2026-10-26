@@ -7,7 +7,6 @@
 :root {
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --sans: var(--tone-font);
-  --serif: "Noto Serif KR", Georgia, "Times New Roman", serif;
   --text-h1: var(--tone-display-size);
   --text-h2: var(--tone-title-size);
   --text-h3: var(--tone-subtitle-size);

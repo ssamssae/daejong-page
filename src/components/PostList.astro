@@ -45,7 +45,7 @@ const { posts, base } = Astro.props as { posts: Post[]; base: string };
   }
   .date,
   .ep {
-    font: 10px var(--mono); /* tone:fixed: 모노 마이크로 라벨(의장) */
+    font: var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
     color: var(--fg-mute);
   }
   .title {

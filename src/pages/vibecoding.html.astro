@@ -499,7 +499,7 @@ const earlierNotes = [
     .anti-list p span,
     .note-meta,
     .vibe-footer {
-      font-family: var(--mono);
+      font-family: var(--tone-font);
     }
 
     .crumb {
@@ -545,7 +545,7 @@ const earlierNotes = [
 
     .hero-copy h1 {
       /* T-261024-060 핫픽스: 스코프 특이도로 글꼴은 살아 있다(크기·자간만 공용이 이김) — #722 에서 잘못 지운 세리프 복원 */
-      font-family: var(--serif);
+      font-family: var(--tone-font);
       max-width: var(--tone-prose-max);
       margin: var(--tone-space-5) 0 var(--tone-space-5);
       color: var(--fg);
@@ -628,11 +628,11 @@ const earlierNotes = [
 
     .hero-poster > p {
       margin: 0;
-      font-family: var(--serif);
-      font-size: clamp(32px, 4vw, 50px); /* tone:fixed: 세리프 포스터 디스플레이(편집 의장) */
+      font-family: var(--tone-font);
+      font-size: var(--tone-title-size);
       font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.035em; /* tone:fixed: 포스터 디스플레이 자간(의장) */
+      line-height: var(--tone-title-line);
+      letter-spacing: var(--tone-tracking-title);
     }
 
     .hero-poster .poster-accent {
@@ -642,7 +642,7 @@ const earlierNotes = [
     .poster-arrow {
       margin: var(--tone-space-1) 0 var(--tone-space-1) 6px; /* tone:fixed: 화살표 미세 정렬 */
       color: var(--fg-dim);
-      font-family: var(--mono);
+      font-family: var(--tone-font);
       font-size: var(--text-body);
     }
 
@@ -678,7 +678,7 @@ const earlierNotes = [
 
     .signal-strip dd {
       color: var(--fg);
-      font-size: clamp(28px, 4vw, 46px); /* tone:fixed: 지표 디스플레이 숫자(편집 의장) */
+      font-size: var(--tone-display-size);
       font-weight: 600;
       line-height: 1;
     }
@@ -707,7 +707,7 @@ const earlierNotes = [
     .section-heading h2,
     .loop-intro h2,
     .anti-heading h2 {
-      font-family: var(--serif);
+      font-family: var(--tone-font);
       max-width: var(--tone-prose-max);
       margin-top: var(--tone-space-3);
       color: var(--fg);
@@ -744,7 +744,7 @@ const earlierNotes = [
     }
 
     .principle-card h3 {
-      font-family: var(--serif);
+      font-family: var(--tone-font);
       margin: var(--tone-space-4) 0 var(--tone-space-3);
       color: var(--fg);
       word-break: keep-all;
@@ -805,7 +805,7 @@ const earlierNotes = [
     }
 
     .loop-list h3 {
-      font-family: var(--serif);
+      font-family: var(--tone-font);
       margin: var(--tone-space-2) 0;
       color: var(--fg);
     }
@@ -857,7 +857,7 @@ const earlierNotes = [
     }
 
     .era-grid h3 {
-      font-family: var(--serif);
+      font-family: var(--tone-font);
       margin: var(--tone-section-gap) 0 var(--tone-space-3);
       color: var(--fg);
       word-break: keep-all;
@@ -910,7 +910,7 @@ const earlierNotes = [
     }
 
     .layer-board h3 {
-      font-family: var(--serif);
+      font-family: var(--tone-font);
       margin: 76px 0 var(--tone-space-3); /* tone:fixed: 보드 제목 상단 고정 간격(편집 의장) */
       color: var(--fg);
     }
@@ -1022,7 +1022,7 @@ const earlierNotes = [
     }
 
     .notes-grid h3 {
-      font-family: var(--serif);
+      font-family: var(--tone-font);
       max-width: var(--tone-prose-max);
       margin: var(--tone-space-6) 0 var(--tone-space-3);
     }
@@ -1057,10 +1057,10 @@ const earlierNotes = [
       max-width: var(--tone-prose-max);
       margin: 0;
       color: var(--fg);
-      font-family: var(--serif);
-      font-size: clamp(27px, 4vw, 46px); /* tone:fixed: 세리프 맺음 인용 디스플레이(편집 의장) */
-      line-height: 1.45;
-      letter-spacing: -0.03em; /* tone:fixed: 맺음 인용 자간(의장) */
+      font-family: var(--tone-font);
+      font-size: var(--tone-display-size);
+      line-height: var(--tone-display-line);
+      letter-spacing: var(--tone-tracking-title);
       word-break: keep-all;
     }
 

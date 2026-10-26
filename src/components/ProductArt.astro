@@ -91,6 +91,11 @@ const { kind = "name" } = Astro.props;
     align-items: center;
     justify-content: center;
   }
+  /* T-261027-001: 종이·도장 느낌 제품 그림 안 글자만 명조를 쓴다(페이지 글자는 공용 글꼴). */
+  .product-art {
+    --art-serif: "Noto Serif KR", Georgia, "Times New Roman", serif;
+  }
+
   .art-caption {
     position: absolute;
     top: 22px;
@@ -150,7 +155,7 @@ const { kind = "name" } = Astro.props;
     color: #756a56;
   }
   .name-paper strong {
-    font: 56px/1.1 var(--serif); /* tone:fixed: 제품 그림 안 크기(일러스트 의장) */
+    font: 56px/1.1 var(--art-serif); /* tone:fixed: 제품 그림 안 크기(일러스트 의장) */
     letter-spacing: -0.1em;
     color: #373b2e;
   }
@@ -163,7 +168,7 @@ const { kind = "name" } = Astro.props;
     right: 20px;
     top: 45px;
     writing-mode: vertical-rl;
-    font: 11px var(--serif); /* tone:fixed: 제품 그림 안 크기(일러스트 의장) */
+    font: 11px var(--art-serif); /* tone:fixed: 제품 그림 안 크기(일러스트 의장) */
     border: 1px solid #ad482e;
     color: #ad482e;
     padding: 4px; /* tone:fixed: 제품 그림 안 크기(일러스트 의장) */
@@ -208,7 +213,7 @@ const { kind = "name" } = Astro.props;
     color: #737d64;
   }
   .diary-paper strong {
-    font-family: var(--serif);
+    font-family: var(--art-serif);
     font-size: 16px; /* tone:fixed: 제품 그림 안 크기(일러스트 의장) */
     display: block;
     margin: 10px 0; /* tone:fixed: 제품 그림 안 크기(일러스트 의장) */

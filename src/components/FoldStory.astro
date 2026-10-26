@@ -97,7 +97,7 @@ const noteHrefFor = (slug: string) => `/notes/dead-ends/${encodeURIComponent(slu
 <style>
   .story-section { display: flex; flex-direction: column; gap: var(--tone-space-4); }
   .story-head { display: grid; gap: var(--tone-space-1); max-width: var(--tone-prose-max); }
-  .story-eyebrow { color: var(--accent); font-size: var(--text-meta); font-weight: 700; letter-spacing: 0.08em; } /* tone:fixed: 라벨 자간(의장) */
+  .story-eyebrow { color: var(--accent); font-size: var(--text-meta); font-weight: 700; letter-spacing: normal; }
   .story-head h2 { color: var(--fg); font-size: var(--text-h2); line-height: var(--leading-h1); word-break: keep-all; }
   .story-head p:last-child { color: var(--fg-mute); font-size: var(--text-desc); line-height: var(--leading-desc); word-break: keep-all; }
   .reopened-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: var(--tone-space-3); }

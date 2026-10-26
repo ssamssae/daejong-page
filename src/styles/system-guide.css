@@ -12,7 +12,7 @@
 .guide-date { font-size:var(--tone-caption-size); margin-top:var(--tone-space-4); color:var(--fg-dim); }
 .guide-poster { background:var(--accent-bg); border-radius:var(--tone-radius-sheet); padding:var(--tone-space-6); display:flex; flex-direction:column; }
 .guide-poster { min-height:350px; } /* tone:fixed: 포스터 쇼케이스 고정 높이 — 토큰 범위 밖 */
-.guide-poster>strong { color:var(--accent); font-size:clamp(43px,5vw,66px); line-height:1.1; letter-spacing:-.055em; white-space:pre-line; margin:26px 0 32px; } /* tone:fixed: 포스터 디스플레이 숫자(쇼케이스, 토큰 display 보다 큼) */
+.guide-poster>strong { color:var(--accent); font-size:var(--tone-display-size); line-height:var(--tone-display-line); letter-spacing:var(--tone-tracking-title); white-space:pre-line; margin:26px 0 32px; } /* tone:fixed: 포스터 위아래 여백(쇼케이스) */
 .guide-poster ol { list-style:none; margin-top:auto; }
 .guide-poster li { display:flex; gap:var(--tone-card-padding); padding:var(--tone-space-2) 0; border-top:1px solid var(--accent-line); font-size:var(--tone-caption-size); }
 .guide-poster li span { font-size:var(--tone-caption-size); color:var(--fg-dim); }
@@ -57,7 +57,7 @@
 @media(max-width:620px) {
  .guide-hero{grid-template-columns:1fr;gap:var(--tone-space-5);padding:var(--tone-hero-top) 0 var(--tone-hero-top)}
  .guide-poster{min-height:300px} /* tone:fixed: 포스터 모바일 고정 높이 */
- .guide-poster>strong{font-size:48px} /* tone:fixed: 포스터 모바일 디스플레이 숫자 */
+ .guide-poster>strong{font-size:var(--tone-display-size)}
  .guide-grid,.guide-grid.two,.guide-note-list{grid-template-columns:1fr}
  .guide-tabs{gap:var(--tone-space-3) var(--tone-space-4)}
  .guide-section{padding:var(--tone-space-6) 0}
