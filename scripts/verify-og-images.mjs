@@ -2,12 +2,13 @@
 // 1200x630 PNG under /og/, and non-article pages must keep the shared image.
 import fs from 'node:fs';
 import path from 'node:path';
-import { OG_IMAGE_VERSION } from '../src/lib/og-image.mjs';
+import { OG_IMAGE_VERSION, SHARED_OG_IMAGE } from '../src/lib/og-image.mjs';
 
 const SITE = 'https://work.kangdaejong.com';
-// T-261012-041: 공용 카드는 버전 없는 고정 주소 하나만 쓴다. 카드 그림은 회사홈(kangdaejong-com)에서만 바꾸고,
-// 이 사이트는 고칠 곳이 없다. ?v= 같은 버전을 다시 붙이면 아래 전수 검사가 그 페이지를 실패로 잡는다.
-const SHARED = 'https://kangdaejong.com/brand/current/social.png';
+// T-261027-001: 공용 카드 주소 = 회사홈 manifest 지문이 붙은 주소 하나(brand-tokens.mjs). 원본에 지문을 복사하지 않는다
+// (T-261012-041 의 「한 곳 관리」 그대로) — 정적 페이지는 version-shared-og.mjs 가 빌드 결과에서만 붙인다.
+// 고정 주소(지문 없음)나 다른 지문이 남으면 아래 전수 검사가 그 페이지를 실패로 잡는다.
+const SHARED = SHARED_OG_IMAGE;
 const COLLECTIONS = ['worklog', 'newsletter', 'insights'];
 const dist = path.resolve('dist');
 const errors = [];

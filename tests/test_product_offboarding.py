@@ -60,7 +60,9 @@ class ProductOffboarding(unittest.TestCase):
                 for key in ['og:image', 'twitter:image']:
                     images = [a['content'] for tag, a in page.tags if tag == 'meta'
                               and (a.get('property') == key or a.get('name') == key)]
-                    self.assertEqual(images, ['https://kangdaejong.com/brand/current/social.png'])
+                    # T-261027-001: 회사홈 manifest 지문이 붙은 공용 카드 하나(정확한 지문 대조는 verify-og-images).
+                    self.assertEqual(len(images), 1)
+                    self.assertRegex(images[0], r'^https://kangdaejong\.com/brand/current/social\.png\?v=[0-9a-f]{16}$')
 
 if __name__ == '__main__':
     unittest.main()

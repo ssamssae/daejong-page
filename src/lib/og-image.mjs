@@ -26,9 +26,10 @@ export const OG_COLLECTIONS = Object.freeze({
 const C = brandTokens.light;
 const CARD_COLORS = ['--bg', '--fg', '--fg-mute', '--accent', '--accent-bg', '--border'];
 export const OG_IMAGE_VERSION = `light-${createHash('sha256').update(CARD_COLORS.map((name) => `${name}=${C[name]}`).join(';')).digest('hex').slice(0, 8)}`;
-// T-261012-040: 이동 껍데기(components/RedirectStub.astro)가 쓰는 회사홈 공용 카드 — T-261012-041 고정 주소(버전 없음).
-// 카드를 다시 그려도 이 값은 그대로다. verify-og-images 가 모든 HTML 이 이 주소인지 본다.
-export const SHARED_OG_IMAGE = 'https://kangdaejong.com/brand/current/social.png';
+// T-261012-040: 이동 껍데기(components/RedirectStub.astro)가 쓰는 회사홈 공용 카드.
+// T-261027-001: 주소는 brand-tokens.mjs 가 회사홈 manifest 지문으로 만든다(회사홈 SiteLayout 과 같은 ?v=).
+// verify-og-images 가 모든 HTML 이 이 주소인지 본다.
+export { SHARED_OG_IMAGE } from './brand-tokens.mjs';
 export const ogImagePath = (collection, id) => `/og/${collection}/${id}.png?v=${OG_IMAGE_VERSION}`;
 
 const FONT_DIR = join(process.cwd(), 'node_modules/pretendard/dist/public/static');
