@@ -6,14 +6,8 @@ const CHEOTIREUM_FALLBACK_ENTRY = {
   name: '첫이름',
   category: 'saas',
   surfaces: ['home', 'workshop'],
-  icon: null,
-  icon2x: null,
-  exception: {
-    status: 'approved-placeholder',
-    reason: 'Web service uses approved letter-mark fallback.',
-    fallback: 'letter-mark',
-    approvedAt: '2026-10-24',
-  },
+  icon: 'https://kangdaejong.com/brand/products/cheotireum.webp',
+  icon2x: 'https://kangdaejong.com/brand/products/cheotireum@2x.webp',
 };
 export function verifyProductIcons(html,catalog){
   const cards=html.match(/<article\b[\s\S]*?<\/article>/g)?.filter(x=>x.includes('data-catalog-item'))||[];
@@ -42,7 +36,10 @@ export function verifyProductIcons(html,catalog){
 }
 if(process.argv[1] && process.argv[1]===fileURLToPath(import.meta.url)){
   const catalog=process.env.PRODUCT_CATALOG_FILE?JSON.parse(await fs.readFile(process.env.PRODUCT_CATALOG_FILE,'utf8')):await fetch('https://kangdaejong.com/brand/products/catalog.json').then(r=>{assert(r.ok,'Catalog unavailable');return r.json();});
-  if(!catalog.products.some(p=>p.id==='cheotireum'))catalog.products.push(CHEOTIREUM_FALLBACK_ENTRY);
+  const cheotireumIndex=catalog.products.findIndex(p=>p.id==='cheotireum');
+  const cheotireum=catalog.products[cheotireumIndex];
+  if(!cheotireum)catalog.products.push(CHEOTIREUM_FALLBACK_ENTRY);
+  else if(!cheotireum.icon&&cheotireum.exception?.status==='approved-placeholder')catalog.products[cheotireumIndex]=CHEOTIREUM_FALLBACK_ENTRY;
   const html=await fs.readFile('dist/products/index.html','utf8');
   console.log(`Product coverage: ${verifyProductIcons(html,catalog)} cards verified against the central catalog`);
 }

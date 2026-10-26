@@ -3,8 +3,9 @@
 ## 공용 아이콘·배포 누락 방지 — T-261013-046
 
 - 진입: `/work/products/` → 전체/모바일 앱/웹 서비스/오픈소스 → 첫이름 또는 Jarvis 검색. 같은 회사홈 아이콘을 공용 정본 `https://kangdaejong.com/brand/products/catalog.json`에서 읽는다. 제품별 고정 주소를 사용한다.
-- `src/data/products.ts`에는 제품 ID만 지정한다. 승인 이미지 또는 사유 있는 예외가 없으면 빌드 실패. Local Bridge의 기존 기호와 첫이름의 승인된 letter-mark가 명시적 예외다. 첫이름은 정본에 ID가 없을 때만 보충하며, 정본 등록 뒤에는 정본 항목을 그대로 사용한다. 과거 출처 JSON은 역사 자료로 보존한다.
+- `src/data/products.ts`에는 제품 ID만 지정한다. 승인 이미지 또는 사유 있는 예외가 없으면 빌드 실패. Local Bridge의 기존 기호는 명시적 예외다. 첫이름은 정본에 ID가 없거나 아이콘 없는 `approved-placeholder`이면 로더와 검증 CLI에서 `cheotireum.webp`·`cheotireum@2x.webp` 정본 주소로 보충한다. 이미 등록된 아이콘은 그대로 사용한다. 순수 검증 함수는 입력 카탈로그와 예외 검증 계약을 유지한다. 과거 출처 JSON은 역사 자료로 보존한다.
 - 검증: `bash tests/test_product_icon_contract.sh`, postbuild `verify:product-icons`, PR 필수 `site-release-contract`. 구버전 이미지·누락 카드·미등록 제품은 실패한다.
+- 첫이름 아이콘 경로(T-261026-030): 기존 [파란색 ㅊ SVG](https://github.com/ssamssae/cheotireum/blob/c9b7fc14c0de43644f2feca355c6c291937ef09d/web/brand-mark.svg)를 사용하는 중앙 WebP 주소를 참조한다. 로그인 없이 로컬 `/work/products/`에서 첫이름 카드를 찾는다. 기대값은 48px 이미지의 정본 `src`와 1x·2x `srcset`이다. `npm run build` 뒤 `python3 -m unittest discover -s tests -p test_product_offboarding.py`로 생성 HTML을 검사한다. 이 변경은 수동 PR 생성까지이며 공개 이미지 서빙은 중앙 자산 배포에 의존한다.
 - 기존 Pages 배포 뒤 `verify-production`이 공개 커밋, 정본 자산 hash, 모든 사이트맵 HTML, 390/1440px × light/dark 대표 화면을 검사한다. JSON/PNG를 Actions artifact로 보존한다. 실패하면 배포 워크플로도 실패한다. 웹 배포와 Telegram 미리보기 완료는 별도다.
 
 ## 홈페이지와 같은 헤더·톤 — T-261003-017

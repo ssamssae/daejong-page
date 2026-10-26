@@ -31,6 +31,8 @@ class ProductOffboarding(unittest.TestCase):
         self.assertEqual(cheotireum[0]['data-kind'], 'saas')
         self.assertIn('첫이름', cheotireum[0]['data-search'])
         active_html = re.search(r'<article\b[^>]*data-product-id="cheotireum"[\s\S]*?</article>', page.source).group()
+        self.assertIn('src="https://kangdaejong.com/brand/products/cheotireum.webp"', active_html)
+        self.assertIn('srcset="https://kangdaejong.com/brand/products/cheotireum.webp, https://kangdaejong.com/brand/products/cheotireum@2x.webp 2x"', active_html)
         for url in ['https://cheotireum.kangdaejong.com/',
                     'https://cheotireum.kangdaejong.com/sample-report',
                     'https://cheotireum.kangdaejong.com/hanja-check']:
