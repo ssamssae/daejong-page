@@ -123,8 +123,8 @@ p {
   color: var(--bg);
 }
 .eyebrow {
-  font: 600 11px/1.6 var(--mono); /* tone:fixed: 모노 아이브로 라벨(의장) */
-  letter-spacing: 0.12em; /* tone:fixed: 아이브로 영문 자간(의장 — 한글은 아래 리셋) */
+  font: 600 var(--tone-caption-size)/var(--tone-caption-line) var(--tone-font);
+  letter-spacing: normal;
   color: var(--accent);
   text-transform: uppercase;
   margin-bottom: var(--tone-space-3);
@@ -234,7 +234,7 @@ body.studio-page .home-hero{padding-top:0;padding-bottom:var(--tone-section-gap)
 body.studio-page .guide-hero{gap:var(--tone-space-6);padding:var(--tone-space-5) 0 var(--tone-space-6)}
 body.studio-page .guide-poster{padding:var(--tone-space-4);border-radius:var(--tone-radius-sheet)}
 body.studio-page .guide-poster{min-height:240px} /* tone:fixed: 포스터 고정 높이(의장) */
-body.studio-page .guide-poster>strong{font-size:34px} /* tone:fixed: 포스터 디스플레이(의장) */
+body.studio-page .guide-poster>strong{font-size:var(--tone-display-size);line-height:var(--tone-display-line)}
 body.studio-page .guide-section{padding:var(--tone-space-6) 0 var(--tone-space-6)}
 body.studio-page .guide-card{padding:var(--tone-space-4);border-radius:var(--tone-radius-card)}
 body.studio-page .guide-grid{gap:var(--tone-space-3)}
@@ -243,7 +243,7 @@ body.studio-page.catalog-page .site-main{padding-top:0}
 @media(max-width:650px){
 body.studio-page .site-main{width:calc(100% - var(--tone-gutter) * 2);padding-top:var(--tone-space-6)}
 body.studio-page .guide-section{padding:var(--tone-space-5) 0 var(--tone-space-5)}
-body.studio-page .guide-poster>strong{font-size:28px} /* tone:fixed: 포스터 디스플레이 모바일(의장) */
+body.studio-page .guide-poster>strong{font-size:var(--tone-display-size)}
 }
 
 /* T-261024-030: 라벨을 한국어로 바꿨다 — 영문 대문자용 넓은 자간을 한글 라벨에는 주지 않는다.
