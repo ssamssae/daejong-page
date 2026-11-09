@@ -12,7 +12,7 @@ summary: "tmux 세션은 살아있는데 안에 Claude Code가 안 돌아 핸드
 ## 증상
 
 - 2026-04-26 00:42 KST. Mac /goodnight step 4.5 가 WSL 한테 `/insta-post 2026-04-25` 핸드오프를 SSH+tmux METHOD A 로 발사.
-- 명령: `ssh ssamssae@desktop-i4tr99i-1 "tmux send-keys -t claude-main '/insta-post 2026-04-25'; sleep 0.5; tmux send-keys -t claude-main Enter"` → exit 0.
+- 명령: `ssh 계정@데스크탑PC "tmux send-keys -t claude-main '/insta-post 2026-04-25'; sleep 0.5; tmux send-keys -t claude-main Enter"` → exit 0.
 - 인스타에 카드가 안 올라옴. 강대종님 "왜 안오냐" (텔레그램 msg 7320).
 
 ## 진단
@@ -20,8 +20,8 @@ summary: "tmux 세션은 살아있는데 안에 Claude Code가 안 돌아 핸드
 WSL 측 capture-pane 마지막 줄:
 
 ```
-ssamssae@DESKTOP-I4TR99I:~/.claude/skills$ cc
-ssamssae@DESKTOP-I4TR99I:~/.claude/skills$ /insta-post 2026-04-25
+계정@데스크탑PC:~/.claude/skills$ cc
+계정@데스크탑PC:~/.claude/skills$ /insta-post 2026-04-25
 -bash: /insta-post: No such file or directory
 ```
 

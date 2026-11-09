@@ -4,7 +4,7 @@
 2026-05-19 22:1x ~ 23:4x KST (~1.5시간 인지 지연)
 
 ## 노드
-🪟 WSL (`DESKTOP-I4TR99I` Ryzen 3900X, `@Myclaude2_ssamssae_bot`)
+🪟 WSL (`데스크탑PC` Ryzen 3900X, `@Myclaude2_ssamssae_bot`)
 
 ## 증상
 - 본진 (🍎) 이 PR #62 insight 스킬 머지 후 5노드 git pull sync directive fan-out (22:1x KST)

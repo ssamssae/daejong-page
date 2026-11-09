@@ -5,7 +5,7 @@
 
 ## 실측 (2026-06-08 08:1x KST, 맥미니에서)
 - **notebook3060 (💻)**: SSH OK, codex tmux 세션 살아있음. 09분 전 T-260526-11 작업 완료 + mac-report 송신 후 idle. context 45% / weekly 75% 남음 → **정상**. 아니키 "노트북 접속못해" 전제는 실측과 충돌 — 접속 실패는 notebook 이 아니라 아래 노드들.
-- **라이덴(🪟, wsl)**: `ssh wsl` → `connect to host desktop-i4tr99i-1 port 22: Operation timed out` (unreachable).
+- **라이덴(🪟, wsl)**: `ssh wsl` → `connect to host 데스크탑PC port 22: Operation timed out` (unreachable).
 - **데스크탑(🖥, desktop3060ti)**: `ssh desktop3060ti` → `port 22: Operation timed out` (unreachable).
 - **맥미니(🏭) codex**: launchctl `com.daejong.codex-night-cycle` LastExitStatus=0 (게이트 통과 시 정상 동작), 단 codex 세션 자체는 보고상 없었음.
 

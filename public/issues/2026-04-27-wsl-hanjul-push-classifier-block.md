@@ -1,7 +1,7 @@
 ---
 prevention_deferred: null
 date: 2026-04-27
-host: DESKTOP-I4TR99I (WSL 본진) + USERui-MacBookPro (Mac, SSH 우회 시도)
+host: 데스크탑PC (WSL 본진) + USERui-MacBookPro (Mac, SSH 우회 시도)
 status: workaround
 related: feedback_respect_harness_denial
 summary: "WSL 한줄일기 main push가 auto-mode classifier에 차단 → 맥 SSH 우회 시도도 같은 룰로 또 막힘"
