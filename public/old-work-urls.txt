@@ -209,7 +209,6 @@ https://work.kangdaejong.com/newsletter/ep140/
 https://work.kangdaejong.com/newsletter/ep141/
 https://work.kangdaejong.com/newsletter/ep142/
 https://work.kangdaejong.com/newsletter/ep143/
-https://work.kangdaejong.com/newsletter/ep144/
 https://work.kangdaejong.com/newsletter/ep145/
 https://work.kangdaejong.com/newsletter/ep146/
 https://work.kangdaejong.com/newsletter/ep147/
@@ -680,7 +679,6 @@ https://work.kangdaejong.com/skills.html/
 https://work.kangdaejong.com/smart-home.html/
 https://work.kangdaejong.com/sorry/
 https://work.kangdaejong.com/stack.html/
-https://work.kangdaejong.com/stock.html/
 https://work.kangdaejong.com/system/
 https://work.kangdaejong.com/timeline.html/
 https://work.kangdaejong.com/vibecoding.html/

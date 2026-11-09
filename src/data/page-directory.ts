@@ -27,7 +27,6 @@ export const pageGroups = [
     { href: '/ai-glossary.html/', label: 'AI 용어집', description: '영상 맥락별 용어 찾아보기' },
     { href: '/habits.html/', label: '습관', description: '반복해서 지키는 작업 방식' },
     { href: '/timeline.html/', label: '타임라인', description: '이정표·접은 일·다시 편 일' },
-    { href: '/stock.html/', label: '관심종목 기록', description: '2026년 5월의 관찰 메모' },
     { href: '/sise.html/', label: '시세판', description: '코인·환율 데이터 실험' },
   ] },
 ];

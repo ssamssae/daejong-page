@@ -13,7 +13,7 @@
   - (1) "주간 토큰 사용량" 을 본진 macOS PS1 의 W % 표시로 잘못 해석 → 스크린샷에 W 4% 박혀있다고 보고.
   - (2) 형님 msg26671 "코덱스는 컨텍스트 구현이 안된거같은데" + msg26673 "주간 70%사용된 상태인데 그걸 확인못하는거같은데" 로 정정.
   - (3) 본진이 macOS PS1 의 W 4% 분모를 hard floor 20B → SoT 1.197B 로 fix 제안.
-  - (4) 형님 msg26677 "그게아니고 왜 cli statusline 에 코덱스는 주간토큰 나오는데 클로드는 안나오냐고 셋업도 클로드채팅 프롬프트가 만들어준거로 가동했었는데 이전세션에서" + msg26679 "주간토큰 잔여량 리셋시간이랑" 으로 진짜 의도(이전 셋업 복원) 명확화.
+  - (4) 형님 메시지 "그게아니고 왜 cli statusline 에 코덱스는 주간토큰 나오는데 클로드는 안나오냐고 셋업도 클로드채팅 프롬프트가 만들어준거로 가동했었는데 이전세션에서" + msg26679 "주간토큰 잔여량 리셋시간이랑" 으로 진짜 의도(이전 셋업 복원) 명확화.
 - 본진 mac-mini ssh 진입해서 `~/Library/LaunchAgents/_disabled/com.daejong.choso-usage-scrape.plist.2026-05-27` 발견 + `~/choso/scripts/usage_scrape.py` 본문 확인 (claude.ai 사용량 페이지 playwright 스크랩, OAuth 토큰 일절 미사용 = 정책 위반 X = 비활성화 사유 부재).
 - 형님 msg26681 "셋다 묶어서 자율로 진행 그거하고 굿나잇박자" ack 후 본진 4단계 fix 자율 진행:
   - (A) scrape launchd 잡 복원 (mv + bootstrap + kickstart, PID 98894 LIVE).

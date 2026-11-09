@@ -9,7 +9,7 @@ const areas = aiUses.areas
   .map((area) => ({ ...area, uses: aiUses.uses.filter((u) => u.area === area.id) }))
   .filter((area) => area.uses.length);
 const firstMonth = dot(aiUses.uses.map((u) => u.date).sort()[0].slice(0, 7));
-const description = `보험 상담 문자, 환불 요청 메일, 걸려 온 전화, 스토어 제출까지. 1인 개발자 강대종이 개발 밖에서 AI에게 맡긴 일 ${aiUses.uses.length}가지를 상황, AI가 한 일, 결과로 정리했습니다.`;
+const description = `환불 요청 메일, 걸려 온 전화, 스토어 제출까지. 1인 개발자 강대종이 개발 밖에서 AI에게 맡긴 일 ${aiUses.uses.length}가지를 상황, AI가 한 일, 결과로 정리했습니다.`;
 ---
 <Layout title="강대종은 AI를 이렇게 씁니다 — 마이너스베타스튜디오" description={description}>
   <Fragment slot="head">

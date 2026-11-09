@@ -22,7 +22,7 @@
 - `mac-report.sh` 에 env-gated 마커 추가: `MAC_REPORT_ORIGIN_CHAT` + `MAC_REPORT_ORIGIN_NODE` 둘 다 set 시 페이로드 title 줄 뒤에 `[USER-QUERY origin_chat=<id> origin_node=<emoji>]` 1줄 삽입.
 - title 줄 **뒤**에 삽입 → reverse-reply hook 정규식(`^(\[[^]]*\])?\[Mac report title:`) 및 mirror chain 무영향. env 없으면 출력 0 변화(바이트 동일, isolation 테스트로 검증).
 - 노드가 유저질문 포워딩 시 호출 예: `MAC_REPORT_ORIGIN_CHAT=<CHAT_ID> MAC_REPORT_ORIGIN_NODE=💻 mac-report.sh report.md "질문 포워딩"`.
-- 2026-05-31 결혼식 IG 캐러셀 건에서 수동 실증된 흐름을 코드화.
+- 2026-05-31 IG 캐러셀 건에서 수동 실증된 흐름을 코드화.
 
 ### 픽스B — 본진 reverse-reply FIRST (행동 룰)
 - 본진이 `[USER-QUERY origin_chat=X origin_node=💻]` 마커를 보면: (1) origin 노드로 `<node>-directive.sh -f` reverse-reply **FIRST**(인터럽트 strand 방지), (2) 답을 origin 노드 경유로 origin_chat 에 라우팅(노드 stop hook 이 origin_chat 미러), (3) 본진 자기 챗엔 중복 발송 X.

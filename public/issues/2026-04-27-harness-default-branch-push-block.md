@@ -1,7 +1,7 @@
 ---
 prevention_deferred: null
 date: 2026-04-27
-host: DESKTOP-I4TR99I (WSL)
+host: 데스크탑PC (WSL)
 status: open
 related: feedback_respect_harness_denial, feedback_auto_mode_no_allow_prompt
 summary: "한줄일기 default 브랜치(main) 직접 push가 하네스에 막힘 → PR 흐름 강제, 정책으로 굳음"

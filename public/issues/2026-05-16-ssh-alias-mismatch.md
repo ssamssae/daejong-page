@@ -13,13 +13,13 @@ summary: "본진 챗봇이 SSH alias 대신 hostname 그대로 사용 → 두 �
 
 ## 증상
 
-WSL 노드 점검 중 `ssh -o ConnectTimeout=5 DESKTOP-I4TR99I hostname` 등 명령이 매번 `Operation timed out` 으로 실패. 두 시간 가까이 "WSL 노드 죽었다" 로 잘못 진단하고 텔레그램 복붙 fallback 경로로 전환. 그 사이 같은 노드를 대상으로 `wsl-directive.sh -f ...` 호출은 모두 정상 작동 (`✅ directive sent to WSL tmux session 'claude'`). 강대종이 "WSL 살아있다는데" 알려서 비대칭 surface, 본진 ssh config 분석해서 원인 발견.
+WSL 노드 점검 중 `ssh -o ConnectTimeout=5 데스크탑PC hostname` 등 명령이 매번 `Operation timed out` 으로 실패. 두 시간 가까이 "WSL 노드 죽었다" 로 잘못 진단하고 텔레그램 복붙 fallback 경로로 전환. 그 사이 같은 노드를 대상으로 `wsl-directive.sh -f ...` 호출은 모두 정상 작동 (`✅ directive sent to WSL tmux session 'claude'`). 강대종이 "WSL 살아있다는데" 알려서 비대칭 surface, 본진 ssh config 분석해서 원인 발견.
 
 ## 원인
 
-`~/.ssh/config` 에서 WSL 노드 alias 는 `Host wsl desktop` 로 등록돼있고 실제 HostName 은 `desktop-i4tr99i-1` (Tailnet 경유). CLAUDE.md L179 의 "현재 기기 빠른 식별" 표에 hostname 컬럼이 `DESKTOP-I4TR99I` 로 표기돼있는데, 이건 노드 자체 hostname (`hostname` 명령 결과) 정보를 표시한 것이지 ssh alias 가 아님.
+`~/.ssh/config` 에서 WSL 노드 alias 는 `Host wsl desktop` 로 등록돼있고 실제 HostName 은 `데스크탑PC` (Tailnet 경유). CLAUDE.md L179 의 "현재 기기 빠른 식별" 표에 hostname 컬럼이 `데스크탑PC` 로 표기돼있는데, 이건 노드 자체 hostname (`hostname` 명령 결과) 정보를 표시한 것이지 ssh alias 가 아님.
 
-본 챗봇이 두 컬럼 의미를 혼동해서 `ssh DESKTOP-I4TR99I` 명령을 그대로 발사. ssh 가 그 hostname 을 alias 로 못 찾으니 DNS resolution 시도 → 외부 DNS 에 이름 없으니 resolution 실패 → ConnectTimeout 만큼 기다리다 timeout. 같은 시간 `wsl-directive.sh` 는 내부에서 `ssh wsl` alias 사용해서 Tailnet 경유로 정상 작동.
+본 챗봇이 두 컬럼 의미를 혼동해서 `ssh 데스크탑PC` 명령을 그대로 발사. ssh 가 그 hostname 을 alias 로 못 찾으니 DNS resolution 시도 → 외부 DNS 에 이름 없으니 resolution 실패 → ConnectTimeout 만큼 기다리다 timeout. 같은 시간 `wsl-directive.sh` 는 내부에서 `ssh wsl` alias 사용해서 Tailnet 경유로 정상 작동.
 
 ## 조치
 

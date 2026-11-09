@@ -33,7 +33,7 @@ Host mac-mini
     User user
 
 Host wsl desktop
-    HostName desktop-i4tr99i-1
+    HostName 데스크탑PC
     User ssamssae
 ```
 

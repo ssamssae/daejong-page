@@ -6,7 +6,7 @@ summary: "WSL sweep 작업 중 lotto-calc만 step 0 git fetch/status 빼먹어 �
 
 ## 발생
 
-2026-05-17 KST, WSL 노드(`DESKTOP-I4TR99I`)가 P2/P4 후속 PR 6개 sweep 작업 중 lotto-calc 만 base mismatch 사고 발생.
+2026-05-17 KST, WSL 노드(`데스크탑PC`)가 P2/P4 후속 PR 6개 sweep 작업 중 lotto-calc 만 base mismatch 사고 발생.
 
 - 5/6 repo (wordyo, mini_expense, hanjul widget, hanjul lint, pomodoro) 는 step 0 `git fetch` + `git status` 수행 후 정상 분기 → MERGEABLE/CLEAN PR 생성
 - lotto-calc 만 step 0 skip → 옛 commit `563edca` (PR #9 시드 파이프라인 시점) 위에 `wsl/lotto_calc-widget-test-fix-2026-05-17` 분기

@@ -29,7 +29,7 @@ trio-vote 결과 [B] (PM/엔지니어→B 추천, 비판론자→D 이중벨트,
 1. `detect_sender_id()` 함수 추가 — FROM_DEVICE arg 우선, 없으면 hostname 기반 추론:
    - USERui-MacBookPro → 🍎 본진
    - mac-mini → 🏭 맥미니
-   - DESKTOP-I4TR99I → 🪟 WSL
+   - 데스크탑PC → 🪟 WSL
    - DESKTOP-0VAB3QC → 🖥 데스크탑 3060Ti
    - DESKTOP-4MNJ1C0 → 💻 노트북3060
 2. payload 생성 시 body 첫 줄에 `[<sender_id> → 🍎 본진]` 자동 prepend
