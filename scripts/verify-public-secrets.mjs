@@ -104,6 +104,32 @@ function valueHasSecretShape(value) {
   return false;
 }
 
+function isCompanyPublicHost(hostname) {
+  const host = hostname.toLowerCase();
+  return host === "kangdaejong.com" || host.endsWith(".kangdaejong.com");
+}
+
+function segmentLooksLikeToken(segment) {
+  if (!/^[A-Za-z0-9_-]{20,}$/.test(segment)) return false;
+  return /[A-Za-z]/.test(segment) && /\d/.test(segment);
+}
+
+function pathCarriesCredential(pathname) {
+  // bot 바로 뒤 숫자는 단어 경계가 아니라서 값 정규식이 이 경로를 못 본다.
+  if (/\/bot\d+:[A-Za-z0-9_-]+/i.test(pathname)) return true;
+  for (const raw of pathname.split("/")) {
+    if (raw.length === 0) continue;
+    if (segmentLooksLikeToken(raw)) return true;
+    try {
+      const decoded = decodeURIComponent(raw);
+      if (decoded !== raw && segmentLooksLikeToken(decoded)) return true;
+    } catch {
+      // Keep the raw segment check above when the path is not valid percent-encoding.
+    }
+  }
+  return false;
+}
+
 export function isCredentialFreePublicHttps(value) {
   if (typeof value !== "string" || !value.startsWith("https://") || /\s/.test(value)) return false;
   let url;
@@ -118,6 +144,8 @@ export function isCredentialFreePublicHttps(value) {
   if (!/^[a-z0-9.-]+$/i.test(url.hostname)) return false;
   if (url.hostname.startsWith(".") || url.hostname.endsWith(".") || url.hostname.includes("..")) return false;
   if (valueHasSecretShape(value)) return false;
+  if (!isCompanyPublicHost(url.hostname)) return false;
+  if (pathCarriesCredential(url.pathname)) return false;
   return true;
 }
 
