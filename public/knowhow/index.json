@@ -1,6 +1,23 @@
 {
   "entries": [
     {
+      "file": "2026-11-11-youtube-subtitle-429-translated-track.md",
+      "date": "2026-11-11",
+      "slug": "youtube-subtitle-429-translated-track",
+      "title": "유튜브 자막 요청이 429로 막힐 때 — 막힌 것은 우리 집이 아니라 「번역해서 주세요」 줄이었다",
+      "category": "자동화",
+      "tags": [
+        "yt-dlp",
+        "유튜브",
+        "자막",
+        "429",
+        "브라우저 자동화",
+        "디버깅",
+        "검증"
+      ],
+      "summary": "yt-dlp 로 유튜브 자동 자막을 받다가 HTTP 429 로 막혔다. 주소 차단이 아니었다. 자막 트랙이 여러 개인 영상에서 en 코드가 「다른 언어 자막을 영어로 번역」하는 주소로 풀려 번역 요청이 나갔고, 유튜브는 그 번역 요청만 막고 있었다. 급한 날은 브라우저의 「스크립트 표시」 패널을 읽어 넘겼고, 그 뒤 사람 자막과 원래 언어 자동 자막(-orig)을 두 번에 나눠 요청하게 고쳤다."
+    },
+    {
       "file": "2026-10-13-berry-human-call-lessons.md",
       "date": "2026-10-13",
       "slug": "berry-human-call-lessons",
