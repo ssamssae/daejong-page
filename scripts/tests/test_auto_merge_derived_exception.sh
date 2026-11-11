@@ -10,6 +10,7 @@
 # ■룰을 베끼지 않는다 — .github/workflows/auto-merge.yml 의 'Detect sensitive files' 스텝
 #   run 블록을 ★그대로 추출해 실행한다. 여기에 판정을 재구현하면 표가 두 벌이 되고
 #   하나는 반드시 낡는다(T-260805-023 이 정확히 그 병이었다).
+#   추출은 Python 표준 라이브러리만 쓴다. PyYAML 설치 여부와 무관하게 같은 run 블록을 실행한다.
 #
 # usage: test_auto_merge_derived_exception.sh [workflow.yml]
 #   인자로 다른 워크플로 파일을 주면 그것으로 돈다 — ★고치기 전 버전에 물려 빨강을
@@ -29,18 +30,9 @@ bad() { echo "  FAIL — $1" >&2; fails=$((fails + 1)); }
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-# ── 판정 스텝 추출 (재구현 금지) ──────────────────────────────────────────────
-python3 - "$WF" "$TMP/detect.sh" <<'PY' || { echo "추출 실패 — 스텝 이름이 바뀌었는지 확인하라" >&2; exit 3; }
-import sys, yaml
-wf, out = sys.argv[1], sys.argv[2]
-doc = yaml.safe_load(open(wf, encoding="utf-8"))
-for job in (doc.get("jobs") or {}).values():
-    for step in (job.get("steps") or []):
-        if step.get("name") == "Detect sensitive files":
-            open(out, "w", encoding="utf-8").write(step["run"])
-            sys.exit(0)
-sys.exit(1)
-PY
+# ── 판정 스텝 추출 (재구현 금지, stdlib only) ─────────────────────────────────
+python3 "$SCRIPT_DIR/extract_gha_step_run.py" "$WF" "Detect sensitive files" >"$TMP/detect.sh" \
+  || { echo "추출 실패 — 스텝 이름이 바뀌었는지 확인하라" >&2; exit 3; }
 chmod +x "$TMP/detect.sh"
 
 # gh 스텁 — `gh pr diff --name-only` 가 케이스별 파일 목록을 낸다(진짜 gh 안 씀).

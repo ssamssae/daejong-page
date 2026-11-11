@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const roots = ["src", "public", "dist"].filter((path) => {
   try {
@@ -95,37 +96,77 @@ function isPlaceholder(value) {
   return placeholderValues.has(value) || value.startsWith("<") || value.startsWith("[") || value.startsWith("${");
 }
 
-const violations = [];
-for (const root of roots) {
-  for (const path of walk(root)) {
-    if (!isTextFile(path)) continue;
-    let content;
-    try {
-      content = readFileSync(path, "utf8");
-    } catch {
-      continue;
-    }
-    const lines = content.split(/\r?\n/);
-    lines.forEach((line, index) => {
-      for (const check of checks) {
-        if (check.regex.test(line)) {
-          violations.push(`${path}:${index + 1}: ${check.name}`);
-        }
-      }
-      secretAssignment.lastIndex = 0;
-      for (const match of line.matchAll(secretAssignment)) {
-        if (!isPlaceholder(match[2])) {
-          violations.push(`${path}:${index + 1}: secret assignment literal`);
-        }
-      }
-    });
+function valueHasSecretShape(value) {
+  for (const check of checks) {
+    check.regex.lastIndex = 0;
+    if (check.regex.test(value)) return true;
   }
+  return false;
 }
 
-if (violations.length > 0) {
-  console.error("Public secret scan failed:");
-  for (const violation of violations) console.error(violation);
-  process.exit(1);
+export function isCredentialFreePublicHttps(value) {
+  if (typeof value !== "string" || !value.startsWith("https://") || /\s/.test(value)) return false;
+  let url;
+  try {
+    url = new URL(value);
+  } catch {
+    return false;
+  }
+  if (url.protocol !== "https:") return false;
+  if (url.username !== "" || url.password !== "") return false;
+  if (url.search !== "" || url.hash !== "") return false;
+  if (!/^[a-z0-9.-]+$/i.test(url.hostname)) return false;
+  if (url.hostname.startsWith(".") || url.hostname.endsWith(".") || url.hostname.includes("..")) return false;
+  if (valueHasSecretShape(value)) return false;
+  return true;
 }
 
-console.log(`Public secret scan passed (${roots.join(", ")})`);
+export function secretAssignmentViolations(line) {
+  const found = [];
+  secretAssignment.lastIndex = 0;
+  for (const match of line.matchAll(secretAssignment)) {
+    const value = match[2];
+    if (isPlaceholder(value) || isCredentialFreePublicHttps(value)) continue;
+    found.push("secret assignment literal");
+  }
+  return found;
+}
+
+function main() {
+  const violations = [];
+  for (const root of roots) {
+    for (const path of walk(root)) {
+      if (!isTextFile(path)) continue;
+      let content;
+      try {
+        content = readFileSync(path, "utf8");
+      } catch {
+        continue;
+      }
+      const lines = content.split(/\r?\n/);
+      lines.forEach((line, index) => {
+        for (const check of checks) {
+          check.regex.lastIndex = 0;
+          if (check.regex.test(line)) {
+            violations.push(`${path}:${index + 1}: ${check.name}`);
+          }
+        }
+        for (const reason of secretAssignmentViolations(line)) {
+          violations.push(`${path}:${index + 1}: ${reason}`);
+        }
+      });
+    }
+  }
+
+  if (violations.length > 0) {
+    console.error("Public secret scan failed:");
+    for (const violation of violations) console.error(violation);
+    process.exit(1);
+  }
+
+  console.log(`Public secret scan passed (${roots.join(", ")})`);
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main();
+}
