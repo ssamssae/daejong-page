@@ -52,10 +52,13 @@ WARNING: Unable to download video subtitles for 'en': HTTP Error 429: Too Many R
 브라우저 자동화 도구의 페이지 안 실행으로 옮기면 이 정도다.
 
 ```js
-document.querySelector('ytd-watch-metadata #expand')?.click();   // 설명란 펼치기
+// 설명란 펼치기
+document.querySelector('ytd-watch-metadata #expand')?.click();
+
+// 「스크립트 표시」 누르기
 document.querySelector(
   'ytd-video-description-transcript-section-renderer button'
-)?.click();                                                       // 「스크립트 표시」
+)?.click();
 
 // 패널이 뜬 뒤 — 화면 구조에 따라 둘 중 하나에 줄이 들어 있다
 const rows = [
