@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { pathToFileURL } from 'node:url';
 
 const expectedEntries = [
   {
@@ -45,64 +46,81 @@ const expectedEntries = [
   },
 ];
 
-const failures = [];
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-function fail(message) {
-  failures.push(message);
+export function entryHasOnlyNewerDatesAbove(entries, file, date) {
+  const index = entries.findIndex((entry) => entry.file === file);
+  if (index < 0) return false;
+  return entries.slice(0, index).every((entry) => ISO_DATE.test(entry.date) && entry.date >= date);
 }
 
-function read(path) {
-  return fs.readFileSync(path, 'utf8');
-}
+function main() {
+  const failures = [];
 
-const index = JSON.parse(read('public/knowhow/index.json'));
-const entries = Array.isArray(index.entries) ? index.entries : [];
-const page = read('src/pages/knowhow.html.astro');
-
-for (const expected of expectedEntries) {
-  const path = `public/knowhow/${expected.file}`;
-  if (!fs.existsSync(path)) {
-    fail(`missing knowhow file: ${path}`);
-    continue;
+  function fail(message) {
+    failures.push(message);
   }
 
-  const body = read(path);
-  if (!body.startsWith(`# ${expected.title}`)) {
-    fail(`wrong h1 for ${expected.file}`);
+  function read(path) {
+    return fs.readFileSync(path, 'utf8');
   }
-  for (const phrase of expected.phrases) {
-    if (!body.includes(phrase)) {
-      fail(`${expected.file} is missing phrase: ${phrase}`);
+
+  const index = JSON.parse(read('public/knowhow/index.json'));
+  const entries = Array.isArray(index.entries) ? index.entries : [];
+  const page = read('src/pages/knowhow.html.astro');
+
+  for (const expected of expectedEntries) {
+    const path = `public/knowhow/${expected.file}`;
+    if (!fs.existsSync(path)) {
+      fail(`missing knowhow file: ${path}`);
+      continue;
     }
+
+    const body = read(path);
+    if (!body.startsWith(`# ${expected.title}`)) {
+      fail(`wrong h1 for ${expected.file}`);
+    }
+    for (const phrase of expected.phrases) {
+      if (!body.includes(phrase)) {
+        fail(`${expected.file} is missing phrase: ${phrase}`);
+      }
+    }
+
+    const matches = entries.filter((entry) => entry.file === expected.file);
+    if (matches.length !== 1) {
+      fail(`index.json must contain exactly one entry for ${expected.file}`);
+      continue;
+    }
+
+    const entry = matches[0];
+    if (entry.date !== expected.date) fail(`${expected.file} has wrong date`);
+    if (entry.slug !== expected.slug) fail(`${expected.file} has wrong slug`);
+    if (entry.title !== expected.title) fail(`${expected.file} has wrong title`);
+    if (!entry.category) fail(`${expected.file} is missing category`);
+    if (!Array.isArray(entry.tags) || entry.tags.length < 4) fail(`${expected.file} needs at least 4 tags`);
+    if (!entry.summary || entry.summary.length < 80) fail(`${expected.file} needs a reusable summary`);
   }
 
-  const matches = entries.filter((entry) => entry.file === expected.file);
-  if (matches.length !== 1) {
-    fail(`index.json must contain exactly one entry for ${expected.file}`);
-    continue;
+  // 2026-09-29 묶음이 인덱스 맨 위 3칸에 고정돼 있던 검사는, 그 뒤에 더 새로운 글이 위에 쌓이면 깨진다.
+  // 이 글보다 오래됐거나 날짜가 아닌 값이 위에 있을 때만 실패한다.
+  const newest = expectedEntries[0];
+  const newestIndex = entries.findIndex((entry) => entry.file === newest.file);
+  if (newestIndex >= 0 && !entryHasOnlyNewerDatesAbove(entries, newest.file, newest.date)) {
+    fail('new knowhow entries should be at the top of index.json');
   }
 
-  const entry = matches[0];
-  if (entry.date !== expected.date) fail(`${expected.file} has wrong date`);
-  if (entry.slug !== expected.slug) fail(`${expected.file} has wrong slug`);
-  if (entry.title !== expected.title) fail(`${expected.file} has wrong title`);
-  if (!entry.category) fail(`${expected.file} is missing category`);
-  if (!Array.isArray(entry.tags) || entry.tags.length < 4) fail(`${expected.file} needs at least 4 tags`);
-  if (!entry.summary || entry.summary.length < 80) fail(`${expected.file} needs a reusable summary`);
+  if (!page.includes('현재 운영 설명과 구분')) fail('archive must distinguish historical records from current operations');
+  if (!page.includes('index.entries')) fail('archive must retain the indexed collection');
+
+  if (failures.length) {
+    console.error('Knowhow refresh verification failed:');
+    for (const failure of failures) console.error(`- ${failure}`);
+    process.exit(1);
+  }
+
+  console.log('Knowhow refresh verification passed');
 }
 
-const firstExisting = entries.find((entry) => entry.file === expectedEntries[0].file);
-if (entries.indexOf(firstExisting) > 2) {
-  fail('new knowhow entries should be at the top of index.json');
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main();
 }
-
-if (!page.includes('현재 운영 설명과 구분')) fail('archive must distinguish historical records from current operations');
-if (!page.includes('index.entries')) fail('archive must retain the indexed collection');
-
-if (failures.length) {
-  console.error('Knowhow refresh verification failed:');
-  for (const failure of failures) console.error(`- ${failure}`);
-  process.exit(1);
-}
-
-console.log('Knowhow refresh verification passed');
