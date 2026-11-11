@@ -14,18 +14,26 @@ test('credential-free public https assignment is not a secret', () => {
 });
 
 test('secret-shaped assignment values still fail', () => {
+  // 회사 호스트의 userinfo 만 이 표본이 가른다. example.com 은 호스트만으로도 실패한다.
+  // 주소는 이어 붙인다. 한 줄로 두면 pw@회사도메인 이 메일 주소로 잡힌다.
+  const companyUserinfo = fakeUrl([
+    'https://name:pw@',
+    'kangdaejong.com/brand/current/tokens.css',
+  ]);
   const samples = [
     "export const API_TOKEN = 'sk-ant-abcdefghijklmnopqrstuvwxyz';",
     "export const GH_TOKEN = 'ghp_abcdefghijklmnopqrstuvwxyz123456';",
     "export const BOT_TOKEN = '123456789:AAHdz_example_token_value_xxxx';",
-    "export const API_TOKEN = 'https://user:secret@example.com/brand/current/tokens.css';",
+    "export const API_TOKEN = 'https://name:pw@example.com/brand/current/tokens.css';",
     "export const API_TOKEN = 'https://example.com/path?token=abcdef123456';",
     "export const API_TOKEN = 'http://example.com/brand/current/tokens.css';",
     "export const PASSWORD = 'correct-horse-battery-staple';",
+    `export const API_TOKEN = '${companyUserinfo}';`,
   ];
   for (const line of samples) {
     assert.deepEqual(secretAssignmentViolations(line), ['secret assignment literal']);
   }
+  assert.equal(isCredentialFreePublicHttps(companyUserinfo), false);
 });
 
 function assertSecretUrl(value, line) {
