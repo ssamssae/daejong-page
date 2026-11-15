@@ -344,7 +344,7 @@ import '../styles/lab.css';
         <dl class="hero-stats" aria-label="AI 용어집 요약">
           <div>
             <dt>누적 용어</dt>
-            <dd><!--AUTO-HERO-TERMS-START-->1023<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
+            <dd><!--AUTO-HERO-TERMS-START-->1031<!--AUTO-HERO-TERMS-END--><span class="unit">개</span></dd>
           </div>
           <div>
             <dt>카테고리</dt>
@@ -1520,7 +1520,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>AGENTS.md</h3>
       <p>Codex가 프로젝트 진입 시 자동 로드하는 시스템 프롬프트 파일. Claude Code의 CLAUDE.md와 동일한 역할로, 동일 내용을 두 파일로 유지하면 멀티 에이전트 환경에서 tool-agnostic second brain이 된다.</p>
-      <span class="src">영상: 2026-06-18-claude-second-brain-levels-nateherk.md</span>
+      <span class="src">영상: 2026-06-18-claude-second-brain-levels-nateherk.md, 2026-11-15-ai-native-recording-habit-naeti.md</span>
     </div>
 
     <div class="term">
@@ -2591,6 +2591,12 @@ import '../styles/lab.css';
       <span class="src">영상: 2026-11-11-chatgpt-260k-job-replace-you-briang.md</span>
     </div>
 
+    <div class="term">
+      <h3>지침</h3>
+      <p>새 대화마다 AI가 먼저 읽는 지켜야 할 규칙.</p>
+      <span class="src">영상: 2026-11-15-ai-native-recording-habit-naeti.md</span>
+    </div>
+
     <h2>컨텍스트 · 캐시</h2>
 
     <div class="term">
@@ -2861,6 +2867,12 @@ import '../styles/lab.css';
       <h3>노트패드(스크래치패드)</h3>
       <p>AI가 쓴 내용을 바깥에 저장해 두고 다시 읽게 해서 기억을 늘리는 방식.</p>
       <span class="src">영상: 2026-10-17-karpathy-prompt-agent-graph-ai-saeop-ilji.md</span>
+    </div>
+
+    <div class="term">
+      <h3>메모리</h3>
+      <p>서비스가 저장해 두는 나에 대한 요약 맥락. 그 서비스 안에만 있어 다른 AI로 옮기려면 따로 옮겨야 한다.</p>
+      <span class="src">영상: 2026-11-15-ai-native-recording-habit-naeti.md</span>
     </div>
 
     <h2>도구 통신 (MCP · CLI · API)</h2>
@@ -3265,6 +3277,12 @@ import '../styles/lab.css';
       <h3>Playwright MCP</h3>
       <p>웹페이지의 버튼·입력창 같은 요소를 구조화된 정보로 AI에게 넘기는 MCP 서버. 복잡한 페이지를 반복해 읽으면 토큰이 늘 수 있다.</p>
       <span class="src">영상: 2026-10-23-ai-browser-aside-ego-lite-mindung.md</span>
+    </div>
+
+    <div class="term">
+      <h3>코덱스 모드</h3>
+      <p>ChatGPT 데스크톱 앱 안에서 폴더 속 파일을 직접 읽고 고치는 모드.</p>
+      <span class="src">영상: 2026-11-15-ai-native-recording-habit-naeti.md</span>
     </div>
 
     <h2>지식 · 컨텍스트 자산</h2>
@@ -3729,6 +3747,36 @@ import '../styles/lab.css';
       <h3>공식 에이전트 툴킷</h3>
       <p>클라우드 회사가 직접 내놓은 MCP 서버·스킬·지침 묶음. 에이전트가 설정을 추측하지 않고 공식 지침을 근거로 작업하게 한다.</p>
       <span class="src">영상: 2026-10-25-github-trending-opensource-top8-mindung.md</span>
+    </div>
+
+    <div class="term">
+      <h3>지식 베이스(Knowledge Base)</h3>
+      <p>AI가 찾아 읽을 수 있게 내 기록을 정리해 둔 폴더.</p>
+      <span class="src">영상: 2026-11-15-ai-native-recording-habit-naeti.md</span>
+    </div>
+
+    <div class="term">
+      <h3>원본 폴더 / 노트 폴더</h3>
+      <p>원본은 내 자료를 넣는 읽기 전용 칸, 노트는 AI가 원본을 읽고 정리한 결과를 두는 칸.</p>
+      <span class="src">영상: 2026-11-15-ai-native-recording-habit-naeti.md</span>
+    </div>
+
+    <div class="term">
+      <h3>인덱스(목차) 노트</h3>
+      <p>주제별로 노트 이름을 모아 둔 파일. 이름만으로 안 보이는 관련 노트까지 찾아가게 한다.</p>
+      <span class="src">영상: 2026-11-15-ai-native-recording-habit-naeti.md</span>
+    </div>
+
+    <div class="term">
+      <h3>[[위키 링크]]</h3>
+      <p>대괄호 두 겹으로 노트 이름을 감싸 노트끼리 잇는 링크. AI도 링크를 따라 관련 노트를 읽는다.</p>
+      <span class="src">영상: 2026-11-15-ai-native-recording-habit-naeti.md</span>
+    </div>
+
+    <div class="term">
+      <h3>PKM(퍼스널 지식 관리)·LLM 위키</h3>
+      <p>개인 기록을 체계적으로 관리하는 방법론들. 영상은 기본 습관부터 들인 뒤 접하라고 권한다.</p>
+      <span class="src">영상: 2026-11-15-ai-native-recording-habit-naeti.md</span>
     </div>
 
     <h2>워크플로우 · 문화</h2>
@@ -4258,7 +4306,7 @@ import '../styles/lab.css';
     <div class="term">
       <h3>AI 네이티브</h3>
       <p>AI를 일회성 강의나 도구 사용법이 아니라 일상 업무와 문제 해결 방식에 자연스럽게 통합한 사람·조직 상태.</p>
-      <span class="src">영상: 2026-07-07-enterprise-ai-agent-adoption-kodingnuna.md</span>
+      <span class="src">영상: 2026-07-07-enterprise-ai-agent-adoption-kodingnuna.md, 2026-11-15-ai-native-recording-habit-naeti.md</span>
     </div>
 
     <div class="term">
