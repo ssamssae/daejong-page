@@ -11,7 +11,7 @@ export const apps = [
     name: '한줄일기', ...productIcon('hanjul'), status: 'iOS LIVE · Android LIVE',
     desc: '하루 한 줄, 부담 없는 일기. 53주 감정 히트맵, 로컬 저장, 계정 가입 0 — 거창한 일기 대신 한 줄이면 충분해요.',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6764308678' },
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6764308678?pt=128771490&ct=workshop&mt=8' },
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.hanjul' },
     ],
   },
@@ -19,7 +19,7 @@ export const apps = [
     name: '메모요', ...productIcon('memoyo'), status: 'iOS · Android LIVE',
     desc: '심플한 다크 테마 메모 앱. 복수 선택 삭제를 지원하는 가벼운 메모 도구.',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762068073' },
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762068073?pt=128771490&ct=workshop&mt=8' },
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app' },
     ],
   },
@@ -27,7 +27,7 @@ export const apps = [
     name: '더치페이 계산기', ...productIcon('dutchpay'), status: 'iOS LIVE · Android LIVE',
     desc: '여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미. 금액·인원수 입력만으로 바로 정산.',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762072499' },
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762072499?pt=128771490&ct=workshop&mt=8' },
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.dutchpay' },
     ],
   },
@@ -35,7 +35,7 @@ export const apps = [
     name: '약먹자', ...productIcon('yakmeokja'), status: 'iOS LIVE · Android LIVE',
     desc: '복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각 설정만으로 매일 챙겨줘요.',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762100639' },
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6762100639?pt=128771490&ct=workshop&mt=8' },
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.yakmukja' },
     ],
   },
@@ -43,7 +43,7 @@ export const apps = [
     name: '심플 가계부', ...productIcon('gagyebu'), status: 'iOS LIVE · Android LIVE',
     desc: '하루 지출을 빠르게 적는 미니멀 가계부. 가입 없이 기기 안에서만 기록해요.',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6769037337' },
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6769037337?pt=128771490&ct=workshop&mt=8' },
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.ssamssae.mini_expense' },
     ],
   },
@@ -51,7 +51,7 @@ export const apps = [
     name: '계산기알람', ...productIcon('calcalarm'), status: '모바일 앱',
     desc: '계산 문제를 풀며 잠에서 깨는 알람 앱.',
     links: [
-      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6811111727' },
+      { label: 'App Store', url: 'https://apps.apple.com/kr/app/id6811111727?pt=128771490&ct=workshop&mt=8' },
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.daejongkang.ireonayo' },
     ],
   },

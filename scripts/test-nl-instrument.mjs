@@ -81,7 +81,7 @@ test('ep7 App Store link still resolves to the same hanjul dest after hop', () =
   const original = 'https://apps.apple.com/kr/app/id6764308678';
   const hit = matchHref(list, original);
   assert.equal(hit.product, 'hanjul');
-  assert.equal(hit.dest, 'https://apps.apple.com/kr/app/id6764308678');
+  assert.equal(hit.dest, 'https://apps.apple.com/kr/app/id6764308678?pt=128771490&ct=workshop&mt=8');
   assert.equal(hit.dest_kind, 'external');
   assert.equal(hopPath(hit.hop, { campaign: 'ep7', source: 'web_newsletter' }), '/nl-go/hanjul-ios/?c=ep7&s=web_newsletter');
 });
