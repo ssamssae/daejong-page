@@ -12,7 +12,7 @@ try {
   const res=await page.goto(base+'/products/',{waitUntil:'domcontentloaded'});assert.equal(res.status(),200);
   await page.locator('[data-catalog-controls]:not([hidden])').waitFor();
   assert.equal(await page.locator('[data-catalog-item]').count(),14);
-  assert.equal(await page.locator('#retired-products li').count(),11);
+  assert.equal(await page.locator('#retired-products li').count(),12);
   for(const item of retired){assert((await page.locator('#retired-products').innerText()).includes(item.name));assert(!(await page.locator('#catalog').innerText()).includes(item.name));}
   await page.locator('[data-filter=app]').click();assert.equal(await page.locator('[data-catalog-item]:visible').count(),6);
   await page.locator('[data-filter=saas]').click();assert.equal(await page.locator('[data-catalog-item]:visible').count(),1);
@@ -39,5 +39,5 @@ try {
   assert.match(await page.locator('.studio-strip').innerText(),/웹 서비스\s+1/);
  }
  assert.deepEqual(errors,[]);
- console.log(JSON.stringify({base,active:14,retired:11,widths:[390,1440],filter_search:'pass',timeline:'pass',metadata:'pass',work_summary:'pass',errors},null,2));
+ console.log(JSON.stringify({base,active:14,retired:12,widths:[390,1440],filter_search:'pass',timeline:'pass',metadata:'pass',work_summary:'pass',errors},null,2));
 }finally{await browser.close()}

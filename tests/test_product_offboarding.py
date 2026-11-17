@@ -24,7 +24,7 @@ class ProductOffboarding(unittest.TestCase):
         cards = [a for _, a in page.tags if 'data-catalog-item' in a]
         self.assertEqual(len(cards), 15)  # T-261024-056: Grok Bot Telegram Bridge 추가
         retired = json.loads((ROOT / 'src/data/retired-products.json').read_text())
-        self.assertEqual(len(retired), 11)
+        self.assertEqual(len(retired), 12)  # T-261118-011: 복붙 정리기 종료
         self.assertNotIn('첫이름 — AI 사주 작명', [item['name'] for item in retired])
         cheotireum = [card for card in cards if card.get('data-product-id') == 'cheotireum']
         self.assertEqual(len(cheotireum), 1)
